@@ -1,960 +1,296 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240201",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166240201",
-    "name" : "PM",
-    "genePhenotypes" : [ "CYP2C19:Decreased function/Decreased function", "CYP2C19:Decreased function/No function", "CYP2C19:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104977",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104977",
-      "name" : "Annotation of DPWG Guideline for citalopram and CYP2C19",
-      "version" : 31
-    },
-    "implications" : {
-      "id" : 1451417060,
-      "html" : "<p>The risk of QT prolongation and therefore also the theoretical risk of torsades de pointes is increased as the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the increased risk of QT prolongation will be offset.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451417061,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451417062,
-      "html" : "<p>Do not exceed the following daily doses (50% of the standard maximum dose):</p>\n<ol>\n<li>adults up to 65 years: 20mg as tablets or 16mg as drops,</li>\n<li>Adults 65 years or older: 10mg as tablets or 8mg as drops</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240221",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166240221",
-    "name" : "IM",
-    "genePhenotypes" : [ "CYP2C19:Decreased function/Increased function", "CYP2C19:Decreased function/Normal function", "CYP2C19:Increased function/No function", "CYP2C19:No function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104977",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104977",
-      "name" : "Annotation of DPWG Guideline for citalopram and CYP2C19",
-      "version" : 31
-    },
-    "implications" : {
-      "id" : 1451417120,
-      "html" : "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451417121,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451417122,
-      "html" : "<p>Do not exceed the following daily doses:</p>\n<ol>\n<li>Adults up to 65 years: 30mg as tablets or 22mg as drops,</li>\n<li>Adults 65 years or older: 15mg as tablets or 10mg as drops</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240261",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166240261",
-    "name" : "UM",
-    "genePhenotypes" : [ "CYP2C19:Increased function/Increased function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104977",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104977",
-      "name" : "Annotation of DPWG Guideline for citalopram and CYP2C19",
-      "version" : 31
-    },
-    "implications" : {
-      "id" : 1451417104,
-      "html" : "<p>The guideline does not provide a description of the impact of an ultrarapid metabolizer phenotype on citalopram.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451417105,
-      "html" : "<p>Ultrarapid Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451417106,
-      "html" : "<p>No action is needed for this gene-drug interaction. The gene variation increases conversion of citalopram to a weakly active metabolite. However, there is no significant effect on the plasma concentration of citalopram, the tolerance or the response.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166240262",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166240262",
-    "name" : "NM",
-    "genePhenotypes" : [ "CYP2C19:Increased function/Normal function", "CYP2C19:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104977",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104977",
-      "name" : "Annotation of DPWG Guideline for citalopram and CYP2C19",
-      "version" : 31
-    },
-    "implications" : {
-      "id" : 1451444687,
-      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on citalopram.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444688,
-      "html" : "<p>Normal Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444689,
-      "html" : "<p>The guideline does not provide a recommendation for citalopram in normal metabolizers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 1
-  } ],
-  "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/15126562",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 15126562,
-    "title" : "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/34782755",
-    "authors" : [ "Brouwer Jurriaan M J L", "Nijenhuis Marga", "Soree Bianca", "Guchelaar Henk-Jan", "Swen Jesse J", "van Schaik Ron H N", "Weide Jan van der", "Rongen Gerard A P J M", "Buunk Anne-Marie", "de Boer-Veger Nienke J", "Houwink Elisa J F", "van Westrhenen Roos", "Wilffert Bob", "Deneer Vera H M", "Mulder Hans" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/34782755",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1451632760,
-      "resource" : "PubMed",
-      "resourceId" : "34782755",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/34782755",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-01004-7",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1451632761,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/s41431-021-01004-7",
-      "_url" : "http://dx.doi.org/10.1038%2Fs41431-021-01004-7",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "European journal of human genetics : EJHG",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ ],
-    "month" : 11,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2021-11-01T00:00:00-07:00",
-    "summary" : "The Dutch Pharmacogenetics Working Group (DPWG) guideline presented here, presents the gene-drug interaction between the genes CYP2C19 and CYP2D6 and antidepressants of the selective serotonin reuptake inhibitor type (SSRIs). Both genes' genotypes are translated into predicted normal metabolizer (NM), intermediate metabolizer (IM), poor metabolizer (PM), or ultra-rapid metabolizer (UM). Evidence-based dose recommendations were obtained, based on a structured analysis of published literature. In CYP2C19 PM patients, escitalopram dose should not exceed 50% of the normal maximum dose. In CYP2C19 IM patients, this is 75% of the normal maximum dose. Escitalopram should be avoided in UM patients. In CYP2C19 PM patients, citalopram dose should not exceed 50% of the normal maximum dose. In CYP2C19 IM patients, this is 70% (65-75%) of the normal maximum dose. In contrast to escitalopram, no action is needed for CYP2C19 UM patients. In CYP2C19 PM patients, sertraline dose should not exceed 37.5% of the normal maximum dose. No action is needed for CYP2C19 IM and UM patients. In CYP2D6 UM patients, paroxetine should be avoided. No action is needed for CYP2D6 PM and IM patients. In addition, no action is needed for the other gene-drug combinations. Clinical effects (increase in adverse events or decrease in efficacy) were lacking for these other gene-drug combinations. DPWG classifies CYP2C19 genotyping before the start of escitalopram, citalopram, and sertraline, and CYP2D6 genotyping before the start of paroxetine as \"potentially beneficial\" for toxicity/effectivity predictions. This indicates that genotyping prior to treatment can be considered on an individual patient basis.",
-    "version" : 0,
-    "year" : 2021
-  }, {
-    "@id" : "https://pharmgkb.org/literature/7283333",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 7283333,
-    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 769250885,
-      "resource" : "PubMed",
-      "resourceId" : "21412232",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1449247827,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/clpt.2011.34",
-      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "Clinical pharmacology and therapeutics",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
-    "month" : 5,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "page" : "662-73",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2011-05-01T00:00:00-07:00",
-    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
-    "version" : 2,
-    "volume" : "89",
-    "year" : 2011
-  } ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104977",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166104977",
-    "name" : "Annotation of DPWG Guideline for citalopram and CYP2C19",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451416800,
-      "alleles" : [ {
-        "id" : 1451416801,
-        "_label" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165980634",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165980634",
-          "symbol" : "CYP2C19*1",
-          "name" : "*1",
-          "version" : 24
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416802,
-        "_label" : "*2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165980635",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165980635",
-          "symbol" : "CYP2C19*2",
-          "name" : "*2",
-          "version" : 24
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416803,
-        "_label" : "*3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165980636",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165980636",
-          "symbol" : "CYP2C19*3",
-          "name" : "*3",
-          "version" : 24
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416804,
-        "_label" : "*4",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165980637",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165980637",
-          "symbol" : "CYP2C19*4",
-          "name" : "*4",
-          "version" : 24
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416805,
-        "_label" : "*5",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165980638",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165980638",
-          "symbol" : "CYP2C19*5",
-          "name" : "*5",
-          "version" : 24
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416806,
-        "_label" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816522",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816522",
-          "symbol" : "CYP2C19*6",
-          "name" : "*6",
-          "version" : 26
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416807,
-        "_label" : "*7",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816523",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816523",
-          "symbol" : "CYP2C19*7",
-          "name" : "*7",
-          "version" : 26
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416808,
-        "_label" : "*8",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816524",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816524",
-          "symbol" : "CYP2C19*8",
-          "name" : "*8",
-          "version" : 26
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416809,
-        "_label" : "*9",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816525",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816525",
-          "symbol" : "CYP2C19*9",
-          "name" : "*9",
-          "version" : 26
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416810,
-        "_label" : "*10",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816526",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816526",
-          "symbol" : "CYP2C19*10",
-          "name" : "*10",
-          "version" : 26
-        },
-        "version" : 0
-      }, {
-        "id" : 1451416811,
-        "_label" : "*17",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558332",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558332,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function",
-          "termId" : "haplotypeTags:1445558332",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816533",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816533",
-          "symbol" : "CYP2C19*17",
-          "name" : "*17",
-          "version" : 28
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA124",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA124",
-        "symbol" : "CYP2C19",
-        "name" : "cytochrome P450 family 2 subfamily C member 19",
-        "alleleFile" : "CYP2C19_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 2, subfamily C, polypeptide 19" ],
-          "symbol" : [ "CPCJ", "CYP2C", "P450IIC19" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q23.33",
-        "cbStop" : "q23.33",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA504",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA504",
-          "name" : "chr10",
-          "version" : 3
-        },
-        "chrStartPosB37" : 96522463,
-        "chrStartPosB38" : 94762681,
-        "chrStopPosB37" : 96612671,
-        "chrStopPosB38" : 94853205,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO008778E",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556304,
-          "resource" : "ALFRED",
-          "resourceId" : "LO008778E",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO008778E",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1557",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242512,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1557",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1557",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000165841",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256028,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000165841",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000165841",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2C19",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73372,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP2C19",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2C19",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2C19",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88300,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP2C19",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2C19",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004497",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34580,
-          "resource" : "GO",
-          "resourceId" : "GO:0004497",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004497",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 8676615,
-          "resource" : "GO",
-          "resourceId" : "GO:0016712",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018675",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 130200545,
-          "resource" : "GO",
-          "resourceId" : "GO:0018675",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018675",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018676",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62330469,
-          "resource" : "GO",
-          "resourceId" : "GO:0018676",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018676",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019825",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329726,
-          "resource" : "GO",
-          "resourceId" : "GO:0019825",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019825",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2621",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608081307,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2621",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2621",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS09293",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608081309,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS09293",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS09293",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P33261",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560874113,
-          "resource" : "ModBase",
-          "resourceId" : "P33261",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P33261",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2C19",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455910,
-          "resource" : "MutDB",
-          "resourceId" : "CYP2C19",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2C19",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1557",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10744,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1557",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1557",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/124020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 716,
-          "resource" : "OMIM",
-          "resourceId" : "124020",
-          "_url" : "http://omim.org/entry/124020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/609535",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556306,
-          "resource" : "OMIM",
-          "resourceId" : "609535",
-          "_url" : "http://omim.org/entry/609535",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2C19",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451280335,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP2C19",
-          "_url" : "https://www.pharmvar.org/gene/CYP2C19",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008384",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556305,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_008384",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008384",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_030059",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37037,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_030059",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_030059",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000760",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37896,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000760",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000760",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000769",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46971,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000769",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000769",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000769",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 122288,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000769",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000769",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P33261",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62333091,
-          "name" : "CP2CJ_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P33261",
-          "_url" : "http://www.uniprot.org/uniprot/P33261",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2c19.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "plus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018675","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508105,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018675","resource":"Gene Ontology","term":"(S)-limonene 6-monooxygenase activity","termId":"GO:0018675"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018676","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508106,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018676","resource":"Gene Ontology","term":"(S)-limonene 7-monooxygenase activity","termId":"GO:0018676"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019899","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496866,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019899","resource":"Gene Ontology","term":"enzyme binding","termId":"GO:0019899"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033767","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513624,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033767","resource":"Gene Ontology","term":"4-hydroxyacetophenone monooxygenase activity","termId":"GO:0033767"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
-        "version" : 7209
+  "guideline": {
+    "id": "PA166104977",
+    "name": "Annotation of DPWG Guideline for citalopram and CYP2C19",
+    "relatedChemicals": [
+      {
+        "id": "PA449015",
+        "name": "citalopram",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451416801,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451416802,
+            "_label": "*2",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416803,
+            "_label": "*3",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416804,
+            "_label": "*4",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416805,
+            "_label": "*5",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416806,
+            "_label": "*6",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416807,
+            "_label": "*7",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416808,
+            "_label": "*8",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451416809,
+            "_label": "*9",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451416810,
+            "_label": "*10",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451416811,
+            "_label": "*17",
+            "function": {
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA504",
+            "name": "chr10",
+            "symbol": null
+          },
+          "strand": "plus",
+          "id": "PA124",
+          "name": "cytochrome P450 family 2 subfamily C member 19",
+          "symbol": "CYP2C19"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104977",
+    "version": 31
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166240201",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1183704453,
-      "date" : "2011-08-10T00:00:00-07:00",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1450415087,
-      "date" : "2019-05-23T18:39:36.219-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450820777,
-      "date" : "2019-10-06T22:09:59.875-07:00",
-      "description" : "No changes based on August 2019 guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450956281,
-      "date" : "2020-01-31T13:21:20.097-08:00",
-      "description" : "Updated link to 2011 DPWG methods",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450962741,
-      "date" : "2020-02-10T10:37:53.032-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451417110,
-      "date" : "2021-04-22T00:00:00-07:00",
-      "description" : "Added extended dosing",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451632780,
-      "date" : "2022-01-03T14:46:26.298-08:00",
-      "description" : "Added DPWG SSRI guideline publication.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704242,
-      "date" : "2022-03-03T16:33:33.695-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451706225,
-      "date" : "2022-03-07T15:49:11.614-08:00",
-      "description" : "Added information about preemptive genotyping",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732882,
-      "date" : "2022-03-28T09:57:47.760-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451733298,
-      "date" : "2022-03-28T14:35:04.200-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451741488,
-      "date" : "2022-04-05T11:11:31.692-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/15126562","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15126562,"title":"Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/34782755","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/34782755","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451632760,"resource":"PubMed","resourceId":"34782755","_url":"https://www.ncbi.nlm.nih.gov/pubmed/34782755"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-01004-7","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451632761,"resource":"DOI","resourceId":"10.1038/s41431-021-01004-7","_url":"http://dx.doi.org/10.1038%2Fs41431-021-01004-7"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA449015",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA449015",
-      "name" : "citalopram",
-      "version" : 19
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA124",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA124",
-      "symbol" : "CYP2C19",
-      "name" : "cytochrome P450 family 2 subfamily C member 19",
-      "version" : 7209
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1447982039,
-      "html" : "<p>The Dutch Pharmacogenetics Working Group Guideline for citalopram recommends for intermediate and poor metabolizers of CYP2C19 to not exceed the in the DPWG document specified daily doses.</p>\n",
-      "version" : 1
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Decreased function",
+        "CYP2C19:Decreased function/No function",
+        "CYP2C19:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451417061,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451417062,
+        "html": "<p>Do not exceed the following daily doses (50% of the standard maximum dose):</p>\n<ol>\n<li>adults up to 65 years: 20mg as tablets or 16mg as drops,</li>\n<li>Adults 65 years or older: 10mg as tablets or 8mg as drops</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451417060,
+        "html": "<p>The risk of QT prolongation and therefore also the theoretical risk of torsades de pointes is increased as the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the increased risk of QT prolongation will be offset.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1447982038,
-      "html" : "<h3 id=\"dutch-pharmacogenetics-working-group-dpwg-guideline-for-the-gene-drug-interaction-between-cyp2c19-and-cyp2d6-and-ssris-european-journal-of-human-genetics-2021\">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs. European journal of human genetics (2021)</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group published a paper with the guidelines as per the November 2018 update and further details on the assessed literature [Article:<a href=\"/pmid/34782755\">34782755</a>].</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for citalopram based on CYP2C19 genotype. They recommend to not exceed the below mentioned daily doses for intermediate metabolizer and poor metabolizer (for PM = 50% of the standard maximum dose).</p>\n<p><em>Wording in table taken from <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2C19 UM</td>\n<td>citalopram</td>\n<td>-</td>\n<td>NO action is needed for this gene-drug interaction. The gene variation increases conversion of citalopram to a weakly active metabolite. However, there is no significant effect on the plasma concentration of citalopram, the tolerance or the response.</td>\n</tr>\n<tr>\n<td>CYP2C19 IM</td>\n<td>citalopram</td>\n<td>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</td>\n<td>Do not exceed the following daily doses:<br/>1. Adults up to 65 years: 30mg as tablets or 22mg as drops,<br/>2. Adults 65 years or older: 15mg as tablets or 10mg as drops</td>\n</tr>\n<tr>\n<td>CYP2C19 PM</td>\n<td>citalopram</td>\n<td>The risk of QT prolongation and therefore also the theoretical risk of torsades de pointes is increased as the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the increased risk of QT prolongation will be offset.</td>\n<td>Do not exceed the following daily doses (50% of the standard maximum dose):<br/>1. adults up to 65 years: 20mg as tablets or 16mg as drops,<br/>2. Adults 65 years or older: 10mg as tablets or 8mg as drops</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004195.PDF\" target=\"_blank\">DPWG risk analysis document</a> for citalopram and CYP2C19:</p>\n<blockquote class=\"blockquote\">\n<p>The Dutch Pharmacogenetics Working Group considers genotyping before starting citalopram to be potentially beneficial. Genotyping can be considered on an individual patient basis. If, however, the genotype is available, the Dutch Pharmacogenetics Working Group recommends adhering to the gene-drug guideline.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004195.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for citalopram based on <em>CYP2C19</em> genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They conclude to monitor plasma concentration and titrate dose to a maximum of 150% in response to efficacy and adverse drug event or select alternative drug (e.g. fluoxetine, paroxetine) for the <em>CYP2C19</em> UM phenotype.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><em>CYP2C19</em> PM (*2/*2, *2/*3, *3/*3)</td>\n<td>None</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints</td>\n<td>Minor clinical effect (statistically significant difference): QTc prolongation (&lt;450 ms female, &lt;470 ms male); international normalized ratio (INR) increase &lt; 4.5. Kinetic effect (statistically significant difference)</td>\n</tr>\n<tr>\n<td><em>CYP2C19</em> IM (*1/*2, *1/*3, *17/*2, *17/*3)</td>\n<td>None</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints</td>\n<td>Minor clinical effect (statistically significant difference): QTc prolongation (&lt;450 ms female, &lt;470 ms male); INR increase &lt; 4.5. Kinetic effect (statistically significant difference)</td>\n</tr>\n<tr>\n<td><em>CYP2C19</em> UM (*17/*17)</td>\n<td>Monitor plasma concentration and titrate dose to a maximum of 150% in response to efficacy and adverse drug event or select alternative drug (e.g. fluoxetine, paroxetine)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints</td>\n<td>Minor clinical effect (statistically significant difference): QTc prolongation (&lt;450 ms female, &lt;470 ms male); INR increase &lt; 4.5. Kinetic effect (statistically significant difference)</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good quality.&quot;</li>\n<li>Please see attached PDF for detailed information about the evaluated studies: <a download=\"es_citalopram_CYP2C19_271111.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/es_citalopram_CYP2C19_271111.pdf\">Citalopram CYP2C19 </a></li>\n</ul>\n",
-      "version" : 17
+    {
+      "id": "PA166240221",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Increased function",
+        "CYP2C19:Decreased function/Normal function",
+        "CYP2C19:Increased function/No function",
+        "CYP2C19:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451417121,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451417122,
+        "html": "<p>Do not exceed the following daily doses:</p>\n<ol>\n<li>Adults up to 65 years: 30mg as tablets or 22mg as drops,</li>\n<li>Adults 65 years or older: 15mg as tablets or 10mg as drops</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451417120,
+        "html": "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "matt",
-    "version" : 31
-  }
+    {
+      "id": "PA166240261",
+      "name": "UM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Increased function/Increased function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451417105,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451417106,
+        "html": "<p>No action is needed for this gene-drug interaction. The gene variation increases conversion of citalopram to a weakly active metabolite. However, there is no significant effect on the plasma concentration of citalopram, the tolerance or the response.</p>\n"
+      },
+      "implications": {
+        "id": 1451417104,
+        "html": "<p>The guideline does not provide a description of the impact of an ultrarapid metabolizer phenotype on citalopram.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166240262",
+      "name": "NM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Increased function/Normal function",
+        "CYP2C19:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444688,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444689,
+        "html": "<p>The guideline does not provide a recommendation for citalopram in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451444687,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on citalopram.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "34782755",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
+      "authors": [
+        "Brouwer Jurriaan M J L",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "Guchelaar Henk-Jan",
+        "Swen Jesse J",
+        "van Schaik Ron H N",
+        "Weide Jan van der",
+        "Rongen Gerard A P J M",
+        "Buunk Anne-Marie",
+        "de Boer-Veger Nienke J",
+        "Houwink Elisa J F",
+        "van Westrhenen Roos",
+        "Wilffert Bob",
+        "Deneer Vera H M",
+        "Mulder Hans"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2021
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ]
 }

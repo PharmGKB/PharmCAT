@@ -1,827 +1,201 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244241",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244241",
-    "name" : "non-expresser",
-    "genePhenotypes" : [ "CYP3A5:Decreased function/Decreased function", "CYP3A5:Decreased function/No function", "CYP3A5:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104983",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104983",
-      "name" : "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
-      "version" : 28
-    },
-    "implications" : {
-      "id" : 1451447140,
-      "html" : "<p>The guideline does not provide a description of the impact of a non-expressor phenotype on tacrolimus.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451447141,
-      "html" : "<p>CYP3A5 non-expresser</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451447142,
-      "html" : "<p>The guideline does not provide a recommendation for tacrolimus in CYP3A5 non-expressers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244061",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244061",
-    "name" : "homozygous expressor",
-    "genePhenotypes" : [ "CYP3A5:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104983",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104983",
-      "name" : "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
-      "version" : 28
-    },
-    "implications" : {
-      "id" : 1451701141,
-      "html" : "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in an increased conversion of tacrolimus to inactive metabolites and therefore a higher required dose.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451701142,
-      "html" : "<p>Homozygous CYP3A5 Expresser</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451701143,
-      "html" : "<p>LIVER TRANSPLANTATION\nIn addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HOMOZYGOUS EXPRESSOR: Use 2.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.\nLIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</p>\n<p>OTHER TRANSPLANTATION\nUse 2.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. For example: One Dutch study found a median trough concentration for tacrolimus after three days of 9.4 ng/mL at an initial dose of 0.15 mg/kg twice daily for 5 homozygous kidney transplant patients. Their target value was 10 - 15 ng/mL.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 1
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244221",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244221",
-    "name" : "heterozygous expressor",
-    "genePhenotypes" : [ "CYP3A5:Decreased function/Normal function", "CYP3A5:No function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104983",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104983",
-      "name" : "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
-      "version" : 28
-    },
-    "implications" : {
-      "id" : 1451701160,
-      "html" : "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in increased conversion of tacrolimus to inactive metabolites and therefore in a higher required dose.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451701161,
-      "html" : "<p>Heterozygous CYP3A5 Expresser</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451701162,
-      "html" : "<p>RECOMMENDATION LIVER TRANSPLANTATION\nIn addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HETEROZYGOUS EXPRESSOR: Use 1.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.<br />\nIf LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.<br />\nRECOMMENDATION INDICATIONS OTHER THAN LIVER TRANSPLANTATION\nUse 1.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. Adjustment of the dose should then be based on therapeutic drug monitoring.\nFor example: A Dutch study found a median trough concentration for tacrolimus of 14.7 ng/mL after 3 days at an initial dose of 0.15 mg/kg twice daily for 29 kidney transplant patients who were heterozygous expressers. Their target value was 10 - 15 ng/mL.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 1
-  } ],
-  "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/7283333",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 7283333,
-    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 769250885,
-      "resource" : "PubMed",
-      "resourceId" : "21412232",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1449247827,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/clpt.2011.34",
-      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "Clinical pharmacology and therapeutics",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
-    "month" : 5,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "page" : "662-73",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2011-05-01T00:00:00-07:00",
-    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
-    "version" : 2,
-    "volume" : "89",
-    "year" : 2011
-  } ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104983",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166104983",
-    "name" : "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451446036,
-      "alleles" : [ {
-        "id" : 1451446037,
-        "_label" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128213",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128213",
-          "symbol" : "CYP3A5*1",
-          "name" : "*1",
-          "version" : 12
-        },
-        "version" : 0
-      }, {
-        "id" : 1451447185,
-        "_label" : "*2",
-        "allele" : "*2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451446039,
-        "_label" : "*3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128219",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128219",
-          "symbol" : "CYP3A5*3",
-          "name" : "*3",
-          "version" : 12
-        },
-        "version" : 0
-      }, {
-        "id" : 1451447187,
-        "_label" : "*4",
-        "allele" : "*4",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451447188,
-        "_label" : "*5",
-        "allele" : "*5",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451446122,
-        "_label" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128233",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128233",
-          "symbol" : "CYP3A5*6",
-          "name" : "*6",
-          "version" : 11
-        },
-        "version" : 0
-      }, {
-        "id" : 1451446123,
-        "_label" : "*7",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128234",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128234",
-          "symbol" : "CYP3A5*7",
-          "name" : "*7",
-          "version" : 12
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA131",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA131",
-        "symbol" : "CYP3A5",
-        "name" : "cytochrome P450 family 3 subfamily A member 5",
-        "alleleFile" : "CYP3A5_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 3, subfamily A, polypeptide 5" ],
-          "symbol" : [ "CP35", "P450PCN3", "PCN3" ]
-        },
-        "buildVersion" : "GRCh38",
-        "cbStart" : "q22.1",
-        "cbStop" : "q22.1",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA534",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA534",
-          "name" : "chr7",
-          "version" : 3
-        },
-        "chrStartPosB37" : 99245817,
-        "chrStartPosB38" : 99648194,
-        "chrStopPosB37" : 99277619,
-        "chrStopPosB38" : 99679996,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO024680U",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118129,
-          "resource" : "ALFRED",
-          "resourceId" : "LO024680U",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO024680U",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1577",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242074,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1577",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1577",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000106258",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256051,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000106258",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000106258",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP3A5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73395,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP3A5",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP3A5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP3A5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88323,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP3A5",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP3A5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004497",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34580,
-          "resource" : "GO",
-          "resourceId" : "GO:0004497",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004497",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005624",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34644,
-          "resource" : "GO",
-          "resourceId" : "GO:0005624",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005624",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006805",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35602,
-          "resource" : "GO",
-          "resourceId" : "GO:0006805",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006805",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008202",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35217,
-          "resource" : "GO",
-          "resourceId" : "GO:0008202",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008202",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019825",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329726,
-          "resource" : "GO",
-          "resourceId" : "GO:0019825",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019825",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050381",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329724,
-          "resource" : "GO",
-          "resourceId" : "GO:0050381",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050381",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2638",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118122,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2638",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2638",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS02875",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118130,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS02875",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS02875",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P20815",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560881433,
-          "resource" : "ModBase",
-          "resourceId" : "P20815",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P20815",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP3A5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455933,
-          "resource" : "MutDB",
-          "resourceId" : "CYP3A5",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP3A5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1577",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10763,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1577",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1577",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/145500",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 559638111,
-          "resource" : "OMIM",
-          "resourceId" : "145500",
-          "_url" : "http://omim.org/entry/145500",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/605325",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 7563,
-          "resource" : "OMIM",
-          "resourceId" : "605325",
-          "_url" : "http://omim.org/entry/605325",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP3A5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451280336,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP3A5",
-          "_url" : "https://www.pharmvar.org/gene/CYP3A5",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_007938.2",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451497222,
-          "name" : "NG_007938.2",
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_007938.2",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_007938.2",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000768",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37904,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000768",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000768",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_001177413",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 978632736,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_001177413",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_001177413",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000777",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46979,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000777",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000777",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_001190484",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 978632735,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_001190484",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_001190484",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033807",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 978632737,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033807",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033807",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033808",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118125,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033808",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033808",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033809",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118124,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033809",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033809",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033810",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118127,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033810",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033810",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033811",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118128,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033811",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033811",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NR_033812",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118126,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NR_033812",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NR_033812",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000777",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 122296,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000777",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000777",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P20815",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329705,
-          "name" : "CP3A5_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P20815",
-          "_url" : "http://www.uniprot.org/uniprot/P20815",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp3a5.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 93,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp3a5.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp3a5.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009822","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504180,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009822","resource":"Gene Ontology","term":"alkaloid catabolic process","termId":"GO:0009822"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0070330","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560523003,"_url":"http://amigo.geneontology.org/amigo/term/GO:0070330","resource":"Gene Ontology","term":"aromatase activity","termId":"GO:0070330"} ],
-        "version" : 7961
+  "guideline": {
+    "id": "PA166104983",
+    "name": "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
+    "relatedChemicals": [
+      {
+        "id": "PA451578",
+        "name": "tacrolimus",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA131",
+        "name": "cytochrome P450 family 3 subfamily A member 5",
+        "symbol": "CYP3A5"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451446037,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451447185,
+            "_label": "*2",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451446039,
+            "_label": "*3",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451447187,
+            "_label": "*4",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451447188,
+            "_label": "*5",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451446122,
+            "_label": "*6",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451446123,
+            "_label": "*7",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA534",
+            "name": "chr7",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA131",
+          "name": "cytochrome P450 family 3 subfamily A member 5",
+          "symbol": "CYP3A5"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104983",
+    "version": 28
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166244241",
+      "name": "non-expresser",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1183704531,
-      "date" : "2011-08-10T00:00:00-07:00",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1450414922,
-      "date" : "2019-05-23T08:19:51.154-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450820682,
-      "date" : "2019-10-03T16:38:07.181-07:00",
-      "description" : "No changes based on August 2019 guidelines",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450956420,
-      "date" : "2020-01-31T14:18:56.499-08:00",
-      "description" : "Updated link to 2011 DPWG methods",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963904,
-      "date" : "2020-02-11T07:58:37.393-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451153180,
-      "date" : "2020-06-01T14:05:01.035-07:00",
-      "description" : "Changes based on May 2020 guidelines",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451701140,
-      "date" : "2022-03-02T15:16:35.153-08:00",
-      "description" : "Updated annotation to reflect wording changes in May 2021 update.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704220,
-      "date" : "2022-03-03T16:33:30.066-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451707503,
-      "date" : "2022-03-08T10:53:46.179-08:00",
-      "description" : "Added information about preemptive genotyping",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732860,
-      "date" : "2022-03-28T09:57:43.885-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451733458,
-      "date" : "2022-03-28T15:03:08.142-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451741529,
-      "date" : "2022-04-05T11:19:54.451-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15111722","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15111722,"title":"Dutch Pharmacogenetics Working Group Guidelines May 2020","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451152900,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-may-2020.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/haplotype/PA166128219",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA166128219",
-      "symbol" : "CYP3A5*3",
-      "name" : "*3",
-      "version" : 12
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA451578",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA451578",
-      "name" : "tacrolimus",
-      "version" : 23
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA131",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA131",
-      "symbol" : "CYP3A5",
-      "name" : "cytochrome P450 family 3 subfamily A member 5",
-      "version" : 7961
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1447981954,
-      "html" : "<p>Increased doses of tacrolimus are recommended for CYP3A5 heterozygous and homozygous expressors and adjusted as needed. Instructions for liver transplantation patients include genotypes of both patient and donor.</p>\n",
-      "version" : 2
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP3A5:Decreased function/Decreased function",
+        "CYP3A5:Decreased function/No function",
+        "CYP3A5:No function/No function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451447142,
+        "html": "<p>The guideline does not provide a recommendation for tacrolimus in CYP3A5 non-expressers.</p>\n"
+      },
+      "implications": {
+        "id": 1451447140,
+        "html": "<p>The guideline does not provide a description of the impact of a non-expressor phenotype on tacrolimus.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1447981953,
-      "html" : "<h3 id=\"may-2021-update\">May 2021 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has made some minor changes to the text of the CYP3A5-tacrolimus guideline. The table below has been updated to reflect this but the recommendations themselves have not changed</p>\n<h3 id=\"may-2020-update\">May 2020 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tacrolimus based on CYP3A5 status and includes recommendations for liver transplantations and other transplantations. They recommend increasing the initial dose followed by adjustment based on therapeutic drug monitoring in both heterozygous and homozygous CYP3A5 expressor.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_May_2020.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2020.pdf\">Dutch guidelines May 2020 update</a> and incorporating text changes from the <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">May 2021 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation Indications OTHER than liver transplantation</th>\n<th>Recommendation LIVER transplantation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP3A5 heterozygote expressor</td>\n<td>tacrolimus</td>\n<td>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in increased conversion of tacrolimus to inactive metabolites and therefore in a higher required dose.</td>\n<td>Use 1.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>For example: A Dutch study found a median trough concentration for tacrolimus of 14.7 ng/mL after 3 days at an initial dose of 0.15 mg/kg twice daily for 29 kidney transplant patients who were heterozygous expressers. Their target value was 10 - 15 ng/mL.</td>\n<td>In addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.<br/>LIVER is also of the genotype HETEROZYGOUS EXPRESSOR: Use 1.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>If LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</td>\n</tr>\n<tr>\n<td>CYP3A5 homozygous expressor</td>\n<td>tacrolimus</td>\n<td>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in an increased conversion of tacrolimus to inactive metabolites and therefore a higher required dose.</td>\n<td>Use 2.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>For example: One Dutch study found a median trough concentration for tacrolimus after three days of 9.4 ng/mL at an initial dose of 0.15 mg/kg twice daily for 5 homozygous kidney transplant patients. Their target value was 10 - 15 ng/mL.</td>\n<td>In addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.<br/>LIVER is also of the genotype HOMOZYGOUS EXPRESSOR: Use 2.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002358.PDF\" target=\"_blank\">DPWG risk analysis document</a> for tacrolimus and CYP3A5:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group decided not to give a genotyping recommendation for tacrolimus, because evidence of a clinical effect of CYP3A5 expresser phenotypes in standard clinical practice is lacking. Because of this, indications for a positive effect of determining CYP3A5 phenotype and adjusting therapy according to this phenotype are lacking.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002357.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tacrolimus based on CYP3A5 status and includes recommendations for liver transplantations and other transplantations. Genetic variation results in an increased conversion of tacrolimus to inactive metabolites and as a result a higher dose is required. Adjustment of the initial dose results in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring on day three. However, there is no direct evidence that this results in improved clinical results.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Recommendation Indications OTHER than liver transplantation</th>\n<th>Recommendation LIVER transplantation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP3A5 heterozygote expressor</td>\n<td>tacrolimus</td>\n<td>Start with 1.75 times of the standard initial dose that would yield the desired result in non-expressors. Adjustment of the dose should then be based on therapeutic drug monitoring.</td>\n<td>In addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.<br/>LIVER is also of the genotype HETEROZYGOUS EXPRESSOR: Start with 1.75 times the standard initial dose Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>If LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</td>\n</tr>\n<tr>\n<td>CYP3A5 homozygous expressor</td>\n<td>tacrolimus</td>\n<td>Start with 2.5 times the standard initial dose that would yield the desired result in non-expressors Adjustment of the dose should then be based on therapeutic drug monitoring.</td>\n<td>In addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.<br/>LIVER is also of the genotype HOMOZYGOUS EXPRESSOR: Start with 2.5 times the standard initial dose Adjustment of the dose should then be based on therapeutic drug monitoring.<br/>LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0002357.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tacrolimus based on CYP3A5 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They found evidence to support an interaction between tacrolimus and CYP3A5.  However, they make no dosing recommendations at this time, due to fact that &quot;in Dutch transplantation hospitals the tacrolimus dose is titrated in response to therapeutic drug monitoring.&quot;</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Genotype</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP3A5 *1/*1</td>\n<td>None</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): short-lived discomfort (&lt; 48 hr) without permanent injury: e.g. reduced decrease in resting heart rate; reduction in exercise tachycardia; decreased pain relief from oxycodone; ADE resulting from increased bioavailability of atomoxetine (decreased appetite, insomnia, sleep disturbance etc); neutropenia &gt; 1.5x109/l; leucopenia &gt; 3.0x109/l; thrombocytopenia  &gt; 75x109/l; moderate diarrhea not affecting daily activities; reduced glucose increase following oral glucose tolerance test.</td>\n</tr>\n<tr>\n<td>CYP3A5 *1/*3</td>\n<td>None</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x109/l; leucopenia 1.0-2.0x109/l; thrombocytopenia 25-50x109/l; severe diarrhea.</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good quality.&quot;</li>\n<li>S: statistically significant difference.</li>\n</ul>\n",
-      "version" : 16
+    {
+      "id": "PA166244061",
+      "name": "homozygous expressor",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP3A5:Normal function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451701143,
+        "html": "<p>LIVER TRANSPLANTATION\nIn addition to the patientâ€™s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HOMOZYGOUS EXPRESSOR: Use 2.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.\nLIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</p>\n<p>OTHER TRANSPLANTATION\nUse 2.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. For example: One Dutch study found a median trough concentration for tacrolimus after three days of 9.4 ng/mL at an initial dose of 0.15 mg/kg twice daily for 5 homozygous kidney transplant patients. Their target value was 10 - 15 ng/mL.</p>\n"
+      },
+      "implications": {
+        "id": 1451701141,
+        "html": "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in an increased conversion of tacrolimus to inactive metabolites and therefore a higher required dose.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "mariealus",
-    "version" : 28
-  }
+    {
+      "id": "PA166244221",
+      "name": "heterozygous expressor",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP3A5:Decreased function/Normal function",
+        "CYP3A5:No function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451701162,
+        "html": "<p>RECOMMENDATION LIVER TRANSPLANTATION\nIn addition to the patientâ€™s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HETEROZYGOUS EXPRESSOR: Use 1.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.<br />\nIf LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.<br />\nRECOMMENDATION INDICATIONS OTHER THAN LIVER TRANSPLANTATION\nUse 1.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. Adjustment of the dose should then be based on therapeutic drug monitoring.\nFor example: A Dutch study found a median trough concentration for tacrolimus of 14.7 ng/mL after 3 days at an initial dose of 0.15 mg/kg twice daily for 29 kidney transplant patients who were heterozygous expressers. Their target value was 10 - 15 ng/mL.</p>\n"
+      },
+      "implications": {
+        "id": 1451701160,
+        "html": "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in increased conversion of tacrolimus to inactive metabolites and therefore in a higher required dose.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ]
 }

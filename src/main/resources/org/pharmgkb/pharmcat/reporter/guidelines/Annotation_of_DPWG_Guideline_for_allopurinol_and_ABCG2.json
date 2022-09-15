@@ -1,521 +1,135 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264962",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264962",
-    "name" : "Normal function",
-    "genePhenotypes" : [ "ABCG2:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264961",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166264961",
-      "name" : "Annotation of DPWG Guideline for allopurinol and ABCG2",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451699266,
-      "html" : "<p>The guideline does not provide a description of the impact of the ABCG2 c.421 GG genotype on allopurinol.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451699267,
-      "html" : "<p>ABCG2 c.421 GG genotype (141QQ)</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451699268,
-      "html" : "<p>The guideline does not provide a recommendation for allopurinol in patients with the the ABCG2 c.421 GG genotype.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 2
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264963",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264963",
-    "name" : "Decreased function GT",
-    "genePhenotypes" : [ "ABCG2:Decreased function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264961",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166264961",
-      "name" : "Annotation of DPWG Guideline for allopurinol and ABCG2",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451699269,
-      "html" : "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451699270,
-      "html" : "<p>ABCG2 c.421 GT genotype (141QK)</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451699271,
-      "html" : "<p>Use 1.25 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 200, 400 and 500 mg/day instead of the usual schedule of 100, 200, 300 and 400 mg/day.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 2
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264964",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264964",
-    "name" : "Decreased function TT",
-    "genePhenotypes" : [ "ABCG2:Decreased function/Decreased function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264961",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166264961",
-      "name" : "Annotation of DPWG Guideline for allopurinol and ABCG2",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451699263,
-      "html" : "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451699264,
-      "html" : "<p>ABCG2 c.421 TT (141KK)</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451699265,
-      "html" : "<p>Use 1.4 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 300, 400, 600 and 700 mg/day instead of the usual schedule of 100, 200, 300, 400 and 500 mg/day.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 2
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166264961",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166264961",
-    "name" : "Annotation of DPWG Guideline for allopurinol and ABCG2",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451695865,
-      "alleles" : [ {
-        "id" : 1451699242,
-        "_label" : "c.421 G (141Q)",
-        "allele" : "c.421 G (141Q)",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451699241,
-        "_label" : "c.421 T (141K)",
-        "allele" : "c.421 T (141K)",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA390",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA390",
-        "symbol" : "ABCG2",
-        "name" : "ATP binding cassette subfamily G member 2 (Junior blood group)",
-        "altNames" : {
-          "synonym" : [ "ATP-binding cassette, sub-family G (WHITE), member 2 (Junior blood group)" ],
-          "symbol" : [ "ABCP", "BCRP", "CD338", "EST157481", "MXR" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q22.1",
-        "cbStop" : "q22.1",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA529",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA529",
-          "name" : "chr4",
-          "version" : 3
-        },
-        "chrStartPosB37" : 89011416,
-        "chrStartPosB38" : 88090264,
-        "chrStopPosB37" : 89152569,
-        "chrStopPosB38" : 88231417,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/9429",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553239020,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "9429",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=9429",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000118777",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132250315,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000118777",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000118777",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/ABCG2",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 70393,
-          "resource" : "GenAtlas",
-          "resourceId" : "ABCG2",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=ABCG2",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/ABCG2",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 85321,
-          "resource" : "GeneCard",
-          "resourceId" : "ABCG2",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=ABCG2",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0000166",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34807,
-          "resource" : "GO",
-          "resourceId" : "GO:0000166",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0000166",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005215",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34950,
-          "resource" : "GO",
-          "resourceId" : "GO:0005215",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005215",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005524",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34974,
-          "resource" : "GO",
-          "resourceId" : "GO:0005524",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005524",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006810",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34691,
-          "resource" : "GO",
-          "resourceId" : "GO:0006810",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006810",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0008559",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36538,
-          "resource" : "GO",
-          "resourceId" : "GO:0008559",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0008559",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016021",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34796,
-          "resource" : "GO",
-          "resourceId" : "GO:0016021",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016021",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016887",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 751858,
-          "resource" : "GO",
-          "resourceId" : "GO:0016887",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016887",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0042493",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 8675066,
-          "resource" : "GO",
-          "resourceId" : "GO:0042493",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0042493",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:74",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608130171,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:74",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A74",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS04249",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608130173,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS04249",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS04249",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/Q8IX16",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560934764,
-          "resource" : "ModBase",
-          "resourceId" : "Q8IX16",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q8IX16",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/ABCG2",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 452931,
-          "resource" : "MutDB",
-          "resourceId" : "ABCG2",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=ABCG2",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/9429",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 23360,
-          "resource" : "NCBI Gene",
-          "resourceId" : "9429",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/9429",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/603756",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 6303,
-          "resource" : "OMIM",
-          "resourceId" : "603756",
-          "_url" : "http://omim.org/entry/603756",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_016354",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36897,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_016354",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_016354",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_004818",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 41547,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_004818",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_004818",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_004827",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 50635,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_004827",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_004827",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_004827",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 119519,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_004827",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_004827",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q9UNQ0",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62333510,
-          "name" : "ABCG2_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q9UNQ0",
-          "_url" : "http://www.uniprot.org/uniprot/Q9UNQ0",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : false,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0000166","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495256,"_url":"http://amigo.geneontology.org/amigo/term/GO:0000166","resource":"Gene Ontology","term":"nucleotide binding","termId":"GO:0000166"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005215","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499603,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005215","resource":"Gene Ontology","term":"transporter activity","termId":"GO:0005215"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005515","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495229,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005515","resource":"Gene Ontology","term":"protein binding","termId":"GO:0005515"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005524","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499859,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005524","resource":"Gene Ontology","term":"ATP binding","termId":"GO:0005524"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005886","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500224,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005886","resource":"Gene Ontology","term":"plasma membrane","termId":"GO:0005886"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006810","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501462,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006810","resource":"Gene Ontology","term":"transport","termId":"GO:0006810"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008559","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502917,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008559","resource":"Gene Ontology","term":"xenobiotic-transporting ATPase activity","termId":"GO:0008559"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016887","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507209,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016887","resource":"Gene Ontology","term":"ATPase activity","termId":"GO:0016887"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042493","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515491,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042493","resource":"Gene Ontology","term":"response to drug","termId":"GO:0042493"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042626","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499651,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042626","resource":"Gene Ontology","term":"ATPase activity, coupled to transmembrane movement of substances","termId":"GO:0042626"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042803","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513251,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042803","resource":"Gene Ontology","term":"protein homodimerization activity","termId":"GO:0042803"} ],
-        "version" : 3595
+  "guideline": {
+    "id": "PA166264961",
+    "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
+    "relatedChemicals": [
+      {
+        "id": "PA448320",
+        "name": "allopurinol",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA390",
+        "name": "ATP binding cassette subfamily G member 2 (Junior blood group)",
+        "symbol": "ABCG2"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451699242,
+            "_label": "c.421 G (141Q)",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451699241,
+            "_label": "c.421 T (141K)",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA529",
+            "name": "chr4",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA390",
+          "name": "ATP binding cassette subfamily G member 2 (Junior blood group)",
+          "symbol": "ABCG2"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166264961",
+    "version": 7
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166264962",
+      "name": "Normal function",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 1
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1451695864,
-      "date" : "2022-02-25T00:00:00-08:00",
-      "type" : "Create",
-      "version" : 1
-    }, {
-      "id" : 1451699240,
-      "date" : "2022-03-01T10:01:58.531-08:00",
-      "description" : "Complemented genotypes to positive strand.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704259,
-      "date" : "2022-03-03T16:33:36.080-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451706060,
-      "date" : "2022-03-07T11:59:46.353-08:00",
-      "description" : "Added information about preemptive genotyping",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732898,
-      "date" : "2022-03-28T09:57:49.814-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451733280,
-      "date" : "2022-03-28T14:29:15.310-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451741461,
-      "date" : "2022-04-05T11:08:42.289-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/variant/PA166156544",
-      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
-      "objCls" : "Variant",
-      "id" : "PA166156544",
-      "symbol" : "rs2231142",
-      "name" : "rs2231142",
-      "version" : 3
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA448320",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA448320",
-      "name" : "allopurinol",
-      "version" : 8
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA390",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA390",
-      "symbol" : "ABCG2",
-      "name" : "ATP binding cassette subfamily G member 2 (Junior blood group)",
-      "version" : 3595
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1451695862,
-      "html" : "<p>Patients with the GT or TT genotypes at <a href=\"/variant/PA166156544\">rs2231142</a> should be given an increased dose of allopurinol.</p>\n",
-      "version" : 1
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "ABCG2:Normal function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451699268,
+        "html": "<p>The guideline does not provide a recommendation for allopurinol in patients with the the ABCG2 c.421 GG genotype.</p>\n"
+      },
+      "implications": {
+        "id": 1451699266,
+        "html": "<p>The guideline does not provide a description of the impact of the ABCG2 c.421 GG genotype on allopurinol.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1451695863,
-      "html" : "<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for allopurinol based on ABCG2 genotype. They recommend a dose increase for patients with the GT or TT genotypes (described in the document as their equivalent amino acids GK and KK, respectively).</p>\n<p><em><strong>Note:</strong></em> <em>ABCG2</em> is found on the negative strand. All genotypes displayed in this annotation have been complemented to the positive strand by PharmGKB.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>141KK (TT genotype)<sup>a</sup></td>\n<td>allopurinol</td>\n<td>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</td>\n<td>Use 1.4 times the standard dose. This equates to a dose titration schedule of 100, 300, 400, 600 and 700 mg/day instead of the usual schedule of 100, 200, 300, 400 and 500 mg/day.</td>\n</tr>\n<tr>\n<td>141QK (GT genotype)<sup>a</sup></td>\n<td>allopurinol</td>\n<td>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</td>\n<td>Use 1.25 times the standard dose. This equates to a dose titration schedule of 100, 200, 400 and 500 mg/day instead of the usual schedule of 100, 200, 300 and 400 mg/day.</td>\n</tr>\n</tbody>\n</table>\n<p><sup>a</sup> These genotypes have been complemented to the positive strand, in line with standard PharmGKB procedures.</p>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007256.PDF\" target=\"_blank\">DPWG risk analysis document</a> for allopurinol and ABCG2:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group considers genotyping of ABCG2 before starting allopurinol to be potentially beneficial for drug effectiveness. Genotyping can be considered on an individual patient basis. If, however, the genotype is available, the Dutch Pharmacogenetics Working Group recommends adhering to the gene-drug guideline.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007256.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 2
+    {
+      "id": "PA166264963",
+      "name": "Decreased function GT",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "ABCG2:Decreased function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451699271,
+        "html": "<p>Use 1.25 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 200, 400 and 500 mg/day instead of the usual schedule of 100, 200, 300 and 400 mg/day.</p>\n"
+      },
+      "implications": {
+        "id": 1451699269,
+        "html": "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "rachel",
-    "version" : 7
-  }
+    {
+      "id": "PA166264964",
+      "name": "Decreased function TT",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "ABCG2:Decreased function/Decreased function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451699265,
+        "html": "<p>Use 1.4 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 300, 400, 600 and 700 mg/day instead of the usual schedule of 100, 200, 300, 400 and 500 mg/day.</p>\n"
+      },
+      "implications": {
+        "id": 1451699263,
+        "html": "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }

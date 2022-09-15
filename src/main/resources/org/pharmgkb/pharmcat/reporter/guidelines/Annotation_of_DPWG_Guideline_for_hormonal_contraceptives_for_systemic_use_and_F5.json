@@ -1,587 +1,158 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264762",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264762",
-    "name" : "Factor V Leiden absent",
-    "genePhenotypes" : [ "F5:Factor V Leiden negative/Factor V Leiden negative" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104955",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104955",
-      "name" : "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
-      "version" : 25
-    },
-    "implications" : {
-      "id" : 1451694723,
-      "html" : "<p>The guideline does not provide a description of the impact of the absence of Factor V Leiden on estrogen-containing contraceptives.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451694724,
-      "html" : "<p>No Factor V Leiden variant.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451694725,
-      "html" : "<p>The guideline does not provide a recommendation for estrogen-containing contraceptives in patients who do not have the Factor V Leiden variant.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 1
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264761",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264761",
-    "name" : "Factor V Leiden heterozygous",
-    "genePhenotypes" : [ "F5:Factor V Leiden negative/Factor V Leiden positive" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104955",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104955",
-      "name" : "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
-      "version" : 25
-    },
-    "implications" : {
-      "id" : 1451694720,
-      "html" : "<p>The heterozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.</p>\n<p>Contraceptives containing oestrogens can increase this risk even further.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451694721,
-      "html" : "<p>Factor V Leiden heterozygous</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451694722,
-      "html" : "<p>If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:</p>\n<ol>\n<li>Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe a non-hormone contraceptive - such as a copper IUD - as an\nalternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br />\nOTHER CASES:</li>\n<li>Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 1
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264781",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264781",
-    "name" : "Factor V Leiden homozygous",
-    "genePhenotypes" : [ "F5:Factor V Leiden positive/Factor V Leiden positive" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104955",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104955",
-      "name" : "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
-      "version" : 25
-    },
-    "implications" : {
-      "id" : 1451694702,
-      "html" : "<p>The homozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.\nContraceptives containing oestrogens can increase this risk even further.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451694703,
-      "html" : "<p>Factor V Leiden homozygous</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451694704,
-      "html" : "<p>If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:</p>\n<ol>\n<li>Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe a non-hormone contraceptive - such as a copper IUD - as an\nalternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br />\nOTHER CASES:</li>\n<li>Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 1
-  } ],
-  "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/7283333",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 7283333,
-    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 769250885,
-      "resource" : "PubMed",
-      "resourceId" : "21412232",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1449247827,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/clpt.2011.34",
-      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "Clinical pharmacology and therapeutics",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
-    "month" : 5,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "page" : "662-73",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2011-05-01T00:00:00-07:00",
-    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
-    "version" : 2,
-    "volume" : "89",
-    "year" : 2011
-  } ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104955",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166104955",
-    "name" : "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451694620,
-      "alleles" : [ {
-        "id" : 1451694840,
-        "_label" : "rs6025 C",
-        "allele" : "rs6025 C",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451694621",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451694621,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Factor V Leiden negative",
-          "termId" : "alleleFunction:1451694621",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451694841,
-        "_label" : "rs6025 T (Factor V Leiden)",
-        "allele" : "rs6025 T (Factor V Leiden)",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451694660",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451694660,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Factor V Leiden positive",
-          "termId" : "alleleFunction:1451694660",
-          "version" : 0
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA159",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA159",
-        "symbol" : "F5",
-        "name" : "coagulation factor V",
-        "altNames" : {
-          "synonym" : [ "coagulation factor V (proaccelerin, labile factor)" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q24.2",
-        "cbStop" : "q24.2",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA503",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA503",
-          "name" : "chr1",
-          "version" : 3
-        },
-        "chrStartPosB37" : 169481192,
-        "chrStartPosB38" : 169511954,
-        "chrStopPosB37" : 169555769,
-        "chrStopPosB38" : 169586632,
-        "cpicGene" : false,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000606M",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 124544709,
-          "resource" : "ALFRED",
-          "resourceId" : "LO000606M",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000606M",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/2153",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553237887,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "2153",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=2153",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000198734",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132257556,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000198734",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000198734",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/F5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 74333,
-          "resource" : "GenAtlas",
-          "resourceId" : "F5",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=F5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/F5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 89261,
-          "resource" : "GeneCard",
-          "resourceId" : "F5",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=F5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005507",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34970,
-          "resource" : "GO",
-          "resourceId" : "GO:0005507",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005507",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005509",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34634,
-          "resource" : "GO",
-          "resourceId" : "GO:0005509",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005509",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005576",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34640,
-          "resource" : "GO",
-          "resourceId" : "GO:0005576",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005576",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0007155",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34712,
-          "resource" : "GO",
-          "resourceId" : "GO:0007155",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0007155",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0007596",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35183,
-          "resource" : "GO",
-          "resourceId" : "GO:0007596",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0007596",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016491",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36188,
-          "resource" : "GO",
-          "resourceId" : "GO:0016491",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016491",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:3542",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608155007,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:3542",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A3542",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P12259",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560880888,
-          "resource" : "ModBase",
-          "resourceId" : "P12259",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P12259",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/F5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 456871,
-          "resource" : "MutDB",
-          "resourceId" : "F5",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=F5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/2153",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 11540,
-          "resource" : "NCBI Gene",
-          "resourceId" : "2153",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/2153",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/188055",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560544385,
-          "resource" : "OMIM",
-          "resourceId" : "188055",
-          "_url" : "http://omim.org/entry/188055",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/227400",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 2724,
-          "resource" : "OMIM",
-          "resourceId" : "227400",
-          "_url" : "http://omim.org/entry/227400",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/600880",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560544386,
-          "resource" : "OMIM",
-          "resourceId" : "600880",
-          "_url" : "http://omim.org/entry/600880",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/601367",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560544305,
-          "resource" : "OMIM",
-          "resourceId" : "601367",
-          "_url" : "http://omim.org/entry/601367",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/612309",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560544384,
-          "resource" : "OMIM",
-          "resourceId" : "612309",
-          "_url" : "http://omim.org/entry/612309",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_011806",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560544383,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_011806",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_011806",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_004487",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36614,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_004487",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_004487",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000121",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37301,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000121",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000121",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000130",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46376,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000130",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000130",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000130",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 121693,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000130",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000130",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P12259",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123214779,
-          "name" : "FA5_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P12259",
-          "_url" : "http://www.uniprot.org/uniprot/P12259",
-          "version" : 2
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : false,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005507","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499843,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005507","resource":"Gene Ontology","term":"copper ion binding","termId":"GO:0005507"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005509","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499845,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005509","resource":"Gene Ontology","term":"calcium ion binding","termId":"GO:0005509"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005576","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499910,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005576","resource":"Gene Ontology","term":"extracellular region","termId":"GO:0005576"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005615","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499957,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005615","resource":"Gene Ontology","term":"extracellular space","termId":"GO:0005615"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005886","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500224,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005886","resource":"Gene Ontology","term":"plasma membrane","termId":"GO:0005886"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0007155","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501853,"_url":"http://amigo.geneontology.org/amigo/term/GO:0007155","resource":"Gene Ontology","term":"cell adhesion","termId":"GO:0007155"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0007596","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502354,"_url":"http://amigo.geneontology.org/amigo/term/GO:0007596","resource":"Gene Ontology","term":"blood coagulation","termId":"GO:0007596"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008015","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560502421,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008015","resource":"Gene Ontology","term":"blood circulation","termId":"GO:0008015"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0031093","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560511018,"_url":"http://amigo.geneontology.org/amigo/term/GO:0031093","resource":"Gene Ontology","term":"platelet alpha granule lumen","termId":"GO:0031093"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
-        "version" : 140
+  "guideline": {
+    "id": "PA166104955",
+    "name": "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
+    "relatedChemicals": [
+      {
+        "id": "PA452637",
+        "name": "hormonal contraceptives for systemic use",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA159",
+        "name": "coagulation factor V",
+        "symbol": "F5"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451694840,
+            "_label": "rs6025 C",
+            "function": {
+              "term": "Factor V Leiden negative",
+              "termId": "alleleFunction:1451694621"
+            }
+          },
+          {
+            "id": 1451694841,
+            "_label": "rs6025 T (Factor V Leiden)",
+            "function": {
+              "term": "Factor V Leiden positive",
+              "termId": "alleleFunction:1451694660"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA503",
+            "name": "chr1",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA159",
+          "name": "coagulation factor V",
+          "symbol": "F5"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104955",
+    "version": 25
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166264762",
+      "name": "Factor V Leiden absent",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : false,
-    "history" : [ {
-      "id" : 1183704485,
-      "date" : "2011-08-10T00:00:00-07:00",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1450415353,
-      "date" : "2019-05-28T10:56:50.705-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450820668,
-      "date" : "2019-10-03T15:16:11.394-07:00",
-      "description" : "No changes based on August 2019 guideline",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1450956349,
-      "date" : "2020-01-31T13:35:34.517-08:00",
-      "description" : "Updated link to 2011 DPWG methods",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963580,
-      "date" : "2020-02-11T06:16:19.942-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451328506,
-      "date" : "2021-02-08T14:35:22.683-08:00",
-      "description" : "Added reference to rsID for Factor V Leiden in annotation text.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451694844,
-      "date" : "2022-02-24T00:00:00-08:00",
-      "description" : "Added extended dosing guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704204,
-      "date" : "2022-03-03T16:33:27.275-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451732844,
-      "date" : "2022-03-28T09:57:40.901-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/variant/PA166153554",
-      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
-      "objCls" : "Variant",
-      "id" : "PA166153554",
-      "symbol" : "rs6025",
-      "name" : "rs6025",
-      "version" : 4
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA452637",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA452637",
-      "name" : "hormonal contraceptives for systemic use",
-      "version" : 2
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA159",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA159",
-      "symbol" : "F5",
-      "name" : "coagulation factor V",
-      "version" : 140
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1447981892,
-      "html" : "<p>In individuals who carry the Factor V Leiden allele (<a href=\"/variant/PA166153554\">rs6025</a> T) and have a family history of thrombotic events, estrogen-containing oral contraceptives should be avoided and alternative forms of contraception used.</p>\n",
-      "version" : 1
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "F5:Factor V Leiden negative/Factor V Leiden negative"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451694725,
+        "html": "<p>The guideline does not provide a recommendation for estrogen-containing contraceptives in patients who do not have the Factor V Leiden variant.</p>\n"
+      },
+      "implications": {
+        "id": 1451694723,
+        "html": "<p>The guideline does not provide a description of the impact of the absence of Factor V Leiden on estrogen-containing contraceptives.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1447981891,
-      "html" : "<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for hormonal contraceptives for systemic use based on Factor V Leiden (FVL, or F5) genotype. They suggest that in individuals who carry the Factor V Leiden allele (<a href=\"/variant/PA166153554\">rs6025</a> T) and have a family history of thrombotic events or a previous thrombosis, estrogen-containing oral contraceptives should be avoided and alternative forms of contraception used.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Factor V Leiden heterozygous</td>\n<td>contraceptive with oestrogens</td>\n<td>The heterozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism. Contraceptives containing oestrogens can increase this risk even further.</td>\n<td>- If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:<br/>1. Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe an on-hormone contraceptive-such as a copper IUD - as an alternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br/>- OTHER CASES:<br/>1. Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</td>\n</tr>\n<tr>\n<td>Factor V Leiden homozygous</td>\n<td>contraceptive with oestrogens</td>\n<td>The homozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism. Contraceptives containing oestrogens can increase this risk even further.</td>\n<td>- If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:<br/>1. Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe a non-hormone contraceptive-such as a copper IUD - as an alternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br/>- OTHER CASES:<br/>1. Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001567.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for hormonal contraceptives for systemic use based on Factor V Leiden (FVL, or F5) genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].  They suggest that in individuals who carry the Factor V Leiden allele and have a family history of thrombotic events, estrogen-containing oral contraceptives should be avoided and alternative forms of contraception used.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>F5 homozygous <a href=\"/variant/PA166153554\">rs6025</a> TT</td>\n<td>Positive (family) history of thrombotic events: avoid estrogen-containing oral contraceptives and select alternative (e.g., copper intrauterine device, progestin-only contraceptive). Negative (family) history of thrombotic events: avoid additional risk factors (e.g., obesity, smoking).</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10<sup>9</sup>/l; leucopenia 1.0-2.0x10<sup>9</sup>/l; thrombocytopenia 25-50x10<sup>9</sup>/l; severe diarrhea</td>\n</tr>\n<tr>\n<td>F5 heterozygous <a href=\"/variant/PA166153554\">rs6025</a> CT</td>\n<td>Positive (family) history of thrombotic events: avoid estrogen-containing oral contraceptives and select alternative (e.g., copper intrauterine device, progestin-only contraceptive). Negative (family) history of thrombotic events: avoid additional risk factors (e.g., obesity, smoking).</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10<sup>9</sup>/l; leucopenia 1.0-2.0x10<sup>9</sup>/l; thrombocytopenia 25-50x10<sup>9</sup>/l; severe diarrhea</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good&quot; and &quot;moderate&quot; quality.</li>\n<li>S: statistically significant difference.</li>\n</ul>\n",
-      "version" : 13
+    {
+      "id": "PA166264761",
+      "name": "Factor V Leiden heterozygous",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "F5:Factor V Leiden negative/Factor V Leiden positive"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451694722,
+        "html": "<p>If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:</p>\n<ol>\n<li>Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe a non-hormone contraceptive - such as a copper IUD - as an\nalternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br />\nOTHER CASES:</li>\n<li>Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451694720,
+        "html": "<p>The heterozygously present genetic polymorphism â€œfactor V Leidenâ€� causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.</p>\n<p>Contraceptives containing oestrogens can increase this risk even further.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "katrin",
-    "version" : 25
-  }
+    {
+      "id": "PA166264781",
+      "name": "Factor V Leiden homozygous",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "F5:Factor V Leiden positive/Factor V Leiden positive"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451694704,
+        "html": "<p>If the patient has a FAMILY HISTORY WITH A LOT OF THROMBOSIS, or has had a PREVIOUS THROMBOSIS:</p>\n<ol>\n<li>Advise the prescriber to avoid the use of contraceptives that contain oestrogens and prescribe a non-hormone contraceptive - such as a copper IUD - as an\nalternative. One could also opt for a progestogen-only contraceptive method, such as the depot injection, an IUD with levonorgestrel or an implant with etonogestrel.<br />\nOTHER CASES:</li>\n<li>Advise the patient to avoid additional risk factors for thrombosis (obesity, smoking, etc.).</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451694702,
+        "html": "<p>The homozygously present genetic polymorphism â€œfactor V Leidenâ€� causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.\nContraceptives containing oestrogens can increase this risk even further.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ]
 }

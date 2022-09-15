@@ -1,1782 +1,584 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166241261",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166241261",
-    "name" : "Poor Metabolizer",
-    "activityScore" : {
-      "id" : 1451421186,
-      "html" : "<p>Total gene activity score = 0</p>\n",
-      "version" : 0
-    },
-    "genePhenotypes" : [ "CYP2D6:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104959",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104959",
-      "name" : "Annotation of DPWG Guideline for tramadol and CYP2D6",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451421187,
-      "html" : "<p>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451421188,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451421189,
-      "html" : "<p>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.</p>\n<ol>\n<li>be alert to a reduced effectiveness</li>\n<li>in the case of inadequate effectiveness:\na. try a dose increase.\nb. if this does not work: choose an alternative Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>if no alternative is selected: advise the patient to report inadequate analgesia.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166241262",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166241262",
-    "name" : "Normal Metabolizer",
-    "activityScore" : {
-      "id" : 1451421190,
-      "html" : "<p>Total gene activity score = 1.5-2.5</p>\n",
-      "version" : 0
-    },
-    "genePhenotypes" : [ "CYP2D6:Decreased function/Increased function (AV 2)", "CYP2D6:Decreased function/Normal function", "CYP2D6:Increased function (AV 2)/No function", "CYP2D6:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104959",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104959",
-      "name" : "Annotation of DPWG Guideline for tramadol and CYP2D6",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451421191,
-      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on tramadol.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451421192,
-      "html" : "<p>Normal Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451421193,
-      "html" : "<p>The guideline does not provide a recommendation for tramadol in normal metabolizers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166241263",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166241263",
-    "name" : "Ultrarapid Metabolizer",
-    "activityScore" : {
-      "id" : 1451421194,
-      "html" : "<p>Total gene activity score ≥3</p>\n",
-      "version" : 0
-    },
-    "genePhenotypes" : [ "CYP2D6:Decreased function/Increased function (AV ≥3)", "CYP2D6:Increased function (AV 2)/Increased function (AV 2)", "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)", "CYP2D6:Increased function (AV 2)/Normal function", "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)", "CYP2D6:Increased function (AV ≥3)/No function", "CYP2D6:Increased function (AV ≥3)/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104959",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104959",
-      "name" : "Annotation of DPWG Guideline for tramadol and CYP2D6",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451421195,
-      "html" : "<p>The genetic variation increases the conversion of tramadol to a metabolite with a stronger opioid effect. This can result in an increase in potentially life-threatening side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451421196,
-      "html" : "<p>Ultrarapid Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451421197,
-      "html" : "<p>As the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes, the effect of a dose reduction cannot be predicted with certainty.</p>\n<ol>\n<li>Select an alternative. Do not choose codeine, as it is contra-indicated for CYP2D6 UM. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in side effects in patients.</li>\n<li>If an alternative is not possible, use 40% of the standard dose. Advise the patient to report side effects (such as drowsiness, confusion, constipation, nausea and vomiting, respiratory depression or urine retention).</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166241281",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166241281",
-    "name" : "Intermediate Metabolizer",
-    "activityScore" : {
-      "id" : 1451421200,
-      "html" : "<p>Total gene activity score = 0.5-1</p>\n",
-      "version" : 0
-    },
-    "genePhenotypes" : [ "CYP2D6:Decreased function/Decreased function", "CYP2D6:Decreased function/No function", "CYP2D6:No function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104959",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104959",
-      "name" : "Annotation of DPWG Guideline for tramadol and CYP2D6",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451421201,
-      "html" : "<p>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451421202,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451421203,
-      "html" : "<p>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.</p>\n<ol>\n<li>be alert to a reduced effectiveness</li>\n<li>in the case of inadequate effectiveness:\na. try a dose increase\nb. if this does not work: choose an alternative. Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>if no alternative is selected: advise the patient to report inadequate analgesia</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/15122442",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 15122442,
-    "title" : "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/34267337",
-    "authors" : [ "Matic Maja", "Nijenhuis Marga", "Soree Bianca", "de Boer-Veger Nienke J", "Buunk Anne-Marie", "Houwink Elisa J F", "Mulder Hans", "Rongen Gerard A P J M", "Weide Jan van der", "Wilffert Bob", "Swen Jesse J", "Guchelaar Henk-Jan", "Deneer Vera H M", "van Schaik Ron H N" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/34267337",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1451489600,
-      "resource" : "PubMed",
-      "resourceId" : "34267337",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/34267337",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-00920-y",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1451489601,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/s41431-021-00920-y",
-      "_url" : "http://dx.doi.org/10.1038%2Fs41431-021-00920-y",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "European journal of human genetics : EJHG",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ ],
-    "month" : 7,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2021-07-01T00:00:00-07:00",
-    "summary" : "The current Dutch Pharmacogenetics Working Group (DPWG) guideline, describes the gene-drug interaction between CYP2D6 and the opioids codeine, tramadol and oxycodone. CYP2D6 genotype is translated into normal metaboliser (NM), intermediate metaboliser (IM), poor metaboliser (PM) or ultra-rapid metaboliser (UM). Codeine is contraindicated in UM adults if doses >20 mg every 6 h (q6h), in children ≥12 years if doses >10 mg q6h, or with additional risk factors. In PMs, an alternative analgesic should be given which is not or to a lesser extent metabolised by CYP2D6 (not tramadol). In IMs with insufficient analgesia, a higher dose or alternative analgesic should be given. For tramadol, the recommendations for IMs and PMs are the same as the recommendation for codeine and IMs. UMs should receive an alternative drug not or to a lesser extent metabolised by CYP2D6 or the dose should be decreased to 40% of the commonly prescribed dose. Due to the absence of effect on clinical outcomes of oxycodone in PMs, IMs and UMs no action is required. DPWG classifies CYP2D6 genotyping for codeine \"beneficial\" and recommends testing prior to, or shortly after initiation of treatment in case of higher doses or additional risk factors. CYP2D6 genotyping is classified as \"potentially beneficial\" for tramadol and can be considered on an individual patient basis.",
-    "version" : 0,
-    "year" : 2021
-  }, {
-    "@id" : "https://pharmgkb.org/literature/7283333",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 7283333,
-    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 769250885,
-      "resource" : "PubMed",
-      "resourceId" : "21412232",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1449247827,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/clpt.2011.34",
-      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "Clinical pharmacology and therapeutics",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
-    "month" : 5,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "page" : "662-73",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2011-05-01T00:00:00-07:00",
-    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
-    "version" : 2,
-    "volume" : "89",
-    "year" : 2011
-  } ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104959",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166104959",
-    "name" : "Annotation of DPWG Guideline for tramadol and CYP2D6",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451421140,
-      "alleles" : [ {
-        "id" : 1451421141,
-        "_label" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816576",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816576",
-          "symbol" : "CYP2D6*1",
-          "name" : "*1",
-          "version" : 40
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421175,
-        "_label" : "*1x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451309754",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451309754,
-          "description" : "CYP2D6 function",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function (AV 2)",
-          "termId" : "alleleFunction:1451309754",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228081",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228081",
-          "symbol" : "CYP2D6*1x2",
-          "name" : "*1x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421176,
-        "_label" : "*1x≥3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451309780",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451309780,
-          "description" : "CYP2D6 function",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function (AV ≥3)",
-          "termId" : "alleleFunction:1451309780",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228141",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228141",
-          "symbol" : "CYP2D6*1x≥3",
-          "name" : "*1x≥3",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421142,
-        "_label" : "*2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816577",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816577",
-          "symbol" : "CYP2D6*2",
-          "name" : "*2",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421177,
-        "_label" : "*2x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451309754",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451309754,
-          "description" : "CYP2D6 function",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function (AV 2)",
-          "termId" : "alleleFunction:1451309754",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228161",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228161",
-          "symbol" : "CYP2D6*2x2",
-          "name" : "*2x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421178,
-        "_label" : "*2x≥3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451309780",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451309780,
-          "description" : "CYP2D6 function",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function (AV ≥3)",
-          "termId" : "alleleFunction:1451309780",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228162",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228162",
-          "symbol" : "CYP2D6*2x≥3",
-          "name" : "*2x≥3",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421143,
-        "_label" : "*3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816578",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816578",
-          "symbol" : "CYP2D6*3",
-          "name" : "*3",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421179,
-        "_label" : "*3x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228163",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228163",
-          "symbol" : "CYP2D6*3x2",
-          "name" : "*3x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421144,
-        "_label" : "*4",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816579",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816579",
-          "symbol" : "CYP2D6*4",
-          "name" : "*4",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421183,
-        "_label" : "*4x2",
-        "allele" : "*4x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421145,
-        "_label" : "*5",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165948092",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165948092",
-          "symbol" : "CYP2D6*5",
-          "name" : "*5",
-          "version" : 38
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421146,
-        "_label" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816581",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816581",
-          "symbol" : "CYP2D6*6",
-          "name" : "*6",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421180,
-        "_label" : "*6x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228165",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228165",
-          "symbol" : "CYP2D6*6x2",
-          "name" : "*6x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421147,
-        "_label" : "*7",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971559",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971559",
-          "symbol" : "CYP2D6*7",
-          "name" : "*7",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421148,
-        "_label" : "*8",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971560",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971560",
-          "symbol" : "CYP2D6*8",
-          "name" : "*8",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421149,
-        "_label" : "*9",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165948317",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165948317",
-          "symbol" : "CYP2D6*9",
-          "name" : "*9",
-          "version" : 38
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421150,
-        "_label" : "*9x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166123309",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166123309",
-          "symbol" : "CYP2D6*9x2",
-          "name" : "*9x2",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421184,
-        "_label" : "*10",
-        "allele" : "*10",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421185,
-        "_label" : "*10x2",
-        "allele" : "*10x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421151,
-        "_label" : "*11",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971564",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971564",
-          "symbol" : "CYP2D6*11",
-          "name" : "*11",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421152,
-        "_label" : "*12",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971565",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971565",
-          "symbol" : "CYP2D6*12",
-          "name" : "*12",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421153,
-        "_label" : "*13",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165988481",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165988481",
-          "symbol" : "CYP2D6*13",
-          "name" : "*13",
-          "version" : 34
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421154,
-        "_label" : "*14",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166181185",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166181185",
-          "symbol" : "CYP2D6*14",
-          "name" : "*14",
-          "version" : 12
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421155,
-        "_label" : "*15",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971568",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971568",
-          "symbol" : "CYP2D6*15",
-          "name" : "*15",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421156,
-        "_label" : "*17",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816583",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816583",
-          "symbol" : "CYP2D6*17",
-          "name" : "*17",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421157,
-        "_label" : "*17x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166123457",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166123457",
-          "symbol" : "CYP2D6*17x2",
-          "name" : "*17x2",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421158,
-        "_label" : "*18",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971569",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971569",
-          "symbol" : "CYP2D6*18",
-          "name" : "*18",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421159,
-        "_label" : "*19",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971570",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971570",
-          "symbol" : "CYP2D6*19",
-          "name" : "*19",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421160,
-        "_label" : "*20",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971571",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971571",
-          "symbol" : "CYP2D6*20",
-          "name" : "*20",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421161,
-        "_label" : "*21",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165988484",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165988484",
-          "symbol" : "CYP2D6*21",
-          "name" : "*21",
-          "version" : 35
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421162,
-        "_label" : "*29",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165948318",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165948318",
-          "symbol" : "CYP2D6*29",
-          "name" : "*29",
-          "version" : 38
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421163,
-        "_label" : "*29x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128735",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128735",
-          "symbol" : "CYP2D6*29x2",
-          "name" : "*29x2",
-          "version" : 14
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421164,
-        "_label" : "*31",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971582",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971582",
-          "symbol" : "CYP2D6*31",
-          "name" : "*31",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421165,
-        "_label" : "*33",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971584",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971584",
-          "symbol" : "CYP2D6*33",
-          "name" : "*33",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421166,
-        "_label" : "*35",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165988487",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165988487",
-          "symbol" : "CYP2D6*35",
-          "name" : "*35",
-          "version" : 35
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421181,
-        "_label" : "*35x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451309754",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451309754,
-          "description" : "CYP2D6 function",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Increased function (AV 2)",
-          "termId" : "alleleFunction:1451309754",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228166",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228166",
-          "symbol" : "CYP2D6*35x2",
-          "name" : "*35x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421167,
-        "_label" : "*36",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165988488",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165988488",
-          "symbol" : "CYP2D6*36",
-          "name" : "*36",
-          "version" : 35
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421182,
-        "_label" : "*36x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166228167",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166228167",
-          "symbol" : "CYP2D6*36x2",
-          "name" : "*36x2",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421168,
-        "_label" : "*38",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971592",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971592",
-          "symbol" : "CYP2D6*38",
-          "name" : "*38",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421169,
-        "_label" : "*39",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166001447",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166001447",
-          "symbol" : "CYP2D6*39",
-          "name" : "*39",
-          "version" : 35
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421170,
-        "_label" : "*40",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971594",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971594",
-          "symbol" : "CYP2D6*40",
-          "name" : "*40",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421171,
-        "_label" : "*41",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816584",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816584",
-          "symbol" : "CYP2D6*41",
-          "name" : "*41",
-          "version" : 39
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421172,
-        "_label" : "*41x2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166128209",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166128209",
-          "symbol" : "CYP2D6*41x2",
-          "name" : "*41x2",
-          "version" : 15
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421173,
-        "_label" : "*42",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165971595",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165971595",
-          "symbol" : "CYP2D6*42",
-          "name" : "*42",
-          "version" : 36
-        },
-        "version" : 0
-      }, {
-        "id" : 1451421174,
-        "_label" : "*114",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA166181184",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA166181184",
-          "symbol" : "CYP2D6*114",
-          "name" : "*114",
-          "version" : 12
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA128",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA128",
-        "symbol" : "CYP2D6",
-        "name" : "cytochrome P450 family 2 subfamily D member 6",
-        "alleleFile" : "CYP2D6_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 2, subfamily D, polypeptide 6" ],
-          "symbol" : [ "CPD6", "CYP2D", "CYP2D7AP", "CYP2D7BP", "CYP2D7P2", "CYP2D8P2", "CYP2DL1", "P450-DB1", "P450C2D" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q13.1",
-        "cbStop" : "q13.2",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA525",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA525",
-          "name" : "chr22",
-          "version" : 3
-        },
-        "chrStartPosB37" : 42522501,
-        "chrStartPosB38" : 42125531,
-        "chrStopPosB37" : 42526883,
-        "chrStopPosB38" : 42130881,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000325K",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 124544685,
-          "resource" : "ALFRED",
-          "resourceId" : "LO000325K",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000325K",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1565",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242505,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1565",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1565",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000100197",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256032,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000100197",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100197",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2D6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73375,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP2D6",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2D6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genbank/AY545216.1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1445332056,
-          "resource" : "GenBank",
-          "resourceId" : "AY545216.1",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/AY545216.1",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2D6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88303,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP2D6",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2D6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004497",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34580,
-          "resource" : "GO",
-          "resourceId" : "GO:0004497",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004497",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 8676615,
-          "resource" : "GO",
-          "resourceId" : "GO:0016712",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019825",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329726,
-          "resource" : "GO",
-          "resourceId" : "GO:0019825",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019825",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050381",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329724,
-          "resource" : "GO",
-          "resourceId" : "GO:0050381",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050381",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2625",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 605873023,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2625",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2625",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS01997",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 605873080,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS01997",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS01997",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P10635",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560877840,
-          "resource" : "ModBase",
-          "resourceId" : "P10635",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P10635",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2D6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455913,
-          "resource" : "MutDB",
-          "resourceId" : "CYP2D6",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2D6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1565",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10749,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1565",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1565",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/124030",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 717,
-          "resource" : "OMIM",
-          "resourceId" : "124030",
-          "_url" : "http://omim.org/entry/124030",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/608902",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556323,
-          "resource" : "OMIM",
-          "resourceId" : "608902",
-          "_url" : "http://omim.org/entry/608902",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2D6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451280333,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP2D6",
-          "_url" : "https://www.pharmvar.org/gene/CYP2D6",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_003180",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123170198,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_003180",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_003180",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008376",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556322,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_008376",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008376",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_011520",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36857,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_011520",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_011520",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000097",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37278,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000097",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000097",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_001020332",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123170196,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_001020332",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_001020332",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000106",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46353,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000106",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000106",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_001025161",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123170193,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_001025161",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_001025161",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000106",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 121670,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000106",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000106",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q6NWU0",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 605873078,
-          "name" : "Q6NWU0_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q6NWU0",
-          "_url" : "http://www.uniprot.org/uniprot/Q6NWU0",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q6NXU8",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 605873076,
-          "name" : "Q6NXU8_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q6NXU8",
-          "_url" : "http://www.uniprot.org/uniprot/Q6NXU8",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2d6.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 89,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2d6.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2d6.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005739","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500079,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005739","resource":"Gene Ontology","term":"mitochondrion","termId":"GO:0005739"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006805","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501453,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006805","resource":"Gene Ontology","term":"xenobiotic metabolic process","termId":"GO:0006805"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499864,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008144","resource":"Gene Ontology","term":"drug binding","termId":"GO:0008144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009804","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504161,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009804","resource":"Gene Ontology","term":"coumarin metabolic process","termId":"GO:0009804"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009820","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504179,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009820","resource":"Gene Ontology","term":"alkaloid metabolic process","termId":"GO:0009820"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009822","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504180,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009822","resource":"Gene Ontology","term":"alkaloid catabolic process","termId":"GO:0009822"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009892","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504242,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009892","resource":"Gene Ontology","term":"negative regulation of metabolic process","termId":"GO:0009892"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033076","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560512928,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033076","resource":"Gene Ontology","term":"isoquinoline alkaloid metabolic process","termId":"GO:0033076"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0051100","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560511965,"_url":"http://amigo.geneontology.org/amigo/term/GO:0051100","resource":"Gene Ontology","term":"negative regulation of binding","termId":"GO:0051100"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0070330","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560523003,"_url":"http://amigo.geneontology.org/amigo/term/GO:0070330","resource":"Gene Ontology","term":"aromatase activity","termId":"GO:0070330"} ],
-        "version" : 7889
+  "guideline": {
+    "id": "PA166104959",
+    "name": "Annotation of DPWG Guideline for tramadol and CYP2D6",
+    "relatedChemicals": [
+      {
+        "id": "PA451735",
+        "name": "tramadol",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451421141,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421175,
+            "_label": "*1x2",
+            "function": {
+              "term": "Increased function (AV 2)",
+              "termId": "alleleFunction:1451309754"
+            }
+          },
+          {
+            "id": 1451421176,
+            "_label": "*1xâ‰¥3",
+            "function": {
+              "term": "Increased function (AV â‰¥3)",
+              "termId": "alleleFunction:1451309780"
+            }
+          },
+          {
+            "id": 1451421142,
+            "_label": "*2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421177,
+            "_label": "*2x2",
+            "function": {
+              "term": "Increased function (AV 2)",
+              "termId": "alleleFunction:1451309754"
+            }
+          },
+          {
+            "id": 1451421178,
+            "_label": "*2xâ‰¥3",
+            "function": {
+              "term": "Increased function (AV â‰¥3)",
+              "termId": "alleleFunction:1451309780"
+            }
+          },
+          {
+            "id": 1451421143,
+            "_label": "*3",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421179,
+            "_label": "*3x2",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421144,
+            "_label": "*4",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421183,
+            "_label": "*4x2",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421145,
+            "_label": "*5",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421146,
+            "_label": "*6",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421180,
+            "_label": "*6x2",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421147,
+            "_label": "*7",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421148,
+            "_label": "*8",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421149,
+            "_label": "*9",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421150,
+            "_label": "*9x2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421184,
+            "_label": "*10",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421185,
+            "_label": "*10x2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421151,
+            "_label": "*11",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421152,
+            "_label": "*12",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421153,
+            "_label": "*13",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421154,
+            "_label": "*14",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421155,
+            "_label": "*15",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421156,
+            "_label": "*17",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421157,
+            "_label": "*17x2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421158,
+            "_label": "*18",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421159,
+            "_label": "*19",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421160,
+            "_label": "*20",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421161,
+            "_label": "*21",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421162,
+            "_label": "*29",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421163,
+            "_label": "*29x2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421164,
+            "_label": "*31",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421165,
+            "_label": "*33",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421166,
+            "_label": "*35",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421181,
+            "_label": "*35x2",
+            "function": {
+              "term": "Increased function (AV 2)",
+              "termId": "alleleFunction:1451309754"
+            }
+          },
+          {
+            "id": 1451421167,
+            "_label": "*36",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421182,
+            "_label": "*36x2",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421168,
+            "_label": "*38",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421169,
+            "_label": "*39",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421170,
+            "_label": "*40",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421171,
+            "_label": "*41",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451421172,
+            "_label": "*41x2",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451421173,
+            "_label": "*42",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451421174,
+            "_label": "*114",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA525",
+            "name": "chr22",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA128",
+          "name": "cytochrome P450 family 2 subfamily D member 6",
+          "symbol": "CYP2D6"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104959",
+    "version": 29
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166241261",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1183704543,
-      "date" : "2011-08-10T00:00:00-07:00",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1448616263,
-      "date" : "2017-05-02T11:43:08.837-07:00",
-      "description" : "added note about FDA safety announcement",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450415049,
-      "date" : "2019-05-23T15:10:59.430-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450820678,
-      "date" : "2019-10-03T16:28:39.990-07:00",
-      "description" : "No changes based on August 2019 guidelines",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450956520,
-      "date" : "2020-01-31T14:21:07.005-08:00",
-      "description" : "Updated link to 2011 DPWG methods",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963941,
-      "date" : "2020-02-11T08:13:45.147-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451431323,
-      "date" : "2021-05-04T00:00:00-07:00",
-      "description" : "Added extended dosing",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451489640,
-      "date" : "2021-09-03T14:37:22.415-07:00",
-      "description" : "Added DPWG opioid guideline publication to annotation",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704201,
-      "date" : "2022-03-03T16:33:26.927-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451707860,
-      "date" : "2022-03-08T13:04:14.920-08:00",
-      "description" : "Added information about preemptive genotyping",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732841,
-      "date" : "2022-03-28T09:57:40.509-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451733466,
-      "date" : "2022-03-28T15:04:30.716-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451741509,
-      "date" : "2022-04-05T11:21:12.273-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/15122442","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15122442,"title":"Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/34267337","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/34267337","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451489600,"resource":"PubMed","resourceId":"34267337","_url":"https://www.ncbi.nlm.nih.gov/pubmed/34267337"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/s41431-021-00920-y","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451489601,"resource":"DOI","resourceId":"10.1038/s41431-021-00920-y","_url":"http://dx.doi.org/10.1038%2Fs41431-021-00920-y"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA451735",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA451735",
-      "name" : "tramadol",
-      "version" : 10
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA128",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA128",
-      "symbol" : "CYP2D6",
-      "name" : "cytochrome P450 family 2 subfamily D member 6",
-      "version" : 7889
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1447981886,
-      "html" : "<p>Be alert to a reduced efficacy of tramadol in CYP2D6 intermediate or poor metabolizers. If tramadol is not effective in these patients, try a dose increase or select an alternative to tramadol (not codeine) and be alert for symptoms of insufficient pain relief. For CYP2D6 ultrarapid metabolizers, use an alternative to tramadol (not codeine) or use 40% of the standard dose and be alert to side effects.</p>\n",
-      "version" : 1
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451421188,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451421189,
+        "html": "<p>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.</p>\n<ol>\n<li>be alert to a reduced effectiveness</li>\n<li>in the case of inadequate effectiveness:\na. try a dose increase.\nb. if this does not work: choose an alternative Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>if no alternative is selected: advise the patient to report inadequate analgesia.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451421187,
+        "html": "<p>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451421186,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1447981885,
-      "html" : "<p><em><strong>Note that the FDA released a <a rel=\"noopener noreferrer\" href=\"https://www.fda.gov/Drugs/DrugSafety/ucm549679.htm?source=govdelivery&amp;utm_medium=email&amp;utm_source=govdelivery\" target=\"_blank\">safety announcement</a> on 4/20/2017 stating that codeine and tramadol should not be used in children under 12 years.</strong></em></p>\n<h3 id=\"dutch-pharmacogenetics-working-group-dpwg-guideline-for-the-gene-drug-interaction-of-cyp2d6-and-opioids-codeine-tramadol-and-oxycodone-european-journal-of-human-genetics-2021\">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of CYP2D6 and opioids (codeine, tramadol and oxycodone). European journal of human genetics (2021)</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group published a paper with the guidelines as per the November 2018 update including more details and scoring the clinical implementation [Article:<a href=\"/pmid/34267337\">34267337</a>].</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tramadol based on CYP2D6 genotype. They recommend that an alternative analgesic (not codeine) be selected or a dose reduction be considered for CYP2D6 ultrarapid metabolizers (UMs). If tramadol is not effective in CYP2D6 intermediate metabolizers (IMs) and poor metabolizers (PMs), a dose increase or an alternative analgesic (not codeine) can be considered.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2D6 UM</td>\n<td>tramadol</td>\n<td>The genetic variation increases the conversion of tramadol to a metabolite with a stronger opioid effect. This can result in an increase in potentially life-threatening side effects.</td>\n<td>As the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes, the effect of a dose reduction cannot be predicted with certainty.<br/>1. Select an alternative. Do not choose codeine, as it is contra-indicated for CYP2D6 UM. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in side effects in patients.<br/>2. If an alternative is not possible, use 40% of the standard dose. Advise the patient to report side effects (such as drowsiness, confusion, constipation, nausea and vomiting, respiratory depression or urine retention).</td>\n</tr>\n<tr>\n<td>CYP2D6 IM</td>\n<td>tramadol</td>\n<td>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</td>\n<td>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.<br/>1. be alert to a reduced effectiveness<br/>2. in the case of inadequate effectiveness:<br/>a. try a dose increase<br/>b. if this does not work: choose an alternative. Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.<br/>3. if no alternative is selected: advise the patient to report inadequate analgesia</td>\n</tr>\n<tr>\n<td>CYP2D6 PM</td>\n<td>tramadol</td>\n<td>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</td>\n<td>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.<br/>1. be alert to a reduced effectiveness<br/>2. in the case of inadequate effectiveness:<br/>a. try a dose increase.<br/>b. if this does not work: choose an alternative Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.<br/>3. if no alternative is selected: advise the patient to report inadequate analgesia.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001590.PDF\" target=\"_blank\">DPWG risk analysis document</a> for tramadol and CYP2D6:</p>\n<blockquote class=\"blockquote\">\n<p>The Dutch Pharmacogenetics Working Group considers genotyping before starting tramadol to be potentially beneficial for drug safety and efficacy. Genotyping can be considered on an individual patient basis. If, however, the genotype is available, the Dutch Pharmacogenetics Working Group recommends adhering to the gene-drug guideline.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001590.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for tramadol based on CYP2D6 genotypes [Article:<a href=\"/pmid/21412232\">21412232</a>].  For PM and IM genotypes, they recommend selecting an alternative drug (not oxycodone or codeine) and/or being extra alert to symptoms of insufficient pain relief.  For UM genotypes, they recommend using a 30% decreased dose and being alert for ADEs, or using an alternative drug (not oxycodone or codeine).</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Phenotype (Genotype)</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>PM (two inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) alleles)</td>\n<td>Select alternative drug-not oxycodone or codeine- or be alert to symptoms of insufficient pain relief.</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): short-lived discomfort (&lt; 48 hr) without permanent injury: e.g. reduced decrease in resting heart rate; reduction in exercise tachycardia; decreased pain relief from oxycodone; ADE resulting from increased bioavailability of atomoxetine (decreased appetite, insomnia, sleep disturbance etc.); neutropenia &gt; 1.5x10<sup>9</sup>/l; leucopenia &gt; 3.0x10<sup>9</sup>/l; thrombocytopenia  &gt; 75x10<sup>9</sup>/l; moderate diarrhea not affecting daily activities; reduced glucose increase following oral glucose tolerance test.</td>\n</tr>\n<tr>\n<td>IM (two decreased-activity (*9, *10, *17, *29, *36, *41) alleles or carrying one active (*1, *2, *33, *35) and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele, or carrying one decreased-activity (*9, *10, *17, *29, *36, *41) allele and one inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) allele)</td>\n<td>Be alert to decreased efficacy. Consider dose increase.  If response is still inadequate, select alternative drug- not oxycodone or codeine-or be alert to symptoms of insufficient pain relief.</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): short-lived discomfort (&lt; 48 hr) without permanent injury: e.g. reduced decrease in resting heart rate; reduction in exercise tachycardia; decreased pain relief from oxycodone; ADE resulting from increased bioavailability of atomoxetine (decreased appetite, insomnia, sleep disturbance etc); neutropenia &gt; 1.5x10<sup>9</sup>/l; leucopenia &gt; 3.0x10<sup>9</sup>/l; thrombocytopenia  &gt; 75x10<sup>9</sup>/l; moderate diarrhea not affecting daily activities; reduced glucose increase following oral glucose tolerance test.</td>\n</tr>\n<tr>\n<td>UM (a gene duplication in absence of inactive (*3-*8, *11-*16, *19-*21, *38, *40, *42) or decreased-activity (*9, *10, *17, *29, *36, *41) alleles)</td>\n<td>Reduce dose by 30% and be alert to ADEs (e.g., nausea, vomiting, constipation, respiratory depression, confusion, urinary retention) or select alternative drug (e.g., acetaminophen, NSAID, morphine-not oxycodone or codeine).</td>\n<td>Published controlled studies of moderate quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (48-168 hr) without permanent injury e.g. failure of therapy with tricyclic antidepressants, atypical antipsychotic drugs; extrapyramidal side effects; parkinsonism; ADE resulting from increased bioavailability of tricyclic antidepressants, metoprolol, propafenone (central effects e.g. dizziness); INR 4.5-6.0; neutropenia 1.0-1.5x10<sup>9</sup>/l; leucopenia 2.0-3.0x10<sup>9</sup>/l; thrombocytopenia 50-75x10<sup>9</sup>/l.</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good&quot; and &quot;moderate&quot; quality.</li>\n<li>S: statistically significant difference.</li>\n</ul>\n",
-      "version" : 17
+    {
+      "id": "PA166241262",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV 2)",
+        "CYP2D6:Decreased function/Normal function",
+        "CYP2D6:Increased function (AV 2)/No function",
+        "CYP2D6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451421192,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451421193,
+        "html": "<p>The guideline does not provide a recommendation for tramadol in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451421191,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on tramadol.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451421190,
+        "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
+      }
     },
-    "userId" : "carrillo",
-    "version" : 29
-  }
+    {
+      "id": "PA166241263",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV â‰¥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV â‰¥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV â‰¥3)/Increased function (AV â‰¥3)",
+        "CYP2D6:Increased function (AV â‰¥3)/No function",
+        "CYP2D6:Increased function (AV â‰¥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451421196,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451421197,
+        "html": "<p>As the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes, the effect of a dose reduction cannot be predicted with certainty.</p>\n<ol>\n<li>Select an alternative. Do not choose codeine, as it is contra-indicated for CYP2D6 UM. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in side effects in patients.</li>\n<li>If an alternative is not possible, use 40% of the standard dose. Advise the patient to report side effects (such as drowsiness, confusion, constipation, nausea and vomiting, respiratory depression or urine retention).</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451421195,
+        "html": "<p>The genetic variation increases the conversion of tramadol to a metabolite with a stronger opioid effect. This can result in an increase in potentially life-threatening side effects.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451421194,
+        "html": "<p>Total gene activity score â‰¥3</p>\n"
+      }
+    },
+    {
+      "id": "PA166241281",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451421202,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451421203,
+        "html": "<p>It is not possible to provide a recommendation for dose adjustment, because the total analgesic effect changes when the ratio between the mother compound and the active metabolite changes.</p>\n<ol>\n<li>be alert to a reduced effectiveness</li>\n<li>in the case of inadequate effectiveness:\na. try a dose increase\nb. if this does not work: choose an alternative. Do not select codeine, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>if no alternative is selected: advise the patient to report inadequate analgesia</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451421201,
+        "html": "<p>The genetic variation reduces the conversion of tramadol to a metabolite with a higher activity. This can result in reduced analgesia.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451421200,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "34267337",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).",
+      "authors": [
+        "Matic Maja",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Houwink Elisa J F",
+        "Mulder Hans",
+        "Rongen Gerard A P J M",
+        "Weide Jan van der",
+        "Wilffert Bob",
+        "Swen Jesse J",
+        "Guchelaar Henk-Jan",
+        "Deneer Vera H M",
+        "van Schaik Ron H N"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2021
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ]
 }

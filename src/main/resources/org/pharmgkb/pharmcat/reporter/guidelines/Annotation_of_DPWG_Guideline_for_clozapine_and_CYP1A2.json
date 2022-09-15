@@ -1,512 +1,191 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265301",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265301",
-    "name" : "Normal Metabolizer",
-    "genePhenotypes" : [ "CYP1A2:Normal function/Normal function", "CYP1A2:Normal function/Normal function (CYP1A2*1F)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
+  "guideline": {
+    "id": "PA166265241",
+    "name": "Annotation of DPWG Guideline for clozapine and CYP1A2",
+    "relatedChemicals": [
+      {
+        "id": "PA449061",
+        "name": "clozapine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA27093",
+        "name": "cytochrome P450 family 1 subfamily A member 2",
+        "symbol": "CYP1A2"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": false,
+    "guidelineGenes": [],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166265241",
+    "version": 4
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166265301",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP1A2:Normal function/Normal function",
+        "CYP1A2:Normal function/Normal function (CYP1A2*1F)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451698087,
+        "html": "<p>CYP1A2 normal metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451698088,
+        "html": "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451698086,
+        "html": "<p>This is NOT a gene-drug interaction</p>\n"
+      },
+      "activityScore": null
     },
-    "implications" : {
-      "id" : 1451698086,
-      "html" : "<p>This is NOT a gene-drug interaction</p>\n",
-      "version" : 0
+    {
+      "id": "PA166265281",
+      "name": "*1F/*1F",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP1A2:Normal function (CYP1A2*1F)/Normal function (CYP1A2*1F)"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451698023,
+        "html": "<p>The guideline does not provide a recommendation for clozapine in patients with the CYP1A2*1F/*1F genotype.</p>\n"
+      },
+      "implications": {
+        "id": 1451698021,
+        "html": "<p>The guideline does not provide a description of the impact of the CYP1A2*1F/*1F genotype on clozapine.</p>\n"
+      },
+      "activityScore": null
     },
-    "metabolizerStatus" : {
-      "id" : 1451698087,
-      "html" : "<p>CYP1A2 normal metabolizer</p>\n",
-      "version" : 0
+    {
+      "id": "PA166265223",
+      "name": "*1C heterozygote",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP1A2:Decreased function/Normal function",
+        "CYP1A2:Decreased function/Normal function (CYP1A2*1F)"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451697991,
+        "html": "<p>It is not possible to offer substantiated advice for dose reduction based on the literature.</p>\n<ol>\n<li>Adjust the dose as a function of the plasma concentration of clozapine.<br />\nA therapeutic range of 200-600 ng/mL has been proposed for clozapine.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451697989,
+        "html": "<p>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</p>\n"
+      },
+      "activityScore": null
     },
-    "recommendation" : {
-      "id" : 1451698088,
-      "html" : "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n",
-      "version" : 0
+    {
+      "id": "PA166265261",
+      "name": "*1C/*1C",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP1A2:Decreased function/Decreased function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451698005,
+        "html": "<p>It is not possible to offer substantiated advice for dose reduction based on the literature.</p>\n<ol>\n<li>Adjust the dose as a function of the plasma concentration of clozapine.<br />\nA therapeutic range of 200-600 ng/mL has been proposed for clozapine.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451698003,
+        "html": "<p>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</p>\n"
+      },
+      "activityScore": null
     },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
+    {
+      "id": "PA166265302",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP1A2:No function/Normal function",
+        "CYP1A2:No function/Normal function (CYP1A2*1F)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451698084,
+        "html": "<p>CYP1A2 intermediate metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451698085,
+        "html": "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451698083,
+        "html": "<p>This is NOT a gene-drug interaction</p>\n"
+      },
+      "activityScore": null
     },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265281",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265281",
-    "name" : "*1F/*1F",
-    "genePhenotypes" : [ "CYP1A2:Normal function (CYP1A2*1F)/Normal function (CYP1A2*1F)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
-    },
-    "implications" : {
-      "id" : 1451698021,
-      "html" : "<p>The guideline does not provide a description of the impact of the CYP1A2*1F/*1F genotype on clozapine.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451698022,
-      "html" : "<p>Homozygous for the CYP1A2*1F allele.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451698023,
-      "html" : "<p>The guideline does not provide a recommendation for clozapine in patients with the CYP1A2*1F/*1F genotype.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265223",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265223",
-    "name" : "*1C heterozygote",
-    "genePhenotypes" : [ "CYP1A2:Decreased function/Normal function", "CYP1A2:Decreased function/Normal function (CYP1A2*1F)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
-    },
-    "implications" : {
-      "id" : 1451697989,
-      "html" : "<p>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451697990,
-      "html" : "<p>Heterozygous for the CYP1A2*1C allele.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451697991,
-      "html" : "<p>It is not possible to offer substantiated advice for dose reduction based on the literature.</p>\n<ol>\n<li>Adjust the dose as a function of the plasma concentration of clozapine.<br />\nA therapeutic range of 200-600 ng/mL has been proposed for clozapine.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265261",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265261",
-    "name" : "*1C/*1C",
-    "genePhenotypes" : [ "CYP1A2:Decreased function/Decreased function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
-    },
-    "implications" : {
-      "id" : 1451698003,
-      "html" : "<p>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451698004,
-      "html" : "<p>Homozygous for the CYP1A2*1C allele.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451698005,
-      "html" : "<p>It is not possible to offer substantiated advice for dose reduction based on the literature.</p>\n<ol>\n<li>Adjust the dose as a function of the plasma concentration of clozapine.<br />\nA therapeutic range of 200-600 ng/mL has been proposed for clozapine.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265302",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265302",
-    "name" : "Intermediate Metabolizer",
-    "genePhenotypes" : [ "CYP1A2:No function/Normal function", "CYP1A2:No function/Normal function (CYP1A2*1F)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
-    },
-    "implications" : {
-      "id" : 1451698083,
-      "html" : "<p>This is NOT a gene-drug interaction</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451698084,
-      "html" : "<p>CYP1A2 intermediate metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451698085,
-      "html" : "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265321",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265321",
-    "name" : "Poor Metabolizer",
-    "genePhenotypes" : [ "CYP1A2:Decreased function/No function", "CYP1A2:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265241",
-      "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-      "version" : 4
-    },
-    "implications" : {
-      "id" : 1451698080,
-      "html" : "<p>This is NOT a gene-drug interaction</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451698081,
-      "html" : "<p>CYP1A2 poor metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451698082,
-      "html" : "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265241",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166265241",
-    "name" : "Annotation of DPWG Guideline for clozapine and CYP1A2",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ ],
-    "hasTestingGuidance" : false,
-    "history" : [ {
-      "id" : 1451697963,
-      "date" : "2022-02-28T00:00:00-08:00",
-      "type" : "Create",
-      "version" : 1
-    }, {
-      "id" : 1451704268,
-      "date" : "2022-03-03T16:33:37.390-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451723360,
-      "date" : "2022-03-18T10:09:47.049-07:00",
-      "description" : "Updated text based on February 2022 release. Removed extended dosing guideline due to lack of recommendations.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732907,
-      "date" : "2022-03-28T09:57:51.050-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    } ],
-    "literature" : [ ],
-    "pediatric" : false,
-    "recommendation" : false,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819171",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819171",
-      "symbol" : "CYP1A2*1A",
-      "name" : "*1A",
-      "version" : 7
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819172",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819172",
-      "symbol" : "CYP1A2*1B",
-      "name" : "*1B",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819173",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819173",
-      "symbol" : "CYP1A2*1C",
-      "name" : "*1C",
-      "version" : 7
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819174",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819174",
-      "symbol" : "CYP1A2*1D",
-      "name" : "*1D",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819175",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819175",
-      "symbol" : "CYP1A2*1E",
-      "name" : "*1E",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819176",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819176",
-      "symbol" : "CYP1A2*1F",
-      "name" : "*1F",
-      "version" : 7
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819178",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819178",
-      "symbol" : "CYP1A2*1J",
-      "name" : "*1J",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819179",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819179",
-      "symbol" : "CYP1A2*1K",
-      "name" : "*1K",
-      "version" : 7
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165988094",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165988094",
-      "symbol" : "CYP1A2*1L",
-      "name" : "*1L",
-      "version" : 4
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165988103",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165988103",
-      "symbol" : "CYP1A2*1V",
-      "name" : "*1V",
-      "version" : 4
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165988104",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165988104",
-      "symbol" : "CYP1A2*1W",
-      "name" : "*1W",
-      "version" : 4
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819181",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819181",
-      "symbol" : "CYP1A2*3",
-      "name" : "*3",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819182",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819182",
-      "symbol" : "CYP1A2*4",
-      "name" : "*4",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819183",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819183",
-      "symbol" : "CYP1A2*6",
-      "name" : "*6",
-      "version" : 6
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819184",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819184",
-      "symbol" : "CYP1A2*7",
-      "name" : "*7",
-      "version" : 6
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA449061",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA449061",
-      "name" : "clozapine",
-      "version" : 8
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA27093",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA27093",
-      "symbol" : "CYP1A2",
-      "name" : "cytochrome P450 family 1 subfamily A member 2",
-      "version" : 6459
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1451697966,
-      "html" : "<p>There is no gene-drug interaction between CYP1A2 and clozapine.</p>\n",
-      "version" : 1
-    },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1451697962,
-      "html" : "<h3 id=\"february-2022-update\">February 2022 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has updated their recommendations for clozapine based on CYP1A2 genotype. They now conclude there is no gene-drug interaction between any CYP1A2 alleles and clozapine. As a result, all recommendation have been removed. <a download=\"DPWG_February_2022_guidelines.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_February_2022_guidelines.pdf\">See the DPWG February 2022 update</a>.</p>\n<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for clozapine based on CYP1A2 genotype. They recommend adjusting clozapine dose as a function of clozapine plasma concentrations in patients with one or two copies of the CYP1A2*1C allele.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_August_2019.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2019.pdf\">Dutch guidelines August 2019 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP1A2 NM</td>\n<td>clozapine</td>\n<td>This is NOT a gene-drug interaction</td>\n<td>N/A</td>\n</tr>\n<tr>\n<td>CYP1A2 IM</td>\n<td>clozapine</td>\n<td>This is NOT a gene-drug interaction</td>\n<td>N/A</td>\n</tr>\n<tr>\n<td>CYP1A2 PM</td>\n<td>clozapine</td>\n<td>This is NOT a gene-drug interaction</td>\n<td>N/A</td>\n</tr>\n<tr>\n<td>CYP1A2*1A/*1F</td>\n<td>clozapine</td>\n<td>This is NOT a gene-drug interaction</td>\n<td>N/A</td>\n</tr>\n<tr>\n<td>CYP1A2*1C-heterozygote</td>\n<td>clozapine</td>\n<td>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</td>\n<td>It is not possible to offer substantiated advice for dose reduction based on the literature.<br/>1. Adjust the dose as a function of the plasma concentration of clozapine. A therapeutic range of 200-600 ng/mL has been proposed for clozapine.</td>\n</tr>\n<tr>\n<td>CYP1A2*1C/*1C</td>\n<td>clozapine</td>\n<td>The genetic polymorphism can result in a reduced metabolism of clozapine. This can result in an increase in the plasma concentration of clozapine and thereby the risk of adverse events.</td>\n<td>It is not possible to offer substantiated advice for dose reduction based on the literature.<br/>1. Adjust the dose as a function of the plasma concentration of clozapine. A therapeutic range of 200-600 ng/mL has been proposed for clozapine.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004643.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 4
-  }
+    {
+      "id": "PA166265321",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP1A2:Decreased function/No function",
+        "CYP1A2:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451698081,
+        "html": "<p>CYP1A2 poor metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451698082,
+        "html": "<p>The DPWG does not provide a recommendation as there is no gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451698080,
+        "html": "<p>This is NOT a gene-drug interaction</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }

@@ -911,5 +911,85 @@
     },
     "exception_type": "footnote",
     "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
+  },
+  {
+    "rule_name": "DPYD lowest activity score note",
+    "version": "2",
+    "matches": {
+      "gene": "DPYD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": [
+        "capecitabine",
+        "fluorouracil",
+        "tegafur",
+        "flucytosine"
+      ]
+    },
+    "exception_type": "note",
+    "message": "The two lowest activity values (variant activity scores, see CPIC guideline 29152729) are used to determine the gene activity score and phenotype type to retrieve prescribing recommendations. The reference allele is used to represent normal function alleles (activity value of 1)."
+  },
+  {
+    "rule_name": "CYP2D6 -research mode - note",
+    "version": "2",
+    "matches": {
+      "gene": "CYP2D6",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "CYP2D6 is highly polymorphic and a number of variants are included in multiple allele definition (e.g., 100C>T). The most specific CYP2D6 genotype can be determined if all positions included in the CYP2D6 allele definition file are provided in the input VCF. An increased number of missing positions will result in an output of several likely genotypes based on the functionality of the Named Allele Matcher."
+  },
+  {
+    "rule_name": "Partial and combination calls-unphased output",
+    "version": "2",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "In case of unphased data, the Named Allele Matcher provides some possible partial or combination allele calls but not all permutations."
+  },
+  {
+    "rule_name": "Partial and combination calls-naming",
+    "version": "2",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "Partial and combination allele calls are based on the variants identified in the VCF file. Matches to different star allele definitions or star allele with additional position combinations are connected by a '+', which represents combinations in a single gene copy per allele and does NOT indicate gene duplications."
+  },
+  {
+    "rule_name": "CYP2D6 -research mode - general",
+    "version": "2",
+    "matches": {
+      "gene": "",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": "",
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "The “CYP2D6 research mode” option is included in PharmCAT to allow calling CYP2D6 from SNPs and small indels alone based on the CPIC CYP2D6 allele definition file. This only allows to determine CYP2D6 diplotypes with CYP2D6 star-alleles that do not define or include structural variation, gene deletion, or gene duplication/multiplication. Therefore, PharmCAT in the general setting does not determines CYP2D6 diplotypes from vcf files due to the large influence of structural variation and copy number variation (CNVs) on the predicted CYP2D6 phenotype, which is beyond the scope of what can be called from SNPs in a VCF file.  The feature should be used with the understanding that the CYP2D6 ultrarapid metabolizer phenotype cannot be determined, and the other metabolizer phenotypes might be impacted due to the lack of knowledge about the whole gene deletion or hybrid alleles with CYP2D7."
   }
 ]

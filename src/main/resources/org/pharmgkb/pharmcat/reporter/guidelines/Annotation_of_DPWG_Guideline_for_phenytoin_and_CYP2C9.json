@@ -1,1099 +1,378 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243741",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243741",
-    "name" : "Intermediate Metabolizer",
-    "genePhenotypes" : [ "CYP2C9:Decreased function/Normal function (CYP2C9*1)", "CYP2C9:No function/Normal function (CYP2C9*1)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444681,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444682,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444683,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243781",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243781",
-    "name" : "*2/*2",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*2)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444780,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444781,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451444782,
-      "html" : "<p><em>CYP2C9*2/*2</em> genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444783,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243782",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243782",
-    "name" : "*2/*3",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*3)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444784,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444785,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451444786,
-      "html" : "<p><em>CYP2C9*2/*3</em> genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444787,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243742",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243742",
-    "name" : "Normal Metabolizer",
-    "genePhenotypes" : [ "CYP2C9:Normal function (CYP2C9*1)/Normal function (CYP2C9*1)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451445434,
-      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on phenytoin.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451445435,
-      "html" : "<p>Normal Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451445436,
-      "html" : "<p>The guideline does not provide a recommendation for phenytoin in normal metabolizers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243801",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243801",
-    "name" : "*3/*3",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*3)/Decreased function (CYP2C9*3)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444800,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444801,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451444802,
-      "html" : "<p><em>CYP2C9*3/*3</em> genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444803,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 40% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243744",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243744",
-    "name" : "*1/*3",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*3)/Normal function (CYP2C9*1)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444760,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444761,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451444762,
-      "html" : "<p><em>CYP2C9*1/*3</em> genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444763,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243743",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243743",
-    "name" : "*1/*2",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/Normal function (CYP2C9*1)" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444740,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444741,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451444742,
-      "html" : "<p><em>CYP2C9*1/*2</em> genotype.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444743,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166243761",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166243761",
-    "name" : "Poor Metabolizer",
-    "genePhenotypes" : [ "CYP2C9:Decreased function (CYP2C9*2)/No function", "CYP2C9:Decreased function (CYP2C9*3)/No function", "CYP2C9:Decreased function/Decreased function", "CYP2C9:Decreased function/Decreased function (CYP2C9*2)", "CYP2C9:Decreased function/Decreased function (CYP2C9*3)", "CYP2C9:Decreased function/No function", "CYP2C9:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166104984",
-      "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-      "version" : 29
-    },
-    "implications" : {
-      "id" : 1451444665,
-      "html" : "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451444666,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451444667,
-      "html" : "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 40-50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ {
-    "@id" : "https://pharmgkb.org/literature/7283333",
-    "@context" : "https://api.pharmgkb.org/jsonld/literature.jsonld",
-    "id" : 7283333,
-    "title" : "Pharmacogenetics: from bench to byte--an update of guidelines.",
-    "_sameAs" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-    "authors" : [ "Swen J J", "Nijenhuis M", "de Boer A", "Grandia L", "Maitland-van der Zee A H", "Mulder H", "Rongen G A P J M", "van Schaik R H N", "Schalekamp T", "Touw D J", "van der Weide J", "Wilffert B", "Deneer V H M", "Guchelaar H-J" ],
-    "crossReferences" : [ {
-      "@id" : "https://pharmgkb.org/crossReference/pubMed/21412232",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 769250885,
-      "resource" : "PubMed",
-      "resourceId" : "21412232",
-      "_url" : "https://www.ncbi.nlm.nih.gov/pubmed/21412232",
-      "version" : 0
-    }, {
-      "@id" : "https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34",
-      "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-      "id" : 1449247827,
-      "resource" : "DOI",
-      "resourceId" : "10.1038/clpt.2011.34",
-      "_url" : "http://dx.doi.org/10.1038%2Fclpt.2011.34",
-      "version" : 0
-    } ],
-    "hasKeyword" : true,
-    "journal" : "Clinical pharmacology and therapeutics",
-    "meshDiseases" : [ ],
-    "meshTerms" : [ "Animals", "Aryl Hydrocarbon Hydroxylases", "Cytochrome P-450 CYP2C9", "Drug Administration Schedule", "Drug-Related Side Effects and Adverse Reactions", "Humans", "Pharmaceutical Preparations", "Pharmacogenetics", "Practice Guidelines as Topic" ],
-    "month" : 5,
-    "nonHuman" : false,
-    "objCls" : "Literature",
-    "page" : "662-73",
-    "pediatric" : false,
-    "pgkbPublication" : false,
-    "pubDate" : "2011-05-01T00:00:00-07:00",
-    "summary" : "Currently, there are very few guidelines linking the results of pharmacogenetic tests to specific therapeutic recommendations. Therefore, the Royal Dutch Association for the Advancement of Pharmacy established the Pharmacogenetics Working Group with the objective of developing pharmacogenetics-based therapeutic (dose) recommendations. After systematic review of the literature, recommendations were developed for 53 drugs associated with genes coding for CYP2D6, CYP2C19, CYP2C9, thiopurine-S-methyltransferase (TPMT), dihydropyrimidine dehydrogenase (DPD), vitamin K epoxide reductase (VKORC1), uridine diphosphate glucuronosyltransferase 1A1 (UGT1A1), HLA-B44, HLA-B*5701, CYP3A5, and factor V Leiden (FVL).",
-    "version" : 2,
-    "volume" : "89",
-    "year" : 2011
-  } ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166104984",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166104984",
-    "name" : "Annotation of DPWG Guideline for phenytoin and CYP2C9",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451444661,
-      "alleles" : [ {
-        "id" : 1451444662,
-        "_label" : "*1",
-        "allele" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444660",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451444660,
-          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function (CYP2C9*1)",
-          "termId" : "alleleFunction:1451444660",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444637,
-        "_label" : "*2",
-        "allele" : "*2",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444630",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451444630,
-          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function (CYP2C9*2)",
-          "termId" : "alleleFunction:1451444630",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444663,
-        "_label" : "*3",
-        "allele" : "*3",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451444680",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451444680,
-          "description" : "for extended dosing guidelines on DPWG CYP2C9 guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function (CYP2C9*3)",
-          "termId" : "alleleFunction:1451444680",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444631,
-        "_label" : "*4",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816545",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816545",
-          "symbol" : "CYP2C9*4",
-          "name" : "*4",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444632,
-        "_label" : "*5",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816546",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816546",
-          "symbol" : "CYP2C9*5",
-          "name" : "*5",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444633,
-        "_label" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816547",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816547",
-          "symbol" : "CYP2C9*6",
-          "name" : "*6",
-          "version" : 22
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444634,
-        "_label" : "*8",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816549",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816549",
-          "symbol" : "CYP2C9*8",
-          "name" : "*8",
-          "version" : 23
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444635,
-        "_label" : "*11",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816552",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816552",
-          "symbol" : "CYP2C9*11",
-          "name" : "*11",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444636,
-        "_label" : "*12",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165816553",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165816553",
-          "symbol" : "CYP2C9*12",
-          "name" : "*12",
-          "version" : 21
-        },
-        "version" : 0
-      }, {
-        "id" : 1451444664,
-        "_label" : "*13",
-        "allele" : "*13",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA126",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA126",
-        "symbol" : "CYP2C9",
-        "name" : "cytochrome P450 family 2 subfamily C member 9",
-        "alleleFile" : "CYP2C9_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 2, subfamily C, polypeptide 9" ],
-          "symbol" : [ "CYP2C10", "P450IIC9" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q23.33",
-        "cbStop" : "q23.33",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA504",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA504",
-          "name" : "chr10",
-          "version" : 3
-        },
-        "chrStartPosB37" : 96698350,
-        "chrStartPosB38" : 94905867,
-        "chrStopPosB37" : 96749486,
-        "chrStopPosB38" : 94989395,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000304H",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 124544684,
-          "resource" : "ALFRED",
-          "resourceId" : "LO000304H",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000304H",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1559",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242511,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1559",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1559",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000138109",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256030,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000138109",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000138109",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2C9",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73374,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP2C9",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2C9",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2C9",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88302,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP2C9",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2C9",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 8676615,
-          "resource" : "GO",
-          "resourceId" : "GO:0016712",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018675",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 130200545,
-          "resource" : "GO",
-          "resourceId" : "GO:0018675",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018675",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0018676",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62330469,
-          "resource" : "GO",
-          "resourceId" : "GO:0018676",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0018676",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2623",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608087481,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2623",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2623",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS06458",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608087488,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS06458",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS06458",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P11712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560877670,
-          "resource" : "ModBase",
-          "resourceId" : "P11712",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P11712",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2C9",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455912,
-          "resource" : "MutDB",
-          "resourceId" : "CYP2C9",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2C9",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1559",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10746,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1559",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1559",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/122700",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556297,
-          "resource" : "OMIM",
-          "resourceId" : "122700",
-          "_url" : "http://omim.org/entry/122700",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/601130",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 4208,
-          "resource" : "OMIM",
-          "resourceId" : "601130",
-          "_url" : "http://omim.org/entry/601130",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2C9",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451280330,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP2C9",
-          "_url" : "https://www.pharmvar.org/gene/CYP2C9",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008385",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556313,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_008385",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008385",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_030059",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37037,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_030059",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_030059",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000762",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37898,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000762",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000762",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000771",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46973,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000771",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000771",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000771",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 122290,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000771",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000771",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P11712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62330450,
-          "name" : "CP2C9_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P11712",
-          "_url" : "http://www.uniprot.org/uniprot/P11712",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q5VX92",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608087487,
-          "name" : "Q5VX92_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q5VX92",
-          "_url" : "http://www.uniprot.org/uniprot/Q5VX92",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 87,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2c9.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "plus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499864,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008144","resource":"Gene Ontology","term":"drug binding","termId":"GO:0008144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018675","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508105,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018675","resource":"Gene Ontology","term":"(S)-limonene 6-monooxygenase activity","termId":"GO:0018675"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0018676","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560508106,"_url":"http://amigo.geneontology.org/amigo/term/GO:0018676","resource":"Gene Ontology","term":"(S)-limonene 7-monooxygenase activity","termId":"GO:0018676"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019627","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495074,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019627","resource":"Gene Ontology","term":"urea metabolic process","termId":"GO:0019627"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0032787","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500462,"_url":"http://amigo.geneontology.org/amigo/term/GO:0032787","resource":"Gene Ontology","term":"monocarboxylic acid metabolic process","termId":"GO:0032787"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033767","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513624,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033767","resource":"Gene Ontology","term":"4-hydroxyacetophenone monooxygenase activity","termId":"GO:0033767"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0034875","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560514701,"_url":"http://amigo.geneontology.org/amigo/term/GO:0034875","resource":"Gene Ontology","term":"caffeine oxidase activity","termId":"GO:0034875"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0043603","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509048,"_url":"http://amigo.geneontology.org/amigo/term/GO:0043603","resource":"Gene Ontology","term":"cellular amide metabolic process","termId":"GO:0043603"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
-        "version" : 7876
+  "guideline": {
+    "id": "PA166104984",
+    "name": "Annotation of DPWG Guideline for phenytoin and CYP2C9",
+    "relatedChemicals": [
+      {
+        "id": "PA450947",
+        "name": "phenytoin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA126",
+        "name": "cytochrome P450 family 2 subfamily C member 9",
+        "symbol": "CYP2C9"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451444662,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function (CYP2C9*1)",
+              "termId": "alleleFunction:1451444660"
+            }
+          },
+          {
+            "id": 1451444637,
+            "_label": "*2",
+            "function": {
+              "term": "Decreased function (CYP2C9*2)",
+              "termId": "alleleFunction:1451444630"
+            }
+          },
+          {
+            "id": 1451444663,
+            "_label": "*3",
+            "function": {
+              "term": "Decreased function (CYP2C9*3)",
+              "termId": "alleleFunction:1451444680"
+            }
+          },
+          {
+            "id": 1451444631,
+            "_label": "*4",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451444632,
+            "_label": "*5",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451444633,
+            "_label": "*6",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451444634,
+            "_label": "*8",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451444635,
+            "_label": "*11",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451444636,
+            "_label": "*12",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451444664,
+            "_label": "*13",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA504",
+            "name": "chr10",
+            "symbol": null
+          },
+          "strand": "plus",
+          "id": "PA126",
+          "name": "cytochrome P450 family 2 subfamily C member 9",
+          "symbol": "CYP2C9"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104984",
+    "version": 29
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166243741",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : false,
-    "history" : [ {
-      "id" : 1183704519,
-      "date" : "2011-08-10T00:00:00-07:00",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1450414973,
-      "date" : "2019-05-23T10:59:44.720-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450821024,
-      "date" : "2019-10-07T18:16:57.352-07:00",
-      "description" : "No changes based on August 2019 guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450956371,
-      "date" : "2020-01-31T13:45:35.815-08:00",
-      "description" : "Updated link to 2011 DPWG methods",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963781,
-      "date" : "2020-02-11T07:20:07.518-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451445801,
-      "date" : "2021-05-18T00:00:00-07:00",
-      "description" : "Added extended dosing",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451699881,
-      "date" : "2022-03-01T13:17:28.972-08:00",
-      "description" : "Updated names of IM and PM groups and added footnote and explanation.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704223,
-      "date" : "2022-03-03T16:33:30.446-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451732863,
-      "date" : "2022-03-28T09:57:44.246-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/7283333","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":7283333,"title":"Pharmacogenetics: from bench to byte--an update of guidelines.","_sameAs":"https://www.ncbi.nlm.nih.gov/pubmed/21412232","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/pubMed/21412232","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":769250885,"resource":"PubMed","resourceId":"21412232","_url":"https://www.ncbi.nlm.nih.gov/pubmed/21412232"},{"@id":"https://pharmgkb.org/crossReference/doi/10.1038/clpt.2011.34","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1449247827,"resource":"DOI","resourceId":"10.1038/clpt.2011.34","_url":"http://dx.doi.org/10.1038%2Fclpt.2011.34"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/haplotype/PA165816543",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165816543",
-      "symbol" : "CYP2C9*2",
-      "name" : "*2",
-      "version" : 21
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165816544",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165816544",
-      "symbol" : "CYP2C9*3",
-      "name" : "*3",
-      "version" : 23
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA450947",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA450947",
-      "name" : "phenytoin",
-      "version" : 13
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA126",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA126",
-      "symbol" : "CYP2C9",
-      "name" : "cytochrome P450 family 2 subfamily C member 9",
-      "version" : 7876
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1447981976,
-      "html" : "<p>Use the standard starting dose of phenytoin and reduce the maintenance dose based on CYP2C9 genotype; monitor response and serum concentrations and be aware of ADEs.</p>\n",
-      "version" : 0
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function/Normal function (CYP2C9*1)",
+        "CYP2C9:No function/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444682,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444683,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444681,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1447981975,
-      "html" : "<h3 id=\"may-2021-update\">May 2021 update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has made some minor changes to the names of some phenotype groups in this guideline. The table below has been updated to reflect this but the recommendations themselves have not changed.</p>\n<h3 id=\"november-2018-update\">November 2018 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for phenytoin based on CYP2C9 genotype. They recommend a reduction in the maintenance dose for patients with the CYP2C9*1/*2, *1/*3, *2/*2, *2/*3, *3/*3 or other CYP2C9 genotypes which lead to an intermediate metabolizer (IM) or poor metabolizer (PM) phenotype. Patient response, serum concentrations and potential ADEs should be monitored.</p>\n<p>The annotation of the DPWG guideline for phenytoin and HLA-B can be found <a href=\"/guidelineAnnotation/PA166264881\">here</a>.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2C9 IM other<sup>a</sup></td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 PM other<sup>a</sup></td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 40-50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 *1/*2</td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 *1/*3</td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 *2/*2</td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 *2/*3</td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</td>\n</tr>\n<tr>\n<td>CYP2C9 *3/*3</td>\n<td>phenytoin</td>\n<td>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</td>\n<td>1. The loading dose does not need to be adjusted.<br/>2. For the other doses, use 40% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.<br/>3. Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</td>\n</tr>\n</tbody>\n</table>\n<p><sup>a</sup> These groups are referred to in the DPWG recommendation PDF as 'IM ANDERS' and 'PM ANDERS', which use the Dutch word 'anders'. PharmGKB has translated these as 'IM other' and PM other', respectively.</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0001676.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"2011-guideline\">2011 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for phenytoin based on CYP2C9 genotype [Article:<a href=\"/pmid/21412232\">21412232</a>].</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Genotype</th>\n<th>Therapeutic Dose Recommendation</th>\n<th>Level of Evidence</th>\n<th>Clinical Relevance</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2C9 *1/*2</td>\n<td>Standard loading dose. Reduce maintenance dose by 25%. Evaluate response and serum concentration after 7-10 days. Be alert to ADEs (e.g., ataxia, nystagmus, dysarthria, sedation)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Minor clinical effect (S): QTc prolongation (&lt;450 ms females, &lt;470 ms males); INR increase &lt; 4.5Kinetic effect (S)</td>\n</tr>\n<tr>\n<td>CYP2C9 *2/*2</td>\n<td>Standard loading dose. Reduce maintenance dose by 50%. Evaluate response and serum concentration after 7-10 days. Be alert to ADEs (e.g., ataxia, nystagmus, dysarthria, sedation)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Minor clinical effect (S): QTc prolongation (&lt;450 ms females, &lt;470 ms males); INR increase &lt; 4.5Kinetic effect (S)</td>\n</tr>\n<tr>\n<td>CYP2C9 *1/*3</td>\n<td>Standard loading dose. Reduce maintenance dose by 25%. Evaluate response and serum concentration after 7-10 days. Be alert to ADEs (e.g., ataxia, nystagmus, dysarthria, sedation)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10<sup>9</sup>/l; leucopenia 1.0-2.0x10<sup>9</sup>/l; thrombocytopenia 25-50x10<sup>9</sup>/l; severe diarrhea</td>\n</tr>\n<tr>\n<td>CYP2C9 *2/*3</td>\n<td>Standard loading dose. Reduce maintenance dose by 50%. Evaluate response and serum concentration after 7-10 days. Be alert to ADEs (e.g., ataxia, nystagmus, dysarthria, sedation)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Minor clinical effect (S): QTc prolongation (&lt;450 ms females, &lt;470 ms males); INR increase &lt; 4.5Kinetic effect (S)</td>\n</tr>\n<tr>\n<td>CYP2C9 *3/*3</td>\n<td>Standard loading dose. Reduce maintenance dose by 50%. Evaluate response and serum concentration after 7-10 days. Be alert to ADEs (e.g., ataxia, nystagmus, dysarthria, sedation)</td>\n<td>Published controlled studies of good quality* relating to phenotyped and/or genotyped patients or healthy volunteers, and having relevant pharmacokinetic or clinical endpoints.</td>\n<td>Clinical effect (S): long-standing discomfort (&gt; 168 hr), permanent symptom or invalidating injury e.g. failure of prophylaxis of atrial fibrillation; venous thromboembolism; decreased effect of clopidogrel on inhibition of platelet aggregation; ADE resulting from increased bioavailability of phenytoin; INR &gt; 6.0; neutropenia 0.5-1.0x10<sup>9</sup>/l; leucopenia 1.0-2.0x10<sup>9</sup>/l; thrombocytopenia 25-50x10<sup>9</sup>/l; severe diarrhea</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>*See <a href=\"http://www.pharmgkb.org/page/dpwg\">Methods </a> or [Article:<a href=\"/pmid/18253145\">18253145</a>] for definition of &quot;good quality.&quot;</li>\n<li>S: statistically significant difference.</li>\n</ul>\n",
-      "version" : 14
+    {
+      "id": "PA166243781",
+      "name": "*2/*2",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*2)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444781,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444783,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444780,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "matt",
-    "version" : 29
-  }
+    {
+      "id": "PA166243782",
+      "name": "*2/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*3)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444785,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444787,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444784,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243742",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Normal function (CYP2C9*1)/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451445435,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451445436,
+        "html": "<p>The guideline does not provide a recommendation for phenytoin in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451445434,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on phenytoin.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243801",
+      "name": "*3/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*3)/Decreased function (CYP2C9*3)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444801,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444803,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 40% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444800,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243744",
+      "name": "*1/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*3)/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444761,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444763,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or, especially in Asian patients, rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444760,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects. The life-threatening cutaneous side effects Stevens-Johnson Syndrome and toxic epidermal necrolysis may occur, especially in Asian patients.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243743",
+      "name": "*1/*2",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444741,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444743,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 75% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444740,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243761",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/No function",
+        "CYP2C9:Decreased function (CYP2C9*3)/No function",
+        "CYP2C9:Decreased function/Decreased function",
+        "CYP2C9:Decreased function/Decreased function (CYP2C9*2)",
+        "CYP2C9:Decreased function/Decreased function (CYP2C9*3)",
+        "CYP2C9:Decreased function/No function",
+        "CYP2C9:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451444666,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451444667,
+        "html": "<ol>\n<li>The loading dose does not need to be adjusted.</li>\n<li>For the other doses, use 40-50% of the standard dose and assess the dose based on effect and serum concentration after 7-10 days.</li>\n<li>Advise the patient to get in touch if side effects (such as ataxia, nystagmus, slurred speech, sedation or rash) occur.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451444665,
+        "html": "<p>Genetic variation reduces conversion of phenytoin to inactive metabolites. This increases the risk of side effects.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ]
 }

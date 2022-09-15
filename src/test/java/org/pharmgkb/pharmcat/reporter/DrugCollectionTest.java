@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class DrugCollectionTest {
+  private static final int NUM_DRUGS = 104;
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   /**
@@ -25,7 +26,7 @@ class DrugCollectionTest {
   @Test
   void testLoad() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(72, drugCollection.list().size());
+    assertEquals(NUM_DRUGS, drugCollection.list().size());
   }
 
   /**
@@ -36,7 +37,7 @@ class DrugCollectionTest {
   @Test
   void testLoadReportable() throws IOException {
     DrugCollection drugCollection = new DrugCollection();
-    assertEquals(72, drugCollection.listReportable().size());
+    assertEquals(NUM_DRUGS, drugCollection.listReportable().size());
 
     Set<String> reportableDrugNames = drugCollection.listReportable().stream().map(Drug::getDrugName).collect(Collectors.toSet());
     Set<String> drugNames = drugCollection.list().stream().map(Drug::getDrugName).collect(Collectors.toSet());

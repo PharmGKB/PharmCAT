@@ -1,563 +1,135 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248443",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166248443",
-    "name" : "521 TT",
-    "genePhenotypes" : [ "SLCO1B1:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182844",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182844",
-      "name" : "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
-      "version" : 10
-    },
-    "implications" : {
-      "id" : 1451492918,
-      "html" : "<p>The guideline does not provide a description of the impact of the <em>SLCO1B1</em> 521 TT genotype on simvastatin.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451492919,
-      "html" : "<p>Patient with the <em>SLCO1B1</em> 521 TT genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451492920,
-      "html" : "<p>The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248442",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166248442",
-    "name" : "521 CT",
-    "genePhenotypes" : [ "SLCO1B1:Decreased function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182844",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182844",
-      "name" : "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
-      "version" : 10
-    },
-    "implications" : {
-      "id" : 1451492940,
-      "html" : "<p>When using simvastatin 80 mg/day, the risk of myopathy is increased 5-fold to 3% for moderately severe to severe myopathy and 1.3% for severe myopathy. When using 40 mg/day, this risk is increased 2.6-fold to 0.39% and 0.17% respectively. The gene variation may lead to reduced simvastatin transport to the liver, which may increase simvastatin plasma concentrations and therefore the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451492941,
-      "html" : "<p>Patient with the <em>SLCO1B1</em> 521 CT genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451492942,
-      "html" : "<ol>\n<li>Choose an alternative.\nConsider any additional risk factors for statin-induced myopathy.\nAtorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.\nRosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.\nFluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option:\n<ol>\n<li>Avoid simvastatin doses exceeding 40mg/day.</li>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166248441",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166248441",
-    "name" : "521 CC",
-    "genePhenotypes" : [ "SLCO1B1:Decreased function/Decreased function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182844",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182844",
-      "name" : "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
-      "version" : 10
-    },
-    "implications" : {
-      "id" : 1451492930,
-      "html" : "<p>When using simvastatin 80 mg/day, the risk of myopathy is increased 30-fold to 18% and the risk of severe myopathy is increased 48-fold to 12%. When using 40 mg/day, this risk is increased 7-fold to 1% and 11-fold to 0.68% respectively. The gene variation leads to reduced simvastatin transport to the liver, which increases the simvastatin plasma concentration and therefore the risk of side effects.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451492931,
-      "html" : "<p>Patient with the <em>SLCO1B1</em> 521 CC genotype</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451492932,
-      "html" : "<ol>\n<li>Choose an alternative.\nConsider any additional risk factors for statin-induced myopathy.\nAtorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.\nRosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.\nFluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n</ol>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182844",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166182844",
-    "name" : "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451492900,
-      "alleles" : [ {
-        "id" : 1451492901,
-        "_label" : "c.521 C",
-        "allele" : "c.521 C",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451492902,
-        "_label" : "c.521 T",
-        "allele" : "c.521 T",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA134865839",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA134865839",
-        "symbol" : "SLCO1B1",
-        "name" : "solute carrier organic anion transporter family member 1B1",
-        "alleleFile" : "SLCO1B1_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "solute carrier organic anion transporter family, member 1B1" ],
-          "symbol" : [ "LST-1", "OATP-C", "OATP1B1", "SLC21A6" ]
-        },
-        "buildVersion" : "GRCh38",
-        "cbStart" : "p12.2",
-        "cbStop" : "p12.1",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA508",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA508",
-          "name" : "chr12",
-          "version" : 3
-        },
-        "chrStartPosB37" : 21284128,
-        "chrStartPosB38" : 21131194,
-        "chrStopPosB37" : 21392730,
-        "chrStopPosB38" : 21239796,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO013242M",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608076670,
-          "resource" : "ALFRED",
-          "resourceId" : "LO013242M",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO013242M",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/10599",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553239425,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "10599",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=10599",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000134538",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132269853,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000134538",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000134538",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/SLCO1B1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123067002,
-          "resource" : "GenAtlas",
-          "resourceId" : "SLCO1B1",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=SLCO1B1",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/SLCO1B1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123067003,
-          "resource" : "GeneCard",
-          "resourceId" : "SLCO1B1",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=SLCO1B1",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005215",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34950,
-          "resource" : "GO",
-          "resourceId" : "GO:0005215",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005215",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005624",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34644,
-          "resource" : "GO",
-          "resourceId" : "GO:0005624",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005624",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005887",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34662,
-          "resource" : "GO",
-          "resourceId" : "GO:0005887",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005887",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006811",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35126,
-          "resource" : "GO",
-          "resourceId" : "GO:0006811",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006811",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0015347",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36013,
-          "resource" : "GO",
-          "resourceId" : "GO:0015347",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0015347",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0015711",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35283,
-          "resource" : "GO",
-          "resourceId" : "GO:0015711",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0015711",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:10959",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608076669,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:10959",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A10959",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS05882",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608076672,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS05882",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS05882",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9Y6L6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560876433,
-          "resource" : "ModBase",
-          "resourceId" : "Q9Y6L6",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9Y6L6",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/SLCO1B1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123067005,
-          "resource" : "MutDB",
-          "resourceId" : "SLCO1B1",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=SLCO1B1",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/10599",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 9284,
-          "resource" : "NCBI Gene",
-          "resourceId" : "10599",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/10599",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/604843",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 7200,
-          "resource" : "OMIM",
-          "resourceId" : "604843",
-          "_url" : "http://omim.org/entry/604843",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/SLCO1B1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451669412,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "SLCO1B1",
-          "_url" : "https://www.pharmvar.org/gene/SLCO1B1",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_011745.1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451151134,
-          "name" : "NG_011745.1",
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_011745.1",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_011745.1",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_006437",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 42861,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_006437",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_006437",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_006446",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 51961,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_006446",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_006446",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_006446",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 120845,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_006446",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_006446",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q05CV5",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608076671,
-          "name" : "Q05CV5_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q05CV5",
-          "_url" : "http://www.uniprot.org/uniprot/Q05CV5",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q9Y6L6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77698353,
-          "name" : "SO1B1_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q9Y6L6",
-          "_url" : "http://www.uniprot.org/uniprot/Q9Y6L6",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "plus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005215","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499603,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005215","resource":"Gene Ontology","term":"transporter activity","termId":"GO:0005215"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005624","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495464,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005624","resource":"Gene Ontology","term":"membrane fraction","termId":"GO:0005624"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005886","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500224,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005886","resource":"Gene Ontology","term":"plasma membrane","termId":"GO:0005886"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005887","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500225,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005887","resource":"Gene Ontology","term":"integral to plasma membrane","termId":"GO:0005887"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006811","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501464,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006811","resource":"Gene Ontology","term":"ion transport","termId":"GO:0006811"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0015347","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506053,"_url":"http://amigo.geneontology.org/amigo/term/GO:0015347","resource":"Gene Ontology","term":"sodium-independent organic anion transmembrane transporter activity","termId":"GO:0015347"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0015711","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506370,"_url":"http://amigo.geneontology.org/amigo/term/GO:0015711","resource":"Gene Ontology","term":"organic anion transport","termId":"GO:0015711"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016323","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506899,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016323","resource":"Gene Ontology","term":"basolateral plasma membrane","termId":"GO:0016323"} ],
-        "version" : 49
+  "guideline": {
+    "id": "PA166182844",
+    "name": "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
+    "relatedChemicals": [
+      {
+        "id": "PA451363",
+        "name": "simvastatin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134865839",
+        "name": "solute carrier organic anion transporter family member 1B1",
+        "symbol": "SLCO1B1"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451492901,
+            "_label": "c.521 C",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451492902,
+            "_label": "c.521 T",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA508",
+            "name": "chr12",
+            "symbol": null
+          },
+          "strand": "plus",
+          "id": "PA134865839",
+          "name": "solute carrier organic anion transporter family member 1B1",
+          "symbol": "SLCO1B1"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182844",
+    "version": 10
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166248443",
+      "name": "521 TT",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1450415247,
-      "date" : "2019-05-27T00:00:00-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450821034,
-      "date" : "2019-10-07T18:33:59.696-07:00",
-      "description" : "No changes based on August 2019 guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963902,
-      "date" : "2020-02-11T07:53:52.150-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963883,
-      "date" : "2020-02-11T07:54:48.614-08:00",
-      "description" : "Fixed table where said atorvastatin instead of simvastatin",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451221540,
-      "date" : "2020-07-06T20:14:39.045-07:00",
-      "description" : "fixed typo for 521 TC in the table",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451257900,
-      "date" : "2020-08-31T17:39:51.853-07:00",
-      "description" : "updated according to the August 2020 document",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451492980,
-      "date" : "2021-09-08T00:00:00-07:00",
-      "description" : "Added extended dosing guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704168,
-      "date" : "2022-03-03T16:33:20.952-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451707501,
-      "date" : "2022-03-08T10:44:03.380-08:00",
-      "description" : "Added information about preemptive genotyping",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732808,
-      "date" : "2022-03-28T09:57:34.711-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451733454,
-      "date" : "2022-03-28T15:02:24.877-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451741542,
-      "date" : "2022-04-05T11:18:57.557-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15113882","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15113882,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2020","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1451257580,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2020.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/variant/PA166154579",
-      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
-      "objCls" : "Variant",
-      "id" : "PA166154579",
-      "symbol" : "rs4149056",
-      "name" : "rs4149056",
-      "version" : 5
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA451363",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA451363",
-      "name" : "simvastatin",
-      "version" : 23
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA134865839",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA134865839",
-      "symbol" : "SLCO1B1",
-      "name" : "solute carrier organic anion transporter family member 1B1",
-      "version" : 49
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1450415244,
-      "html" : "<p>Choose an alternative for patients with the SLCO1B1 521 CC or TC (rs4149056) genotype and consider any additional risk factors for statin-induced myopathy.  If an alternative is not an option for patients with the 521 TC genotype, avoid simvastatin doses exceeding 40 mg/day and advise the patient to contact their doctor in the event of muscle symptoms.</p>\n",
-      "version" : 0
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "SLCO1B1:Normal function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451492920,
+        "html": "<p>The guideline does not provide a recommendation for atorvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype</p>\n"
+      },
+      "implications": {
+        "id": 1451492918,
+        "html": "<p>The guideline does not provide a description of the impact of the <em>SLCO1B1</em> 521 TT genotype on simvastatin.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1450415245,
-      "html" : "<h3 id=\"august-2020-guideline-update\">August 2020 Guideline update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for simvastatin based on SLCO1B1 genotype.  They recommend choosing an alternative for patients with the SLCO1B1 521 CC or TC (rs4149056) genotype and consider any additional risk factors for statin-induced myopathy.  If an alternative is not an option for patients with the 521 TC genotype, avoid simvastatin doses exceeding 40 mg/day and advise the patient to contact their doctor in the event of muscle symptoms.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_August_2020.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_August_2020.pdf\">Dutch guidelines November 2020 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><em>SLCO1B1</em> 521 CC</td>\n<td>simvastatin</td>\n<td>When using simvastatin 80 mg/day, the risk of myopathy is increased 30-fold to 18% and the risk of severe myopathy is increased 48-fold to 12%. When using 40 mg/day, this risk is increased 7-fold to 1% and 11-fold to 0.68% respectively. The gene variation leads to reduced simvastatin transport to the liver, which increases the simvastatin plasma concentration and therefore the risk of side effects.</td>\n<td>1. Choose an alternative.<br/>Consider any additional risk factors for statin-induced myopathy.<br/>Atorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.<br/>Rosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.<br/>Fluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.</td>\n</tr>\n<tr>\n<td><em>SLCO1B1</em> 521 TC</td>\n<td>simvastatin</td>\n<td>When using simvastatin 80 mg/day, the risk of myopathy is increased 5-fold to 3% for moderately severe to severe myopathy and 1.3% for severe myopathy. When using 40 mg/day, this risk is increased 2.6-fold to 0.39% and 0.17% respectively. The gene variation may lead to reduced simvastatin transport to the liver, which may increase simvastatin plasma concentrations and therefore the risk of side effects.</td>\n<td>1. Choose an alternative.<br/>Consider any additional risk factors for statin-induced myopathy.<br/>Atorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.<br/>Rosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.<br/>Fluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.<br/>2. If an alternative is not an option:<br/>1. Avoid simvastatin doses exceeding 40mg/day.<br/>2. Advise the patient to contact their doctor in the event of muscle symptoms.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004056.PDF\" target=\"_blank\">DPWG risk analysis document</a> for simvastatin and SLCO1B1:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group considers genotyping before starting simvastatin 80 mg/day to be essential for drug safety. Genotyping must be performed before drug therapy has been initiated to guide drug selection. The KNMP Pharmacogenetics Working Group considers genotyping before starting simvastatin at a dose of 40 mg/day or lower to be beneficial for drug safety. It is advised to genotype the patient before (or directly after) drug therapy has been initiated to guide drug selection.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004055.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for simvastatin based on SLCO1B1 genotype.  They recommend choosing an alternative for patients with the SLCO1B1 521 CC or TC (rs4149056) genotype and consider any additional risk factors for statin-induced myopathy.  If an alternative is not an option for patients with the 521 TC genotype, avoid simvastatin doses exceeding 40 mg/day and advise the patient to contact their doctor in the event of muscle symptoms.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>521 CC</td>\n<td>simvastatin</td>\n<td>The genetic polymorphism leads to reduced simvastatin transport to the liver. This increases simvastatin plasma concentrations and therefore the risk of myopathy.</td>\n<td>1. Choose an alternative. Consider any additional risk factors for statin-induced myopathy. Rosuvastatin and pravastatin are influenced to a lesser extent by SLCO1B1 polymorphisms. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced by SLCO1B1 polymorphisms or CYP3A4 inhibitors.</td>\n</tr>\n<tr>\n<td>521 TC</td>\n<td>simvastatin</td>\n<td>The genetic polymorphism may lead to reduced simvastatin transport to the liver. This may increase simvastatin plasma concentrations and therefore the risk of myopathy.</td>\n<td>1. Choose an alternative. Consider any additional risk factors for statin-induced myopathy. Rosuvastatin and pravastatin are influenced to a lesser extent by SLCO1B1 polymorphisms. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced by SLCO1B1 polymorphisms or CYP3A4 inhibitors.<br/>2. If an alternative is not an option:<br/>1. Avoid simvastatin doses exceeding 40 mg/day<br/>2. Advise the patient to contact their doctor in the event of muscle symptoms.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004056.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 6
+    {
+      "id": "PA166248442",
+      "name": "521 CT",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "SLCO1B1:Decreased function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451492942,
+        "html": "<ol>\n<li>Choose an alternative.\nConsider any additional risk factors for statin-induced myopathy.\nAtorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.\nRosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.\nFluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option:\n<ol>\n<li>Avoid simvastatin doses exceeding 40mg/day.</li>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451492940,
+        "html": "<p>When using simvastatin 80 mg/day, the risk of myopathy is increased 5-fold to 3% for moderately severe to severe myopathy and 1.3% for severe myopathy. When using 40 mg/day, this risk is increased 2.6-fold to 0.39% and 0.17% respectively. The gene variation may lead to reduced simvastatin transport to the liver, which may increase simvastatin plasma concentrations and therefore the risk of side effects.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "lgong",
-    "version" : 10
-  }
+    {
+      "id": "PA166248441",
+      "name": "521 CC",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "SLCO1B1:Decreased function/Decreased function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451492932,
+        "html": "<ol>\n<li>Choose an alternative.\nConsider any additional risk factors for statin-induced myopathy.\nAtorvastatin is affected less severely by the SLCO1B1 gene variation, but is also affected by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Use of atorvastatin is not recommended for patients with additional risk factors for statin-induced myopathy.\nRosuvastatin and pravastatin are influenced to a lesser extent by the SLCO1B1 gene variation. They are also not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem.\nFluvastatin is not significantly influenced by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451492930,
+        "html": "<p>When using simvastatin 80 mg/day, the risk of myopathy is increased 30-fold to 18% and the risk of severe myopathy is increased 48-fold to 12%. When using 40 mg/day, this risk is increased 7-fold to 1% and 11-fold to 0.68% respectively. The gene variation leads to reduced simvastatin transport to the liver, which increases the simvastatin plasma concentration and therefore the risk of side effects.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }

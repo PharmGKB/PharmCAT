@@ -1,891 +1,235 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166267041",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166267041",
-    "name" : "Poor Metabolizer",
-    "genePhenotypes" : [ "CYP3A4:Decreased function/Decreased function", "CYP3A4:Decreased function/No function", "CYP3A4:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265421",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265421",
-      "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451723520,
-      "html" : "<p>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably\nresponsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine\nand an inactive metabolite.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451723521,
-      "html" : "<p>Poor metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451723522,
-      "html" : "<p>Indication DEPRESSION: Choose an alternative. Aripiprazole appears to be less dependent of CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br />\n&nbsp;<br />\nOTHER INDICATIONS: Use 30% of the standard dose.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166267021",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166267021",
-    "name" : "Intermediate Metabolizer",
-    "genePhenotypes" : [ "CYP3A4:Decreased function/Normal function", "CYP3A4:No function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265421",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265421",
-      "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451723445,
-      "html" : "<p>This gene variation reduces the conversion of quetiapine to inactive metabolites and a metabolite with anti-depressant effect. However, the effect on the plasma concentration\nof quetiapine is limited (20% increase) and it is not known whether this has any clinical consequences. The relationship between the plasma concentration and clinical effect is\nweak for quetiapine.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451723446,
-      "html" : "<p>Intermediate metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451723447,
-      "html" : "<p>NO action is needed for this gene-drug interaction.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166267061",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166267061",
-    "name" : "Normal Metabolizer",
-    "genePhenotypes" : [ "CYP3A4:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265421",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166265421",
-      "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-      "version" : 7
-    },
-    "implications" : {
-      "id" : 1451723500,
-      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on quetiapine.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451723501,
-      "html" : "<p>Normal metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451723502,
-      "html" : "<p>The guideline does not provide a recommendation for quetiapine in normal metabolizers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166265421",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166265421",
-    "name" : "Annotation of DPWG Guideline for quetiapine and CYP3A4",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451723430,
-      "alleles" : [ {
-        "id" : 1451778541,
-        "_label" : "*1",
-        "allele" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723460,
-        "_label" : "*6",
-        "allele" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723434,
-        "_label" : "*8",
-        "allele" : "*8",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723441,
-        "_label" : "*11",
-        "allele" : "*11",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723435,
-        "_label" : "*12",
-        "allele" : "*12",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723436,
-        "_label" : "*13",
-        "allele" : "*13",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723437,
-        "_label" : "*16",
-        "allele" : "*16",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723438,
-        "_label" : "*17",
-        "allele" : "*17",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723442,
-        "_label" : "*18",
-        "allele" : "*18",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723443,
-        "_label" : "*20",
-        "allele" : "*20",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723439,
-        "_label" : "*22",
-        "allele" : "*22",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451723444,
-        "_label" : "*26",
-        "allele" : "*26",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "version" : 0
-      }, {
-        "id" : 1451778542,
-        "_label" : "*36",
-        "allele" : "*36",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA130",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA130",
-        "symbol" : "CYP3A4",
-        "name" : "cytochrome P450 family 3 subfamily A member 4",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 3, subfamily A, polypeptide 4" ],
-          "symbol" : [ "CYP3A3" ]
-        },
-        "buildVersion" : "GRCh38",
-        "cbStart" : "q22.1",
-        "cbStop" : "q22.1",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA534",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA534",
-          "name" : "chr7",
-          "version" : 3
-        },
-        "chrStartPosB37" : 99354590,
-        "chrStartPosB38" : 99756967,
-        "chrStopPosB37" : 99381807,
-        "chrStopPosB38" : 99784184,
-        "cpicGene" : false,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/alfred/LO000305I",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 124544687,
-          "resource" : "ALFRED",
-          "resourceId" : "LO000305I",
-          "_url" : "http://alfred.med.yale.edu/alfred/recordinfop.asp?UNID=LO000305I",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1576",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242081,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1576",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1576",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000160868",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256049,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000160868",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000160868",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP3A4",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73393,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP3A4",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP3A4",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP3A4",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88321,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP3A4",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP3A4",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0004497",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34580,
-          "resource" : "GO",
-          "resourceId" : "GO:0004497",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0004497",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005624",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34644,
-          "resource" : "GO",
-          "resourceId" : "GO:0005624",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005624",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006629",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34686,
-          "resource" : "GO",
-          "resourceId" : "GO:0006629",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006629",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006805",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35602,
-          "resource" : "GO",
-          "resourceId" : "GO:0006805",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006805",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0009986",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77695266,
-          "resource" : "GO",
-          "resourceId" : "GO:0009986",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0009986",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016021",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34796,
-          "resource" : "GO",
-          "resourceId" : "GO:0016021",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016021",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016712",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 8676615,
-          "resource" : "GO",
-          "resourceId" : "GO:0016712",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016712",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0019825",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329726,
-          "resource" : "GO",
-          "resourceId" : "GO:0019825",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0019825",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050381",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329724,
-          "resource" : "GO",
-          "resourceId" : "GO:0050381",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050381",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050591",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123171589,
-          "resource" : "GO",
-          "resourceId" : "GO:0050591",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050591",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050649",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62333555,
-          "resource" : "GO",
-          "resourceId" : "GO:0050649",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050649",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2637",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118103,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2637",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2637",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P08684",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560883435,
-          "resource" : "ModBase",
-          "resourceId" : "P08684",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P08684",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP3A4",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455931,
-          "resource" : "MutDB",
-          "resourceId" : "CYP3A4",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP3A4",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1576",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10762,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1576",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1576",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/124010",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 714,
-          "resource" : "OMIM",
-          "resourceId" : "124010",
-          "_url" : "http://omim.org/entry/124010",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP3A4",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451669405,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP3A4",
-          "_url" : "https://www.pharmvar.org/gene/CYP3A4",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_008421.1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451135825,
-          "name" : "NG_008421.1",
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_008421.1",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_008421.1",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_001189784",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 978632734,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_001189784",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_001189784",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_059488",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44528,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_059488",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_059488",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_001202855",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 978632733,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_001202855",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_001202855",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_017460",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 53626,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_017460",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_017460",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_017460",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 116044,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_017460",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_017460",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P08684",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62333532,
-          "name" : "CP3A4_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P08684",
-          "_url" : "http://www.uniprot.org/uniprot/P08684",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q6GRK0",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608118105,
-          "name" : "Q6GRK0_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q6GRK0",
-          "_url" : "http://www.uniprot.org/uniprot/Q6GRK0",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp3a4.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 92,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp3a4.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp3a4.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005496","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499828,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005496","resource":"Gene Ontology","term":"steroid binding","termId":"GO:0005496"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005506","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499841,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005506","resource":"Gene Ontology","term":"iron ion binding","termId":"GO:0005506"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500078,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005737","resource":"Gene Ontology","term":"cytoplasm","termId":"GO:0005737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006629","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501203,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006629","resource":"Gene Ontology","term":"lipid metabolic process","termId":"GO:0006629"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0006706","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501319,"_url":"http://amigo.geneontology.org/amigo/term/GO:0006706","resource":"Gene Ontology","term":"steroid catabolic process","termId":"GO:0006706"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008209","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501312,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008209","resource":"Gene Ontology","term":"androgen metabolic process","termId":"GO:0008209"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008395","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496176,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008395","resource":"Gene Ontology","term":"steroid hydroxylase activity","termId":"GO:0008395"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009822","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504180,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009822","resource":"Gene Ontology","term":"alkaloid catabolic process","termId":"GO:0009822"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009986","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504340,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009986","resource":"Gene Ontology","term":"cell surface","termId":"GO:0009986"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016098","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560506711,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016098","resource":"Gene Ontology","term":"monoterpenoid metabolic process","termId":"GO:0016098"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016712","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503084,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016712","resource":"Gene Ontology","term":"oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, reduced flavin or flavoprotein as one donor, and incorporation of one atom of oxygen","termId":"GO:0016712"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019899","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560496866,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019899","resource":"Gene Ontology","term":"enzyme binding","termId":"GO:0019899"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0030343","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560510317,"_url":"http://amigo.geneontology.org/amigo/term/GO:0030343","resource":"Gene Ontology","term":"vitamin D3 25-hydroxylase activity","termId":"GO:0030343"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0033780","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560513637,"_url":"http://amigo.geneontology.org/amigo/term/GO:0033780","resource":"Gene Ontology","term":"taurochenodeoxycholate 6alpha-hydroxylase activity","termId":"GO:0033780"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0034875","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560514701,"_url":"http://amigo.geneontology.org/amigo/term/GO:0034875","resource":"Gene Ontology","term":"caffeine oxidase activity","termId":"GO:0034875"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042359","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515403,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042359","resource":"Gene Ontology","term":"vitamin D metabolic process","termId":"GO:0042359"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042737","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515689,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042737","resource":"Gene Ontology","term":"drug catabolic process","termId":"GO:0042737"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046483","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495388,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046483","resource":"Gene Ontology","term":"heterocycle metabolic process","termId":"GO:0046483"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0047638","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560518941,"_url":"http://amigo.geneontology.org/amigo/term/GO:0047638","resource":"Gene Ontology","term":"albendazole monooxygenase activity","termId":"GO:0047638"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050591","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520605,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050591","resource":"Gene Ontology","term":"quinine 3-monooxygenase activity","termId":"GO:0050591"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050649","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560520663,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050649","resource":"Gene Ontology","term":"testosterone 6-beta-hydroxylase activity","termId":"GO:0050649"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0070576","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560523229,"_url":"http://amigo.geneontology.org/amigo/term/GO:0070576","resource":"Gene Ontology","term":"vitamin D 24-hydroxylase activity","termId":"GO:0070576"} ],
-        "version" : 8038
+  "guideline": {
+    "id": "PA166265421",
+    "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
+    "relatedChemicals": [
+      {
+        "id": "PA451201",
+        "name": "quetiapine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA130",
+        "name": "cytochrome P450 family 3 subfamily A member 4",
+        "symbol": "CYP3A4"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451778541,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451723460,
+            "_label": "*6",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451723434,
+            "_label": "*8",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723441,
+            "_label": "*11",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723435,
+            "_label": "*12",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723436,
+            "_label": "*13",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723437,
+            "_label": "*16",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723438,
+            "_label": "*17",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723442,
+            "_label": "*18",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723443,
+            "_label": "*20",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451723439,
+            "_label": "*22",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451723444,
+            "_label": "*26",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          },
+          {
+            "id": 1451778542,
+            "_label": "*36",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA534",
+            "name": "chr7",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA130",
+          "name": "cytochrome P450 family 3 subfamily A member 4",
+          "symbol": "CYP3A4"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166265421",
+    "version": 7
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166267041",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 1
-    } ],
-    "hasTestingGuidance" : true,
-    "history" : [ {
-      "id" : 1451704255,
-      "date" : "2022-03-03T16:33:35.459-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451723440,
-      "date" : "2022-03-18T11:39:36.747-07:00",
-      "description" : "Updated annotation based on February 2022 release and added extended dosing guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451733448,
-      "date" : "2022-03-28T00:00:00-07:00",
-      "description" : "Updated link to testing guidance page",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451732895,
-      "date" : "2022-03-28T09:57:49.445-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451741505,
-      "date" : "2022-04-05T11:18:17.661-07:00",
-      "description" : "Added testing guidance tag",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451778540,
-      "date" : "2022-05-13T12:20:17.413-07:00",
-      "description" : "Updated CYP3A4 alleles to match PharmVar",
-      "type" : "Update",
-      "version" : 0
-    } ],
-    "literature" : [ ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819201",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819201",
-      "symbol" : "CYP3A4*1",
-      "name" : "*1",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819229",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819229",
-      "symbol" : "CYP3A4*11",
-      "name" : "*11",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819230",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819230",
-      "symbol" : "CYP3A4*12",
-      "name" : "*12",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819231",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819231",
-      "symbol" : "CYP3A4*13",
-      "name" : "*13",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819236",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819236",
-      "symbol" : "CYP3A4*16",
-      "name" : "*16",
-      "version" : 13
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819239",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819239",
-      "symbol" : "CYP3A4*17",
-      "name" : "*17",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819240",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819240",
-      "symbol" : "CYP3A4*18",
-      "name" : "*18",
-      "version" : 13
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819244",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819244",
-      "symbol" : "CYP3A4*20",
-      "name" : "*20",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA166048680",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA166048680",
-      "symbol" : "CYP3A4*22",
-      "name" : "*22",
-      "version" : 10
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA166245583",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA166245583",
-      "symbol" : "CYP3A4*26",
-      "name" : "*26",
-      "version" : 4
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819208",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819208",
-      "symbol" : "CYP3A4*36",
-      "name" : "*36",
-      "version" : 15
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819224",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819224",
-      "symbol" : "CYP3A4*6",
-      "name" : "*6",
-      "version" : 14
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165819226",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165819226",
-      "symbol" : "CYP3A4*8",
-      "name" : "*8",
-      "version" : 14
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA451201",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA451201",
-      "name" : "quetiapine",
-      "version" : 6
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA130",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA130",
-      "symbol" : "CYP3A4",
-      "name" : "cytochrome P450 family 3 subfamily A member 4",
-      "version" : 8038
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1451698940,
-      "html" : "<p>Patients who are CYP3A4 poor metabolizers and being treated for depression should be given an alternative drug. Patients being treated for other indications and who are CYP3A4 poor metabolizers should be given a reduced dose of quetiapine. No action is needed for patients who are CYP3A4 intermediate metabolizers.</p>\n<p><em><strong>PharmGKB uses CYP3A4 allele nomenclature as defined by <a rel=\"noopener noreferrer\" href=\"https://www.pharmvar.org/\" target=\"_blank\">PharmVar</a>, while the current version of this guideline issued by the DPWG uses retired allele names. Further details are given on the <a href=\"/page/dpwgMapping\">DPWG curation page</a>.</strong></em></p>\n",
-      "version" : 2
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP3A4:Decreased function/Decreased function",
+        "CYP3A4:Decreased function/No function",
+        "CYP3A4:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451723521,
+        "html": "<p>Poor metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451723522,
+        "html": "<p>Indication DEPRESSION: Choose an alternative. Aripiprazole appears to be less dependent of CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br />\n&nbsp;<br />\nOTHER INDICATIONS: Use 30% of the standard dose.</p>\n"
+      },
+      "implications": {
+        "id": 1451723520,
+        "html": "<p>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably\nresponsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine\nand an inactive metabolite.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1451698941,
-      "html" : "<h3 id=\"february-2022-update\">February 2022 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has updated their therapeutic dose recommendations for quetiapine based on CYP3A4 genotypes. They now recommend an alternative drug for patients who are CYP3A4 poor metabolizers (PMs) who are being treated for depression. A dose reduction is recommended for patients who are CYP3A4 PMs and being treated for other indications.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_February_2022_guidelines.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_February_2022_guidelines.pdf\">Dutch guidelines February 2022 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP3A4 IM</td>\n<td>quetiapine</td>\n<td>This gene variation reduces the conversion of quetiapine to inactive metabolites and a metabolite with anti-depressant effect. However, the effect on the plasma concentration of quetiapine is limited (20% increase) and it is not known whether this has any clinical consequences. The relationship between the plasma concentration and clinical effect is weak for quetiapine.</td>\n<td>NO action is needed for this gene-drug interaction.</td>\n</tr>\n<tr>\n<td>CYP3A4 PM</td>\n<td>quetiapine</td>\n<td>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably responsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine and an inactive metabolite.</td>\n<td>Indication DEPRESSION: choose an alternative.<br/>Aripiprazole appears to be less dependent on CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br/>OTHER INDICATIONS: use 30% of the standard dose.</td>\n</tr>\n</tbody>\n</table>\n<h4 id=\"preemptive-genotyping\">Preemptive genotyping</h4>\n<p>Excerpts from the <a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0005991.PDF\" target=\"_blank\">DPWG risk analysis document</a> for quetiapine and CYP3A4:</p>\n<blockquote class=\"blockquote\">\n<p>The KNMP Pharmacogenetics Working Group considers genotyping before starting quetiapine to be potentially beneficial for prevention of adverse events and for effectiveness. Genotyping can be considered on an individual patient basis. If, however, the genotype is available, the KNMP Pharmacogenetics Working Group recommends adhering to the gene-drug guideline.</p>\n</blockquote>\n<p><a href=\"/page/testingGuidance\">Read more about how DPWG assigns their recommendations for preemptive genotyping.</a></p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0005991.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<h3 id=\"may-2021-guideline\">May 2021 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for quetiapine based on CYP3A4 genotypes. They conclude that this is not a gene-drug interaction (see <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a>).</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0007107.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 2
+    {
+      "id": "PA166267021",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP3A4:Decreased function/Normal function",
+        "CYP3A4:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451723446,
+        "html": "<p>Intermediate metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451723447,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451723445,
+        "html": "<p>This gene variation reduces the conversion of quetiapine to inactive metabolites and a metabolite with anti-depressant effect. However, the effect on the plasma concentration\nof quetiapine is limited (20% increase) and it is not known whether this has any clinical consequences. The relationship between the plasma concentration and clinical effect is\nweak for quetiapine.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "cfthorn",
-    "version" : 7
-  }
+    {
+      "id": "PA166267061",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP3A4:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451723501,
+        "html": "<p>Normal metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451723502,
+        "html": "<p>The guideline does not provide a recommendation for quetiapine in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451723500,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on quetiapine.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }

@@ -1,507 +1,135 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264841",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264841",
-    "name" : "-1639 AA",
-    "genePhenotypes" : [ "VKORC1:Higher coumarin sensitivity/Higher coumarin sensitivity" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182841",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182841",
-      "name" : "Annotation of DPWG Guideline for warfarin and VKORC1",
-      "version" : 5
-    },
-    "implications" : {
-      "id" : 1451695540,
-      "html" : "<p>The genetic variation results in increased sensitivity to warfarin. This results in an increase in the risk of excessively severe inhibition of blood clotting (INR &gt; 4) during the\nfirst month of the treatment.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451695541,
-      "html" : "<p>VKORC1 -1639 AA</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451695542,
-      "html" : "<p>Use 60% of the standard initial dose.</p>\n<p>The genotype-specific initial dose and maintenance dose can be calculated using an algorithm, as used in EU-PACT: see\nhttps://www.knmp.nl/patientenzorg/medicatiebewaking/farmacogenetica.</p>\n<p>From day 6 on the standard algorithm without genotype information can be used to calculate the dose.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264842",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264842",
-    "name" : "-1639 AG",
-    "genePhenotypes" : [ "VKORC1:Higher coumarin sensitivity/Normal coumarin sensitivity" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182841",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182841",
-      "name" : "Annotation of DPWG Guideline for warfarin and VKORC1",
-      "version" : 5
-    },
-    "implications" : {
-      "id" : 1451695543,
-      "html" : "<p>The genetic variation results in a reduction in the required dose and an increase in the risk of excessively severe inhibition of blood clotting during the first month of the\ntreatment. However, the effect is small and GA is also the most common genotype, meaning that the standard treatment will primarily be based on patients with this genotype.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451695544,
-      "html" : "<p>VKORC1 -1639 AG</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451695545,
-      "html" : "<p>NO action is required for the gene-drug interaction.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264843",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264843",
-    "name" : "-1639 GG",
-    "genePhenotypes" : [ "VKORC1:Normal coumarin sensitivity/Normal coumarin sensitivity" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182841",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182841",
-      "name" : "Annotation of DPWG Guideline for warfarin and VKORC1",
-      "version" : 5
-    },
-    "implications" : {
-      "id" : 1451695546,
-      "html" : "<p>The guideline does not provide a description of the impact of the -1639 GG genotype on warfarin.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451695547,
-      "html" : "<p>VKORC1 -1639 GG</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451695548,
-      "html" : "<p>The guideline does not provide a recommendation for warfarin in patients with the VKORC1 -1639 GG genotype.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182841",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166182841",
-    "name" : "Annotation of DPWG Guideline for warfarin and VKORC1",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "descriptiveVideoId" : "",
-    "guidelineGenes" : [ {
-      "id" : 1451694862,
-      "alleles" : [ {
-        "id" : 1451694857,
-        "_label" : "-1639 A",
-        "allele" : "-1639 A",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451694740",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451694740,
-          "description" : "from DPWG VKORC1 guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Higher coumarin sensitivity",
-          "termId" : "alleleFunction:1451694740",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451694858,
-        "_label" : "-1639 G",
-        "allele" : "-1639 G",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451694741",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451694741,
-          "description" : "from DPWG VKORC1 guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal coumarin sensitivity",
-          "termId" : "alleleFunction:1451694741",
-          "version" : 0
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA133787052",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA133787052",
-        "symbol" : "VKORC1",
-        "name" : "vitamin K epoxide reductase complex subunit 1",
-        "altNames" : {
-          "synonym" : [ "vitamin K epoxide reductase complex, subunit 1" ],
-          "symbol" : [ "VKCFD2" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "p11.2",
-        "cbStop" : "p11.2",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA515",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA515",
-          "name" : "chr16",
-          "version" : 3
-        },
-        "chrStartPosB37" : 31102175,
-        "chrStartPosB38" : 31090842,
-        "chrStopPosB37" : 31106699,
-        "chrStopPosB38" : 31094999,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/79001",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553243967,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "79001",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=79001",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000167397",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132273281,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000167397",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000167397",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/VKORC1",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 981201126,
-          "resource" : "GeneCard",
-          "resourceId" : "VKORC1",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=VKORC1",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016021",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34796,
-          "resource" : "GO",
-          "resourceId" : "GO:0016021",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016021",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016491",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36188,
-          "resource" : "GO",
-          "resourceId" : "GO:0016491",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016491",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0047057",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123554349,
-          "resource" : "GO",
-          "resourceId" : "GO:0047057",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0047057",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:23663",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608051721,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:23663",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A23663",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS15548",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608051727,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS15548",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS15548",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/Q9BQB6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560883818,
-          "resource" : "ModBase",
-          "resourceId" : "Q9BQB6",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=Q9BQB6",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/79001",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849065,
-          "resource" : "NCBI Gene",
-          "resourceId" : "79001",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/79001",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/122700",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556297,
-          "resource" : "OMIM",
-          "resourceId" : "122700",
-          "_url" : "http://omim.org/entry/122700",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/607473",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77706228,
-          "resource" : "OMIM",
-          "resourceId" : "607473",
-          "_url" : "http://omim.org/entry/607473",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/608547",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849064,
-          "resource" : "OMIM",
-          "resourceId" : "608547",
-          "_url" : "http://omim.org/entry/608547",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_011564",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560572133,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_011564",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_011564",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_010393",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36795,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_010393",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_010393",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_076869",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849066,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_076869",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_076869",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_996560",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849067,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_996560",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_996560",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_024006",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849082,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_024006",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_024006",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_206824",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 44849081,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_206824",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_206824",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/A6NIQ6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 608051726,
-          "name" : "A6NIQ6_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "A6NIQ6",
-          "_url" : "http://www.uniprot.org/uniprot/A6NIQ6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/Q9BQB6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 81111625,
-          "name" : "VKOR1_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "Q9BQB6",
-          "_url" : "http://www.uniprot.org/uniprot/Q9BQB6",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : true,
-        "pharmVarGene" : false,
-        "strand" : "minus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0010243","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504634,"_url":"http://amigo.geneontology.org/amigo/term/GO:0010243","resource":"Gene Ontology","term":"response to organic nitrogen","termId":"GO:0010243"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0014070","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560505035,"_url":"http://amigo.geneontology.org/amigo/term/GO:0014070","resource":"Gene Ontology","term":"response to organic cyclic substance","termId":"GO:0014070"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016021","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016021","resource":"Gene Ontology","term":"integral to membrane","termId":"GO:0016021"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016491","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495264,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016491","resource":"Gene Ontology","term":"oxidoreductase activity","termId":"GO:0016491"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0030193","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560504990,"_url":"http://amigo.geneontology.org/amigo/term/GO:0030193","resource":"Gene Ontology","term":"regulation of blood coagulation","termId":"GO:0030193"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042373","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503550,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042373","resource":"Gene Ontology","term":"vitamin K metabolic process","termId":"GO:0042373"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046677","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560510928,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046677","resource":"Gene Ontology","term":"response to antibiotic","termId":"GO:0046677"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0047057","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560518368,"_url":"http://amigo.geneontology.org/amigo/term/GO:0047057","resource":"Gene Ontology","term":"vitamin-K-epoxide reductase (warfarin-sensitive) activity","termId":"GO:0047057"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0047058","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560518369,"_url":"http://amigo.geneontology.org/amigo/term/GO:0047058","resource":"Gene Ontology","term":"vitamin-K-epoxide reductase (warfarin-insensitive) activity","termId":"GO:0047058"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0050820","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560510169,"_url":"http://amigo.geneontology.org/amigo/term/GO:0050820","resource":"Gene Ontology","term":"positive regulation of coagulation","termId":"GO:0050820"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"} ],
-        "version" : 15
+  "guideline": {
+    "id": "PA166182841",
+    "name": "Annotation of DPWG Guideline for warfarin and VKORC1",
+    "relatedChemicals": [
+      {
+        "id": "PA451906",
+        "name": "warfarin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA133787052",
+        "name": "vitamin K epoxide reductase complex subunit 1",
+        "symbol": "VKORC1"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451694857,
+            "_label": "-1639 A",
+            "function": {
+              "term": "Higher coumarin sensitivity",
+              "termId": "alleleFunction:1451694740"
+            }
+          },
+          {
+            "id": 1451694858,
+            "_label": "-1639 G",
+            "function": {
+              "term": "Normal coumarin sensitivity",
+              "termId": "alleleFunction:1451694741"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA515",
+            "name": "chr16",
+            "symbol": null
+          },
+          "strand": "minus",
+          "id": "PA133787052",
+          "name": "vitamin K epoxide reductase complex subunit 1",
+          "symbol": "VKORC1"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182841",
+    "version": 5
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166264841",
+      "name": "-1639 AA",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 0
-    } ],
-    "hasTestingGuidance" : false,
-    "history" : [ {
-      "id" : 1450415237,
-      "date" : "2019-05-27T00:00:00-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450820675,
-      "date" : "2019-10-03T16:20:39.794-07:00",
-      "description" : "No changes based on August 2019 guidelines",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450963981,
-      "date" : "2020-02-11T08:50:11.941-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs and links to algorithms",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704179,
-      "date" : "2022-03-03T16:33:22.608-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451732819,
-      "date" : "2022-03-28T09:57:36.283-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : false,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/variant/PA166155091",
-      "@context" : "https://api.pharmgkb.org/jsonld/variant.jsonld",
-      "objCls" : "Variant",
-      "id" : "PA166155091",
-      "symbol" : "rs9923231",
-      "name" : "rs9923231",
-      "version" : 4
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA451906",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA451906",
-      "name" : "warfarin",
-      "version" : 16
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA133787052",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA133787052",
-      "symbol" : "VKORC1",
-      "name" : "vitamin K epoxide reductase complex subunit 1",
-      "version" : 15
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1450415234,
-      "html" : "<p>Patients with the VKORC1 -1639 (rs9923231) AA genotype should be given 60% of the standard initial dose of warfarin. The genotype-specific initial dose and maintenance dose can be calculated using an algorithm. There are no recommendation for patients with the VKORC1 -1639 AG genotype.</p>\n",
-      "version" : 0
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "VKORC1:Higher coumarin sensitivity/Higher coumarin sensitivity"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451695542,
+        "html": "<p>Use 60% of the standard initial dose.</p>\n<p>The genotype-specific initial dose and maintenance dose can be calculated using an algorithm, as used in EU-PACT: see\nhttps://www.knmp.nl/patientenzorg/medicatiebewaking/farmacogenetica.</p>\n<p>From day 6 on the standard algorithm without genotype information can be used to calculate the dose.</p>\n"
+      },
+      "implications": {
+        "id": 1451695540,
+        "html": "<p>The genetic variation results in increased sensitivity to warfarin. This results in an increase in the risk of excessively severe inhibition of blood clotting (INR &gt; 4) during the\nfirst month of the treatment.</p>\n"
+      },
+      "activityScore": null
     },
-    "summaryVideoId" : "",
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1450415235,
-      "html" : "<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for warfarin based on VKORC1 genotype. They recommend that patients with the VKORC1 -1639 (<a href=\"/variant/PA166155091\">rs9923231</a>) AA genotype receive 60% of the standard initial dose.The genotype-specific initial dose and maintenance dose can be calculated using an algorithm. No action is needed for patients with the VKORC1 -1639 AG genotype.</p>\n<p><em>Wording in table taken from the <a href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a>.</em></p>\n<table class=\"table\">\n<thead>\n<tr><th>Allele/Genotype/Phenotype</th><th>Drug</th><th>Description</th><th>Recommendation</th></tr>\n</thead>\n<tbody>\n<tr><td>VKORC1 -1639 AA</td><td>warfarin</td><td>The genetic variation results in increased sensitivity to warfarin. This results in an increase in the risk of excessively severe inhibition of blood clotting (INR &gt; 4) during the first month of the treatment.</td><td>1. use 60% of the standard initial dose. The genotype-specific initial dose and maintenance dose can be calculated using an algorithm, as used in EU-PACT: see <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Algorithms coumarins</a>. From day 6 on the standard algorithm without genotype information can be used to calculate the dose.</td></tr>\n<tr><td>VKORC1 -1639 AG</td><td>warfarin</td><td>The genetic variation results in a reduction in the required dose and an increase in the risk of excessively severe inhibition of blood clotting during the first month of the treatment. However, the effect is small and GA is also the most common genotype, meaning that the standard treatment will primarily be based on patients with this genotype.</td><td>NO action is needed for this gene-drug interaction</td></tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0006236.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 2
+    {
+      "id": "PA166264842",
+      "name": "-1639 AG",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "VKORC1:Higher coumarin sensitivity/Normal coumarin sensitivity"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451695545,
+        "html": "<p>NO action is required for the gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451695543,
+        "html": "<p>The genetic variation results in a reduction in the required dose and an increase in the risk of excessively severe inhibition of blood clotting during the first month of the\ntreatment. However, the effect is small and GA is also the most common genotype, meaning that the standard treatment will primarily be based on patients with this genotype.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "lgong",
-    "version" : 5
-  }
+    {
+      "id": "PA166264843",
+      "name": "-1639 GG",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "VKORC1:Normal coumarin sensitivity/Normal coumarin sensitivity"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451695548,
+        "html": "<p>The guideline does not provide a recommendation for warfarin in patients with the VKORC1 -1639 GG genotype.</p>\n"
+      },
+      "implications": {
+        "id": 1451695546,
+        "html": "<p>The guideline does not provide a description of the impact of the -1639 GG genotype on warfarin.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }

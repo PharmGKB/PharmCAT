@@ -3,11 +3,15 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Jul 13, 2022, 7:49:19 PM"
+    "timestamp": "Sep 15, 2022, 11:05:48 AM",
+    "topCandidatesOnly": true,
+    "findCombinations": false,
+    "callCyp2d": false
   },
   "results": [
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -90,13 +94,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -191,13 +197,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -736,13 +744,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1233,13 +1243,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1718,13 +1730,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -2762,13 +2776,15 @@
       ],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
       "alleleDefinitionVersion": "05/12/22",
+      "cpicVersion": "n/a",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -3235,13 +3251,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3372,13 +3390,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3473,13 +3493,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4546,13 +4568,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -4635,13 +4659,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -4916,13 +4942,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -5521,13 +5549,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -5970,13 +6000,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -6563,13 +6595,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -6688,13 +6722,15 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "06/10/22",
+      "alleleDefinitionVersion": "09/14/22",
+      "cpicVersion": "v1.20.0",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
@@ -6777,7 +6813,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "mismatchedAlleles": [],
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []

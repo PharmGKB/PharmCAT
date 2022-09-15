@@ -440,7 +440,7 @@ class PharmCATTest {
         .collect(Collectors.toSet())
         .size()
     );
-    assertEquals(93, testWrapper.getContext().getDrugReports().keySet().stream()
+    assertEquals(125, testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toSet())
@@ -953,8 +953,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedGroups("fluorouracil", 2);
+    testWrapper.testMatchedGroups("capecitabine", 2);
   }
 
   @Test
@@ -973,8 +973,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     testWrapper.testLookupByActivity("DPYD", "1");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedGroups("fluorouracil", 2);
+    testWrapper.testMatchedGroups("capecitabine", 2);
   }
 
   @Test

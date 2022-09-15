@@ -32,7 +32,7 @@
         "pmcid": "PMC3374459",
         "doi": "10.1038/clpt.2011.355",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/abacavir/2012/22378157.pdf"
       },
@@ -61,13 +61,13 @@
         "pmcid": "PMC3994233",
         "doi": "10.1038/clpt.2014.38",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/abacavir/2014/24561393.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -145,7 +145,7 @@
         "pmcid": "PMC4675696",
         "doi": "10.1002/cpt.161",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/allopurinol/2015/26094938.pdf"
       },
@@ -171,13 +171,13 @@
         "pmcid": "PMC3564416",
         "doi": "10.1038/clpt.2012.209",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/allopurinol/2013/23232549.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -254,13 +254,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -316,6 +316,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:7833",
+    "drugname": "aminosalicylic acid",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:704",
     "drugname": "amitriptyline",
     "guidelinename": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
@@ -363,7 +467,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -392,13 +496,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -5141,6 +5245,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:1191",
+    "drugname": "aspirin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "aspirin ≤ 1 g/day. Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "<= 1g per day"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "<= 1g per day"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": "aspirin ≤ 1 g/day",
+        "population": "<= 1g per day"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": "aspirin ≤ 1 g/day",
+        "population": "<= 1g per day"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "aspirin ≤ 1 g/day. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "<= 1g per day"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:343047",
     "drugname": "atazanavir",
     "guidelinename": "UGT1A1 and Atazanavir",
@@ -5182,13 +5390,13 @@
         "pmcid": "PMC4785051",
         "doi": "10.1002/cpt.269",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/atazanavir/2015/26417955.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -5307,13 +5515,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/atomoxetine/2019/30801677.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -6200,7 +6408,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -6235,7 +6443,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -6275,13 +6483,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -6427,7 +6635,7 @@
         "pmcid": "PMC3098761",
         "doi": "10.1038/clpt.2010.320",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2011/21270794.pdf"
       },
@@ -6458,7 +6666,7 @@
         "pmcid": "PMC3604643",
         "doi": "10.1038/clpt.2013.4",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2013/23422873.pdf"
       },
@@ -6492,13 +6700,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2018/30447069.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -7343,7 +7551,7 @@
         "pmcid": "PMC3831181",
         "doi": "10.1038/clpt.2013.172",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/fluoropyrimidines/2013/23988873.pdf"
       },
@@ -7373,13 +7581,13 @@
         "pmcid": "PMC5760397",
         "doi": "10.1002/cpt.911",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/fluoropyrimidines/2017/29152729.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -7517,7 +7725,7 @@
         "pmcid": "PMC3748365",
         "doi": "10.1038/clpt.2013.103",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/carbamazepine/2013/23695185.pdf"
       },
@@ -7550,13 +7758,13 @@
         "pmcid": "PMC5847474",
         "doi": "10.1002/cpt.1004",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/carbamazepine/2017/29392710.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -8076,13 +8284,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -8201,6 +8409,318 @@
     ]
   },
   {
+    "drugid": "RxNorm:2348",
+    "drugname": "chloramphenicol",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:2393",
+    "drugname": "chloroquine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:2551",
+    "drugname": "ciprofloxacin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:2556",
     "drugname": "citalopram",
     "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
@@ -8246,13 +8766,13 @@
         "pmcid": "PMC4512908",
         "doi": "10.1002/cpt.147",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/SSRI/2015/25974703.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -8456,7 +8976,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -8485,13 +9005,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -13269,7 +13789,7 @@
         "pmcid": "PMC3234301",
         "doi": "10.1038/clpt.2011.132",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2011/21716271.pdf"
       },
@@ -13298,7 +13818,7 @@
         "pmcid": "PMC3748366",
         "doi": "10.1038/clpt.2013.105",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2013/23698643.pdf"
       },
@@ -13334,13 +13854,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2526",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/clopidogrel/2022/35034351.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -13787,7 +14307,7 @@
         "pmcid": "PMC3289963",
         "doi": "10.1038/clpt.2011.287",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2012/22205192.pdf"
       },
@@ -13819,7 +14339,7 @@
         "pmcid": "PMC3975212",
         "doi": "10.1038/clpt.2013.254",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2014/24458010.pdf"
       },
@@ -13859,13 +14379,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2149",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/33387367.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -14288,6 +14808,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:3108",
+    "drugname": "dapsone",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:27340",
     "drugname": "desflurane",
     "guidelinename": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
@@ -14330,13 +14954,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -14456,7 +15080,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -14485,13 +15109,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -14961,13 +15585,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2015",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/PPI/2020/32770672.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -15124,6 +15748,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:3445",
+    "drugname": "dimercaprol",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:3638",
     "drugname": "doxepin",
     "guidelinename": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
@@ -15171,7 +15899,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -15200,13 +15928,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -19949,6 +20677,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:3639",
+    "drugname": "doxorubicin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:195085",
     "drugname": "efavirenz",
     "guidelinename": "CYP2B6 and efavirenz",
@@ -19992,13 +20824,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 2,
+        "version": 3,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/efavirenz/2019/31006110.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -20159,13 +20991,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -20284,13 +21116,13 @@
         "pmcid": "PMC4512908",
         "doi": "10.1002/cpt.147",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/SSRI/2015/25974703.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -20482,7 +21314,7 @@
         "pmcid": "PMC3831181",
         "doi": "10.1038/clpt.2013.172",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/fluoropyrimidines/2013/23988873.pdf"
       },
@@ -20512,13 +21344,13 @@
         "pmcid": "PMC5760397",
         "doi": "10.1002/cpt.911",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/fluoropyrimidines/2017/29152729.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -20653,13 +21485,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -20825,7 +21657,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -20860,7 +21692,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -20900,13 +21732,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -22012,13 +22844,13 @@
         "pmcid": "PMC4512908",
         "doi": "10.1002/cpt.147",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/SSRI/2015/25974703.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -22476,7 +23308,7 @@
         "pmcid": "PMC4206662",
         "doi": "10.1038/clpt.2014.159",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/phenytoin/2014/25099164.pdf"
       },
@@ -22510,13 +23342,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/phenytoin/2020/32779747.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -22631,7 +23463,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -22654,7 +23486,7 @@
           "CYP2C9": "1"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22723,7 +23555,7 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22746,7 +23578,7 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -22815,7 +23647,7 @@
           "CYP2C9": "No Result"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22838,29 +23670,6 @@
           "CYP2C9": "No Result"
         },
         "comments": "n/a",
-        "population": "PHT naive"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-        },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
-        "phenotypes": {
-          "CYP2C9": "Poor Metabolizer"
-        },
-        "activityscore": {
-          "CYP2C9": "0.0"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "0"
-        },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
       },
       {
@@ -22891,23 +23700,23 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-        "classification": "Strong",
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
         "phenotypes": {
           "CYP2C9": "Poor Metabolizer"
         },
         "activityscore": {
-          "CYP2C9": "0.5"
+          "CYP2C9": "0.0"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "0.5"
+          "CYP2C9": "0"
         },
-        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-        "population": "PHT naive"
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -22937,23 +23746,23 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
+        "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+        "classification": "Strong",
         "phenotypes": {
-          "CYP2C9": "Intermediate Metabolizer"
+          "CYP2C9": "Poor Metabolizer"
         },
         "activityscore": {
-          "CYP2C9": "1.0"
+          "CYP2C9": "0.5"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "1"
+          "CYP2C9": "0.5"
         },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
+        "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -22977,6 +23786,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "Intermediate Metabolizer"
+        },
+        "activityscore": {
+          "CYP2C9": "1.0"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "1"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -23075,29 +23907,6 @@
           "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
           "CYP2C9": "n/a"
         },
-        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-        "classification": "Optional",
-        "phenotypes": {
-          "CYP2C9": "Indeterminate"
-        },
-        "activityscore": {
-          "CYP2C9": "n/a"
-        },
-        "allelestatus": {
-          "HLA-B": "HLA-B*15:02 positive"
-        },
-        "lookupkey": {
-          "HLA-B": "*15:02 positive",
-          "CYP2C9": "n/a"
-        },
-        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-        "population": "PHT use >3mos"
-      },
-      {
-        "implications": {
-          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-          "CYP2C9": "n/a"
-        },
         "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
         "classification": "Strong",
         "phenotypes": {
@@ -23124,17 +23933,17 @@
         "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
         "classification": "Optional",
         "phenotypes": {
-          "CYP2C9": "No Result"
+          "CYP2C9": "Indeterminate"
         },
         "activityscore": {
-          "CYP2C9": "No Result"
+          "CYP2C9": "n/a"
         },
         "allelestatus": {
           "HLA-B": "HLA-B*15:02 positive"
         },
         "lookupkey": {
           "HLA-B": "*15:02 positive",
-          "CYP2C9": "No Result"
+          "CYP2C9": "n/a"
         },
         "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
         "population": "PHT use >3mos"
@@ -23161,6 +23970,29 @@
         },
         "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
         "population": "PHT naive"
+      },
+      {
+        "implications": {
+          "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+          "CYP2C9": "n/a"
+        },
+        "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+        "classification": "Optional",
+        "phenotypes": {
+          "CYP2C9": "No Result"
+        },
+        "activityscore": {
+          "CYP2C9": "No Result"
+        },
+        "allelestatus": {
+          "HLA-B": "HLA-B*15:02 positive"
+        },
+        "lookupkey": {
+          "HLA-B": "*15:02 positive",
+          "CYP2C9": "No Result"
+        },
+        "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -23367,7 +24199,7 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
-        "population": "PHT naive"
+        "population": "PHT use >3mos"
       },
       {
         "implications": {
@@ -23390,7 +24222,7 @@
           "CYP2C9": "2"
         },
         "comments": "n/a",
-        "population": "PHT use >3mos"
+        "population": "PHT naive"
       },
       {
         "implications": {
@@ -23441,6 +24273,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:4601",
+    "drugname": "furazolidone",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "ATC:D06AX07",
     "drugname": "gentamicin",
     "guidelinename": "MT-RNR1 and Aminoglycosides",
@@ -23479,13 +24415,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -23541,6 +24477,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:4815",
+    "drugname": "glyburide",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:5095",
     "drugname": "halothane",
     "guidelinename": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
@@ -23583,13 +24623,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -23697,7 +24737,7 @@
         "pmcid": "PMC3289963",
         "doi": "10.1038/clpt.2011.287",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2012/22205192.pdf"
       },
@@ -23729,7 +24769,7 @@
         "pmcid": "PMC3975212",
         "doi": "10.1038/clpt.2013.254",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2014/24458010.pdf"
       },
@@ -23769,13 +24809,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2149",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/33387367.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -24198,6 +25238,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:5521",
+    "drugname": "hydroxychloroquine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:5640",
     "drugname": "ibuprofen",
     "guidelinename": "CYP2C9 and NSAIDs",
@@ -24233,13 +25377,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -24405,7 +25549,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -24434,13 +25578,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29225,13 +30369,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29339,13 +30483,13 @@
         "pmcid": "PMC4026598",
         "doi": "10.1038/clpt.2014.54",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/ivacaftor/2014/24598717.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29426,13 +30570,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29535,13 +30679,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2015",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/PPI/2020/32770672.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29733,13 +30877,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -29904,7 +31048,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -29939,7 +31083,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -29979,13 +31123,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -30092,6 +31236,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:6572",
+    "drugname": "mafenide",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:41493",
     "drugname": "meloxicam",
     "guidelinename": "CYP2C9 and NSAIDs",
@@ -30127,13 +31375,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -30291,7 +31539,7 @@
         "pmcid": "PMC3098761",
         "doi": "10.1038/clpt.2010.320",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2011/21270794.pdf"
       },
@@ -30322,7 +31570,7 @@
         "pmcid": "PMC3604643",
         "doi": "10.1038/clpt.2013.4",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2013/23422873.pdf"
       },
@@ -30356,13 +31604,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2018/30447069.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -31214,13 +32462,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -31294,6 +32542,422 @@
     ]
   },
   {
+    "drugid": "RxNorm:6878",
+    "drugname": "methylene blue",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid ased on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:7240",
+    "drugname": "nalidixic acid",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:7454",
+    "drugname": "nitrofurantoin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Medium risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Use at standard doses with caution and with close monitoring for anemia",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "If deemed necessary to ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:7517",
+    "drugname": "norfloxacin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:7531",
     "drugname": "nortriptyline",
     "guidelinename": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
@@ -31340,7 +33004,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -31369,13 +33033,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -31798,6 +33462,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:7623",
+    "drugname": "ofloxacin",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:7646",
     "drugname": "omeprazole",
     "guidelinename": "CYP2C19 and Proton Pump Inhibitors",
@@ -31845,13 +33613,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2015",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/PPI/2020/32770672.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -32046,13 +33814,13 @@
         "pmcid": "PMC5479760",
         "doi": "10.1002/cpt.598",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/ondansetron/2016/28002639.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -32512,7 +34280,7 @@
         "pmcid": "PMC3748365",
         "doi": "10.1038/clpt.2013.103",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/carbamazepine/2013/23695185.pdf"
       },
@@ -32545,13 +34313,13 @@
         "pmcid": "PMC5847474",
         "doi": "10.1002/cpt.1004",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/carbamazepine/2017/29392710.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -32675,13 +34443,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2015",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/PPI/2020/32770672.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -32876,13 +34644,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -32983,13 +34751,13 @@
         "pmcid": "PMC4512908",
         "doi": "10.1002/cpt.147",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/SSRI/2015/25974703.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -33446,13 +35214,13 @@
         "pmcid": "PMC3904555",
         "doi": "10.1038/clpt.2013.203",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/pegintron/2013/24096968.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e"
+    "cpicVersion": "v1.20.0"
   },
   {
     "drugid": "RxNorm:253453",
@@ -33489,13 +35257,221 @@
         "pmcid": "PMC3904555",
         "doi": "10.1038/clpt.2013.203",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/pegintron/2013/24096968.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e"
+    "cpicVersion": "v1.20.0"
+  },
+  {
+    "drugid": "RxNorm:1011650",
+    "drugname": "pegloticase",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:8120",
+    "drugname": "phenazopyridine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
   },
   {
     "drugid": "RxNorm:8183",
@@ -33533,7 +35509,7 @@
         "pmcid": "PMC4206662",
         "doi": "10.1038/clpt.2014.159",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/phenytoin/2014/25099164.pdf"
       },
@@ -33567,13 +35543,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/phenytoin/2020/32779747.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -34533,13 +36509,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -34704,7 +36680,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -34739,7 +36715,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -34779,13 +36755,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -34930,13 +36906,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -35038,7 +37014,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -35073,7 +37049,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -35113,13 +37089,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -35226,10 +37202,10 @@
     ]
   },
   {
-    "drugid": "RxNorm:283821",
-    "drugname": "rasburicase",
-    "guidelinename": "G6PD and Rasburicase",
-    "url": "https://cpicpgx.org/guidelines/guideline-for-rasburicase-and-g6pd/",
+    "drugid": "RxNorm:8687",
+    "drugname": "primaquine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
     "guidelinepharmgkbids": [
       "PA166119846"
     ],
@@ -35237,111 +37213,472 @@
       "G6PD"
     ],
     "citations": [
-      {
-        "id": 110000,
-        "guidelineid": 100420,
-        "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Rasburicase Therapy in the context of G6PD Deficiency Genotype",
-        "authors": [
-          "Relling Mary V",
-          "McDonagh Ellen M",
-          "Chang Tamara",
-          "Caudle Kelly E",
-          "McLeod Howard L",
-          "Haidar Cyrine E",
-          "Klein Teri",
-          "Luzzatto Lucio"
-        ],
-        "journal": "Clinical pharmacology and therapeutics",
-        "month": 5,
-        "page": "",
-        "volume": "",
-        "year": 2014,
-        "pmid": "24787449",
-        "pmcid": "PMC4111801",
-        "doi": "10.1038/clpt.2014.97",
-        "url": null,
-        "version": 3,
-        "highlightedonsite": false,
-        "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/rasburicase/2014/24787449.pdf"
-      }
+      null
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
-          "G6PD": "At risk of acute hemolytic anemia"
+          "G6PD": "High risk of acute hemolytic anemia"
         },
-        "drugrecommendation": "Rasburicase is contraindicated; alternatives include allopurinol.",
+        "drugrecommendation": "Avoid use",
         "classification": "Strong",
         "phenotypes": {
           "G6PD": "Deficient"
         },
-        "activityscore": {
-          "G6PD": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
           "G6PD": "Deficient"
         },
-        "comments": "Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.",
-        "population": "general"
+        "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
+        "population": "standard dose"
       },
       {
         "implications": {
-          "G6PD": "n/a"
+          "G6PD": "Medium risk of acute hemolytic anemia"
         },
-        "drugrecommendation": "No recommendation",
-        "classification": "No Recommendation",
+        "drugrecommendation": "Use at standard doses with caution and with close monitoring for anemia",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "medium dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "single low dose"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "standard dose"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+        "population": "medium dose"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria.There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis",
+        "population": "single low dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
         "phenotypes": {
           "G6PD": "Indeterminate"
         },
-        "activityscore": {
-          "G6PD": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
           "G6PD": "Indeterminate"
         },
-        "comments": "n/a",
-        "population": "general"
+        "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
+        "population": "standard dose"
       },
       {
         "implications": {
-          "G6PD": "Low or reduced risk of hemolytic anemia"
+          "G6PD": "Unknown risk of acute hemolytic anemia"
         },
-        "drugrecommendation": "No reason to withhold rasburicase based on G6PD status.",
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
+        "population": "single low dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
+        "population": "medium dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
         "classification": "Strong",
         "phenotypes": {
           "G6PD": "Normal"
         },
-        "activityscore": {
-          "G6PD": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
           "G6PD": "Normal"
         },
-        "comments": "A negative or inconclusive genetic test cannot be assumed to indicate normal G6PD phenotype; an enzyme actiity test is needed to assign G6PD phenotype in such cases.",
-        "population": "general"
+        "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
+        "population": "medium dose"
       },
       {
         "implications": {
-          "G6PD": "Unknown risk of hemolytic anemia"
+          "G6PD": "Low risk of acute hemolytic anemia"
         },
-        "drugrecommendation": "To ascertain that G6PD status is normal, enzyme activity must be measured; alternatives include allopurinol.",
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
+        "population": "standard dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
+        "population": "single low dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
         "classification": "Moderate",
         "phenotypes": {
           "G6PD": "Variable"
         },
-        "activityscore": {
-          "G6PD": "n/a"
-        },
+        "activityscore": {},
         "allelestatus": {},
         "lookupkey": {
           "G6PD": "Variable"
         },
-        "comments": "Allopurinol is associated with severe cutaneous reactions in the rare carriers of the HLA-B*58:01 allele.",
+        "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "standard dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "single low dose"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "If deemed necessary to ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+        "population": "medium dose"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:9071",
+    "drugname": "quinine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:283821",
+    "drugname": "rasburicase",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
         "population": "general"
       }
     ]
@@ -35394,7 +37731,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -35429,7 +37766,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -35469,13 +37806,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36065,13 +38402,13 @@
         "pmcid": "PMC4512908",
         "doi": "10.1002/cpt.147",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/SSRI/2015/25974703.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36270,13 +38607,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36396,7 +38733,7 @@
         "pmcid": "PMC3384438",
         "doi": "10.1038/clpt.2012.57",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2012/22617227.pdf"
       },
@@ -36431,7 +38768,7 @@
         "pmcid": "PMC4169720",
         "doi": "10.1038/clpt.2014.125",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/simvastatin/2014/24918167.pdf"
       },
@@ -36471,13 +38808,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2557",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/statins/2022/publication.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36622,13 +38959,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36726,13 +39063,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/volatile_anesthetic_succinylcholine/2018/30499100.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36806,6 +39143,630 @@
     ]
   },
   {
+    "drugid": "RxNorm:10171",
+    "drugname": "sulfadiazine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10178",
+    "drugname": "sulfadimidine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10831",
+    "drugname": "sulfamethoxazole / trimethoprim",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10184",
+    "drugname": "sulfanilamide",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:9524",
+    "drugname": "sulfasalazine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10207",
+    "drugname": "sulfisoxazole",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:42316",
     "drugname": "tacrolimus",
     "guidelinename": "CYP3A5 and Tacrolimus",
@@ -36848,13 +39809,13 @@
         "pmcid": "PMC4481158",
         "doi": "10.1002/cpt.113",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/tacrolimus/2015/25801146.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -36954,6 +39915,110 @@
     ]
   },
   {
+    "drugid": "RxNorm:2054023",
+    "drugname": "tafenoquine",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": "Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of normal. (Inclusion criteria for clinical trials involving tafenoquine included G6PD activity ≥70%.)",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases. Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of normal. (Inclusion criteria for clinical trials involving tafenoquine included G6PD activity ≥70%.)",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:10324",
     "drugname": "tamoxifen",
     "guidelinename": "CYP2D6 and Tamoxifen",
@@ -36995,13 +40060,13 @@
         "pmcid": "PMC5931215",
         "doi": "10.1002/cpt.1007",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/tamoxifen/2017/29385237.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -37459,13 +40524,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.1830",
         "url": null,
-        "version": 4,
+        "version": 5,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/NSAID/2020/32189324.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -37623,7 +40688,7 @@
         "pmcid": "PMC3098761",
         "doi": "10.1038/clpt.2010.320",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2011/21270794.pdf"
       },
@@ -37654,7 +40719,7 @@
         "pmcid": "PMC3604643",
         "doi": "10.1038/clpt.2013.4",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2013/23422873.pdf"
       },
@@ -37688,13 +40753,13 @@
         "pmcid": null,
         "doi": null,
         "url": null,
-        "version": 5,
+        "version": 6,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/thiopurines/2018/30447069.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -38542,13 +41607,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2309",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/aminoglycosides/2021/34032273.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -38604,6 +41669,214 @@
     ]
   },
   {
+    "drugid": "RxNorm:10635",
+    "drugname": "tolbutamide",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:10638",
+    "drugname": "toluidine blue",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "High risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute on chronic hemolysis"
+        },
+        "drugrecommendation": "Avoid use",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals. Toluidine blue classification strength is based on extrapolation from methylene blue data",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid ased on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Variable risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases. Toluidine blue classification strength is based on extrapolation from methylene blue data",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:10689",
     "drugname": "tramadol",
     "guidelinename": "CYP2D6, OPRM1, COMT, and Opioids",
@@ -38638,7 +41911,7 @@
         "pmcid": "PMC3289963",
         "doi": "10.1038/clpt.2011.287",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2012/22205192.pdf"
       },
@@ -38670,7 +41943,7 @@
         "pmcid": "PMC3975212",
         "doi": "10.1038/clpt.2013.254",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/codeine/2014/24458010.pdf"
       },
@@ -38710,13 +41983,13 @@
         "pmcid": null,
         "doi": "10.1002/cpt.2149",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/33387367.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -39186,7 +42459,7 @@
         "pmcid": "PMC5478479",
         "doi": "10.1002/cpt.597",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2016/27997040.pdf"
       },
@@ -39215,13 +42488,13 @@
         "pmcid": "PMC3689226",
         "doi": "10.1038/clpt.2013.2",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/TCA/2013/23486447.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -44002,13 +47275,13 @@
         "pmcid": "PMC5479760",
         "doi": "10.1002/cpt.598",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/ondansetron/2016/28002639.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -44431,6 +47704,214 @@
     ]
   },
   {
+    "drugid": "RxNorm:1151",
+    "drugname": "vitamin c",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
+    "drugid": "RxNorm:11258",
+    "drugname": "vitamin k",
+    "guidelinename": "G6PD",
+    "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+    "guidelinepharmgkbids": [
+      "PA166119846"
+    ],
+    "genes": [
+      "G6PD"
+    ],
+    "citations": [
+      null
+    ],
+    "notesonusage": null,
+    "cpicVersion": "v1.20.0",
+    "recommendations": [
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Deficient"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient"
+        },
+        "comments": "Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        },
+        "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+        "classification": "Optional",
+        "phenotypes": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Deficient with CNSHA"
+        },
+        "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Unknown risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Indeterminate"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Indeterminate"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status",
+        "classification": "Strong",
+        "phenotypes": {
+          "G6PD": "Normal"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Normal"
+        },
+        "comments": null,
+        "population": "general"
+      },
+      {
+        "implications": {
+          "G6PD": "Low-to-no risk of acute hemolytic anemia"
+        },
+        "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+        "classification": "Moderate",
+        "phenotypes": {
+          "G6PD": "Variable"
+        },
+        "activityscore": {},
+        "allelestatus": {},
+        "lookupkey": {
+          "G6PD": "Variable"
+        },
+        "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+        "population": "general"
+      }
+    ]
+  },
+  {
     "drugid": "RxNorm:121243",
     "drugname": "voriconazole",
     "guidelinename": "CYP2C19 and Voriconazole",
@@ -44470,13 +47951,13 @@
         "pmcid": "PMC5474211",
         "doi": "10.1002/cpt.583",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/voriconazole/2016/27981572.pdf"
       }
     ],
     "notesonusage": null,
-    "cpicVersion": "v1.18.0-1-gedf3f4e",
+    "cpicVersion": "v1.20.0",
     "recommendations": [
       {
         "implications": {
@@ -44794,7 +48275,7 @@
         "pmcid": "PMC3187550",
         "doi": "10.1038/clpt.2011.185",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/warfarin/2011/21900891.pdf"
       },
@@ -44829,12 +48310,12 @@
         "pmcid": "PMC5546947",
         "doi": "10.1002/cpt.668",
         "url": null,
-        "version": 3,
+        "version": 4,
         "highlightedonsite": false,
         "fulltextfile": "https://files.cpicpgx.org/data/guideline/publication/warfarin/2017/28198005.pdf"
       }
     ],
     "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
-    "cpicVersion": "v1.18.0-1-gedf3f4e"
+    "cpicVersion": "v1.20.0"
   }
 ]

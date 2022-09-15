@@ -1,783 +1,261 @@
 {
-  "annotationGroups" : [ {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244481",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244481",
-    "name" : "IM",
-    "genePhenotypes" : [ "CYP2B6:Decreased function (*7)/Normal function", "CYP2B6:Decreased function/Normal function", "CYP2B6:No function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451448440,
-      "html" : "<p>Genetic variations increase the efavirenz plasma concentration and therefore the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451448441,
-      "html" : "<p>Intermediate Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451448442,
-      "html" : "<p>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 IM adults, a dose reduction to 400 mg/day (2/3rd of the standard dose) was sufficient to achieve therapeutic plasma concentrations and to reduce or resolve side effects. The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 2
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244501",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244501",
-    "name" : "NM",
-    "genePhenotypes" : [ "CYP2B6:Normal function/Normal function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451448446,
-      "html" : "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on efavirenz.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451448447,
-      "html" : "<p>Normal Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451448448,
-      "html" : "<p>The guideline does not provide a recommendation for efavirenz in normal metabolizers.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166244482",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166244482",
-    "name" : "PM",
-    "genePhenotypes" : [ "CYP2B6:Decreased function (*7)/Decreased function (*7)", "CYP2B6:Decreased function (*7)/No function", "CYP2B6:Decreased function/Decreased function", "CYP2B6:Decreased function/Decreased function (*7)", "CYP2B6:Decreased function/No function", "CYP2B6:No function/No function" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451448443,
-      "html" : "<p>Genetic variations increase the risk of side effects. The standard dose leads to an efavirenz concentration in the toxic range in the majority of patients with this genotype.</p>\n",
-      "version" : 0
-    },
-    "metabolizerStatus" : {
-      "id" : 1451448444,
-      "html" : "<p>Poor Metabolizer</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451448445,
-      "html" : "<p>Efavirenz in MONOpreparation, adults and children FROM 40 KG: Body mass index LESS THAN or EQUAL to 25: 1. The recommended initial dose is 400 mg/day and this dose should be titrated to plasma concentration if needed (further reduction to 200 mg/day or in rare cases an increase to 600 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml. Body mass index GREATER than 25: 1. The recommended initial dose is 600 mg/day and this dose should be titrated to plasma concentration if needed (reduction to 400 or 200 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in MONOpreparation, children LIGHTER THAN 40 KG: 1. Start with the standard dose and titrate this dose to plasma concentration if needed. In adults, therapeutic plasma concentrations were achieved at either 2/3rd of the standard dose (1/3rd of the patients) or 1/3rd of the standard dose (2/3rd of the patients). In children younger than 3 years, therapeutic plasma concentrations were achieved at doses of approximately 10 mg/kg per day (as capsules) (100 mg/day for 7-14 kg and 150 mg/day for 14-17 kg; 50-75% of the standard dose). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in COMBINATION preparation: 1. Initiate the combination preparation and titrate the efavirenz dose to plasma concentration if needed (reduction to 400 or 200 mg/day) The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602497",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602497,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Yes",
-      "termId" : "rxChange:1448602497",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "cfthorn",
-    "version" : 2
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166264861",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166264861",
-    "name" : "*1/*5 or *5/*5",
-    "genePhenotypes" : [ "CYP2B6:Normal function/Substrate dependent", "CYP2B6:Substrate dependent/Substrate dependent" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451695663,
-      "html" : "<p>Gene variant *5 has no effect on the metabolism and consequently on the efficacy and side effects of efavirenz.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451695664,
-      "html" : "<p>NO action is required for this gene-drug interaction.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265181",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265181",
-    "name" : "*5/*6 or *5/*18",
-    "genePhenotypes" : [ "CYP2B6:Decreased function/Substrate dependent", "CYP2B6:No function/Substrate dependent" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451697920,
-      "html" : "<p>The genetic variation increases the plasma concentration of efavirenz and thereby the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451697921,
-      "html" : "<p>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 adults with a genotype with the same effect, a reduction of the dose to 400 mg/day (2/3 of the standard dose) was sufficient to achieve therapeutic plasma concentrations and for the side effects to reduce or disappear. The therapeutic range established for efavirenz is 1000-4000 ng/mL.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602496",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602496,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "Possibly",
-      "termId" : "rxChange:1448602496",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  }, {
-    "@id" : "https://pharmgkb.org/dosingGuidelineAnnotationGroup/PA166265182",
-    "@context" : "https://api.pharmgkb.org/jsonld/dosingGuidelineAnnotationGroup.jsonld",
-    "objCls" : "Dosing Guideline Annotation Group",
-    "id" : "PA166265182",
-    "name" : "*5/*7",
-    "genePhenotypes" : [ "CYP2B6:Decreased function (*7)/Substrate dependent" ],
-    "guideline" : {
-      "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-      "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-      "objCls" : "Guideline Annotation",
-      "id" : "PA166182846",
-      "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-      "version" : 9
-    },
-    "implications" : {
-      "id" : 1451697922,
-      "html" : "<p>The guideline does not provide a description of the impact of the *5/*7 genotype on efavirenz.</p>\n",
-      "version" : 0
-    },
-    "phenotype" : {
-      "id" : 1451697923,
-      "html" : "<p>CYP2B6 *5/*7</p>\n",
-      "version" : 0
-    },
-    "recommendation" : {
-      "id" : 1451697924,
-      "html" : "<p>The guideline does not provide a recommendation for efavirenz in patients with the *5/*7 genotype.</p>\n",
-      "version" : 0
-    },
-    "rxChangeStatus" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/rxChange/rxChange:1448602495",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 1448602495,
-      "parents" : [ ],
-      "resource" : "Prescribing Change",
-      "term" : "No",
-      "termId" : "rxChange:1448602495",
-      "version" : 0
-    },
-    "strength" : {
-      "@id" : "https://pharmgkb.org/ontologyTerm/guidelineStrength/guidelineStrength:981501929",
-      "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-      "id" : 981501929,
-      "description" : "Not Applicable",
-      "parents" : [ ],
-      "resource" : "Guideline Strength",
-      "term" : "N/A",
-      "termId" : "guidelineStrength:981501929",
-      "version" : 1
-    },
-    "userId" : "rachel",
-    "version" : 0
-  } ],
-  "citations" : [ ],
-  "guideline" : {
-    "@id" : "https://pharmgkb.org/guidelineAnnotation/PA166182846",
-    "@context" : "https://api.pharmgkb.org/jsonld/guidelineAnnotation.jsonld",
-    "objCls" : "Guideline Annotation",
-    "id" : "PA166182846",
-    "name" : "Annotation of DPWG Guideline for efavirenz and CYP2B6",
-    "cancerGenome" : false,
-    "crossReferences" : [ ],
-    "guidelineGenes" : [ {
-      "id" : 1451448320,
-      "alleles" : [ {
-        "id" : 1451448321,
-        "_label" : "*1",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558335",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558335,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Normal function",
-          "termId" : "haplotypeTags:1445558335",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165818750",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165818750",
-          "symbol" : "CYP2B6*1",
-          "name" : "*1",
-          "version" : 15
-        },
-        "version" : 0
-      }, {
-        "id" : 1451695662,
-        "_label" : "*5",
-        "allele" : "*5",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451695661",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451695661,
-          "description" : "used for CYP2B6*5 allele in DPWG guidelines",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Substrate dependent",
-          "termId" : "alleleFunction:1451695661",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451697820,
-        "_label" : "*6",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558331",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558331,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function",
-          "termId" : "haplotypeTags:1445558331",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165818762",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165818762",
-          "symbol" : "CYP2B6*6",
-          "name" : "*6",
-          "version" : 15
-        },
-        "version" : 0
-      }, {
-        "id" : 1451697842,
-        "_label" : "*7",
-        "allele" : "*7",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/alleleFunction:1451697841",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1451697841,
-          "description" : "used for CYP2B6*7 allele in DPWG efavirenz guideline",
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "Decreased function (*7)",
-          "termId" : "alleleFunction:1451697841",
-          "version" : 0
-        },
-        "version" : 0
-      }, {
-        "id" : 1451697822,
-        "_label" : "*18",
-        "function" : {
-          "@id" : "https://pharmgkb.org/ontologyTerm/alleleFunction/haplotypeTags:1445558515",
-          "@context" : "https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld",
-          "id" : 1445558515,
-          "parents" : [ ],
-          "resource" : "Allele Function",
-          "term" : "No function",
-          "termId" : "haplotypeTags:1445558515",
-          "version" : 1
-        },
-        "haplotype" : {
-          "@id" : "https://pharmgkb.org/haplotype/PA165818808",
-          "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-          "objCls" : "Haplotype",
-          "id" : "PA165818808",
-          "symbol" : "CYP2B6*18",
-          "name" : "*18",
-          "version" : 16
-        },
-        "version" : 0
-      } ],
-      "gene" : {
-        "@id" : "https://pharmgkb.org/gene/PA123",
-        "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-        "objCls" : "Gene",
-        "id" : "PA123",
-        "symbol" : "CYP2B6",
-        "name" : "cytochrome P450 family 2 subfamily B member 6",
-        "alleleFile" : "CYP2B6_allele_definition_table.xlsx",
-        "altNames" : {
-          "synonym" : [ "cytochrome P450, family 2, subfamily B, polypeptide 6" ],
-          "symbol" : [ "CPB6", "CYP2B", "CYPIIB6" ]
-        },
-        "buildVersion" : "GRCh38.p7",
-        "cbStart" : "q13.2",
-        "cbStop" : "q13.2",
-        "chr" : {
-          "@id" : "https://pharmgkb.org/chromosome/PA520",
-          "@context" : "https://api.pharmgkb.org/jsonld/chromosome.jsonld",
-          "objCls" : "Chromosome",
-          "id" : "PA520",
-          "name" : "chr19",
-          "version" : 3
-        },
-        "chrStartPosB37" : 41497138,
-        "chrStartPosB38" : 40991200,
-        "chrStopPosB37" : 41524308,
-        "chrStopPosB38" : 41018402,
-        "cpicGene" : true,
-        "crossReferences" : [ {
-          "@id" : "https://pharmgkb.org/crossReference/ctd/1555",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 553242515,
-          "resource" : "Comparative Toxicogenomics Database",
-          "resourceId" : "1555",
-          "_url" : "http://ctdbase.org/detail.go?type=gene&acc=1555",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ensembl/ENSG00000197408",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 132256026,
-          "resource" : "Ensembl",
-          "resourceId" : "ENSG00000197408",
-          "_url" : "http://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000197408",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/genAtlas/CYP2B6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 73369,
-          "resource" : "GenAtlas",
-          "resourceId" : "CYP2B6",
-          "_url" : "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2B6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/geneCard/CYP2B6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 88297,
-          "resource" : "GeneCard",
-          "resourceId" : "CYP2B6",
-          "_url" : "http://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2B6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005506",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34969,
-          "resource" : "GO",
-          "resourceId" : "GO:0005506",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005506",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005783",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34654,
-          "resource" : "GO",
-          "resourceId" : "GO:0005783",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005783",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0005792",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35016,
-          "resource" : "GO",
-          "resourceId" : "GO:0005792",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0005792",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0006118",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 35063,
-          "resource" : "GO",
-          "resourceId" : "GO:0006118",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0006118",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0016020",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 34795,
-          "resource" : "GO",
-          "resourceId" : "GO:0016020",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0016020",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0020037",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 77774616,
-          "resource" : "GO",
-          "resourceId" : "GO:0020037",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0020037",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0046872",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 746292,
-          "resource" : "GO",
-          "resourceId" : "GO:0046872",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0046872",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/go/GO:0050381",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62329724,
-          "resource" : "GO",
-          "resourceId" : "GO:0050381",
-          "_url" : "http://amigo.geneontology.org/amigo/term/GO%3A0050381",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/hgnc/HGNC:2615",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 606340553,
-          "resource" : "HGNC",
-          "resourceId" : "HGNC:2615",
-          "_url" : "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2615",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/HumanCycGene/HS09587",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 606340610,
-          "resource" : "HumanCyc Gene",
-          "resourceId" : "HS09587",
-          "_url" : "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS09587",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/modBase/P20813",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560881436,
-          "resource" : "ModBase",
-          "resourceId" : "P20813",
-          "_url" : "http://salilab.org/modbase/search?modelflag=longest&databaseID=P20813",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/mutDb/CYP2B6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 455907,
-          "resource" : "MutDB",
-          "resourceId" : "CYP2B6",
-          "_url" : "http://www.mutdb.org/genes/search?_method=POST&data%5BSearch%5D%5Bidentifier%5D=CYP2B6",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/entrezGene/1555",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 10742,
-          "resource" : "NCBI Gene",
-          "resourceId" : "1555",
-          "_url" : "https://www.ncbi.nlm.nih.gov/gene/1555",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/omim/123930",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 707,
-          "resource" : "OMIM",
-          "resourceId" : "123930",
-          "_url" : "http://omim.org/entry/123930",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/pharmVarGene/CYP2B6",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 1451280331,
-          "resource" : "PharmVar Gene",
-          "resourceId" : "CYP2B6",
-          "_url" : "https://www.pharmvar.org/gene/CYP2B6",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_000008",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 123169766,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_000008",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_000008",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NG_007929",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 560556300,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NG_007929",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NG_007929",
-          "version" : 0
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqDna/NT_011109",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 36835,
-          "resource" : "RefSeq DNA",
-          "resourceId" : "NT_011109",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NT_011109",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqProtein/NP_000758",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 37895,
-          "resource" : "RefSeq Protein",
-          "resourceId" : "NP_000758",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NP_000758",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/refSeqRna/NM_000767",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 46970,
-          "resource" : "RefSeq RNA",
-          "resourceId" : "NM_000767",
-          "_url" : "https://www.ncbi.nlm.nih.gov/nuccore/NM_000767",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/ucscGenomeBrowser/NM_000767",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 122287,
-          "resource" : "UCSC Genome Browser",
-          "resourceId" : "NM_000767",
-          "_url" : "http://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000767",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/uniProtKb/P20813",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 62331765,
-          "name" : "CP2B6_HUMAN",
-          "resource" : "UniProtKB",
-          "resourceId" : "P20813",
-          "_url" : "http://www.uniprot.org/uniprot/P20813",
-          "version" : 1
-        }, {
-          "@id" : "https://pharmgkb.org/crossReference/url/http://www.imm.ki.se/CYPalleles/cyp2b6.htm",
-          "@context" : "https://api.pharmgkb.org/jsonld/crossReference.jsonld",
-          "id" : 85,
-          "resource" : "URL",
-          "resourceId" : "http://www.imm.ki.se/CYPalleles/cyp2b6.htm",
-          "_url" : "http://www.imm.ki.se/CYPalleles/cyp2b6.htm",
-          "version" : 1
-        } ],
-        "hasNonStandardHaplotypes" : false,
-        "hideHaplotypes" : false,
-        "pharmVarGene" : true,
-        "strand" : "plus",
-        "terms" : [ {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0004497","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560498878,"_url":"http://amigo.geneontology.org/amigo/term/GO:0004497","resource":"Gene Ontology","term":"monooxygenase activity","termId":"GO:0004497"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005783","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500134,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005783","resource":"Gene Ontology","term":"endoplasmic reticulum","termId":"GO:0005783"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005789","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500141,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005789","resource":"Gene Ontology","term":"endoplasmic reticulum membrane","termId":"GO:0005789"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0005792","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500144,"_url":"http://amigo.geneontology.org/amigo/term/GO:0005792","resource":"Gene Ontology","term":"microsome","termId":"GO:0005792"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0008202","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560501294,"_url":"http://amigo.geneontology.org/amigo/term/GO:0008202","resource":"Gene Ontology","term":"steroid metabolic process","termId":"GO:0008202"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0009055","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560503412,"_url":"http://amigo.geneontology.org/amigo/term/GO:0009055","resource":"Gene Ontology","term":"electron carrier activity","termId":"GO:0009055"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0016020","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560499972,"_url":"http://amigo.geneontology.org/amigo/term/GO:0016020","resource":"Gene Ontology","term":"membrane","termId":"GO:0016020"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0017144","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560507281,"_url":"http://amigo.geneontology.org/amigo/term/GO:0017144","resource":"Gene Ontology","term":"drug metabolic process","termId":"GO:0017144"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0019825","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509226,"_url":"http://amigo.geneontology.org/amigo/term/GO:0019825","resource":"Gene Ontology","term":"oxygen binding","termId":"GO:0019825"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0020037","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509358,"_url":"http://amigo.geneontology.org/amigo/term/GO:0020037","resource":"Gene Ontology","term":"heme binding","termId":"GO:0020037"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042180","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560500516,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042180","resource":"Gene Ontology","term":"cellular ketone metabolic process","termId":"GO:0042180"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0042738","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560515690,"_url":"http://amigo.geneontology.org/amigo/term/GO:0042738","resource":"Gene Ontology","term":"exogenous drug catabolic process","termId":"GO:0042738"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0046872","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560495445,"_url":"http://amigo.geneontology.org/amigo/term/GO:0046872","resource":"Gene Ontology","term":"metal ion binding","termId":"GO:0046872"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0055114","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560509993,"_url":"http://amigo.geneontology.org/amigo/term/GO:0055114","resource":"Gene Ontology","term":"oxidation reduction","termId":"GO:0055114"}, {"@id":"https://pharmgkb.org/ontologyTerm/GO/GO:0070330","@context":"https://api.pharmgkb.org/jsonld/ontologyTerm.jsonld","id":560523003,"_url":"http://amigo.geneontology.org/amigo/term/GO:0070330","resource":"Gene Ontology","term":"aromatase activity","termId":"GO:0070330"} ],
-        "version" : 6788
+  "guideline": {
+    "id": "PA166182846",
+    "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
+    "relatedChemicals": [
+      {
+        "id": "PA449441",
+        "name": "efavirenz",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA123",
+        "name": "cytochrome P450 family 2 subfamily B member 6",
+        "symbol": "CYP2B6"
+      }
+    ],
+    "source": "DPWG",
+    "recommendation": true,
+    "guidelineGenes": [
+      {
+        "alleles": [
+          {
+            "id": 1451448321,
+            "_label": "*1",
+            "function": {
+              "term": "Normal function",
+              "termId": "haplotypeTags:1445558335"
+            }
+          },
+          {
+            "id": 1451695662,
+            "_label": "*5",
+            "function": {
+              "term": "Substrate dependent",
+              "termId": "alleleFunction:1451695661"
+            }
+          },
+          {
+            "id": 1451697820,
+            "_label": "*6",
+            "function": {
+              "term": "Decreased function",
+              "termId": "haplotypeTags:1445558331"
+            }
+          },
+          {
+            "id": 1451697842,
+            "_label": "*7",
+            "function": {
+              "term": "Decreased function (*7)",
+              "termId": "alleleFunction:1451697841"
+            }
+          },
+          {
+            "id": 1451697822,
+            "_label": "*18",
+            "function": {
+              "term": "No function",
+              "termId": "haplotypeTags:1445558515"
+            }
+          }
+        ],
+        "gene": {
+          "chr": {
+            "id": "PA520",
+            "name": "chr19",
+            "symbol": null
+          },
+          "strand": "plus",
+          "id": "PA123",
+          "name": "cytochrome P450 family 2 subfamily B member 6",
+          "symbol": "CYP2B6"
+        }
+      }
+    ],
+    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182846",
+    "version": 10
+  },
+  "annotationGroups": [
+    {
+      "id": "PA166244501",
+      "name": "NM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
       },
-      "version" : 2
-    } ],
-    "hasTestingGuidance" : false,
-    "history" : [ {
-      "id" : 1450415253,
-      "date" : "2019-05-27T00:00:00-07:00",
-      "description" : "Annotation current with November 2018 DPWG Guideline release",
-      "type" : "Create",
-      "version" : 0
-    }, {
-      "id" : 1450820791,
-      "date" : "2019-10-06T23:09:58.171-07:00",
-      "description" : "No changes based on August 2019 guideline",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1450962901,
-      "date" : "2020-02-10T11:38:07.071-08:00",
-      "description" : "Fixed links to 2018 guideline pdfs.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451693241,
-      "date" : "2022-02-22T00:00:00-08:00",
-      "description" : "Added genotype picker",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451695660,
-      "date" : "2022-02-25T10:56:15.983-08:00",
-      "description" : "Added DPWG May 2021 update to annotation.",
-      "type" : "Update",
-      "version" : 0
-    }, {
-      "id" : 1451704185,
-      "date" : "2022-03-03T16:33:23.703-08:00",
-      "description" : "Annotation current with May 2021 DPWG Guideline release",
-      "type" : "Note",
-      "version" : 0
-    }, {
-      "id" : 1451732825,
-      "date" : "2022-03-28T09:57:37.436-07:00",
-      "description" : "Annotation current with February 2022 DPWG guideline release",
-      "type" : "Note",
-      "version" : 0
-    } ],
-    "literature" : [ {"@id":"https://pharmgkb.org/literature/15103288","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15103288,"title":"Dutch Pharmacogenetics Working Group Guidelines August 2019","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450815695,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-august-2019.pdf"}],"objCls":"Literature"}, {"@id":"https://pharmgkb.org/literature/15102465","@context":"https://api.pharmgkb.org/jsonld/literature.jsonld","id":15102465,"title":"Dutch Pharmacogenetics Working Group Guidelines November 2018","_sameAs":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","crossReferences":[{"@id":"https://pharmgkb.org/crossReference/url/https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","@context":"https://api.pharmgkb.org/jsonld/crossReference.jsonld","id":1450415575,"resource":"URL","resourceId":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf","_url":"https://www.knmp.nl/downloads/pharmacogenetic-recommendations-november-2018.pdf"}],"objCls":"Literature"} ],
-    "pediatric" : true,
-    "recommendation" : true,
-    "relatedAlleles" : [ {
-      "@id" : "https://pharmgkb.org/haplotype/PA165818808",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165818808",
-      "symbol" : "CYP2B6*18",
-      "name" : "*18",
-      "version" : 16
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165818760",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165818760",
-      "symbol" : "CYP2B6*5",
-      "name" : "*5",
-      "version" : 15
-    }, {
-      "@id" : "https://pharmgkb.org/haplotype/PA165818762",
-      "@context" : "https://api.pharmgkb.org/jsonld/haplotype.jsonld",
-      "objCls" : "Haplotype",
-      "id" : "PA165818762",
-      "symbol" : "CYP2B6*6",
-      "name" : "*6",
-      "version" : 15
-    } ],
-    "relatedChemicals" : [ {
-      "@id" : "https://pharmgkb.org/chemical/PA449441",
-      "@context" : "https://api.pharmgkb.org/jsonld/chemical.jsonld",
-      "objCls" : "Chemical",
-      "id" : "PA449441",
-      "name" : "efavirenz",
-      "version" : 8
-    } ],
-    "relatedGenes" : [ {
-      "@id" : "https://pharmgkb.org/gene/PA123",
-      "@context" : "https://api.pharmgkb.org/jsonld/gene.jsonld",
-      "objCls" : "Gene",
-      "id" : "PA123",
-      "symbol" : "CYP2B6",
-      "name" : "cytochrome P450 family 2 subfamily B member 6",
-      "version" : 6788
-    } ],
-    "source" : "DPWG",
-    "summaryMarkdown" : {
-      "id" : 1450415251,
-      "html" : "<p>Adjust the initial efavirenz dose for patients with the CYP2B6 PM phenotype along with the consideration of age, weight and BMI and titrate the dose to plasma concentration if needed. For patients with the *5/*6, *5/*18 or other CYP2B6 IM genotypes, determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed.</p>\n<p>No action is required for patients with the *1/*5 or *5/*5 genotypes.</p>\n",
-      "version" : 1
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451448447,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451448448,
+        "html": "<p>The guideline does not provide a recommendation for efavirenz in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451448446,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on efavirenz.</p>\n"
+      },
+      "activityScore": null
     },
-    "terms" : [ ],
-    "textMarkdown" : {
-      "id" : 1450415252,
-      "html" : "<h3 id=\"may-2021-update\">May 2021 Update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has updated their therapeutic dose recommendations for efavirenz based on CYP2B6 genotype.  There are now specific recommendations for the *5/*6 and *5/*18 genotypes and advice that no action is required in patients with the *1/*5 or *5/*5 genotypes.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_May_2021.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_May_2021.pdf\">Dutch guidelines May 2021 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2B6 IM other<sup>a</sup></td>\n<td>efavirenz</td>\n<td>Genetic variations increase the efavirenz plasma concentration and therefore the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</td>\n<td>1. Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 IM adults, a dose reduction to 400 mg/day (2/3rd of the standard dose) was sufficient to achieve therapeutic plasma concentrations and to reduce or resolve side effects. The therapeutic range established for efavirenz is 1000-4000 ng/ml.</td>\n</tr>\n<tr>\n<td>CYP2B6 PM other<sup>a,b</sup></td>\n<td>efavirenz</td>\n<td>Genetic variations increase the risk of side effects. The standard dose leads to an efavirenz concentration in the toxic range in the majority of patients with this genotype.</td>\n<td>* Efavirenz in MONOpreparation, adults and children FROM 40 KG: Body mass index LESS THAN or EQUAL to 25: 1. The recommended initial dose is 400 mg/day and this dose should be titrated to plasma concentration if needed (further reduction to 200 mg/day or in rare cases an increase to 600 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml. Body mass index GREATER than 25: 1. The recommended initial dose is 600 mg/day and this dose should be titrated to plasma concentration if needed (reduction to 400 or 200 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml.<br/>*Efavirenz in MONOpreparation, children LIGHTER THAN 40 KG: 1. Start with the standard dose and titrate this dose to plasma concentration if needed. In adults, therapeutic plasma concentrations were achieved at either 2/3rd of the standard dose (1/3rd of the patients) or 1/3rd of the standard dose (2/3rd of the patients). In children younger than 3 years, therapeutic plasma concentrations were achieved at doses of approximately 10 mg/kg per day (as capsules) (100 mg/day for 7-14 kg and 150 mg/day for 14-17 kg; 50-75% of the standard dose). The therapeutic range established for efavirenz is 1000-4000 ng/ml.<br/>*Efavirenz in COMBINATION preparation: 1. Initiate the combination preparation and titrate the efavirenz dose to plasma concentration if needed (reduction to 400 or 200 mg/day) The therapeutic range established for efavirenz is 1000-4000 ng/ml.</td>\n</tr>\n<tr>\n<td>CYP2B6 *1/*5</td>\n<td>efavirenz</td>\n<td>Gene variant *5 has no effect on the metabolism and consequently on the efficacy and side effects of efavirenz.</td>\n<td>NO action is required for this gene-drug interaction</td>\n</tr>\n<tr>\n<td>CYP2B6 *5/*5</td>\n<td>efavirenz</td>\n<td>Gene variant *5 has no effect on the metabolism and consequently on the efficacy and side effects of efavirenz.</td>\n<td>NO action is required for this gene-drug interaction</td>\n</tr>\n<tr>\n<td>CYP2B6 *5/*6 or *5/*18</td>\n<td>efavirenz</td>\n<td>The genetic variation increases the plasma concentration of efavirenz and thereby the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</td>\n<td>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 adults with a genotype with the same effect, a reduction of the dose to 400 mg/day (2/3 of the standard dose) was sufficient to achieve therapeutic plasma concentrations and for the side effects to reduce or disappear. The therapeutic range established for efavirenz is 1000-4000 ng/mL.</td>\n</tr>\n</tbody>\n</table>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004755.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n<p><sup>a</sup> These groups are referred to in the DPWG recommendation PDF as 'IM ANDERS' and 'PM ANDERS', which use the Dutch word 'anders'. PharmGKB has translated these as 'IM other' and PM other', respectively.</p>\n<p><sup>b</sup> Footnote from the guideline:</p>\n<blockquote class=\"blockquote\">\n<p>Note: the dosing recommendations above are based on PM patients with the *6/*6 genotype. There is evidence that the *18/*18 genotype in PM patients (only present in negroid patients) may require greater dose reductions.<br />\nConsiderations:\nDetailed justification for the recommendation is contained in the risk analysis. The considerations used for adults are also given below. The median or mean plasma concentrations or AUC in PM patients are above the therapeutic range, except in 3 studies with low efavirenz plasma concentrations in EM patients (2 of the 3 studies performed in Africa and 1 study in the United States and Italy). A recent study showed a similar virological response for efavirenz 400 and 600 mg/day in patients not selected on genotype. The risk of underdose is therefore very small if the initial dose is reduced to 400 mg/day. Two small studies showed that dose reductions did not reduce the efficacy (HIV remained undetectable), but side effects did reduce in 24 PM patients. Compliance improves with administration of a combination preparation and the absence of unnecessary side effects due to excessive plasma concentrations.\nConsideration to CYP2B6 inducers such as rifampicin is not needed in PM patients. The significantly low or absent metabolic capacity of CYP2B6 makes induction of little to no relevance. Moreover, the effects of enzyme induction by rifampicin and enzyme inhibition by isoniazid on efavirenz plasma concentrations seem to largely cancel each other out, independent of the CYP2B6 phenotype of the patient.&quot;</p>\n</blockquote>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for efavirenz based on CYP2B6 genotype.  They recommend adjusting the initial efavirenz dose for patients with the CYP2B6 PM phenotype and titrate the dose to plasma concentration if needed. For patients with CYP2B6 IM phenotype, they recommend determining the efavirenz plasma concentration if side effects occur and reducing the dose if needed.</p>\n<p><em>Wording in table taken from the <a download=\"DPWG_November_2018.pdf\" href=\"https://api.pharmgkb.org/v1/download/file/attachment/DPWG_November_2018.pdf\">Dutch guidelines November 2018 update</a></em></p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Allele/Genotype/Phenotype</th>\n<th>Drug</th>\n<th>Description</th>\n<th>Recommendation</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CYP2B6 IM</td>\n<td>efavirenz</td>\n<td>Genetic variations increase the efavirenz plasma concentration and therefore the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</td>\n<td>1. Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 IM adults, a dose reduction to 400 mg/day (2/3rd of the standard dose) was sufficient to achieve therapeutic plasma concentrations and to reduce or resolve side effects. The therapeutic range established for efavirenz is 1000-4000 ng/ml.</td>\n</tr>\n<tr>\n<td>CYP2B6 PM</td>\n<td>efavirenz</td>\n<td>Genetic variations increase the risk of side effects. The standard dose leads to an efavirenz concentration in the toxic range in the majority of patients with this genotype.</td>\n<td>* Efavirenz in MONOpreparation, adults and children FROM 40 KG: Body mass index LESS THAN or EQUAL to 25: 1. The recommended initial dose is 400 mg/day and this dose should be titrated to plasma concentration if needed (further reduction to 200 mg/day or in rare cases an increase to 600 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml. Body mass index GREATER than 25: 1. The recommended initial dose is 600 mg/day and this dose should be titrated to plasma concentration if needed (reduction to 400 or 200 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml.<br/>*Efavirenz in MONOpreparation, children LIGHTER THAN 40 KG: 1. Start with the standard dose and titrate this dose to plasma concentration if needed. In adults, therapeutic plasma concentrations were achieved at either 2/3rd of the standard dose (1/3rd of the patients) or 1/3rd of the standard dose (2/3rd of the patients). In children younger than 3 years, therapeutic plasma concentrations were achieved at doses of approximately 10 mg/kg per day (as capsules) (100 mg/day for 7-14 kg and 150 mg/day for 14-17 kg; 50-75% of the standard dose). The therapeutic range established for efavirenz is 1000-4000 ng/ml.<br/>*Efavirenz in COMBINATION preparation: 1. Initiate the combination preparation and titrate the efavirenz dose to plasma concentration if needed (reduction to 400 or 200 mg/day) The therapeutic range established for efavirenz is 1000-4000 ng/ml.</td>\n</tr>\n</tbody>\n</table>\n<p>&quot;Note: the dosing recommendations above are based on PM patients with the *6/*6 genotype. There is evidence that the *18/*18\ngenotype in PM patients (only present in negroid patients) may require greater dose reductions.\nConsiderations:\nDetailed justification for the recommendation is contained in the risk analysis. The considerations used for adults are also given below. The median or mean plasma concentrations or AUC in PM patients are above the therapeutic range, except in 3 studies with low efavirenz plasma concentrations in EM patients (2 of the 3 studies performed in Africa and 1 study in the United States and Italy). A recent study showed a similar virological response for efavirenz 400 and 600 mg/day in patients not selected on genotype. The risk of underdose is therefore very small if the initial dose is reduced to 400 mg/day. Two small studies showed that dose reductions did not reduce the efficacy (HIV remained undetectable), but side effects did reduce in 24 PM patients. Compliance improves with administration of a combination preparation and the absence of unnecessary side effects due to excessive plasma concentrations.\nConsideration to CYP2B6 inducers such as rifampicin is not needed in PM patients. The significantly low or absent metabolic capacity of CYP2B6 makes induction of little to no relevance. Moreover, the effects of enzyme induction by rifampicin and enzyme inhibition by isoniazid on efavirenz plasma concentrations seem to largely cancel each other out, independent of the CYP2B6 phenotype of the patient.&quot;</p>\n<p><a rel=\"noopener noreferrer\" href=\"https://www.g-standaard.nl/risicoanalyse/B0004755.PDF\" target=\"_blank\">Read for more information about this recommendation</a>, <a rel=\"noopener noreferrer\" href=\"https://www.knmp.nl/producten/gebruiksrecht-g-standaard/medicatiebewaking-g-standaard/background-information-pharmacogenetics\" target=\"_blank\">Read about gene information from DPWG</a></p>\n",
-      "version" : 3
+    {
+      "id": "PA166244481",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Decreased function (*7)/Normal function",
+        "CYP2B6:Decreased function/Normal function",
+        "CYP2B6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838374,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838375,
+        "html": "<p>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 IM adults, a dose reduction to 400 mg/day (2/3rd of the standard dose) was sufficient to achieve therapeutic plasma concentrations and to reduce or resolve side effects. The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n"
+      },
+      "implications": {
+        "id": 1451838373,
+        "html": "<p>Genetic variations increase the efavirenz plasma concentration and therefore the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</p>\n"
+      },
+      "activityScore": null
     },
-    "userId" : "lgong",
-    "version" : 9
-  }
+    {
+      "id": "PA166244482",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Decreased function (*7)/Decreased function (*7)",
+        "CYP2B6:Decreased function (*7)/No function",
+        "CYP2B6:Decreased function/Decreased function",
+        "CYP2B6:Decreased function/Decreased function (*7)",
+        "CYP2B6:Decreased function/No function",
+        "CYP2B6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838377,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838378,
+        "html": "<p>Efavirenz in MONOpreparation, adults and children FROM 40 KG: Body mass index LESS THAN or EQUAL to 25: 1. The recommended initial dose is 400 mg/day and this dose should be titrated to plasma concentration if needed (further reduction to 200 mg/day or in rare cases an increase to 600 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml. Body mass index GREATER than 25: 1. The recommended initial dose is 600 mg/day and this dose should be titrated to plasma concentration if needed (reduction to 400 or 200 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in MONOpreparation, children LIGHTER THAN 40 KG: 1. Start with the standard dose and titrate this dose to plasma concentration if needed. In adults, therapeutic plasma concentrations were achieved at either 2/3rd of the standard dose (1/3rd of the patients) or 1/3rd of the standard dose (2/3rd of the patients). In children younger than 3 years, therapeutic plasma concentrations were achieved at doses of approximately 10 mg/kg per day (as capsules) (100 mg/day for 7-14 kg and 150 mg/day for 14-17 kg; 50-75% of the standard dose). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in COMBINATION preparation: 1. Initiate the combination preparation and titrate the efavirenz dose to plasma concentration if needed (reduction to 400 or 200 mg/day) The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n"
+      },
+      "implications": {
+        "id": 1451838376,
+        "html": "<p>Genetic variations increase the risk of side effects. The standard dose leads to an efavirenz concentration in the toxic range in the majority of patients with this genotype.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166264861",
+      "name": "*1/*5 or *5/*5",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Normal function/Substrate dependent",
+        "CYP2B6:Substrate dependent/Substrate dependent"
+      ],
+      "metabolizerStatus": {
+        "id": 1451872345,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451872346,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451872344,
+        "html": "<p>Gene variant *5 has no effect on the metabolism and consequently on the efficacy and side effects of efavirenz.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166265181",
+      "name": "*5/*6 or *5/*18",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Decreased function/Substrate dependent",
+        "CYP2B6:No function/Substrate dependent"
+      ],
+      "metabolizerStatus": {
+        "id": 1451872324,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451872325,
+        "html": "<p>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 adults with a genotype with the same effect, a reduction of the dose to 400 mg/day (2/3 of the standard dose) was sufficient to achieve therapeutic plasma concentrations and for the side effects to reduce or disappear. The therapeutic range established for efavirenz is 1000-4000 ng/mL.</p>\n"
+      },
+      "implications": {
+        "id": 1451872323,
+        "html": "<p>The genetic variation increases the plasma concentration of efavirenz and thereby the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166265182",
+      "name": "*5/*7",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2B6:Decreased function (*7)/Substrate dependent"
+      ],
+      "metabolizerStatus": {
+        "id": 1451872341,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451872343,
+        "html": "<p>The guideline does not provide a recommendation for efavirenz in patients with the *5/*7 genotype.</p>\n"
+      },
+      "implications": {
+        "id": 1451872340,
+        "html": "<p>The guideline does not provide a description of the impact of the *5/*7 genotype on efavirenz.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
+  "citations": []
 }
