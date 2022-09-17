@@ -11,6 +11,7 @@ public class TextConstants {
   public static final String NA = "N/A";
   public static final String SEE_DRUG = "See drug section";
   public static final String UNKNOWN_FUNCTION = "Unknown";
+  public static final String UNKNOWN_GENOTYPE = "Empty genotype";
 
   /**
    * Displayed when gene has not been called.

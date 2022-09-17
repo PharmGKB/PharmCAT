@@ -80,7 +80,7 @@ public class ResultBuilder {
   /**
    * Adds diplotype results for specified gene.
    */
-  protected ResultBuilder gene(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
+  protected ResultBuilder diplotypes(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
     GeneCall geneCall = initGeneCall(gene, matchData);
@@ -96,14 +96,15 @@ public class ResultBuilder {
 
   /**
    * Add haplotype results for specified gene.
-   * This should only be used for genes that we only want to get haplotype matches for (e.g. DPYD).
+   * <p>
+   * This should only be used when we can't get diplotypes but still need to track potential haplotypes (e.g. DPYD).
    */
-  protected ResultBuilder gene(String gene, MatchData matchData, Set<HaplotypeMatch> matches) {
+  protected ResultBuilder haplotypes(String gene, MatchData matchData, List<HaplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
 
     GeneCall geneCall = initGeneCall(gene, matchData);
     if (matches != null) {
-      geneCall.addAllHaplotypes(matches);
+      geneCall.addHaplotypeMatches(matches);
     }
 
     m_result.addGeneCall(geneCall);

@@ -719,9 +719,9 @@ class NamedAlleleMatcherTest {
     GeneCall geneCall = result.getGeneCalls().get(0);
     printMatches(geneCall);
     assertEquals(0, geneCall.getDiplotypes().size());
-    System.out.println(geneCall.getHaplotypes());
-    assertEquals(3, geneCall.getHaplotypes().size());
-    List<String> names = geneCall.getHaplotypes().stream()
+    assertEquals(0, geneCall.getHaplotypes().size());
+    assertEquals(3, geneCall.getHaplotypeMatches().size());
+    List<String> names = geneCall.getHaplotypeMatches().stream()
         .map(BaseMatch::getName)
         .toList();
     assertThat(names, contains("c.62G>A", "c.1129-5923C>G, c.1236G>A (HapB3)", "c.3067C>A"));
@@ -794,7 +794,6 @@ class NamedAlleleMatcherTest {
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
     assertEquals("c.62G>A + c.3067C>A/c.62G>A + c.3067C>A", dm.getName());
-    assertEquals(1, geneCall.getHaplotypes().size());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
@@ -838,6 +837,36 @@ class NamedAlleleMatcherTest {
         .map(BaseMatch::getName)
         .toList();
     assertThat(names, contains("c.1627A>G (*5)", "c.1627A>G (*5) + c.85T>C (*9A)"));
+  }
+
+
+  @Test
+  void testDpydUnphasedHomozygousNoFunction(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "c.1627A>G (*5)/c.1627A>G (*5) + c.85T>C (*9A)")
+        .withDefinition(definitionFile)
+        .variation("DPYD", "rs72547601", "C", "C") // c.2933A>G
+        .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T
+        .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G
+        .generate();
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    //printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    System.out.println(geneCall.getHaplotypes());
+    assertEquals(0, geneCall.getDiplotypes().size());
+    assertEquals(0, geneCall.getHaplotypes().size());
+    assertEquals(4, geneCall.getHaplotypeMatches().size());
+    assertThat(geneCall.getHaplotypeMatches().stream().map(BaseMatch::toString).toList(),
+        contains("c.2582A>G", "c.2846A>T", "c.2933A>G", "c.2933A>G"));
   }
 
 

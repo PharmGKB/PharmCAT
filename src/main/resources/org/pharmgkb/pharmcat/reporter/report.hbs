@@ -145,7 +145,7 @@
       </div>
     {{/if}}
     <div class="footnote">
-      For a full list of disclaimers and limitations see the <a href="#disclaimer">Disclaimer section</a>.
+      For a full list of disclaimers and limitations see the <a href="#disclaimer">Section IV</a>.
     </div>
 
     {{#if hasCombo}}
@@ -175,11 +175,9 @@
           </div>
         {{/if}}
 
-        <section>
-          {{#each messages}}
-            <div class="alert alert-info">{{{this}}}</div>
-          {{/each}}
-        </section>
+        {{#each messages}}
+          <div class="alert alert-info">{{{this}}}</div>
+        {{/each}}
 
         {{#if image}}
           <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
@@ -203,16 +201,23 @@
                 {{#each annotationGroups}}
                   <tr class="top-aligned" id="#{{../id}}">
                     <td>
-                      <p><b>{{../source.displayName}}</b></p>
+                      <p>
+                        <b>{{source.displayName}}</b>
+                        {{#unless uncallable}}
+                          <sup class="sources">
+                            {{{listSources urls}}}
+                          </sup>
+                        {{/unless}}
+                      </p>
                       <p>Population:<br />{{population}}</p>
-                      <p><a href="{{../url}}">source</a></p>
                     </td>
                     <td>
                       <div class="hint">{{pluralize "Genotype" genotypes}}</div>
                       <ul class="{{#if (moreThanOne genotypes) }}noPadding{{else}}noBullet{{/if}} mt-0">
                         {{#each genotypes}}
                           <li>
-                            <span class="noWrap"><span class="normalWrap">{{this}}</span>
+                            <span class="noWrap">
+                              <span class="normalWrap">{{{rxGenotype this}}}</span>
                               {{#if (rxInferred this)}}<sup><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
                               {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
                             </span>
@@ -238,12 +243,14 @@
             {{else}}
               <tr>
                 <td class="top-aligned">
-                  <p><b>{{source.displayName}}</b></p>
-                  {{#unless uncallable}}
-                      <p>
+                  <p>
+                    <b>{{source.displayName}}</b>
+                    {{#unless uncallable}}
+                      <sup class="sources">
                         {{{listSources urls}}}
-                      </p>
-                  {{/unless}}
+                      </sup>
+                    {{/unless}}
+                  </p>
                 </td>
                 <td colspan="5" class="top-aligned">
                   {{#if uncallable}}
@@ -258,37 +265,33 @@
           </tbody>
         </table>
 
-        <section>
-          {{#if hasInferred}}
-            <div class="footnote" id="rx-dagger">
-              <sup>&dagger;</sup> Inferred Genotype used to look up Phenotype.
-            </div>
-          {{/if}}
-          {{#if hasDpydInferred}}
-            <div class="footnote" id="rx-ddagger">
-              <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype is inferred from the two lowest function
-              haplotypes. Consult the <a href="https://pharmcat.org/methods/gene-definition-exceptions/#dpyd" target="_blank"
-                rel="noopener noreferrer">PharmCAT documentation</a> for details.
-            </div>
-          {{/if}}
+        {{#if hasInferred}}
+          <div class="footnote" id="rx-dagger">
+            <sup>&dagger;</sup> Inferred Genotype used to look up Phenotype.
+          </div>
+        {{/if}}
+        {{#if hasDpydInferred}}
+          <div class="footnote" id="rx-ddagger">
+            <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype is inferred from the two lowest function
+            haplotypes. Consult the
+            {{{externalHref "https://pharmcat.org/methods/gene-definition-exceptions/#dpyd" "PharmCAT documentation"}}}
+            for details.
+          </div>
+        {{/if}}
 
-          {{#each footnotes}}
-            <div class="footnote">{{this}}</div>
-          {{/each}}
-        </section>
+        {{#each footnotes}}
+          <div class="footnote">{{this}}</div>
+        {{/each}}
 
-        {{#if citations}}
-          <section class="citations">
+        {{#if (thereAre citations)}}
+          <div class="citations">
             <p>Citations:</p>
             <ul>
               {{#each citations}}
-                <li>
-                  <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{pmid}}" target="_blank"
-                      rel="noopener noreferrer">{{title}}</a> [PMID:{{pmid}}] <em>{{journal}}</em>. {{year}}.
-                </li>
+                <li>{{{printCitation this}}}</li>
               {{/each}}
             </ul>
-          </section>
+          </div>
         {{/if}}
       </section>
     {{/each}}

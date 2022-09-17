@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.MoreObjects;
@@ -49,8 +50,8 @@ public class DrugReport implements Comparable<DrugReport> {
   @SerializedName("urls")
   private final List<String> f_urls = new ArrayList<>();
   @Expose
-  @SerializedName("publications")
-  private final List<Publication> f_publications = new ArrayList<>();
+  @SerializedName("citations")
+  private final List<Publication> f_citations = new ArrayList<>();
   @Expose
   @SerializedName("guidelines")
   private final List<GuidelineReport> f_guidelines = new ArrayList<>();
@@ -66,8 +67,11 @@ public class DrugReport implements Comparable<DrugReport> {
     m_cpicId = drug.getDrugId();
     Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
     f_urls.add(drug.getUrl());
-    if (drug.getPublications() != null) {
-      f_publications.addAll(drug.getPublications());
+    if (drug.getCitations() != null) {
+      // cpic data can have array with null value in it
+      drug.getCitations().stream()
+          .filter(Objects::nonNull)
+          .forEach(f_citations::add);
     }
 
     GuidelineReport guidelineReport = new GuidelineReport(drug);
@@ -82,6 +86,9 @@ public class DrugReport implements Comparable<DrugReport> {
   public void addDrugData(GuidelinePackage guidelinePackage, ReportContext reportContext) {
     m_pgkbId = guidelinePackage.getGuideline().getId();
     f_urls.add(guidelinePackage.getGuideline().getUrl());
+    if (guidelinePackage.getCitations() != null) {
+      f_citations.addAll(guidelinePackage.getCitations());
+    }
 
     GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
     guidelinePackage.getGenes().forEach((geneSymbol) ->
@@ -213,7 +220,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * Gets the literature objects that are used for citation of this Guideline
    */
   public List<Publication> getCitations() {
-    return f_publications;
+    return f_citations;
   }
 
   public boolean isCpic() {

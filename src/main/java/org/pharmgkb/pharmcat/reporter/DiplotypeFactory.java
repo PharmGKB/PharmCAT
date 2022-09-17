@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -222,17 +221,6 @@ public class DiplotypeFactory {
       phenotypes.add(diplotype.containsAllele("*57:01"));
       phenotypes.add(diplotype.containsAllele("*58:01"));
       return phenotypes;
-    }
-  }
-
-
-  static List<String> getHaps(BaseMatch baseMatch) {
-    if (baseMatch instanceof CombinationMatch cm) {
-      return cm.getComponentHaplotypes().stream()
-          .map(NamedAllele::getName)
-          .collect(Collectors.toList());
-    } else {
-      return Lists.newArrayList(baseMatch.getHaplotype().getName());
     }
   }
 }

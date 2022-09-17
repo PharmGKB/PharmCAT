@@ -10,7 +10,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
@@ -27,6 +26,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DpydCaller;
@@ -73,7 +73,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   @Expose
   @SerializedName("geneSymbol")
-  private final String f_gene;
+  private final String m_gene;
   @Expose
   @SerializedName("chr")
   private String m_chr;
@@ -105,7 +105,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   @Expose
   @SerializedName("matcherAlleles")
-  private final List<NamedAllele> f_matcherAlleles = new ArrayList<>();
+  private final List<NamedAllele> m_matcherAlleles = new ArrayList<>();
   @Expose
   @SerializedName("diplotypes")
   private final List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
@@ -126,9 +126,9 @@ public class GeneReport implements Comparable<GeneReport> {
   public GeneReport(GeneCall call, Env env, DataSource phenotypeSource) {
     Preconditions.checkNotNull(phenotypeSource);
 
-    f_gene = call.getGene();
+    m_gene = call.getGene();
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.MATCHER;
 
     m_chr = call.getChromosome();
@@ -137,7 +137,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phased = call.isPhased();
     m_effectivelyPhased = call.isEffectivelyPhased();
     try {
-      VariantReportFactory variantReportFactory = new VariantReportFactory(f_gene, m_chr);
+      VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr);
       call.getVariants().stream()
           .map(variantReportFactory::make).forEach(m_variantReports::add);
       call.getMatchData().getMissingPositions().stream()
@@ -153,34 +153,54 @@ public class GeneReport implements Comparable<GeneReport> {
         .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
         .forEach(r -> r.setMismatch(true));
 
-    call.getHaplotypes().stream()
-        .map(BaseMatch::getHaplotype)
-        .filter(Predicate.not(Objects::isNull))
-        .forEach(f_matcherAlleles::add);
+    if (call.getHaplotypes().stream()
+        .anyMatch(Objects::isNull)) {
+      throw new IllegalStateException("When does this happen?");
+    }
 
-    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
-    //noinspection rawtypes
-    Collection matches = null;
-    if (isDpyd(f_gene)) {
+    if (call.getHaplotypes().size() > 0) {
+      call.getHaplotypes().stream()
+          .map(BaseMatch::getHaplotype)
+          .forEach(m_matcherAlleles::add);
+    } else if (call.getHaplotypeMatches().size() > 0) {
+      call.getHaplotypeMatches().stream()
+          .map(BaseMatch::getHaplotype)
+          .forEach((na) -> {
+            if (m_matcherAlleles.stream().noneMatch((a) -> a.getName().equals(na.getName()))) {
+              m_matcherAlleles.add(na);
+            }
+          });
+    }
+
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
+    if (isDpyd(m_gene)) {
       if (hasTrueDiplotype(call)) {
+        m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_componentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+        m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), hasTrueDiplotype(call), env, phenotypeSource));
       } else {
-        matches = call.getHaplotypes();
+        List<HaplotypeMatch> matches = new ArrayList<>();
+        call.getHaplotypeMatches().forEach((hm) -> {
+          if (matches.stream().noneMatch((m) -> m.getName().equals(hm.getName()))) {
+            matches.add(hm);
+          }
+        });
+        m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
+        m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), hasTrueDiplotype(call), env, phenotypeSource));
       }
-    }
-    if (matches == null) {
-      matches = call.getDiplotypes();
-    }
-    m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
 
-    if (isDpyd(f_gene)) {
-      m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(matches, hasTrueDiplotype(call), env, phenotypeSource));
-    } else if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
-      Slco1b1CustomCaller
-          .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
-          .ifPresent(m_reporterDiplotypes::add);
     } else {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
+      List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource);
+      m_matcherDiplotypes.addAll(diplotypes);
+
+      if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
+        Slco1b1CustomCaller
+            .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
+            .ifPresent(m_reporterDiplotypes::add);
+
+      } else {
+        m_reporterDiplotypes.addAll(diplotypes);
+      }
     }
 
     applyMatcherMessages(call);
@@ -193,9 +213,9 @@ public class GeneReport implements Comparable<GeneReport> {
   public GeneReport(OutsideCall call, Env env, DataSource phenotypeSource) {
     Preconditions.checkNotNull(phenotypeSource);
 
-    f_gene = call.getGene();
+    m_gene = call.getGene();
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.OUTSIDE;
 
     addOutsideCall(call, env);
@@ -207,9 +227,9 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void addOutsideCall(OutsideCall call, Env env) {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
-    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(f_gene, env);
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
 
-    if (isDpyd(f_gene)) {
+    if (isDpyd(m_gene)) {
       m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
           m_phenotypeSource));
     } else {
@@ -222,9 +242,9 @@ public class GeneReport implements Comparable<GeneReport> {
    * Constructor for unspecified {@link GeneReport}.
    */
   private GeneReport(String geneSymbol, Env env, DataSource phenotypeSource) {
-    f_gene = geneSymbol;
+    m_gene = geneSymbol;
     m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(f_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.NONE;
     Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env, phenotypeSource);
     m_matcherDiplotypes.add(unknownDiplotype);
@@ -242,7 +262,7 @@ public class GeneReport implements Comparable<GeneReport> {
   protected GeneReport(String geneSymbol, DataSource phenotypeSource, @Nullable String phenotypeVersion) {
     Preconditions.checkNotNull(phenotypeSource);
 
-    f_gene = geneSymbol;
+    m_gene = geneSymbol;
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = phenotypeVersion;
     m_callSource = CallSource.NONE;
@@ -272,16 +292,16 @@ public class GeneReport implements Comparable<GeneReport> {
    * The gene symbol for this gene.
    */
   public String getGene(){
-    return f_gene;
+    return m_gene;
   }
 
   /**
    * The gene symbol for display purposes, like in a report. This accounts for the IFNL3/4 problem
    */
   public String getGeneDisplay() {
-    return switch (f_gene) {
+    return switch (m_gene) {
       case "IFNL3", "IFNL4" -> "IFNL3/4";
-      default -> f_gene;
+      default -> m_gene;
     };
   }
 
@@ -374,7 +394,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   public String toString() {
-    return f_gene + " Report";
+    return m_gene + " Report";
   }
 
   /**
@@ -398,7 +418,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return true if this gene assigns phenotype based on allele presence
    */
   public boolean isAllelePresenceType() {
-    return isAllelePresenceType(f_gene);
+    return isAllelePresenceType(m_gene);
   }
 
   /**
@@ -608,7 +628,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return the list of {@link NamedAllele} objects from the {@link NamedAlleleMatcher}.
    */
   public List<NamedAllele> getMatcherAlleles() {
-    return f_matcherAlleles;
+    return m_matcherAlleles;
   }
 
   /**

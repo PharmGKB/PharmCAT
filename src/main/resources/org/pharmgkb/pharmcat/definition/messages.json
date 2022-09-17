@@ -916,7 +916,7 @@
     "rule_name": "DPYD lowest activity score note",
     "version": "2",
     "matches": {
-      "gene": "DPYD",
+      "gene": "",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],

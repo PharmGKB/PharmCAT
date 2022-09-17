@@ -188,6 +188,7 @@ class PharmCATTest {
 
   @Test
   void cliCallCyp2d6(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -1086,7 +1087,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
   @Test
-  void testDpydHomNoFunction(TestInfo testInfo) throws Exception {
+  void testDpydHomNoFunctionEffectivelyPhased(TestInfo testInfo) throws Exception {
     // effectively phased
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -1124,6 +1125,29 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testMatchedGroups("fluorouracil", 1);
     testWrapper.testMatchedGroups("capecitabine", 1);
   }
+
+  @Test
+  void testDpydHomNoFunctionUnphased(TestInfo testInfo) throws Exception {
+    // effectively phased
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs72547601", "C", "C") // c.2933A>G - no function
+        .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T - decreased
+        .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G - normal
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testMatcher("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
+    testWrapper.testPrintCalls("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
+    testWrapper.testLookup("DPYD", "c.2933A>G", "c.2933A>G");
+
+    testWrapper.testMatchedGroups("fluorouracil", 1);
+    testWrapper.testMatchedGroups("capecitabine", 1);
+  }
+
 
   /**
    * This tests a special case of SLCO1B1. The gene in this scenario is "uncalled" by the matcher due the sample VCF
@@ -2000,6 +2024,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
       List<String> dips = geneReport.getMatcherDiplotypes().stream()
           .map(Diplotype::printBare)
+          .sorted()
           .toList();
       try {
         assertThat(dips, contains(diplotypes));

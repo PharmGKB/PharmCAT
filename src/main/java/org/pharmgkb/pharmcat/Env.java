@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.util.DataManager;
 public class Env {
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
-  private final Map<DataSource, Map<String, Haplotype>> m_haplotypeCache = new HashMap<>();
+  private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
 
 
   public Env() throws IOException, ReportableException {
@@ -64,21 +64,17 @@ public class Env {
    * Make or retrieve a cached {@link Haplotype} object that corresponds to the given allele name.
    */
   public Haplotype makeHaplotype(String gene, String name, DataSource source) {
-    // return cache value if possible
-    if (m_haplotypeCache.containsKey(source) && m_haplotypeCache.get(source).containsKey(name)) {
-      return m_haplotypeCache.get(source).get(name);
-    }
-
-    Haplotype haplotype = new Haplotype(gene, name);
-    GenePhenotype gp = getPhenotype(gene, source);
-    if (gp != null) {
-      haplotype.setFunction(gp.getHaplotypeFunction(name));
-      haplotype.setActivityValue(gp.getHaplotypeActivity(name));
-    }
-    haplotype.setReference(name.equals(getReferenceAllele(gene)));
-
-    m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
-        .put(name, haplotype);
-    return haplotype;
+    return m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
+        .computeIfAbsent(gene, (g) -> new HashMap<>())
+        .computeIfAbsent(name, (n) -> {
+          Haplotype haplotype = new Haplotype(gene, name);
+          GenePhenotype gp = getPhenotype(gene, source);
+          if (gp != null) {
+            haplotype.setFunction(gp.getHaplotypeFunction(name));
+            haplotype.setActivityValue(gp.getHaplotypeActivity(name));
+          }
+          haplotype.setReference(name.equals(getReferenceAllele(gene)));
+          return haplotype;
+        });
   }
 }

@@ -7,6 +7,8 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
@@ -174,5 +176,19 @@ public class BaseMatch implements Comparable<BaseMatch> {
   @Override
   public String toString() {
     return getName();
+  }
+
+
+  /**
+   * Gets a list of all haplotype names involved in this match.
+   */
+  public List<String> getHaplotypeNames() {
+    if (this instanceof CombinationMatch cm) {
+      return cm.getComponentHaplotypes().stream()
+          .map(NamedAllele::getName)
+          .collect(Collectors.toList());
+    } else {
+      return Lists.newArrayList(getHaplotype().getName());
+    }
   }
 }

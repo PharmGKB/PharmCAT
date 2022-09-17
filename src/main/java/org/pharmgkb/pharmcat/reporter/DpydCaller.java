@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -53,8 +54,8 @@ public class DpydCaller {
   }
 
 
-  public static List<Diplotype> inferDiplotypes(@SuppressWarnings("rawtypes") Collection matches, boolean hasTrueDiplotype, Env env,
-      DataSource source) {
+  public static List<Diplotype> inferDiplotypes(@SuppressWarnings("rawtypes") Collection matches,
+      boolean hasTrueDiplotype, Env env, DataSource source) {
 
     if (matches.size() > 0) {
       List<Diplotype> diplotypes = new ArrayList<>();
@@ -64,8 +65,8 @@ public class DpydCaller {
           List<String> hapNames2 = new ArrayList<>();
           if (obj instanceof DiplotypeMatch dm) {
             // from matcher
-            hapNames1.addAll(DiplotypeFactory.getHaps(dm.getHaplotype1()));
-            hapNames2.addAll(DiplotypeFactory.getHaps(dm.getHaplotype2()));
+            hapNames1.addAll(dm.getHaplotype1().getHaplotypeNames());
+            hapNames2.addAll(dm.getHaplotype2().getHaplotypeNames());
           } else if (obj instanceof String text) {
             // from outside call
             String[] haplotypes = DiplotypeFactory.splitDiplotype(GENE, text);
@@ -83,7 +84,7 @@ public class DpydCaller {
         for (Object obj : matches) {
           if (obj instanceof BaseMatch bm) {
             // from matcher
-            hapNames.addAll(DiplotypeFactory.getHaps(bm));
+            hapNames.addAll(bm.getHaplotypeNames());
           } else {
             throw new IllegalStateException("Unexpected type: " + obj.getClass());
           }
@@ -97,7 +98,10 @@ public class DpydCaller {
   }
 
   private static Diplotype inferUnphasedDiplotype(List<String> hapNames, Env env, DataSource source) {
-    List<Haplotype> haplotypes = makeHaplotypes(hapNames, env, source);
+    Object[] hapData = makeHaplotypes(hapNames, env, source);
+    //noinspection unchecked
+    List<Haplotype> haplotypes = (List<Haplotype>)hapData[0];
+    boolean isInferred = (Boolean)hapData[1];
     Haplotype hap1 = haplotypes.get(0);
     Haplotype hap2 = null;
     if (haplotypes.size() > 1) {
@@ -105,7 +109,7 @@ public class DpydCaller {
     }
     Diplotype diplotype = new Diplotype(GENE, hap1, hap2);
     DiplotypeFactory.fillDiplotype(diplotype, env, source);
-    if (haplotypes.size() > 2) {
+    if (isInferred || haplotypes.size() > 2) {
       diplotype.setObserved(Observation.INFERRED);
     }
     return diplotype;
@@ -113,28 +117,36 @@ public class DpydCaller {
 
   private static Diplotype inferPhasedDiplotype(List<String> hapNames1, List<String> hapNames2, Env env,
       DataSource source) {
-    List<Haplotype> haplotypes1 = makeHaplotypes(hapNames1, env, source);
-    Haplotype hap1 = haplotypes1.get(0);
+
+    Object[] hapData1 = makeHaplotypes(hapNames1, env, source);
+    boolean isInferred = (Boolean)hapData1[1];
+    //noinspection unchecked
+    Haplotype hap1 = ((List<Haplotype>)hapData1[0]).get(0);
     Haplotype hap2 = null;
     if (hapNames2 != null && hapNames2.size() > 0) {
-      hap2 = makeHaplotypes(hapNames2, env, source).get(0);
+      Object[] hapData2 = makeHaplotypes(hapNames2, env, source);
+      //noinspection unchecked
+      hap2 = ((List<Haplotype>)hapData2[0]).get(0);
+      isInferred = isInferred || (Boolean)hapData2[1];
     }
     Diplotype diplotype = new Diplotype(GENE, hap1, hap2);
     DiplotypeFactory.fillDiplotype(diplotype, env, source);
-    if (hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
+    if (isInferred || hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
       diplotype.setObserved(Observation.INFERRED);
     }
     return diplotype;
   }
 
 
-  static List<Haplotype> makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
+  static Object[] makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
     String refAllele = env.getReferenceAllele(GENE);
-    return hapNames.stream()
+    AtomicBoolean inferred = new AtomicBoolean(false);
+    List<Haplotype> haplotypes = hapNames.stream()
         .map(h -> {
           if (source == DataSource.DPWG) {
             GenePhenotype cpicGp = Objects.requireNonNull(env.getPhenotype(GENE, DataSource.CPIC));
             if ("normal function".equalsIgnoreCase(cpicGp.getHaplotypeFunction(h)) && !h.equals(refAllele)) {
+              inferred.set(true);
               return env.makeHaplotype(GENE, refAllele, source);
             }
           }
@@ -142,6 +154,10 @@ public class DpydCaller {
         })
         .sorted(new DpydActivityComparator(env))
         .toList();
+    return new Object[] {
+        haplotypes,
+        inferred.get(),
+    };
   }
 
 

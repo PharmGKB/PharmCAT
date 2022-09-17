@@ -2,8 +2,8 @@
   "metadata": {
     "namedAlleleMatcherVersion": "1.0.0",
     "genomeBuild": "b38",
-    "inputFilename": "cyp2c19.s4s17het.vcf",
-    "timestamp": "Apr 20, 2021, 3:42:12 PM"
+    "inputFilename": "ugt1a1.s1s60s80phased.vcf",
+    "timestamp": "Apr 20, 2021, 3:42:05 PM"
   },
   "results": [
     {
@@ -12,6 +12,7 @@
       "gene": "CACNA1S",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -55,6 +56,7 @@
       "gene": "CFTR",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -542,6 +544,7 @@
       "gene": "CYP2B6",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -979,209 +982,403 @@
       "alleleDefinitionVersion": "04/15/21",
       "chromosome": "chr10",
       "gene": "CYP2C19",
-      "diplotypes": [
-        {
-          "name": "*1/*4",
-          "haplotype1": {
-            "name": "*1",
-            "sequences": [
-              "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
-            ]
-          },
-          "haplotype2": {
-            "name": "*4",
-            "sequences": [
-              "94761900:C;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;",
-              "94761900:T;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
-            ]
-          },
-          "score": 34
-        }
-      ],
-      "haplotypes": [
-        {
-          "name": "*1",
-          "sequences": [
-            "94761900:C;94762706:A;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
-          ]
-        },
-        {
-          "name": "*4",
-          "sequences": [
-            "94761900:C;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;",
-            "94761900:T;94762706:G;94762712:C;94762715:T;94762755:T;94762760:A;94762788:A;94762856:A;94775106:C;94775121:C;94775160:G;94775185:A;94775367:A;94775416:T;94775453:G;94775489:G;94775507:G;94780574:G;94780579:G;94780653:G;94781858:C;94781859:G;94781944:G;94781999:T;94842861:G;94842879:G;94842995:G;94849995:C;94852738:C;94852765:C;94852785:C;94852914:A;"
-          ]
-        }
-      ],
-      "phased": false,
-      "variants": [
-        {
-          "position": 94761900,
-          "rsid": "rs12248560",
-          "vcfCall": "C/T"
-        },
-        {
-          "position": 94762706,
-          "rsid": "rs28399504",
-          "vcfCall": "A/G"
-        },
-        {
-          "position": 94762712,
-          "rsid": "rs367543002",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94762715,
-          "rsid": "rs367543003",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 94762755,
-          "rsid": "rs55752064",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 94762760,
-          "rsid": "rs17882687",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94762788,
-          "rsid": null,
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94762856,
-          "rsid": null,
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94775106,
-          "rsid": "rs145328984",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94775121,
-          "rsid": null,
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94775160,
-          "rsid": "rs118203756",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94775185,
-          "rsid": null,
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94775367,
-          "rsid": "rs12769205",
-          "vcfCall": "A|A"
-        },
-        {
-          "position": 94775416,
-          "rsid": "rs41291556",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 94775453,
-          "rsid": "rs72552267",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94775489,
-          "rsid": "rs17884712",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94775507,
-          "rsid": "rs58973490",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94780574,
-          "rsid": "rs140278421",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94780579,
-          "rsid": "rs370803989",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94780653,
-          "rsid": "rs4986893",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94781858,
-          "rsid": "rs6413438",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94781859,
-          "rsid": "rs4244285",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94781944,
-          "rsid": null,
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94781999,
-          "rsid": "rs72558186",
-          "vcfCall": "T|T"
-        },
-        {
-          "position": 94842861,
-          "rsid": "rs138142612",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94842879,
-          "rsid": "rs118203757",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94842995,
-          "rsid": "rs113934938",
-          "vcfCall": "G|G"
-        },
-        {
-          "position": 94849995,
-          "rsid": "rs17879685",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94852738,
-          "rsid": "rs56337013",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94852765,
-          "rsid": "rs192154563",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94852785,
-          "rsid": "rs118203759",
-          "vcfCall": "C|C"
-        },
-        {
-          "position": 94852914,
-          "rsid": "rs55640102",
-          "vcfCall": "A|A"
-        }
-      ],
+      "diplotypes": [],
+      "haplotypes": [],
+      "haplotypeMatches": [],
+      "phased": true,
+      "variants": [],
       "variantsOfInterest": [],
       "matchData": {
-        "missingPositions": [],
+        "missingPositions": [
+          {
+            "chromosome": "chr10",
+            "position": 94762856,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94762856A\u003eG",
+            "geneHgvsName": "g.5176A\u003eG",
+            "proteinNote": "S51G",
+            "resourceNote": "151A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94852738,
+            "rsid": "rs56337013",
+            "chromosomeHgvsName": "g.94852738C\u003eT",
+            "geneHgvsName": "g.95058C\u003eT",
+            "proteinNote": "R433W",
+            "resourceNote": "90033C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762755,
+            "rsid": "rs55752064",
+            "chromosomeHgvsName": "g.94762755T\u003eC",
+            "geneHgvsName": "g.5075T\u003eC",
+            "proteinNote": "L17P",
+            "resourceNote": "50T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775507,
+            "rsid": "rs58973490",
+            "chromosomeHgvsName": "g.94775507G\u003eA",
+            "geneHgvsName": "g.17827G\u003eA",
+            "proteinNote": "R150H",
+            "resourceNote": "12802G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775416,
+            "rsid": "rs41291556",
+            "chromosomeHgvsName": "g.94775416T\u003eC",
+            "geneHgvsName": "g.17736T\u003eC",
+            "proteinNote": "W120R",
+            "resourceNote": "12711T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94780653,
+            "rsid": "rs4986893",
+            "chromosomeHgvsName": "g.94780653G\u003eA",
+            "geneHgvsName": "g.22973G\u003eA",
+            "proteinNote": "W212X",
+            "resourceNote": "17948G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94781859,
+            "rsid": "rs4244285",
+            "chromosomeHgvsName": "g.94781859G\u003eA",
+            "geneHgvsName": "g.24179G\u003eA",
+            "proteinNote": "splicing defect",
+            "resourceNote": "19154G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775121,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94775121C\u003eT",
+            "geneHgvsName": "g.17441C\u003eT",
+            "proteinNote": "H78Y",
+            "resourceNote": "12416C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94842995,
+            "rsid": "rs113934938",
+            "chromosomeHgvsName": "g.94842995G\u003eA",
+            "geneHgvsName": "g.85315G\u003eA",
+            "proteinNote": "V374I",
+            "resourceNote": "80290G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775367,
+            "rsid": "rs12769205",
+            "chromosomeHgvsName": "g.94775367A\u003eG",
+            "geneHgvsName": "g.17687A\u003eG",
+            "proteinNote": "splicing defect",
+            "resourceNote": "12662A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94842879,
+            "rsid": "rs118203757",
+            "chromosomeHgvsName": "g.94842879G\u003eA",
+            "geneHgvsName": "g.85199G\u003eA",
+            "proteinNote": "R335Q",
+            "resourceNote": "80174G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775185,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94775185A\u003eG",
+            "geneHgvsName": "g.17505A\u003eG",
+            "proteinNote": "H99R",
+            "resourceNote": "12480A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762712,
+            "rsid": "rs367543002",
+            "chromosomeHgvsName": "g.94762712C\u003eT",
+            "geneHgvsName": "g.5032C\u003eT",
+            "proteinNote": "P3S",
+            "resourceNote": "7C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775453,
+            "rsid": "rs72552267",
+            "chromosomeHgvsName": "g.94775453G\u003eA",
+            "geneHgvsName": "g.17773G\u003eA",
+            "proteinNote": "R132Q",
+            "resourceNote": "12748G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762788,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94762788A\u003eT",
+            "geneHgvsName": "g.5108A\u003eT",
+            "proteinNote": "K28I",
+            "resourceNote": "83A\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762760,
+            "rsid": "rs17882687",
+            "chromosomeHgvsName": "g.94762760A\u003eC",
+            "geneHgvsName": "g.5080A\u003eC",
+            "proteinNote": "I19L",
+            "resourceNote": "55A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94780574,
+            "rsid": "rs140278421",
+            "chromosomeHgvsName": "g.94780574G\u003eC",
+            "geneHgvsName": "g.22894G\u003eC",
+            "proteinNote": "R186P",
+            "resourceNote": "17869G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94849995,
+            "rsid": "rs17879685",
+            "chromosomeHgvsName": "g.94849995C\u003eT",
+            "geneHgvsName": "g.92315C\u003eT",
+            "proteinNote": "R410C",
+            "resourceNote": "87290C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94852785,
+            "rsid": "rs118203759",
+            "chromosomeHgvsName": "g.94852785C\u003eG",
+            "geneHgvsName": "g.95105C\u003eG",
+            "proteinNote": "F448L",
+            "resourceNote": "90080C\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94781858,
+            "rsid": "rs6413438",
+            "chromosomeHgvsName": "g.94781858C\u003eT",
+            "geneHgvsName": "g.24178C\u003eT",
+            "proteinNote": "P227L",
+            "resourceNote": "19153C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94852765,
+            "rsid": "rs192154563",
+            "chromosomeHgvsName": "g.94852765C\u003eT",
+            "geneHgvsName": "g.95085C\u003eT",
+            "proteinNote": "R442C",
+            "resourceNote": "90060C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94852914,
+            "rsid": "rs55640102",
+            "chromosomeHgvsName": "g.94852914A\u003eC",
+            "geneHgvsName": "g.95234A\u003eC",
+            "proteinNote": "X491C (26 extra AA)",
+            "resourceNote": "90209A\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762706,
+            "rsid": "rs28399504",
+            "chromosomeHgvsName": "g.94762706A\u003eG",
+            "geneHgvsName": "g.5026A\u003eG",
+            "proteinNote": "M1V",
+            "resourceNote": "1A\u003eG",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775160,
+            "rsid": "rs118203756",
+            "chromosomeHgvsName": "g.94775160G\u003eC",
+            "geneHgvsName": "g.17480G\u003eC",
+            "proteinNote": "G91R",
+            "resourceNote": "12455G\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94761900,
+            "rsid": "rs12248560",
+            "chromosomeHgvsName": "g.94761900C\u003eT",
+            "geneHgvsName": "g.4220C\u003eT",
+            "proteinNote": "5\u0027 region",
+            "resourceNote": "-806C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775489,
+            "rsid": "rs17884712",
+            "chromosomeHgvsName": "g.94775489G\u003eA",
+            "geneHgvsName": "g.17809G\u003eA",
+            "proteinNote": "R144H",
+            "resourceNote": "12784G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94775106,
+            "rsid": "rs145328984",
+            "chromosomeHgvsName": "g.94775106C\u003eT",
+            "geneHgvsName": "g.17426C\u003eT",
+            "proteinNote": "R73C",
+            "resourceNote": "12401C\u003eT",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94842861,
+            "rsid": "rs138142612",
+            "chromosomeHgvsName": "g.94842861G\u003eA",
+            "geneHgvsName": "g.85181G\u003eA",
+            "proteinNote": "R329H",
+            "resourceNote": "80156G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94781944,
+            "rsid": null,
+            "chromosomeHgvsName": "g.94781944G\u003eA",
+            "geneHgvsName": "g.24264G\u003eA",
+            "proteinNote": "D256N",
+            "resourceNote": "19239G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94781999,
+            "rsid": "rs72558186",
+            "chromosomeHgvsName": "g.94781999T\u003eA",
+            "geneHgvsName": "g.24319T\u003eA",
+            "proteinNote": "splicing defect",
+            "resourceNote": "19294T\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94762715,
+            "rsid": "rs367543003",
+            "chromosomeHgvsName": "g.94762715T\u003eC",
+            "geneHgvsName": "g.5035T\u003eC",
+            "proteinNote": "F4L",
+            "resourceNote": "10T\u003eC",
+            "type": "SNP",
+            "referenceRepeat": null
+          },
+          {
+            "chromosome": "chr10",
+            "position": 94780579,
+            "rsid": "rs370803989",
+            "chromosomeHgvsName": "g.94780579G\u003eA",
+            "geneHgvsName": "g.22899G\u003eA",
+            "proteinNote": "D188N",
+            "resourceNote": "17874G\u003eA",
+            "type": "SNP",
+            "referenceRepeat": null
+          }
+        ],
         "mismatchedAlleles": []
       },
-      "uncallableHaplotypes": [],
+      "uncallableHaplotypes": [
+        "*1",
+        "*30",
+        "*2",
+        "*31",
+        "*10",
+        "*3",
+        "*32",
+        "*11",
+        "*33",
+        "*4",
+        "*12",
+        "*34",
+        "*5",
+        "*13",
+        "*35",
+        "*6",
+        "*14",
+        "*7",
+        "*15",
+        "*8",
+        "*16",
+        "*9",
+        "*17",
+        "*18",
+        "*19",
+        "*22",
+        "*23",
+        "*24",
+        "*25",
+        "*26",
+        "*28",
+        "*29"
+      ],
       "ignoredHaplotypes": []
     },
     {
@@ -1190,6 +1387,7 @@
       "gene": "CYP2C9",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [
@@ -2021,6 +2219,7 @@
       "gene": "CYP3A5",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -2136,6 +2335,7 @@
       "gene": "CYP4F2",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -2179,6 +2379,7 @@
       "gene": "DPYD",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -3193,6 +3394,7 @@
       "gene": "IFNL3",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -3224,6 +3426,7 @@
       "gene": "NUDT15",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -3471,6 +3674,7 @@
       "gene": "RYR1",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -4022,6 +4226,7 @@
       "gene": "SLCO1B1",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -4396,6 +4601,7 @@
       "gene": "TPMT",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],
@@ -4931,71 +5137,68 @@
       "alleleDefinitionVersion": "04/15/21",
       "chromosome": "chr2",
       "gene": "UGT1A1",
-      "diplotypes": [],
-      "haplotypes": [],
+      "diplotypes": [
+        {
+          "name": "*1/*80",
+          "haplotype1": {
+            "name": "*1",
+            "sequences": [
+              "233759924:C;233760233:CAT;233760498:G;233760973:C;"
+            ]
+          },
+          "haplotype2": {
+            "name": "*80",
+            "sequences": [
+              "233759924:T;233760233:CAT;233760498:G;233760973:C;"
+            ]
+          },
+          "score": 5
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "*1",
+          "sequences": [
+            "233759924:C;233760233:CAT;233760498:G;233760973:C;"
+          ]
+        },
+        {
+          "name": "*80",
+          "sequences": [
+            "233759924:T;233760233:CAT;233760498:G;233760973:C;"
+          ]
+        }
+      ],
+      "haplotypeMatches": [],
       "phased": true,
-      "variants": [],
+      "variants": [
+        {
+          "position": 233759924,
+          "rsid": "rs887829",
+          "vcfCall": "C|T"
+        },
+        {
+          "position": 233760233,
+          "rsid": null,
+          "vcfCall": "CAT|CAT"
+        },
+        {
+          "position": 233760498,
+          "rsid": "rs4148323",
+          "vcfCall": "G|G"
+        },
+        {
+          "position": 233760973,
+          "rsid": "rs35350960",
+          "vcfCall": "C|C"
+        }
+      ],
       "variantsOfInterest": [],
       "matchData": {
-        "missingPositions": [
-          {
-            "chromosome": "chr2",
-            "position": 233759924,
-            "rsid": "rs887829",
-            "chromosomeHgvsName": "g.233759924C\u003eT",
-            "geneHgvsName": "g.175181C\u003eT",
-            "proteinNote": "nearGene-5",
-            "resourceNote": "-364C\u003eT",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr2",
-            "position": 233760498,
-            "rsid": "rs4148323",
-            "chromosomeHgvsName": "g.233760498G\u003eA",
-            "geneHgvsName": "g.175755G\u003eA",
-            "proteinNote": "G71R",
-            "resourceNote": "211G\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr2",
-            "position": 233760233,
-            "rsid": null,
-            "chromosomeHgvsName": "g.233760233",
-            "geneHgvsName": "g.175490",
-            "proteinNote": "Promoter region",
-            "resourceNote": "CA(TA)5TAA CA(TA)6TAA CA(TA)7TAA CA(TA)8TAA",
-            "type": "SNP",
-            "referenceRepeat": null
-          },
-          {
-            "chromosome": "chr2",
-            "position": 233760973,
-            "rsid": "rs35350960",
-            "chromosomeHgvsName": "g.233760973C\u003eA",
-            "geneHgvsName": "g.176230C\u003eA",
-            "proteinNote": "P229Q",
-            "resourceNote": "686C\u003eA",
-            "type": "SNP",
-            "referenceRepeat": null
-          }
-        ],
+        "missingPositions": [],
         "mismatchedAlleles": []
       },
-      "uncallableHaplotypes": [
-        "*28",
-        "*80",
-        "*1",
-        "*80+*37",
-        "*80+*28",
-        "*6",
-        "*36",
-        "*37",
-        "*27"
-      ],
+      "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
     },
     {
@@ -5004,6 +5207,7 @@
       "gene": "VKORC1",
       "diplotypes": [],
       "haplotypes": [],
+      "haplotypeMatches": [],
       "phased": true,
       "variants": [],
       "variantsOfInterest": [],

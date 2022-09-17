@@ -3,11 +3,13 @@ package org.pharmgkb.pharmcat.reporter.handlebars;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -46,17 +48,10 @@ public class ReportHelpers {
     int x = 0;
     for (String url : urls) {
       x += 1;
-      if (builder.length() > 0) {
+      if (x > 1) {
         builder.append(", ");
       }
-      builder.append("<a href=\"")
-          .append(url)
-          .append("\">source");
-      if (urls.size() > 1) {
-          builder.append(" ")
-              .append(x);
-      }
-      builder.append("</a>");
+      builder.append(externalHref(url, Integer.toString(x)));
     }
     return builder.toString();
   }
@@ -140,6 +135,26 @@ public class ReportHelpers {
     return genotype.isInferred() && genotype.getDiplotypes().stream()
         .map(Diplotype::getGene)
         .noneMatch(g -> g.equals("DPYD"));
+  }
+
+  public static String rxGenotype(Genotype genotype) {
+    if (genotype.getDiplotypes().size() == 0) {
+      return TextConstants.UNKNOWN_GENOTYPE;
+    }
+    StringBuilder builder = new StringBuilder();
+    for (Diplotype diplotype : genotype.getDiplotypes()) {
+      if (builder.length() > 0) {
+        builder.append("; ");
+      }
+      builder
+          .append("<a href=\"#")
+          .append(diplotype.getGene())
+          .append("\">")
+          .append(diplotype.getGene())
+          .append("</a>:")
+          .append(diplotype.printBare());
+    }
+    return builder.toString();
   }
 
 
@@ -266,5 +281,21 @@ public class ReportHelpers {
 
   public static int add(int x, int y) {
     return x + y;
+  }
+
+  public static String externalHref(String href, String text) {
+    return "<a href=\"" + href + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + text + "</a>";
+  }
+
+  private static final Pattern sf_endsWithPuncuationPattern = Pattern.compile(".*?\\p{Punct}$");
+
+  public static String printCitation(Publication pub) {
+    String url = "https://www.ncbi.nlm.nih.gov/pubmed/" + pub.getPmid();
+    String period = "";
+    if (!sf_endsWithPuncuationPattern.matcher(pub.getTitle()).matches()) {
+      period = ".";
+    }
+    return externalHref(url, pub.getTitle()) + period + " <i>" + pub.getJournal() + "</i>. " + pub.getYear() +
+        ". PMID:" + pub.getPmid();
   }
 }

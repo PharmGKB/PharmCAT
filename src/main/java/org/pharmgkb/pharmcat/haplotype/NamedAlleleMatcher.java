@@ -5,8 +5,10 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -246,13 +248,13 @@ public class NamedAlleleMatcher {
         .compute(false, getTopCandidateOnly(gene));
     if (matches.isEmpty()) {
       if (!m_findCombinations) {
-        resultBuilder.gene(gene, data, matches);
+        resultBuilder.diplotypes(gene, data, matches);
       } else {
         callCombination(alleleMap, gene, resultBuilder);
       }
       return;
     }
-    resultBuilder.gene(gene, data, matches);
+    resultBuilder.diplotypes(gene, data, matches);
   }
 
   private void callCombination(SortedMap<String, SampleAllele> alleleMap, String gene, ResultBuilder resultBuilder) {
@@ -265,7 +267,7 @@ public class NamedAlleleMatcher {
 
     List<DiplotypeMatch> matches = new DiplotypeMatcher(data)
         .compute(true, getTopCandidateOnly(gene));
-    resultBuilder.gene(gene, data, matches);
+    resultBuilder.diplotypes(gene, data, matches);
   }
 
 
@@ -290,7 +292,7 @@ public class NamedAlleleMatcher {
       List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(refData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
-        resultBuilder.gene(gene, refData, diplotypeMatches);
+        resultBuilder.diplotypes(gene, refData, diplotypeMatches);
         return;
       }
       // try combinations
@@ -302,7 +304,7 @@ public class NamedAlleleMatcher {
         for (int x = 0; x < matches.length; x += 1) {
           matches = removeSubCombos(matches, x);
         }
-        resultBuilder.gene(gene, comboData, Arrays.asList(matches));
+        resultBuilder.diplotypes(gene, comboData, Arrays.asList(matches));
         return;
       }
     }
@@ -311,13 +313,44 @@ public class NamedAlleleMatcher {
       comboData = initializeCallData(alleleMap, gene, false, true);
     }
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
+
+    List<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
+        .compute(true, getTopCandidateOnly(gene));
+    Set<String> homozygous = new HashSet<>();
+    for (DiplotypeMatch dm : matches) {
+      Map<String, Integer> haps = new HashMap<>();
+      for (String h : dm.getHaplotype1().getHaplotypeNames()) {
+        haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+      }
+      for (String h : dm.getHaplotype2().getHaplotypeNames()) {
+        haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+      }
+      for (String k : haps.keySet()) {
+        if (haps.get(k) > 1) {
+          homozygous.add(k);
+        }
+      }
+    }
+
     if (hapMatches.size() > 2) {
       // cannot have reference if there is more than 1 variant
       hapMatches = hapMatches.stream()
           .filter(m -> !m.getName().equals("Reference"))
           .collect(Collectors.toCollection(TreeSet::new));
     }
-    resultBuilder.gene(gene, refData, hapMatches);
+
+    List<HaplotypeMatch> finalHaps = new ArrayList<>();
+    for (HaplotypeMatch hm : hapMatches) {
+      finalHaps.add(hm);
+      if (homozygous.contains(hm.getName())) {
+        finalHaps.add(hm);
+        homozygous.remove(hm.getName());
+      }
+    }
+    if (homozygous.size() > 0) {
+      throw new IllegalStateException("Combination matching found " + homozygous + " but haplotype matching didn't");
+    }
+    resultBuilder.haplotypes(gene, refData, finalHaps);
   }
 
   /**

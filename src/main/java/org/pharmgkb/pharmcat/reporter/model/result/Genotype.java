@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
 public class Genotype {
@@ -43,7 +44,7 @@ public class Genotype {
 
   public String toString() {
     if (this.diplotypes.size() == 0) {
-      return "Empty Genotype";
+      return TextConstants.UNKNOWN_GENOTYPE;
     } else {
       return this.diplotypes.stream()
           .map(Diplotype::toString)

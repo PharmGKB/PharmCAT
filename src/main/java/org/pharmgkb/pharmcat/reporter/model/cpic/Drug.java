@@ -36,7 +36,7 @@ public class Drug implements Comparable<Drug> {
   private List<String> m_guidelinePharmgkbIds;
   @Expose
   @SerializedName("citations")
-  private List<Publication> m_publications;
+  private List<Publication> m_citations;
   @Expose
   @SerializedName("recommendations")
   private List<Recommendation> m_recommendations;
@@ -97,12 +97,12 @@ public class Drug implements Comparable<Drug> {
     m_guidelinePharmgkbIds = guidelinePharmgkbIds;
   }
 
-  public List<Publication> getPublications() {
-    return m_publications;
+  public List<Publication> getCitations() {
+    return m_citations;
   }
 
-  public void setPublications(List<Publication> publications) {
-    m_publications = publications;
+  public void setCitations(List<Publication> citations) {
+    m_citations = citations;
   }
 
   public List<Recommendation> getRecommendations() {

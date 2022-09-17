@@ -1,8 +1,10 @@
 
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -37,6 +39,9 @@ public class GeneCall {
   @Expose
   @SerializedName("haplotypes")
   private final SortedSet<BaseMatch> m_haplotypes = new TreeSet<>();
+  @Expose
+  @SerializedName("haplotypeMatches")
+  private final List<HaplotypeMatch> m_haplotypeMatches = new ArrayList<>();
   @Expose
   @SerializedName("phased")
   private boolean m_isPhased = true;
@@ -113,13 +118,30 @@ public class GeneCall {
     m_haplotypes.add(diplotype.getHaplotype2());
   }
 
-  public void addAllHaplotypes(Collection<HaplotypeMatch> haplotypes) {
-    m_haplotypes.addAll(haplotypes);
+
+  /**
+   * Gets the haplotypes that are part of the called diplotypes.
+   */
+  public SortedSet<BaseMatch> getHaplotypes() {
+    return m_haplotypes;
   }
 
 
-  public Set<BaseMatch> getHaplotypes() {
-    return m_haplotypes;
+  /**
+   * Gets possible haplotype matches when no diplotypes are called.
+   * <p>
+   * This is currently only used for DPYD.
+   */
+  public List<HaplotypeMatch> getHaplotypeMatches() {
+    return m_haplotypeMatches;
+  }
+
+  /**
+   * Add haplotypes that were potential matches but could not be
+   */
+  public void addHaplotypeMatches(List<HaplotypeMatch> haplotypes) {
+    m_haplotypeMatches.addAll(haplotypes);
+    Collections.sort(m_haplotypeMatches);
   }
 
 

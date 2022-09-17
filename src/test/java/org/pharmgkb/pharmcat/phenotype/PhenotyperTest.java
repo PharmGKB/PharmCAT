@@ -43,7 +43,7 @@ class PhenotyperTest {
     warnings.put("chr10:94852914", ImmutableList.of("Test other message"));
 
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("Cyp2C19Het_call.json"),
+        readMatchData("Cyp2C19Het.match.json"),
         OutsideCallParser.parse("CYP2D6\t*1/*3"), warnings);
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
@@ -83,7 +83,7 @@ class PhenotyperTest {
   @Test
   void testCyp2C19Hom() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("Cyp2C19s2s2_call.json"),
+        readMatchData("Cyp2C19s2s2.match.json"),
         new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
@@ -94,7 +94,7 @@ class PhenotyperTest {
   @Test
   void testUGT1A1Phased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("UGT1A1s1s60s80phased_call.json"),
+        readMatchData("UGT1A1s1s60s80phased.match.json"),
         new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
@@ -107,7 +107,7 @@ class PhenotyperTest {
   @Test
   void testUGT1A1Unphased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("UGT1A1s1s60s80unphased_call.json"),
+        readMatchData("UGT1A1s1s60s80unphased.match.json"),
         new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
@@ -120,7 +120,7 @@ class PhenotyperTest {
   @Test
   void testNUDT15() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("NUDT15ref_call.json"),
+        readMatchData("NUDT15ref.match.json"),
         new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
@@ -132,7 +132,7 @@ class PhenotyperTest {
   @Test
   void testNUDT15star3() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
-        readMatchData("NUDT15s3_call.json"),
+        readMatchData("NUDT15s3.match.json"),
         new ArrayList<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
