@@ -125,6 +125,11 @@ public class ReportHelpers {
     return diplotype.printPhenotypes();
   }
 
+
+  public static boolean rxIsWarfarin(String drug) {
+    return drug.equals("warfarin");
+  }
+
   public static boolean rxDpydInferred(Genotype genotype) {
     return genotype.isInferred() && genotype.getDiplotypes().stream()
         .map(Diplotype::getGene)

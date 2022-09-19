@@ -179,8 +179,11 @@
           <div class="alert alert-info">{{{this}}}</div>
         {{/each}}
 
-        {{#if image}}
-          <div class="image"><img src="{{image/url}}" alt="{{image/altText}}"/></div>
+        {{#if (rxIsWarfarin drug)}}
+          <div class="image">
+            <img src="https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
+                alt="Figure 2 from the CPIC guideline for warfarin"/>
+          </div>
         {{/if}}
 
         <table>
