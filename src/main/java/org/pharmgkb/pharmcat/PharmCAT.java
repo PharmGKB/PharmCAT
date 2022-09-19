@@ -109,6 +109,7 @@ public class PharmCAT {
           .addOption("del", "delete-intermediary-files", "delete intermediary output files")
           .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
+        failIfNotTest();
         return;
       }
 
@@ -125,10 +126,12 @@ public class PharmCAT {
 
                   Please specify a VCF file (-vcf)"""
           );
+          failIfNotTest();
           return;
         }
         if (cliHelper.hasOption("pi")) {
           System.out.println("Cannot specify phenotyper-input (-pi) if running named allele matcher");
+          failIfNotTest();
           return;
         }
       }
@@ -151,6 +154,7 @@ public class PharmCAT {
                 1. Run named allele matcher with VCF input, or
                 2. Specify phenotyper-input (-pi) and/or phenotyper-outside-call-file (-po)"""
           );
+          failIfNotTest();
           return;
         }
       }
@@ -171,6 +175,7 @@ public class PharmCAT {
                     1. Run phenotyper, or
                     2. Specify reporter-input (-ri)"""
           );
+          failIfNotTest();
           return;
         }
       }
@@ -185,6 +190,7 @@ public class PharmCAT {
 
       if (!pharmcat.execute()) {
         cliHelper.printHelp();
+        failIfNotTest();
         return;
       }
 
@@ -195,10 +201,26 @@ public class PharmCAT {
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
       System.out.println(ex.getMessage());
+      failIfNotTest();
     } catch (Exception e) {
       e.printStackTrace();
+      failIfNotTest();
     }
   }
+
+
+  /**
+   * Only use {@link System#exit(int)} if not running from within test.
+   */
+  private static void failIfNotTest() {
+    try {
+      Class.forName("org.pharmgkb.pharmcat.TestUtils");
+    } catch (Exception ex) {
+      System.exit(1);
+    }
+  }
+
+
 
 
   public PharmCAT(Path vcfFile) throws IOException, ReportableException {
