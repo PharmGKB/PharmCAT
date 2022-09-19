@@ -9,6 +9,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 
@@ -18,14 +19,17 @@ import org.pharmgkb.pharmcat.util.DataManager;
  * @author Ryan Whaley
  */
 public class DefinitionFile {
-  public static final String FORMAT_VERSION = "1";
+  public static final String FORMAT_VERSION = "2";
   // metadata
   @Expose
   @SerializedName("formatVersion")
   private String m_formatVersion = FORMAT_VERSION;
   @Expose
-  @SerializedName("cpicVersion")
-  private String m_cpicVersion;
+  @SerializedName(value = "source")
+  private DataSource m_source;
+  @Expose
+  @SerializedName(value = "version", alternate = {"cpicVersion"})
+  private String m_version;
   @Expose
   @SerializedName("modificationDate")
   private Date m_modificationDate;
@@ -65,18 +69,31 @@ public class DefinitionFile {
   }
 
   /**
-   * The version of the CPIC DB that this definition was pulled from
+   * The source that this definition was pulled from.
    */
-  public String getCpicVersion() {
-    return m_cpicVersion;
+  public DataSource getSource() {
+    return m_source;
   }
 
-  public void setCpicVersion(String cpicVersion) {
-    m_cpicVersion = cpicVersion;
+  public void setSource(DataSource source) {
+    m_source = source;
   }
+
 
   /**
-   * The date this file should be considered to be last modified (should be manually set by curators)
+   * The version of this definition.
+   */
+  public String getVersion() {
+    return m_version;
+  }
+
+  public void setVersion(String version) {
+    m_version = version;
+  }
+
+
+  /**
+   * The date this file should be considered to be last modified (should be manually set by curators).
    */
   public Date getModificationDate() {
     return m_modificationDate;
@@ -86,8 +103,9 @@ public class DefinitionFile {
     m_modificationDate = modificationDate;
   }
 
+
   /**
-   * The symbol for the gene these alleles are on
+   * The symbol of the gene these alleles are on.
    */
   public String getGeneSymbol() {
     return m_geneSymbol;

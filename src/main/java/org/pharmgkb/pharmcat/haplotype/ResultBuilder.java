@@ -134,9 +134,8 @@ public class ResultBuilder {
     }
 
     DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
-    String definitionVersion = m_dateFormat.format(definitionFile.getModificationDate());
-    GeneCall geneCall = new GeneCall(definitionVersion, definitionFile.getCpicVersion(), definitionFile.getChromosome(),
-        gene, matchData, uncallableHaplotypes, ignoredHaplotypes);
+    GeneCall geneCall = new GeneCall(definitionFile.getSource(), definitionFile.getVersion(),
+        definitionFile.getChromosome(), gene, matchData, uncallableHaplotypes, ignoredHaplotypes);
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {

@@ -7,6 +7,7 @@ public enum DataSource {
   CPIC("CPIC"),
   // NOTE: we want to indicate that the Dutch (DPWG) data comes through PharmGKB annotations so we add it to the display
   DPWG("PharmGKB-DPWG"),
+  PHARMGKB("PharmGKB"),
   UNKNOWN("Unknown");
 
   private final String displayName;

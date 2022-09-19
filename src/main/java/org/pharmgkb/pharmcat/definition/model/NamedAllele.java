@@ -42,7 +42,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @SerializedName("populationFrequency")
   private Map<String, String> m_popFreqMap;
   @Expose
-  @SerializedName(value = "reference", alternate={"matchesreferencesequence"})
+  @SerializedName(value = "reference", alternate = {"matchesreferencesequence"})
   private final boolean m_isReference;
   //-- variables after this point are used by NamedAlleleMatcher --//
   /** The set of positions that are missing from this copy of the NamedAllele **/

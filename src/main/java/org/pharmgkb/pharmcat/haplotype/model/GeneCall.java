@@ -13,6 +13,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 
 /**
@@ -22,11 +23,11 @@ import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
  */
 public class GeneCall {
   @Expose
-  @SerializedName("alleleDefinitionVersion")
-  private final String m_alleleDefinitionVersion;
+  @SerializedName("source")
+  private final DataSource m_source;
   @Expose
-  @SerializedName("cpicVersion")
-  private final String m_cpicVersion;
+  @SerializedName("version")
+  private final String m_version;
   @Expose
   @SerializedName("chromosome")
   private final String m_chromosome;
@@ -62,11 +63,10 @@ public class GeneCall {
   private final Set<String> m_ignoredHaplotypes;
 
 
-  public GeneCall(String alleleDefinitionVersion, String cpicVersion, String chromosome, String gene,
+  public GeneCall(DataSource source, String version, String chromosome, String gene,
       MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes) {
-
-    m_alleleDefinitionVersion = alleleDefinitionVersion;
-    m_cpicVersion = cpicVersion;
+    m_source = source;
+    m_version = version;
     m_chromosome = chromosome;
     m_gene = gene;
     m_matchData = matchData;
@@ -77,14 +77,17 @@ public class GeneCall {
 
 
   /**
-   * Gets the version of the definition file used to make this call.
+   * Gets the source of the definition fiel used to make this call.
    */
-  public String getAlleleDefinitionVersion() {
-    return m_alleleDefinitionVersion;
+  public DataSource getSource() {
+    return m_source;
   }
 
-  public String getCpicVersion() {
-    return m_cpicVersion;
+  /**
+   * Gets the version of the definition file used to make this call.
+   */
+  public String getVersion() {
+    return m_version;
   }
 
   public String getChromosome() {

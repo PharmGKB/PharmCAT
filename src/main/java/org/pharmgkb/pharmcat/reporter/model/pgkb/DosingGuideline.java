@@ -41,7 +41,7 @@ public class DosingGuideline {
   @SerializedName("guidelineGenes")
   private List<GuidelineGene> m_guidelineGenes;
   @Expose
-  @SerializedName("@id")
+  @SerializedName("url")
   private String url;
   @Expose
   @SerializedName("version")

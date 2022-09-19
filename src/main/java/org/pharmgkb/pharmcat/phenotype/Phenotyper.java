@@ -20,6 +20,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.Env;
@@ -47,6 +48,8 @@ import org.slf4j.LoggerFactory;
  */
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private static final List<String> sf_cpicGenesWithNoPhenotype = Lists.newArrayList("CYP4F2", "IFNL3");
+
   @Expose
   @SerializedName("geneReports")
   private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports = new HashMap<>();
@@ -71,6 +74,11 @@ public class Phenotyper {
 
     // matcher calls
     for (GeneCall geneCall : geneCalls) {
+      if (env.getPhenotype(geneCall.getGene(), source) == null) {
+        if (!(source == DataSource.CPIC && sf_cpicGenesWithNoPhenotype.contains(geneCall.getGene()))) {
+          continue;
+        }
+      }
       GeneReport geneReport = new GeneReport(geneCall, env, source);
       reportMap.put(geneReport.getGene(), geneReport);
     }

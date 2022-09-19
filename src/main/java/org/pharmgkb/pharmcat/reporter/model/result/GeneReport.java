@@ -65,6 +65,9 @@ public class GeneReport implements Comparable<GeneReport> {
 
 
   @Expose
+  @SerializedName(("alleleDefinitionVersion"))
+  private String m_alleleDefinitionVersion;
+  @Expose
   @SerializedName("phenotypeVersion")
   private String m_phenotypeVersion;
   @Expose
@@ -127,6 +130,7 @@ public class GeneReport implements Comparable<GeneReport> {
     Preconditions.checkNotNull(phenotypeSource);
 
     m_gene = call.getGene();
+    m_alleleDefinitionVersion = call.getVersion();
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.MATCHER;
@@ -277,7 +281,14 @@ public class GeneReport implements Comparable<GeneReport> {
 
 
   /**
-   * The version this gene report is based on.
+   * Gets the allele definition version this {@link GeneReport} is based on.
+   */
+  public @Nullable String getAlleleDefinitionVersion() {
+    return m_alleleDefinitionVersion;
+  }
+
+  /**
+   * Gets the phenotype version this {@link GeneReport} is based on.
    */
   public @Nullable String getPhenotypeVersion() {
     return m_phenotypeVersion;

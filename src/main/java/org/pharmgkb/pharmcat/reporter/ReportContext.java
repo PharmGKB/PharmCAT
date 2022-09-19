@@ -129,6 +129,9 @@ public class ReportContext {
       if (geneReport.getPhenotypeVersion() != null) {
         cpicVersions.add(geneReport.getPhenotypeVersion());
       }
+      if (geneReport.getAlleleDefinitionVersion() != null) {
+        cpicVersions.add(geneReport.getAlleleDefinitionVersion());
+      }
     }
 
     // check CPIC drug data

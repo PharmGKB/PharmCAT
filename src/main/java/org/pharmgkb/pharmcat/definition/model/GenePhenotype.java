@@ -36,7 +36,7 @@ public class GenePhenotype {
   @SerializedName("diplotypes")
   @Expose
   private List<DiplotypeRecord> m_diplotypes;
-  @SerializedName("version")
+  @SerializedName(value = "version", alternate = {"cpicVersion"})
   @Expose
   private String m_version;
 

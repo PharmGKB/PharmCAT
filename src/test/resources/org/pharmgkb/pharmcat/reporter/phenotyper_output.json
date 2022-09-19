@@ -2,7 +2,6 @@
   "geneReports": {
     "CPIC": {
       "ABCG2": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -109,7 +108,6 @@
         "highlightedVariants": []
       },
       "CACNA1S": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -232,7 +230,6 @@
         "highlightedVariants": []
       },
       "CFTR": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -947,7 +944,6 @@
         "highlightedVariants": []
       },
       "CYP2B6": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1628,7 +1624,6 @@
         "highlightedVariants": []
       },
       "CYP2C19": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2296,7 +2291,6 @@
         "highlightedVariants": []
       },
       "CYP2C9": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3689,7 +3683,6 @@
         "highlightedVariants": []
       },
       "CYP2D6": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3758,7 +3751,6 @@
         "highlightedVariants": []
       },
       "CYP3A4": {
-        "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -4379,7 +4371,6 @@
         "highlightedVariants": []
       },
       "CYP3A5": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -4566,7 +4557,6 @@
         "highlightedVariants": []
       },
       "CYP4F2": {
-        "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP4F2",
         "chr": "chr19",
@@ -4681,7 +4671,6 @@
         "highlightedVariants": []
       },
       "DPYD": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -6135,7 +6124,6 @@
         "highlightedVariants": []
       },
       "G6PD": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "G6PD",
         "chr": null,
@@ -6192,7 +6180,6 @@
         "highlightedVariants": []
       },
       "HLA-A": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "HLA-A",
         "chr": null,
@@ -6261,7 +6248,6 @@
         "highlightedVariants": []
       },
       "HLA-B": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "HLA-B",
         "chr": null,
@@ -6330,7 +6316,6 @@
         "highlightedVariants": []
       },
       "IFNL3": {
-        "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -6445,7 +6430,6 @@
         "highlightedVariants": []
       },
       "MT-RNR1": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -6502,7 +6486,6 @@
         "highlightedVariants": []
       },
       "NUDT15": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -6868,7 +6851,6 @@
         "highlightedVariants": []
       },
       "RYR1": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -7667,7 +7649,6 @@
         "highlightedVariants": []
       },
       "SLCO1B1": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -8300,7 +8281,6 @@
         ]
       },
       "TPMT": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -9099,7 +9079,6 @@
         "highlightedVariants": []
       },
       "UGT1A1": {
-        "phenotypeVersion": "v1.18.0-11-g30b26b6",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -9276,7 +9255,6 @@
         "highlightedVariants": []
       },
       "VKORC1": {
-        "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
@@ -9408,7 +9386,6 @@
     },
     "DPWG": {
       "ABCG2": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -9515,7 +9492,6 @@
         "highlightedVariants": []
       },
       "CACNA1S": {
-        "phenotypeVersion": null,
         "phenotypeSource": "DPWG",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -9630,7 +9606,6 @@
         "highlightedVariants": []
       },
       "CFTR": {
-        "phenotypeVersion": null,
         "phenotypeSource": "DPWG",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -10337,7 +10312,6 @@
         "highlightedVariants": []
       },
       "CYP2B6": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -11018,7 +10992,6 @@
         "highlightedVariants": []
       },
       "CYP2C19": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -11686,7 +11659,6 @@
         "highlightedVariants": []
       },
       "CYP2C9": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -13079,7 +13051,6 @@
         "highlightedVariants": []
       },
       "CYP2D6": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -13148,7 +13119,6 @@
         "highlightedVariants": []
       },
       "CYP3A4": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -13777,7 +13747,6 @@
         "highlightedVariants": []
       },
       "CYP3A5": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -13960,7 +13929,6 @@
         "highlightedVariants": []
       },
       "CYP4F2": {
-        "phenotypeVersion": null,
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP4F2",
         "chr": "chr19",
@@ -14075,7 +14043,6 @@
         "highlightedVariants": []
       },
       "DPYD": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -15525,7 +15492,6 @@
         "highlightedVariants": []
       },
       "F5": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "F5",
         "chr": null,
@@ -15594,7 +15560,6 @@
         "highlightedVariants": []
       },
       "HLA-A": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "HLA-A",
         "chr": null,
@@ -15663,7 +15628,6 @@
         "highlightedVariants": []
       },
       "HLA-B": {
-        "phenotypeVersion": null,
         "phenotypeSource": "NA",
         "geneSymbol": "HLA-B",
         "chr": null,
@@ -15732,7 +15696,6 @@
         "highlightedVariants": []
       },
       "IFNL3": {
-        "phenotypeVersion": null,
         "phenotypeSource": "DPWG",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -15847,7 +15810,6 @@
         "highlightedVariants": []
       },
       "NUDT15": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -16213,7 +16175,6 @@
         "highlightedVariants": []
       },
       "RYR1": {
-        "phenotypeVersion": null,
         "phenotypeSource": "DPWG",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -17004,7 +16965,6 @@
         "highlightedVariants": []
       },
       "SLCO1B1": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -17637,7 +17597,6 @@
         ]
       },
       "TPMT": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -18436,7 +18395,6 @@
         "highlightedVariants": []
       },
       "UGT1A1": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -18613,7 +18571,6 @@
         "highlightedVariants": []
       },
       "VKORC1": {
-        "phenotypeVersion": "9/1/22 11:40 AM PDT",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",

@@ -142,6 +142,7 @@ class PharmCATTest {
 
   @Test
   void cliReference(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -516,7 +517,7 @@ class PharmCATTest {
     testWrapper.execute(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls( "CYP2C19", "*1/*1");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*1");
 
     testWrapper.testMatchedGroups("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
@@ -545,7 +546,7 @@ class PharmCATTest {
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
     // this is the diplotype indicated in the outside call, not the one matched
-    testWrapper.testPrintCalls( "CYP2C19", "*2/*2");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*2/*2");
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 2);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "prefer-sample-data",
@@ -568,9 +569,9 @@ class PharmCATTest {
     testWrapper.execute(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls( "CYP2C19", "*1/*2");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
     testWrapper.testNotCalledByMatcher("CYP2D6");
-    testWrapper.testPrintCalls( "CYP2D6", "*3/*4");
+    testWrapper.testPrintCpicCalls( "CYP2D6", "*3/*4");
 
     testWrapper.testMatchedGroups("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
@@ -612,7 +613,7 @@ class PharmCATTest {
     testWrapper.execute(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls( "CYP2C19", "*1/*2");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
 
     testWrapper.testMatchedGroups("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
@@ -655,7 +656,7 @@ class PharmCATTest {
     testWrapper.execute(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls( "CYP2C19", "*2/*2");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*2/*2");
 
     testWrapper.testMatchedGroups("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
@@ -716,7 +717,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
+    testWrapper.testPrintCpicCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
     testWrapper.testMatchedGroups("citalopram", 6);
     testWrapper.testMatchedGroups("citalopram", DataSource.CPIC, 3);
@@ -737,8 +738,8 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
 
-    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
-    testWrapper.testPrintCalls("CYP2C19", "*4/*17");
+    testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2C19", "*4/*17");
 
     assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
   }
@@ -755,8 +756,8 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
 
-    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
-    testWrapper.testPrintCalls("CYP2C19",  "*1/*4", "*4/*38");
+    testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2C19",  "*1/*4", "*4/*38");
 
     assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
     GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
@@ -789,8 +790,8 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
 
-    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
-    testWrapper.testPrintCalls("CYP2C19", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2C19", "*1/*4");
 
     assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
   }
@@ -803,7 +804,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testPrintCalls("CFTR", "No CPIC variants found");
+    testWrapper.testPrintCpicCalls("CFTR", "No CPIC variants found");
     testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence", "ivacaftor non-responsive CFTR sequence");
 
     testWrapper.testMatchedGroups("ivacaftor", 1);
@@ -817,7 +818,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testPrintCalls("CFTR", "D1270N (heterozygous)");
+    testWrapper.testPrintCpicCalls("CFTR", "D1270N (heterozygous)");
     testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence", "D1270N");
 
     testWrapper.testMatchedGroups("ivacaftor", 1);
@@ -832,7 +833,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testPrintCalls("CFTR", "D1270N/G551D");
+    testWrapper.testPrintCpicCalls("CFTR", "D1270N/G551D");
     testWrapper.testLookup("CFTR", "G551D", "D1270N");
 
     testWrapper.testMatchedGroups("ivacaftor", 1);
@@ -847,7 +848,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*1/*2");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*2");
 
     testWrapper.testMatchedGroups("rosuvastatin", 1);
   }
@@ -860,7 +861,7 @@ class PharmCATTest {
     testWrapper.execute(s_outsideCallFilePath);
 
     testWrapper.testReportable("CYP2D6");
-    testWrapper.testPrintCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testLookup("CYP2D6", "*1", "*4");
 
     testWrapper.testMatchedGroups("amitriptyline", 2);
@@ -876,7 +877,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*1/*1");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*1");
     testWrapper.testLookup("SLCO1B1", "*1", "*1");
 
     GeneReport slco1b1Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "SLCO1B1");
@@ -892,7 +893,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*5/*15");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*5/*15");
     testWrapper.testLookup("SLCO1B1", "*5", "*15");
   }
 
@@ -906,7 +907,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*1/*44");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*44");
     testWrapper.testLookup("SLCO1B1", "*1", "*44");
   }
 
@@ -919,7 +920,7 @@ class PharmCATTest {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*1/*15");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*15");
     testWrapper.testLookup("SLCO1B1", "*1", "*15");
   }
 
@@ -932,7 +933,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testPrintCalls("SLCO1B1", "*5/*45");
+    testWrapper.testPrintCpicCalls("SLCO1B1", "*5/*45");
     testWrapper.testLookup("SLCO1B1", "*5", "*45");
 
     testWrapper.testMatchedGroups("simvastatin", 1);
@@ -951,7 +952,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertEquals(2, dpyd.getMatcherAlleles().size());
-    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
+    testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
     testWrapper.testMatchedGroups("fluorouracil", 2);
@@ -971,7 +972,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertEquals(2, dpyd.getMatcherAlleles().size());
     assertEquals(1, dpyd.getReporterDiplotypes().size());
-    testWrapper.testPrintCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
+    testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     testWrapper.testLookupByActivity("DPYD", "1");
 
     testWrapper.testMatchedGroups("fluorouracil", 2);
@@ -993,7 +994,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertEquals(4, dpyd.getMatcherAlleles().size());
     assertEquals(1, dpyd.getReporterDiplotypes().size());
-    testWrapper.testPrintCalls("DPYD", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
+    testWrapper.testPrintCpicCalls("DPYD", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
     testWrapper.testLookupByActivity("DPYD", "0.5");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1009,7 +1010,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "Reference/c.2846A>T");
+    testWrapper.testPrintCpicCalls("DPYD", "Reference/c.2846A>T");
     testWrapper.testLookup("DPYD", "Reference", "c.2846A>T");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1037,7 +1038,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
-    testWrapper.testPrintCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
+    testWrapper.testPrintCpicCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.498G>A", "c.2933A>G");
 
@@ -1062,7 +1063,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
+    testWrapper.testPrintCpicCalls("DPYD", "c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.2846A>T");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1079,7 +1080,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testPrintCalls("DPYD", "Reference/c.1156G>T (*12)");
+    testWrapper.testPrintCpicCalls("DPYD", "Reference/c.1156G>T (*12)");
     testWrapper.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1098,7 +1099,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
@@ -1118,7 +1119,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    testWrapper.testPrintCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
@@ -1140,7 +1141,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
-    testWrapper.testPrintCalls("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
+    testWrapper.testPrintCpicCalls("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.2933A>G");
 
@@ -1180,7 +1181,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80");
     testWrapper.testLookup("UGT1A1", "*1", "*80");
   }
 
@@ -1193,7 +1194,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80");
     testWrapper.testLookup("UGT1A1", "*1", "*80");
   }
 
@@ -1205,7 +1206,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*1");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*1");
     testWrapper.testLookup("UGT1A1", "*1", "*1");
   }
 
@@ -1218,7 +1219,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*28");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
   }
 
@@ -1230,7 +1231,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*28/*37");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*28/*37");
     testWrapper.testLookup("UGT1A1", "*37", "*28");
   }
 
@@ -1244,7 +1245,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*28");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
 
     // the guideline should not have an ambiguity message
@@ -1266,7 +1267,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*6/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80+*28");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*28");
   }
 
@@ -1280,7 +1281,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*6/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80+*28");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*28");
   }
 
@@ -1292,7 +1293,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*6/*6");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*6/*6");
     testWrapper.testLookup("UGT1A1", "*6", "*6");
   }
 
@@ -1307,7 +1308,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
     testWrapper.testLookup("UGT1A1", "*6", "*80");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*28");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*37");
@@ -1323,7 +1324,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
     testWrapper.testLookup("UGT1A1", "*6", "*80");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*28");
     testWrapper.testLookup("UGT1A1", "*6", "*80+*37");
@@ -1338,7 +1339,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80", "*1/*80+*28", "*1/*80+*37");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80", "*1/*80+*28", "*1/*80+*37");
     testWrapper.testLookup("UGT1A1", "*1", "*80");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*37");
@@ -1353,7 +1354,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*80/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*80/*80+*28");
     testWrapper.testLookup("UGT1A1", "*80", "*80+*28");
   }
 
@@ -1366,7 +1367,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
     testWrapper.testLookup("UGT1A1", "*28", "*28");
     testWrapper.testLookup("UGT1A1", "*28", "*80+*28");
     testWrapper.testLookup("UGT1A1", "*80+*28", "*80+*28");
@@ -1380,7 +1381,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*28");
     testWrapper.testLookup("UGT1A1", "*1", "*28");
   }
 
@@ -1394,7 +1395,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*27/*28", "*27/*80+*28");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*27/*28", "*27/*80+*28");
     testWrapper.testLookup("UGT1A1", "*27", "*28");
     testWrapper.testLookup("UGT1A1", "*27", "*80+*28");
   }
@@ -1467,7 +1468,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testReportable("UGT1A1");
-    testWrapper.testPrintCalls("UGT1A1", "*1/*80+*37");
+    testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*37");
     testWrapper.testLookup("UGT1A1", "*1", "*80+*37");
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
     assertTrue(geneReport.isPhased());
@@ -1482,7 +1483,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testReportable("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*1/*1");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*1/*1");
     testWrapper.testLookup("CYP3A5", "*1", "*1");
 
     GeneReport gene = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP3A5");
@@ -1507,7 +1508,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testReportable("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*1/*3");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*1/*3");
     testWrapper.testLookup("CYP3A5", "*1", "*3");
   }
 
@@ -1521,7 +1522,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*3/*9");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*3/*9");
     testWrapper.testLookup("CYP3A5", "*3", "*9");
   }
 
@@ -1534,7 +1535,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*3/*3");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*3/*3");
     testWrapper.testLookup("CYP3A5", "*3", "*3");
   }
 
@@ -1547,7 +1548,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*1/*3");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*1/*3");
     testWrapper.testLookup("CYP3A5", "*1", "*3");
   }
 
@@ -1561,7 +1562,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP3A5");
-    testWrapper.testPrintCalls("CYP3A5", "*3/*9");
+    testWrapper.testPrintCpicCalls("CYP3A5", "*3/*9");
     testWrapper.testLookup("CYP3A5", "*3", "*9");
   }
 
@@ -1649,7 +1650,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(outsideCallPath);
 
     testWrapper.testLookup("CYP2C19", "*2", "*2");
-    testWrapper.testPrintCalls("CYP2C19", "*2/*2");
+    testWrapper.testPrintCpicCalls("CYP2C19", "*2/*2");
 
     GeneReport cyp2c9 = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C9");
     assertEquals(1, cyp2c9.getReporterDiplotypes().size());
@@ -1682,7 +1683,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("TPMT");
-    testWrapper.testPrintCalls("TPMT", "*1/*3A");
+    testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");
     testWrapper.testLookup("TPMT", "*1", "*3A");
 
     GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
@@ -1700,7 +1701,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2C9");
-    testWrapper.testPrintCalls("CYP2C9", "*1/*61");
+    testWrapper.testPrintCpicCalls("CYP2C9", "*1/*61");
     testWrapper.testLookup("CYP2C9", "*1", "*61");
   }
 
@@ -1712,7 +1713,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2C9");
-    testWrapper.testPrintCalls("CYP2C9", "*1/*1");
+    testWrapper.testPrintCpicCalls("CYP2C9", "*1/*1");
     testWrapper.testLookup("CYP2C9", "*1", "*1");
     testWrapper.testMatchedGroups("celecoxib", 1);
     testWrapper.testMatchedGroups("ibuprofen", 1);
@@ -1737,7 +1738,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2B6");
-    testWrapper.testPrintCalls("CYP2B6", "*1/*34");
+    testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34");
     testWrapper.testLookup("CYP2B6", "*1", "*34");
     testWrapper.testMatchedGroups("efavirenz", 1);
   }
@@ -1759,7 +1760,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2B6");
-    testWrapper.testPrintCalls("CYP2B6", "*1/*34", "*33/*36");
+    testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34", "*33/*36");
     testWrapper.testLookup("CYP2B6", "*1", "*34");
     testWrapper.testLookup("CYP2B6", "*33", "*36");
     testWrapper.testMatchedGroups("efavirenz", 2);
@@ -1774,7 +1775,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
         .reference("NUDT15");
     testWrapper.execute(null);
 
-    testWrapper.testPrintCalls("NUDT15", "*1/*1");
+    testWrapper.testPrintCpicCalls("NUDT15", "*1/*1");
     testWrapper.testLookup("NUDT15", "*1", "*1");
 
     testWrapper.testMatchedGroups("azathioprine", 2);
@@ -1796,7 +1797,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("NUDT15");
-    testWrapper.testPrintCalls("NUDT15", "*1/*2");
+    testWrapper.testPrintCpicCalls("NUDT15", "*1/*2");
     testWrapper.testLookup("NUDT15", "*1", "*2");
 
     testWrapper.testMatchedGroups("azathioprine", 2);
@@ -1811,7 +1812,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("NUDT15");
-    testWrapper.testPrintCalls("NUDT15", "*1/*3");
+    testWrapper.testPrintCpicCalls("NUDT15", "*1/*3");
     testWrapper.testLookup("NUDT15", "*1", "*3");
 
     testWrapper.testMatchedGroups("azathioprine", 2);
@@ -1852,7 +1853,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testCalledByMatcher("IFNL3");
     testWrapper.testReportable("IFNL3");
-    testWrapper.testPrintCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
+    testWrapper.testPrintCpicCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
     testWrapper.testMatchedGroups("peginterferon alfa-2a", 0);
     testWrapper.testMatchedGroups("peginterferon alfa-2b", 0);
   }
@@ -1926,7 +1927,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
     testWrapper.testCalledByMatcher("CYP3A4");
     testWrapper.testReportable("CYP3A4");
-    testWrapper.testPrintCalls("CYP3A4", "*8/*8");
+    testWrapper.testPrintCalls(DataSource.DPWG, "CYP3A4", "*8/*8");
     testWrapper.testMatchedGroups("quetiapine", 1);
   }
 
@@ -2041,8 +2042,12 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
      * @param gene the gene to get diplotypes for
      * @param calls the expected display of the calls, 1 or more
      */
-    private void testPrintCalls(String gene, String... calls) {
-      GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+    private void testPrintCpicCalls(String gene, String... calls) {
+      testPrintCalls(DataSource.CPIC, gene, calls);
+    }
+
+    private void testPrintCalls(DataSource source, String gene, String... calls) {
+      GeneReport geneReport = getContext().getGeneReport(source, gene);
       SortedSet<String> dips = new TreeSet<>(geneReport.printDisplayCalls());
       Arrays.sort(calls);
       try {
@@ -2111,15 +2116,20 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
      */
     private void testCalledByMatcher(String... genes) {
       assertTrue(genes != null && genes.length > 0);
-
       Arrays.stream(genes)
-          .forEach(g -> assertTrue(getContext().getGeneReport(DataSource.CPIC, g).isCalled(), g + " is not called"));
+          .forEach(g -> {
+            assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isCalled),
+                g + " is not called");
+          });
     }
 
     private void testReportable(String... genes) {
       assertTrue(genes != null && genes.length > 0);
       Arrays.stream(genes)
-          .forEach(g -> assertTrue(getContext().getGeneReport(DataSource.CPIC, g).isReportable(), g + " is not reportable"));
+          .forEach(g -> {
+            assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isReportable),
+                g + " is not reportable");
+          });
     }
 
     /**
@@ -2127,9 +2137,11 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
      */
     private void testNotCalledByMatcher(String... genes) {
       Preconditions.checkArgument(genes != null && genes.length > 0);
-
       Arrays.stream(genes)
-          .forEach(g -> assertFalse(getContext().getGeneReport(DataSource.CPIC, g).isCalled(), g + " is called"));
+          .forEach(g -> {
+            assertTrue(getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
+                g + " is called");
+          });
     }
 
     /**
