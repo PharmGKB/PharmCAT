@@ -51,7 +51,7 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166265141",
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
     "version": 3
   },
   "annotationGroups": [
@@ -98,7 +98,7 @@
       "metabolizerStatus": null,
       "recommendation": {
         "id": 1451782577,
-        "html": "<ul>\n<li>\n<p>Choose an alternative, such as febuxostat</p>\n</li>\n<li>\n<p>Another option is to induce allopurinol tolerance first: To induce allopurinol tolerance, the allopurinol dose is increased every 3 days until a dose of 100 mg/day has been achieved on Day 28. The consecutive daily doses in the\ninduction protocol are 50 Âµg, 100 Âµg, 200 Âµg, 500 Âµg, 1 mg, 5 mg, 10 mg, 25 mg, 50 mg and 100 mg.</p>\n</li>\n</ul>\n"
+        "html": "<ul>\n<li>\n<p>Choose an alternative, such as febuxostat</p>\n</li>\n<li>\n<p>Another option is to induce allopurinol tolerance first: To induce allopurinol tolerance, the allopurinol dose is increased every 3 days until a dose of 100 mg/day has been achieved on Day 28. The consecutive daily doses in the\ninduction protocol are 50 µg, 100 µg, 200 µg, 500 µg, 1 mg, 5 mg, 10 mg, 25 mg, 50 mg and 100 mg.</p>\n</li>\n</ul>\n"
       },
       "implications": {
         "id": 1451782576,

@@ -3,15 +3,15 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Sep 15, 2022, 11:05:48 AM",
+    "timestamp": "Sep 19, 2022, 1:04:46 PM",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
   },
   "results": [
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -82,6 +82,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -101,8 +102,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -179,6 +180,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -204,8 +206,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -504,6 +506,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -751,8 +754,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1027,6 +1030,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -1250,8 +1254,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1520,6 +1524,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -1737,8 +1742,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -2283,6 +2288,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -2783,8 +2789,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "05/12/22",
-      "cpicVersion": "n/a",
+      "source": "PHARMGKB",
+      "version": "2022-09-19-03-53",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -3047,6 +3053,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -3117,7 +3124,7 @@
         },
         {
           "position": 99763925,
-          "rsid": "rs201821708",
+          "rsid": null,
           "vcfCall": "T/T",
           "phased": false
         },
@@ -3258,8 +3265,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3354,6 +3361,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -3397,8 +3405,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3475,6 +3483,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -3500,8 +3509,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4064,6 +4073,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -4575,8 +4585,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -4647,6 +4657,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -4666,8 +4677,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -4834,6 +4845,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -4949,8 +4961,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -5279,6 +5291,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -5556,8 +5569,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -5808,6 +5821,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -6007,8 +6021,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -6331,6 +6345,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -6602,8 +6617,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -6692,6 +6707,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {
@@ -6729,8 +6745,8 @@
       "ignoredHaplotypes": []
     },
     {
-      "alleleDefinitionVersion": "09/14/22",
-      "cpicVersion": "v1.20.0",
+      "source": "CPIC",
+      "version": "v1.20.0",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
@@ -6801,6 +6817,7 @@
           ]
         }
       ],
+      "haplotypeMatches": [],
       "phased": false,
       "variants": [
         {

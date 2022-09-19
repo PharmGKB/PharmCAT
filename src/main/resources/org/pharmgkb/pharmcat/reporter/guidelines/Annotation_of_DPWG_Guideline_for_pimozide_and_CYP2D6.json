@@ -39,9 +39,9 @@
           },
           {
             "id": 1451420800,
-            "_label": "*1xâ‰¥3",
+            "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV â‰¥3)",
+              "term": "Increased function (AV ≥3)",
               "termId": "alleleFunction:1451309780"
             }
           },
@@ -63,9 +63,9 @@
           },
           {
             "id": 1451420802,
-            "_label": "*2xâ‰¥3",
+            "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV â‰¥3)",
+              "term": "Increased function (AV ≥3)",
               "termId": "alleleFunction:1451309780"
             }
           },
@@ -395,7 +395,7 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182819",
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
     "version": 11
   },
   "annotationGroups": [
@@ -411,13 +411,13 @@
         "termId": "rxChange:1448602495"
       },
       "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV â‰¥3)",
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
         "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV â‰¥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
         "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV â‰¥3)/Increased function (AV â‰¥3)",
-        "CYP2D6:Increased function (AV â‰¥3)/No function",
-        "CYP2D6:Increased function (AV â‰¥3)/Normal function"
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
         "id": 1451420862,
@@ -433,7 +433,7 @@
       },
       "activityScore": {
         "id": 1451420860,
-        "html": "<p>Total gene activity score â‰¥3</p>\n"
+        "html": "<p>Total gene activity score ≥3</p>\n"
       }
     },
     {
@@ -494,7 +494,7 @@
       },
       "implications": {
         "id": 1451723382,
-        "html": "<p>The risk of QT-prolongation â€“ and thereby also the risk of torsade de points â€“ is theoretically increased, because the genetic variation results in an increase in the plasma\nconcentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose\nrecommendations provided below.</p>\n"
+        "html": "<p>The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma\nconcentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose\nrecommendations provided below.</p>\n"
       },
       "activityScore": {
         "id": 1451723381,
@@ -527,7 +527,7 @@
       },
       "implications": {
         "id": 1451723386,
-        "html": "<p>The risk of QT-prolongation â€“ and thereby also the risk of torsade de points â€“ is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below.</p>\n"
+        "html": "<p>The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below.</p>\n"
       },
       "activityScore": {
         "id": 1451723385,

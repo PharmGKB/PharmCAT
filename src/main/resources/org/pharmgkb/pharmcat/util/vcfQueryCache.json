@@ -7180,5 +7180,54 @@
     "hgvs": "NC_000010.11:g.94842866A>C",
     "position": 9.4842866E7,
     "ref": "A"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21176871G%3EA/vcf": {
+    "alt": "A",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21176871G>A",
+    "position": 2.1176871E7,
+    "ref": "G"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21176898G%3ET/vcf": {
+    "alt": "T",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21176898G>T",
+    "position": 2.1176898E7,
+    "ref": "G"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21178612A%3EG/vcf": {
+    "alt": "G",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21178612A>G",
+    "position": 2.1178612E7,
+    "ref": "A"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21196975C%3ET/vcf": {
+    "alt": "T",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21196975C>T",
+    "position": 2.1196975E7,
+    "ref": "C"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21200544C%3EG/vcf": {
+    "alt": "G",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21200544C>G",
+    "position": 2.1200544E7,
+    "ref": "C"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21206031A%3EG/vcf": {
+    "alt": "G",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21206031A>G",
+    "position": 2.1206031E7,
+    "ref": "A"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21222355C%3ET/vcf": {
+    "alt": "T",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21222355C>T",
+    "position": 2.1222355E7,
+    "ref": "C"
   }
 }

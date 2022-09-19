@@ -20,7 +20,7 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 - CYP2B6 (35 alleles) (CPIC, PharmGKB-DPWG)
 - CYP2C19 (34 alleles) (CPIC, PharmGKB-DPWG)
 - CYP2C9 (85 alleles) (CPIC, PharmGKB-DPWG)
-- CYP3A4 (34 alleles) (PharmGKB-DPWG)
+- CYP3A4 (35 alleles) (PharmGKB-DPWG)
 - CYP3A5 (6 alleles) (CPIC, PharmGKB-DPWG)
 - CYP4F2 (3 alleles) (CPIC)
 - DPYD (83 alleles) (CPIC, PharmGKB-DPWG)

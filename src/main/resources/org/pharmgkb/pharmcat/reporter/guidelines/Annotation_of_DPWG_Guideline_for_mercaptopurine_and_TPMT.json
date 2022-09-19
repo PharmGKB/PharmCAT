@@ -203,8 +203,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104952",
-    "version": 28
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104952",
+    "version": 29
   },
   "annotationGroups": [
     {
@@ -231,7 +231,7 @@
       },
       "implications": {
         "id": 1451450500,
-        "html": "<p>Grade â‰¥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine.</p>\n"
+        "html": "<p>Grade ≥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine.</p>\n"
       },
       "activityScore": null
     },
@@ -259,7 +259,7 @@
       },
       "implications": {
         "id": 1451450460,
-        "html": "<p>Grade â‰¥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine</p>\n"
+        "html": "<p>Grade ≥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine</p>\n"
       },
       "activityScore": null
     },

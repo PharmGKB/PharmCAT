@@ -51,8 +51,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182810",
-    "version": 6
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182810",
+    "version": 7
   },
   "annotationGroups": [
     {
@@ -98,7 +98,7 @@
       "metabolizerStatus": null,
       "recommendation": {
         "id": 1451782569,
-        "html": "<ol>\n<li>Regularly monitor the patientâ€™s liver function</li>\n<li>Choose an alternative if liver enzymes and/or bilirubin levels are elevated</li>\n</ol>\n"
+        "html": "<ol>\n<li>Regularly monitor the patient’s liver function</li>\n<li>Choose an alternative if liver enzymes and/or bilirubin levels are elevated</li>\n</ol>\n"
       },
       "implications": {
         "id": 1451782568,

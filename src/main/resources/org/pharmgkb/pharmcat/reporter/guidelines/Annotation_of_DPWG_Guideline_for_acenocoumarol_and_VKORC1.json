@@ -51,8 +51,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104938",
-    "version": 31
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104938",
+    "version": 32
   },
   "annotationGroups": [
     {
@@ -126,7 +126,7 @@
       },
       "implications": {
         "id": 1451694847,
-        "html": "<p>An INR â‰¥ 6, resulting in an increased risk of bleeding, occurs in 8-12% of these patients during the first weeks of treatment with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to acenocoumarol.</p>\n"
+        "html": "<p>An INR ≥ 6, resulting in an increased risk of bleeding, occurs in 8-12% of these patients during the first weeks of treatment with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to acenocoumarol.</p>\n"
       },
       "activityScore": null
     }

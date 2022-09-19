@@ -39,9 +39,9 @@
           },
           {
             "id": 1451418496,
-            "_label": "*1xâ‰¥3",
+            "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV â‰¥3)",
+              "term": "Increased function (AV ≥3)",
               "termId": "alleleFunction:1451309780"
             }
           },
@@ -63,9 +63,9 @@
           },
           {
             "id": 1451418498,
-            "_label": "*2xâ‰¥3",
+            "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV â‰¥3)",
+              "term": "Increased function (AV ≥3)",
               "termId": "alleleFunction:1451309780"
             }
           },
@@ -395,8 +395,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166182823",
-    "version": 6
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182823",
+    "version": 7
   },
   "annotationGroups": [
     {
@@ -411,13 +411,13 @@
         "termId": "rxChange:1448602497"
       },
       "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV â‰¥3)",
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
         "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV â‰¥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
         "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV â‰¥3)/Increased function (AV â‰¥3)",
-        "CYP2D6:Increased function (AV â‰¥3)/No function",
-        "CYP2D6:Increased function (AV â‰¥3)/Normal function"
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
         "id": 1451418520,
@@ -433,7 +433,7 @@
       },
       "activityScore": {
         "id": 1451418518,
-        "html": "<p>Total gene activity score â‰¥3</p>\n"
+        "html": "<p>Total gene activity score ≥3</p>\n"
       }
     },
     {

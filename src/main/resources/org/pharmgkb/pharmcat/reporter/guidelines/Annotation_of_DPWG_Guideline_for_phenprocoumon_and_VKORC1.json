@@ -51,8 +51,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104940",
-    "version": 32
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104940",
+    "version": 33
   },
   "annotationGroups": [
     {
@@ -126,7 +126,7 @@
       },
       "implications": {
         "id": 1451694803,
-        "html": "<p>An INR â‰¥ 6, resulting in an increased risk of bleeding, occurs in 17% of these patients with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to phenprocoumon.</p>\n"
+        "html": "<p>An INR ≥ 6, resulting in an increased risk of bleeding, occurs in 17% of these patients with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to phenprocoumon.</p>\n"
       },
       "activityScore": null
     }

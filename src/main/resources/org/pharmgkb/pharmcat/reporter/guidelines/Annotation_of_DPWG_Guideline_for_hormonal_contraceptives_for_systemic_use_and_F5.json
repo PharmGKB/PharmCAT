@@ -51,8 +51,8 @@
         }
       }
     ],
-    "@id": "https://pharmgkb.org/guidelineAnnotation/PA166104955",
-    "version": 25
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104955",
+    "version": 26
   },
   "annotationGroups": [
     {
@@ -101,7 +101,7 @@
       },
       "implications": {
         "id": 1451694720,
-        "html": "<p>The heterozygously present genetic polymorphism â€œfactor V Leidenâ€� causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.</p>\n<p>Contraceptives containing oestrogens can increase this risk even further.</p>\n"
+        "html": "<p>The heterozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.</p>\n<p>Contraceptives containing oestrogens can increase this risk even further.</p>\n"
       },
       "activityScore": null
     },
@@ -126,7 +126,7 @@
       },
       "implications": {
         "id": 1451694702,
-        "html": "<p>The homozygously present genetic polymorphism â€œfactor V Leidenâ€� causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.\nContraceptives containing oestrogens can increase this risk even further.</p>\n"
+        "html": "<p>The homozygously present genetic polymorphism “factor V Leiden” causes an increased tendency to coagulation, resulting in an increased risk of venous thromboembolism.\nContraceptives containing oestrogens can increase this risk even further.</p>\n"
       },
       "activityScore": null
     }

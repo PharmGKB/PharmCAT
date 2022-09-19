@@ -1,6 +1,7 @@
 {
   "formatVersion": "2",
-  "cpicVersion": "v1.20.0",
+  "source": "CPIC",
+  "version": "v1.20.0",
   "modificationDate": "Sep 14, 2022, 6:24:58 PM",
   "gene": "TPMT",
   "orientation": null,

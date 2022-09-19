@@ -930,7 +930,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The two lowest activity values (variant activity scores, see CPIC guideline 29152729) are used to determine the gene activity score and phenotype type to retrieve prescribing recommendations. The reference allele is used to represent normal function alleles (activity value of 1)."
+    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used to determine the gene activity score and phenotype type to retrieve prescribing recommendations. "
   },
   {
     "rule_name": "CYP2D6 -research mode - note",
