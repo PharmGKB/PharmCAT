@@ -91,7 +91,7 @@ public class Phenotyper {
         if (geneReport.getCallSource() != CallSource.OUTSIDE) {
           // outside call trumps matcher
           // warn the user of the conflict
-          String matcherCall = geneReport.getMatcherDiplotypes().stream()
+          String matcherCall = geneReport.getSourceDiplotypes().stream()
               .sorted()
               .map(Diplotype::printBare)
               .collect(Collectors.joining("; "));

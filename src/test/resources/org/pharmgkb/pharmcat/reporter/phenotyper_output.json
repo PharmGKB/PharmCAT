@@ -11,7 +11,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "ABCG2",
@@ -41,7 +41,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourcesourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs2231142 reference (G)",
@@ -58,7 +58,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "ABCG2",
@@ -117,7 +117,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CACNA1S",
@@ -147,7 +147,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "Reference",
@@ -166,7 +166,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CACNA1S",
@@ -239,7 +239,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CFTR",
@@ -269,7 +269,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "ivacaftor non-responsive CFTR sequence",
@@ -362,7 +362,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CFTR",
@@ -953,7 +953,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2B6",
@@ -983,7 +983,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -1068,7 +1068,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2B6",
@@ -1633,7 +1633,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C19",
@@ -1663,7 +1663,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*38",
@@ -1746,7 +1746,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C19",
@@ -2300,7 +2300,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C9",
@@ -2330,7 +2330,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -2505,7 +2505,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C9",
@@ -3692,7 +3692,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2D6",
@@ -3718,9 +3718,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2D6",
@@ -3760,7 +3760,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A4",
@@ -3786,7 +3786,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -3867,7 +3867,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A4",
@@ -4396,7 +4396,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A5",
@@ -4426,7 +4426,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -4451,7 +4451,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A5",
@@ -4566,7 +4566,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP4F2",
@@ -4592,7 +4592,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -4611,7 +4611,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP4F2",
@@ -4696,7 +4696,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -4726,7 +4726,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [
+        "sourceComponentDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -4926,7 +4926,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -6133,7 +6133,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "G6PD",
@@ -6153,9 +6153,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "G6PD",
@@ -6189,7 +6189,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-A",
@@ -6215,9 +6215,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-A",
@@ -6257,7 +6257,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-B",
@@ -6283,9 +6283,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-B",
@@ -6341,7 +6341,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "IFNL3",
@@ -6367,7 +6367,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs12979860 reference (C)",
@@ -6384,7 +6384,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "IFNL3",
@@ -6439,7 +6439,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "MT-RNR1",
@@ -6459,9 +6459,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "MT-RNR1",
@@ -6495,7 +6495,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "NUDT15",
@@ -6525,7 +6525,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -6574,7 +6574,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "NUDT15",
@@ -6860,7 +6860,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "RYR1",
@@ -6890,7 +6890,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "Reference",
@@ -6993,7 +6993,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "RYR1",
@@ -7658,7 +7658,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "SLCO1B1",
@@ -7688,7 +7688,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -7765,7 +7765,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "SLCO1B1",
@@ -8306,7 +8306,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "TPMT",
@@ -8336,7 +8336,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -8437,7 +8437,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "TPMT",
@@ -9104,7 +9104,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "UGT1A1",
@@ -9134,7 +9134,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -9157,7 +9157,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "UGT1A1",
@@ -9295,7 +9295,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "VKORC1",
@@ -9321,7 +9321,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs9923231 reference (C)",
@@ -9338,7 +9338,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "VKORC1",
@@ -9395,7 +9395,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "ABCG2",
@@ -9425,7 +9425,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs2231142 reference (G)",
@@ -9442,7 +9442,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "ABCG2",
@@ -9501,7 +9501,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CACNA1S",
@@ -9527,7 +9527,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "Reference",
@@ -9546,7 +9546,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CACNA1S",
@@ -9615,7 +9615,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CFTR",
@@ -9641,7 +9641,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "ivacaftor non-responsive CFTR sequence",
@@ -9734,7 +9734,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CFTR",
@@ -10321,7 +10321,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2B6",
@@ -10351,7 +10351,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -10436,7 +10436,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2B6",
@@ -11001,7 +11001,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C19",
@@ -11031,7 +11031,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*38",
@@ -11114,7 +11114,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C19",
@@ -11668,7 +11668,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C9",
@@ -11698,7 +11698,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -11873,7 +11873,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2C9",
@@ -13060,7 +13060,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2D6",
@@ -13086,9 +13086,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP2D6",
@@ -13128,7 +13128,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A4",
@@ -13158,7 +13158,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -13239,7 +13239,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A4",
@@ -13772,7 +13772,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A5",
@@ -13800,7 +13800,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -13825,7 +13825,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP3A5",
@@ -13938,7 +13938,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "CYP4F2",
@@ -13964,7 +13964,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -13983,7 +13983,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "CYP4F2",
@@ -14068,7 +14068,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -14096,7 +14096,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [
+        "sourceComponentDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -14296,7 +14296,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "DPYD",
@@ -15501,7 +15501,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "F5",
@@ -15527,9 +15527,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "F5",
@@ -15569,7 +15569,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-A",
@@ -15595,9 +15595,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-A",
@@ -15637,7 +15637,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-B",
@@ -15663,9 +15663,9 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "HLA-B",
@@ -15721,7 +15721,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "IFNL3",
@@ -15747,7 +15747,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs12979860 reference (C)",
@@ -15764,7 +15764,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "IFNL3",
@@ -15819,7 +15819,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "NUDT15",
@@ -15849,7 +15849,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -15898,7 +15898,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "NUDT15",
@@ -16184,7 +16184,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "RYR1",
@@ -16210,7 +16210,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "Reference",
@@ -16313,7 +16313,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "RYR1",
@@ -16974,7 +16974,7 @@
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "SLCO1B1",
@@ -17004,7 +17004,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -17081,7 +17081,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "SLCO1B1",
@@ -17622,7 +17622,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "TPMT",
@@ -17652,7 +17652,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -17753,7 +17753,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "TPMT",
@@ -18420,7 +18420,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "UGT1A1",
@@ -18450,7 +18450,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "*1",
@@ -18473,7 +18473,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "UGT1A1",
@@ -18611,7 +18611,7 @@
           }
         ],
         "relatedDrugs": [],
-        "matcherDiplotypes": [
+        "sourceDiplotypes": [
           {
             "allele1": {
               "gene": "VKORC1",
@@ -18641,7 +18641,7 @@
             "combination": false
           }
         ],
-        "componentDiplotypes": [],
+        "sourceComponentDiplotypes": [],
         "matcherAlleles": [
           {
             "name": "rs9923231 reference (C)",
@@ -18658,7 +18658,7 @@
             "numPartials": 0
           }
         ],
-        "diplotypes": [
+        "recommendationDiplotypes": [
           {
             "allele1": {
               "gene": "VKORC1",

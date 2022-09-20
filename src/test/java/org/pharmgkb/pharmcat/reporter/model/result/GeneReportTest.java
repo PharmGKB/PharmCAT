@@ -27,7 +27,7 @@ class GeneReportTest {
     GeneReport geneReport = new GeneReport(gene, DataSource.CPIC, "test");
     assertEquals(gene, geneReport.getGene());
     assertFalse(geneReport.isCalled());
-    assertEquals(0, geneReport.getReporterDiplotypes().size());
+    assertEquals(0, geneReport.getRecommendationDiplotypes().size());
   }
 
   @Test
@@ -42,11 +42,11 @@ class GeneReportTest {
 
     assertEquals(gene, geneReport.getGene());
     assertTrue(geneReport.isReportable());
-    assertEquals(1, geneReport.getReporterDiplotypes().size());
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());
     assertTrue(geneReport.printDisplayCalls().contains(displayDiplotype));
 
-    Diplotype diplotype = geneReport.getReporterDiplotypes().stream().findFirst().orElse(null);
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().stream().findFirst().orElse(null);
     assertNotNull(diplotype);
     assertEquals(diplotypeString, diplotype.toString());
   }
@@ -62,7 +62,7 @@ class GeneReportTest {
 
     assertEquals(gene, geneReport.getGene());
     assertTrue(geneReport.isReportable());
-    assertEquals(1, geneReport.getReporterDiplotypes().size());
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());
     assertTrue(geneReport.printDisplayCalls().contains(displayDiplotype));
   }
@@ -75,7 +75,7 @@ class GeneReportTest {
 
     assertEquals("CYP2D6", geneReport.getGene());
     assertTrue(geneReport.isReportable());
-    assertEquals(1, geneReport.getReporterDiplotypes().size());
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     assertEquals(1, geneReport.printDisplayCalls().size());
     assertTrue(geneReport.printDisplayCalls().contains("*1/*XXX"));
     assertEquals(1, geneReport.printDisplayPhenotypes().size());

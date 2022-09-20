@@ -22,9 +22,7 @@ import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
-import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
-import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
@@ -100,18 +98,15 @@ public class GeneReport implements Comparable<GeneReport> {
   private SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
 
   @Expose
-  @SerializedName("matcherDiplotypes")
-  private final List<Diplotype> m_matcherDiplotypes = new ArrayList<>();
+  @SerializedName("sourceDiplotypes")
+  private final List<Diplotype> m_sourceDiplotypes = new ArrayList<>();
   @Expose
-  @SerializedName("componentDiplotypes")
-  private final SortedSet<Diplotype> m_componentDiplotypes = new TreeSet<>();
+  @SerializedName("sourceComponentDiplotypes")
+  private final SortedSet<Diplotype> m_sourceComponentDiplotypes = new TreeSet<>();
 
   @Expose
-  @SerializedName("matcherAlleles")
-  private final List<NamedAllele> m_matcherAlleles = new ArrayList<>();
-  @Expose
-  @SerializedName("diplotypes")
-  private final List<Diplotype> m_reporterDiplotypes = new ArrayList<>();
+  @SerializedName("recommendationDiplotypes")
+  private final List<Diplotype> m_recommendationDiplotypes = new ArrayList<>();
   @Expose
   @SerializedName("variants")
   private final List<VariantReport> m_variantReports = new ArrayList<>();
@@ -162,26 +157,13 @@ public class GeneReport implements Comparable<GeneReport> {
       throw new IllegalStateException("When does this happen?");
     }
 
-    if (call.getHaplotypes().size() > 0) {
-      call.getHaplotypes().stream()
-          .map(BaseMatch::getHaplotype)
-          .forEach(m_matcherAlleles::add);
-    } else if (call.getHaplotypeMatches().size() > 0) {
-      call.getHaplotypeMatches().stream()
-          .map(BaseMatch::getHaplotype)
-          .forEach((na) -> {
-            if (m_matcherAlleles.stream().noneMatch((a) -> a.getName().equals(na.getName()))) {
-              m_matcherAlleles.add(na);
-            }
-          });
-    }
-
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
     if (isDpyd(m_gene)) {
       if (hasTrueDiplotype(call)) {
-        m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
-        m_componentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
-        m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), hasTrueDiplotype(call), env, phenotypeSource));
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
+        m_sourceComponentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), hasTrueDiplotype(call), env,
+            phenotypeSource));
       } else {
         List<HaplotypeMatch> matches = new ArrayList<>();
         call.getHaplotypeMatches().forEach((hm) -> {
@@ -189,21 +171,22 @@ public class GeneReport implements Comparable<GeneReport> {
             matches.add(hm);
           }
         });
-        m_matcherDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
-        m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), hasTrueDiplotype(call), env, phenotypeSource));
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
+        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), hasTrueDiplotype(call), env,
+            phenotypeSource));
       }
 
     } else {
       List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource);
-      m_matcherDiplotypes.addAll(diplotypes);
+      m_sourceDiplotypes.addAll(diplotypes);
 
       if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
         Slco1b1CustomCaller
             .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
-            .ifPresent(m_reporterDiplotypes::add);
+            .ifPresent(m_recommendationDiplotypes::add);
 
       } else {
-        m_reporterDiplotypes.addAll(diplotypes);
+        m_recommendationDiplotypes.addAll(diplotypes);
       }
     }
 
@@ -234,10 +217,10 @@ public class GeneReport implements Comparable<GeneReport> {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
 
     if (isDpyd(m_gene)) {
-      m_reporterDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
+      m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
           m_phenotypeSource));
     } else {
-      m_reporterDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call, m_phenotypeSource));
+      m_recommendationDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call, m_phenotypeSource));
     }
   }
 
@@ -251,8 +234,8 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.NONE;
     Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env, phenotypeSource);
-    m_matcherDiplotypes.add(unknownDiplotype);
-    m_reporterDiplotypes.add(unknownDiplotype);
+    m_sourceDiplotypes.add(unknownDiplotype);
+    m_recommendationDiplotypes.add(unknownDiplotype);
   }
 
   public static GeneReport unspecifiedGeneReport(String gene, Env env, DataSource source) {
@@ -276,7 +259,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Should only be used by tests!
    */
   protected void addReporterDiplotype(Diplotype diplotype) {
-    m_reporterDiplotypes.add(diplotype);
+    m_recommendationDiplotypes.add(diplotype);
   }
 
 
@@ -412,7 +395,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_matcherDiplotypes.size() > 0 && m_matcherDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -420,7 +403,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * use diplotype calls not made by the matcher (e.g. SLCO1B1)
    */
   public boolean isReportable() {
-    return m_reporterDiplotypes.size() > 0 && m_reporterDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_recommendationDiplotypes.size() > 0 && m_recommendationDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -519,15 +502,15 @@ public class GeneReport implements Comparable<GeneReport> {
           return LIST_UNCALLED_NO_DATA;
         }
         if (OVERRIDE_DIPLOTYPES.contains(getGeneDisplay()) && isReportable()) {
-          return ImmutableList.of(m_reporterDiplotypes.get(0).printDisplay());
+          return ImmutableList.of(m_recommendationDiplotypes.get(0).printDisplay());
         }
         return LIST_UNCALLED;
       }
-      return m_matcherDiplotypes.stream()
+      return m_sourceDiplotypes.stream()
           .map(Diplotype::printDisplay)
           .toList();
     } else {
-      return m_reporterDiplotypes.stream()
+      return m_recommendationDiplotypes.stream()
           .map(Diplotype::printDisplay)
           .toList();
     }
@@ -544,7 +527,7 @@ public class GeneReport implements Comparable<GeneReport> {
         }
       }
     }
-    return m_reporterDiplotypes.stream()
+    return m_recommendationDiplotypes.stream()
         .map(Diplotype::printDisplay)
         .toList();
   }
@@ -558,7 +541,7 @@ public class GeneReport implements Comparable<GeneReport> {
     if (!isReportable()) {
       return ImmutableList.of(NA);
     }
-    return m_reporterDiplotypes.stream().sorted().map(Diplotype::printPhenotypes).collect(Collectors.toList());
+    return m_recommendationDiplotypes.stream().sorted().map(Diplotype::printPhenotypes).collect(Collectors.toList());
   }
 
   /**
@@ -612,48 +595,34 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return true if the haplotype has been called at least once (het or hom) for this gene
    */
   public boolean hasHaplotype(String haplotype) {
-    return m_reporterDiplotypes.stream()
+    return m_recommendationDiplotypes.stream()
         .anyMatch((d) -> d.hasAllele(haplotype));
   }
 
   /**
-   * Gets the list of {@link Diplotype} objects that the {@link NamedAlleleMatcher} found from data in the input VCF
-   * file. This collection may not contian data if no input VCF data was used to make diplotype calls.
-   * @return the list of {@link Diplotype} objects from the {@link NamedAlleleMatcher}.
+   * Gets the list of {@link Diplotype}s based on provided input (e.g. from {@link NamedAlleleMatcher} or outside
+   * calls).
    */
-  public List<Diplotype> getMatcherDiplotypes() {
-    return m_matcherDiplotypes;
+  public List<Diplotype> getSourceDiplotypes() {
+    return m_sourceDiplotypes;
   }
 
   /**
-   * Gets the list of component haplotypes as {@link Diplotype}s if using lowest function mode and
-   * {@link #getMatcherDiplotypes()} has an actual diplotype.
+   * Gets the list of component haplotypes as {@link Diplotype}s.
+   * This is currently only used by DPYD.
    */
-  public SortedSet<Diplotype> getComponentDiplotypes() {
-    return m_componentDiplotypes;
+  public SortedSet<Diplotype> getSourceComponentDiplotypes() {
+    return m_sourceComponentDiplotypes;
   }
 
-  /**
-   * Gets the list of {@link NamedAllele} objects that the {@link NamedAlleleMatcher} found from data in the input VCF
-   * file. This collection may not contian data if no input VCF data was used to make diplotype calls.
-   * @return the list of {@link NamedAllele} objects from the {@link NamedAlleleMatcher}.
-   */
-  public List<NamedAllele> getMatcherAlleles() {
-    return m_matcherAlleles;
-  }
 
   /**
-   * Gets the list of {@link Diplotype} objects that the {@link Phenotyper} compiled from all sources, including the
-   * {@link NamedAlleleMatcher}.
-   * <p>
-   * This list will include matcher diplotypes and diplotypes that were determined in the {@link Phenotyper}.
-   * <p>
-   * This is the list of diplotypes that should be used for final reporting to the user.
-   * @return the list of {@link Diplotype} objects for any final reporting
+   * Gets the list of {@link Diplotype}s that should be used to look up recommendations.
    */
-  public List<Diplotype> getReporterDiplotypes() {
-    return m_reporterDiplotypes;
+  public List<Diplotype> getRecommendationDiplotypes() {
+    return m_recommendationDiplotypes;
   }
+
 
   /**
    * Get variants that should be shown separately in the report
@@ -691,7 +660,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
     if (!geneCall.getGene().equals("CFTR")) {
       // add reference allele message
-      m_matcherDiplotypes.stream()
+      m_sourceDiplotypes.stream()
           .map((d) -> {
             if (showReferenceMessage(d.getAllele1())) {
               return d.getAllele1();

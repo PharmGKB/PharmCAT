@@ -78,7 +78,7 @@ public class MessageList {
     boolean passVariantMissingCriteria = match.getVariantsMissing().isEmpty()
         || match.getVariantsMissing().stream().allMatch((r) -> gene.findVariantReport(r).map(VariantReport::isMissing).orElse(false));
     boolean passDipMatchCriteria = match.getDips().isEmpty()
-        || match.getDips().stream().allMatch(d -> gene.getMatcherDiplotypes().stream().anyMatch(e -> e.printBare().equals(d)));
+        || match.getDips().stream().allMatch(d -> gene.getSourceDiplotypes().stream().anyMatch(e -> e.printBare().equals(d)));
 
     // "ambiguity" messages only apply when the gene unphased, other criteria still apply too
     boolean passAmbiguityCriteria = !message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY)

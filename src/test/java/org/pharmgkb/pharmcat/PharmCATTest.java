@@ -951,7 +951,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
 
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
-    assertEquals(2, dpyd.getMatcherAlleles().size());
     testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
@@ -970,8 +969,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
 
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
-    assertEquals(2, dpyd.getMatcherAlleles().size());
-    assertEquals(1, dpyd.getReporterDiplotypes().size());
+    assertEquals(1, dpyd.getRecommendationDiplotypes().size());
     testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     testWrapper.testLookupByActivity("DPYD", "1");
 
@@ -992,8 +990,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
 
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
-    assertEquals(4, dpyd.getMatcherAlleles().size());
-    assertEquals(1, dpyd.getReporterDiplotypes().size());
+    assertEquals(1, dpyd.getRecommendationDiplotypes().size());
     testWrapper.testPrintCpicCalls("DPYD", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
     testWrapper.testLookupByActivity("DPYD", "0.5");
 
@@ -1039,7 +1036,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
     testWrapper.testPrintCpicCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
-    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.498G>A", "c.2933A>G");
 
     testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
@@ -1100,7 +1097,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1120,7 +1117,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
     testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1142,7 +1139,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testMatcher("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
     testWrapper.testPrintCpicCalls("DPYD", "c.2582A>G", "c.2846A>T", "c.2933A>G");
-    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getReporterDiplotypes().size());
+    assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.2933A>G");
 
     testWrapper.testMatchedGroups("fluorouracil", 1);
@@ -1653,8 +1650,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("CYP2C19", "*2/*2");
 
     GeneReport cyp2c9 = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C9");
-    assertEquals(1, cyp2c9.getReporterDiplotypes().size());
-    assertTrue(cyp2c9.getReporterDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
+    assertEquals(1, cyp2c9.getRecommendationDiplotypes().size());
+    assertTrue(cyp2c9.getRecommendationDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
 
     testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
     testWrapper.testMatchedGroups("celecoxib", 1);
@@ -1892,8 +1889,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
-    assertEquals(1, geneReport.getReporterDiplotypes().size());
-    Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
   }
 
@@ -1912,8 +1909,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
-    assertEquals(2, geneReport.getReporterDiplotypes().size());
-    Diplotype diplotype = geneReport.getReporterDiplotypes().get(0);
+    assertEquals(2, geneReport.getRecommendationDiplotypes().size());
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
   }
 
@@ -1967,8 +1964,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   private static String printDiagnostic(GeneReport geneReport) {
     return String.format(
         sf_diplotypesTemplate,
-        geneReport.getMatcherDiplotypes().toString(),
-        geneReport.getReporterDiplotypes().toString(),
+        geneReport.getSourceDiplotypes().toString(),
+        geneReport.getRecommendationDiplotypes().toString(),
         geneReport.printDisplayCalls()
     );
   }
@@ -2023,7 +2020,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     private void testMatcher(String gene, String... diplotypes) {
       GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
-      List<String> dips = geneReport.getMatcherDiplotypes().stream()
+      List<String> dips = geneReport.getSourceDiplotypes().stream()
           .map(Diplotype::printBare)
           .sorted()
           .toList();
@@ -2096,18 +2093,18 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
 
       GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
-      assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getReporterDiplotypes());
+      assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
-      assertTrue(geneReport.getReporterDiplotypes().stream()
+      assertTrue(geneReport.getRecommendationDiplotypes().stream()
           .anyMatch(d -> d.makeLookupMap().equals(lookup)),
           "Lookup key " + lookup + " not found in lookup " +
-              geneReport.getReporterDiplotypes().stream().map(Diplotype::makeLookupMap).toList());
+              geneReport.getRecommendationDiplotypes().stream().map(Diplotype::makeLookupMap).toList());
     }
 
     private void testLookupByActivity(String gene, String activityScore) {
       GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
       assertTrue(geneReport.isReportable());
-      assertTrue(geneReport.getReporterDiplotypes().stream()
+      assertTrue(geneReport.getRecommendationDiplotypes().stream()
           .allMatch(d -> d.printLookupKeys().equals(activityScore)));
     }
 

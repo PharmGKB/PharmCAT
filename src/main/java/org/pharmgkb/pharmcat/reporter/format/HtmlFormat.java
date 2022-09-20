@@ -126,7 +126,7 @@ public class HtmlFormat extends AbstractFormat {
 
         // skip any uncalled genes
         boolean allVariantsMissing = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
-        if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getReporterDiplotypes().isEmpty())) {
+        if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getRecommendationDiplotypes().isEmpty())) {
           continue;
         }
         if (geneReport.getRelatedDrugs().size() == 0) {
@@ -229,15 +229,15 @@ public class HtmlFormat extends AbstractFormat {
       if (!summary.containsKey("diplotypes")) {
         summary.put("source", report.getPhenotypeSource());
         if (report.getCallSource() == CallSource.MATCHER) {
-          if (isDpyd(symbol) && report.getComponentDiplotypes().size() > 0) {
+          if (isDpyd(symbol) && report.getSourceComponentDiplotypes().size() > 0) {
             summary.put("showComponents", true);
-            summary.put("diplotypes", report.getMatcherDiplotypes().get(0));
-            summary.put("componentDiplotypes", report.getComponentDiplotypes());
+            summary.put("diplotypes", report.getSourceDiplotypes().get(0));
+            summary.put("componentDiplotypes", report.getSourceComponentDiplotypes());
           } else {
-            summary.put("diplotypes", report.getMatcherDiplotypes());
+            summary.put("diplotypes", report.getSourceDiplotypes());
           }
         } else {
-          summary.put("diplotypes", report.getReporterDiplotypes());
+          summary.put("diplotypes", report.getRecommendationDiplotypes());
         }
         summary.put("hasMissingVariants", report.isMissingVariants());
         summary.put("showUnphasedNote", showUnphasedNote(report));
@@ -351,7 +351,7 @@ public class HtmlFormat extends AbstractFormat {
               .flatMap((gr) -> gr.getRelatedGeneReports().stream())
               .flatMap((gr) -> {
                 String geneLink = "<a href=\"#" + gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() + "</a>";
-                return gr.getReporterDiplotypes().stream()
+                return gr.getRecommendationDiplotypes().stream()
                     .map((d) -> geneLink + " " + d.printBare());
               })
               .collect(Collectors.toCollection(TreeSet::new))));

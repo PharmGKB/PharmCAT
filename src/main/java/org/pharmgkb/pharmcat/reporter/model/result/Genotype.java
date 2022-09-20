@@ -100,13 +100,13 @@ public class Genotype {
 
     for (GeneReport geneReport : geneReports) {
       if (possibleGenotypes.isEmpty()) {
-        for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
+        for (Diplotype diplotype : geneReport.getRecommendationDiplotypes()) {
           possibleGenotypes.add(new Genotype(diplotype));
         }
       } else {
         List<Genotype> oldGenotypes = possibleGenotypes;
         possibleGenotypes = new ArrayList<>();
-        for (Diplotype diplotype : geneReport.getReporterDiplotypes()) {
+        for (Diplotype diplotype : geneReport.getRecommendationDiplotypes()) {
           for (Genotype oldGenotype : oldGenotypes) {
             Genotype newGenotype = new Genotype(oldGenotype.getDiplotypes());
             newGenotype.addDiplotype(diplotype);
