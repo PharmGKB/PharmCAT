@@ -166,7 +166,7 @@ public class ReportHelpers {
   public static String amdSubtitle(GeneReport geneReport) {
     StringBuilder builder = new StringBuilder();
 
-    if (isDpyd(geneReport.getGene()) && geneReport.getSourceComponentDiplotypes().size() == 0) {
+    if (isDpyd(geneReport.getGene()) && geneReport.getMatcherComponentDiplotypes().size() == 0) {
       builder.append("Haplotype");
     } else {
       builder.append("Genotype");
