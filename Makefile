@@ -31,7 +31,7 @@ updateData: clean
 	@${GRADLE_CMD} updateData
 	@echo "Moving pharmcat_position files..."
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
-	cp pharmcat_positions.vcf src/test/resources/reference.vcf
+	cp pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
 	cp  pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
 	@echo ""
 	@echo "Updating examples..."
