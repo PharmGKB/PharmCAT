@@ -274,6 +274,9 @@ public class DataManager {
       stream.forEach((file) -> {
         try {
           String filename = FilenameUtils.getName(file.toString());
+          if (filename.startsWith("Annotation_of_DPWG_Guideline_for_")) {
+            filename = filename.substring(33);
+          }
           Path expectedGuideline = PgkbGuidelineCollection.GUIDELINES_DIR.resolve(filename);
           if (Files.exists(expectedGuideline)) {
             count.incrementAndGet();
