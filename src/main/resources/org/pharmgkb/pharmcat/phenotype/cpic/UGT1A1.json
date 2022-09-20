@@ -1,0 +1,459 @@
+{
+  "gene": "UGT1A1",
+  "haplotypes": {
+    "*1": "Normal function",
+    "*27": "Decreased Function",
+    "*28": "Decreased Function",
+    "*36": "Increased Function",
+    "*37": "Decreased Function",
+    "*6": "Decreased Function",
+    "*80": "Unknown Function",
+    "*80+*28": "Decreased Function",
+    "*80+*37": "Decreased Function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*36/*36",
+      "description": null,
+      "lookupkey": "Normal Metabolizer",
+      "diplotypekey": {
+        "*36": 2
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*1/*36",
+      "description": null,
+      "lookupkey": "Normal Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*1/*1",
+      "description": null,
+      "lookupkey": "Normal Metabolizer",
+      "diplotypekey": {
+        "*1": 2
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*27/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*28/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*80+*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*80+*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*6/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*27",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*27": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*28": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*6",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*80+*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*80+*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*27",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*37/*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*37": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*6",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*28/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*28": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*37/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*37": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*37/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*37": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*37/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*37": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*27",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*27": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*28/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*28": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*36/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*36": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*1/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*1": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*27": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*28/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*28": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*37": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*6/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*6": 1,
+        "*80": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*80/*80+*28",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*80": 1,
+        "*80+*28": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*80/*80+*37",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*80": 1,
+        "*80+*37": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*80/*80",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "*80": 2
+      }
+    }
+  ],
+  "version": "v1.20.0"
+}

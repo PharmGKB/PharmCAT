@@ -1,0 +1,39 @@
+{
+  "gene": "ABCG2",
+  "haplotypes": {
+    "c.421 G (141Q)": "Normal function",
+    "c.421 T (141K)": "Decreased function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": null,
+      "diplotype": "c.421 G (141Q)/c.421 G (141Q)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.421 G (141Q)": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.421 G (141Q)/c.421 T (141K)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.421 G (141Q)": 1,
+        "c.421 T (141K)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.421 T (141K)/c.421 T (141K)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.421 T (141K)": 2
+      }
+    }
+  ],
+  "version": "2022-09-19-03-53"
+}

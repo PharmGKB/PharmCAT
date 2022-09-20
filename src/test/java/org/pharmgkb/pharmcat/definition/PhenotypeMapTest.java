@@ -1,7 +1,8 @@
 package org.pharmgkb.pharmcat.definition;
 
 import org.junit.jupiter.api.Test;
-import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
+import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 

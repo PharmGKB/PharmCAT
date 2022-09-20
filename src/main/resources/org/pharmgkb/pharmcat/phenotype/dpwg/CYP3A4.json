@@ -1,0 +1,919 @@
+{
+  "gene": "CYP3A4",
+  "haplotypes": {
+    "*1": "Normal function",
+    "*11": "Decreased function",
+    "*12": "Decreased function",
+    "*13": "Decreased function",
+    "*16": "Decreased function",
+    "*17": "Decreased function",
+    "*18": "Decreased function",
+    "*20": "No function",
+    "*22": "Decreased function",
+    "*26": "No function",
+    "*36": "Normal function",
+    "*6": "No function",
+    "*8": "Decreased function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*8",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*8": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*11",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*12",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*13",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*22": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*11",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*12",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*12": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*13",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*13": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*16": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*12",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*13",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*13": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*16": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*13",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*16": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*17/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*17/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*17/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*18/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*18/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*22/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*22": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*8",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*8/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*26": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*11",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*11/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*12",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*12/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*13",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*13/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*16",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*16/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*17",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*17/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*17/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*18",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*18/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*18/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*22": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*20/*22",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*22/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*22": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*6",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*6": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*6/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*26": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*20/*20",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*20": 2
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*20/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Poor metabolizer",
+      "diplotype": "*26/*26",
+      "description": null,
+      "lookupkey": "Poor metabolizer",
+      "diplotypekey": {
+        "*26": 2
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*8",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*8/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*11",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*11": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*11/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*12",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*12": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*12/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*13",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*13": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*13/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*16",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*16": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*16/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*17",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*17/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*18",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*18/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*22",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*22/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*22": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*6",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*6/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*20",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*20/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*1/*26",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Intermediate metabolizer",
+      "diplotype": "*26/*36",
+      "description": null,
+      "lookupkey": "Intermediate metabolizer",
+      "diplotypekey": {
+        "*26": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Normal metabolizer",
+      "diplotype": "*1/*1",
+      "description": null,
+      "lookupkey": "Normal metabolizer",
+      "diplotypekey": {
+        "*1": 2
+      }
+    },
+    {
+      "generesult": "Normal metabolizer",
+      "diplotype": "*1/*36",
+      "description": null,
+      "lookupkey": "Normal metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Normal metabolizer",
+      "diplotype": "*36/*36",
+      "description": null,
+      "lookupkey": "Normal metabolizer",
+      "diplotypekey": {
+        "*36": 2
+      }
+    }
+  ],
+  "version": "2022-09-19-03-53"
+}

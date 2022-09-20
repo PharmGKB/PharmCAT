@@ -8,7 +8,6 @@ import java.lang.invoke.MethodHandles;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
@@ -24,13 +23,13 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.MessageList;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
-import org.pharmgkb.pharmcat.definition.model.GenePhenotype;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
+import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -169,11 +168,14 @@ public class DataManager {
             // download phenotypes
             FileUtils.copyURLToFile(
                 new URL("https://files.cpicpgx.org/data/report/current/gene_phenotypes.json"),
-                downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile());
+                downloadDir.resolve("cpic_phenotypes.json").toFile());
           }
 
           // transform phenotypes
           Path phenoDir = cliHelper.getValidDirectory("p", true);
+          if (!phenoDir.getFileName().endsWith("phenotype")) {
+            phenoDir = phenoDir.resolve("phenotype");
+          }
           manager.transformPhenotypes(downloadDir, phenoDir);
           phenotypeMap = new PhenotypeMap(phenoDir);
         } else {
@@ -253,11 +255,7 @@ public class DataManager {
       for (Drug drug : drugs) {
         count += 1;
         drug.setSource(DataSource.CPIC);
-        String filename = drug.getDrugName()
-            .replaceAll("\\p{Punct}", " ")
-            .replaceAll("\\s+", "_") +
-            ".json";
-        System.out.println(filename);
+        String filename = sanitizeFiename(drug.getDrugName()) + ".json";
         try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
           DataSerializer.GSON.toJson(drug, writer);
         }
@@ -695,18 +693,35 @@ public class DataManager {
     }
   }
 
-  private void transformPhenotypes(Path downloadDir, Path outputDir) throws IOException {
-    Path cpicFile = outputDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME);
-    System.out.println("Saving CPIC phenotypes to " + cpicFile);
-    FileUtils.copyFile(
-        downloadDir.resolve(PhenotypeMap.CPIC_PHENOTYPES_JSON_FILE_NAME).toFile(),
-        cpicFile.toFile()
-    );
 
-    Path inDpwgFile = downloadDir.resolve(PhenotypeMap.DPWG_PHENOTYPES_JSON_FILE_NAME);
-    Path outDpwgFile = outputDir.resolve(PhenotypeMap.DPWG_PHENOTYPES_JSON_FILE_NAME);
-    System.out.println("Saving DPWG phenotypes to " + outDpwgFile);
-    Files.copy(inDpwgFile, outDpwgFile, StandardCopyOption.REPLACE_EXISTING);
+  private void transformPhenotypes(Path downloadDir, Path phenoDir) throws IOException {
+    Path cpicDir = phenoDir.resolve("cpic");
+    System.out.println("Saving CPIC phenotypes to " + cpicDir);
+    doTransformPhenotypes(downloadDir.resolve("cpic_phenotypes.json"), cpicDir, DataSource.CPIC);
+
+
+    Path dpwgDir = phenoDir.resolve("dpwg");
+    System.out.println("Saving DPWG phenotypes to " + dpwgDir);
+    doTransformPhenotypes(downloadDir.resolve("dpwg_phenotypes.json"), dpwgDir, DataSource.DPWG);
+  }
+
+  private void doTransformPhenotypes(Path phenotypeFile, Path outputDir, DataSource source) throws IOException {
+    if (!Files.exists(outputDir)) {
+      Files.createDirectories(outputDir);
+    }
+    try (BufferedReader reader = Files.newBufferedReader(phenotypeFile)) {
+      GenePhenotype[] rez = DataSerializer.GSON.fromJson(reader, GenePhenotype[].class);
+      Set<String> genes = new HashSet<>();
+      for (GenePhenotype gp : rez) {
+        if (!genes.add(gp.getGene())) {
+          throw new IllegalStateException("Multiple " + source + " GenePhenotypes for " + gp.getGene());
+        }
+        try (Writer writer = Files.newBufferedWriter(outputDir.resolve(sanitizeFiename(gp.getGene()) + ".json"))) {
+          DataSerializer.GSON.toJson(gp, writer);
+        }
+      }
+      System.out.println("Found " + rez.length + " " + source + " phenotypes");
+    }
   }
 
 
@@ -719,5 +734,10 @@ public class DataManager {
         throw new IllegalStateException("DPWG has DPYD " + hap + " but CPIC does not");
       }
     }
+  }
+
+  private static String sanitizeFiename(String basename) {
+    return basename.replaceAll("\\p{Punct}", " ")
+        .replaceAll("\\s+", "_");
   }
 }

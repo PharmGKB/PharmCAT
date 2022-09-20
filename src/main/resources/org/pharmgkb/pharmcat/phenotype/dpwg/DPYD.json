@@ -1,0 +1,159 @@
+{
+  "gene": "DPYD",
+  "haplotypes": {
+    "Reference": "Normal function",
+    "c.1129-5923C>G, c.1236G>A (HapB3)": "Decreased function",
+    "c.1679T>G (*13)": "No function",
+    "c.1905+1G>A (*2A)": "No function",
+    "c.2846A>T": "Decreased function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": null,
+      "diplotype": "c.1679T>G (*13)/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1679T>G (*13)": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1679T>G (*13)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1679T>G (*13)": 1,
+        "c.1905+1G>A (*2A)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1905+1G>A (*2A)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1905+1G>A (*2A)": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Reference/Reference",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.2846A>T": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.2846A>T/c.2846A>T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.2846A>T": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.1679T>G (*13)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.1905+1G>A (*2A)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1679T>G (*13)/c.2846A>T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1679T>G (*13)": 1,
+        "c.2846A>T": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.1905+1G>A (*2A)/c.2846A>T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.1905+1G>A (*2A)": 1,
+        "c.2846A>T": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Reference/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1679T>G (*13)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Reference/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1905+1G>A (*2A)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Reference/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Reference/c.2846A>T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 1,
+        "c.2846A>T": 1
+      }
+    }
+  ],
+  "version": "2022-09-19-03-53"
+}

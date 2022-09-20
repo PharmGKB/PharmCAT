@@ -146,7 +146,7 @@ task updateData(type: JavaExec, dependsOn: 'classes') {
   classpath = sourceSets.main.runtimeClasspath
   def argList = [
       '-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
-      '-p', file('src/main/resources/org/pharmgkb/pharmcat/definition'),
+      '-p', file('src/main/resources/org/pharmgkb/pharmcat/phenotype'),
       '-m', file('src/main/resources/org/pharmgkb/pharmcat/definition'),
       '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
       '-doc', file('docs'),

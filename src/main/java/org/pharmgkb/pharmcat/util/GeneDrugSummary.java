@@ -19,7 +19,7 @@ import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.IOUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
-import org.pharmgkb.pharmcat.definition.PhenotypeMap;
+import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;

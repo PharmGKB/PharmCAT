@@ -1,0 +1,69 @@
+{
+  "gene": "CACNA1S",
+  "haplotypes": {
+    "c.3257G>A": "Malignant hyperthermia associated",
+    "c.520C>T": "Malignant hyperthermia associated",
+    "Reference": "Normal Function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.3257G>A/c.3257G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.3257G>A": 2
+      }
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.520C>T/c.520C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.520C>T": 2
+      }
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.520C>T/c.3257G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.520C>T": 1,
+        "c.3257G>A": 1
+      }
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.520C>T/Reference",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.520C>T": 1,
+        "Reference": 1
+      }
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.3257G>A/Reference",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.3257G>A": 1
+      }
+    },
+    {
+      "generesult": "Uncertain Susceptibility",
+      "diplotype": "Reference/Reference",
+      "description": null,
+      "lookupkey": "Uncertain Susceptibility",
+      "diplotypekey": {
+        "Reference": 2
+      }
+    }
+  ],
+  "version": "v1.20.0"
+}

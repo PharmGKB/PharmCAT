@@ -1,0 +1,39 @@
+{
+  "gene": "HLA-A",
+  "haplotypes": {
+    "*31:01:02": "Presence",
+    "Other": "Absence"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": null,
+      "diplotype": "*31:01:02/Other",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "*31:01:02": 1,
+        "Other": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "*31:01:02/*31:01:02",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "*31:01:02": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "Other/Other",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Other": 2
+      }
+    }
+  ],
+  "version": "2022-09-19-03-53"
+}

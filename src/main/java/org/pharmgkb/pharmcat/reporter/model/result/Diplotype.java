@@ -23,7 +23,7 @@ import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
-import static org.pharmgkb.pharmcat.definition.model.GenePhenotype.NO_RESULT;
+import static org.pharmgkb.pharmcat.phenotype.model.GenePhenotype.NO_RESULT;
 import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 
 

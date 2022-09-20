@@ -1,0 +1,39 @@
+{
+  "gene": "SLCO1B1",
+  "haplotypes": {
+    "c.521 C": "Decreased function",
+    "c.521 T": "Normal function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": null,
+      "diplotype": "c.521 T/c.521 T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.521 T": 2
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.521 C/c.521 T",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.521 C": 1,
+        "c.521 T": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "c.521 C/c.521 C",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "c.521 C": 2
+      }
+    }
+  ],
+  "version": "2022-09-19-03-53"
+}
