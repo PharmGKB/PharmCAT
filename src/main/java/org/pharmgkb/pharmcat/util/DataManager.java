@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.util;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -33,6 +34,7 @@ import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.slf4j.Logger;
@@ -134,13 +136,25 @@ public class DataManager {
         PgkbGuidelineCollection pgkbGuidelineCollection;
         if (!skipGuidelines) {
           Path drugsDir = cliHelper.getValidDirectory("g", true);
-          // download CPIC guidelines
-          drugs = DrugCollection.download(drugsDir);
-          DrugCollection existingDrugs = new DrugCollection();
-          existingDrugs.diff(drugs).forEach(sf_logger::info);
+          Path cpicDlFile = downloadDir.resolve(DrugCollection.CPIC_FILE_NAME);
+          if (!skipDownload) {
+            // download CPIC guidelines
+            FileUtils.copyURLToFile(
+                new URL(DrugCollection.CPIC_URL),
+                cpicDlFile.toFile());
+
+          }
+          // transform CPIC guidelines
+          Path cpicGuidelinesDir = drugsDir.resolve("guidelines/cpic");
+          manager.transformCpicGuidelines(cpicDlFile, cpicGuidelinesDir);
+          drugs = new DrugCollection(cpicGuidelinesDir);
+          if (!cpicGuidelinesDir.toString().equals(DrugCollection.GUIDELINES_DIR.toString())) {
+            DrugCollection oldDrugs = new DrugCollection();
+            oldDrugs.diff(drugs).forEach(sf_logger::info);
+          }
 
           // transform DPWG guidelines
-          Path dpwgGuidelinesDir = drugsDir.resolve("guidelines");
+          Path dpwgGuidelinesDir = drugsDir.resolve("guidelines/dpwg");
           manager.transformPgkbGuidelines(downloadDir, dpwgGuidelinesDir);
           pgkbGuidelineCollection = new PgkbGuidelineCollection(dpwgGuidelinesDir);
         } else {
@@ -225,6 +239,32 @@ public class DataManager {
     }
   }
 
+
+  private void transformCpicGuidelines(Path cpicDlFile, Path guidelinesDir) throws IOException {
+    if (!Files.exists(guidelinesDir)) {
+      Files.createDirectories(guidelinesDir);
+    }
+    System.out.println("Saving CPIC guidelines to " + guidelinesDir);
+    int count = 0;
+    try (BufferedReader br = Files.newBufferedReader(cpicDlFile)) {
+      List<Drug> drugs = DataSerializer.GSON.fromJson(br, DrugCollection.DRUG_LIST_TYPE);
+      drugs.sort(Comparator.naturalOrder());
+
+      for (Drug drug : drugs) {
+        count += 1;
+        drug.setSource(DataSource.CPIC);
+        String filename = drug.getDrugName()
+            .replaceAll("\\p{Punct}", " ")
+            .replaceAll("\\s+", "_") +
+            ".json";
+        System.out.println(filename);
+        try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
+          DataSerializer.GSON.toJson(drug, writer);
+        }
+      }
+    }
+    System.out.println("Found " + count + " CPIC guidelines");
+  }
 
   private void transformPgkbGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
     if (!Files.exists(guidelinesDir)) {

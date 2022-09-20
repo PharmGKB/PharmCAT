@@ -1,0 +1,89 @@
+{
+  "drugid": "RxNorm:190521",
+  "drugname": "abacavir",
+  "guidelinename": "HLA-B and Abacavir",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/",
+  "guidelinepharmgkbids": [
+    "PA166104997"
+  ],
+  "citations": [
+    {
+      "pmid": "22378157",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing",
+      "authors": [
+        "Martin M A",
+        "Klein T E",
+        "Dong B J",
+        "Pirmohamed M",
+        "Haas D W",
+        "Kroetz D L"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2012
+    },
+    {
+      "pmid": "24561393",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update",
+      "authors": [
+        "Martin Michael A",
+        "Hoffman James M",
+        "Freimuth Robert R",
+        "Klein Teri E",
+        "Dong Betty J",
+        "Pirmohamed Munir",
+        "Hicks J Kevin",
+        "Wilkinson Mark R",
+        "Haas David W",
+        "Kroetz Deanna L"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "HLA-B": "Low or reduced risk of abacavir hypersensitivity"
+      },
+      "drugrecommendation": "Use abacavir per standard dosing guidelines",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-B": "HLA-B*57:01 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*57:01 negative"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "HLA-B": "Significantly increased risk of abacavir hypersensitivity"
+      },
+      "drugrecommendation": "Abacavir is not recommended",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-B": "HLA-B*57:01 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*57:01 positive"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "HLA-B"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

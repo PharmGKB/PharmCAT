@@ -1,0 +1,535 @@
+{
+  "drugid": "RxNorm:32968",
+  "drugname": "clopidogrel",
+  "guidelinename": "CYP2C19 and Clopidogrel",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-clopidogrel-and-cyp2c19/",
+  "guidelinepharmgkbids": [
+    "PA166104948"
+  ],
+  "citations": [
+    {
+      "pmid": "21716271",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for Cytochrome P450-2C19 (CYP2C19) Genotype and Clopidogrel Therapy",
+      "authors": [
+        "Scott S A",
+        "Sangkuhl K",
+        "Gardner E E",
+        "Stein C M",
+        "Hulot J-S",
+        "Johnson J A",
+        "Roden D M",
+        "Klein T E",
+        "Shuldiner A R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    },
+    {
+      "pmid": "23698643",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy: 2013 Update",
+      "authors": [
+        "Scott Stuart A",
+        "Sangkuhl Katrin",
+        "Stein C Michael",
+        "Hulot Jean-Sébastien",
+        "Mega Jessica L",
+        "Roden Dan M",
+        "Klein Teri E",
+        "Sabatine Marc S",
+        "Johnson Julie A",
+        "Shuldiner Alan R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    },
+    {
+      "pmid": "35034351",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update.",
+      "authors": [
+        "Lee Craig R",
+        "Luzum Jasmine A",
+        "Sangkuhl Katrin",
+        "Gammal Roseann S",
+        "Sabatine Marc S",
+        "Stein C Michael",
+        "Kisor David F",
+        "Limdi Nita A",
+        "Lee Yee Ming",
+        "Scott Stuart A",
+        "Hulot Jean-Sébastien",
+        "Roden Dan M",
+        "Gaedigk Andrea",
+        "Caudle Kelly E",
+        "Klein Teri E",
+        "Johnson Julie A",
+        "Shuldiner Alan R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose (75 mg) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose clopidogrel (75 mg) if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      },
+      "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      },
+      "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal clopidogrel active metabolite formation; normal on-treatment platelet reactivity"
+      },
+      "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
+      },
+      "drugrecommendation": "Avoid clopidogrel if possible. Consider an alternative P2Y12 inhibitor at standard dose if clinically indicated and no contraindication.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      },
+      "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal or increased clopidogrel active metabolite formation; normal or lower on-treatment platelet reactivity"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
+      "population": "NVI",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      },
+      "drugrecommendation": "If considering clopidogrel, use at standard dose (75 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
+      "population": "CVI ACS PCI ",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased clopidogrel active metabolite formation; lower on-treatment platelet reactivity; no association with higher bleeding risk"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
+      "population": "CVI non-ACS non-PCI",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CYP2C19"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

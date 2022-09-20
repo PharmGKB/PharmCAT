@@ -1,0 +1,214 @@
+{
+  "drugid": "RxNorm:321988",
+  "drugname": "escitalopram",
+  "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
+  "guidelinepharmgkbids": [
+    "PA166127636",
+    "PA166127637",
+    "PA166127638",
+    "PA166127639"
+  ],
+  "citations": [
+    {
+      "pmid": "25974703",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors",
+      "authors": [
+        "Hicks J Kevin",
+        "Bishop Jeffrey R",
+        "Sangkuhl Katrin",
+        "Müller Daniel J",
+        "Ji Yuan",
+        "Leckband Susan G",
+        "Leeder J Steven",
+        "Graham Rebecca L",
+        "Chiulli Dana L",
+        "LLerena Adrián",
+        "Skaar Todd C",
+        "Scott Stuart A",
+        "Stingl Julia C",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Gaedigk Andrea"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2015
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Consider an alternative drug not predominantly metabolized by CYP2C19",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased metabolism when compared to normal metabolizers. Lower plasma concentrations will increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Consider an alternative drug not predominantly metabolized by CYP2C19",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CYP2C19"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

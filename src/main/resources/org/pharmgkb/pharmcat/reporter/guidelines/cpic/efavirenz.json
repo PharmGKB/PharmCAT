@@ -1,0 +1,170 @@
+{
+  "drugid": "RxNorm:195085",
+  "drugname": "efavirenz",
+  "guidelinename": "CYP2B6 and efavirenz",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-efavirenz-based-on-cyp2b6-genotype/",
+  "guidelinepharmgkbids": [
+    "PA166182603"
+  ],
+  "citations": [
+    {
+      "pmid": "31006110",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2B6 and Efavirenz-containing Antiretroviral Therapy.",
+      "authors": [
+        "Desta Zeruesenay",
+        "Gammal Roseann S",
+        "Gong Li",
+        "Whirl-Carrillo Michelle",
+        "Gaur Aditya H",
+        "Sukasem Chonlaphat",
+        "Hockings Jennifer",
+        "Myers Alan",
+        "Swart Marelize",
+        "Tyndale Rachel",
+        "Masimirembwa Collen",
+        "Iwuchukwu Otito F",
+        "Chirwa Sanika",
+        "Lennox Jeffrey",
+        "Gaedigk Andrea",
+        "Klein Teri",
+        "Haas David W"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2B6": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2B6": "Higher dose-adjusted trough concentrations of efavirenz compared with normal metabolizers; increased risk of CNS adverse events"
+      },
+      "drugrecommendation": "Consider initiating efavirenz with decreased dose of 400 mg/day",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer"
+      },
+      "comments": "If therapeutic drug monitoring is available and a decreased efavirenz dose is prescribed, consider obtaining steady-state plasma efavirenz concentrations to ensure concentrations are in the suggested therapeutic range (~1 to 4 μg/mL). To prescribe efavirenz at a decreased dose of 400 mg/day or 200 mg/day in a multidrug regimen may require prescribing more than one pill once daily. If so, the provider should weigh the potential benefit of reduced dose against the potential detrimental impact of increased pill number.",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal efavirenz metabolism"
+      },
+      "drugrecommendation": "Initiate efavirenz with standard dosing (600 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer"
+      },
+      "comments": "The ENCORE study showed that in treatment-naïve patients randomized to initiate efavirenz-based regimens (combined with tenofovir and emtricitabine), 400 mg/day was non-inferior to 600 mg/day regardless of CYP2B6 genotype (PMID 24522178).",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2B6": "Higher dose-adjusted trough concentrations of efavirenz compared with normal metabolizers; significantly increased risk of CNS adverse events and treatment discontinuation"
+      },
+      "drugrecommendation": "Consider initiating efavirenz with decreased dose of 400 or 200 mg/day",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Poor Metabolizer"
+      },
+      "comments": "If therapeutic drug monitoring is available and a decreased efavirenz dose is prescribed, consider obtaining steady-state plasma efavirenz concentrations to ensure concentrations are in the suggested therapeutic range (~1 to 4 μg/mL). To prescribe efavirenz at a decreased dose of 400 mg/day or 200 mg/day in a multidrug regimen may require prescribing more than one pill once daily. If so, the provider should weigh the potential benefit of reduced dose against the potential detrimental impact of increased pill number.",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2B6": "Slightly lower dose-adjusted trough concentrations of efavirenz compared with normal metabolizers"
+      },
+      "drugrecommendation": "Initiate efavirenz with standard dosing (600 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2B6": "Slightly lower dose-adjusted trough concentrations of efavirenz compared with normal metabolizers"
+      },
+      "drugrecommendation": "Initiate efavirenz with standard dosing (600 mg/day)",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "child >40kg_adult",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CYP2B6"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

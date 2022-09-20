@@ -1,0 +1,77 @@
+{
+  "drugid": "RxNorm:1243041",
+  "drugname": "ivacaftor",
+  "guidelinename": "CFTR and Ivacaftor",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-ivacaftor-and-cftr/",
+  "guidelinepharmgkbids": [
+    "PA166114461"
+  ],
+  "citations": [
+    {
+      "pmid": "24598717",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for Ivacaftor Therapy in the Context of CFTR Genotype",
+      "authors": [
+        "Clancy John P",
+        "Johnson Samuel G",
+        "Yee Sook Wah",
+        "McDonagh Ellen M",
+        "Caudle Kelly E",
+        "Klein Teri E",
+        "Cannavo Matthew",
+        "Giacomini Kathleen M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CFTR": "An individual diagnosed with cystic fibrosis (CF) and negative for a CFTR variant listed in the FDA-approved drug label as being responsive to ivacaftor."
+      },
+      "drugrecommendation": "Ivacaftor is not recommended",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CFTR": "ivacaftor non-responsive in CF patients"
+      },
+      "activityscore": {
+        "CFTR": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CFTR": "ivacaftor non-responsive in CF patients"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CFTR": "An individual diagnosed with cystic fibrosis (CF) and CFTR variants listed in the FDA-approved drug label as being responsive to ivacaftor"
+      },
+      "drugrecommendation": "Use ivacaftor according to the product label",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CFTR": "ivacaftor responsive in CF patients"
+      },
+      "activityscore": {
+        "CFTR": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CFTR": "ivacaftor responsive in CF patients"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CFTR"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

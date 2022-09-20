@@ -1,0 +1,508 @@
+{
+  "drugid": "RxNorm:32937",
+  "drugname": "paroxetine",
+  "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
+  "guidelinepharmgkbids": [
+    "PA166127636",
+    "PA166127637",
+    "PA166127638",
+    "PA166127639"
+  ],
+  "citations": [
+    {
+      "pmid": "25974703",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors",
+      "authors": [
+        "Hicks J Kevin",
+        "Bishop Jeffrey R",
+        "Sangkuhl Katrin",
+        "Müller Daniel J",
+        "Ji Yuan",
+        "Leckband Susan G",
+        "Leeder J Steven",
+        "Graham Rebecca L",
+        "Chiulli Dana L",
+        "LLerena Adrián",
+        "Skaar Todd C",
+        "Scott Stuart A",
+        "Stingl Julia C",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Gaedigk Andrea"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2015
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2D6": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 or if paroxetine use warranted, consider a 50% reduction of recommended starting dose and titrate to response.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers. Lower/undetectable plasma concentrations may increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2D6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "n/a"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CYP2D6"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

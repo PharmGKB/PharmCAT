@@ -1,0 +1,160 @@
+{
+  "drugid": "RxNorm:194000",
+  "drugname": "capecitabine",
+  "guidelinename": "DPYD and Fluoropyrimidines",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/",
+  "guidelinepharmgkbids": [
+    "PA166109594",
+    "PA166122686",
+    "PA166122687"
+  ],
+  "citations": [
+    {
+      "pmid": "23988873",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing",
+      "authors": [
+        "Caudle Kelly E",
+        "Thorn Caroline F",
+        "Klein Teri E",
+        "Swen Jesse J",
+        "McLeod Howard L",
+        "Diasio Robert B",
+        "Schwab Matthias"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    },
+    {
+      "pmid": "29152729",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update",
+      "authors": [
+        "Amstutz Ursula",
+        "Henricks Linda M",
+        "Offer Steven M",
+        "Barbarino Julia",
+        "Schellens Jan H M",
+        "Swen Jesse J",
+        "Klein Teri E",
+        "McLeod Howard L",
+        "Caudle Kelly E",
+        "Diasio Robert B",
+        "Schwab Matthias"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2017
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "DPYD": "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      },
+      "drugrecommendation": "Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens.",
+      "classification": "Strong",
+      "phenotypes": {
+        "DPYD": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "DPYD": "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      },
+      "drugrecommendation": "Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens. In the event, based on clinical advice, alternative agents are not considered a suitable therapeutic option, 5-fluorouracil should be administered at a strongly reduced dose with early therapeutic drug monitoring.",
+      "classification": "Strong",
+      "phenotypes": {
+        "DPYD": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "0.5"
+      },
+      "comments": "If available, a phenotyping test (see main text for further details) should be considered to estimate the starting dose. In absence of phenotyping data, a dose of <25% of the normal starting dose is estimated assuming additive effects of alleles on 5-FU clearance. Therapeutic drug monitoring should be done at the earliest time point possible (e.g., minimum time point in steady state) in order to immediately discontinue therapy if the drug level is too high.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
+      "classification": "Strong",
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "1"
+      },
+      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "1.5"
+      },
+      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "DPYD": "Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity"
+      },
+      "drugrecommendation": "Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration.",
+      "classification": "Strong",
+      "phenotypes": {
+        "DPYD": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "2"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "DPYD"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

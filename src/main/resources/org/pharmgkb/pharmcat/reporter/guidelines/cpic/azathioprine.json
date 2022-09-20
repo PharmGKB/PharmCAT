@@ -1,0 +1,958 @@
+{
+  "drugid": "RxNorm:1256",
+  "drugname": "azathioprine",
+  "guidelinename": "TPMT, NUDT15 and Thiopurines",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/",
+  "guidelinepharmgkbids": [
+    "PA166104933",
+    "PA166104945",
+    "PA166104965"
+  ],
+  "citations": [
+    {
+      "pmid": "21270794",
+      "title": "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing",
+      "authors": [
+        "Relling M V",
+        "Gardner E E",
+        "Sandborn W J",
+        "Schmiegelow K",
+        "Pui C-H",
+        "Yee S W",
+        "Stein C M",
+        "Carrillo M",
+        "Evans W E",
+        "Klein T E"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    },
+    {
+      "pmid": "23422873",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for Thiopurine Methyltransferase Genotype and Thiopurine Dosing: 2013 Update",
+      "authors": [
+        "Relling M V",
+        "Gardner E E",
+        "Sandborn W J",
+        "Schmiegelow K",
+        "Pui C-H",
+        "Yee S W",
+        "Stein C M",
+        "Carrillo M",
+        "Evans W E",
+        "Hicks J K",
+        "Schwab M",
+        "Klein T E"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    },
+    {
+      "pmid": "30447069",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for thiopurine dosing based on TPMT and NUDT15 genotypes: 2018 update.",
+      "authors": [
+        "Relling Mary V",
+        "Schwab Matthias",
+        "Whirl-Carrillo Michelle",
+        "Suarez-Kurtz Guilherme",
+        "Pui Ching-Hon",
+        "Stein Charles M",
+        "Moyer Ann M",
+        "Evans William E",
+        "Klein Teri E",
+        "Antillon-Klussmann Federico Guillermo",
+        "Caudle Kelly E",
+        "Kato Motohiro",
+        "Yeoh Allen E J",
+        "Schmiegelow Kjeld",
+        "Yang Jun J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2018
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Neither TPMT or NUDT15 phenotype could be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "TPMT phenotype could not be assigned based on genotyping performed and NUDT15 genotype is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "No Result"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15, start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, for non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignant conditions, start with drastically reduced normal daily doses (reduce daily dose by 10-fold) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignant conditions, start with drastically reduced normal daily doses (reduce daily dose by 10-fold) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "NUDT15 phenotype could not be assigned based on genotyping performed and no TPMT genotype is available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15, start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, for non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignant conditions, start with drastically reduced normal daily doses (reduce daily dose by 10-fold) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506). NUDT15 status could not be determined based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with normal starting dose (e.g., 2-3 mg/kg/day) and adjust doses of azathioprine based on disease-specific guidelines. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignant conditions, start with drastically reduced normal daily doses (reduce daily dose by 10-fold) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, for non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776). NUDT15 status could not be determined based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, for non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532). NUDT15 genotype is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy. For malignant conditions, start with drastically reduced normal daily doses (reduce daily dose by 10-fold) and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment (PMID 16530578, 11302950, 15606506, 16530532, 12477776).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is 2-3 mg/kg/day (e.g., 0.6 – 2.4 mg/kg/day), and adjust doses of azathioprine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11302950, 15606506, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "NUDT15",
+    "TPMT"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

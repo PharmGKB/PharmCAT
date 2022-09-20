@@ -25,7 +25,7 @@ import org.pharmgkb.pharmcat.util.DataSerializer;
 
 public class PgkbGuidelineCollection {
   public static final Path GUIDELINES_DIR =
-      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines/dpwg");
 
   public static final Predicate<GuidelinePackage> ONLY_EXTENDED_GUIDELINES = guidelinePackage -> {
     DosingGuideline guideline = guidelinePackage.getGuideline();

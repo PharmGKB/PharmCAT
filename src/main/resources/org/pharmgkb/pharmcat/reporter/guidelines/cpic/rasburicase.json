@@ -1,0 +1,115 @@
+{
+  "drugid": "RxNorm:283821",
+  "drugname": "rasburicase",
+  "guidelinename": "G6PD",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
+  "guidelinepharmgkbids": [
+    "PA166119846"
+  ],
+  "citations": [
+    null
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "G6PD": "High risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "Avoid use",
+      "classification": "Strong",
+      "phenotypes": {
+        "G6PD": "Deficient"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Deficient"
+      },
+      "comments": null,
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "G6PD": "High risk of acute on chronic hemolysis"
+      },
+      "drugrecommendation": "Avoid use",
+      "classification": "Strong",
+      "phenotypes": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "G6PD": "Unknown risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Indeterminate"
+      },
+      "comments": null,
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "G6PD": "Low risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "No reason to avoid based on G6PD status",
+      "classification": "Strong",
+      "phenotypes": {
+        "G6PD": "Normal"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Normal"
+      },
+      "comments": null,
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "G6PD": "Variable risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Variable"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Variable"
+      },
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "G6PD"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

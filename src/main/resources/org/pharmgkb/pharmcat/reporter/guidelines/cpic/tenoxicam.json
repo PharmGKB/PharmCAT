@@ -1,0 +1,162 @@
+{
+  "drugid": "RxNorm:37790",
+  "drugname": "tenoxicam",
+  "guidelinename": "CYP2C9 and NSAIDs",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
+  "guidelinepharmgkbids": [
+    "PA166191841"
+  ],
+  "citations": [
+    {
+      "pmid": "32189324",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and Nonsteroidal Anti-inflammatory Drugs.",
+      "authors": [
+        "Theken Katherine N",
+        "Lee Craig R",
+        "Gong Li",
+        "Caudle Kelly E",
+        "Formea Christine M",
+        "Gaedigk Andrea",
+        "Klein Teri E",
+        "Agúndez José A G",
+        "Grosser Tilo"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2020
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      },
+      "drugrecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0"
+      },
+      "comments": "Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C9": "Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      },
+      "drugrecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5"
+      },
+      "comments": "Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C9": "Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      },
+      "drugrecommendation": "Choose an alternative therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo or choose an NSAID metabolized by CYP2C9 but with a shorter half-life (see CPIC THERAPEUTIC RECOMMENDATIONS FOR CELECOXIB, FLURBIPROFEN, LORNOXICAM, AND IBUPROFEN BASED ON CYP2C9 PHENOTYPE).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1"
+      },
+      "comments": "Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C9": "Mildly reduced metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5"
+      },
+      "comments": "IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age.",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    }
+  ],
+  "genes": [
+    "CYP2C9"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}

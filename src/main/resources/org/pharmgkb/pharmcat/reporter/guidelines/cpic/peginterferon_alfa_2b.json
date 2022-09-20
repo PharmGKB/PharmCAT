@@ -1,0 +1,34 @@
+{
+  "drugid": "RxNorm:253453",
+  "drugname": "peginterferon alfa-2b",
+  "guidelinename": "IFNL3 and Peginterferon-alpha-based Regimens",
+  "url": "https://cpicpgx.org/guidelines/guideline-for-peg-interferon-alpha-based-regimens-and-ifnl3/",
+  "guidelinepharmgkbids": [
+    "PA166110235"
+  ],
+  "citations": [
+    {
+      "pmid": "24096968",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and peginterferon alpha based regimens",
+      "authors": [
+        "Muir Andrew J",
+        "Gong Li",
+        "Johnson Samuel G",
+        "Michael Lee Ming Ta",
+        "Williams Marc S",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Nelson David R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    }
+  ],
+  "recommendations": null,
+  "genes": [
+    "IFNL3"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.20.0",
+  "source": "CPIC"
+}
