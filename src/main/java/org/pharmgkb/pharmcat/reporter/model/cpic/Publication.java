@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * A Publication object sourced from the CPIC DB
+ * Publication data.
  */
 public class Publication {
   @Expose
