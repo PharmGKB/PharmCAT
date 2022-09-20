@@ -154,7 +154,7 @@ public class DataManager {
 
           // transform DPWG guidelines
           Path dpwgGuidelinesDir = drugsDir.resolve("guidelines/dpwg");
-          manager.transformPgkbGuidelines(downloadDir, dpwgGuidelinesDir);
+          manager.transformDpwgGuidelines(downloadDir, dpwgGuidelinesDir);
           pgkbGuidelineCollection = new PgkbGuidelineCollection(dpwgGuidelinesDir);
         } else {
           // if we're skipping new drug data, then use the default data
@@ -264,7 +264,7 @@ public class DataManager {
     System.out.println("Found " + count + " CPIC guidelines");
   }
 
-  private void transformPgkbGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
+  private void transformDpwgGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
     if (!Files.exists(guidelinesDir)) {
       Files.createDirectories(guidelinesDir);
     }
