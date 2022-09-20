@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.Env;
@@ -162,7 +163,7 @@ public class GeneReport implements Comparable<GeneReport> {
       if (hasTrueDiplotype(call)) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_sourceComponentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), hasTrueDiplotype(call), env,
+        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
             phenotypeSource));
       } else {
         List<HaplotypeMatch> matches = new ArrayList<>();
@@ -172,7 +173,7 @@ public class GeneReport implements Comparable<GeneReport> {
           }
         });
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), hasTrueDiplotype(call), env,
+        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), false, env,
             phenotypeSource));
       }
 
@@ -216,11 +217,13 @@ public class GeneReport implements Comparable<GeneReport> {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
 
+    List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call, m_phenotypeSource);
+    m_sourceDiplotypes.addAll(diplotypes);
     if (isDpyd(m_gene)) {
       m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getDiplotypes(), true, env,
           m_phenotypeSource));
     } else {
-      m_recommendationDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call, m_phenotypeSource));
+      m_recommendationDiplotypes.addAll(diplotypes);
     }
   }
 
@@ -395,7 +398,8 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
    */
   public boolean isCalled() {
-    return m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_callSource == CallSource.MATCHER &&
+        m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -426,7 +430,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   @Override
-  public int compareTo(GeneReport o) {
+  public int compareTo(@NonNull GeneReport o) {
     if (this == o) {
       return 0;
     }

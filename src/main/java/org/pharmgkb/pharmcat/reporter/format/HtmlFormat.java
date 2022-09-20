@@ -237,7 +237,7 @@ public class HtmlFormat extends AbstractFormat {
             summary.put("diplotypes", report.getSourceDiplotypes());
           }
         } else {
-          summary.put("diplotypes", report.getRecommendationDiplotypes());
+          summary.put("diplotypes", report.getSourceDiplotypes());
         }
         summary.put("hasMissingVariants", report.isMissingVariants());
         summary.put("showUnphasedNote", showUnphasedNote(report));

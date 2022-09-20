@@ -34,6 +34,7 @@ public class Slco1b1CustomCaller {
   public static boolean shouldBeUsedOn(GeneReport report) {
     return report != null
         && report.getGene().equals(SLCO1B1)
+        && !report.isOutsideCall()
         && (report.getSourceDiplotypes().isEmpty() || report.getSourceDiplotypes().stream().allMatch(Diplotype::isUnknown));
   }
 
