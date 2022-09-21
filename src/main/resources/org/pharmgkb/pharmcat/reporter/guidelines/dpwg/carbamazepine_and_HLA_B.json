@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166265162",
     "name": "Annotation of DPWG Guideline for carbamazepine and HLA-B",
+    "source": "DPWG",
+    "version": 4,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265162",
     "relatedChemicals": [
       {
         "id": "PA448785",
@@ -16,7 +19,6 @@
         "symbol": "HLA-B"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -58,9 +60,7 @@
           "symbol": "HLA-B"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265162",
-    "version": 4
+    ]
   },
   "annotationGroups": [
     {

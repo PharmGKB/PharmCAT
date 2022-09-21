@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104939",
     "name": "Annotation of DPWG Guideline for fluorouracil and DPYD",
+    "source": "DPWG",
+    "version": 32,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104939",
     "relatedChemicals": [
       {
         "id": "PA128406956",
@@ -16,7 +19,6 @@
         "symbol": "DPYD"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -74,9 +76,7 @@
           "symbol": "DPYD"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104939",
-    "version": 32
+    ]
   },
   "annotationGroups": [
     {

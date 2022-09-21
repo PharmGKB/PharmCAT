@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166265421",
     "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
+    "source": "DPWG",
+    "version": 8,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
     "relatedChemicals": [
       {
         "id": "PA451201",
@@ -16,7 +19,6 @@
         "symbol": "CYP3A4"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -138,9 +140,7 @@
           "symbol": "CYP3A4"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
-    "version": 8
+    ]
   },
   "annotationGroups": [
     {

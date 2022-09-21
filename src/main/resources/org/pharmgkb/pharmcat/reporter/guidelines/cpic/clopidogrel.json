@@ -530,6 +530,6 @@
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

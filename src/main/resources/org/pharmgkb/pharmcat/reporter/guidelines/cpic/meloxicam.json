@@ -40,7 +40,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -82,7 +82,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
       "population": "general",
@@ -124,7 +124,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -157,6 +157,6 @@
     "CYP2C9"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

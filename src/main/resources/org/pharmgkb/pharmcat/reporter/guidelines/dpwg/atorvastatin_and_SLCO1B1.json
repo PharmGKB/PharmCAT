@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166182843",
     "name": "Annotation of DPWG Guideline for atorvastatin and SLCO1B1",
+    "source": "DPWG",
+    "version": 9,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182843",
     "relatedChemicals": [
       {
         "id": "PA448500",
@@ -16,7 +19,6 @@
         "symbol": "SLCO1B1"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "SLCO1B1"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182843",
-    "version": 9
+    ]
   },
   "annotationGroups": [
     {

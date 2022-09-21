@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166184612",
     "name": "Annotation of DPWG Guideline for thioguanine and NUDT15",
+    "source": "DPWG",
+    "version": 6,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184612",
     "relatedChemicals": [
       {
         "id": "PA451663",
@@ -16,7 +19,6 @@
         "symbol": "NUDT15"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -106,9 +108,7 @@
           "symbol": "NUDT15"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184612",
-    "version": 6
+    ]
   },
   "annotationGroups": [
     {

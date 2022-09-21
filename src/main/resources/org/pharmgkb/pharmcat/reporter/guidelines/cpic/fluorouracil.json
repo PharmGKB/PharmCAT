@@ -59,7 +59,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "DPYD": "0"
+        "DPYD": "0.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -101,7 +101,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "DPYD": "1"
+        "DPYD": "1.0"
       },
       "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
       "population": "general",
@@ -143,7 +143,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "DPYD": "2"
+        "DPYD": "2.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -155,6 +155,6 @@
     "DPYD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

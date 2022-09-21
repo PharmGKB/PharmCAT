@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104991",
     "name": "Annotation of DPWG Guideline for abacavir and HLA-B",
+    "source": "DPWG",
+    "version": 30,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104991",
     "relatedChemicals": [
       {
         "id": "PA448004",
@@ -16,7 +19,6 @@
         "symbol": "HLA-B"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "HLA-B"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104991",
-    "version": 30
+    ]
   },
   "annotationGroups": [
     {

@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104951",
     "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
+    "source": "DPWG",
+    "version": 30,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
     "relatedChemicals": [
       {
         "id": "PA450085",
@@ -16,7 +19,6 @@
         "symbol": "UGT1A1"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -330,9 +332,7 @@
           "symbol": "UGT1A1"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
-    "version": 30
+    ]
   },
   "annotationGroups": [
     {

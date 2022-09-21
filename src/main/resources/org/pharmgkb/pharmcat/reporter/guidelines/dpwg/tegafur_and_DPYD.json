@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104944",
     "name": "Annotation of DPWG Guideline for tegafur and DPYD",
+    "source": "DPWG",
+    "version": 30,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104944",
     "relatedChemicals": [
       {
         "id": "PA452620",
@@ -16,7 +19,6 @@
         "symbol": "DPYD"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -74,9 +76,7 @@
           "symbol": "DPYD"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104944",
-    "version": 30
+    ]
   },
   "annotationGroups": [
     {

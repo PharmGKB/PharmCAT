@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166265141",
     "name": "Annotation of DPWG Guideline for allopurinol and HLA-B",
+    "source": "DPWG",
+    "version": 3,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
     "relatedChemicals": [
       {
         "id": "PA448320",
@@ -16,7 +19,6 @@
         "symbol": "HLA-B"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "HLA-B"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
-    "version": 3
+    ]
   },
   "annotationGroups": [
     {

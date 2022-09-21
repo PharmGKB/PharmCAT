@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104952",
     "name": "Annotation of DPWG Guideline for mercaptopurine and TPMT",
+    "source": "DPWG",
+    "version": 29,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104952",
     "relatedChemicals": [
       {
         "id": "PA450379",
@@ -16,7 +19,6 @@
         "symbol": "TPMT"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -202,9 +204,7 @@
           "symbol": "TPMT"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104952",
-    "version": 29
+    ]
   },
   "annotationGroups": [
     {

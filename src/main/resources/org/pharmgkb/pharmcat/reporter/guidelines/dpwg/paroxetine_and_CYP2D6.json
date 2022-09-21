@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104976",
     "name": "Annotation of DPWG Guideline for paroxetine and CYP2D6",
+    "source": "DPWG",
+    "version": 29,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104976",
     "relatedChemicals": [
       {
         "id": "PA450801",
@@ -16,7 +19,6 @@
         "symbol": "CYP2D6"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -394,9 +396,7 @@
           "symbol": "CYP2D6"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104976",
-    "version": 29
+    ]
   },
   "annotationGroups": [
     {

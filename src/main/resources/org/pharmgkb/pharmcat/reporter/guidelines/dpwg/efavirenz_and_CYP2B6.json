@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166182846",
     "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
+    "source": "DPWG",
+    "version": 11,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
     "relatedChemicals": [
       {
         "id": "PA449441",
@@ -16,7 +19,6 @@
         "symbol": "CYP2B6"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -74,9 +76,7 @@
           "symbol": "CYP2B6"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
-    "version": 11
+    ]
   },
   "annotationGroups": [
     {

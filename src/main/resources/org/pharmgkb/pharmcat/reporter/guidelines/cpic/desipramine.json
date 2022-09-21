@@ -69,7 +69,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "0"
+        "CYP2D6": "0.0"
       },
       "comments": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
       "population": "general",
@@ -153,7 +153,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "1"
+        "CYP2D6": "1.0"
       },
       "comments": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose. Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations for conditions where lower initial doses are used, such as neuropathic pain.",
       "population": "general",
@@ -237,7 +237,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "2"
+        "CYP2D6": "2.0"
       },
       "comments": "Patients may receive an initial low dose of a tricyclic, which is then increased over several days to the recommended steady-state dose. The starting dose in this guideline refers to the recommended steady-state dose.",
       "population": "general",
@@ -296,32 +296,32 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "3.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3"
+        "CYP2D6": "3.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -385,6 +385,27 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -405,28 +426,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "4"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers. Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure."
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects. Utilize therapeutic drug monitoring to guide dose adjustments.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4"
+        "CYP2D6": "4.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -464,11 +464,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥5"
+        "CYP2D6": "≥5.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥5"
+        "CYP2D6": "≥5.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -485,11 +485,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥6"
+        "CYP2D6": "≥6.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥6"
+        "CYP2D6": "≥6.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -522,6 +522,6 @@
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

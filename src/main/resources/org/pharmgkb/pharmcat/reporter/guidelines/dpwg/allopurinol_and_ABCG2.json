@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166264961",
     "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
+    "source": "DPWG",
+    "version": 8,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
     "relatedChemicals": [
       {
         "id": "PA448320",
@@ -16,7 +19,6 @@
         "symbol": "ABCG2"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "ABCG2"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
-    "version": 8
+    ]
   },
   "annotationGroups": [
     {

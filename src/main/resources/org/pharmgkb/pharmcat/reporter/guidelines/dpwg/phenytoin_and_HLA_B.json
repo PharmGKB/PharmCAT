@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166264881",
     "name": "Annotation of DPWG Guideline for phenytoin and HLA-B",
+    "source": "DPWG",
+    "version": 5,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264881",
     "relatedChemicals": [
       {
         "id": "PA450947",
@@ -16,7 +19,6 @@
         "symbol": "HLA-B"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "HLA-B"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264881",
-    "version": 5
+    ]
   },
   "annotationGroups": [
     {

@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166182842",
     "name": "Annotation of DPWG Guideline for warfarin and CYP2C9",
+    "source": "DPWG",
+    "version": 5,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182842",
     "relatedChemicals": [
       {
         "id": "PA451906",
@@ -16,7 +19,6 @@
         "symbol": "CYP2C9"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -114,9 +116,7 @@
           "symbol": "CYP2C9"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182842",
-    "version": 5
+    ]
   },
   "annotationGroups": [
     {

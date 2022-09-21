@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104934",
     "name": "Annotation of DPWG Guideline for azathioprine and TPMT",
+    "source": "DPWG",
+    "version": 31,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104934",
     "relatedChemicals": [
       {
         "id": "PA448515",
@@ -16,7 +19,6 @@
         "symbol": "TPMT"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -202,9 +204,7 @@
           "symbol": "TPMT"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104934",
-    "version": 31
+    ]
   },
   "annotationGroups": [
     {

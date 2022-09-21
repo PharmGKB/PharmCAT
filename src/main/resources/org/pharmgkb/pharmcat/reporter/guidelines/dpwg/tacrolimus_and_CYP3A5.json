@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104983",
     "name": "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
+    "source": "DPWG",
+    "version": 29,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104983",
     "relatedChemicals": [
       {
         "id": "PA451578",
@@ -16,7 +19,6 @@
         "symbol": "CYP3A5"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -90,9 +92,7 @@
           "symbol": "CYP3A5"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104983",
-    "version": 29
+    ]
   },
   "annotationGroups": [
     {

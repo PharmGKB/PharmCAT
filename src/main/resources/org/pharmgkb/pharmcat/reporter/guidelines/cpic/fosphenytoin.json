@@ -66,7 +66,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -91,7 +91,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -166,7 +166,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -191,7 +191,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -266,7 +266,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -291,7 +291,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -416,7 +416,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
@@ -441,7 +441,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
@@ -516,7 +516,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
@@ -541,7 +541,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
@@ -616,7 +616,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
@@ -641,7 +641,7 @@
       },
       "lookupkey": {
         "HLA-B": "*15:02 positive",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
@@ -766,7 +766,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -791,7 +791,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "0"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -866,7 +866,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -891,7 +891,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "1"
+        "CYP2C9": "1.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -966,7 +966,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -991,7 +991,7 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "2"
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -1054,6 +1054,6 @@
     "HLA-B"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

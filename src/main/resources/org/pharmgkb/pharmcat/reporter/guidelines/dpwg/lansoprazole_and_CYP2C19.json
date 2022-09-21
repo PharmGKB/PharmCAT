@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104987",
     "name": "Annotation of DPWG Guideline for lansoprazole and CYP2C19",
+    "source": "DPWG",
+    "version": 26,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104987",
     "relatedChemicals": [
       {
         "id": "PA450180",
@@ -16,7 +19,6 @@
         "symbol": "CYP2C19"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -122,9 +124,7 @@
           "symbol": "CYP2C19"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104987",
-    "version": 26
+    ]
   },
   "annotationGroups": [
     {

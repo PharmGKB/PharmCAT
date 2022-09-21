@@ -106,7 +106,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -130,7 +130,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Increased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -154,7 +154,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Indeterminate"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -178,7 +178,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -202,7 +202,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Normal Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -226,7 +226,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Poor Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -250,7 +250,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0",
+        "CYP2C9": "0.0",
         "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -442,7 +442,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -466,7 +466,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Increased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -490,7 +490,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Indeterminate"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -514,7 +514,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -538,7 +538,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Normal Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -562,7 +562,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Poor Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -586,7 +586,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1",
+        "CYP2C9": "1.0",
         "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -778,7 +778,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -802,7 +802,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Increased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
@@ -826,7 +826,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Indeterminate"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
@@ -850,7 +850,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
@@ -874,7 +874,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Normal Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
@@ -898,7 +898,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Poor Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -922,7 +922,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "2",
+        "CYP2C9": "2.0",
         "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -1248,6 +1248,6 @@
     "SLCO1B1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

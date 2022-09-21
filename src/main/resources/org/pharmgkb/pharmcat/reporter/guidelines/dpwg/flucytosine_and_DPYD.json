@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166222801",
     "name": "Annotation of DPWG Guideline for flucytosine and DPYD",
+    "source": "DPWG",
+    "version": 8,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166222801",
     "relatedChemicals": [
       {
         "id": "PA449654",
@@ -16,7 +19,6 @@
         "symbol": "DPYD"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -74,9 +76,7 @@
           "symbol": "DPYD"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166222801",
-    "version": 8
+    ]
   },
   "annotationGroups": [
     {

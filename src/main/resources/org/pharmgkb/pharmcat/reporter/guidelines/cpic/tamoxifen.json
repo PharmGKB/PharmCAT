@@ -46,7 +46,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "0"
+        "CYP2D6": "0.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -130,7 +130,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "1"
+        "CYP2D6": "1.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -214,7 +214,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "2"
+        "CYP2D6": "2.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -273,32 +273,32 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Therapeutic endoxifen concentrations"
+      },
+      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "3.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
-    },
-    {
-      "implications": {
-        "CYP2D6": "Therapeutic endoxifen concentrations"
-      },
-      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3"
+        "CYP2D6": "3.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -362,6 +362,27 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null,
+      "source": "CPIC"
+    },
+    {
+      "implications": {
+        "CYP2D6": "Therapeutic endoxifen concentrations"
+      },
+      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -382,28 +403,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "4"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
-    },
-    {
-      "implications": {
-        "CYP2D6": "Therapeutic endoxifen concentrations"
-      },
-      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4"
+        "CYP2D6": "4.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -441,11 +441,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥5"
+        "CYP2D6": "≥5.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥5"
+        "CYP2D6": "≥5.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -462,11 +462,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥6"
+        "CYP2D6": "≥6.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥6"
+        "CYP2D6": "≥6.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -499,6 +499,6 @@
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.20.0",
+  "cpicVersion": "v1.20.0-1-g4e458f4",
   "source": "CPIC"
 }

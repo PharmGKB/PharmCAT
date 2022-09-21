@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166184527",
     "name": "Annotation of DPWG Guideline for brexpiprazole and CYP2D6",
+    "source": "DPWG",
+    "version": 5,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
     "relatedChemicals": [
       {
         "id": "PA166160053",
@@ -16,7 +19,6 @@
         "symbol": "CYP2D6"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -394,9 +396,7 @@
           "symbol": "CYP2D6"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
-    "version": 5
+    ]
   },
   "annotationGroups": [
     {

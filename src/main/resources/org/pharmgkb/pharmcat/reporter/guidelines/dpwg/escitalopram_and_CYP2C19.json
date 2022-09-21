@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166104975",
     "name": "Annotation of DPWG Guideline for escitalopram and CYP2C19",
+    "source": "DPWG",
+    "version": 31,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
     "relatedChemicals": [
       {
         "id": "PA10074",
@@ -16,7 +19,6 @@
         "symbol": "CYP2C19"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -122,9 +124,7 @@
           "symbol": "CYP2C19"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
-    "version": 31
+    ]
   },
   "annotationGroups": [
     {

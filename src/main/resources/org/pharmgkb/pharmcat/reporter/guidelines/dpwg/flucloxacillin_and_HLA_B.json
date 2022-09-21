@@ -2,6 +2,9 @@
   "guideline": {
     "id": "PA166182810",
     "name": "Annotation of DPWG Guideline for flucloxacillin and HLA-B",
+    "source": "DPWG",
+    "version": 7,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182810",
     "relatedChemicals": [
       {
         "id": "PA164781042",
@@ -16,7 +19,6 @@
         "symbol": "HLA-B"
       }
     ],
-    "source": "DPWG",
     "recommendation": true,
     "guidelineGenes": [
       {
@@ -50,9 +52,7 @@
           "symbol": "HLA-B"
         }
       }
-    ],
-    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182810",
-    "version": 7
+    ]
   },
   "annotationGroups": [
     {
