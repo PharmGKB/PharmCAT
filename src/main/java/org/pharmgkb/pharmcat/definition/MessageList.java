@@ -16,6 +16,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -41,19 +42,23 @@ public class MessageList {
 
   /**
    * This method will go through all messages and add any matching {@link MessageAnnotation} objects to the
-   * {@link GeneReport}
-   * @param gene the {@link GeneReport} to possibly add messages to
+   * {@link GeneReport}.
+   *
+   * @param report the {@link GeneReport} to possibly add messages to
    */
-  public void addMatchingMessagesTo(GeneReport gene) {
-    if (!gene.isCalled()) {
+  public void addMatchingMessagesTo(GeneReport report) {
+    if (!report.isCalled()) {
       // puposely don't apply any messages if the gene is not called
+      return;
+    }
+    if (report.getCallSource() != CallSource.MATCHER) {
       return;
     }
 
     List<MessageAnnotation> messages = f_messages.stream()
-        .filter(m -> match(m, gene))
+        .filter(m -> matchesGeneReport(m, report))
         .collect(Collectors.toList());
-    gene.addMessages(messages);
+    report.addMessages(messages);
   }
 
   /**
@@ -62,7 +67,7 @@ public class MessageList {
    * @param gene a {@link GeneReport} to try to match to
    * @return true if the given logic matches
    */
-  public static boolean match(MessageAnnotation message, GeneReport gene) {
+  private static boolean matchesGeneReport(MessageAnnotation message, GeneReport gene) {
     MatchLogic match = message.getMatches();
 
     if (!Objects.equals(match.getGene(), gene.getGene())) {
@@ -97,12 +102,13 @@ public class MessageList {
   /**
    * Add all matching messages to the given {@link DrugReport}. Pass in the {@link ReportContext} so we can look up
    * information about related genes.
+   *
    * @param drugReport a {@link DrugReport} to add message annotations to
    * @param reportContext the report context to pull related information from
    */
-  public void match(DrugReport drugReport, ReportContext reportContext, DataSource source) {
+  public void addMatchingMessagesTo(DrugReport drugReport, ReportContext reportContext, DataSource source) {
     List<MessageAnnotation> matchedMessages = f_messages.stream()
-        .filter(m -> match(m, drugReport, reportContext, source))
+        .filter(m -> matchDrugReport(m, drugReport, reportContext, source))
         .collect(Collectors.toList());
     drugReport.addMessages(matchedMessages);
   }
@@ -118,12 +124,14 @@ public class MessageList {
    * @param reportContext the report context to look up related gene information
    * @return true if the message is a match, false otherwise
    */
-  private boolean match(MessageAnnotation message, DrugReport report, ReportContext reportContext, DataSource source) {
+  private boolean matchDrugReport(MessageAnnotation message, DrugReport report, ReportContext reportContext,
+      DataSource source) {
     MatchLogic match = message.getMatches();
 
     // if there's no drug specified don't continue
-    if (match.getDrugs().isEmpty()) return false;
-
+    if (match.getDrugs().isEmpty()) {
+      return false;
+    }
     // if the message doesn't mention a drug in this message annotation don't continue
     if (Collections.disjoint(match.getDrugs(), report.getRelatedDrugs())) {
       return false;

@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import com.google.common.collect.Multimap;
+import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -35,7 +35,7 @@ public class PgkbGuidelineCollection {
   };
 
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
-  private final Multimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
+  private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
 
 
   public PgkbGuidelineCollection() throws IOException {
@@ -89,7 +89,7 @@ public class PgkbGuidelineCollection {
     return phenotypes;
   }
 
-  public Collection<GuidelinePackage> findGuidelinePackages(String chemicalName) {
+  public SortedSet<GuidelinePackage> findGuidelinePackages(String chemicalName) {
     return f_guidelineMap.get(chemicalName);
   }
 

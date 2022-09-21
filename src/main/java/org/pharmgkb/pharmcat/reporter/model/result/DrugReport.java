@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.stream.Collectors;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
@@ -56,16 +57,10 @@ public class DrugReport implements Comparable<DrugReport> {
   @SerializedName("guidelines")
   private final List<GuidelineReport> f_guidelines = new ArrayList<>();
 
-  public DrugReport(String name) {
-    f_name = name;
-  }
 
-  /**
-   * Add CPIC drug data.
-   */
-  public void addDrugData(Drug drug, ReportContext reportContext) {
+  public DrugReport(Drug drug, ReportContext reportContext) {
+    f_name = drug.getDrugName();
     m_cpicId = drug.getDrugId();
-    Preconditions.checkArgument(f_name.equalsIgnoreCase(drug.getDrugName()));
     f_urls.add(drug.getUrl());
     if (drug.getCitations() != null) {
       // cpic data can have array with null value in it
@@ -74,39 +69,57 @@ public class DrugReport implements Comparable<DrugReport> {
           .forEach(f_citations::add);
     }
 
+    // 1 guideline report per CPIC drug
     GuidelineReport guidelineReport = new GuidelineReport(drug);
-    drug.getGenes().forEach((geneSymbol) ->
-        guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(DataSource.CPIC, geneSymbol)));
-    f_guidelines.add(guidelineReport);
-  }
-
-  /**
-   * Add DPWG drug data.
-   */
-  public void addDrugData(GuidelinePackage guidelinePackage, ReportContext reportContext) {
-    m_pgkbId = guidelinePackage.getGuideline().getId();
-    f_urls.add(guidelinePackage.getGuideline().getUrl());
-    if (guidelinePackage.getCitations() != null) {
-      f_citations.addAll(guidelinePackage.getCitations());
+    addGenes(guidelineReport, drug.getGenes(), reportContext, DataSource.CPIC);
+    // add matching recommendations
+    if (drug.getRecommendations() != null) {
+      List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
+      guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, drug);
     }
-
-    GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
-    guidelinePackage.getGenes().forEach((geneSymbol) ->
-        guidelineReport.addRelatedGeneReport(reportContext.getGeneReport(DataSource.DPWG, geneSymbol)));
-    guidelinePackage.getMatchedGroups()
-        .forEach((group) -> {
-          AnnotationGroup annGroup = new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next());
-          group.getMatchingGenotypes().forEach((genotype) -> {
-            guidelinePackage.applyFunctions(genotype);
-            annGroup.addGenotype(genotype);
-          });
-          guidelineReport.addAnnotationGroup(annGroup);
-        });
     f_guidelines.add(guidelineReport);
   }
 
+  public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
+    Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
+    f_name = name;
+    m_pgkbId = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
+        .filter((c) -> c.getName().equals(name))
+        .findFirst()
+        .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
+            guidelinePackages.first().getGuideline().getId() + " is supposd to be related to " + name + " but is not"))
+        .getId();
+
+    // DPWG drug can have multiple guideline reports
+    for (GuidelinePackage guidelinePackage : guidelinePackages) {
+      f_urls.add(guidelinePackage.getGuideline().getUrl());
+      if (guidelinePackage.getCitations() != null) {
+        f_citations.addAll(guidelinePackage.getCitations());
+      }
+
+      GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
+      addGenes(guidelineReport, guidelinePackage.getGenes(), reportContext, DataSource.DPWG);
+      // add matching recommendations
+      List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
+      guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, guidelinePackage);
+      f_guidelines.add(guidelineReport);
+    }
+  }
+
+  private void addGenes(GuidelineReport guidelineReport, Collection<String> genes, ReportContext reportContext,
+      DataSource source) {
+    // link guideline report to gene report
+    for (String geneSymbol : genes) {
+      GeneReport geneReport = reportContext.getGeneReport(source, geneSymbol);
+      guidelineReport.addRelatedGeneReport(geneReport);
+      // add inverse relationship (gene report back to drug report)
+      geneReport.addRelatedDrugs(this);
+    }
+  }
+
+
   /**
-   * Gets the name of the guideline, a pass-through to the stored guideline.
+   * Gets the name of the drug this {@link DrugReport} is on.
    */
   public String getName() {
     return f_name;
@@ -117,7 +130,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * @return an ID for this drug
    */
   public String getId() {
-    return MoreObjects.firstNonNull(getCpicId(), getPgkbId());
+    return MoreObjects.firstNonNull(m_cpicId, m_pgkbId);
   }
 
   /**
@@ -167,22 +180,6 @@ public class DrugReport implements Comparable<DrugReport> {
     return toString().compareToIgnoreCase(o.toString());
   }
 
-  /**
-   * Experimental new genotype matcher.
-   *
-   * @param genotype a possible genotype for this report
-   */
-  public void matchAnnotationsToGenotype(Genotype genotype, Drug cpicDrug) {
-    if (cpicDrug.getRecommendations() != null) {
-      cpicDrug.getRecommendations().stream()
-          .filter((r) -> r.matchesGenotype(genotype))
-          .forEach((r) -> f_guidelines.forEach((guidelineReport) -> {
-            AnnotationGroup annGroup = new AnnotationGroup(r);
-            annGroup.addGenotype(genotype);
-            guidelineReport.addAnnotationGroup(annGroup);
-          }));
-    }
-  }
 
   public List<MessageAnnotation> getMessages() {
     return m_messages;
@@ -208,6 +205,9 @@ public class DrugReport implements Comparable<DrugReport> {
     });
   }
 
+  /**
+   * Gets list of variants to display as part of genotype for recommendation.
+   */
   public List<String> getReportVariants() {
     return m_reportVariants;
   }

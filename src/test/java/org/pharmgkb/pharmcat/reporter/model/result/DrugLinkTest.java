@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.reporter.model;
+package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.Set;
 import java.util.TreeSet;

@@ -95,7 +95,7 @@ public class Genotype {
    * @param geneReports the {@link GeneReport} objects containing diplotypes to include in the possible genotypes
    * @return a List of all possible genotypes
    */
-  public static List<Genotype> makeGenotypes(List<GeneReport> geneReports) {
+  public static List<Genotype> makeGenotypes(Collection<GeneReport> geneReports) {
     List<Genotype> possibleGenotypes = new ArrayList<>();
 
     for (GeneReport geneReport : geneReports) {

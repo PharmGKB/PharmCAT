@@ -26,26 +26,26 @@ public class DosingGuideline {
   @SerializedName("name")
   private String name;
   @Expose
+  @SerializedName("source")
+  private String source;
+  @Expose
+  @SerializedName("version")
+  private Integer m_version;
+  @Expose
+  @SerializedName("url")
+  private String url;
+  @Expose
   @SerializedName("relatedChemicals")
   private List<AccessionObject> relatedChemicals = new ArrayList<>();
   @Expose
   @SerializedName("relatedGenes")
   private List<AccessionObject> relatedGenes = new ArrayList<>();
   @Expose
-  @SerializedName("source")
-  private String source;
-  @Expose
   @SerializedName("recommendation")
   private boolean m_recommendation;
   @Expose
   @SerializedName("guidelineGenes")
   private List<GuidelineGene> m_guidelineGenes;
-  @Expose
-  @SerializedName("url")
-  private String url;
-  @Expose
-  @SerializedName("version")
-  private Integer m_version;
 
 
   public String getId() {
@@ -56,6 +56,18 @@ public class DosingGuideline {
     return name;
   }
 
+  public String getSource() {
+    return source;
+  }
+
+  public Integer getVersion() {
+    return m_version;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
   public List<AccessionObject> getRelatedChemicals() {
     return relatedChemicals;
   }
@@ -64,38 +76,18 @@ public class DosingGuideline {
     return relatedGenes;
   }
 
-  public String getSource() {
-    return source;
-  }
-
-
   public boolean isRecommendation() {
     return m_recommendation;
-  }
-
-  public void setRecommendation(boolean recommendation) {
-    m_recommendation = recommendation;
   }
 
   public List<GuidelineGene> getGuidelineGenes() {
     return m_guidelineGenes;
   }
 
-  public void setGuidelineGenes(List<GuidelineGene> guidelineGenes) {
-    m_guidelineGenes = guidelineGenes;
-  }
-
   public Optional<GuidelineGene> findGuidelineGeneFor(String geneSymbol) {
     return m_guidelineGenes.stream().filter(g -> g.getGene().getSymbol().equals(geneSymbol)).findFirst();
   }
 
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
 
   public Set<String> getFunctionKeysForDiplotype(Diplotype diplotype) {
     Set<String> functionKeys = new TreeSet<>();
@@ -107,10 +99,6 @@ public class DosingGuideline {
       functionKeys.add(diplotype.getGene() + ":" + String.join(DELIMITER, functions));
     });
     return functionKeys;
-  }
-
-  public Integer getVersion() {
-    return m_version;
   }
 
   protected void applyFunctions(Genotype genotype) {

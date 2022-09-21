@@ -10,6 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
@@ -32,23 +33,24 @@ public class GuidelineReport {
   @Expose
   @SerializedName("annotationGroups")
   private List<AnnotationGroup> annotationGroups = new ArrayList<>();
+
   private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
 
 
   public GuidelineReport(Drug cpicDrug) {
-    setVersion(cpicDrug.getCpicVersion());
-    setId(cpicDrug.getDrugId());
-    setName(cpicDrug.getGuidelineName());
-    setSource(DataSource.CPIC);
-    setUrl(cpicDrug.getUrl());
+    version = cpicDrug.getCpicVersion();
+    id = cpicDrug.getDrugId();
+    name = cpicDrug.getGuidelineName();
+    source = DataSource.CPIC;
+    url = cpicDrug.getUrl();
   }
 
   public GuidelineReport(GuidelinePackage guidelinePackage) {
-    setVersion(String.valueOf(guidelinePackage.getVersion()));
-    setId(guidelinePackage.getGuideline().getId());
-    setName(guidelinePackage.getGuideline().getName());
-    setSource(DataSource.DPWG);
-    setUrl(guidelinePackage.getGuideline().getUrl());
+    version = String.valueOf(guidelinePackage.getVersion());
+    id = guidelinePackage.getGuideline().getId();
+    name = guidelinePackage.getGuideline().getName();
+    source = DataSource.DPWG;
+    url = guidelinePackage.getGuideline().getUrl();
   }
 
 
@@ -56,41 +58,22 @@ public class GuidelineReport {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public String getId() {
     return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public DataSource getSource() {
     return source;
   }
 
-  public void setSource(DataSource source) {
-    this.source = source;
-  }
-
   public String getVersion() {
     return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
   }
 
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
 
   public List<AnnotationGroup> getAnnotationGroups() {
     return annotationGroups;
@@ -108,8 +91,9 @@ public class GuidelineReport {
     return annotationGroups.size() > 0;
   }
 
+
   public Set<String> getRelatedGenes() {
-    return getRelatedGeneReports().stream().map(GeneReport::getGene).collect(Collectors.toSet());
+    return relatedGeneReports.stream().map(GeneReport::getGene).collect(Collectors.toSet());
   }
 
   public SortedSet<GeneReport> getRelatedGeneReports() {
@@ -132,5 +116,60 @@ public class GuidelineReport {
   public boolean isUncallable() {
     return relatedGeneReports.stream()
         .noneMatch(GeneReport::isCalled);
+  }
+
+
+
+  public void matchAnnotationsToGenotype(List<Genotype> genotypes, Drug cpicDrug) {
+    if (cpicDrug.getRecommendations() != null) {
+      for (Genotype genotype : genotypes) {
+        cpicDrug.getRecommendations().stream()
+            .filter((r) -> r.matchesGenotype(genotype))
+            .forEach((r) -> {
+              AnnotationGroup annGroup = new AnnotationGroup(r);
+              annGroup.addGenotype(genotype);
+              addAnnotationGroup(annGroup);
+            });
+      }
+    }
+  }
+
+
+  public void matchAnnotationsToGenotype(List<Genotype> genotypes, GuidelinePackage guidelinePackage) {
+    Set<Group> matchedGroups = new TreeSet<>();
+    for (Genotype genotype : genotypes) {
+      for (Diplotype diplotype : genotype.getDiplotypes()) {
+        if (diplotype.isPhenotypeOnly() || diplotype.isAllelePresenceType()) {
+          guidelinePackage.getGroups().stream()
+              .filter(group -> diplotype.getPhenotypes().stream().anyMatch(p -> group.getName().equalsIgnoreCase(p)))
+              .forEach(g -> {
+                g.addMatchingDiplotype(diplotype);
+                g.addMatchingGenotype(genotype);
+                matchedGroups.add(g);
+              });
+        } else if (!diplotype.isUnknownAlleles()) {
+          Set<String> functionKeys = guidelinePackage.getGuideline().getFunctionKeysForDiplotype(diplotype);
+          for (String functionKey : functionKeys) {
+            guidelinePackage.getGroups().stream()
+                .filter(group -> group.matchesKey(functionKey))
+                .forEach(g -> {
+                  g.addMatchingFunctionKey(functionKey);
+                  g.addMatchingDiplotype(diplotype);
+                  g.addMatchingGenotype(genotype);
+                  matchedGroups.add(g);
+                });
+          }
+        }
+      }
+    }
+    matchedGroups
+        .forEach((group) -> {
+          AnnotationGroup annGroup = new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next());
+          group.getMatchingGenotypes().forEach((genotype) -> {
+            guidelinePackage.applyFunctions(genotype);
+            annGroup.addGenotype(genotype);
+          });
+          addAnnotationGroup(annGroup);
+        });
   }
 }

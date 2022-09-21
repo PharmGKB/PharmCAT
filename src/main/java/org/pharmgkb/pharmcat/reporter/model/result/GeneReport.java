@@ -32,7 +32,6 @@ import org.pharmgkb.pharmcat.reporter.DpydCaller;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -429,24 +428,6 @@ public class GeneReport implements Comparable<GeneReport> {
     return ALLELE_PRESENCE.contains(gene);
   }
 
-  @Override
-  public int compareTo(@NonNull GeneReport o) {
-    if (this == o) {
-      return 0;
-    }
-    int rez = Objects.compare(getGene(), o.getGene(), String.CASE_INSENSITIVE_ORDER);
-    if (rez != 0) {
-      return rez;
-    }
-    rez = m_phenotypeSource.compareTo(o.getPhenotypeSource());
-    if (rez != 0) {
-      return rez;
-    }
-    rez = CallSource.compare(m_callSource, o.getCallSource());
-
-    return rez;
-  }
-
   /**
    * Gets a list of {@link DrugLink} objects that are in the same guidelines as this gene
    * @return a list of {@link DrugLink} objects
@@ -718,5 +699,43 @@ public class GeneReport implements Comparable<GeneReport> {
     } catch (IOException ex) {
       throw new RuntimeException("Error checking reference", ex);
     }
+  }
+
+
+  @Override
+  public int compareTo(@NonNull GeneReport o) {
+    if (this == o) {
+      return 0;
+    }
+    int rez = Objects.compare(m_gene, o.getGene(), String.CASE_INSENSITIVE_ORDER);
+    if (rez != 0) {
+      return rez;
+    }
+    rez = m_phenotypeSource.compareTo(o.getPhenotypeSource());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = CallSource.compare(m_callSource, o.getCallSource());
+
+    return rez;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof GeneReport gr)) {
+      return false;
+    }
+    if (o == this) {
+      return true;
+    }
+    return Objects.equals(m_gene, gr.getGene()) &&
+        Objects.equals(m_phenotypeSource, gr.getPhenotypeSource()) &&
+        Objects.equals(m_callSource, gr.getCallSource())
+        ;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_gene, m_phenotypeSource, m_callSource);
   }
 }

@@ -1,9 +1,9 @@
-package org.pharmgkb.pharmcat.reporter.model;
+package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.Objects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.CompareToBuilder;
-import org.apache.commons.lang3.builder.EqualsBuilder;
 
 
 /**
@@ -34,25 +34,30 @@ public class DrugLink implements Comparable<DrugLink> {
     return m_guidelineId;
   }
 
+
+  @Override
+  public int compareTo(DrugLink o) {
+    return new CompareToBuilder()
+        .append(m_name, o.getName())
+        .append(m_guidelineId, o.getGuidelineId())
+        .toComparison();
+  }
+
+  @Override
   public boolean equals(Object o) {
-    if (!(o instanceof DrugLink)) {
+    if (!(o instanceof DrugLink d)) {
       return false;
     }
     if (o == this) {
       return true;
     }
 
-    DrugLink d = (DrugLink)o;
-    return new EqualsBuilder()
-        .append(m_guidelineId, d.getGuidelineId())
-        .append(m_name, d.getName())
-        .isEquals();
+    return Objects.equals(m_name, d.getName()) &&
+        Objects.equals(m_guidelineId, d.getGuidelineId());
   }
 
-  public int compareTo(DrugLink o) {
-    return new CompareToBuilder()
-        .append(m_name, o.getName())
-        .append(m_guidelineId, o.getGuidelineId())
-        .toComparison();
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_name, m_guidelineId);
   }
 }
