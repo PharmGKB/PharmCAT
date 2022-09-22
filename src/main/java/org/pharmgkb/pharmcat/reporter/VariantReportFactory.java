@@ -1,10 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -12,14 +8,13 @@ import java.util.Map;
 import java.util.TreeMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.google.gson.Gson;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -43,28 +38,11 @@ public class VariantReportFactory {
    * @param gene a gene's HGNC symbol
    * @throws IOException can occur from writing the JSON file
    */
-  public VariantReportFactory(String gene, String chr) throws IOException {
+  public VariantReportFactory(String gene, String chr, Env env) throws IOException {
     m_gene = gene;
     m_chr = chr;
 
-    Gson gson = new Gson();
-
-    Path definitionPath = DataManager.DEFAULT_DEFINITION_DIR.resolve(gene+"_translation.json");
-
-    if (!Files.isRegularFile(definitionPath)) {
-      throw new FileNotFoundException("No allele definition files exists for " + gene + "; " + definitionPath);
-    }
-
-    DefinitionFile definitionFile;
-    try (BufferedReader reader = Files.newBufferedReader(definitionPath)) {
-      definitionFile = gson.fromJson(reader, DefinitionFile.class);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-    if (definitionFile == null) {
-      return;
-    }
-
+    DefinitionFile definitionFile = env.getDefinitionReader().getDefinitionFile(gene);
     VariantLocus[] allVariants = definitionFile.getVariants();
     Iterator<NamedAllele> it = definitionFile.getNamedAlleles().iterator();
 

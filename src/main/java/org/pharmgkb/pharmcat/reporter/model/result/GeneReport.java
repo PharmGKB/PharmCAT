@@ -136,7 +136,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phased = call.isPhased();
     m_effectivelyPhased = call.isEffectivelyPhased();
     try {
-      VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr);
+      VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr, env);
       call.getVariants().stream()
           .map(variantReportFactory::make).forEach(m_variantReports::add);
       call.getMatchData().getMissingPositions().stream()
