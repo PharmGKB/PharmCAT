@@ -8,6 +8,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -21,6 +22,7 @@ import org.pharmgkb.pharmcat.util.DataManager;
 public class Env {
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
+  private MessageHelper m_messageHelper;
   private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
 
 
@@ -57,6 +59,14 @@ public class Env {
 
   public @Nullable GenePhenotype getPhenotype(String gene, DataSource source) {
     return m_phenotypeMap.getPhenotype(gene, source);
+  }
+
+
+  public MessageHelper getMessageHelper() throws IOException {
+    if (m_messageHelper == null) {
+      m_messageHelper = new MessageHelper();
+    }
+    return m_messageHelper;
   }
 
 

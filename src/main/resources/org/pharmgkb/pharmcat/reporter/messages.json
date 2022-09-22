@@ -130,7 +130,7 @@
       "drugs": []
     },
     "exception_type": "ambiguity",
-    "message": "Information for rs3758581 is missing. CYP2C19*1 (former *1B) is defined by rs3758581 G, while CYP2C19*38 (former *1A) by rs3758581 A."
+    "message": "Information for rs3758581 is missing. CYP2C19*1 (formerly *1B) is defined by rs3758581 G, while CYP2C19*38 (formerly *1A) is defined by rs3758581 A."
   },
   {
     "rule_name": "CYP2C19 *1/*2 warning",
@@ -304,10 +304,10 @@
       "drugs": []
     },
     "exception_type": "note",
-    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://github.com/PharmGKB/PharmCAT/wiki/Determining-Alleles\">the PharmCAT wiki</a> for more information."
+    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://pharmcat.org/methods/Determining-Alleles/\">the PharmCAT site</a> for more information."
   },
   {
-    "rule_name": "CYP3A5 *1/*3 warning",
+    "rule_name": "CYP3A5 *1/*3 rs28365083 warning",
     "version": "1",
     "matches": {
       "gene": "CYP3A5",
@@ -326,7 +326,7 @@
     "message": "The assigned genotype is *1/*3; however, *2/*3 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP3A5 *1/*3 warning",
+    "rule_name": "CYP3A5 *1/*3 rs56411402 warning",
     "version": "1",
     "matches": {
       "gene": "CYP3A5",
@@ -345,7 +345,7 @@
     "message": "The assigned genotype is *1/*3; however, *3/*4 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP3A5 *1/*3 warning",
+    "rule_name": "CYP3A5 *1/*3 rs55965422 warning",
     "version": "1",
     "matches": {
       "gene": "CYP3A5",
@@ -364,7 +364,7 @@
     "message": "The assigned genotype is *1/*3; however, *3/*5 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP3A5 *1/*3 warning",
+    "rule_name": "CYP3A5 *1/*3 rs28383479 warning",
     "version": "1",
     "matches": {
       "gene": "CYP3A5",
@@ -498,7 +498,7 @@
         "warfarin"
       ]
     },
-    "exception_type": "report-genotype",
+    "exception_type": "report-as-genotype",
     "message": ""
   },
   {
@@ -513,7 +513,7 @@
       "dips": [],
       "drugs": []
     },
-    "exception_type": "report-genotype",
+    "exception_type": "report-as-genotype",
     "message": ""
   },
   {
@@ -529,7 +529,13 @@
         "*1/*46"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -548,7 +554,13 @@
         "*1/*20"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -567,7 +579,13 @@
         "*1/*12"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -586,7 +604,13 @@
         "*1/*13"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -605,7 +629,13 @@
         "*1/*14"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -624,7 +654,13 @@
         "*1/*15"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -643,7 +679,13 @@
         "*1/*25"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -662,7 +704,13 @@
         "*1/*31"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -681,7 +729,13 @@
         "*1/*32"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -700,7 +754,13 @@
         "*1/*40"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
@@ -719,14 +779,20 @@
         "*1/*43"
       ],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is *1/*43; however, *4/*44 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "SLCO1B1-simvastatin text",
+    "rule_name": "SLCO1B1-drug text",
     "version": "1",
     "matches": {
       "gene": "",
@@ -736,7 +802,13 @@
       "variant": "",
       "dips": [],
       "drugs": [
-        "simvastatin"
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
       ]
     },
     "exception_type": "note",
@@ -849,21 +921,6 @@
     "message": "UGT1A1*80 (rs887829) is in very high linkage disequilibrium with *28 and *37 (TA repeat variation in the UGT1A1 promoter). In case *80 (rs887829) is detected and input at position 233760233 (*28/*37) is MISSING from the VCF, the allele options are presented as *80+*28 and *80+*37 based on a partial match for *80, and *80 is used to infer metabolizer status.<br><br>In case *80 is detected with position 233760233 (*28/*37) detected as reference (shown as reference in row 233760233 in the table Calls at Position), not enough clinical data exists to predict metabolizer status with certainty and provide recommendations. "
   },
   {
-    "rule_name": "VKORC1",
-    "version": "1",
-    "matches": {
-      "gene": "VKORC1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "",
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "footnote",
-    "message": "CPIC recommendations for warfarin use only rs9923231; however, other variants in VKORC1 may have functional consequences and may be more common in some populations."
-  },
-  {
     "rule_name": "VKORC1 reverse complement footnote",
     "version": "1",
     "matches": {
@@ -909,8 +966,8 @@
         "warfarin"
       ]
     },
-    "exception_type": "footnote",
-    "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which is found in the highest frequency in Caucasians and extremely low frequency in those of African descent. While other functional variants in VKORC1 have been observed in much higher frequencies in some populations, there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
+    "exception_type": "note",
+    "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which has varying frequency among different ancestral populations, and largely explains the differences in average dose requirements between people of European, African, and Asian descents. While other functional variants in VKORC1 have been associated with warfarin resistance (high dose requirements), there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   },
   {
     "rule_name": "DPYD lowest activity score note",

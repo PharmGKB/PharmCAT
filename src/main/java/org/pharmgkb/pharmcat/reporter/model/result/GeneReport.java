@@ -74,7 +74,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   @Expose
   @SerializedName("geneSymbol")
-  private final String m_gene;
+  private String m_gene;
   @Expose
   @SerializedName("chr")
   private String m_chr;
@@ -86,7 +86,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private boolean m_effectivelyPhased = false;
   @Expose
   @SerializedName("callSource")
-  private final CallSource m_callSource;
+  private CallSource m_callSource;
   @Expose
   @SerializedName("uncalledHaplotypes")
   private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -116,6 +116,16 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("highlightedVariants")
   private final List<String> m_highlightedVariants = new ArrayList<>();
+
+  // used to cache message names
+  private transient final List<String> m_messageKeys = new ArrayList<>();
+
+
+  /**
+   * Private constructor for GSON so it doesn't blow away transient properties.
+   */
+  private GeneReport() {
+  }
 
 
   /**
@@ -319,8 +329,9 @@ public class GeneReport implements Comparable<GeneReport> {
    * Add a message annotation. Separates the general messages from specific genotype call messages
    */
   public void addMessage(MessageAnnotation ma) {
-    if (ma == null) return;
-    if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
+    Preconditions.checkNotNull(ma);
+
+    if (ma.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
       String rsid = ma.getMatches().getVariant();
 
       Optional<String> call = getVariantReports().stream()
@@ -335,22 +346,21 @@ public class GeneReport implements Comparable<GeneReport> {
         genotype = rsid + call.get().replaceAll("[|/]", "/"+rsid);
       }
       m_highlightedVariants.add(genotype);
-
     }
     else {
       m_messages.add(ma);
+      m_messageKeys.add(ma.getName());
     }
   }
 
-  public void addMessages(Collection<MessageAnnotation> messages) {
-    if (messages == null) {
-      return;
-    }
-    messages.forEach(this::addMessage);
+  public boolean hasMessage(String key) {
+    return m_messageKeys.contains(key);
   }
+
 
   /**
-   * This will add the applicable variant warnings to the {@link VariantReport} objects in this {@link GeneReport}
+   * This will add the applicable (VCF) variant warnings to the {@link VariantReport} objects in this {@link GeneReport}.
+   *
    * @param variantWarnings a Map of all variant warnings by "chr:position" strings
    */
   public void addVariantWarningMessages(Map<String, Collection<String>> variantWarnings) {
@@ -375,7 +385,9 @@ public class GeneReport implements Comparable<GeneReport> {
    * @return an {@link Optional} {@link VariantReport}
    */
   public Optional<VariantReport> findVariantReport(String rsid) {
-    return m_variantReports.stream().filter(v -> v.getDbSnpId() != null && v.getDbSnpId().contains(rsid)).findFirst();
+    return m_variantReports.stream()
+        .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().contains(rsid))
+        .findFirst();
   }
 
   public List<VariantReport> getVariantOfInterestReports() {
@@ -610,7 +622,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
 
   /**
-   * Get variants that should be shown separately in the report
+   * Get variants that should be shown separately in the report.
    */
   public List<String> getHighlightedVariants() {
     return m_highlightedVariants;

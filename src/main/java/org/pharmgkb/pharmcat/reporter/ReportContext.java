@@ -14,6 +14,7 @@ import java.util.TreeMap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -52,11 +53,12 @@ public class ReportContext {
   private final List<MessageAnnotation> f_messages = new ArrayList<>();
 
   /**
-   * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting
+   * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting.
+   *
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    * @param title the optional text to show as a user-friendly title or identifier for this report
    */
-  public ReportContext(Map<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
+  public ReportContext(Env env, Map<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
     f_title = title;
     m_geneReports = geneReports;
 
@@ -77,19 +79,27 @@ public class ReportContext {
           new DrugReport(drugName, pgkbGuidelineCollection.findGuidelinePackages(drugName), this));
     }
 
-    // now that all reports are generated, apply the applicable messages
-    MessageHelper messageHelper = new MessageHelper();
+    // now that all reports are generated, apply applicable messages
+    MessageHelper messageHelper = env.getMessageHelper();
+    // to gene reports
+    geneReports.values().stream()
+        .flatMap((m) -> m.values().stream())
+        .forEach(messageHelper::addMatchingMessagesTo);
+    // to drug reports
     for (DataSource source : m_drugReports.keySet()) {
       for (DrugReport drugReport : m_drugReports.get(source).values()) {
         messageHelper.addMatchingMessagesTo(drugReport, this, source);
 
         // add a message for any gene that has missing data
         drugReport.getRelatedGeneSymbols().stream()
-            .filter((s) -> !getGeneReport(source, s).isOutsideCall() && getGeneReport(source, s).isMissingVariants())
-            .forEach((s) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+            .map((s) -> getGeneReport(source, s))
+            .filter((gr) -> gr != null && !gr.isOutsideCall() && gr.isMissingVariants())
+            .forEach((gr) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
                 "missing-variants",
-                "Some position data used to define " + s + " alleles is missing which may change the matched " +
-                    "genotype. See the gene section for " + s + " for more information.")));
+                "Some position data used to define " + gr.getGeneDisplay() +
+                    " alleles is missing which may change the matched genotype. See <a href=\"" +
+                    gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() +
+                    "</a> in Section III for for more information.")));
       }
     }
   }

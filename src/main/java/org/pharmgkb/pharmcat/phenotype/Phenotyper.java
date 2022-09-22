@@ -27,7 +27,6 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
-import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -58,8 +57,10 @@ public class Phenotyper {
   /**
    * Public constructor. This needs {@link GeneCall} objects from the {@link NamedAlleleMatcher} and {@link OutsideCall}
    * objects coming from other allele calling sources. This relies on reading definition files as well.
+   *
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
+   * @param variantWarnings map of VCF warnings, keyed to chromosomal position
    */
   public Phenotyper(Env env, List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
       @Nullable Map<String, Collection<String>> variantWarnings) {
@@ -121,15 +122,10 @@ public class Phenotyper {
       reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
     }
 
-    try {
-      MessageHelper messageHelper = new MessageHelper();
-      reportMap.values().forEach(r -> {
-        r.addVariantWarningMessages(variantWarnings);
-        messageHelper.addMatchingMessagesTo(r);
-      });
-    } catch (IOException ex) {
-      throw new RuntimeException("Could not load messages", ex);
-    }
+    // add VCF warnings
+    reportMap.values().forEach(geneReport -> {
+      geneReport.addVariantWarningMessages(variantWarnings);
+    });
   }
 
 

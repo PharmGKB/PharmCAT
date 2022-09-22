@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
@@ -122,6 +123,7 @@ public class DataSerializer {
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
 
+    Set<String> keys = new HashSet<>();
     List<MessageAnnotation> messageAnnotations = new ArrayList<>();
     try (BufferedReader reader = Files.newBufferedReader(tsvFile)) {
       // skip the header
@@ -136,6 +138,9 @@ public class DataSerializer {
         MessageAnnotation ma = new MessageAnnotation(line);
         if (ma.getName() == null) {
           throw new IllegalStateException("Row " + x + ": Missing name");
+        }
+        if (!keys.add(ma.getName())) {
+          throw new IllegalStateException("Row " + x + ": Duplicate name '" + ma.getName() + "'");
         }
         messageAnnotations.add(ma);
       }

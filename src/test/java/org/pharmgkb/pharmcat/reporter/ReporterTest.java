@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter;
 
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
@@ -22,8 +23,8 @@ class ReporterTest {
   @Test
   void testCypc2c9VariantPassthrough() throws Exception {
 
-    ReportContext reportContext =
-        new ReportContext(Phenotyper.read(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH)).getGeneReports(), null);
+    Phenotyper phenotyper = Phenotyper.read(PathUtils.getPathToResource(PHENOTYPER_FILE_PATH));
+    ReportContext reportContext = new ReportContext(new Env(), phenotyper.getGeneReports(), null);
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");

@@ -196,7 +196,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
     // separate the general messages from specific genotype call messages
     messages.forEach(ma -> {
-      if (ma.getExceptionType().equals(MessageAnnotation.TYPE_GENOTYPE)) {
+      if (ma.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
         m_reportVariants.add(ma.getMatches().getVariant());
       }
       else {

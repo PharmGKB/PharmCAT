@@ -369,7 +369,7 @@ public class PharmCAT {
         Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
         phenotyper = Phenotyper.read(inputFile);
       }
-      m_reportContext = new ReportContext(phenotyper.getGeneReports(), m_reporterTitle);
+      m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
       if (matcherResult != null && matcherResult.getMetadata().isCallCyp2d6()) {
         m_reportContext.addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_MODE));
       }

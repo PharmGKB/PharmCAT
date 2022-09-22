@@ -26,7 +26,7 @@ public class MessageAnnotation {
   private static final String TYPE_EXTRA_POSITION = "extra-position-notes";
   private static final String TYPE_FOOTNOTE = "footnote";
   public static final String TYPE_NOTE = "note";
-  public static final String TYPE_GENOTYPE = "report-genotype";
+  public static final String TYPE_REPORT_AS_GENOTYPE = "report-as-genotype";
   public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals(TYPE_FOOTNOTE);
   public static Predicate<MessageAnnotation> isExtraPositionNote = m -> m.getExceptionType().equals(TYPE_EXTRA_POSITION);
   public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals(TYPE_FOOTNOTE) && !m.getExceptionType().equals(TYPE_EXTRA_POSITION);
