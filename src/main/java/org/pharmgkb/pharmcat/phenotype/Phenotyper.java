@@ -24,10 +24,10 @@ import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -122,10 +122,10 @@ public class Phenotyper {
     }
 
     try {
-      MessageList messageList = new MessageList();
+      MessageHelper messageHelper = new MessageHelper();
       reportMap.values().forEach(r -> {
         r.addVariantWarningMessages(variantWarnings);
-        messageList.addMatchingMessagesTo(r);
+        messageHelper.addMatchingMessagesTo(r);
       });
     } catch (IOException ex) {
       throw new RuntimeException("Could not load messages", ex);

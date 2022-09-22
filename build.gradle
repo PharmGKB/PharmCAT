@@ -147,7 +147,7 @@ task updateData(type: JavaExec, dependsOn: 'classes') {
   def argList = [
       '-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
       '-p', file('src/main/resources/org/pharmgkb/pharmcat/phenotype'),
-      '-m', file('src/main/resources/org/pharmgkb/pharmcat/definition'),
+      '-m', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
       '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
       '-doc', file('docs'),
   ]

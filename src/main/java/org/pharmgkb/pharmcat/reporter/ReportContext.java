@@ -14,7 +14,6 @@ import java.util.TreeMap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -79,10 +78,10 @@ public class ReportContext {
     }
 
     // now that all reports are generated, apply the applicable messages
-    MessageList messageList = new MessageList();
+    MessageHelper messageHelper = new MessageHelper();
     for (DataSource source : m_drugReports.keySet()) {
       for (DrugReport drugReport : m_drugReports.get(source).values()) {
-        messageList.addMatchingMessagesTo(drugReport, this, source);
+        messageHelper.addMatchingMessagesTo(drugReport, this, source);
 
         // add a message for any gene that has missing data
         drugReport.getRelatedGeneSymbols().stream()

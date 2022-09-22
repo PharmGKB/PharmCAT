@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.definition;
+package org.pharmgkb.pharmcat.reporter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,10 +8,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -19,23 +17,26 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 /**
- * Wrapper class that will load message data and then help match the messages to applicable models
+ * Helper class to help assign custom messages to applicable models.
+ * <p>
+ * This is only applicable to CPIC data!
  */
-public class MessageList {
+public class MessageHelper {
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
-  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/definition/" + MESSAGES_JSON_FILE_NAME;
+  private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/" + MESSAGES_JSON_FILE_NAME;
   private final List<MessageAnnotation> f_messages;
 
   /**
    * Public constructor. Will load message data from the file system
    * @throws IOException can occur when reading the messages file
    */
-  public MessageList() throws IOException {
+  public MessageHelper() throws IOException {
     try (BufferedReader reader = Files.newBufferedReader(PathUtils.getPathToResource(sf_messagesFile))) {
-      MessageAnnotation[] messages = new Gson().fromJson(reader, MessageAnnotation[].class);
+      MessageAnnotation[] messages = DataSerializer.GSON.fromJson(reader, MessageAnnotation[].class);
       f_messages = Arrays.asList(messages);
     }
   }

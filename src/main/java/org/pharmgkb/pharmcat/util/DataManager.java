@@ -22,7 +22,6 @@ import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
-import org.pharmgkb.pharmcat.definition.MessageList;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -31,6 +30,7 @@ import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -114,7 +114,7 @@ public class DataManager {
           }
 
           Path messageDir = cliHelper.getValidDirectory("m", true);
-          Path messagesJson = messageDir.resolve(MessageList.MESSAGES_JSON_FILE_NAME);
+          Path messagesJson = messageDir.resolve(MessageHelper.MESSAGES_JSON_FILE_NAME);
           manager.transformMessages(messagesTsv, messagesJson);
         }
 

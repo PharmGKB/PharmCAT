@@ -35,7 +35,6 @@ public class MessageAnnotation {
   public static final String MSG_COMBO_UNPHASED = "combo-unphased";
   public static final String MSG_CYP2D6_GENERAL = "cyp2d6-general";
   public static final String MSG_CYP2D6_MODE = "cyp2d6-mode";
-  public static final String MSG_STAR1_ALLELE = "star1-allele";
 
   private static final ResourceBundle sf_resources = ResourceBundle.getBundle("messages");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults();
