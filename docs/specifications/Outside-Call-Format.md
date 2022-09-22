@@ -19,19 +19,25 @@ Calls specified in this file will override results from the `Named Allele Matche
 
 The **outside call file** format is a tab-separated file. Lines starting with `#` will be ignored.
 
-Each line has up to 3 fields, separated by tabs:
+Each line has up to 4 fields, separated by tabs:
 
 1. HGNC gene symbol (_required_)
-2. Diplotype or single allele call (_required if third column not specified_)
-3. Phenotype or other gene result (_required if second column not specified_)
+2. Diplotype or single allele call (_required if third and fourth columns not specified_)
+3. Phenotype or other gene result (_required if second and fourth columns not specified_)
+4. Activity score (_required if second and third columns not specified)
 
-The second and third column should not both be specified on the same line. Different genes on different lines can mix 
-whether they give the diplotype and phenotype values.
+The second, third, and fourth columns can be used individually or together. If you only supply diplotypes then PharmCAT 
+will attempt to assign phenotype and activity score (when applicable). If you specify both a diplotype and a phenotype 
+then PharmCAT will still match the diplotype to our known phenotype mapped to that diplotype. If our mapped phenotype 
+and the phenotype you supply do not match then PharmCAT will emit a warning.
+
+Different genes on different lines can mix whether they give the diplotype, phenotype, or activity values.
 
 Here's an example of an outside call file:
 
 ```text
 CYP2D6	*1/*3
+CYP2C9			2.0
 G6PD	B (wildtype)/B (wildtype)
 HLA-B		*57:01 positive
 MT-RNR1	1555A>G

@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.definition;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
@@ -48,7 +49,7 @@ class PhenotypeMapTest {
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2C9")
         .orElseThrow(() -> new RuntimeException("No CYP2C9 phenotype map found"));
     assertNotNull(genePhenotype.getDiplotypes());
-    assertEquals("2", genePhenotype.getLookupKeyForDiplotype(diplotype));
+    assertEquals("2.0", genePhenotype.getLookupKeyForDiplotype(diplotype));
   }
 
   @Test
@@ -78,6 +79,6 @@ class PhenotypeMapTest {
         new Haplotype("DPYD", "foo"),
         new Haplotype("DPYD", "bar")
     );
-    assertEquals("N/A", genePhenotype.getLookupKeyForDiplotype(diplotype3));
+    assertEquals(TextConstants.NA, genePhenotype.getLookupKeyForDiplotype(diplotype3));
   }
 }

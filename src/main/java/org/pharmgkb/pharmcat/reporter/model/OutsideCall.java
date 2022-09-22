@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
+import org.pharmgkb.pharmcat.util.PhenotypeUtils;
 
 
 /**
@@ -25,10 +26,12 @@ public class OutsideCall {
   private static final int IDX_GENE = 0;
   private static final int IDX_DIPS = 1;
   private static final int IDX_PHENO = 2;
+  private static final int IDX_ACTIVITY = 3;
 
   private String m_gene;
   private List<String> m_diplotypes;
-  private String m_phenotype;
+  private String m_phenotype = null;
+  private String m_activityScore = null;
   private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
 
   /**
@@ -74,13 +77,21 @@ public class OutsideCall {
 
     if (fields.length >= 3) {
       String pheno = fields[IDX_PHENO];
-      m_phenotype = StringUtils.stripToNull(pheno.replaceAll(gene, ""));
-      if (StringUtils.isBlank(m_phenotype) && m_diplotypes.size() == 0) {
-        throw new BadOutsideCallException("Specify a diplotype or phenotype for " + gene);
-      }
+      m_phenotype = PhenotypeUtils.normalize(pheno.replaceAll(gene, ""));
       if (StringUtils.isNotBlank(m_phenotype) && m_diplotypes.size() > 0) {
         throw new BadOutsideCallException("Specify either diplotype OR phenotype, not both for " + gene);
       }
+    }
+
+    if (fields.length >= 4) {
+      String activityScore = StringUtils.stripToNull(fields[IDX_ACTIVITY]);
+      if (activityScore != null) {
+        m_activityScore = activityScore;
+      }
+    }
+
+    if (StringUtils.isBlank(m_phenotype) && StringUtils.isBlank(m_activityScore) && m_diplotypes.size() == 0) {
+      throw new BadOutsideCallException("Specify a diplotype, phenotype, or activity score for " + gene);
     }
   }
 
@@ -121,5 +132,13 @@ public class OutsideCall {
 
   public void setPhenotype(String phenotype) {
     m_phenotype = phenotype;
+  }
+
+  public String getActivityScore() {
+    return m_activityScore;
+  }
+
+  public void setActivityScore(String activityScore) {
+    m_activityScore = StringUtils.strip(activityScore);
   }
 }

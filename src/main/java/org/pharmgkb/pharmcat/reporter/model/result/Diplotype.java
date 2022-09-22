@@ -13,6 +13,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -21,9 +22,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
-import static org.pharmgkb.pharmcat.phenotype.model.GenePhenotype.NO_RESULT;
 import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 
 
@@ -33,9 +34,8 @@ import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
-  public static final String UNKNOWN = Haplotype.UNKNOWN + "/" + Haplotype.UNKNOWN;
-
   private static final String sf_toStringPattern = "%s:%s";
+  private static final String sf_phenoScoreFormat = "%s (%s)";
   public static final String DELIMITER = "/";
   private static final String sf_termDelimiter = "; ";
   private static final String sf_homTemplate = "Two %s alleles";
@@ -182,6 +182,32 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
+   * Constructor for a diplotype coming from an outside call that does not specify individual alleles but DOES give
+   * phenotype or activity score
+   * @param outsideCall an {@link OutsideCall} object
+   */
+  public Diplotype(OutsideCall outsideCall) {
+    Preconditions.checkArgument(outsideCall.getDiplotypes().size() == 0,
+        "Must use the DiplotypeFactory when making diplotypes from outside calls with explicit diplotype calls");
+    Preconditions.checkArgument(StringUtils.isNotBlank(outsideCall.getPhenotype()) || StringUtils.isNotBlank(outsideCall.getActivityScore()),
+        "Outside call must supply at least a phenotype or an activity score");
+
+    m_allele1 = null;
+    m_allele2 = null;
+    m_gene = outsideCall.getGene();
+    if (outsideCall.getPhenotype() != null) {
+      m_phenotypes.add(outsideCall.getPhenotype());
+    }
+    m_activityScore = outsideCall.getActivityScore();
+    if (StringUtils.isNotBlank(outsideCall.getPhenotype())) {
+      f_label = outsideCall.getPhenotype();
+    }
+    else {
+      f_label = outsideCall.getActivityScore();
+    }
+  }
+
+  /**
    * Gets the gene this diplotype is for
    * @return a HGNC gene symbol
    */
@@ -227,8 +253,8 @@ public class Diplotype implements Comparable<Diplotype> {
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
   }
 
-  private boolean isUnknownPhenotype() {
-    return m_phenotypes.size() == 0 || m_phenotypes.contains(NO_RESULT);
+  public boolean isUnknownPhenotype() {
+    return m_phenotypes.size() == 0 || m_phenotypes.contains(TextConstants.NO_RESULT);
   }
 
   private boolean isUnknownAllele1() {
@@ -252,17 +278,29 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public String printBare() {
     return printOverride().orElseGet(() -> {
-      if (m_phenotypes != null && m_allele1 == null && m_allele2 == null) {
-        return String.join(DELIMITER, m_phenotypes);
+      if (m_allele1 == null && m_allele2 == null) {
+        if (!TextConstants.isUnspecified(m_activityScore)) {
+          if (isUnknownPhenotype()) {
+            return m_activityScore;
+          } else {
+            return String.format(sf_phenoScoreFormat, String.join(DELIMITER, m_phenotypes), getActivityScore());
+          }
+        }
+        else if (m_phenotypes.size() > 0 && !m_phenotypes.contains(TextConstants.NO_RESULT)) {
+          return String.join(DELIMITER, m_phenotypes);
+        }
+        else return TextConstants.NA;
       }
-      if (m_allele1 != null && m_allele2 != null) {
-        String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
-        Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-        return String.join(DELIMITER, alleles);
-      } else if (m_allele1 != null) {
-        return m_allele1.getName();
-      } else {
-        return TextConstants.NA;
+      else {
+        if (m_allele1 != null && m_allele2 != null) {
+          String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
+          Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
+          return String.join(DELIMITER, alleles);
+        } else if (m_allele1 != null) {
+          return m_allele1.getName();
+        } else {
+          return TextConstants.NA;
+        }
       }
     });
   }
@@ -494,37 +532,8 @@ public class Diplotype implements Comparable<Diplotype> {
     m_activityScore = activityScore;
   }
 
-  public void calculateActivityScore() {
-    String av1 = calculateActivityValue(getAllele1());
-    String av2 = calculateActivityValue(getAllele2());
-
-    if (isAvailable(av1) && isAvailable(av2)) {
-      try {
-        Float av1f = Float.valueOf(av1);
-        Float av2f = Float.valueOf(av2);
-
-        setActivityScore(String.valueOf(av1f + av2f));
-      } catch (NumberFormatException ex) {
-        setActivityScore(TextConstants.NA);
-      }
-    }
-    else if (isAvailable(av1)) {
-      setActivityScore(av1);
-    }
-    else if (isAvailable(av2)) {
-      setActivityScore(av2);
-    }
-    else {
-      setActivityScore(TextConstants.NA);
-    }
-  }
-
-  private String calculateActivityValue(Haplotype haplotype) {
-    if (haplotype == null) {
-      return TextConstants.NA;
-    } else {
-      return haplotype.getActivityValue();
-    }
+  public boolean hasActivityScore() {
+    return !TextConstants.isUnspecified(m_activityScore);
   }
 
   public Observation getObserved() {

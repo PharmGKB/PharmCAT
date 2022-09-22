@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter;
 
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,6 +24,8 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePloidy;
 
@@ -35,6 +38,7 @@ import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePlo
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Set<String> PHENOTYPE_ONLY = ImmutableSet.of("HLA-A", "HLA-B");
 
   private final String m_gene;
@@ -116,12 +120,34 @@ public class DiplotypeFactory {
     Preconditions.checkNotNull(outsideCall);
     Preconditions.checkArgument(outsideCall.getGene().equals(m_gene));
 
+    List<Diplotype> diplotypes = new ArrayList<>();
     if (outsideCall.getDiplotypes().size() > 0) {
-      return makeDiplotypes(outsideCall.getDiplotypes(), source);
-    } else {
-      // phenotype-based diplotype
-      return ImmutableList.of(new Diplotype(m_gene, outsideCall.getPhenotype()));
+      diplotypes.addAll(makeDiplotypes(outsideCall.getDiplotypes(), source));
+      for (Diplotype diplotype : diplotypes) {
+        // assign outside phenotype if it exists and warn on mismatch
+        if (outsideCall.getPhenotype() != null && diplotype.getPhenotypes().size() > 0 && !diplotype.getPhenotypes().contains(outsideCall.getPhenotype())) {
+          sf_logger.warn("Outside call phenotype does not match known phenotype: {} != {}", outsideCall.getPhenotype(), String.join("; ", diplotype.getPhenotypes()));
+          diplotype.setPhenotypes(ImmutableList.of(outsideCall.getPhenotype()));
+        }
+        // assign outside activity score if it exists and warn on mismatch
+        if (outsideCall.getActivityScore() != null && diplotype.getActivityScore() != null && !diplotype.getActivityScore().equals(outsideCall.getActivityScore())) {
+          sf_logger.warn("Outside call activity score does not match known activity score: {} != {}", outsideCall.getActivityScore(), diplotype.getActivityScore());
+          diplotype.setActivityScore(outsideCall.getActivityScore());
+        }
+      }
     }
+    else {
+      Diplotype outsideDiplotype = new Diplotype(outsideCall);
+      GenePhenotype gp = m_env.getPhenotype(m_gene, source);
+      if (gp != null && gp.isMatchedByActivityScore()
+          && outsideDiplotype.isUnknownPhenotype()
+          && outsideDiplotype.hasActivityScore()) {
+        outsideDiplotype.setPhenotypes(ImmutableList.of(gp.getPhenotypeForActivity(outsideDiplotype)));
+      }
+      fillDiplotype(outsideDiplotype, m_env, source);
+      diplotypes.add(outsideDiplotype);
+    }
+    return diplotypes;
   }
 
 
@@ -189,28 +215,56 @@ public class DiplotypeFactory {
     return diplotype;
   }
 
+  /**
+   * Fill in the phenotype and activity score depending on what information is already in the diplotype
+   * @param diplotype the diplotype to add information to
+   * @param env Global PharmCAT environment
+   * @param source which data source is supplying the phenotype/activity information
+   */
   public static void fillDiplotype(Diplotype diplotype, Env env, DataSource source) {
     if (diplotype.getGene().startsWith("HLA")) {
-      diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
-      diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
+      if (!diplotype.isUnknownAlleles() && diplotype.isUnknownPhenotype()) {
+        diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
+        diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
+      }
+      else if (diplotype.isUnknownAlleles() && !diplotype.isUnknownPhenotype()) {
+        diplotype.setLookupKeys(diplotype.getPhenotypes());
+      }
       return;
     }
     GenePhenotype gp = env.getPhenotype(diplotype.getGene(), source);
     if (gp == null) {
       return;
     }
-    diplotype.addPhenotype(gp.getPhenotypeForDiplotype(diplotype));
+    if (gp.isMatchedByActivityScore() && diplotype.getActivityScore() == null) {
+      diplotype.setActivityScore(gp.getActivityForDiplotype(diplotype));
+    }
+    if (diplotype.getPhenotypes().size() == 0) {
+      if (diplotype.isUnknownAlleles()) {
+        diplotype.addPhenotype(gp.getPhenotypeForActivity(diplotype));
+      }
+      else {
+        diplotype.addPhenotype(gp.getPhenotypeForDiplotype(diplotype));
+      }
+    }
     diplotype.addLookupKey(gp.getLookupKeyForDiplotype(diplotype));
     gp.assignActivity(diplotype.getAllele1());
     gp.assignActivity(diplotype.getAllele2());
-    diplotype.calculateActivityScore();
   }
 
+  /**
+   * Make a list of phenotype strings based on what diplotypes are specified.
+   *
+   * <em>Note:</em> This only applies when diplotypes are available in the {@link Diplotype} object. If only phenotype is supplied
+   * then this will return an empty list.
+   * @param diplotype the diplotype to analyze
+   * @return a List of all applicable phenotype strings for this diplotype
+   */
   private static List<String> makeHlaPhenotype(Diplotype diplotype) {
     if (!diplotype.getGene().equals("HLA-A") && !diplotype.getGene().equals("HLA-B")) {
       throw new RuntimeException("Gene not supported for HLA phenotype calling: " + diplotype.getGene());
     }
-    if (diplotype.isUnknown()) {
+    if (diplotype.isUnknownAlleles()) {
       return new ArrayList<>();
     }
     if (diplotype.getGene().equals("HLA-A")) {

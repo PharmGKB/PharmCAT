@@ -35,6 +35,8 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -534,7 +536,7 @@ class PharmCATTest {
    */
   @Test
   void testCallerCollision(TestInfo testInfo) throws Exception {
-    Path outsideCallPath = Files.createTempFile("cyp2c19_collision", ".tsv");
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("CYP2C19\t*2/*2\n");
     }
@@ -971,7 +973,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     GeneReport dpyd = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertEquals(1, dpyd.getRecommendationDiplotypes().size());
     testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
-    testWrapper.testLookupByActivity("DPYD", "1");
+    testWrapper.testLookupByActivity("DPYD", "1.0");
 
     testWrapper.testMatchedGroups("fluorouracil", 2);
     testWrapper.testMatchedGroups("capecitabine", 2);
@@ -1632,7 +1634,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
    */
   @Test
   void testRecommendationExamples(TestInfo testInfo) throws Exception {
-    Path outsideCallPath = Files.createTempFile("noFunction", ".tsv");
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("HLA-A\t\t*31:01 positive\n");
       fw.write("HLA-B\t*57:01/*58:01\t\n");
@@ -1797,6 +1799,12 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*2");
     testWrapper.testLookup("NUDT15", "*1", "*2");
 
+    DrugReport azaReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "azathioprine");
+    assertNotNull(azaReport);
+    GuidelineReport azaCpicGuideline = azaReport.getGuidelines().iterator().next();
+    List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getRelatedGeneReports());
+    assertEquals(1, genotypes.size());
+
     testWrapper.testMatchedGroups("azathioprine", 2);
   }
 
@@ -1821,7 +1829,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   /* MT-RNR1 */
   @Test
   void testMtrnr1(TestInfo testInfo) throws Exception {
-    Path outsideCallPath = Files.createTempFile("mtrnr1", ".tsv");
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
       fw.write("MT-RNR1\t1555A>G\n");
     }
@@ -1958,6 +1966,60 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
     testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
     testWrapper.testReportable("CYP2C19", "CYP2D6");
+  }
+
+  /**
+   * Can we use activity scores in outside call files? It should be specified in the column for "phenotype"
+   */
+  @Test
+  void testOutsideActivityScore(TestInfo testInfo) throws Exception {
+    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
+    Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2D6\t\t\t1.25\n");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+
+    testWrapper.testNotCalledByMatcher("CYP2D6");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "Normal Metabolizer (1.25)");
+
+    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", "outside-call");
+  }
+
+  /**
+   * Can we use phenotype in CYP2D6 outside call files?
+   */
+  @Test
+  void testCyp2d6OutsidePhenotype(TestInfo testInfo) throws Exception {
+    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
+    Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2D6\t\tIntermediate Metabolizer\n");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+
+    testWrapper.testNotCalledByMatcher("CYP2D6");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "Intermediate Metabolizer");
+
+    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", "outside-call");
   }
 
 
@@ -2104,8 +2166,11 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     private void testLookupByActivity(String gene, String activityScore) {
       GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
       assertTrue(geneReport.isReportable());
+      String foundScores = geneReport.getRecommendationDiplotypes().stream()
+          .map(Diplotype::getActivityScore)
+          .collect(Collectors.joining("; "));
       assertTrue(geneReport.getRecommendationDiplotypes().stream()
-          .allMatch(d -> d.printLookupKeys().equals(activityScore)));
+          .allMatch(d -> d.printLookupKeys().equals(activityScore)), "Activity score mismatch, expected " + activityScore + " but got " + foundScores);
     }
 
     /**
