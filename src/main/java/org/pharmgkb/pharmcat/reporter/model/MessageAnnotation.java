@@ -73,10 +73,16 @@ public class MessageAnnotation {
     m_name = fields[0];
 
     m_matches = new MatchLogic();
+    if (fields[1].contains(",")) {
+      throw new IllegalArgumentException("Cannot have multiple genes: " + fields[1]);
+    }
     m_matches.setGene(fields[1]);
     m_matches.setHapsCalled(parseList(fields[2]));
     m_matches.setHapsMissing(parseList(fields[3]));
     m_matches.setVariant(fields[4]);
+    if (fields[4].contains(",")) {
+      throw new IllegalArgumentException("Cannot have multiple variants: " + fields[4]);
+    }
     m_matches.setVariantsMissing(parseList(fields[5]));
     m_matches.setDips(parseList(fields[6]));
     m_matches.setDrugs(parseList(fields[7]));
