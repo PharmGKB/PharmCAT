@@ -31,7 +31,8 @@ public class MessageHelper {
 
 
   /**
-   * Public constructor. Will load message data from the file system
+   * Public constructor. Will load message data from the file system.
+   *
    * @throws IOException can occur when reading the messages file
    */
   public MessageHelper() throws IOException {
@@ -124,7 +125,8 @@ public class MessageHelper {
   }
 
   /**
-   * See if the supplied {@link MessageAnnotation} applies to the given {@link DrugReport}.
+   * See if the supplied {@link MessageAnnotation} applies to the given {@link DrugReport} based on gene-related
+   * matches.
    * <p>
    * <strong>NOTE:</strong> This method assumes that {@link MessageAnnotation} objects have already been assigned to
    * {@link GeneReport} objects.
