@@ -17,7 +17,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -147,11 +147,11 @@ public class MessageHelper {
         String genotype = null;
         for (GuidelineReport guidelineReport : drugReport.getGuidelines()) {
           if (geneSymbol == null || guidelineReport.getRelatedGenes().contains(geneSymbol)) {
-            for (AnnotationGroup annotationGroup : guidelineReport.getAnnotationGroups()) {
+            for (AnnotationReport annotationReport : guidelineReport.getAnnotations()) {
               if (genotype == null) {
                 genotype = computeGenotype(msgAnn, reportContext, source);
               }
-              annotationGroup.addHighlightedVariant(genotype);
+              annotationReport.addHighlightedVariant(genotype);
             }
           }
         }

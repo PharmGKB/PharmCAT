@@ -14,7 +14,7 @@ import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 
 
-public class AnnotationGroup {
+public class AnnotationReport {
   @Expose
   @SerializedName("implications")
   private final SortedMap<String,String> implications = new TreeMap<>();
@@ -50,11 +50,11 @@ public class AnnotationGroup {
 
 
   /**
-   * Create a new group from a CPIC {@link Recommendation}.
+   * Create a new {@link AnnotationReport} from a CPIC {@link Recommendation}.
    *
    * @param recommendation a CPIC recommendation
    */
-  public AnnotationGroup(Recommendation recommendation) {
+  public AnnotationReport(Recommendation recommendation) {
     if (recommendation.getImplications() != null) {
       implications.putAll(recommendation.getImplications());
     }
@@ -70,22 +70,13 @@ public class AnnotationGroup {
     population = recommendation.getPopulation();
   }
 
-  private AnnotationGroup() {
-  }
-
-  public static AnnotationGroup annotationGroupForWarfarin(List<Genotype> genotypes) {
-    AnnotationGroup annotationGroup = new AnnotationGroup();
-    genotypes.forEach(annotationGroup::addGenotype);
-    return annotationGroup;
-  }
-
-
   /**
-   * Create a new group from a DPWG/PharmGKB {@link Group}
+   * Create a new {@link AnnotationReport} from a DPWG/PharmGKB {@link Group}.
+   *
    * @param group a group of DPWG annotations
    * @param gene the single gene this annotation applies to, fix for mapping certain annotations
    */
-  public AnnotationGroup(Group group, String gene) {
+  public AnnotationReport(Group group, String gene) {
     if (group.getImplications() != null) {
       implications.put(gene, group.getImplications().getHtmlStripped());
     }
@@ -104,6 +95,19 @@ public class AnnotationGroup {
     population = TextConstants.NA;
     comments = TextConstants.NA;
   }
+
+  private AnnotationReport() {
+  }
+
+  /**
+   * Creates a special {@link AnnotationReport} for warfarin in CPIC.
+   */
+  public static AnnotationReport forWarfarin(List<Genotype> genotypes) {
+    AnnotationReport annotationReport = new AnnotationReport();
+    genotypes.forEach(annotationReport::addGenotype);
+    return annotationReport;
+  }
+
 
   public List<Genotype> getGenotypes() {
     return genotypes;

@@ -233,7 +233,7 @@ public class DrugReport implements Comparable<DrugReport> {
     return f_guidelines;
   }
 
-  public int getMatchedGroupCount() {
-    return getGuidelines().stream().mapToInt(g -> g.getAnnotationGroups().size()).sum();
+  public int getMatchedAnnotationCount() {
+    return getGuidelines().stream().mapToInt(g -> g.getAnnotations().size()).sum();
   }
 }

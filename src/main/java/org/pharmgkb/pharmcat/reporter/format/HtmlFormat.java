@@ -22,7 +22,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugLink;
@@ -316,11 +316,11 @@ public class HtmlFormat extends AbstractFormat {
       }
 
       for (GuidelineReport guideline : report.getGuidelines()) {
-        for (AnnotationGroup annGroup : guideline.getAnnotationGroups()) {
-          if (annGroup.getGenotypes().size() > 1) {
+        for (AnnotationReport annotation : guideline.getAnnotations()) {
+          if (annotation.getGenotypes().size() > 1) {
             m_isMultiMatch = true;
           }
-          for (Genotype genotype : annGroup.getGenotypes()) {
+          for (Genotype genotype : annotation.getGenotypes()) {
             if (genotype.isInferred()) {
               if (genotype.getDiplotypes().stream()
                   .map(Diplotype::getGene)

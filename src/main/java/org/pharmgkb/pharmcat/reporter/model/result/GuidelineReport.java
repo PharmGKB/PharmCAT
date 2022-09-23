@@ -32,7 +32,7 @@ public class GuidelineReport {
   private String url;
   @Expose
   @SerializedName("annotationGroups")
-  private List<AnnotationGroup> annotationGroups = new ArrayList<>();
+  private List<AnnotationReport> m_annotationReports = new ArrayList<>();
 
   private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
 
@@ -75,20 +75,16 @@ public class GuidelineReport {
   }
 
 
-  public List<AnnotationGroup> getAnnotationGroups() {
-    return annotationGroups;
+  public List<AnnotationReport> getAnnotations() {
+    return m_annotationReports;
   }
 
-  public void setAnnotationGroups(List<AnnotationGroup> annotationGroups) {
-    this.annotationGroups = annotationGroups;
-  }
-
-  public void addAnnotationGroup(AnnotationGroup annotationGroup) {
-    annotationGroups.add(annotationGroup);
+  public void addAnnotation(AnnotationReport annotationReport) {
+    m_annotationReports.add(annotationReport);
   }
 
   public boolean isMatched() {
-    return annotationGroups.size() > 0;
+    return m_annotationReports.size() > 0;
   }
 
 
@@ -122,16 +118,16 @@ public class GuidelineReport {
 
   public void matchAnnotationsToGenotype(List<Genotype> genotypes, Drug cpicDrug) {
     if (cpicDrug.getDrugName().equals("warfarin")) {
-      AnnotationGroup annGroup = AnnotationGroup.annotationGroupForWarfarin(genotypes);
-      addAnnotationGroup(annGroup);
+      AnnotationReport annGroup = AnnotationReport.forWarfarin(genotypes);
+      addAnnotation(annGroup);
     } else if (cpicDrug.getRecommendations() != null) {
       for (Genotype genotype : genotypes) {
         cpicDrug.getRecommendations().stream()
             .filter((r) -> r.matchesGenotype(genotype))
             .forEach((r) -> {
-              AnnotationGroup annGroup = new AnnotationGroup(r);
+              AnnotationReport annGroup = new AnnotationReport(r);
               annGroup.addGenotype(genotype);
-              addAnnotationGroup(annGroup);
+              addAnnotation(annGroup);
             });
       }
     }
@@ -167,12 +163,12 @@ public class GuidelineReport {
     }
     matchedGroups
         .forEach((group) -> {
-          AnnotationGroup annGroup = new AnnotationGroup(group, guidelinePackage.getGenes().iterator().next());
+          AnnotationReport annGroup = new AnnotationReport(group, guidelinePackage.getGenes().iterator().next());
           group.getMatchingGenotypes().forEach((genotype) -> {
             guidelinePackage.applyFunctions(genotype);
             annGroup.addGenotype(genotype);
           });
-          addAnnotationGroup(annGroup);
+          addAnnotation(annGroup);
         });
   }
 }

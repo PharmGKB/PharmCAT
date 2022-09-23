@@ -11,7 +11,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -144,7 +144,7 @@ public class ReportHelpers {
         .noneMatch(g -> g.equals("DPYD"));
   }
 
-  public static String rxGenotype(Genotype genotype, AnnotationGroup annotationGroup) {
+  public static String rxGenotype(Genotype genotype, AnnotationReport annotationReport) {
     if (genotype.getDiplotypes().size() == 0) {
       return TextConstants.UNKNOWN_GENOTYPE;
     }
@@ -161,8 +161,8 @@ public class ReportHelpers {
           .append("</a>:")
           .append(diplotype.printBare());
     }
-    if (annotationGroup.getHighlightedVariants().size() > 0) {
-      for (String var : annotationGroup.getHighlightedVariants()) {
+    if (annotationReport.getHighlightedVariants().size() > 0) {
+      for (String var : annotationReport.getHighlightedVariants()) {
         if (builder.length() > 0) {
           builder.append(";<br />");
         }
@@ -172,8 +172,8 @@ public class ReportHelpers {
     return builder.toString();
   }
 
-  public static List<String> rxAnnotationMessages(AnnotationGroup annotationGroup) {
-    return annotationGroup.getMessages().stream()
+  public static List<String> rxAnnotationMessages(AnnotationReport annotationReport) {
+    return annotationReport.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
         .map(MessageAnnotation::getMessage)
         .toList();

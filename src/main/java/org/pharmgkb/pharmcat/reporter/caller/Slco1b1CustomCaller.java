@@ -39,7 +39,7 @@ public class Slco1b1CustomCaller {
   }
 
   /**
-   * Makes the diplotype call that should be used for lookup of guideline annotation groups
+   * Makes the diplotype call that should be used for lookup of guideline annotations.
    * @param report an SLCO1B1 {@link GeneReport}
    * @param diplotypeFactory The factory class responsible for constructing diplotypes
    * @return an Optional Diplotype result, can be empty if the necessary position is missing

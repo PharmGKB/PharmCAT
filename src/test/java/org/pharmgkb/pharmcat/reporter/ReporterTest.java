@@ -44,8 +44,8 @@ class ReporterTest {
     assertEquals(0, warfarinReport.getMessages().size());
     assertEquals(1, warfarinReport.getGuidelines().size());
     GuidelineReport guidelineReport = warfarinReport.getGuidelines().get(0);
-    assertEquals(1, guidelineReport.getAnnotationGroups().size());
-    assertEquals(2, guidelineReport.getAnnotationGroups().get(0).getMessages().size());
+    assertEquals(1, guidelineReport.getAnnotations().size());
+    assertEquals(2, guidelineReport.getAnnotations().get(0).getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()

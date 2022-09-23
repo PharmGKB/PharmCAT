@@ -307,7 +307,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Gets a String representation of this Diplotype that can be used to display in output. This should <em>NOT</em> be
-   * used for matching to annotation groups.
+   * used for matching to {@link AnnotationReport}s.
    *
    * @return a String display for this diplotype, without Gene symbol
    */

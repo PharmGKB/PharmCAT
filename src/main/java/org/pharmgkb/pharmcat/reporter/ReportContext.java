@@ -10,7 +10,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -99,8 +99,8 @@ public class ReportContext {
     // deal with warfarin messages
     DrugReport cpicWarfarinReport = getDrugReport(DataSource.CPIC, "warfarin");
     if (cpicWarfarinReport != null) {
-      // move message from DrugReport level to AnnotationGroup level
-      AnnotationGroup cpicAnnotation = cpicWarfarinReport.getGuidelines().get(0).getAnnotationGroups().get(0);
+      // move message from DrugReport level to AnnotationReport level
+      AnnotationReport cpicAnnotation = cpicWarfarinReport.getGuidelines().get(0).getAnnotations().get(0);
       SortedSet<MessageAnnotation> cpicMsgs = cpicWarfarinReport.getMessages().stream()
           .filter((msg) -> msg.getName().startsWith("pcat-"))
           .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(MessageAnnotation::getName))));

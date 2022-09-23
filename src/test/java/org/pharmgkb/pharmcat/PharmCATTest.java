@@ -33,7 +33,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -511,7 +511,7 @@ class PharmCATTest {
 
   /**
    * This test illustrates when one gene in a two-gene guideline (amitriptyline) is not called that it should still be
-   * able to come up with a matched group
+   * able to come up with a matched annotation.
    */
   @Test
   void testCyp2c19(TestInfo testInfo) throws Exception {
@@ -523,13 +523,11 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*1");
 
-    testWrapper.testMatchedGroups("amitriptyline", 2);
-    testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("citalopram", 2);
-    testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
-    testWrapper.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("ivacaftor", 0);
   }
 
   /**
@@ -577,16 +575,16 @@ class PharmCATTest {
     testWrapper.testNotCalledByMatcher("CYP2D6");
     testWrapper.testPrintCpicCalls( "CYP2D6", "*3/*4");
 
-    testWrapper.testMatchedGroups("amitriptyline", 2);
+    testWrapper.testMatchedAnnotations("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("citalopram", 2);
+    testWrapper.testMatchedAnnotations("citalopram", 2);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 3);
+    testWrapper.testMatchedAnnotations("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedAnnotations("ivacaftor", 0);
 
     GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
 
@@ -620,16 +618,16 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
 
-    testWrapper.testMatchedGroups("amitriptyline", 2);
+    testWrapper.testMatchedAnnotations("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("citalopram", 2);
+    testWrapper.testMatchedAnnotations("citalopram", 2);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 3);
+    testWrapper.testMatchedAnnotations("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("ivacaftor", 0);
+    testWrapper.testMatchedAnnotations("ivacaftor", 0);
 
     GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
 
@@ -663,37 +661,37 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*2/*2");
 
-    testWrapper.testMatchedGroups("amitriptyline", 2);
+    testWrapper.testMatchedAnnotations("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("clomipramine", 3);
+    testWrapper.testMatchedAnnotations("clomipramine", 3);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clomipramine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("desipramine", 1);
+    testWrapper.testMatchedAnnotations("desipramine", 1);
     testWrapper.testAnyMatchFromSource("desipramine", DataSource.CPIC);
-    testWrapper.testMatchedGroups("doxepin", 2);
+    testWrapper.testMatchedAnnotations("doxepin", 2);
     testWrapper.testAnyMatchFromSource("doxepin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("doxepin", DataSource.DPWG);
-    testWrapper.testMatchedGroups("imipramine", 3);
+    testWrapper.testMatchedAnnotations("imipramine", 3);
     testWrapper.testAnyMatchFromSource("imipramine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("imipramine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("nortriptyline", 2);
+    testWrapper.testMatchedAnnotations("nortriptyline", 2);
     testWrapper.testAnyMatchFromSource("nortriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("nortriptyline", DataSource.DPWG);
-    testWrapper.testMatchedGroups("trimipramine", 1);
+    testWrapper.testMatchedAnnotations("trimipramine", 1);
 
-    testWrapper.testMatchedGroups("clopidogrel", 4);
+    testWrapper.testMatchedAnnotations("clopidogrel", 4);
     testWrapper.testAnyMatchFromSource("clopidogrel", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("clopidogrel", DataSource.DPWG);
 
-    testWrapper.testMatchedGroups("lansoprazole", 2);
+    testWrapper.testMatchedAnnotations("lansoprazole", 2);
     testWrapper.testAnyMatchFromSource("lansoprazole", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("lansoprazole", DataSource.DPWG);
 
-    // voriconazole has 2 populations with recommendations so should have 2 matching groups from CPIC, and 1 from DPWG
-    testWrapper.testMatchedGroups("voriconazole", 3);
-    testWrapper.testAnyMatchFromSource("voriconazole", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("voriconazole", DataSource.DPWG);
+    // voriconazole has 2 populations with recommendations so should have 2 matching annotations from CPIC
+    // and 1 from DPWG
+    testWrapper.testMatchedAnnotations("voriconazole", DataSource.CPIC, 2);
+    testWrapper.testMatchedAnnotations("voriconazole", DataSource.DPWG, 1);
   }
 
   @Test
@@ -724,9 +722,9 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
 
-    testWrapper.testMatchedGroups("citalopram", 6);
-    testWrapper.testMatchedGroups("citalopram", DataSource.CPIC, 3);
-    testWrapper.testMatchedGroups("citalopram", DataSource.DPWG, 3);
+    testWrapper.testMatchedAnnotations("citalopram", 6);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.CPIC, 3);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.DPWG, 3);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("citalopram", DataSource.DPWG);
   }
@@ -812,7 +810,7 @@ class PharmCATTest {
     testWrapper.testPrintCpicCalls("CFTR", "No CPIC variants found");
     testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence", "ivacaftor non-responsive CFTR sequence");
 
-    testWrapper.testMatchedGroups("ivacaftor", 1);
+    testWrapper.testMatchedAnnotations("ivacaftor", 1);
   }
 
   @Test
@@ -826,7 +824,7 @@ class PharmCATTest {
     testWrapper.testPrintCpicCalls("CFTR", "D1270N (heterozygous)");
     testWrapper.testLookup("CFTR", "ivacaftor non-responsive CFTR sequence", "D1270N");
 
-    testWrapper.testMatchedGroups("ivacaftor", 1);
+    testWrapper.testMatchedAnnotations("ivacaftor", 1);
   }
 
   @Test
@@ -841,7 +839,7 @@ class PharmCATTest {
     testWrapper.testPrintCpicCalls("CFTR", "D1270N/G551D");
     testWrapper.testLookup("CFTR", "G551D", "D1270N");
 
-    testWrapper.testMatchedGroups("ivacaftor", 1);
+    testWrapper.testMatchedAnnotations("ivacaftor", 1);
   }
 
   @Test
@@ -855,7 +853,7 @@ class PharmCATTest {
     testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
     testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*2");
 
-    testWrapper.testMatchedGroups("rosuvastatin", 1);
+    testWrapper.testMatchedAnnotations("rosuvastatin", 1);
   }
 
   @Test
@@ -869,7 +867,7 @@ class PharmCATTest {
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testLookup("CYP2D6", "*1", "*4");
 
-    testWrapper.testMatchedGroups("amitriptyline", 2);
+    testWrapper.testMatchedAnnotations("amitriptyline", 2);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.DPWG);
   }
@@ -888,9 +886,9 @@ class PharmCATTest {
     DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "simvastatin");
     assertNotNull(drugReport);
     GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
-    assertEquals(1, guidelineReport.getAnnotationGroups().size());
-    AnnotationGroup annotationGroup = guidelineReport.getAnnotationGroups().get(0);
-    assertTrue(annotationGroup.getHighlightedVariants().contains("rs4149056: T/T"));
+    assertEquals(1, guidelineReport.getAnnotations().size());
+    AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
+    assertTrue(annotationReport.getHighlightedVariants().contains("rs4149056: T/T"));
   }
 
   @Test
@@ -945,7 +943,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("SLCO1B1", "*5/*45");
     testWrapper.testLookup("SLCO1B1", "*5", "*45");
 
-    testWrapper.testMatchedGroups("simvastatin", 1);
+    testWrapper.testMatchedAnnotations("simvastatin", 1);
   }
 
   @Test
@@ -963,8 +961,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)/c.1905+1G>A (*2A)");
     testWrapper.testLookup("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
-    testWrapper.testMatchedGroups("fluorouracil", 2);
-    testWrapper.testMatchedGroups("capecitabine", 2);
+    testWrapper.testMatchedAnnotations("fluorouracil", 2);
+    testWrapper.testMatchedAnnotations("capecitabine", 2);
   }
 
   @Test
@@ -982,8 +980,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("DPYD", "c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     testWrapper.testLookupByActivity("DPYD", "1.0");
 
-    testWrapper.testMatchedGroups("fluorouracil", 2);
-    testWrapper.testMatchedGroups("capecitabine", 2);
+    testWrapper.testMatchedAnnotations("fluorouracil", 2);
+    testWrapper.testMatchedAnnotations("capecitabine", 2);
   }
 
   @Test
@@ -1003,8 +1001,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("DPYD", "c.1024G>A", "c.1314T>G", "c.1358C>G", "c.2279C>T");
     testWrapper.testLookupByActivity("DPYD", "0.5");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedAnnotations("fluorouracil", 1);
+    testWrapper.testMatchedAnnotations("capecitabine", 1);
   }
 
   @Test
@@ -1089,8 +1087,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("DPYD", "Reference/c.1156G>T (*12)");
     testWrapper.testLookup("DPYD", "Reference", "c.1156G>T (*12)");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedAnnotations("fluorouracil", 1);
+    testWrapper.testMatchedAnnotations("capecitabine", 1);
   }
 
   @Test
@@ -1109,8 +1107,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedAnnotations("fluorouracil", 1);
+    testWrapper.testMatchedAnnotations("capecitabine", 1);
   }
 
   @Test
@@ -1129,8 +1127,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedAnnotations("fluorouracil", 1);
+    testWrapper.testMatchedAnnotations("capecitabine", 1);
   }
 
   @Test
@@ -1151,8 +1149,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.2933A>G", "c.2933A>G");
 
-    testWrapper.testMatchedGroups("fluorouracil", 1);
-    testWrapper.testMatchedGroups("capecitabine", 1);
+    testWrapper.testMatchedAnnotations("fluorouracil", 1);
+    testWrapper.testMatchedAnnotations("capecitabine", 1);
   }
 
 
@@ -1175,7 +1173,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testInferredCalls("SLCO1B1", "rs4149056T/rs4149056C");
     testWrapper.testLookup("SLCO1B1", "*1", "*5");
 
-    testWrapper.testMatchedGroups("simvastatin", 1);
+    testWrapper.testMatchedAnnotations("simvastatin", 1);
   }
 
   @Test
@@ -1255,7 +1253,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testLookup("UGT1A1", "*1", "*80+*28");
 
     // the guideline should not have an ambiguity message
-    testWrapper.testMatchedGroups("atazanavir", 1);
+    testWrapper.testMatchedAnnotations("atazanavir", 1);
     testWrapper.testMessageCountForDrug(DataSource.CPIC, "atazanavir", 0);
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "UGT1A1", 2);
@@ -1588,11 +1586,11 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testMatchedGroups("abacavir", DataSource.CPIC, 1);
-    testWrapper.testMatchedGroups("abacavir", DataSource.DPWG, 1);
-    testWrapper.testMatchedGroups("allopurinol", DataSource.CPIC, 1);
-    testWrapper.testMatchedGroups("allopurinol", DataSource.DPWG, 1);
-    testWrapper.testMatchedGroups("phenytoin", 4);
+    testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("allopurinol", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("allopurinol", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("phenytoin", 4);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
   }
@@ -1613,14 +1611,14 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testMatchedGroups("abacavir", 2);
-    testWrapper.testMatchedGroups("abacavir", DataSource.CPIC, 1);
-    testWrapper.testMatchedGroups("abacavir", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("abacavir", 2);
+    testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
     // allopurinol relies on a different allele for recs so no matches
-    testWrapper.testMatchedGroups("allopurinol", 0);
+    testWrapper.testMatchedAnnotations("allopurinol", 0);
     // phenytoin also relies on a different allele but there will be a match for DPWG since the recommendations are
     // split between the two genes on that side
-    testWrapper.testMatchedGroups("phenytoin", 1);
+    testWrapper.testMatchedAnnotations("phenytoin", 1);
     testWrapper.testNoMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
   }
@@ -1663,21 +1661,21 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertTrue(cyp2c9.getRecommendationDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
 
     testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
-    testWrapper.testMatchedGroups("celecoxib", 1);
+    testWrapper.testMatchedAnnotations("celecoxib", 1);
     testWrapper.testAnyMatchFromSource("celecoxib", DataSource.CPIC);
-    testWrapper.testMatchedGroups("citalopram", 2);
-    testWrapper.testMatchedGroups("clomipramine", 2);
-    testWrapper.testMatchedGroups("clopidogrel", 4);
-    testWrapper.testMatchedGroups("clopidogrel", DataSource.CPIC, 3);
-    testWrapper.testMatchedGroups("clopidogrel", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("citalopram", 2);
+    testWrapper.testMatchedAnnotations("clomipramine", 2);
+    testWrapper.testMatchedAnnotations("clopidogrel", 4);
+    testWrapper.testMatchedAnnotations("clopidogrel", DataSource.CPIC, 3);
+    testWrapper.testMatchedAnnotations("clopidogrel", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.CPIC);
-    testWrapper.testMatchedGroups("flucloxacillin", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("flucloxacillin", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.CPIC);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("siponimod", 1);
+    testWrapper.testMatchedAnnotations("siponimod", 1);
     testWrapper.testAnyMatchFromSource("siponimod", DataSource.DPWG);
 
-    testWrapper.testMatchedGroups("carbamazepine", 5);
+    testWrapper.testMatchedAnnotations("carbamazepine", 5);
   }
 
   @Test
@@ -1720,9 +1718,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls("CYP2C9", "*1/*1");
     testWrapper.testLookup("CYP2C9", "*1", "*1");
-    testWrapper.testMatchedGroups("celecoxib", 1);
-    testWrapper.testMatchedGroups("ibuprofen", 1);
-    testWrapper.testMatchedGroups("lornoxicam", 1);
+    testWrapper.testMatchedAnnotations("celecoxib", 1);
+    testWrapper.testMatchedAnnotations("ibuprofen", 1);
+    testWrapper.testMatchedAnnotations("lornoxicam", 1);
   }
 
 
@@ -1745,7 +1743,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("CYP2B6");
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34");
     testWrapper.testLookup("CYP2B6", "*1", "*34");
-    testWrapper.testMatchedGroups("efavirenz", 1);
+    testWrapper.testMatchedAnnotations("efavirenz", 1);
   }
 
   /**
@@ -1768,7 +1766,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34", "*33/*36");
     testWrapper.testLookup("CYP2B6", "*1", "*34");
     testWrapper.testLookup("CYP2B6", "*33", "*36");
-    testWrapper.testMatchedGroups("efavirenz", 2);
+    testWrapper.testMatchedAnnotations("efavirenz", 2);
   }
 
 
@@ -1783,11 +1781,11 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*1");
     testWrapper.testLookup("NUDT15", "*1", "*1");
 
-    testWrapper.testMatchedGroups("azathioprine", 2);
-    testWrapper.testMatchedGroups("mercaptopurine", 2);
+    testWrapper.testMatchedAnnotations("azathioprine", 2);
+    testWrapper.testMatchedAnnotations("mercaptopurine", 2);
     testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
-    testWrapper.testMatchedGroups("thioguanine", 2);
+    testWrapper.testMatchedAnnotations("thioguanine", 2);
     testWrapper.testAnyMatchFromSource("thioguanine", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("thioguanine", DataSource.DPWG);
   }
@@ -1811,7 +1809,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getRelatedGeneReports());
     assertEquals(1, genotypes.size());
 
-    testWrapper.testMatchedGroups("azathioprine", 2);
+    testWrapper.testMatchedAnnotations("azathioprine", 2);
   }
 
   @Test
@@ -1826,9 +1824,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*3");
     testWrapper.testLookup("NUDT15", "*1", "*3");
 
-    testWrapper.testMatchedGroups("azathioprine", 2);
-    testWrapper.testMatchedGroups("mercaptopurine", 2);
-    testWrapper.testMatchedGroups("thioguanine", 2);
+    testWrapper.testMatchedAnnotations("azathioprine", 2);
+    testWrapper.testMatchedAnnotations("mercaptopurine", 2);
+    testWrapper.testMatchedAnnotations("thioguanine", 2);
   }
 
 
@@ -1849,7 +1847,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("MT-RNR1");
-    testWrapper.testMatchedGroups("amikacin", 1);
+    testWrapper.testMatchedAnnotations("amikacin", 1);
   }
 
 
@@ -1865,8 +1863,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("IFNL3");
     testWrapper.testReportable("IFNL3");
     testWrapper.testPrintCpicCalls("IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
-    testWrapper.testMatchedGroups("peginterferon alfa-2a", 0);
-    testWrapper.testMatchedGroups("peginterferon alfa-2b", 0);
+    testWrapper.testMatchedAnnotations("peginterferon alfa-2a", 0);
+    testWrapper.testMatchedAnnotations("peginterferon alfa-2b", 0);
   }
 
 
@@ -1941,7 +1939,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testCalledByMatcher("CYP3A4");
     testWrapper.testReportable("CYP3A4");
     testWrapper.testPrintCalls(DataSource.DPWG, "CYP3A4", "*8/*8");
-    testWrapper.testMatchedGroups("quetiapine", 1);
+    testWrapper.testMatchedAnnotations("quetiapine", 1);
   }
 
   /**
@@ -2234,24 +2232,24 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     }
 
     /**
-     * Check to see if there is a matching recommendation for the given drug name
+     * Check to see if there is a matching recommendation for the given drug name.
      * @param drugName a drug name that has recommendations
      * @param expectedCount the number of matching recommendations you expect
      */
-    private void testMatchedGroups(String drugName, int expectedCount) {
+    private void testMatchedAnnotations(String drugName, int expectedCount) {
       List<DrugReport> drugReports = getContext().getDrugReports(drugName);
       int numMatched = drugReports.stream()
-          .mapToInt(DrugReport::getMatchedGroupCount)
+          .mapToInt(DrugReport::getMatchedAnnotationCount)
           .sum();
       assertEquals(expectedCount, numMatched,
           drugName + " has " + numMatched + " matching recommendation(s) instead of " + expectedCount);
     }
 
-    private void testMatchedGroups(String drugName, DataSource source, int expectedCount) {
+    private void testMatchedAnnotations(String drugName, DataSource source, int expectedCount) {
       DrugReport drugReport = getContext().getDrugReport(source, drugName);
       assertNotNull(drugReport);
-      assertEquals(expectedCount, drugReport.getMatchedGroupCount(),
-          drugName + " has " + drugReport.getMatchedGroupCount() + " matching " + source +
+      assertEquals(expectedCount, drugReport.getMatchedAnnotationCount(),
+          drugName + " has " + drugReport.getMatchedAnnotationCount() + " matching " + source +
               " recommendation(s) instead of " + expectedCount);
     }
 
