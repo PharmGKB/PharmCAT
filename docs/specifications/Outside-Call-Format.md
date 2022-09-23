@@ -6,10 +6,10 @@ nav_order: 4
 ---
 # Outside Call Format
 
-Typically, PharmCAT uses variant call data to match diplotypes used to find annotations. However, you can also give 
+Typically, PharmCAT uses variant call data to match diplotypes used to find annotations. However, you can also give
 diplotypes, phenotypes, or other allele calls to PharmCAT that were called by other tools.
 
-These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the 
+These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the
 `-po` flag.
 
 Calls specified in this file will override results from the `Named Allele Matcher`.
@@ -26,9 +26,9 @@ Each line has up to 4 fields, separated by tabs:
 3. Phenotype or other gene result (_required if second and fourth columns not specified_)
 4. Activity score (_required if second and third columns not specified)
 
-The second, third, and fourth columns can be used individually or together. If you only supply diplotypes then PharmCAT 
-will attempt to assign phenotype and activity score (when applicable). If you specify both a diplotype and a phenotype 
-then PharmCAT will still match the diplotype to our known phenotype mapped to that diplotype. If our mapped phenotype 
+The second, third, and fourth columns can be used individually or together. If you only supply diplotypes then PharmCAT
+will attempt to assign phenotype and activity score (when applicable). If you specify both a diplotype and a phenotype
+then PharmCAT will still match the diplotype to our known phenotype mapped to that diplotype. If our mapped phenotype
 and the phenotype you supply do not match then PharmCAT will emit a warning.
 
 Different genes on different lines can mix whether they give the diplotype, phenotype, or activity values.
