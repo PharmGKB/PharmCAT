@@ -6,9 +6,12 @@ import org.apache.commons.lang3.StringUtils;
 
 
 /**
+ * Text values for use in the Reporter.
+ *
  * @author Mark Woon
  */
 public class TextConstants {
+  // n/a needs to be lowercase for JSON map comparisons to work
   public static final String NA = "n/a";
   public static final String SEE_DRUG = "See drug section";
   public static final String UNKNOWN_FUNCTION = "Unknown";

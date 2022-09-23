@@ -337,7 +337,7 @@ public class PharmCAT {
     Phenotyper phenotyper = null;
     if (m_runPhenotyper) {
       List<GeneCall> calls;
-      Map<String,Collection<String>> warnings = new HashMap<>();
+      Map<String, Collection<String>> warnings = new HashMap<>();
       if (matcherResult != null) {
         calls = matcherResult.getGeneCalls();
         warnings = matcherResult.getVcfWarnings();

@@ -595,7 +595,8 @@ class PharmCATTest {
     // ambiguity message will not apply in this case because all variants are available for CYP2C19, but one message
     // should appear for the *1 call
     assertEquals(1, cyp2c19report.getMessages().stream()
-        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
+        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
+            m.getMatches().getVariant().equals("rs58973490"))
         .count());
 
     testWrapper.testMessageCountForDrug(DataSource.CPIC, "amitriptyline", 1);
