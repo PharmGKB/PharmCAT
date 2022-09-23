@@ -29,7 +29,9 @@ public class MessageAnnotation {
   public static final String TYPE_REPORT_AS_GENOTYPE = "report-as-genotype";
   public static Predicate<MessageAnnotation> isFootnote = m -> m.getExceptionType().equals(TYPE_FOOTNOTE);
   public static Predicate<MessageAnnotation> isExtraPositionNote = m -> m.getExceptionType().equals(TYPE_EXTRA_POSITION);
-  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals(TYPE_FOOTNOTE) && !m.getExceptionType().equals(TYPE_EXTRA_POSITION);
+  public static Predicate<MessageAnnotation> isMessage = m -> !m.getExceptionType().equals(TYPE_FOOTNOTE) &&
+      !m.getExceptionType().equals(TYPE_EXTRA_POSITION) &&
+      !m.getExceptionType().equals(TYPE_REPORT_AS_GENOTYPE) ;
 
   public static final String MSG_COMBO_NAMING = "combo-naming";
   public static final String MSG_COMBO_UNPHASED = "combo-unphased";

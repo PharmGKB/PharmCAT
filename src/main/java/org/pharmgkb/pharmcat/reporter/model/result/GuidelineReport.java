@@ -121,7 +121,10 @@ public class GuidelineReport {
 
 
   public void matchAnnotationsToGenotype(List<Genotype> genotypes, Drug cpicDrug) {
-    if (cpicDrug.getRecommendations() != null) {
+    if (cpicDrug.getDrugName().equals("warfarin")) {
+      AnnotationGroup annGroup = AnnotationGroup.annotationGroupForWarfarin(genotypes);
+      addAnnotationGroup(annGroup);
+    } else if (cpicDrug.getRecommendations() != null) {
       for (Genotype genotype : genotypes) {
         cpicDrug.getRecommendations().stream()
             .filter((r) -> r.matchesGenotype(genotype))

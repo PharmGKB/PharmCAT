@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
@@ -34,12 +36,12 @@ public class MatchLogic {
   private final List<String> m_drugs = new ArrayList<>();
 
 
-  public String getGene() {
+  public @Nullable String getGene() {
     return m_gene;
   }
 
-  public void setGene(String gene) {
-    m_gene = gene;
+  public void setGene(@Nullable String gene) {
+    m_gene = StringUtils.stripToNull(gene);
   }
 
   public List<String> getHapsCalled() {
@@ -82,11 +84,11 @@ public class MatchLogic {
     m_variantsMissing.addAll(variantsMissing);
   }
 
-  public String getVariant() {
+  public @Nullable String getVariant() {
     return m_variant;
   }
 
-  public void setVariant(String variant) {
-    m_variant = variant;
+  public void setVariant(@Nullable String variant) {
+    m_variant = StringUtils.stripToNull(variant);
   }
 }

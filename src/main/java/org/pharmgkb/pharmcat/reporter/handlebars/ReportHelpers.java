@@ -7,9 +7,11 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -126,8 +128,8 @@ public class ReportHelpers {
   }
 
 
-  public static boolean rxIsWarfarin(String drug) {
-    return drug.equals("warfarin");
+  public static boolean rxIsCpicWarfarin(String drug, DataSource source) {
+    return drug.equals("warfarin") && source == DataSource.CPIC;
   }
 
   public static boolean rxDpydInferred(Genotype genotype) {
@@ -142,14 +144,14 @@ public class ReportHelpers {
         .noneMatch(g -> g.equals("DPYD"));
   }
 
-  public static String rxGenotype(Genotype genotype) {
+  public static String rxGenotype(Genotype genotype, AnnotationGroup annotationGroup) {
     if (genotype.getDiplotypes().size() == 0) {
       return TextConstants.UNKNOWN_GENOTYPE;
     }
     StringBuilder builder = new StringBuilder();
     for (Diplotype diplotype : genotype.getDiplotypes()) {
       if (builder.length() > 0) {
-        builder.append("; ");
+        builder.append(";<br />");
       }
       builder
           .append("<a href=\"#")
@@ -159,7 +161,22 @@ public class ReportHelpers {
           .append("</a>:")
           .append(diplotype.printBare());
     }
+    if (annotationGroup.getHighlightedVariants().size() > 0) {
+      for (String var : annotationGroup.getHighlightedVariants()) {
+        if (builder.length() > 0) {
+          builder.append(";<br />");
+        }
+        builder.append(var);
+      }
+    }
     return builder.toString();
+  }
+
+  public static List<String> rxAnnotationMessages(AnnotationGroup annotationGroup) {
+    return annotationGroup.getMessages().stream()
+        .filter(MessageAnnotation.isMessage)
+        .map(MessageAnnotation::getMessage)
+        .toList();
   }
 
 
@@ -243,7 +260,7 @@ public class ReportHelpers {
     return geneReport.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
         .map(MessageAnnotation::getMessage)
-        .collect(Collectors.toList());
+        .toList();
   }
 
   public static List<String> amdExtraPositionNotes(GeneReport geneReport) {

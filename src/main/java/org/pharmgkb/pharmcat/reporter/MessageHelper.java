@@ -3,9 +3,12 @@ package org.pharmgkb.pharmcat.reporter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
+import java.util.Optional;
+import java.util.stream.Stream;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.lang3.StringUtils;
@@ -14,9 +17,12 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
@@ -118,11 +124,70 @@ public class MessageHelper {
    * @param reportContext the report context to pull related information from
    */
   public void addMatchingMessagesTo(DrugReport drugReport, ReportContext reportContext, DataSource source) {
-    List<MessageAnnotation> matchedMessages = m_drugMap.get(drugReport.getName()).stream()
-        .filter(m -> matchDrugReport(m, reportContext, source))
-        .collect(Collectors.toList());
-    drugReport.addMessages(matchedMessages);
+    Collection<MessageAnnotation> allMessages = m_drugMap.get(drugReport.getName()).stream()
+        .filter((ma) -> allowedForSource(ma, source))
+        .toList();
+    if (allMessages.size() == 0) {
+      return;
+    }
+    List<MessageAnnotation> reportAsGenotype = new ArrayList<>();
+    for (MessageAnnotation messageAnnotation : allMessages) {
+      if (messageAnnotation.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
+        reportAsGenotype.add(messageAnnotation);
+      } else {
+        if (matchDrugReport(messageAnnotation, reportContext, source)) {
+          drugReport.addMessage(messageAnnotation);
+        }
+      }
+    }
+
+    if (reportAsGenotype.size() > 0) {
+      for (MessageAnnotation msgAnn : reportAsGenotype) {
+        String geneSymbol = msgAnn.getMatches().getGene();
+        String genotype = null;
+        for (GuidelineReport guidelineReport : drugReport.getGuidelines()) {
+          if (geneSymbol == null || guidelineReport.getRelatedGenes().contains(geneSymbol)) {
+            for (AnnotationGroup annotationGroup : guidelineReport.getAnnotationGroups()) {
+              if (genotype == null) {
+                genotype = computeGenotype(msgAnn, reportContext, source);
+              }
+              annotationGroup.addHighlightedVariant(genotype);
+            }
+          }
+        }
+      }
+    }
   }
+
+  private boolean allowedForSource(MessageAnnotation messageAnnotation, DataSource source) {
+    String key = messageAnnotation.getName();
+    if (key.contains("cpic-") && source != DataSource.CPIC) {
+      return false;
+    }
+    if (key.contains("dpwg-") && source != DataSource.DPWG) {
+      return false;
+    }
+    return true;
+  }
+
+
+  private String computeGenotype(MessageAnnotation msgAnn, ReportContext reportContext, DataSource source) {
+    String geneSymbol = Objects.requireNonNull(msgAnn.getMatches().getGene());
+    String rsid = Objects.requireNonNull(msgAnn.getMatches().getVariant());
+
+    GeneReport gr = reportContext.getGeneReport(source, geneSymbol);
+    Optional<String> call = Stream.concat(gr.getVariantReports().stream(), gr.getVariantOfInterestReports().stream())
+        .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
+        .map(VariantReport::getCall)
+        .findFirst();
+    if (call.isEmpty() || StringUtils.isBlank(call.get())) {
+      return rsid + ": " + Haplotype.UNKNOWN;
+    }
+    else {
+      return rsid + ": " + call.get().replaceAll("\\|", "/");
+    }
+  }
+
 
   /**
    * See if the supplied {@link MessageAnnotation} applies to the given {@link DrugReport} based on gene-related

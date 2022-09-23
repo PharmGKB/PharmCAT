@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -32,6 +33,7 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -454,8 +456,8 @@ class PharmCATTest {
   @Test
   void testAll(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write(
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println(
           """
               CYP2D6\t*3/*4
               G6PD\tB (wildtype)/B (wildtype)
@@ -537,8 +539,8 @@ class PharmCATTest {
   @Test
   void testCallerCollision(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2C19\t*2/*2\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2C19\t*2/*2");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -883,8 +885,12 @@ class PharmCATTest {
     testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*1");
     testWrapper.testLookup("SLCO1B1", "*1", "*1");
 
-    GeneReport slco1b1Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "SLCO1B1");
-    assertTrue(slco1b1Report.getHighlightedVariants().contains("rs4149056T/rs4149056T"));
+    DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "simvastatin");
+    assertNotNull(drugReport);
+    GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
+    assertEquals(1, guidelineReport.getAnnotationGroups().size());
+    AnnotationGroup annotationGroup = guidelineReport.getAnnotationGroups().get(0);
+    assertTrue(annotationGroup.getHighlightedVariants().contains("rs4149056: T/T"));
   }
 
   @Test
@@ -1493,7 +1499,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     // the guideline should have a matching message
     assertTrue(testWrapper.getContext().getDrugReports().get(DataSource.CPIC).values().stream()
-        .filter(r -> r.getRelatedDrugs().contains("tacrolimus"))
+        .filter(r -> r.getName().equals("tacrolimus"))
         .allMatch(r -> r.getMessages().size() > 0));
 
     assertFalse(gene.isPhased());
@@ -1569,8 +1575,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   @Test
   void testHlab(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("HLA-B\t*15:02/*57:01");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("HLA-B\t*15:02/*57:01");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1594,8 +1600,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   @Test
   void testHlabPhenotype(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("HLA-B\t\t*57:01 positive");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("HLA-B\t\t*57:01 positive");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1636,9 +1642,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   @Test
   void testRecommendationExamples(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("HLA-A\t\t*31:01 positive\n");
-      fw.write("HLA-B\t*57:01/*58:01\t\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("HLA-A\t\t*31:01 positive");
+      writer.println("HLA-B\t*57:01/*58:01\t");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1688,7 +1694,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
     assertEquals(43, tpmtReport.getVariantReports().size());
-    assertEquals(0, tpmtReport.getHighlightedVariants().size());
   }
 
 
@@ -1831,8 +1836,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   @Test
   void testMtrnr1(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("MT-RNR1\t1555A>G\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("MT-RNR1\t1555A>G");
     }
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -1871,24 +1876,25 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
    */
   @Test
   void testBadOutsideData(TestInfo testInfo) throws Exception {
-    Path badOutsideDataPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (FileWriter fw = new FileWriter(badOutsideDataPath.toFile())) {
-      fw.write("CYP2D6\t*1/*2\tfoo\nCYP2D6\t*3/*4");
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*1/*2\tfoo");
+      writer.println("CYP2D6\t*3/*4");
     }
 
     assertThrows(BadOutsideCallException.class, () -> {
       PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
       testWrapper.getVcfBuilder()
           .reference("CYP2C19");
-      testWrapper.execute(badOutsideDataPath);
+      testWrapper.execute(outsideCallPath);
     });
   }
 
   @Test
   void testCyp2d6AlleleWithNoFunction(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2D6\t*1/*XXX\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*1/*XXX");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1907,8 +1913,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2D6\t*1/*1\nCYP2D6\t*1/*2\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*1/*1");
+      writer.println("CYP2D6\t*1/*2");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1976,8 +1983,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   void testOutsideActivityScore(TestInfo testInfo) throws Exception {
     Path outDir = TestUtils.getTestOutputDir(testInfo, false);
     Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2D6\t\t\t1.25\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t\t\t1.25");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -2003,8 +2010,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   void testCyp2d6OutsidePhenotype(TestInfo testInfo) throws Exception {
     Path outDir = TestUtils.getTestOutputDir(testInfo, false);
     Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
-    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
-      fw.write("CYP2D6\t\tIntermediate Metabolizer\n");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t\tIntermediate Metabolizer");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -2022,6 +2029,25 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", "outside-call");
   }
+
+
+  @Test
+  void testWarfarinMissingRs12777823(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9")
+        .reference("CYP4F2")
+        .reference("VKORC1")
+        .missingExtraPosition("CYP2C9", "rs12777823")
+    ;
+    testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testReportable("CYP2C9");
+
+  }
+
 
 
   private static String printDiagnostic(GeneReport geneReport) {

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.stream.Collectors;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -34,7 +32,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
   @Expose
   @SerializedName("name")
-  private final String f_name;
+  private final String m_drugName;
   @Expose
   @SerializedName("cpicId")
   private String m_cpicId;
@@ -59,7 +57,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
 
   public DrugReport(Drug drug, ReportContext reportContext) {
-    f_name = drug.getDrugName();
+    m_drugName = drug.getDrugName();
     m_cpicId = drug.getDrugId();
     f_urls.add(drug.getUrl());
     if (drug.getCitations() != null) {
@@ -73,7 +71,7 @@ public class DrugReport implements Comparable<DrugReport> {
     GuidelineReport guidelineReport = new GuidelineReport(drug);
     addGenes(guidelineReport, drug.getGenes(), reportContext, DataSource.CPIC);
     // add matching recommendations
-    if (drug.getRecommendations() != null) {
+    if (drug.getRecommendations() != null || m_drugName.equals("warfarin")) {
       List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
       guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, drug);
     }
@@ -82,7 +80,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
     Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
-    f_name = name;
+    m_drugName = name;
     m_pgkbId = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
         .filter((c) -> c.getName().equals(name))
         .findFirst()
@@ -113,7 +111,7 @@ public class DrugReport implements Comparable<DrugReport> {
       GeneReport geneReport = reportContext.getGeneReport(source, geneSymbol);
       guidelineReport.addRelatedGeneReport(geneReport);
       // add inverse relationship (gene report back to drug report)
-      geneReport.addRelatedDrugs(this);
+      geneReport.addRelatedDrug(this);
     }
   }
 
@@ -122,7 +120,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * Gets the name of the drug this {@link DrugReport} is on.
    */
   public String getName() {
-    return f_name;
+    return m_drugName;
   }
 
   /**
@@ -159,10 +157,6 @@ public class DrugReport implements Comparable<DrugReport> {
         .collect(Collectors.toList());
   }
 
-  public Set<String> getRelatedDrugs() {
-    return ImmutableSet.of(f_name);
-  }
-
   public boolean isMatched() {
     return sf_notApplicableMatches.contains(getCpicId())
         || f_guidelines.stream().anyMatch(GuidelineReport::isMatched);
@@ -185,8 +179,8 @@ public class DrugReport implements Comparable<DrugReport> {
     return m_messages;
   }
 
-  public void addMessage(MessageAnnotation message) {
-    m_messages.add(message);
+  public boolean addMessage(MessageAnnotation message) {
+    return m_messages.add(message);
   }
 
   public void addMessages(@Nullable Collection<MessageAnnotation> messages) {
@@ -203,6 +197,10 @@ public class DrugReport implements Comparable<DrugReport> {
         m_messages.add(ma);
       }
     });
+  }
+
+  public boolean removeMessage(MessageAnnotation message) {
+    return m_messages.remove(message);
   }
 
   /**

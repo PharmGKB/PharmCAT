@@ -3,11 +3,13 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 
@@ -15,51 +17,68 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 public class AnnotationGroup {
   @Expose
   @SerializedName("implications")
-  private final Map<String,String> implications;
+  private final SortedMap<String,String> implications = new TreeMap<>();
   @Expose
   @SerializedName("drugRecommendation")
-  private final String drugRecommendation;
+  private String drugRecommendation;
   @Expose
   @SerializedName("classification")
-  private final String classification;
+  private String classification;
   @Expose
   @SerializedName("phenotypes")
-  private final Map<String,String> phenotypes;
+  private final SortedMap<String,String> phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("activityScore")
-  private final Map<String,String> activityScore;
+  private final SortedMap<String,String> activityScore = new TreeMap<>();
   @Expose
   @SerializedName("population")
-  private final String population;
+  private String population = TextConstants.NA;
   @Expose
   @SerializedName("genotypes")
   private final List<Genotype> genotypes = new ArrayList<>();
   @Expose
   @SerializedName("comments")
-  private final String comments;
+  private String comments = TextConstants.NA;
+  @Expose
+  @SerializedName("messages")
+  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  @Expose
+  @SerializedName("highlightedVariants")
+  private final List<String> m_highlightedVariants = new ArrayList<>();
+
+
+
 
   /**
-   * Create a new group from a CPIC {@link Recommendation}
+   * Create a new group from a CPIC {@link Recommendation}.
+   *
    * @param recommendation a CPIC recommendation
    */
   public AnnotationGroup(Recommendation recommendation) {
-    implications = new TreeMap<>();
     if (recommendation.getImplications() != null) {
       implications.putAll(recommendation.getImplications());
     }
     drugRecommendation = recommendation.getDrugRecommendation();
     classification = recommendation.getClassification();
     comments = recommendation.getComments();
-    phenotypes = new TreeMap<>();
     if (recommendation.getPhenotypes() != null) {
       phenotypes.putAll(recommendation.getPhenotypes());
     }
-    activityScore = new TreeMap<>();
     if (recommendation.getActivityScore() != null) {
       activityScore.putAll(recommendation.getActivityScore());
     }
     population = recommendation.getPopulation();
   }
+
+  private AnnotationGroup() {
+  }
+
+  public static AnnotationGroup annotationGroupForWarfarin(List<Genotype> genotypes) {
+    AnnotationGroup annotationGroup = new AnnotationGroup();
+    genotypes.forEach(annotationGroup::addGenotype);
+    return annotationGroup;
+  }
+
 
   /**
    * Create a new group from a DPWG/PharmGKB {@link Group}
@@ -67,30 +86,27 @@ public class AnnotationGroup {
    * @param gene the single gene this annotation applies to, fix for mapping certain annotations
    */
   public AnnotationGroup(Group group, String gene) {
-    implications = new TreeMap<>();
     if (group.getImplications() != null) {
       implications.put(gene, group.getImplications().getHtmlStripped());
     }
     if (group.getRecommendation() != null) {
       drugRecommendation = group.getRecommendation().getHtmlStripped();
-    } else {
-      drugRecommendation = null;
     }
     if (group.getStrength() != null) {
       classification = group.getStrength().getTerm();
-    } else {
-      classification = null;
     }
-    activityScore = new TreeMap<>();
     if (group.getActivityScore() != null) {
       activityScore.put(gene, group.getActivityScore().getHtmlStripped());
     }
-    phenotypes = new TreeMap<>();
     if (group.getMetabolizerStatus() != null) {
       phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
     }
     population = TextConstants.NA;
     comments = TextConstants.NA;
+  }
+
+  public List<Genotype> getGenotypes() {
+    return genotypes;
   }
 
   public void addGenotype(Genotype genotype) {
@@ -123,11 +139,25 @@ public class AnnotationGroup {
     return activityScore;
   }
 
-  public List<Genotype> getGenotypes() {
-    return genotypes;
-  }
-
   public String getComments() {
     return comments;
+  }
+
+
+  public List<MessageAnnotation> getMessages(){
+    return m_messages;
+  }
+
+  public void addMessage(MessageAnnotation message) {
+    m_messages.add(message);
+  }
+
+
+  public List<String> getHighlightedVariants() {
+    return m_highlightedVariants;
+  }
+
+  public void addHighlightedVariant(String var) {
+    m_highlightedVariants.add(var);
   }
 }

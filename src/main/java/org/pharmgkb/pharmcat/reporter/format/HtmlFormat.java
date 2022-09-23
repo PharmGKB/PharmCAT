@@ -172,7 +172,10 @@ public class HtmlFormat extends AbstractFormat {
     result.put("hasMessages", hasMessages);
     result.put("hasMissingVariants", hasMissingVariants);
     result.put("hasUnphasedNote", hasUnphasedNote);
-    result.put("summaryMessages", reportContext.getMessages().stream().map(MessageAnnotation::getMessage).toList());
+    result.put("summaryMessages", reportContext.getMessages().stream()
+        .filter(MessageAnnotation.isMessage)
+        .map(MessageAnnotation::getMessage)
+        .toList());
     // Section III
     result.put("geneReports", geneReports);
 
@@ -258,7 +261,7 @@ public class HtmlFormat extends AbstractFormat {
   }
 
   private static boolean hasMessages(GeneReport geneReport) {
-    return geneReport.getMessages().size() > 0;
+    return geneReport.getMessages().stream().anyMatch(MessageAnnotation.isMessage);
   }
 
 
@@ -314,6 +317,9 @@ public class HtmlFormat extends AbstractFormat {
 
       for (GuidelineReport guideline : report.getGuidelines()) {
         for (AnnotationGroup annGroup : guideline.getAnnotationGroups()) {
+          if (annGroup.getGenotypes().size() > 1) {
+            m_isMultiMatch = true;
+          }
           for (Genotype genotype : annGroup.getGenotypes()) {
             if (genotype.isInferred()) {
               if (genotype.getDiplotypes().stream()

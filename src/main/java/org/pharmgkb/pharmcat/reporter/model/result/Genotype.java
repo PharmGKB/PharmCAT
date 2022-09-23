@@ -14,10 +14,10 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
 public class Genotype {
-
   @Expose
   @SerializedName("diplotypes")
   private final SortedSet<Diplotype> diplotypes = new TreeSet<>();
+
 
   public Genotype(Collection<Diplotype> diplotypes) {
     diplotypes.forEach(this::addDiplotype);

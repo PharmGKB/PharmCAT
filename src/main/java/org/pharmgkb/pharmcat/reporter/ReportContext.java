@@ -1,16 +1,8 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -18,6 +10,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationGroup;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -101,6 +94,21 @@ public class ReportContext {
                     gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() +
                     "</a> in Section III for for more information.")));
       }
+    }
+
+    // deal with warfarin messages
+    DrugReport cpicWarfarinReport = getDrugReport(DataSource.CPIC, "warfarin");
+    if (cpicWarfarinReport != null) {
+      // move message from DrugReport level to AnnotationGroup level
+      AnnotationGroup cpicAnnotation = cpicWarfarinReport.getGuidelines().get(0).getAnnotationGroups().get(0);
+      SortedSet<MessageAnnotation> cpicMsgs = cpicWarfarinReport.getMessages().stream()
+          .filter((msg) -> msg.getName().startsWith("pcat-"))
+          .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(MessageAnnotation::getName))));
+      // remove them from drug reports and add to annotation
+      cpicMsgs.forEach((msg) -> {
+        cpicAnnotation.addMessage(msg);
+        cpicWarfarinReport.removeMessage(msg);
+      });
     }
   }
 

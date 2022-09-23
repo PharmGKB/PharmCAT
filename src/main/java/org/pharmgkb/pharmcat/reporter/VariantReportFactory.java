@@ -1,9 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 import com.google.common.collect.Multimap;
@@ -35,36 +33,29 @@ public class VariantReportFactory {
   /**
    * Create a new factory for the specified <code>gene</code> (HGNC symbol). This will gather all necessary information
    * from the definition files.
+   *
    * @param gene a gene's HGNC symbol
-   * @throws IOException can occur from writing the JSON file
    */
-  public VariantReportFactory(String gene, String chr, Env env) throws IOException {
+  public VariantReportFactory(String gene, String chr, Env env) {
     m_gene = gene;
     m_chr = chr;
 
     DefinitionFile definitionFile = env.getDefinitionReader().getDefinitionFile(gene);
     VariantLocus[] allVariants = definitionFile.getVariants();
-    Iterator<NamedAllele> it = definitionFile.getNamedAlleles().iterator();
 
-    NamedAllele wildNamedAllele = it.next();
-    wildNamedAllele.initialize(definitionFile.getVariants());
-    for (VariantLocus v : allVariants) {
-      m_wildAlleleMap.put(v.getPosition(), wildNamedAllele.getAllele(v));
-    }
+    for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
+      if (namedAllele.isReference()) {
+        namedAllele.initialize(definitionFile.getVariants());
+        for (VariantLocus v : allVariants) {
+          m_wildAlleleMap.put(v.getPosition(), namedAllele.getAllele(v));
+        }
+      } else {
+        String[] definingAlleles = namedAllele.getAlleles();
+        for (int i = 0; i < definingAlleles.length; i++) {
+          String alleleValue = definingAlleles[i];
+          VariantLocus locus = allVariants[i];
 
-    // purposely skip the first allele since it's "default"
-    while (it.hasNext()) {
-      NamedAllele namedAllele = it.next();
-
-      String[] definingAlleles = namedAllele.getAlleles();
-      for (int i = 0; i < definingAlleles.length; i++) {
-        String alleleValue = definingAlleles[i];
-        VariantLocus locus = allVariants[i];
-
-        if (alleleValue != null) {
-          // this is a special case for CYP2C19 since *1 is not the "reference" allele
-          // this is here to prevent *1 from being shown repetitively in reports
-          if (!gene.equals("CYP2C19") || !namedAllele.getName().equals("*1")) {
+          if (alleleValue != null) {
             m_variantAlleleMap.put(locus.getPosition(), namedAllele.getName());
           }
         }

@@ -7,7 +7,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*13"
       ],
@@ -45,7 +45,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*34"
       ],
@@ -64,7 +64,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*36"
       ],
@@ -83,7 +83,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*6"
       ],
@@ -102,7 +102,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*7"
       ],
@@ -125,7 +125,7 @@
       "variantsMissing": [
         "rs3758581"
       ],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -240,7 +240,7 @@
       "variantsMissing": [
         "rs28399504"
       ],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -257,7 +257,7 @@
         "*17"
       ],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -272,7 +272,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*71"
       ],
@@ -299,7 +299,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -392,7 +392,7 @@
       "variantsMissing": [
         "rs776746"
       ],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "tacrolimus"
@@ -409,7 +409,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -424,7 +424,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -439,7 +439,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -454,7 +454,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*2"
       ],
@@ -471,11 +471,11 @@
     "rule_name": "Phenytoin_HLA-B warning",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "phenytoin"
@@ -485,10 +485,10 @@
     "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
   },
   {
-    "rule_name": "Show rs12777823 for warfarin",
+    "rule_name": "cpic-warfarin-rs12777823",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": "CYP2C9",
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
@@ -511,7 +511,15 @@
       "variantsMissing": [],
       "variant": "rs4149056",
       "dips": [],
-      "drugs": []
+      "drugs": [
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
+      ]
     },
     "exception_type": "report-as-genotype",
     "message": ""
@@ -524,7 +532,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*46"
       ],
@@ -549,7 +557,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*20"
       ],
@@ -574,7 +582,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*12"
       ],
@@ -599,7 +607,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*13"
       ],
@@ -624,7 +632,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*14"
       ],
@@ -649,7 +657,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*15"
       ],
@@ -674,7 +682,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*25"
       ],
@@ -699,7 +707,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*31"
       ],
@@ -724,7 +732,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*32"
       ],
@@ -749,7 +757,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*40"
       ],
@@ -774,7 +782,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*43"
       ],
@@ -795,11 +803,11 @@
     "rule_name": "SLCO1B1-drug text",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "simvastatin",
@@ -822,7 +830,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*3A"
       ],
@@ -843,7 +851,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -858,7 +866,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*80+*28"
       ],
@@ -877,7 +885,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [
         "*1/*80+*37"
       ],
@@ -896,7 +904,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -913,7 +921,7 @@
       ],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -928,7 +936,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -936,14 +944,14 @@
     "message": "The VKORC1 gene is on the negative chromosomal strand, all genotype calls for VKORC1 in this report refer to the positive chromosomal strand.  Therefore, genotype calls are complemented from gene bases."
   },
   {
-    "rule_name": "warfarin figure 2 note",
+    "rule_name": "pcat-cpic-warfarin-1-flowchart",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "warfarin"
@@ -953,14 +961,14 @@
     "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
   },
   {
-    "rule_name": "Warfarin warning",
+    "rule_name": "pcat-cpic-warfarin-2-vkorc1",
     "version": "1",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "warfarin"
@@ -973,11 +981,11 @@
     "rule_name": "DPYD lowest activity score note",
     "version": "2",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": [
         "capecitabine",
@@ -997,7 +1005,7 @@
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -1008,11 +1016,11 @@
     "rule_name": "Partial and combination calls-unphased output",
     "version": "2",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -1023,11 +1031,11 @@
     "rule_name": "Partial and combination calls-naming",
     "version": "2",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },
@@ -1038,11 +1046,11 @@
     "rule_name": "CYP2D6 -research mode - general",
     "version": "2",
     "matches": {
-      "gene": "",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
-      "variant": "",
+      "variant": null,
       "dips": [],
       "drugs": []
     },

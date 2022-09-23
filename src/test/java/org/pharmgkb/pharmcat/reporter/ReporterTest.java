@@ -39,14 +39,17 @@ class ReporterTest {
     );
 
     // test that messages were applied for a drug
-    DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
-        .filter(d -> d.getRelatedDrugs().contains("warfarin")).findFirst()
-        .orElseThrow(() -> new RuntimeException("No warfarin drug report found"));
-    assertEquals(2, warfarinReport.getMessages().size());
+    DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).get("warfarin");
+    assertNotNull(warfarinReport, "Missing warfarin drug report");
+    assertEquals(0, warfarinReport.getMessages().size());
+    assertEquals(1, warfarinReport.getGuidelines().size());
+    GuidelineReport guidelineReport = warfarinReport.getGuidelines().get(0);
+    assertEquals(1, guidelineReport.getAnnotationGroups().size());
+    assertEquals(2, guidelineReport.getAnnotationGroups().get(0).getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
-        .filter(d -> d.getRelatedDrugs().contains("desflurane")).findFirst()
+        .filter(d -> d.getName().equals("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }

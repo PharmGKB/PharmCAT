@@ -108,6 +108,13 @@ public class TestVcfBuilder {
     return this;
   }
 
+  public TestVcfBuilder missingExtraPosition(String gene, String rsid) {
+    VcfEdit edit = new VcfEdit(rsid, null);
+    m_extraPositions.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
+
 
   /**
    * Adds reference for specified gene.

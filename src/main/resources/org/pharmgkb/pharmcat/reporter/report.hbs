@@ -179,13 +179,6 @@
           <div class="alert alert-info">{{{this}}}</div>
         {{/each}}
 
-        {{#if (rxIsWarfarin drug)}}
-          <div class="image">
-            <img src="https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
-                alt="Figure 2 from the CPIC guideline for warfarin"/>
-          </div>
-        {{/if}}
-
         <table>
           <thead>
           <tr>
@@ -220,7 +213,7 @@
                         {{#each genotypes}}
                           <li>
                             <span class="noWrap">
-                              <span class="normalWrap">{{{rxGenotype this}}}</span>
+                              <span class="normalWrap">{{{rxGenotype this ../this}}}</span>
                               {{#if (rxInferred this)}}<sup><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
                               {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
                             </span>
@@ -236,11 +229,22 @@
                         {{{printRecMap activityScores}}}
                       {{/if}}
                     </td>
-                    <td>{{{implications}}}</td>
-                    <td>{{{drugRecommendation}}}</td>
-                    <td>{{comments}}</td>
-                    <td>{{classification}}</td>
-                  </tr>
+                  {{#if (rxIsCpicWarfarin drug source)}}
+                      <td colspan="4">
+                        {{#each (rxAnnotationMessages this) }}
+                          <div class="alert alert-info">{{{this}}}</div>
+                        {{/each}}
+                        <div class="warfarinFlowchart">
+                          <img src="https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
+                              alt="Figure 2 from the CPIC guideline for warfarin"/>
+                        </div>
+                      </td>
+                  {{else}}
+                      <td>{{{implications}}}</td>
+                      <td>{{{drugRecommendation}}}</td>
+                      <td>{{comments}}</td>
+                      <td>{{classification}}</td>
+                  {{/if}}
                 {{/each}}
               {{/each}}
             {{else}}

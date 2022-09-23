@@ -113,9 +113,6 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("variantsOfInterest")
   private final List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
-  @Expose
-  @SerializedName("highlightedVariants")
-  private final List<String> m_highlightedVariants = new ArrayList<>();
 
   // used to cache message names
   private transient final List<String> m_messageKeys = new ArrayList<>();
@@ -145,17 +142,17 @@ public class GeneReport implements Comparable<GeneReport> {
     m_uncalledHaplotypes.addAll(call.getUncallableHaplotypes());
     m_phased = call.isPhased();
     m_effectivelyPhased = call.isEffectivelyPhased();
-    try {
-      VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr, env);
-      call.getVariants().stream()
-          .map(variantReportFactory::make).forEach(m_variantReports::add);
-      call.getMatchData().getMissingPositions().stream()
-          .map(variantReportFactory::make).forEach(m_variantReports::add);
-      call.getVariantsOfInterest().stream()
-          .map(variantReportFactory::make).forEach(m_variantOfInterestReports::add);
-    } catch (IOException ex) {
-      throw new RuntimeException("Could not start a gene report", ex);
-    }
+
+    VariantReportFactory variantReportFactory = new VariantReportFactory(m_gene, m_chr, env);
+    call.getVariants().stream()
+        .map(variantReportFactory::make)
+        .forEach(m_variantReports::add);
+    call.getMatchData().getMissingPositions().stream()
+        .map(variantReportFactory::make)
+        .forEach(m_variantReports::add);
+    call.getVariantsOfInterest().stream()
+        .map(variantReportFactory::make)
+        .forEach(m_variantOfInterestReports::add);
 
     // set the flag in reports for the variants with mismatched alleles
     call.getMatchData().getMismatchedPositions().stream()
@@ -330,27 +327,8 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void addMessage(MessageAnnotation ma) {
     Preconditions.checkNotNull(ma);
-
-    if (ma.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
-      String rsid = ma.getMatches().getVariant();
-
-      Optional<String> call = getVariantReports().stream()
-          .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
-          .map(VariantReport::getCall)
-          .reduce((a,b) -> {throw new RuntimeException();});
-      String genotype;
-      if (call.isEmpty() || StringUtils.isBlank(call.get())) {
-        genotype = "missing";
-      }
-      else {
-        genotype = rsid + call.get().replaceAll("[|/]", "/"+rsid);
-      }
-      m_highlightedVariants.add(genotype);
-    }
-    else {
-      m_messages.add(ma);
-      m_messageKeys.add(ma.getName());
-    }
+    m_messages.add(ma);
+    m_messageKeys.add(ma.getName());
   }
 
   public boolean hasMessage(String key) {
@@ -459,11 +437,8 @@ public class GeneReport implements Comparable<GeneReport> {
    * Adds the drugs in the given <code>drugReport</code> to this report as {@link DrugLink} objects
    * @param drugReport a {@link DrugLink} with relatedDrugs
    */
-  public void addRelatedDrugs(DrugReport drugReport) {
-
-    drugReport.getRelatedDrugs().stream()
-        .map(d -> new DrugLink(d, drugReport.getId()))
-        .forEach(this::addRelatedDrug);
+  public void addRelatedDrug(DrugReport drugReport) {
+    addRelatedDrug(new DrugLink(drugReport.getName(), drugReport.getId()));
   }
 
   /**
@@ -620,13 +595,6 @@ public class GeneReport implements Comparable<GeneReport> {
     return m_recommendationDiplotypes;
   }
 
-
-  /**
-   * Get variants that should be shown separately in the report.
-   */
-  public List<String> getHighlightedVariants() {
-    return m_highlightedVariants;
-  }
 
   /**
    * Is there any missing variant in this gene?
