@@ -56,20 +56,18 @@ public class ReportContext {
     m_geneReports = geneReports;
 
     // get CPIC drug data
-    DrugCollection drugCollection = new DrugCollection();
-    m_cpicVersion = validateCpicVersions(drugCollection);
+    m_cpicVersion = validateCpicVersions(env.getCpicDrugs());
     Map<String, DrugReport> cpicReports = m_drugReports.computeIfAbsent(DataSource.CPIC, (s) -> new TreeMap<>());
-    for (Drug drug : drugCollection.listReportable()) {
+    for (Drug drug : env.getCpicDrugs().listReportable()) {
       cpicReports.put(drug.getDrugName().toLowerCase(), new DrugReport(drug, this));
     }
 
     // get DPWG/PharmGKB drug data
-    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
     Map<String, DrugReport> dpwgReports = m_drugReports.computeIfAbsent(DataSource.DPWG, (s) -> new TreeMap<>());
     // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
-    for (String drugName : pgkbGuidelineCollection.getChemicals()) {
+    for (String drugName : env.getDpwgDrugs().getChemicals()) {
       dpwgReports.put(drugName.toLowerCase(),
-          new DrugReport(drugName, pgkbGuidelineCollection.findGuidelinePackages(drugName), this));
+          new DrugReport(drugName, env.getDpwgDrugs().findGuidelinePackages(drugName), this));
     }
 
     // now that all reports are generated, apply applicable messages
@@ -86,11 +84,11 @@ public class ReportContext {
         // add a message for any gene that has missing data
         drugReport.getRelatedGeneSymbols().stream()
             .map((s) -> getGeneReport(source, s))
-            .filter((gr) -> gr != null && !gr.isOutsideCall() && gr.isMissingVariants())
+            .filter((gr) -> gr != null && !gr.isOutsideCall() && gr.isMissingVariants() && !gr.isNoData())
             .forEach((gr) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
                 "missing-variants",
                 "Some position data used to define " + gr.getGeneDisplay() +
-                    " alleles is missing which may change the matched genotype. See <a href=\"" +
+                    " alleles is missing which may change the matched genotype. See <a href=\"#" +
                     gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() +
                     "</a> in Section III for for more information.")));
       }

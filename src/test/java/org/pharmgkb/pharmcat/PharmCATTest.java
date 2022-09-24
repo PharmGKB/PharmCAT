@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -29,6 +30,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -39,6 +41,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -146,7 +149,6 @@ class PharmCATTest {
 
   @Test
   void cliReference(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -193,7 +195,6 @@ class PharmCATTest {
 
   @Test
   void cliCallCyp2d6(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -552,7 +553,7 @@ class PharmCATTest {
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 2);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "prefer-sample-data",
-        "outside-call");
+        MessageHelper.MSG_OUTSIDE_CALL);
   }
 
 
@@ -596,7 +597,7 @@ class PharmCATTest {
     // should appear for the *1 call
     assertEquals(1, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
-            m.getMatches().getVariant().equals("rs58973490"))
+            Objects.requireNonNull(m.getMatches().getVariant()).equals("rs58973490"))
         .count());
 
     testWrapper.testMessageCountForDrug(DataSource.CPIC, "amitriptyline", 1);
@@ -638,7 +639,8 @@ class PharmCATTest {
 
     // the variant is hom so ambiguity message should not apply and, thus, no matching messages
     assertEquals(0, cyp2c19report.getMessages().stream()
-        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) && m.getMatches().getVariant().equals("rs58973490"))
+        .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
+            Objects.requireNonNull(m.getMatches().getVariant()).equals("rs58973490"))
         .count());
 
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
@@ -848,12 +850,23 @@ class PharmCATTest {
     testWrapper.getVcfBuilder()
         .variation("ABCG2", "rs2231142", "G", "T")
         .variation("SLCO1B1", "rs56101265", "T", "C");
-    testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
     testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*2");
 
     testWrapper.testMatchedAnnotations("rosuvastatin", 1);
+
+    // no dpyd - should not have DPYD warning
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements capecitabineSection = document.getElementsByClass("capecitabine");
+    assertEquals(1, capecitabineSection.size());
+    assertEquals(0, capecitabineSection.get(0).getElementsByClass("alert-info").size());
+
+    Elements dpydSection = document.select(".gene.dpyd");
+    assertEquals(1, dpydSection.size());
+    assertEquals(1, dpydSection.get(0).getElementsByClass("no-data").size());
   }
 
   @Test
@@ -888,7 +901,7 @@ class PharmCATTest {
     GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
     assertEquals(1, guidelineReport.getAnnotations().size());
     AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
-    assertTrue(annotationReport.getHighlightedVariants().contains("rs4149056: T/T"));
+    assertTrue(annotationReport.getHighlightedVariants().contains("rs4149056:T/T"));
   }
 
   @Test
@@ -953,7 +966,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
         .phased()
         .variation("DPYD", "rs3918290", "C", "T")
         .variation("DPYD", "rs1801159", "C", "T");
-    testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
 
@@ -963,6 +976,19 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testMatchedAnnotations("fluorouracil", 2);
     testWrapper.testMatchedAnnotations("capecitabine", 2);
+
+    // should have DPYD warning
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements capecitabineSection = document.getElementsByClass("capecitabine");
+    assertEquals(1, capecitabineSection.size());
+    Elements capecitabineMsgs = capecitabineSection.get(0).getElementsByClass("alert-info");
+    assertEquals(1, capecitabineMsgs.size());
+    assertTrue(capecitabineMsgs.get(0).text().contains("lowest activity"));
+
+    Elements dpydSection = document.select(".gene.dpyd");
+    assertEquals(1, dpydSection.size());
+    assertEquals(0, dpydSection.get(0).getElementsByClass("no-data").size());
   }
 
   @Test
@@ -1908,6 +1934,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
 
+  // has multimatch
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
@@ -1969,9 +1996,17 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
         .reference("CYP2D6")
         .reference("CYP2C19")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute(null);
     testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
     testWrapper.testReportable("CYP2C19", "CYP2D6");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("CYP2D6"));
+    Elements cyp2d6Section = document.select(".gene.CYP2D6");
+    assertEquals(1, cyp2d6Section.size());
+    assertEquals(0, cyp2d6Section.get(0).getElementsByClass(MessageHelper.MSG_OUTSIDE_CALL).size());
+    assertEquals(1, cyp2d6Section.get(0).getElementsByClass(MessageHelper.MSG_CYP2D6_MODE).size());
   }
 
   /**
@@ -1998,7 +2033,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", "outside-call");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
   }
 
   /**
@@ -2015,7 +2050,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.execute(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
@@ -2025,13 +2060,20 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", "outside-call");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("CYP2D6"));
+    Elements cyp2d6Section = document.select(".gene.CYP2D6");
+    assertEquals(1, cyp2d6Section.size());
+    assertEquals(1, cyp2d6Section.get(0).getElementsByClass(MessageHelper.MSG_OUTSIDE_CALL).size());
+    assertEquals(0, cyp2d6Section.get(0).getElementsByClass(MessageHelper.MSG_CYP2D6_MODE).size());
   }
 
 
   @Test
   void testWarfarinMissingRs12777823(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9")
@@ -2039,11 +2081,19 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
         .reference("VKORC1")
         .missingExtraPosition("CYP2C9", "rs12777823")
     ;
-    testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("CYP2C9");
 
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("CYP2C9"));
+    Element warfarin = document.getElementById("warfarin-cpic-1-1");
+    assertNotNull(warfarin);
+    Element missing = warfarin.getElementById("warfarin-cpic-1-1-rs12777823");
+    assertNotNull(missing);
+    assertTrue(missing.text().contains(Haplotype.UNKNOWN));
   }
 
 
@@ -2092,7 +2142,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       return m_vcfBuilder;
     }
 
-    void execute(Path outsideCallPath) throws Exception {
+    Path execute(Path outsideCallPath) throws Exception {
       Path vcfFile = m_vcfBuilder.generate();
       PharmCAT pcat = new PharmCAT(new Env(),
           true, vcfFile, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
@@ -2102,6 +2152,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       );
       pcat.execute();
       m_reportContext = pcat.getReportContext();
+      return vcfFile;
     }
 
 

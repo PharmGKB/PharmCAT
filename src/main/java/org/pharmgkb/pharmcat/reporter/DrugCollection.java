@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.Spliterator;
 import java.util.TreeSet;
 import java.util.function.Consumer;
@@ -24,8 +24,6 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.DataSerializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -38,9 +36,9 @@ public class DrugCollection implements Iterable<Drug> {
   public static final Type DRUG_LIST_TYPE = new TypeToken<ArrayList<Drug>>(){}.getType();
   public static final Path GUIDELINES_DIR =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines/cpic");
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   private final Set<Drug> m_drugList = new TreeSet<>();
+  private SortedSet<String> m_genes;
 
 
   /**
@@ -105,11 +103,14 @@ public class DrugCollection implements Iterable<Drug> {
    * Gets a Set of all genes that are related to drugs for this collection and not ignored
    * @return a Set of all genes reportable by these drugs
    */
-  public Set<String> getAllReportableGenes() {
-    return m_drugList.stream()
-        .flatMap(d -> d.getGenes().stream())
-        .filter(g -> !GeneReport.isIgnored(g))
-        .collect(Collectors.toSet());
+  public SortedSet<String> getAllReportableGenes() {
+    if (m_genes == null) {
+      m_genes = m_drugList.stream()
+          .flatMap(d -> d.getGenes().stream())
+          .filter(g -> !GeneReport.isIgnored(g))
+          .collect(Collectors.toCollection(TreeSet::new));
+    }
+    return m_genes;
   }
 
   @Override

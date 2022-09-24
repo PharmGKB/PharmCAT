@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.DpydCaller;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -197,7 +198,7 @@ public class GeneReport implements Comparable<GeneReport> {
       }
     }
 
-    applyMatcherMessages(call);
+    applyMatcherMessages(call, env);
   }
 
 
@@ -213,7 +214,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_callSource = CallSource.OUTSIDE;
 
     addOutsideCall(call, env);
-    applyOutsideCallMessages();
+    addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_OUTSIDE_CALL));
   }
 
   /**
@@ -468,11 +469,9 @@ public class GeneReport implements Comparable<GeneReport> {
       return LIST_UNCALLED_NO_DATA;
 
     } else if (m_callSource == CallSource.MATCHER) {
-      if (!isCalled()) {
-        if (m_variantReports.size() == 0 ||
-            m_variantReports.stream().allMatch(VariantReport::isMissing)) {
-          return LIST_UNCALLED_NO_DATA;
-        }
+      if (isNoData()) {
+        return LIST_UNCALLED_NO_DATA;
+      } else if (!isCalled()) {
         if (OVERRIDE_DIPLOTYPES.contains(getGeneDisplay()) && isReportable()) {
           return ImmutableList.of(m_recommendationDiplotypes.get(0).printDisplay());
         }
@@ -482,7 +481,7 @@ public class GeneReport implements Comparable<GeneReport> {
           .map(Diplotype::printDisplay)
           .toList();
     } else {
-      return m_recommendationDiplotypes.stream()
+      return m_sourceDiplotypes.stream()
           .map(Diplotype::printDisplay)
           .toList();
     }
@@ -492,11 +491,8 @@ public class GeneReport implements Comparable<GeneReport> {
     if (m_callSource == CallSource.NONE) {
       return LIST_UNCALLED_NO_DATA;
     } else if (m_callSource == CallSource.MATCHER) {
-      if (!isCalled()) {
-        if (m_variantReports.size() == 0 ||
-            m_variantReports.stream().allMatch(VariantReport::isMissing)) {
-          return LIST_UNCALLED_NO_DATA;
-        }
+      if (isNoData()) {
+        return LIST_UNCALLED_NO_DATA;
       }
     }
     return m_recommendationDiplotypes.stream()
@@ -604,23 +600,31 @@ public class GeneReport implements Comparable<GeneReport> {
     if (getCallSource() == CallSource.OUTSIDE) {
       return false;
     }
-    return m_variantReports.stream().anyMatch(VariantReport::isMissing);
+    return m_variantReports.isEmpty() || m_variantReports.stream().anyMatch(VariantReport::isMissing);
   }
 
-  private void applyMatcherMessages(GeneCall geneCall) {
+  public boolean isNoData() {
+    if (getCallSource() == CallSource.OUTSIDE) {
+      return false;
+    }
+    return m_variantReports.isEmpty() || m_variantReports.stream().allMatch(VariantReport::isMissing);
+  }
+
+
+  private void applyMatcherMessages(GeneCall geneCall, Env env) {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
         .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
     if (comboOrPartialCall && !isDpyd(geneCall.getGene())) {
-      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_COMBO_NAMING));
+      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_NAMING));
 
       if (!isPhased()) {
-        addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_COMBO_UNPHASED));
+        addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_UNPHASED));
       }
     }
 
     if (geneCall.getGene().equals("CYP2D6")) {
-      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_GENERAL));
-      addMessage(MessageAnnotation.loadMessage(MessageAnnotation.MSG_CYP2D6_MODE));
+      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_MODE));
+      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_NOTE));
     }
 
     if (!geneCall.getGene().equals("CFTR")) {
@@ -646,7 +650,7 @@ public class GeneReport implements Comparable<GeneReport> {
                 .append(h.getName())
                 .append(" allele assignment is characterized by the absence of variants at the positions that are " +
                     "included in the underlying allele definitions");
-            if (this.isMissingVariants()) {
+            if (isMissingVariants()) {
               builder.append(" either because the position is reference or missing");
             }
             builder.append(".");
@@ -654,12 +658,6 @@ public class GeneReport implements Comparable<GeneReport> {
             addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "reference-allele", builder.toString()));
           });
     }
-  }
-
-  private void applyOutsideCallMessages() {
-    addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "outside-call",
-        "The call for " + getGeneDisplay() + " comes from an outside data source which does not supply " +
-            "position-level detail.  For specific disclaimers and limitations, see the original genotyping source."));
   }
 
   /**

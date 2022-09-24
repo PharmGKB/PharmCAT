@@ -174,7 +174,6 @@ public class HtmlFormat extends AbstractFormat {
     result.put("hasUnphasedNote", hasUnphasedNote);
     result.put("summaryMessages", reportContext.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
-        .map(MessageAnnotation::getMessage)
         .toList());
     // Section III
     result.put("geneReports", geneReports);
@@ -272,8 +271,8 @@ public class HtmlFormat extends AbstractFormat {
     private boolean m_isMultiMatch;
     private boolean m_hasInferred;
     private boolean m_hasDpydInferred;
-    private final Set<String> m_messages = new LinkedHashSet<>();
-    private final Set<String> m_footnotes = new LinkedHashSet<>();
+    private final Set<MessageAnnotation> m_messages = new LinkedHashSet<>();
+    private final Set<MessageAnnotation> m_footnotes = new LinkedHashSet<>();
     private final List<Publication> m_citations = new ArrayList<>();
 
     public Recommendation(String drug) {
@@ -303,12 +302,10 @@ public class HtmlFormat extends AbstractFormat {
       // messages
       report.getMessages().stream()
           .filter(MessageAnnotation.isMessage)
-          .map(MessageAnnotation::getMessage)
           .forEach(m_messages::add);
       // footnotes
       report.getMessages().stream()
           .filter(MessageAnnotation.isFootnote)
-          .map(MessageAnnotation::getMessage)
           .forEach(m_footnotes::add);
       // citations
       if (report.getCitations() != null && report.getCitations().size() > 0) {
@@ -403,11 +400,11 @@ public class HtmlFormat extends AbstractFormat {
       return m_hasDpydInferred;
     }
 
-    public Set<String> getMessages() {
+    public Set<MessageAnnotation> getMessages() {
       return m_messages;
     }
 
-    public Set<String> getFootnotes() {
+    public Set<MessageAnnotation> getFootnotes() {
       return m_footnotes;
     }
 

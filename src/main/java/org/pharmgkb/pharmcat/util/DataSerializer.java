@@ -22,6 +22,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
@@ -135,14 +136,30 @@ public class DataSerializer {
         if (StringUtils.isBlank(line)) {
           continue;
         }
-        MessageAnnotation ma = new MessageAnnotation(line);
-        if (ma.getName() == null) {
-          throw new IllegalStateException("Row " + x + ": Missing name");
+        try {
+          MessageAnnotation ma = new MessageAnnotation(line);
+          if (ma.getName() == null) {
+            throw new IllegalStateException("Row " + x + ": Missing name");
+          }
+          if (!keys.add(ma.getName())) {
+            throw new IllegalStateException("Row " + x + ": Duplicate name '" + ma.getName() + "'");
+          }
+          messageAnnotations.add(ma);
+        } catch (IllegalArgumentException ex) {
+          throw new IllegalStateException("Row " + x + ": " + ex.getMessage(), ex);
         }
-        if (!keys.add(ma.getName())) {
-          throw new IllegalStateException("Row " + x + ": Duplicate name '" + ma.getName() + "'");
-        }
-        messageAnnotations.add(ma);
+      }
+    }
+    String[] requiredKeys = new String[] {
+        MessageHelper.MSG_CYP2D6_MODE,
+        MessageHelper.MSG_CYP2D6_NOTE,
+        MessageHelper.MSG_COMBO_NAMING,
+        MessageHelper.MSG_COMBO_UNPHASED,
+        MessageHelper.MSG_OUTSIDE_CALL,
+    };
+    for (String key : requiredKeys) {
+      if (!keys.contains(key)) {
+        throw new IllegalStateException("Missing static key: " + key);
       }
     }
     return messageAnnotations;

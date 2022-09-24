@@ -36,6 +36,7 @@ public class PgkbGuidelineCollection {
 
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
   private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
+  private SortedSet<String> m_genes;
 
 
   public PgkbGuidelineCollection() throws IOException {
@@ -101,9 +102,12 @@ public class PgkbGuidelineCollection {
     return f_guidelineMap.keySet();
   }
 
-  public Set<String> getGenes() {
-    return f_guidelinePackages.stream()
-        .flatMap(p -> p.getGenes().stream())
-        .collect(Collectors.toSet());
+  public SortedSet<String> getGenes() {
+    if (m_genes == null) {
+      m_genes = f_guidelinePackages.stream()
+          .flatMap(p -> p.getGenes().stream())
+          .collect(Collectors.toCollection(TreeSet::new));
+    }
+    return m_genes;
   }
 }

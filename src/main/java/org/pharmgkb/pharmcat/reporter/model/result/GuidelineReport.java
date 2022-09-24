@@ -10,6 +10,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
@@ -31,7 +32,7 @@ public class GuidelineReport {
   @SerializedName("url")
   private String url;
   @Expose
-  @SerializedName("annotationGroups")
+  @SerializedName("annotations")
   private List<AnnotationReport> m_annotationReports = new ArrayList<>();
 
   private transient final SortedSet<GeneReport> relatedGeneReports = new TreeSet<>();
@@ -121,17 +122,22 @@ public class GuidelineReport {
       AnnotationReport annGroup = AnnotationReport.forWarfarin(genotypes);
       addAnnotation(annGroup);
     } else if (cpicDrug.getRecommendations() != null) {
+      int gx = 0;
       for (Genotype genotype : genotypes) {
-        cpicDrug.getRecommendations().stream()
-            .filter((r) -> r.matchesGenotype(genotype))
-            .forEach((r) -> {
-              AnnotationReport annGroup = new AnnotationReport(r);
-              annGroup.addGenotype(genotype);
-              addAnnotation(annGroup);
-            });
+        gx += 1;
+        int rx = 0;
+        for (Recommendation rec : cpicDrug.getRecommendations()) {
+          if (rec.matchesGenotype(genotype)) {
+            rx += 1;
+            String id = "cpic-" + cpicDrug.getDrugName() + "-" + rx + "-" + gx;
+            AnnotationReport annGroup = new AnnotationReport(rec, id);
+            annGroup.addGenotype(genotype);
+            addAnnotation(annGroup);
+          }
+        }
       }
     }
-  }
+   }
 
 
   public void matchAnnotationsToGenotype(List<Genotype> genotypes, GuidelinePackage guidelinePackage) {
@@ -141,34 +147,37 @@ public class GuidelineReport {
         if (diplotype.isPhenotypeOnly() || diplotype.isAllelePresenceType()) {
           guidelinePackage.getGroups().stream()
               .filter(group -> diplotype.getPhenotypes().stream().anyMatch(p -> group.getName().equalsIgnoreCase(p)))
-              .forEach(g -> {
-                g.addMatchingDiplotype(diplotype);
-                g.addMatchingGenotype(genotype);
-                matchedGroups.add(g);
+              .forEach(group -> {
+                group.addMatchingDiplotype(diplotype);
+                group.addMatchingGenotype(genotype);
+                matchedGroups.add(group);
               });
         } else if (!diplotype.isUnknownAlleles()) {
           Set<String> functionKeys = guidelinePackage.getGuideline().getFunctionKeysForDiplotype(diplotype);
           for (String functionKey : functionKeys) {
             guidelinePackage.getGroups().stream()
                 .filter(group -> group.matchesKey(functionKey))
-                .forEach(g -> {
-                  g.addMatchingFunctionKey(functionKey);
-                  g.addMatchingDiplotype(diplotype);
-                  g.addMatchingGenotype(genotype);
-                  matchedGroups.add(g);
+                .forEach(group -> {
+                  group.addMatchingFunctionKey(functionKey);
+                  group.addMatchingDiplotype(diplotype);
+                  group.addMatchingGenotype(genotype);
+                  matchedGroups.add(group);
                 });
           }
         }
       }
     }
-    matchedGroups
-        .forEach((group) -> {
-          AnnotationReport annGroup = new AnnotationReport(group, guidelinePackage.getGenes().iterator().next());
-          group.getMatchingGenotypes().forEach((genotype) -> {
-            guidelinePackage.applyFunctions(genotype);
-            annGroup.addGenotype(genotype);
-          });
-          addAnnotation(annGroup);
-        });
+    int rx = 0;
+    for (Group group : matchedGroups) {
+      rx += 1;
+      String geneSymbol = guidelinePackage.getGenes().iterator().next();
+      String id = "dpwg-" + guidelinePackage.getGuideline().getId() + "-" + rx;
+      AnnotationReport annGroup = new AnnotationReport(group, geneSymbol, id);
+      group.getMatchingGenotypes().forEach((genotype) -> {
+        guidelinePackage.applyFunctions(genotype);
+        annGroup.addGenotype(genotype);
+      });
+      addAnnotation(annGroup);
+    }
   }
 }

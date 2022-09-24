@@ -47,6 +47,19 @@ public class AnnotationReport {
   private final List<String> m_highlightedVariants = new ArrayList<>();
 
 
+  /**
+   * ID for this report.
+   * Mainly used for testing.
+   */
+  private transient final String m_localId;
+
+  /**
+   * Gets a local ID for this annotation.
+   * This should only be used to disambiguate annotations.
+   */
+  public String getLocalId() {
+    return m_localId;
+  }
 
 
   /**
@@ -54,7 +67,7 @@ public class AnnotationReport {
    *
    * @param recommendation a CPIC recommendation
    */
-  public AnnotationReport(Recommendation recommendation) {
+  public AnnotationReport(Recommendation recommendation, String localId) {
     if (recommendation.getImplications() != null) {
       implications.putAll(recommendation.getImplications());
     }
@@ -68,6 +81,8 @@ public class AnnotationReport {
       activityScore.putAll(recommendation.getActivityScore());
     }
     population = recommendation.getPopulation();
+
+    m_localId = localId;
   }
 
   /**
@@ -76,7 +91,7 @@ public class AnnotationReport {
    * @param group a group of DPWG annotations
    * @param gene the single gene this annotation applies to, fix for mapping certain annotations
    */
-  public AnnotationReport(Group group, String gene) {
+  public AnnotationReport(Group group, String gene, String localId) {
     if (group.getImplications() != null) {
       implications.put(gene, group.getImplications().getHtmlStripped());
     }
@@ -94,16 +109,19 @@ public class AnnotationReport {
     }
     population = TextConstants.NA;
     comments = TextConstants.NA;
+
+    m_localId = localId;
   }
 
-  private AnnotationReport() {
+  private AnnotationReport(String localId) {
+    m_localId = localId;
   }
 
   /**
    * Creates a special {@link AnnotationReport} for warfarin in CPIC.
    */
   public static AnnotationReport forWarfarin(List<Genotype> genotypes) {
-    AnnotationReport annotationReport = new AnnotationReport();
+    AnnotationReport annotationReport = new AnnotationReport("warfarin-cpic-1-1");
     genotypes.forEach(annotationReport::addGenotype);
     return annotationReport;
   }

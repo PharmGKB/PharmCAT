@@ -20,14 +20,11 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.reporter.DrugCollection;
-import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -47,7 +44,6 @@ import org.slf4j.LoggerFactory;
  */
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final List<String> sf_cpicGenesWithNoPhenotype = Lists.newArrayList("CYP4F2", "IFNL3");
 
   @Expose
   @SerializedName("geneReports")
@@ -75,10 +71,8 @@ public class Phenotyper {
 
     // matcher calls
     for (GeneCall geneCall : geneCalls) {
-      if (env.getPhenotype(geneCall.getGene(), source) == null) {
-        if (!(source == DataSource.CPIC && sf_cpicGenesWithNoPhenotype.contains(geneCall.getGene()))) {
-          continue;
-        }
+      if (!env.hasGene(source, geneCall.getGene())) {
+        continue;
       }
       GeneReport geneReport = new GeneReport(geneCall, env, source);
       reportMap.put(geneReport.getGene(), geneReport);
@@ -118,7 +112,7 @@ public class Phenotyper {
     }
 
     // all other genes
-    for (String geneSymbol : listUnspecifiedGenes(source)) {
+    for (String geneSymbol : listUnspecifiedGenes(env, source)) {
       reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
     }
 
@@ -170,26 +164,19 @@ public class Phenotyper {
   }
 
 
-  private Set<String> listUnspecifiedGenes(DataSource source) {
+  private Set<String> listUnspecifiedGenes(Env env, DataSource source) {
     if (source == DataSource.UNKNOWN) {
       return Collections.emptySet();
     }
-    try {
-      DrugCollection cpicDrugs = new DrugCollection();
-      PgkbGuidelineCollection dpwgDrugs = new PgkbGuidelineCollection();
-
-      Set<String> unspecifiedGenes = new HashSet<>();
-      if (source == DataSource.CPIC) {
-        unspecifiedGenes.addAll(cpicDrugs.getAllReportableGenes());
-      } else {
-        unspecifiedGenes.addAll(dpwgDrugs.getGenes());
-      }
-      m_geneReports.get(source).values().stream()
-          .map(GeneReport::getGene)
-          .forEach(unspecifiedGenes::remove);
-      return unspecifiedGenes;
-    } catch (IOException ex) {
-      throw new RuntimeException("Error reading drug data", ex);
+    Set<String> unspecifiedGenes = new HashSet<>();
+    if (source == DataSource.CPIC) {
+      unspecifiedGenes.addAll(env.getCpicGenes());
+    } else {
+      unspecifiedGenes.addAll(env.getDpwgGenes());
     }
+    m_geneReports.get(source).values().stream()
+        .map(GeneReport::getGene)
+        .forEach(unspecifiedGenes::remove);
+    return unspecifiedGenes;
   }
 }

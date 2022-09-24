@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
@@ -30,10 +33,18 @@ import org.pharmgkb.pharmcat.util.DataSerializer;
  * Helper class to help assign custom messages to {@link GeneReport} and {@link DrugReport}.
  */
 public class MessageHelper {
+  // REMINDER: add static keys to DataSerializer.deserializeMessagesFromTsv to make sure they exist
+  public static final String MSG_COMBO_NAMING = "pcat-combo-naming";
+  public static final String MSG_COMBO_UNPHASED = "pcat-combo-unphased";
+  public static final String MSG_CYP2D6_MODE = "pcat-cyp2d6-research-mode";
+  public static final String MSG_CYP2D6_NOTE = "pcat-cyp2d6-gene-note";
+  public static final String MSG_OUTSIDE_CALL = "pcat-outside-call";
+  // -- end static keys
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/" + MESSAGES_JSON_FILE_NAME;
   private final Multimap<String, MessageAnnotation> m_geneMap = HashMultimap.create();
   private final Multimap<String, MessageAnnotation> m_drugMap = HashMultimap.create();
+  private final Map<String, MessageAnnotation> m_staticMap = new HashMap<>();
 
 
   /**
@@ -50,9 +61,17 @@ public class MessageHelper {
         }
         msg.getMatches().getDrugs()
             .forEach((d) -> m_drugMap.put(d, msg));
+        if (msg.getName().startsWith("pcat-")) {
+          m_staticMap.put(msg.getName(), msg);
+        }
       }
     }
   }
+
+  public @Nullable MessageAnnotation getMessage(String key) {
+    return m_staticMap.get(key);
+  }
+
 
   /**
    * This method will go through all messages and add any matching {@link MessageAnnotation} objects to the
@@ -181,10 +200,10 @@ public class MessageHelper {
         .map(VariantReport::getCall)
         .findFirst();
     if (call.isEmpty() || StringUtils.isBlank(call.get())) {
-      return rsid + ": " + Haplotype.UNKNOWN;
+      return rsid + ":" + Haplotype.UNKNOWN;
     }
     else {
-      return rsid + ": " + call.get().replaceAll("\\|", "/");
+      return rsid + ":" + call.get().replaceAll("\\|", "/");
     }
   }
 
@@ -203,7 +222,11 @@ public class MessageHelper {
   private boolean matchDrugReport(MessageAnnotation message, ReportContext reportContext,
       DataSource source) {
     String gene = message.getMatches().getGene();
-    return StringUtils.isBlank(gene) || reportContext.getGeneReport(source, gene)
-        .hasMessage(message.getName());
+    if (StringUtils.isBlank(gene)) {
+      return true;
+    }
+    GeneReport geneReport = reportContext.getGeneReport(source, gene);
+    // don't apply message if gene has no data
+    return !geneReport.isNoData() && geneReport.hasMessage(message.getName());
   }
 }

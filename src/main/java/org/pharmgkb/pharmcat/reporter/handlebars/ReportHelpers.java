@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -61,11 +60,7 @@ public class ReportHelpers {
 
   public static String printRecMap(Map<String, String> data) {
     if (data.size() == 1) {
-      String val = data.values().iterator().next();
-      if (val.equalsIgnoreCase(TextConstants.NA)) {
-        val = TextConstants.NA;
-      }
-      return "<p>" + val + "</p>";
+      return "<p>" + capitalizeNA(data.values().iterator().next()) + "</p>";
     }
 
     StringBuilder builder = new StringBuilder()
@@ -73,13 +68,9 @@ public class ReportHelpers {
     for (String key : data.keySet()) {
       builder.append("<dt>")
           .append(key)
-          .append(":</dt><dd>");
-      String val = data.get(key);
-      if (val.equalsIgnoreCase(TextConstants.NA)) {
-        val = TextConstants.NA;
-      }
-      builder.append(val);
-      builder.append("</dd>");
+          .append(":</dt><dd>")
+          .append(capitalizeNA(data.get(key)))
+          .append("</dd>");
     }
     builder.append("</dl>");
     return builder.toString();
@@ -119,14 +110,25 @@ public class ReportHelpers {
     if (diplotype.isCombination() && isDpyd(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
     } else {
-      return diplotype.printFunctionPhrase();
+      return capitalizeNA(diplotype.printFunctionPhrase());
     }
   }
 
   public static String gsPhenotype(Diplotype diplotype) {
-    return diplotype.printPhenotypes();
+    return capitalizeNA(diplotype.printPhenotypes());
   }
 
+
+  public static String rxAnnotationClass(DataSource source, String drug) {
+    StringBuilder builder = new StringBuilder();
+    if (source == DataSource.CPIC) {
+      builder.append("cpic-");
+    } else {
+      builder.append("dpwg-");
+    }
+    builder.append(drug);
+    return builder.toString();
+  }
 
   public static boolean rxIsCpicWarfarin(String drug, DataSource source) {
     return drug.equals("warfarin") && source == DataSource.CPIC;
@@ -158,24 +160,47 @@ public class ReportHelpers {
           .append(diplotype.getGene())
           .append("\">")
           .append(diplotype.getGene())
-          .append("</a>:")
-          .append(diplotype.printBare());
+          .append("</a>:");
+      String call = diplotype.printBare();
+      if (call.length() <= 15) {
+        builder.append(call);
+      } else {
+        int idx = call.indexOf("/");
+        if (idx == -1) {
+          builder.append("<br />")
+              .append(call);
+        } else {
+          String a = call.substring(0, idx + 1);
+          String b = call.substring(idx + 1);
+          if (a.length() > 15) {
+            builder.append("<br />");
+          }
+          builder.append(a)
+              .append("<br />")
+              .append(b);
+        }
+      }
     }
     if (annotationReport.getHighlightedVariants().size() > 0) {
       for (String var : annotationReport.getHighlightedVariants()) {
         if (builder.length() > 0) {
           builder.append(";<br />");
         }
-        builder.append(var);
+        builder.append("<span id=\"")
+            .append(annotationReport.getLocalId())
+            .append("-")
+            .append(var, 0, var.indexOf(":"))
+            .append("\">")
+            .append(var)
+            .append("</span>");
       }
     }
     return builder.toString();
   }
 
-  public static List<String> rxAnnotationMessages(AnnotationReport annotationReport) {
+  public static List<MessageAnnotation> rxAnnotationMessages(AnnotationReport annotationReport) {
     return annotationReport.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
-        .map(MessageAnnotation::getMessage)
         .toList();
   }
 
@@ -256,10 +281,9 @@ public class ReportHelpers {
     return geneReport.getVariantReports().size();
   }
 
-  public static List<String> amdMessages(GeneReport geneReport) {
+  public static List<MessageAnnotation> amdMessages(GeneReport geneReport) {
     return geneReport.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
-        .map(MessageAnnotation::getMessage)
         .toList();
   }
 
@@ -267,7 +291,7 @@ public class ReportHelpers {
     return geneReport.getMessages().stream()
         .filter(MessageAnnotation.isExtraPositionNote)
         .map(MessageAnnotation::getMessage)
-        .collect(Collectors.toList());
+        .toList();
   }
 
 
@@ -319,5 +343,19 @@ public class ReportHelpers {
     }
     return externalHref(url, pub.getTitle()) + period + " <i>" + pub.getJournal() + "</i>. " + pub.getYear() +
         ". PMID:" + pub.getPmid();
+  }
+
+  public static String capitalizeNA(String text) {
+    if (TextConstants.NA.equalsIgnoreCase(text)) {
+      return "N/A";
+    }
+    return text;
+  }
+
+  public static String messageClass(MessageAnnotation msg) {
+    return msg.getName()
+        .replaceAll("\\p{Punct}", "-")
+        .replaceAll("\\s+", "-")
+        .replaceAll("-+", "-");
   }
 }

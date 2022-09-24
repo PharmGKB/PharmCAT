@@ -2,9 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.MissingResourceException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
@@ -33,28 +31,9 @@ public class MessageAnnotation {
       !m.getExceptionType().equals(TYPE_EXTRA_POSITION) &&
       !m.getExceptionType().equals(TYPE_REPORT_AS_GENOTYPE) ;
 
-  public static final String MSG_COMBO_NAMING = "combo-naming";
-  public static final String MSG_COMBO_UNPHASED = "combo-unphased";
-  public static final String MSG_CYP2D6_GENERAL = "cyp2d6-general";
-  public static final String MSG_CYP2D6_MODE = "cyp2d6-mode";
-
-  private static final ResourceBundle sf_resources = ResourceBundle.getBundle("messages");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults();
   private static final int sf_rowLength = 12;
 
-
-  /**
-   * Loads static message from messages.properties.
-   */
-  public static MessageAnnotation loadMessage(String key) {
-    String name = key;
-    try {
-      name = sf_resources.getString(key + "_name");
-    } catch (MissingResourceException ex) {
-      // ignore
-    }
-    return new MessageAnnotation(TYPE_NOTE, name, sf_resources.getString(key + "_message"));
-  }
 
   /**
    * This constructor parses a TSV row from the
@@ -94,8 +73,10 @@ public class MessageAnnotation {
   }
 
   /**
-   * Normal constructor for message annotations.
-   * It is left to the caller to determine whether and where the message is meant to apply.
+   * Constructor for dynamic message annotations.
+   * <p>
+   * This should only be used when the message needs to be generated dynamically and cannot come from the PharmCAT
+   * Message Annotations sheet.
    */
   public MessageAnnotation(String type, String name, String message) {
     m_exceptionType = type;
@@ -144,9 +125,6 @@ public class MessageAnnotation {
 
   @Override
   public String toString() {
-    if (m_name != null) {
-      return m_name;
-    }
     return m_message;
   }
 
