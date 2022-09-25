@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
@@ -50,51 +51,84 @@ class SyntheticBatchTest {
         .addOption("rc", "reporter-compact", "output compact report")
         .addOption("cpic", "cpic", "CPIC reports")
         .addOption("dpwg", "dpwg", "DPWG reports")
+        .addOption("mega", "mega", "generate all variations in one run")
         ;
 
     try {
       if (!cliHelper.parse(args)) {
         System.exit(1);
       }
-      boolean compact = cliHelper.hasOption("rc");
-      List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
-      boolean cpic = cliHelper.hasOption("cpic");
-      boolean dpwg = cliHelper.hasOption("dpwg");
-      if (cpic || dpwg) {
-        sources.clear();
-        if (cpic) {
-          sources.add(DataSource.CPIC);
+
+      if (cliHelper.hasOption("mega")) {
+        System.out.println("Doing MEGA test set!");
+        Path dir = null;
+        if (cliHelper.hasOption("o")) {
+          dir = cliHelper.getValidDirectory("o", true);
+        } else {
+          System.out.println("Must specify output directory (-o) when using -mega flag");
+          System.exit(1);
         }
-        if (dpwg) {
-          sources.add(DataSource.DPWG);
+
+        List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+        doRun(dir.resolve("default"), false, sources, true);
+        doRun(dir.resolve("compact"), true, sources, true);
+        doRun(dir.resolve("cpic"), false, Lists.newArrayList(DataSource.CPIC), true);
+        doRun(dir.resolve("cpic-compact"), true, Lists.newArrayList(DataSource.CPIC), true);
+        doRun(dir.resolve("dpwg"), false, Lists.newArrayList(DataSource.DPWG), true);
+        doRun(dir.resolve("dpwg-compact"), true, Lists.newArrayList(DataSource.DPWG), true);
+
+
+      } else {
+        List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+        boolean cpic = cliHelper.hasOption("cpic");
+        boolean dpwg = cliHelper.hasOption("dpwg");
+        if (cpic || dpwg) {
+          sources.clear();
+          if (cpic) {
+            sources.add(DataSource.CPIC);
+          }
+          if (dpwg) {
+            sources.add(DataSource.DPWG);
+          }
         }
-      }
-
-      if (cliHelper.hasOption("o")) {
-        TestUtils.setTestOutputDir(cliHelper.getValidDirectory("o", true));
-      }
-      TestUtils.setSaveTestOutput(true);
-
-      SyntheticBatchTest piplelineTest = new SyntheticBatchTest(compact, sources);
-      piplelineTest.execute();
-
-      if (cliHelper.hasOption("a")) {
-        PharmCATTest.setCompact(compact);
-        PharmCATTest.setSources(sources);
-        SummaryGeneratingListener listener = new SummaryGeneratingListener();
-        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
-            .selectors(selectClass(PharmCATTest.class))
-            .build();
-        Launcher launcher = LauncherFactory.create();
-        launcher.discover(request);
-        launcher.registerTestExecutionListeners(listener);
-        launcher.execute(request);
+        Path dir = null;
+        if (cliHelper.hasOption("o")) {
+          dir = cliHelper.getValidDirectory("o", true);
+        }
+        doRun(dir, cliHelper.hasOption("rc"), sources, cliHelper.hasOption("a"));
       }
 
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
+
+  private static void doRun(@Nullable Path dir, boolean compact, List<DataSource> sources, boolean allTests)
+      throws Exception {
+    if (dir != null) {
+      System.out.println("Saving results to " + dir);
+      TestUtils.setTestOutputDir(dir);
+    }
+    TestUtils.setSaveTestOutput(true);
+
+    SyntheticBatchTest piplelineTest = new SyntheticBatchTest(compact, sources);
+    piplelineTest.execute();
+
+    if (allTests) {
+      PharmCATTest.setCompact(compact);
+      PharmCATTest.setSources(sources);
+      SummaryGeneratingListener listener = new SummaryGeneratingListener();
+      LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
+          .selectors(selectClass(PharmCATTest.class))
+          .build();
+      Launcher launcher = LauncherFactory.create();
+      launcher.discover(request);
+      launcher.registerTestExecutionListeners(listener);
+      launcher.execute(request);
+    }
+  }
+
+
 
   private void execute() throws Exception {
 
