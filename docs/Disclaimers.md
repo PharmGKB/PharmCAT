@@ -18,11 +18,13 @@ and that they are using PharmCAT at their own risk.__
 2. PharmCAT results are dependent on the supplied vcf calls for the queried positions (for technical information about
    PharmCAT input formatting and requirements, please go to
    [pharmcat.org](https://pharmcat.org/)). PharmCAT does not assume any reference calls for positions missing from the
-   submitted vcf file; all missing queried positions are not considered in the allele determination process. See
-   the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases) for more information about what positions
-   are queried in the vcf file. Missing positions might alter the assigned genotype, subsequent phenotype prediction and
-   CPIC recommendation. If the supplied vcf file is missing positions, those positions will be noted in Section III:
-   Allele Matching Details for each gene of this report. For the most reliable allele determination, reference calls as 
+   submitted vcf file; all missing queried positions are not considered in the allele determination process. However, 
+   if an allele that includes a missing position is defined by an additional position(s) for which calls are provided, 
+   the allele will be considered in the matching process based on the available information. This might lead to the output 
+   of multiple possible genotypes. See the [gene definition tables](https://github.com/PharmGKB/PharmCAT/releases) for more
+   information about what positions are queried in the vcf file. Missing positions might alter the assigned genotype, 
+   subsequent phenotype prediction and CPIC recommendation. If the supplied vcf file is missing positions, those positions will 
+   be noted in Section III: Allele Matching Details for each gene of this report. For the most reliable allele determination, reference calls as 
    well as variant calls in the vcf file for every queried position must be provided by the user.
 3. For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the \*1 allele is defined by the absence of variation
    specified in the gene definition tables. This allele cannot be identified by variants; rather, \*1 is assigned by
@@ -95,14 +97,20 @@ that define the non-\*1 allele in the genotype with the higher score.
 
 1. All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-data).
 
-## C. PharmCAT Exceptions to the CPIC Guideline Gene List
+## C. DPWG Recommendation
 
-1. PharmCAT does not determine CYP2D6, G6PD, MT-RNR1, or HLA genotypes from the vcf file, but genotypes for CYP2D6,
-   G6PD, and MT-RNR1 can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing
-   recommendations will be included in the generated report.
-2. HLAs are currently not included in PharmCAT.
+1. PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.knmp.nl/dossiers/farmacogenetica). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
-## D. CPIC Guideline Disclaimers and Caveats
+2. IMPORTANT: As of March 2022, gene information documents from the DPWG are no longer publicly available from the KNMP website. PharmGKB is currently providing PDF versions of these documents to users. These files were downloaded in February 2022. As such, it cannot be guaranteed that these documents match the mappings DPWG may use internally as there have been no publicly accessible updates since February 2022.
+
+## D. PharmCAT Exceptions to the CPIC Guideline Gene List
+
+1. PharmCAT does not determine CYP2D6, G6PD, MT-RNR1, HLA-A, or HLA-B genotypes from the vcf file, but genotypes for CYP2D6,
+   G6PD, MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype and prescribing
+   recommendations will be included in the generated report. For the required format of the outside calls refer to [PharmCAT documentation](https://pharmcat.org).
+
+
+## E. CPIC Guideline Disclaimers and Caveats
 
 1. A version of the following quoted disclaimer is part of each CPIC guideline and applies to the CPIC recommendations
    as used in PharmCAT. For the full description of potential benefits and risks, additional considerations (general and
@@ -132,6 +140,6 @@ that define the non-\*1 allele in the genotype with the higher score.
    extensive allele definitions might exist by the representative gene nomenclatures for various genes.
 3. CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).
 
-## E. PharmGKB Disclaimers and Caveats
+## F. PharmGKB Disclaimers and Caveats
 
 1. PharmGKB is a registered service mark of the U.S. Department of Health & Human Services (HHS).
