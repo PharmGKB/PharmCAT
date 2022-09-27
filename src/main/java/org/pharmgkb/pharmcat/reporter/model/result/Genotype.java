@@ -16,7 +16,7 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 public class Genotype {
   @Expose
   @SerializedName("diplotypes")
-  private final SortedSet<Diplotype> diplotypes = new TreeSet<>();
+  private final SortedSet<Diplotype> m_diplotypes = new TreeSet<>();
 
 
   public Genotype(Collection<Diplotype> diplotypes) {
@@ -28,35 +28,35 @@ public class Genotype {
   }
 
   public SortedSet<Diplotype> getDiplotypes() {
-    return diplotypes;
+    return m_diplotypes;
   }
 
   public void addDiplotype(Diplotype diplotype) {
     if (getDiplotypes().stream().anyMatch(d -> d.getGene().equals(diplotype.getGene()))) {
       throw new RuntimeException("Genotype already has diplotype for " + diplotype.getGene());
     }
-    this.diplotypes.add(diplotype);
+    this.m_diplotypes.add(diplotype);
   }
 
   public boolean isInferred() {
-    return diplotypes.stream().anyMatch(d -> d.getObserved() == Observation.INFERRED);
+    return m_diplotypes.stream().anyMatch(d -> d.getObserved() == Observation.INFERRED);
   }
 
   public String toString() {
-    if (this.diplotypes.size() == 0) {
+    if (this.m_diplotypes.size() == 0) {
       return TextConstants.UNKNOWN_GENOTYPE;
     } else {
-      return this.diplotypes.stream()
+      return this.m_diplotypes.stream()
           .map(Diplotype::toString)
           .collect(Collectors.joining("; "));
     }
   }
 
   public String getPhenotypes() {
-    if (this.diplotypes.size() == 0) {
+    if (this.m_diplotypes.size() == 0) {
       return Haplotype.UNKNOWN;
     } else {
-      return this.diplotypes.stream()
+      return this.m_diplotypes.stream()
           .map(Diplotype::toString)
           .collect(Collectors.joining("; "));
     }

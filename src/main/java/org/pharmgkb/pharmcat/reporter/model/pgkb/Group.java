@@ -2,15 +2,10 @@
 package org.pharmgkb.pharmcat.reporter.model.pgkb;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 
 /**
@@ -45,10 +40,6 @@ public class Group implements Comparable<Group> {
   @SerializedName("activityScore")
   @Expose
   private Markdown activityScore;
-
-  private Set<String> matchingFunctionKeys = new TreeSet<>();
-  private Set<Diplotype> matchingDiplotypes = new TreeSet<>();
-  private final Set<Genotype> matchingGenotypes = new HashSet<>();
 
 
   public String getId() {
@@ -133,29 +124,6 @@ public class Group implements Comparable<Group> {
     this.metabolizerStatus = metabolizerStatus;
   }
 
-  public Set<String> getMatchingFunctionKeys() {
-    return matchingFunctionKeys;
-  }
-
-  public void setMatchingFunctionKeys(Set<String> matchingFunctionKeys) {
-    this.matchingFunctionKeys = matchingFunctionKeys;
-  }
-
-  public void addMatchingFunctionKey(String functionKey) {
-    this.matchingFunctionKeys.add(functionKey);
-  }
-
-  public Set<Diplotype> getMatchingDiplotypes() {
-    return matchingDiplotypes;
-  }
-
-  public void setMatchingDiplotypes(Set<Diplotype> matchingDiplotypes) {
-    this.matchingDiplotypes = matchingDiplotypes;
-  }
-
-  public void addMatchingDiplotype(Diplotype diplotype) {
-    this.matchingDiplotypes.add(diplotype);
-  }
 
   public Markdown getRecommendation() {
     return recommendation;
@@ -179,13 +147,5 @@ public class Group implements Comparable<Group> {
 
   public void setActivityScore(Markdown activityScore) {
     this.activityScore = activityScore;
-  }
-
-  public Set<Genotype> getMatchingGenotypes() {
-    return matchingGenotypes;
-  }
-
-  public void addMatchingGenotype(Genotype genotype) {
-    matchingGenotypes.add(genotype);
   }
 }

@@ -47,24 +47,24 @@ public class DrugReport implements Comparable<DrugReport> {
   private final List<String> m_reportVariants = new ArrayList<>();
   @Expose
   @SerializedName("urls")
-  private final List<String> f_urls = new ArrayList<>();
+  private final List<String> m_urls = new ArrayList<>();
   @Expose
   @SerializedName("citations")
-  private final List<Publication> f_citations = new ArrayList<>();
+  private final List<Publication> m_citations = new ArrayList<>();
   @Expose
   @SerializedName("guidelines")
-  private final List<GuidelineReport> f_guidelines = new ArrayList<>();
+  private final List<GuidelineReport> m_guidelines = new ArrayList<>();
 
 
   public DrugReport(Drug drug, ReportContext reportContext) {
     m_drugName = drug.getDrugName();
     m_cpicId = drug.getDrugId();
-    f_urls.add(drug.getUrl());
+    m_urls.add(drug.getUrl());
     if (drug.getCitations() != null) {
       // cpic data can have array with null value in it
       drug.getCitations().stream()
           .filter(Objects::nonNull)
-          .forEach(f_citations::add);
+          .forEach(m_citations::add);
     }
 
     // 1 guideline report per CPIC drug
@@ -75,7 +75,7 @@ public class DrugReport implements Comparable<DrugReport> {
       List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
       guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, drug);
     }
-    f_guidelines.add(guidelineReport);
+    m_guidelines.add(guidelineReport);
   }
 
   public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
@@ -90,9 +90,9 @@ public class DrugReport implements Comparable<DrugReport> {
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
-      f_urls.add(guidelinePackage.getGuideline().getUrl());
+      m_urls.add(guidelinePackage.getGuideline().getUrl());
       if (guidelinePackage.getCitations() != null) {
-        f_citations.addAll(guidelinePackage.getCitations());
+        m_citations.addAll(guidelinePackage.getCitations());
       }
 
       GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
@@ -100,7 +100,7 @@ public class DrugReport implements Comparable<DrugReport> {
       // add matching recommendations
       List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
       guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, guidelinePackage);
-      f_guidelines.add(guidelineReport);
+      m_guidelines.add(guidelineReport);
     }
   }
 
@@ -149,7 +149,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
    */
   public Collection<String> getRelatedGeneSymbols() {
-    return f_guidelines.stream()
+    return m_guidelines.stream()
         .flatMap((guidelineReport) -> guidelineReport.getRelatedGeneReports().stream())
         .map(GeneReport::getGene)
         .distinct()
@@ -159,14 +159,14 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public boolean isMatched() {
     return sf_notApplicableMatches.contains(getCpicId())
-        || f_guidelines.stream().anyMatch(GuidelineReport::isMatched);
+        || m_guidelines.stream().anyMatch(GuidelineReport::isMatched);
   }
 
   /**
    * Gets the URL for the whole annotation
    */
   public List<String> getUrls() {
-    return f_urls;
+    return m_urls;
   }
 
   @Override
@@ -218,7 +218,7 @@ public class DrugReport implements Comparable<DrugReport> {
    * Gets the literature objects that are used for citation of this Guideline
    */
   public List<Publication> getCitations() {
-    return f_citations;
+    return m_citations;
   }
 
   public boolean isCpic() {
@@ -230,7 +230,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public List<GuidelineReport> getGuidelines() {
-    return f_guidelines;
+    return m_guidelines;
   }
 
   public int getMatchedAnnotationCount() {

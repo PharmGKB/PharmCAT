@@ -18,10 +18,10 @@ public class Haplotype implements Comparable<Haplotype> {
 
   @Expose
   @SerializedName("gene")
-  private final String f_gene;
+  private final String m_gene;
   @Expose
   @SerializedName("name")
-  private final String f_name;
+  private final String m_name;
   @Expose
   @SerializedName("function")
   private String m_function;
@@ -36,33 +36,33 @@ public class Haplotype implements Comparable<Haplotype> {
    * public constructor
    */
   public Haplotype(String gene, String name) {
-    f_gene = gene;
-    f_name = name;
+    m_gene = gene;
+    m_name = name;
   }
 
   /**
    * Gets the name of the gene for this haplotype
    */
   public String getGene() {
-    return f_gene;
+    return m_gene;
   }
 
   /**
    * Gets just the name of this haplotype, e.g. "*10"
    */
   public String getName() {
-    return f_name;
+    return m_name;
   }
 
   /**
    * Gets the display name of this haplotype, e.g. "GENEX*10"
    */
   public String toString() {
-    if (f_name.startsWith("*")) {
-      return f_gene + f_name;
+    if (m_name.startsWith("*")) {
+      return m_gene + m_name;
     }
     else {
-      return f_gene + " " + f_name;
+      return m_gene + " " + m_name;
     }
   }
 
@@ -96,7 +96,7 @@ public class Haplotype implements Comparable<Haplotype> {
    * True if this haplotype is unknown
    */
   public boolean isUnknown() {
-    return f_name.equals(UNKNOWN);
+    return m_name.equals(UNKNOWN);
   }
 
 
@@ -132,16 +132,16 @@ public class Haplotype implements Comparable<Haplotype> {
 
     Haplotype h = (Haplotype)o;
     return new EqualsBuilder()
-        .append(f_gene, h.getGene())
-        .append(f_name, h.getName())
+        .append(m_gene, h.getGene())
+        .append(m_name, h.getName())
         .isEquals();
   }
 
   @Override
   public int hashCode() {
     return new HashCodeBuilder(31, 167)
-        .append(f_gene)
-        .append(f_name)
+        .append(m_gene)
+        .append(m_name)
         .toHashCode();
   }
 }

@@ -17,28 +17,28 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 public class AnnotationReport {
   @Expose
   @SerializedName("implications")
-  private final SortedMap<String,String> implications = new TreeMap<>();
+  private final SortedMap<String,String> m_implications = new TreeMap<>();
   @Expose
   @SerializedName("drugRecommendation")
-  private String drugRecommendation;
+  private String m_drugRecommendation;
   @Expose
   @SerializedName("classification")
-  private String classification;
+  private String m_classification;
   @Expose
   @SerializedName("phenotypes")
-  private final SortedMap<String,String> phenotypes = new TreeMap<>();
+  private final SortedMap<String,String> m_phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("activityScore")
-  private final SortedMap<String,String> activityScore = new TreeMap<>();
+  private final SortedMap<String,String> m_activityScore = new TreeMap<>();
   @Expose
   @SerializedName("population")
-  private String population = TextConstants.NA;
+  private String m_population = TextConstants.NA;
   @Expose
   @SerializedName("genotypes")
-  private final List<Genotype> genotypes = new ArrayList<>();
+  private final List<Genotype> m_genotypes = new ArrayList<>();
   @Expose
   @SerializedName("comments")
-  private String comments = TextConstants.NA;
+  private String m_comments = TextConstants.NA;
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
@@ -69,18 +69,18 @@ public class AnnotationReport {
    */
   public AnnotationReport(Recommendation recommendation, String localId) {
     if (recommendation.getImplications() != null) {
-      implications.putAll(recommendation.getImplications());
+      m_implications.putAll(recommendation.getImplications());
     }
-    drugRecommendation = recommendation.getDrugRecommendation();
-    classification = recommendation.getClassification();
-    comments = recommendation.getComments();
+    m_drugRecommendation = recommendation.getDrugRecommendation();
+    m_classification = recommendation.getClassification();
+    m_comments = recommendation.getComments();
     if (recommendation.getPhenotypes() != null) {
-      phenotypes.putAll(recommendation.getPhenotypes());
+      m_phenotypes.putAll(recommendation.getPhenotypes());
     }
     if (recommendation.getActivityScore() != null) {
-      activityScore.putAll(recommendation.getActivityScore());
+      m_activityScore.putAll(recommendation.getActivityScore());
     }
-    population = recommendation.getPopulation();
+    m_population = recommendation.getPopulation();
 
     m_localId = localId;
   }
@@ -93,22 +93,22 @@ public class AnnotationReport {
    */
   public AnnotationReport(Group group, String gene, String localId) {
     if (group.getImplications() != null) {
-      implications.put(gene, group.getImplications().getHtmlStripped());
+      m_implications.put(gene, group.getImplications().getHtmlStripped());
     }
     if (group.getRecommendation() != null) {
-      drugRecommendation = group.getRecommendation().getHtmlStripped();
+      m_drugRecommendation = group.getRecommendation().getHtmlStripped();
     }
     if (group.getStrength() != null) {
-      classification = group.getStrength().getTerm();
+      m_classification = group.getStrength().getTerm();
     }
     if (group.getActivityScore() != null) {
-      activityScore.put(gene, group.getActivityScore().getHtmlStripped());
+      m_activityScore.put(gene, group.getActivityScore().getHtmlStripped());
     }
     if (group.getMetabolizerStatus() != null) {
-      phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
+      m_phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
     }
-    population = TextConstants.NA;
-    comments = TextConstants.NA;
+    m_population = TextConstants.NA;
+    m_comments = TextConstants.NA;
 
     m_localId = localId;
   }
@@ -128,41 +128,41 @@ public class AnnotationReport {
 
 
   public List<Genotype> getGenotypes() {
-    return genotypes;
+    return m_genotypes;
   }
 
   public void addGenotype(Genotype genotype) {
-    genotypes.add(genotype);
+    m_genotypes.add(genotype);
   }
 
   public String getDrugRecommendation() {
-    return drugRecommendation;
+    return m_drugRecommendation;
   }
 
   public String getClassification() {
-    return classification;
+    return m_classification;
   }
 
   public String getPopulation() {
-    return population;
+    return m_population;
   }
 
   public String getImplications() {
-    return implications.keySet().stream()
-        .map(k -> k + ": " + implications.get(k))
+    return m_implications.keySet().stream()
+        .map(k -> k + ": " + m_implications.get(k))
         .collect(Collectors.joining("\n"));
   }
 
   public Map<String, String> getPhenotypes() {
-    return phenotypes;
+    return m_phenotypes;
   }
 
   public Map<String, String> getActivityScores() {
-    return activityScore;
+    return m_activityScore;
   }
 
   public String getComments() {
-    return comments;
+    return m_comments;
   }
 
 
