@@ -99,7 +99,7 @@ that define the non-\*1 allele in the genotype with the higher score.
 
 ## C. DPWG Recommendation
 
-1. PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.knmp.nl/dossiers/farmacogenetica). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
+1. PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
 2. IMPORTANT: As of March 2022, gene information documents from the DPWG are no longer publicly available from the KNMP website. PharmGKB is currently providing PDF versions of these documents to users. These files were downloaded in February 2022. As such, it cannot be guaranteed that these documents match the mappings DPWG may use internally as there have been no publicly accessible updates since February 2022.
 
