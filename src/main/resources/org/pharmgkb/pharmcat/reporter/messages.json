@@ -963,21 +963,6 @@
     "message": "The CPIC warfarin guideline only considers a single SNV in VKORC1 (rs9923231), which has varying frequency among different ancestral populations, and largely explains the differences in average dose requirements between people of European, African, and Asian descents. While other functional variants in VKORC1 have been associated with warfarin resistance (high dose requirements), there are currently no CPIC recommendations for how to use these other variants in warfarin dosing. An alternate name for rs9923231 is -1639G>A (note that VKORC1 is on the negative chromosomal strand, so displayed alleles are complemented). "
   },
   {
-    "rule_name": "pcat-cyp2d6-outside",
-    "version": "1",
-    "matches": {
-      "gene": "CYP2D6",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": null,
-      "dips": [],
-      "drugs": []
-    },
-    "exception_type": "note",
-    "message": "CYP2D6 genotypes are called by a separate algorithm from other genes in the PharmCAT report.  Please refer to <a href=\"https://pharmcat.org/methods/Determining-Alleles/\">the PharmCAT site</a> for more information."
-  },
-  {
     "rule_name": "DPYD lowest activity score note",
     "version": "2",
     "matches": {
