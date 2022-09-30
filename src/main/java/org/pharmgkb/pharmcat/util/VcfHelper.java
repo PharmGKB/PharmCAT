@@ -53,7 +53,7 @@ public class VcfHelper implements AutoCloseable {
   private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
   private static final String sf_defaultAssembly = "GRCh38";
 
-  private final Throttler m_throttler = new Throttler(500, TimeUnit.MILLISECONDS);
+  private final Throttler m_throttler = new Throttler(1, TimeUnit.SECONDS);
   private final CloseableHttpClient m_httpclient;
   private Map<String, Map<String, Object>> m_queryCache;
   private boolean m_queryCacheUpdated;
@@ -153,6 +153,10 @@ public class VcfHelper implements AutoCloseable {
     HttpGet httpGet = new HttpGet(url);
     httpGet.setHeader(HttpHeaders.ACCEPT, "application/json");
     try (CloseableHttpResponse response = m_httpclient.execute(httpGet)) {
+      if (response.getStatusLine().getStatusCode() == 429) {
+        m_throttler.next();
+        throw new IOException("please retry");
+      }
       HttpEntity entity = response.getEntity();
 
       Map<String, Object> data;
