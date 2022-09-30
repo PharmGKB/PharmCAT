@@ -22,13 +22,13 @@ PharmCAT attempts to determine the star allele genotype for SLCO1B1, in case no 
 
 The CPIC DPYD allele definition file includes variants that have been assigned normal (activity value 1), decreased (activity value 0.5), and no function (activity value 0) (see DPYD functionality file). The CPIC Guideline for Fluoropyrimidines and DPYD [(PMID:29152729)](https://pubmed.ncbi.nlm.nih.gov/29152729/) states:
 
-> The DPD phenotype is assigned using a gene activity score, which is calculated as the sum of the activity scores of the two DPYD variants with the lowest variant activity score.
+> The DPYD phenotype is assigned using a gene activity score, which is calculated as the sum of the activity scores of the two DPYD variants with the lowest variant activity score.
 > 
 > If two different decreased/no function variants are present, they are presumed to be on different gene copies.
 >
 > Irrespective of the presence of decreased/no function variants, patients may carry multiple normal function variants. Common normal function variants may be located on the same gene copy as other normal function variants or decreased/no function variants.
 
-The CPIC DPYD Genotype to Phenotype file includes example translations considering one or two variants. 
+The CPIC [DPYD Diplotype-Phenotype file](https://files.cpicpgx.org/data/report/current/diplotype_phenotype/DPYD_Diplotype_Phenotype_Table.xlsx) includes example translations considering one or two variants. 
 
 All variants in the CPIC DPYD allele definition file are considered for the genotype assignment by the PharmCAT Named Allele Matcher. This potentially results in the detection of more than two DPYD variants. To be able to determine a DPYD phenotype the variants are reported and translated as followed:
 
@@ -54,10 +54,55 @@ Since PharmCAT considers all variant positions in the CPIC DPYD allele definitio
 If the DPYD genotype that is used to determine gene activity score and phenotype, either provided by the Named Allele Matcher directly or inferred, includes a normal function variant, this is translated into 'Reference' to be able to retrieve the relevant DPWG recommendation if available. E.g., in the above sample, the inferred genotype c.1905+1G>A (\*2A)/c.498G>A will be translated into c.1905+1G>A (\*2A)/Reference and used to query DPWG data. Since c.1905+1G>A (\*2A) is a no function variant included in the DPWG data, DPWG guidance for c.1905+1G>A (\*2A)/Reference will be included in the report.
 
 
-### Mark's original
+---
+
+
+
+## DPYD
+
+The CPIC DPYD allele definition file includes variants that have been assigned normal (activity value 1), decreased (activity value 0.5), and no function (activity value 0) (see DPYD functionality file). The CPIC Guideline for Fluoropyrimidines and DPYD [(PMID:29152729)](https://pubmed.ncbi.nlm.nih.gov/29152729/) states:
+
+> The DPYD phenotype is assigned using a gene activity score, which is calculated as the sum of the activity scores of the two DPYD variants with the lowest variant activity score.
+>
+> If two different decreased/no function variants are present, they are presumed to be on different gene copies.
+>
+> Irrespective of the presence of decreased/no function variants, patients may carry multiple normal function variants. Common normal function variants may be located on the same gene copy as other normal function variants or decreased/no function variants.
+
+The CPIC [DPYD Diplotype-Phenotype file](https://files.cpicpgx.org/data/report/current/diplotype_phenotype/DPYD_Diplotype_Phenotype_Table.xlsx) includes example translations considering one or two variants.
+
+
+### Calling DPYD named alleles
 
 Note: the combination research flag is ignored when calling DPYD.
 
-When calling alleles, the `Named Allele Matcher` will only attempt to call a diplotype if the data is effectively phased (i.e. actually phased or unphased but homozygous at all positions).  If there is a simple match, it will return that.  If not, it will attempt to find combinations.  Unlike normal combination scoring, it prioritizes combinations and will return the diplotype with the most combinations.
+When calling alleles, the `Named Allele Matcher` will only attempt to call a diplotype if the data is effectively phased (i.e. actually phased or unphased but homozygous at all positions).  If there is a simple match, it will return that.  If not, it will attempt to find combinations.  Unlike normal combination scoring, it prioritizes combinations and will return the diplotype with the most combinations. For example:  `c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G`
 
-If no diplotype call is possible, or the data is effectively unphased, the `Named Allele Matcher` will only call possible haplotypes based on key positions only (i.e. will not assume reference on positions with no alleles), and will _not_ attempt to call a diplotype.
+If no diplotype call is possible, or the data is effectively unphased, the `Named Allele Matcher` will only call possible named alleles based on key positions only (i.e. will not assume reference on positions with no alleles), and will _not_ attempt to call a diplotype.  It will, however, check if named alleles can be called in both strands.  If so, it will call the named allele twice.  For example: `c.1627A>G (*5), c.1905+1G>A (*2A), c.1905+1G>A (*2A)`.
+
+
+### Calling DPYD allele functionality and phenotype
+
+DPYD allele functionality will be reported based on individual named alleles even if a diplotype was called. 
+
+If a diplotype was called, the lowest function named alleles on each strand will be used to determine the gene activity score and DPYD phenotype.
+
+If the `Named Allele Matcher` only called named alleles instead of a full diplotype, the two lowest function named alleles will be used to determine the gene activity score and DPYD phenotype.  
+The phenotype and gene activity score are utilized to retrieve the corresponding drug recommendations.
+
+
+### DPWG recommendation
+
+As of October 2022, DPWG recommendations are available for 4 DPYD variation:
+
+* `c.1129-5923C>G, c.1236G>A (HapB3)`
+* `2846A>T`
+* `c.1905+1G>A (*2A)`
+* `1679T>G (*13)`
+
+When the DPYD genotype used determine the gene activity score and DPYD phenotype is inferred based on the two variants with the lowest activity value (unphased data) or the lowest per strand (phased data), priority is given to variants that are included in both CPIC and DPWG if more than one variant with the same activity value is a valid option.
+
+For example, if a sample has been called with a diplotype of `c.1905+1G>A (*2A) + c.2933A>G/c.498G>A`, which is composed of `c.1905+1G>A (*2A)` (no function), `c.2933A>G` (no function, unknown to DPWG), `c.498G>A` (normal function), the inferred diplotype used to look up the DPYD phenotype and recommendation will be `c.1905+1G>A (*2A)/c.498G>A` rather than `c.2933A>G/c.498G>A`.
+
+Furthermore, to increase the likelihood of a match wtih DPWG, PharmCAT treats any named allele that is unknown to DPWG but has a normal function in CPIC as `Reference` (i.e. normal function).
+
+For example, in the above sample, the inferred genotype `c.1905+1G>A (*2A)/c.498G>A` will be further translated to `c.1905+1G>A (*2A)/Reference` and used to query DPWG data. Since `c.1905+1G>A (*2A)` is a no function variant included in the DPWG data, DPWG guidance for `c.1905+1G>A (*2A)/Reference` will be included in the report.

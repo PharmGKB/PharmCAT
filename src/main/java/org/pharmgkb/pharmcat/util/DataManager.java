@@ -184,7 +184,7 @@ public class DataManager {
         }
         validatePhenotypes(phenotypeMap);
 
-        Map<String,Integer> geneAlleleCountMap;
+        DefinitionReader definitionReader;
         if (!skipAlleles) {
           Path allelesDir = cliHelper.getValidDirectory("a", true);
 
@@ -200,25 +200,25 @@ public class DataManager {
 
           if (!skipDownload) {
             // download allele definitions
+            // use S3 link to avoid caching problems
             FileUtils.copyURLToFile(
-                new URL("https://files.cpicpgx.org/data/report/current/allele_definitions.json"),
+                new URL("http://files.cpicpgx.org.s3-us-west-2.amazonaws.com/data/report/current/allele_definitions.json"),
                 downloadDir.resolve(CPIC_ALLELES_FILE_NAME).toFile());
           }
           // transform allele definitions
-          geneAlleleCountMap = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
+          definitionReader = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
 
         } else {
           // if we're skipping new gene data, then use the default data
-          DefinitionReader definitionReader = new DefinitionReader();
+          definitionReader = new DefinitionReader();
           definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-          geneAlleleCountMap = definitionReader.getGeneAlleleCount();
         }
 
         List<String> genesUsedInDrugRecommendations = new ArrayList<>(drugs.list().stream()
             .flatMap(drug -> drug.getGenes().stream())
             .sorted().distinct().toList());
         genesUsedInDrugRecommendations.addAll(pgkbGuidelineCollection.getGenes());
-        genesUsedInDrugRecommendations.removeAll(geneAlleleCountMap.keySet());
+        genesUsedInDrugRecommendations.removeAll(definitionReader.getGeneAlleleCount().keySet());
         genesUsedInDrugRecommendations.stream()
             .filter(g -> !g.startsWith("HLA"))
             .map(g -> "WARNING: Gene used in drug recommendation has no allele mapping: " + g)
@@ -227,7 +227,7 @@ public class DataManager {
 
         if (cliHelper.hasOption("doc")) {
           Path docsDir = cliHelper.getValidDirectory("doc", true);
-          new GeneDrugSummary().write(docsDir, geneAlleleCountMap, drugs, phenotypeMap);
+          new GeneDrugSummary(definitionReader, phenotypeMap, drugs, pgkbGuidelineCollection).write(docsDir);
         }
 
       } finally {
@@ -310,7 +310,7 @@ public class DataManager {
   /**
    * Does the work for stepping through the files and applying the format.
    */
-  private Map<String,Integer> transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
+  private DefinitionReader transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
     System.out.println("Generating allele definitions...");
@@ -360,10 +360,8 @@ public class DataManager {
           .forEachOrdered(currentFiles::add);
     }
 
-    Map<String,Integer> geneAlleleCountMap = new TreeMap<>();
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
-      geneAlleleCountMap.put(gene, definitionFile.getNamedAlleles().size());
       // output file
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       m_dataSerializer.serializeToJson(definitionFile, jsonFile);
@@ -378,7 +376,9 @@ public class DataManager {
     exportVcfData(definitionsDir);
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
-    return geneAlleleCountMap;
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionsDir);
+    return definitionReader;
   }
 
 
