@@ -121,7 +121,7 @@ public class DataManager {
         boolean skipGuidelines = cliHelper.hasOption("sg");
         boolean skipPhenotypes = cliHelper.hasOption("sp");
         boolean skipAlleles = cliHelper.hasOption("sa");
-        if (!skipDownload && !skipGuidelines && !skipPhenotypes && !skipAlleles) {
+        if (!skipDownload && (skipGuidelines || skipPhenotypes || skipAlleles)) {
           // download DPWG data
           Path dpwgZipFile = downloadDir.resolve(sf_dpwgZipFileName);
           FileUtils.copyURLToFile(
@@ -238,6 +238,7 @@ public class DataManager {
 
     } catch (Exception ex) {
       ex.printStackTrace();
+      System.exit(1);
     }
   }
 
