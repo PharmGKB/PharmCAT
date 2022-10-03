@@ -60,6 +60,9 @@ public class PgkbGuidelineCollection {
           if (guidelinePackage.getGuideline().getGuidelineGenes().size() > 1) {
             throw new RuntimeException("DPWG Guidelines with more than one gene are not yet supported");
           }
+          if (guidelinePackage.getGroups().size() == 0) {
+            throw new RuntimeException("DPWG Guideline is missing annotation groups: " + guidelinePackage);
+          }
           f_guidelinePackages.add(guidelinePackage);
           for (AccessionObject chemical : guidelinePackage.getGuideline().getRelatedChemicals()) {
             f_guidelineMap.put(chemical.getName(), guidelinePackage);
