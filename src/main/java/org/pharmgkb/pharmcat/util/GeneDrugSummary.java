@@ -43,7 +43,7 @@ public class GeneDrugSummary {
   private static final String PHENOTYPES_MD_FILE_NAME = "Phenotypes-List.md";
   private static final String PHENOTYPES_TSV_FILE_NAME = "phenotypes.tsv";
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
+  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
   private final DrugCollection m_cpicDrugs;
@@ -144,7 +144,11 @@ public class GeneDrugSummary {
       mdWriter.println(phenotypesTemplate);
       tsvWriter.println("Gene\tNamed Alleles\tCPIC Phenotypes\tCPIC Activity Scores\tDPWG Phenotyeps");
 
-      for (String gene : m_definitionReader.getGenes()) {
+      SortedSet<String> allGenes = new TreeSet<>(m_definitionReader.getGenes());
+      m_phenotypeMap.getCpicGenes().stream().map(GenePhenotype::getGene).forEach(allGenes::add);
+      m_phenotypeMap.getDpwgGenes().stream().map(GenePhenotype::getGene).forEach(allGenes::add);
+
+      for (String gene : allGenes) {
         GenePhenotype cpicGp = m_phenotypeMap.getPhenotype(gene, DataSource.CPIC);
         GenePhenotype dpwgGp = m_phenotypeMap.getPhenotype(gene, DataSource.DPWG);
 

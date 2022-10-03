@@ -2072,6 +2072,54 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
 
+  /**
+   * Can we use phenotype for F5 DPWG matching?
+   */
+  @Test
+  void testF5Phenotype(TestInfo testInfo) throws Exception {
+    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
+    Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("F5\t\tFactor V Leiden absent");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    Path vcfFile = testWrapper.execute(outsideCallPath);
+
+    testWrapper.testReportable("F5");
+    testWrapper.testPrintCalls(DataSource.DPWG, "F5", "Factor V Leiden absent");
+
+    testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", DataSource.DPWG, 1);
+  }
+
+
+  @Test
+  void testF5Diplotype(TestInfo testInfo) throws Exception {
+    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
+    Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("F5\trs6025 C/rs6025 T (Factor V Leiden)");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    Path vcfFile = testWrapper.execute(outsideCallPath);
+
+    testWrapper.testReportable("F5");
+    testWrapper.testPrintCalls(DataSource.DPWG, "F5", "rs6025 C/rs6025 T (Factor V Leiden)");
+
+    GeneReport f5Report = testWrapper.getContext().getGeneReport(DataSource.DPWG, "F5");
+    assertTrue(f5Report.getRecommendationDiplotypes().stream()
+        .flatMap(d -> d.getPhenotypes().stream())
+        .allMatch(p -> p.equals("Factor V Leiden heterozygous")), "F5 het phenotype call missing");
+
+    testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", DataSource.DPWG, 1);
+  }
+
+
   @Test
   void testWarfarinMissingRs12777823(TestInfo testInfo) throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
