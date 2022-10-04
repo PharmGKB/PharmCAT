@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
+import com.google.common.base.Splitter;
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -52,6 +53,7 @@ public class VcfHelper implements AutoCloseable {
   private static final String sf_extraPositionUrl = "https://api.pharmgkb.org/v1/pharmcat/extraPosition/%s";
   private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
   private static final String sf_defaultAssembly = "GRCh38";
+  private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
 
   private final Throttler m_throttler = new Throttler(1, TimeUnit.SECONDS);
   private final CloseableHttpClient m_httpclient;
@@ -393,6 +395,11 @@ public class VcfHelper implements AutoCloseable {
       pos = Long.parseLong(data[1]);
       ref = data[3];
       alt = data[4];
+    }
+
+
+    public List<String> getAlts() {
+      return sf_commaSplitter.splitToList(alt);
     }
 
 

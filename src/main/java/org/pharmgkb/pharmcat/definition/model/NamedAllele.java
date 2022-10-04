@@ -84,7 +84,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
       SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
-    Preconditions.checkNotNull(alleles);
     Preconditions.checkNotNull(cpicAlleles);
     Preconditions.checkNotNull(missingPositions);
     m_id = id;

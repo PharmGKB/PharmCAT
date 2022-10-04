@@ -56,7 +56,6 @@ public class DataManager {
   private static final String sf_googleDocUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
 
   private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
-  private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
 
@@ -121,7 +120,8 @@ public class DataManager {
         boolean skipGuidelines = cliHelper.hasOption("sg");
         boolean skipPhenotypes = cliHelper.hasOption("sp");
         boolean skipAlleles = cliHelper.hasOption("sa");
-        if (!skipDownload && (skipGuidelines || skipPhenotypes || skipAlleles)) {
+        if (!skipDownload && (!skipGuidelines || !skipPhenotypes || !skipAlleles)) {
+          System.out.println("Downloading DPWG data...");
           // download DPWG data
           Path dpwgZipFile = downloadDir.resolve(sf_dpwgZipFileName);
           FileUtils.copyURLToFile(
@@ -328,29 +328,29 @@ public class DataManager {
     SortedMap<String, DefinitionFile> definitionFileMap = new TreeMap<>();
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : definitionFiles) {
+        String gene = df.getGeneSymbol();
         // TODO: remove after v1 is released
-        if (df.getGeneSymbol().equals("MT-RNR1")) {
+        if (gene.equals("MT-RNR1")) {
           continue;
         }
+        DefinitionExemption exemption = exemptionsMap.get(gene);
+        if (exemption != null) {
+          if (exemption.getIgnoredAlleles().size() > 0) {
+            System.out.println("Removing ignored alleles in " + gene + "...");
+            df.removeIgnoredAlleles(exemption);
+          }
+          if (exemption.getIgnoredPositions().size() > 0) {
+            System.out.println("Removing ignored positions in " + gene + "...");
+            df.removeIgnoredPositions(exemption);
+          }
+        }
+
         doVcfTranslation(df, vcfHelper);
         df.sortPositions();
-        definitionFileMap.put(df.getGeneSymbol(), df);
+        definitionFileMap.put(gene, df);
       }
     }
 
-    // transform data as necessary
-    System.out.println("Incorporating exemptions...");
-    for (String gene : exemptionsMap.keySet()) {
-      DefinitionExemption exemption = exemptionsMap.get(gene);
-      if (exemption.getIgnoredPositions().size() > 0) {
-        System.out.println("Removing ignored positions in " + gene + "...");
-        DefinitionFile definitionFile = definitionFileMap.get(gene);
-        if (definitionFile == null) {
-          throw new Exception("No definition for " + gene);
-        }
-        definitionFile.removeIgnoredPositions(exemption);
-      }
-    }
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
@@ -397,198 +397,7 @@ public class DataManager {
 
     for (int x = 0; x < df.getVariants().length; x += 1) {
       VariantLocus vl = df.getVariants()[x];
-      String errorLocation = df.getGeneSymbol() + " @ " + vl.getCpicPosition();
-
-      String refAllele = Objects.requireNonNull(referenceNamedAllele.getCpicAllele(vl));
-      if (Iupac.isWobble(refAllele)) {
-        String hgvs = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName()).get(0);
-        VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(df.getRefSeqChromosome() + ":" + hgvs);
-        System.out.println(df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
-            ") @ " + vl.getCpicPosition() + " is ambiguous (" + refAllele + "):  using " + vcf.ref + " for VCF");
-        refAllele = vcf.ref;
-      }
-      SortedSet<String> altAlleles = new TreeSet<>();
-      boolean isSnp = true;
-      List<String> repeats = new ArrayList<>();
-      List<String> nonRepeats = new ArrayList<>();
-      for (String allele : vl.getCpicAlleles()) {
-        if (allele.length() > 1) {
-          isSnp = false;
-        }
-        if (allele.contains("(") || allele.contains(")")) {
-          if (!allele.contains("(") || !allele.contains(")")) {
-            throw new IllegalStateException(errorLocation + ": allele has mismatched parentheses - " + allele);
-          }
-          repeats.add(allele);
-        } else {
-          nonRepeats.add(allele);
-        }
-        if (allele.contains("[") || allele.contains("]")) {
-          throw new IllegalStateException(errorLocation + ": allele uses square brackets - " + allele);
-        }
-        if (!allele.equals(refAllele) && !Iupac.isWobble(allele)) {
-          altAlleles.add(allele);
-        }
-      }
-      if (repeats.size() > 0 && repeats.size() != vl.getCpicAlleles().size()) {
-        boolean haveSingle = false;
-        if (nonRepeats.size() == 1) {
-          String repeatedSequence = repeats.get(0);
-          repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
-          haveSingle = nonRepeats.get(0).equals(repeatedSequence);
-        }
-        if (!haveSingle) {
-          throw new IllegalStateException(errorLocation + ": has " + repeats.size() + " repeat alleles but " +
-              vl.getCpicAlleles().size() + " total alleles (" + vl.getCpicAlleles() + ")");
-        }
-      }
-
-      List<String> hgvsNames = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName());
-
-      if (!isSnp && repeats.size() == 0 && altAlleles.size() != 1) {
-        // in/dels - must have HGVS to represent each change
-        throw new IllegalStateException(errorLocation + ": has " + altAlleles.size() + " alt alleles; max is 1");
-      }
-
-
-      Map<String, String> vcfMap = new HashMap<>();
-      List<String> missingAlts = new ArrayList<>(altAlleles);
-      long vcfPosition = -1;
-
-      if (isSnp) {
-        for (String h : hgvsNames) {
-            String hgvs = df.getRefSeqChromosome() + ":" + h;
-          VcfHelper.VcfData vcf;
-          try {
-            vcf = vcfHelper.hgvsToVcf(hgvs);
-          } catch (ParseException ex) {
-            throw new ParseException(errorLocation + " / " + hgvs + ": " + ex.getMessage(), ex);
-          }
-
-          if (vcfPosition == -1) {
-            vcfPosition = vcf.pos;
-          } else if (vcfPosition != vcf.pos) {
-            throw new ParseException(errorLocation + ": SNP position mismatch (" + vcfPosition + " vs. " +
-                vcf.pos + " for " + hgvs + ")");
-          }
-
-          if (!refAllele.equals(vcf.ref)) {
-              throw new ParseException(errorLocation + ": VCF's reference allele does not match (" +
-                  refAllele + " vs. " + vcf.ref + " for " + hgvs + ")");
-            }
-            if (!missingAlts.remove(vcf.alt)) {
-              throw new ParseException(errorLocation + ": VCF's alt allele does not match (expecting " +
-                  altAlleles + ",  got " + vcf.alt + " for " + hgvs + ")");
-            }
-
-            vcfMap.put(refAllele, vcf.ref);
-            vcfMap.put(vcf.alt, vcf.alt);
-        }
-        // warnings
-        if (vcfPosition != vl.getCpicPosition()) {
-          System.out.println(errorLocation + ": pos/vcf mismatch " + vl.getCpicPosition() +
-              " vs. " + vcfPosition);
-        }
-
-      } else if (repeats.size() > 0) {
-        Map<String, VcfHelper.VcfData> firstPass = new HashMap<>();
-        for (String h : hgvsNames) {
-          String repeatAlt;
-          // treat dups as a form of repeat
-          if (h.endsWith("dup")) {
-            String repeatedSequence = repeats.get(0);
-            repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
-            repeatAlt = repeatedSequence + "(2)";
-          } else {
-            Matcher m = sf_hgvsRepeatPattern.matcher(h);
-            if (!m.matches()) {
-              throw new IllegalStateException(errorLocation + ": Invalid HGVS repeat (" + h + ")");
-            }
-            repeatAlt = m.group(1).replaceAll("\\[", "(").replaceAll("]", ")");
-          }
-          if (repeatAlt.equals(refAllele)) {
-            continue;
-          }
-          if (!missingAlts.remove(repeatAlt)) {
-            throw new IllegalStateException(errorLocation + ": Repeat alt allele does not match (expecting " +
-                altAlleles + ",  got " + repeatAlt + ")");
-          }
-
-          String hgvs = df.getRefSeqChromosome() + ":" + h;
-          VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
-          firstPass.put(repeatAlt, vcf);
-        }
-        VcfHelper.VcfData vcf = VcfHelper.normalizeRepeats(df.getChromosome(), firstPass.values());
-
-        vcfPosition = vcf.pos;
-        vcfMap.put(refAllele, vcf.ref);
-        SortedSet<String> repAlts = new TreeSet<>(sf_commaSplitter.splitToList(vcf.alt));
-        if (altAlleles.size() != repAlts.size()) {
-          throw new IllegalStateException(errorLocation + ": Expected " + altAlleles.size() +
-              " repeats but VCF normalization produced " + repAlts.size());
-        }
-        Iterator<String> repIt = repAlts.iterator();
-        for (String alt : altAlleles) {
-          vcfMap.put(alt, repIt.next());
-        }
-
-      } else {
-        // in/del/dup
-        for (String h : hgvsNames) {
-          String hgvs = df.getRefSeqChromosome() + ":" + h;
-          VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
-
-          String alt;
-          Matcher m = sf_hgvsDelPattern.matcher(h);
-          if (m.matches()) {
-            alt = "del" + refAllele;
-          } else if (h.endsWith("dup")) {
-            alt = refAllele + refAllele;
-          } else if (h.contains("ins")) {
-            m = sf_hgvsInsPattern.matcher(h);
-            if (!m.matches()) {
-              throw new IllegalStateException(errorLocation + ": unsupported ins or delins - " + h);
-            }
-            alt = m.group(2);
-          } else {
-            throw new IllegalStateException(errorLocation + ": Unsupported HGVS - " + h);
-          }
-
-          vcfPosition = validateVcfPosition(vcfPosition, vcf, errorLocation);
-          validateVcfRef(vcfMap, refAllele, vcf, errorLocation);
-
-          if (!missingAlts.remove(alt)) {
-            throw new IllegalStateException(errorLocation + ": Alt allele does not match (expecting " + altAlleles +
-                ",  got " + alt + ")");
-          }
-          vcfMap.put(alt, vcf.alt);
-        }
-      }
-
-      if (missingAlts.size() > 0) {
-        if (altAlleles.size() == 1) {
-          throw new IllegalStateException(errorLocation + ": Missing alts " + missingAlts);
-        } else {
-          if (!vcfMap.entrySet().stream().allMatch((e) -> e.getKey().equals(e.getValue()))) {
-            // CPIC alleles needs to be translated
-            throw new IllegalStateException(errorLocation + ": Don't know how to translate " + missingAlts);
-          } else {
-            // no translation, use as is
-            for (String alt : missingAlts) {
-              vcfMap.put(alt, alt);
-            }
-          }
-        }
-      }
-
-      vl.setPosition(vcfPosition);
-      vl.setCpicToVcfAlleleMap(vcfMap);
-      String vcfRef = vcfMap.get(refAllele);
-      vl.setRef(vcfRef);
-      altAlleles.forEach((a) -> {
-        String vcfAlt = vcfMap.get(a);
-        vl.addAlt(vcfAlt);
-      });
+      translateVariantLocus(df, referenceNamedAllele, vl, vcfHelper);
     }
 
     for (NamedAllele na : df.getNamedAlleles()) {
@@ -596,18 +405,217 @@ public class DataManager {
       for (int x = 0; x < alleles.length; x += 1) {
         String cpicAllele = na.getCpicAlleles()[x];
         if (cpicAllele != null) {
-          alleles[x] = df.getVariants()[x].getCpicToVcfAlleleMap().get(cpicAllele);
+          VariantLocus vl = df.getVariants()[x];
+          alleles[x] = vl.getCpicToVcfAlleleMap().get(cpicAllele);
           if (alleles[x] == null) {
             if (Iupac.lookup(cpicAllele).isAmbiguity()) {
               alleles[x] = cpicAllele;
             } else {
-              throw new IllegalStateException("Don't know how to translate CPIC allele '" + cpicAllele + "'");
+              throw new IllegalStateException("Don't know how to translate CPIC allele '" + cpicAllele + "' @ " +
+                  " position " + x + " (" + vl + ") for " + df.getGeneSymbol() + " " + na.getName() +
+                  "; expecting " + vl.getRef() + " / " + String.join(" / ", vl.getAlts()));
             }
           }
         }
       }
       na.setAlleles(alleles);
     }
+  }
+
+  private void translateVariantLocus(DefinitionFile df, NamedAllele referenceNamedAllele, VariantLocus vl,
+      VcfHelper vcfHelper) throws IOException {
+    String errorLocation = df.getGeneSymbol() + " @ " + vl.getCpicPosition();
+
+    String refAllele = Objects.requireNonNull(referenceNamedAllele.getCpicAllele(vl));
+    if (Iupac.isWobble(refAllele)) {
+      String hgvs = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName()).get(0);
+      VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(df.getRefSeqChromosome() + ":" + hgvs);
+      System.out.println(df.getGeneSymbol() + " reference (" + referenceNamedAllele.getName() +
+          ") @ " + vl.getCpicPosition() + " is ambiguous (" + refAllele + "):  using " + vcf.ref + " for VCF");
+      refAllele = vcf.ref;
+    }
+    SortedSet<String> altAlleles = new TreeSet<>();
+    boolean isSnp = true;
+    List<String> repeats = new ArrayList<>();
+    List<String> nonRepeats = new ArrayList<>();
+    for (String allele : vl.getCpicAlleles()) {
+      if (allele.length() > 1) {
+        isSnp = false;
+      }
+      if (allele.contains("(") || allele.contains(")")) {
+        if (!allele.contains("(") || !allele.contains(")")) {
+          throw new IllegalStateException(errorLocation + ": allele has mismatched parentheses - " + allele);
+        }
+        repeats.add(allele);
+      } else {
+        nonRepeats.add(allele);
+      }
+      if (allele.contains("[") || allele.contains("]")) {
+        throw new IllegalStateException(errorLocation + ": allele uses square brackets - " + allele);
+      }
+      if (!allele.equals(refAllele) && !Iupac.isWobble(allele)) {
+        altAlleles.add(allele);
+      }
+    }
+    if (repeats.size() > 0 && repeats.size() != vl.getCpicAlleles().size()) {
+      boolean haveSingle = false;
+      if (nonRepeats.size() == 1) {
+        String repeatedSequence = repeats.get(0);
+        repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
+        haveSingle = nonRepeats.get(0).equals(repeatedSequence);
+      }
+      if (!haveSingle) {
+        throw new IllegalStateException(errorLocation + ": has " + repeats.size() + " repeat alleles but " +
+            vl.getCpicAlleles().size() + " total alleles (" + vl.getCpicAlleles() + ")");
+      }
+    }
+
+    List<String> hgvsNames = sf_semicolonSplitter.splitToList(vl.getChromosomeHgvsName());
+
+    if (!isSnp && repeats.size() == 0 && altAlleles.size() != 1) {
+      // in/dels - must have HGVS to represent each change
+      throw new IllegalStateException(errorLocation + ": has " + altAlleles.size() + " alt alleles; max is 1");
+    }
+
+
+    Map<String, String> vcfMap = new HashMap<>();
+    List<String> missingAlts = new ArrayList<>(altAlleles);
+    long vcfPosition = -1;
+
+    if (isSnp) {
+      for (String h : hgvsNames) {
+        String hgvs = df.getRefSeqChromosome() + ":" + h;
+        VcfHelper.VcfData vcf;
+        try {
+          vcf = vcfHelper.hgvsToVcf(hgvs);
+        } catch (ParseException ex) {
+            throw new ParseException(errorLocation + " / " + hgvs + ": " + ex.getMessage(), ex);
+          }
+
+        if (vcfPosition == -1) {
+          vcfPosition = vcf.pos;
+        } else if (vcfPosition != vcf.pos) {
+          throw new ParseException(errorLocation + ": SNP position mismatch (" + vcfPosition + " vs. " +
+              vcf.pos + " for " + hgvs + ")");
+        }
+
+        if (!refAllele.equals(vcf.ref)) {
+          throw new ParseException(errorLocation + ": VCF's reference allele does not match (" +
+              refAllele + " vs. " + vcf.ref + " for " + hgvs + ")");
+        }
+        if (!missingAlts.remove(vcf.alt)) {
+          throw new ParseException(errorLocation + ": VCF's alt allele does not match (expecting " +
+              altAlleles + ",  got " + vcf.alt + " for " + hgvs + ")");
+        }
+
+        vcfMap.put(refAllele, vcf.ref);
+        vcfMap.put(vcf.alt, vcf.alt);
+      }
+      // warnings
+      if (vcfPosition != vl.getCpicPosition()) {
+        System.out.println(errorLocation + ": pos/vcf mismatch " + vl.getCpicPosition() +
+            " vs. " + vcfPosition);
+      }
+
+    } else if (repeats.size() > 0) {
+      Map<String, VcfHelper.VcfData> firstPass = new HashMap<>();
+      for (String h : hgvsNames) {
+        String repeatAlt;
+        // treat dups as a form of repeat
+        if (h.endsWith("dup")) {
+          String repeatedSequence = repeats.get(0);
+          repeatedSequence = repeatedSequence.substring(0, repeatedSequence.indexOf("("));
+          repeatAlt = repeatedSequence + "(2)";
+        } else {
+          Matcher m = sf_hgvsRepeatPattern.matcher(h);
+          if (!m.matches()) {
+            throw new IllegalStateException(errorLocation + ": Invalid HGVS repeat (" + h + ")");
+          }
+          repeatAlt = m.group(1).replaceAll("\\[", "(").replaceAll("]", ")");
+        }
+        if (repeatAlt.equals(refAllele)) {
+          continue;
+        }
+        if (!missingAlts.remove(repeatAlt)) {
+          throw new IllegalStateException(errorLocation + ": Repeat alt allele does not match (expecting " +
+              altAlleles + ",  got " + repeatAlt + ")");
+        }
+
+        String hgvs = df.getRefSeqChromosome() + ":" + h;
+        VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
+        firstPass.put(repeatAlt, vcf);
+      }
+      VcfHelper.VcfData vcf = VcfHelper.normalizeRepeats(df.getChromosome(), firstPass.values());
+
+      vcfPosition = vcf.pos;
+      vcfMap.put(refAllele, vcf.ref);
+      SortedSet<String> repAlts = new TreeSet<>(vcf.getAlts());
+      if (altAlleles.size() != repAlts.size()) {
+        throw new IllegalStateException(errorLocation + ": Expected " + altAlleles.size() +
+            " repeats but VCF normalization produced " + repAlts.size());
+      }
+      Iterator<String> repIt = repAlts.iterator();
+      for (String alt : altAlleles) {
+        vcfMap.put(alt, repIt.next());
+      }
+
+    } else {
+      // in/del/dup
+      for (String h : hgvsNames) {
+        String hgvs = df.getRefSeqChromosome() + ":" + h;
+        VcfHelper.VcfData vcf = vcfHelper.hgvsToVcf(hgvs);
+
+        String alt;
+        Matcher m = sf_hgvsDelPattern.matcher(h);
+        if (m.matches()) {
+          alt = "del" + refAllele;
+        } else if (h.endsWith("dup")) {
+          alt = refAllele + refAllele;
+        } else if (h.contains("ins")) {
+          m = sf_hgvsInsPattern.matcher(h);
+          if (!m.matches()) {
+            throw new IllegalStateException(errorLocation + ": unsupported ins or delins - " + h);
+          }
+          alt = m.group(2);
+        } else {
+          throw new IllegalStateException(errorLocation + ": Unsupported HGVS - " + h);
+        }
+
+        vcfPosition = validateVcfPosition(vcfPosition, vcf, errorLocation);
+        validateVcfRef(vcfMap, refAllele, vcf, errorLocation);
+
+        if (!missingAlts.remove(alt)) {
+          throw new IllegalStateException(errorLocation + ": Alt allele does not match (expecting " + altAlleles +
+              ",  got " + alt + ")");
+        }
+        vcfMap.put(alt, vcf.alt);
+      }
+    }
+
+    if (missingAlts.size() > 0) {
+      if (altAlleles.size() == 1) {
+        throw new IllegalStateException(errorLocation + ": Missing alts " + missingAlts);
+      } else {
+        if (!vcfMap.entrySet().stream().allMatch((e) -> e.getKey().equals(e.getValue()))) {
+          // CPIC alleles needs to be translated
+          throw new IllegalStateException(errorLocation + ": Don't know how to translate " + missingAlts);
+        } else {
+          // no translation, use as is
+          for (String alt : missingAlts) {
+            vcfMap.put(alt, alt);
+          }
+        }
+      }
+    }
+
+    vl.setPosition(vcfPosition);
+    vl.setCpicToVcfAlleleMap(vcfMap);
+    String vcfRef = vcfMap.get(refAllele);
+    vl.setRef(vcfRef);
+    altAlleles.forEach((a) -> {
+      String vcfAlt = vcfMap.get(a);
+      vl.addAlt(vcfAlt);
+    });
   }
 
 

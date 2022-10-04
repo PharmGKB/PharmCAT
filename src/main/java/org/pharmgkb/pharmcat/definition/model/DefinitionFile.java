@@ -1,12 +1,15 @@
 package org.pharmgkb.pharmcat.definition.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -225,54 +228,61 @@ public class DefinitionFile {
 
 
   /**
+   * Remove ignored allele specified in {@link DefinitionExemption}.
+   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   */
+  public void removeIgnoredAlleles(DefinitionExemption exemption) {
+    System.out.println("  Removing " + exemption.getIgnoredAlleles());
+    m_namedAlleles = m_namedAlleles.stream()
+        .filter((na) -> !exemption.shouldIgnoreAllele(na.getName()))
+        .collect(Collectors.toCollection(TreeSet::new));
+  }
+
+
+  /**
    * Remove ignored positions specified in {@link DefinitionExemption}.
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredPositions(DefinitionExemption exemption) {
     // find ignored positions
     Set<Integer> ignoredPositions = new HashSet<>();
+    List<VariantLocus> newVariants = new ArrayList<>();
     for (int x = 0; x < m_variants.length; x += 1) {
       if (exemption.shouldIgnorePosition(m_variants[x])) {
+        System.out.println("  Removing position " + x + " (" + m_variants[x] + ")");
         ignoredPositions.add(x);
+      } else {
+        newVariants.add(m_variants[x]);
       }
     }
     if (exemption.getIgnoredPositions().size() != ignoredPositions.size()) {
       throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
           "but only found " + ignoredPositions.size());
     }
-
-    // remove ignored positions
-    VariantLocus[] newPositions = new VariantLocus[m_variants.length - ignoredPositions.size()];
-    if (newPositions.length != m_variants.length - ignoredPositions.size()) {
-      throw new IllegalStateException("Should have " + (m_variants.length - ignoredPositions.size()) +
-          " positions, but ended up with " + newPositions.length);
-    }
-
     // update variants
-    setVariants(newPositions);
+    m_variants = newVariants.toArray(new VariantLocus[0]);
 
     SortedSet<NamedAllele> updatedNamedAlleles = new TreeSet<>();
     for (NamedAllele namedAllele : m_namedAlleles) {
-      String[] alleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
-      String[] cpicAlleles = new String[namedAllele.getAlleles().length - ignoredPositions.size()];
-      if (newPositions.length != alleles.length) {
-        throw new IllegalStateException("Number of variants (" + newPositions.length + ") and number of alleles (" +
-            alleles.length + ") don't match up for " + namedAllele.getName());
+      String[] cpicAlleles = new String[namedAllele.getCpicAlleles().length - ignoredPositions.size()];
+      if (m_variants.length != cpicAlleles.length) {
+        throw new IllegalStateException("Number of variants (" + m_variants.length + ") and number of CPIC alleles (" +
+            cpicAlleles.length + ") don't match up for " + namedAllele.getName());
       }
-      for (int x = 0, y = 0; x < namedAllele.getAlleles().length; x += 1) {
-        if (!ignoredPositions.contains(x)) {
-          alleles[y] = namedAllele.getAlleles()[x];
-          cpicAlleles[y] = namedAllele.getCpicAlleles()[x];
-          y += 1;
+      for (int x = 0, y = 0; x < namedAllele.getCpicAlleles().length; x += 1) {
+        if (ignoredPositions.contains(x)) {
+          continue;
         }
+        cpicAlleles[y] = namedAllele.getCpicAlleles()[x];
+        y += 1;
       }
       // if there's nothing left that differs from reference allele then don't include the allele in output
-      if (!Arrays.stream(alleles).allMatch(Objects::isNull)) {
-        updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), alleles, cpicAlleles,
+      if (!Arrays.stream(cpicAlleles).allMatch(Objects::isNull)) {
+        updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), null, cpicAlleles,
             namedAllele.isReference()));
       }
     }
-    setNamedAlleles(updatedNamedAlleles);
+    m_namedAlleles = updatedNamedAlleles;
   }
 
 
