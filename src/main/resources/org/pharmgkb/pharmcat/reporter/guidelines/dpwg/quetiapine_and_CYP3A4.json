@@ -144,6 +144,35 @@
   },
   "annotationGroups": [
     {
+      "id": "PA166267021",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP3A4:Decreased function/Normal function",
+        "CYP3A4:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451901341,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451901342,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451901340,
+        "html": "<p>This gene variation reduces the conversion of quetiapine to inactive metabolites and a metabolite with anti-depressant effect. However, the effect on the plasma concentration\nof quetiapine is limited (20% increase) and it is not known whether this has any clinical consequences. The relationship between the plasma concentration and clinical effect is\nweak for quetiapine.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
       "id": "PA166267041",
       "name": "Poor Metabolizer",
       "strength": {
@@ -160,45 +189,16 @@
         "CYP3A4:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451723521,
-        "html": "<p>Poor metabolizer</p>\n"
+        "id": 1451901344,
+        "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723522,
+        "id": 1451901345,
         "html": "<p>Indication DEPRESSION: Choose an alternative. Aripiprazole appears to be less dependent of CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br />\n&nbsp;<br />\nOTHER INDICATIONS: Use 30% of the standard dose.</p>\n"
       },
       "implications": {
-        "id": 1451723520,
+        "id": 1451901343,
         "html": "<p>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably\nresponsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine\nand an inactive metabolite.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166267021",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP3A4:Decreased function/Normal function",
-        "CYP3A4:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451723446,
-        "html": "<p>Intermediate metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451723447,
-        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
-      },
-      "implications": {
-        "id": 1451723445,
-        "html": "<p>This gene variation reduces the conversion of quetiapine to inactive metabolites and a metabolite with anti-depressant effect. However, the effect on the plasma concentration\nof quetiapine is limited (20% increase) and it is not known whether this has any clinical consequences. The relationship between the plasma concentration and clinical effect is\nweak for quetiapine.</p>\n"
       },
       "activityScore": null
     },
@@ -217,15 +217,15 @@
         "CYP3A4:Normal function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451723501,
-        "html": "<p>Normal metabolizer</p>\n"
+        "id": 1451901361,
+        "html": "<p>Normal Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723502,
+        "id": 1451901362,
         "html": "<p>The guideline does not provide a recommendation for quetiapine in normal metabolizers.</p>\n"
       },
       "implications": {
-        "id": 1451723500,
+        "id": 1451901360,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on quetiapine.</p>\n"
       },
       "activityScore": null

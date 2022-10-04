@@ -20,21 +20,21 @@
     },
     {
       "generesult": null,
-      "diplotype": "*58:01/Other",
+      "diplotype": "*57:01:01/Other",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "*58:01": 1,
+        "*57:01:01": 1,
         "Other": 1
       }
     },
     {
       "generesult": null,
-      "diplotype": "*58:01/*58:01",
+      "diplotype": "*57:01:01/*57:01:01",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "*58:01": 2
+        "*57:01:01": 2
       }
     },
     {
@@ -58,12 +58,12 @@
     },
     {
       "generesult": null,
-      "diplotype": "*15:02:01/*58:01",
+      "diplotype": "*15:02:01/*57:01:01",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
         "*15:02:01": 1,
-        "*58:01": 1
+        "*57:01:01": 1
       }
     },
     {
@@ -97,41 +97,32 @@
     },
     {
       "generesult": null,
-      "diplotype": "*15:11/*58:01",
+      "diplotype": "*15:11/*57:01:01",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
         "*15:11": 1,
-        "*58:01": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*57:01:01/Other",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*57:01:01": 1,
-        "Other": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*15:02:01/*57:01:01",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*15:02:01": 1,
         "*57:01:01": 1
       }
     },
     {
       "generesult": null,
-      "diplotype": "*57:01:01/*57:01:01",
+      "diplotype": "*58:01/Other",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "*57:01:01": 2
+        "*58:01": 1,
+        "Other": 1
+      }
+    },
+    {
+      "generesult": null,
+      "diplotype": "*15:02:01/*58:01",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "*15:02:01": 1,
+        "*58:01": 1
       }
     },
     {
@@ -143,7 +134,16 @@
         "*57:01:01": 1,
         "*58:01": 1
       }
+    },
+    {
+      "generesult": null,
+      "diplotype": "*58:01/*58:01",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "*58:01": 2
+      }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

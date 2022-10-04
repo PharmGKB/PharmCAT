@@ -337,7 +337,7 @@
   "annotationGroups": [
     {
       "id": "PA166248461",
-      "name": "Normal metabolizer",
+      "name": "Normal Metabolizer",
       "strength": {
         "term": "N/A",
         "termId": "guidelineStrength:981501929"
@@ -352,22 +352,110 @@
         "UGT1A1:Normal function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451493003,
+        "id": 1451901061,
         "html": "<p>Normal Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451493004,
+        "id": 1451901062,
         "html": "<p>The guideline does not provide a recommendation for irinotecan in normal metabolizers</p>\n"
       },
       "implications": {
-        "id": 1451493002,
+        "id": 1451901060,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on irinotecan.</p>\n"
       },
       "activityScore": null
     },
     {
+      "id": "PA166248481",
+      "name": "Intermediate Metabolizer (with *28)",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "UGT1A1:Decreased function (UGT1A1*28)/Increased function",
+        "UGT1A1:Decreased function (UGT1A1*28)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451901048,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451901049,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451901047,
+        "html": "<p>This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n<p><em>Note that DPWG considers the *36 allele to be clinically equivalent to the *1 allele.</em></p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166248501",
+      "name": "Intermediate Metabolizer (no *28)",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "UGT1A1:Decreased function/Increased function",
+        "UGT1A1:Decreased function/Normal function",
+        "UGT1A1:Increased function/No function",
+        "UGT1A1:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451901057,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451901058,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1451901056,
+        "html": "<p>This genetic variation (IM) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166248502",
+      "name": "Poor Metabolizer (*28/*28)",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "UGT1A1:Decreased function (UGT1A1*28)/Decreased function (UGT1A1*28)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451901064,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451901065,
+        "html": "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n"
+      },
+      "implications": {
+        "id": 1451901063,
+        "html": "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
       "id": "PA166248503",
-      "name": "Poor metabolizer (other than *28/*28)",
+      "name": "Poor Metabolizer (other than *28/*28)",
       "strength": {
         "term": "N/A",
         "termId": "guidelineStrength:981501929"
@@ -384,104 +472,16 @@
         "UGT1A1:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451493130,
+        "id": 1451901054,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451493131,
+        "id": 1451901055,
         "html": "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n"
       },
       "implications": {
-        "id": 1451493129,
+        "id": 1451901053,
         "html": "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166248481",
-      "name": "Intermediate metabolizer (with *28)",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "UGT1A1:Decreased function (UGT1A1*28)/Increased function",
-        "UGT1A1:Decreased function (UGT1A1*28)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451493161,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451493162,
-        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
-      },
-      "implications": {
-        "id": 1451493160,
-        "html": "<p>This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n<p><em>Note that DPWG considers the *36 allele to be clinically equivalent to the *1 allele.</em></p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166248502",
-      "name": "Poor metabolizer (*28/*28)",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "UGT1A1:Decreased function (UGT1A1*28)/Decreased function (UGT1A1*28)"
-      ],
-      "metabolizerStatus": {
-        "id": 1451493127,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451493128,
-        "html": "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n"
-      },
-      "implications": {
-        "id": 1451493126,
-        "html": "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166248501",
-      "name": "Intermediate metabolizer (no *28)",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "UGT1A1:Decreased function/Increased function",
-        "UGT1A1:Decreased function/Normal function",
-        "UGT1A1:Increased function/No function",
-        "UGT1A1:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451493124,
-        "html": "<p>Intermediate metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451493125,
-        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
-      },
-      "implications": {
-        "id": 1451493123,
-        "html": "<p>This genetic variation (IM) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful.</p>\n"
       },
       "activityScore": null
     }

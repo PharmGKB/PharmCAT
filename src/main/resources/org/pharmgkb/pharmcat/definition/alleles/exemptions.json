@@ -34,5 +34,37 @@
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
     "allHits": true
+  },
+  {
+    "gene": "G6PD",
+    "ignoredPositions": [
+      {
+        "chromosome": "chrX",
+        "position": 154532439,
+        "cpicPosition": 154532439,
+        "rsid": "rs2230037",
+        "chromosomeHgvsName": "NC_000023.11:",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "A",
+        "alts": [
+          "G"
+        ]
+      }
+    ],
+    "extraPositions": [],
+    "ignoredAlleles": [
+      "Mediterranean Haplotype"
+    ],
+    "ignoredAllelesLc": [
+      "mediterranean haplotype"
+    ],
+    "allHits": null
   }
 ]

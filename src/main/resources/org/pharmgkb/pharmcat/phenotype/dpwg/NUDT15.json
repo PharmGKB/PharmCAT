@@ -14,86 +14,6 @@
   "activityValues": {},
   "diplotypes": [
     {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/Lys35Glu",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "Lys35Glu": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*2",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*3",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*3": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*4",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*5",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*6",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/Arg34Thr",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "Arg34Thr": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/Gly17_Val18del",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "Gly17_Val18del": 1
-      }
-    },
-    {
       "generesult": "Poor Metabolizer",
       "diplotype": "Lys35Glu/Lys35Glu",
       "description": null,
@@ -446,6 +366,86 @@
       }
     },
     {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/Lys35Glu",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "Lys35Glu": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*2",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*3",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*3": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*4",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*4": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*5",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*5": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*6",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/Arg34Thr",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "Arg34Thr": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/Gly17_Val18del",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "Gly17_Val18del": 1
+      }
+    },
+    {
       "generesult": "Normal Metabolizer",
       "diplotype": "*1/*1",
       "description": null,
@@ -455,5 +455,5 @@
       }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

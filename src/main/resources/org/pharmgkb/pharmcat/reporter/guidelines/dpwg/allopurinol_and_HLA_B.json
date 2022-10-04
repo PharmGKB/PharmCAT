@@ -3,7 +3,7 @@
     "id": "PA166265141",
     "name": "Annotation of DPWG Guideline for allopurinol and HLA-B",
     "source": "DPWG",
-    "version": 3,
+    "version": 4,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
     "relatedChemicals": [
       {
@@ -107,5 +107,29 @@
       "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [
+    {
+      "pmid": "36056234",
+      "title": "Dutch pharmacogenetics working group guideline for the gene-drug interaction of ABCG2, HLA-B and Allopurinol, and MTHFR, folic acid and methotrexate.",
+      "authors": [
+        "van der Pol Karel H",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne Marie",
+        "Guchelaar Henk-Jan",
+        "Risselada Arne",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van der Weide Jan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "Houwink Elisa J F",
+        "Rongen Gerard A"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    }
+  ]
 }

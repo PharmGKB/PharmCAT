@@ -8,6 +8,15 @@
   "diplotypes": [
     {
       "generesult": null,
+      "diplotype": "-1639 A/-1639 A",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "-1639 A": 2
+      }
+    },
+    {
+      "generesult": null,
       "diplotype": "-1639 A/-1639 G",
       "description": null,
       "lookupkey": null,
@@ -24,16 +33,7 @@
       "diplotypekey": {
         "-1639 G": 2
       }
-    },
-    {
-      "generesult": null,
-      "diplotype": "-1639 A/-1639 A",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "-1639 A": 2
-      }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

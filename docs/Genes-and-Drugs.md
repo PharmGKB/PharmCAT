@@ -42,6 +42,7 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 | Gene | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
+| [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
 | [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
 | [HLA-A](/Phenotypes-List#hla-a) |  | :heavy_check_mark: |
 | [HLA-B](/Phenotypes-List#hla-b) |  | :heavy_check_mark: |

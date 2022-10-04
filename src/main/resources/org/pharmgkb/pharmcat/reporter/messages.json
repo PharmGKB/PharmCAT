@@ -463,11 +463,12 @@
       "variant": null,
       "dips": [],
       "drugs": [
-        "phenytoin"
+        "phenytoin",
+        "fosphenytoin"
       ]
     },
     "exception_type": "note",
-    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT does not interpret HLA carrier status. Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
+    "message": "The displayed recommendation for CYP2C9 and phenytoin is ONLY valid for non-carriers of the HLA-B*15:02 high-risk allele. PharmCAT Named Allele Matcher does not determine HLA status. CPIC guidance: Fos-/Phenytoin is contraindicated in individuals with the HLA-B*15:02 variant allele (\"HLA-B*15:02-positive\") due to significantly increased risk of fos-/phenytoin-induced cutaneous adverse reactions of Stevens-Johnson syndrome (SJS) and toxic epidermal necrolysis (TEN). In HLA-B*15:02 carriers, carbamazepine should not be used as an alternative. Alternative medications such as oxcarbazepine, eslicarbazepine acetate, and lamotrigine have some evidence linking SJS/TEN with the HLA-B*15:02 allele, and thus caution should be used in choosing alternatives to phenytoin."
   },
   {
     "rule_name": "cpic-warfarin-rs12777823",
@@ -1056,5 +1057,39 @@
     },
     "exception_type": "",
     "message": "This comes from an outside data source which does not supply position-level detail.  For specific disclaimers and limitations, see the original genotyping source."
+  },
+  {
+    "rule_name": "CYP3A4",
+    "version": "2",
+    "matches": {
+      "gene": "CYP3A4",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": [
+        "quetiapine"
+      ]
+    },
+    "exception_type": "note",
+    "message": "The CYP3A4 alleles are determined based on PharmVar CYP3A4 allele definitions. See PharmCAT disclaimer for further information."
+  },
+  {
+    "rule_name": "irinotecan-DPWG",
+    "version": "2",
+    "matches": {
+      "gene": null,
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": [
+        "irinotecan"
+      ]
+    },
+    "exception_type": "note",
+    "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
   }
 ]

@@ -8,11 +8,11 @@
   "diplotypes": [
     {
       "generesult": null,
-      "diplotype": "c.521 T/c.521 T",
+      "diplotype": "c.521 C/c.521 C",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "c.521 T": 2
+        "c.521 C": 2
       }
     },
     {
@@ -27,13 +27,13 @@
     },
     {
       "generesult": null,
-      "diplotype": "c.521 C/c.521 C",
+      "diplotype": "c.521 T/c.521 T",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "c.521 C": 2
+        "c.521 T": 2
       }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

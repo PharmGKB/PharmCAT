@@ -70,6 +70,715 @@
       }
     },
     {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*28/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*28": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*6/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*7/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*7": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*8/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*9/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*9": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*12/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*12": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*27/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*29/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*29": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*30/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*30": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*32/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*32": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*33/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*33": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*34/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*34": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*35/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*35": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*6",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*7",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*7": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*8",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*9",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*9": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*12",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*12": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*27",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*27": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*29",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*29": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*30",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*30": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*32",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*32": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*33",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*33": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*34",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*34": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*35",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*35": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*37": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*2/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*2": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*3/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*3": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*4/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*4": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*5/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*5": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*10": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*11/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*11": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*13/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*13": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*14/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*14": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*15/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*15": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*16/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*16": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*17/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*17": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*18/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*19/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*19": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*20/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*20": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*21/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*21": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*22/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*22": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*23/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*23": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*24/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*24": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*25/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*25": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*26/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*26": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*31/*36",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*31": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*2",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*3",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*3": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*4",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*4": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*5",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*5": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*10",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*10": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*11",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*11": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*13",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*13": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*14",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*14": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*15",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*15": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*16",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*16": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*17",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*17": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*18",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*18": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*19",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*19": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*20",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*20": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*21",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*21": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*22",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*22": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*23",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*23": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*24",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*24": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*25",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*25": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*26",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*26": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*31",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*31": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 2
+      }
+    },
+    {
       "generesult": "Poor Metabolizer",
       "diplotype": "*2/*28",
       "description": null,
@@ -6324,716 +7033,7 @@
       "diplotypekey": {
         "*31": 2
       }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*28/*36",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*28": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*28",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*28": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*28/*28",
-      "description": null,
-      "lookupkey": "Poor Metabolizer",
-      "diplotypekey": {
-        "*28": 2
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*6/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*7/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*8/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*8": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*9/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*9": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*12/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*12": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*27/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*27": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*29/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*29": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*30/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*30": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*32/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*32": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*33/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*33": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*34/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*34": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*35/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*35": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*36/*37",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*37": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*6",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*7",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*8",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*8": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*9",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*9": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*12",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*12": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*27",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*27": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*29",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*29": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*30",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*30": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*32",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*32": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*33",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*33": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*34",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*34": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*35",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*35": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*37",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*37": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*2/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*2": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*3/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*3": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*4/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*5/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*36": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*10/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*10": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*11/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*11": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*13/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*13": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*14/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*14": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*15/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*15": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*16/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*16": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*17/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*17": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*18/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*18": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*19/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*19": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*20/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*20": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*21/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*21": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*22/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*22": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*23/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*23": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*24/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*24": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*25/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*25": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*26/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*26": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*31/*36",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*31": 1,
-        "*36": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*2",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*3",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*3": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*4",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*5",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*10",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*10": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*11",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*11": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*13",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*13": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*14",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*14": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*15",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*15": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*16",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*16": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*17",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*17": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*18",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*18": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*19",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*19": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*20",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*20": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*21",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*21": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*22",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*22": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*23",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*23": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*24",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*24": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*25",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*25": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*26",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*26": 1
-      }
-    },
-    {
-      "generesult": "Intermediate metabolizer",
-      "diplotype": "*1/*31",
-      "description": null,
-      "lookupkey": "Intermediate metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*31": 1
-      }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

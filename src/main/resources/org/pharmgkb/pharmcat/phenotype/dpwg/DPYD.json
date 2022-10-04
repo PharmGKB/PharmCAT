@@ -11,6 +11,15 @@
   "diplotypes": [
     {
       "generesult": null,
+      "diplotype": "Reference/Reference",
+      "description": null,
+      "lookupkey": null,
+      "diplotypekey": {
+        "Reference": 2
+      }
+    },
+    {
+      "generesult": null,
       "diplotype": "c.1679T>G (*13)/c.1679T>G (*13)",
       "description": null,
       "lookupkey": null,
@@ -35,15 +44,6 @@
       "lookupkey": null,
       "diplotypekey": {
         "c.1905+1G>A (*2A)": 2
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "Reference/Reference",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "Reference": 2
       }
     },
     {
@@ -155,5 +155,5 @@
       }
     }
   ],
-  "version": "2022-09-19-03-53"
+  "version": "2022-10-03-16-30"
 }

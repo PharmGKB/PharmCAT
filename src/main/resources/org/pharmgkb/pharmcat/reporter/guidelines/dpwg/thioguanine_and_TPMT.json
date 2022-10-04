@@ -206,7 +206,89 @@
       }
     ]
   },
-  "annotationGroups": [],
+  "annotationGroups": [
+    {
+      "id": "PA166244921",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "TPMT:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451450542,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451450543,
+        "html": "<p>IMMUNOSUPPRESSION: Start with 75% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. The frequency of monitoring should be increased.</p>\n<ul>\n<li>LEUKAEMIA: Start with 75% of the standard thioguanine dose, or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM.</li>\n</ul>\n"
+      },
+      "implications": {
+        "id": 1451450541,
+        "html": "<p>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious adverse events such as myelosuppression.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244922",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "TPMT:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451450545,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451450546,
+        "html": "<ol>\n<li>Choose an alternative or start with 6-7% of the standard dose. Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. The frequency of monitoring should be increased.</li>\n<li>If the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) develop.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451450544,
+        "html": "<p>Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious, life-threatening adverse events such as myelosuppression.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244981",
+      "name": "NM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "TPMT:Normal function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451450603,
+        "html": "<p>The guideline does not provide a recommendation for thioguanine in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1451450601,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on thioguanine.</p>\n"
+      },
+      "activityScore": null
+    }
+  ],
   "citations": [
     {
       "pmid": "21412232",
