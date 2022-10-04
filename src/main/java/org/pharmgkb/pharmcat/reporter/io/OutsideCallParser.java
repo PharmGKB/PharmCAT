@@ -33,7 +33,7 @@ import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
  * @author Ryan Whaley
  */
 public class OutsideCallParser {
-  private static final Predicate<String> sf_nonCommentLine = (l) -> !l.startsWith("#");
+  private static final Predicate<String> sf_nonCommentLine = (l) -> StringUtils.isNotBlank(l) && !l.startsWith("#");
 
   public static List<OutsideCall> parse(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
