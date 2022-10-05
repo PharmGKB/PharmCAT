@@ -62,7 +62,7 @@ class PharmCATTest {
       """;
   private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
-  private static boolean m_compact;
+  private static boolean m_compact = true;
   private static List<DataSource> m_sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
@@ -134,8 +134,10 @@ class PharmCATTest {
 
       Document document = Jsoup.parse(refReporterOutput.toFile());
       assertNotNull(document.getElementById("section-i"));
-      assertNotNull(document.getElementById("CYP2D6"));
-      assertNotNull(document.getElementById("aripiprazole"));
+      assertNotNull(document.getElementById("ABCG2"));
+      assertNull(document.getElementById("CYP2D6"));
+      assertNotNull(document.getElementById("desflurane"));
+      assertNull(document.getElementById("aripiprazole"));
 
     } finally {
       // always delete
@@ -184,8 +186,9 @@ class PharmCATTest {
 
       Document document = Jsoup.parse(refReporterOutput.toFile());
       assertNotNull(document.getElementById("section-i"));
-      assertNotNull(document.getElementById("CYP2D6"));
-      assertNotNull(document.getElementById("aripiprazole"));
+      assertNotNull(document.getElementById("ABCG2"));
+      assertNull(document.getElementById("CYP2D6"));
+      assertNotNull(document.getElementById("desflurane"));
 
     } finally {
       TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
@@ -846,6 +849,7 @@ class PharmCATTest {
 
   @Test
   void testRosuvastatin(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("ABCG2", "rs2231142", "G", "T")
@@ -861,8 +865,7 @@ class PharmCATTest {
     Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements capecitabineSection = document.getElementsByClass("capecitabine");
-    assertEquals(1, capecitabineSection.size());
-    assertEquals(0, capecitabineSection.get(0).getElementsByClass("alert-info").size());
+    assertEquals(0, capecitabineSection.size());
 
     Elements dpydSection = document.select(".gene.dpyd");
     assertEquals(1, dpydSection.size());
@@ -2187,6 +2190,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     private final boolean m_findCombinations;
     private final boolean m_callCyp2d6;
     private final boolean m_topCandidatesOnly;
+    private boolean m_compactReport = m_compact;
     private ReportContext m_reportContext;
 
     PharmCATTestWrapper(TestInfo testInfo, boolean allMatches) throws IOException {
@@ -2207,6 +2211,10 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       m_topCandidatesOnly = !allMatches;
     }
 
+    void setCompactReport(boolean compactReport) {
+      m_compactReport = compactReport;
+    }
+
     ReportContext getContext() {
       return m_reportContext;
     }
@@ -2220,8 +2228,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       PharmCAT pcat = new PharmCAT(new Env(),
           true, vcfFile, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
           true, null, outsideCallPath,
-          true, null, null, m_sources, m_compact, true,
-          m_outputPath, null, m_compact, PharmCAT.Mode.TEST
+          true, null, null, m_sources, m_compactReport, true,
+          m_outputPath, null, m_compactReport, PharmCAT.Mode.TEST
       );
       pcat.execute();
       m_reportContext = pcat.getReportContext();

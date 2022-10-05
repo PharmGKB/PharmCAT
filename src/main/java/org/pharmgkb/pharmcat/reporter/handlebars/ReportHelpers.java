@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -235,6 +236,14 @@ public class ReportHelpers {
       }
     }
     return false;
+  }
+
+  public static String amdCompactNoDataMessage(Collection<String> compactNoDataGenes) {
+    return "<p class=\"noGeneData\">No data provided for " +
+        compactNoDataGenes.stream()
+            .map((g) -> "<span class=\"gene " + g.toLowerCase() + "\"><span class=\"no-data\">" + g + "</span></span>")
+            .collect(Collectors.joining(", ")) +
+        ".</p>";
   }
 
   public static boolean amdIsSingleCall(GeneReport report) {

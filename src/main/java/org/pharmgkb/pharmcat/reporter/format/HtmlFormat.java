@@ -109,6 +109,7 @@ public class HtmlFormat extends AbstractFormat {
     boolean hasUnphasedNote = false;
 
     SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
+    SortedSet<String> compactNoDataGenes = new TreeSet<>();
     for (DataSource source : reportContext.getGeneReports().keySet()) {
       if (!m_sources.contains(source)) {
         continue;
@@ -146,6 +147,8 @@ public class HtmlFormat extends AbstractFormat {
               .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
           hasMessages = hasMessages || hasMessages(geneReport);
           hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
+        } else if (m_compact) {
+          compactNoDataGenes.add(symbol);
         }
       }
     }
@@ -177,6 +180,7 @@ public class HtmlFormat extends AbstractFormat {
         .toList());
     // Section III
     result.put("geneReports", geneReports);
+    result.put("compactNoDataGenes", compactNoDataGenes);
 
     // Section II: Prescribing Recommendations
     SortedMap<String, Map<DataSource, DrugReport>> drugReports = new TreeMap<>();

@@ -321,6 +321,10 @@
         <li><a href="#{{geneDisplay}}">{{geneDisplay}} allele match data</a></li>
       {{/each}}
     </ol>
+    {{#if (thereAre compactNoDataGenes) }}
+      {{{amdCompactNoDataMessage compactNoDataGenes}}}
+    {{/if}}
+
 
     {{#each geneReports}}
       <section class="gene {{geneDisplay}}">

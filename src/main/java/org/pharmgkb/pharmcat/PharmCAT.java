@@ -97,7 +97,7 @@ public class PharmCAT {
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
           .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
           .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
-          .addOption("rc", "reporter-compact", "output compact report")
+          .addOption("re", "reporter-extended", "output extended report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
 
           // outputs
@@ -445,7 +445,7 @@ public class PharmCAT {
     boolean runPhenotyper = true;
     boolean runReporter = true;
     String reporterTitle;
-    boolean reporterCompact;
+    boolean reporterCompact = true;
     List<DataSource> reporterSources;
     boolean reporterJson;
     Path outputDir;
@@ -492,7 +492,7 @@ public class PharmCAT {
 
       if (runReporter) {
         reporterTitle = cliHelper.getValue("rt");
-        reporterCompact = cliHelper.hasOption("rc");
+        reporterCompact = !cliHelper.hasOption("re");
         reporterJson = cliHelper.hasOption("reporterJson");
         if (cliHelper.hasOption("rs")) {
           reporterSources = new ArrayList<>();

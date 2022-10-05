@@ -39,7 +39,7 @@ public class BatchPharmCAT {
           .addOption("reporter", "reporter", "run reporter")
           .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
           .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
-          .addOption("rc", "reporter-compact", "output compact report")
+          .addOption("re", "reporter-extended", "output extended report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
 
           // outputs

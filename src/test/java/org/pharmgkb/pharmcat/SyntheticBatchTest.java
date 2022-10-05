@@ -48,7 +48,7 @@ class SyntheticBatchTest {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
         .addOption("o", "output-dir", "directory to output to", false, "o")
         .addOption("a", "all-tests", "run all tests for Katrin")
-        .addOption("rc", "reporter-compact", "output compact report")
+        .addOption("re", "reporter-extended", "output extended report")
         .addOption("cpic", "cpic", "CPIC reports")
         .addOption("dpwg", "dpwg", "DPWG reports")
         .addOption("mega", "mega", "generate all variations in one run")
@@ -95,7 +95,7 @@ class SyntheticBatchTest {
         if (cliHelper.hasOption("o")) {
           dir = cliHelper.getValidDirectory("o", true);
         }
-        doRun(dir, cliHelper.hasOption("rc"), sources, cliHelper.hasOption("a"));
+        doRun(dir, !cliHelper.hasOption("re"), sources, cliHelper.hasOption("a"));
       }
 
     } catch (Exception e) {
