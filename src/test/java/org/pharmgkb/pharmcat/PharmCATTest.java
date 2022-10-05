@@ -2037,6 +2037,38 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
   /**
+   * This test ensures that a user can specify both a diplotype AND a phenotype from an outside call. This also tests
+   * to make sure the user can override the internally-known phenotype with their own phenotype assignment. *2/*10 would
+   * normally be a Normal Metablizer but this outside call overrides it as a Intermediate Metabolizer.
+   */
+  @Test
+  void testOutsideActivityScoreAndPhenotype(TestInfo testInfo) throws Exception {
+    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
+    Path outsideCallPath = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*2/*10\tIntermediate Metabolizer\t1.25");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+
+    testWrapper.testNotCalledByMatcher("CYP2D6");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*2/*10");
+    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    assertEquals(1, cyp2d6Report.getSourceDiplotypes().size());
+    assertTrue(cyp2d6Report.getSourceDiplotypes().stream().allMatch((d) -> d.getPhenotypes().contains("Intermediate Metabolizer")));
+
+    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+  }
+
+  /**
    * Can we use phenotype in CYP2D6 outside call files?
    */
   @Test

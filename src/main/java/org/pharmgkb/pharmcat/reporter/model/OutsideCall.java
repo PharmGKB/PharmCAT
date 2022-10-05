@@ -76,10 +76,9 @@ public class OutsideCall {
     });
 
     if (fields.length >= 3) {
-      String pheno = fields[IDX_PHENO];
-      m_phenotype = PhenotypeUtils.normalize(pheno.replaceAll(gene, ""));
-      if (StringUtils.isNotBlank(m_phenotype) && m_diplotypes.size() > 0) {
-        throw new BadOutsideCallException("Specify either diplotype OR phenotype, not both for " + gene);
+      String pheno = StringUtils.stripToNull(fields[IDX_PHENO]);
+      if (pheno != null) {
+        m_phenotype = PhenotypeUtils.normalize(pheno.replaceAll(gene, ""));
       }
     }
 
