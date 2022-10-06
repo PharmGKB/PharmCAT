@@ -559,6 +559,27 @@ class PharmCATTest {
         MessageHelper.MSG_OUTSIDE_CALL);
   }
 
+  /**
+   * Tests that an "unordered" diplotype should normalize to the ordered version then it can be used for matching
+   */
+  @Test
+  void testOutsideNormalization(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      // dipltoype in backwards order
+      writer.println("CYP2C19\t*2/*1");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testNotCalledByMatcher("CYP2C19");
+    // this should be a normalized version of hte given diplotype
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
+  }
+
 
   /**
    * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
@@ -1909,6 +1930,10 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
 
+  /**
+   * Tests whether an allele that is unknown to PharmCAT/CPIC will still go through the system without throwing an
+   * exception and will be reported properly.
+   */
   @Test
   void testCyp2d6AlleleWithNoFunction(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
@@ -1920,6 +1945,20 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
     testWrapper.execute(outsideCallPath);
+
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*1/*XXX");
+    testWrapper.testPrintCalls(DataSource.DPWG, "CYP2D6", "*1/*XXX");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", "n/a");
+
+    // this nonsense allele will still match to "Indeterminate" phenotypes in guidelines for CYP2D6
+    testWrapper.testMatchedAnnotations("atomoxetine", DataSource.CPIC, 2);
+    DrugReport atoReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "atomoxetine");
+    assertNotNull(atoReport);
+    assertNotNull(atoReport.getGuidelines());
+    assertEquals(1, atoReport.getGuidelines().size());
+    assertTrue(atoReport.getGuidelines().stream()
+        .flatMap((g) -> g.getAnnotations().stream())
+        .allMatch((a) -> a.getPhenotypes().containsKey("CYP2D6") && a.getPhenotypes().containsValue("Indeterminate")));
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
