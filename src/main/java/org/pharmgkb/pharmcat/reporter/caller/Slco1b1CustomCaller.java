@@ -50,9 +50,14 @@ public class Slco1b1CustomCaller {
     Preconditions.checkArgument(report.getGene().equals(SLCO1B1), "Can only be used on SLCO1B1");
     
     List<VariantReport> variants = report.getVariantReports().stream()
-        .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().equals(sf_callPosition)).toList();
-    if (variants.size() == 0) return Optional.empty();
-    if (variants.size() > 1) throw new UnexpectedStateException("More than one report found for " + sf_callPosition);
+        .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().equals(sf_callPosition))
+        .toList();
+    if (variants.size() == 0) {
+      return Optional.empty();
+    }
+    if (variants.size() > 1) {
+      throw new UnexpectedStateException("More than one report found for " + sf_callPosition);
+    }
 
     VariantReport variant = variants.get(0);
     if (StringUtils.isBlank(variant.getCall())) return Optional.empty();

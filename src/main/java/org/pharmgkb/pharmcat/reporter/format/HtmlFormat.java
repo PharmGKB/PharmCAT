@@ -31,7 +31,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
+import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
 /**

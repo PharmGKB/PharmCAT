@@ -1,13 +1,15 @@
-package org.pharmgkb.pharmcat.reporter;
+package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -33,16 +35,14 @@ class DpydCallerTest {
 
   @Test
   void infer_outsideCall_noMatch() {
-    List<String> matches = new ArrayList<>();
-    matches.add("*1/*5");
-    List<Diplotype> dips = DpydCaller.inferDiplotypes(matches, true, s_env, CPIC);
+    List<Diplotype> dips = DpydCaller.inferOutsideDiplotypes("*1/*5", s_env, CPIC);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
     assertEquals("*1", dip.getAllele1().getName());
     assertEquals("*5", dip.getAllele2().getName());
     assertEquals(1, dip.getPhenotypes().size());
-    assertEquals(TextConstants.NA, dip.getPhenotypes().get(0));
+    Assertions.assertEquals(TextConstants.NA, dip.getPhenotypes().get(0));
   }
 
 
@@ -109,9 +109,7 @@ class DpydCallerTest {
   }
 
   private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
-    List<String> matches = new ArrayList<>();
-    matches.add(diplotype);
-    List<Diplotype> dips = DpydCaller.inferDiplotypes(matches, true, s_env, source);
+    List<Diplotype> dips = DpydCaller.inferOutsideDiplotypes(diplotype, s_env, source);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -139,14 +137,14 @@ class DpydCallerTest {
     matches.add(new HaplotypeMatch(na3));
     matches.add(new HaplotypeMatch(na4));
 
-    List<Diplotype> dips = DpydCaller.inferDiplotypes(matches, false, s_env, CPIC);
+    List<Diplotype> dips = DpydCaller.inferDiplotypes(matches, s_env, CPIC);
     Diplotype dip = dips.get(0);
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());
     assertEquals("No function", dip.getAllele1().getFunction());
     assertEquals("Decreased function", dip.getAllele2().getFunction());
 
-    dips = DpydCaller.inferDiplotypes(matches, false, s_env, DPWG);
+    dips = DpydCaller.inferDiplotypes(matches, s_env, DPWG);
     dip = dips.get(0);
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());

@@ -17,8 +17,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
-import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
 import static org.pharmgkb.pharmcat.reporter.TextConstants.UNCALLED;
+import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
 /**
