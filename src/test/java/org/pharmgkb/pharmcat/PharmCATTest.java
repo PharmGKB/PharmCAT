@@ -30,7 +30,6 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
-import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -1907,26 +1906,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testMatchedAnnotations("peginterferon alfa-2b", 0);
   }
 
-
-  /**
-   * This tests the case when an outside call file contains an entry with both a diplotype and a phenotype which is an
-   * error.
-   */
-  @Test
-  void testBadOutsideData(TestInfo testInfo) throws Exception {
-    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
-    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      writer.println("CYP2D6\t*1/*2\tfoo");
-      writer.println("CYP2D6\t*3/*4");
-    }
-
-    assertThrows(BadOutsideCallException.class, () -> {
-      PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
-      testWrapper.getVcfBuilder()
-          .reference("CYP2C19");
-      testWrapper.execute(outsideCallPath);
-    });
-  }
 
   @Test
   void testCyp2d6AlleleWithNoFunction(TestInfo testInfo) throws Exception {
