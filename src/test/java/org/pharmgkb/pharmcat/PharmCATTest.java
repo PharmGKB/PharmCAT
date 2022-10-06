@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -1609,13 +1610,26 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C9");
-    testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C9", "*1/*1");
+    testWrapper.testPrintCalls(DataSource.DPWG, "CYP2C9", "*1/*1");
+
+    testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("HLA-B");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*57:01 positive");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*15:02 positive");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*57:01 positive");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*15:02 positive");
+
+    // *57:01 guideline
     testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
     testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
+    // *58:01 guideline
     testWrapper.testMatchedAnnotations("allopurinol", DataSource.CPIC, 1);
     testWrapper.testMatchedAnnotations("allopurinol", DataSource.DPWG, 1);
+    // *15:02 guideline (along with CYP2C9)
     testWrapper.testMatchedAnnotations("phenytoin", 4);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
@@ -2271,6 +2285,21 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
         System.out.println(printDiagnostic(geneReport));
         throw ex;
       }
+    }
+
+    /**
+     * Test to make sure the given phenotype is in the collection of phenotyps that come from the source diplotype
+     * collection.
+     * @param source The source for the diplotype
+     * @param gene The gene symbol
+     * @param phenotype The phenotype string to check for
+     */
+    private void testSourcePhenotype(DataSource source, String gene, String phenotype) {
+      GeneReport geneReport = getContext().getGeneReport(source, gene);
+      Set<String> sourcePhenotypes = geneReport.getSourceDiplotypes().stream()
+          .flatMap(d -> d.getPhenotypes().stream())
+          .collect(Collectors.toSet());
+        assertTrue(sourcePhenotypes.contains(phenotype), sourcePhenotypes + " does not contain " + phenotype);
     }
 
     private void testInferredCalls(String gene, String... calls) {
