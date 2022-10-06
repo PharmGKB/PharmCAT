@@ -5,8 +5,8 @@ import java.util.TreeSet;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -37,7 +37,7 @@ class GeneReportTest {
     String displayDiplotype = "*1/*6";
     String diplotypeString = "UGT1A1:*1/*6";
 
-    OutsideCall outsideCall = new OutsideCall(outsideCallData);
+    OutsideCall outsideCall = new OutsideCall(outsideCallData, 0);
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     assertEquals(gene, geneReport.getGene());
@@ -57,7 +57,7 @@ class GeneReportTest {
     String outsideCallData = "CYP2C19\t*1/*6";
     String displayDiplotype = "*1/*6";
 
-    OutsideCall outsideCall = new OutsideCall(outsideCallData);
+    OutsideCall outsideCall = new OutsideCall(outsideCallData, 0);
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     assertEquals(gene, geneReport.getGene());
@@ -69,7 +69,7 @@ class GeneReportTest {
 
   @Test
   void testNoFunctionCyp2D6() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*XXX");
+    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*XXX", 0);
 
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
@@ -87,7 +87,7 @@ class GeneReportTest {
     GeneReport geneReport1 = new GeneReport("TEST", DataSource.CPIC, "test");
     GeneReport geneReport2 = new GeneReport("TEST", DataSource.DPWG, "test");
 
-    OutsideCall outsideCall = new OutsideCall("TEST\t*1/*1");
+    OutsideCall outsideCall = new OutsideCall("TEST\t*1/*1", 0);
     GeneReport geneReport3 = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     SortedSet<GeneReport> set = new TreeSet<>();

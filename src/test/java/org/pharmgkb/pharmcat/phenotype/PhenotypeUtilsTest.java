@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.util;
+package org.pharmgkb.pharmcat.phenotype;
 
 import org.junit.jupiter.api.Test;
 

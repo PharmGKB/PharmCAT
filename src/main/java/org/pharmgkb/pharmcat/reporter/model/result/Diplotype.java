@@ -21,11 +21,11 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
-import static org.pharmgkb.pharmcat.reporter.DpydCaller.isDpyd;
+import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
 /**
@@ -56,6 +56,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @SerializedName("phenotypes")
   private List<String> m_phenotypes = new ArrayList<>();
   @Expose
+  @SerializedName("outsidePhenotypes")
+  private boolean m_outsidePhenotypes;
+  @Expose
   @SerializedName("variant")
   private VariantReport m_variant;
   @Expose
@@ -67,6 +70,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("activityScore")
   private String m_activityScore;
+  @Expose
+  @SerializedName("outsideActivityScore")
+  private boolean m_outsideActivityScore;
   @Expose
   @SerializedName("observed")
   private Observation m_observed = Observation.DIRECT;
@@ -183,12 +189,13 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Constructor for a diplotype coming from an outside call that does not specify individual alleles but DOES give
-   * phenotype or activity score
+   * phenotype or activity score.
+   *
    * @param outsideCall an {@link OutsideCall} object
    */
   public Diplotype(OutsideCall outsideCall) {
-    Preconditions.checkArgument(outsideCall.getDiplotypes().size() == 0,
-        "Must use the DiplotypeFactory when making diplotypes from outside calls with explicit diplotype calls");
+    Preconditions.checkArgument(outsideCall.getDiplotype() == null,
+        "Must use the DiplotypeFactory when making diplotype from outside calls with explicit diplotype call");
     Preconditions.checkArgument(StringUtils.isNotBlank(outsideCall.getPhenotype()) || StringUtils.isNotBlank(outsideCall.getActivityScore()),
         "Outside call must supply at least a phenotype or an activity score");
 
@@ -197,9 +204,13 @@ public class Diplotype implements Comparable<Diplotype> {
     m_gene = outsideCall.getGene();
     if (outsideCall.getPhenotype() != null) {
       m_phenotypes.add(outsideCall.getPhenotype());
+      m_outsidePhenotypes = true;
     }
     m_activityScore = outsideCall.getActivityScore();
-    if (StringUtils.isNotBlank(outsideCall.getPhenotype())) {
+    if (m_activityScore != null) {
+      m_outsideActivityScore = true;
+    }
+    if (outsideCall.getPhenotype() != null) {
       f_label = outsideCall.getPhenotype();
     }
     else {
@@ -389,6 +400,18 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
+   * Gets whether the phenotypes are from an outside call.
+   */
+  public boolean isOutsidePhenotypes() {
+    return m_outsidePhenotypes;
+  }
+
+  public void setOutsidePhenotypes(boolean fromOutsideCall) {
+    m_outsidePhenotypes = fromOutsideCall;
+  }
+
+
+  /**
    * Print the overriding diplotype string if it exists
    * @return Optional diplotype string to override whatever the actual string would be
    */
@@ -498,15 +521,6 @@ public class Diplotype implements Comparable<Diplotype> {
     return lookupMap;
   }
 
-  public String containsAllele(String allele) {
-    if ((m_allele1 != null && m_allele1.getName().contains(allele))
-        || (m_allele2 != null && m_allele2.getName().contains(allele))) {
-      return allele + " positive";
-    } else {
-      return allele + " negative";
-    }
-  }
-
   /**
    * True if this diplotype does not use allele function to assign phenotype but instead relies on the presence or absense of
    * alleles for its phenotypes (e.g. HLA's)
@@ -524,6 +538,7 @@ public class Diplotype implements Comparable<Diplotype> {
     return !isUnknownPhenotype() && isUnknownAlleles();
   }
 
+
   public String getActivityScore() {
     return m_activityScore;
   }
@@ -531,6 +546,19 @@ public class Diplotype implements Comparable<Diplotype> {
   public void setActivityScore(String activityScore) {
     m_activityScore = activityScore;
   }
+
+
+  /**
+   * Gets whether the activity score is from an outside call.
+   */
+  public boolean isOutsideActivityScore() {
+    return m_outsideActivityScore;
+  }
+
+  public void setOutsideActivityScore(boolean fromOutsideCall) {
+    m_outsideActivityScore = fromOutsideCall;
+  }
+
 
   public boolean hasActivityScore() {
     return !TextConstants.isUnspecified(m_activityScore);

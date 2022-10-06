@@ -19,8 +19,8 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -116,38 +116,44 @@ public class DiplotypeFactory {
   /**
    * Make diplotype objects based on {@link OutsideCall} objects
    */
-  public List<Diplotype> makeDiplotypes(OutsideCall outsideCall, DataSource source) {
+  public Diplotype makeDiplotype(OutsideCall outsideCall, DataSource source) {
     Preconditions.checkNotNull(outsideCall);
     Preconditions.checkArgument(outsideCall.getGene().equals(m_gene));
 
-    List<Diplotype> diplotypes = new ArrayList<>();
-    if (outsideCall.getDiplotypes().size() > 0) {
-      diplotypes.addAll(makeDiplotypes(outsideCall.getDiplotypes(), source));
-      for (Diplotype diplotype : diplotypes) {
-        // assign outside phenotype if it exists and warn on mismatch
-        if (outsideCall.getPhenotype() != null && diplotype.getPhenotypes().size() > 0 && !diplotype.getPhenotypes().contains(outsideCall.getPhenotype())) {
+    Diplotype diplotype;
+    if (outsideCall.getDiplotype() != null) {
+      diplotype = makeDiplotype(outsideCall.getDiplotype(), source);
+
+      if (outsideCall.getPhenotype() != null) {
+        diplotype.setOutsidePhenotypes(true);
+        // check for phenotype assignment mismatch and override
+        if (diplotype.getPhenotypes().size() > 0 &&
+            !diplotype.getPhenotypes().contains(outsideCall.getPhenotype())) {
           sf_logger.warn("Outside call phenotype does not match known phenotype: {} != {}", outsideCall.getPhenotype(), String.join("; ", diplotype.getPhenotypes()));
           diplotype.setPhenotypes(ImmutableList.of(outsideCall.getPhenotype()));
         }
-        // assign outside activity score if it exists and warn on mismatch
-        if (outsideCall.getActivityScore() != null && diplotype.getActivityScore() != null && !diplotype.getActivityScore().equals(outsideCall.getActivityScore())) {
+      }
+      if (outsideCall.getActivityScore() != null) {
+        diplotype.setOutsideActivityScore(true);
+        // check for activity score mismatch and override
+        if (!outsideCall.getActivityScore().equals(diplotype.getActivityScore())) {
           sf_logger.warn("Outside call activity score does not match known activity score: {} != {}", outsideCall.getActivityScore(), diplotype.getActivityScore());
           diplotype.setActivityScore(outsideCall.getActivityScore());
         }
       }
     }
     else {
-      Diplotype outsideDiplotype = new Diplotype(outsideCall);
+      diplotype = new Diplotype(outsideCall);
       GenePhenotype gp = m_env.getPhenotype(m_gene, source);
       if (gp != null && gp.isMatchedByActivityScore()
-          && outsideDiplotype.isUnknownPhenotype()
-          && outsideDiplotype.hasActivityScore()) {
-        outsideDiplotype.setPhenotypes(ImmutableList.of(gp.getPhenotypeForActivity(outsideDiplotype)));
+          && diplotype.isUnknownPhenotype()
+          && diplotype.hasActivityScore()) {
+        diplotype.setPhenotypes(ImmutableList.of(gp.getPhenotypeForActivity(diplotype)));
       }
-      fillDiplotype(outsideDiplotype, m_env, source);
-      diplotypes.add(outsideDiplotype);
+      fillDiplotype(diplotype, m_env, source);
     }
-    return diplotypes;
+
+    return diplotype;
   }
 
 
@@ -216,7 +222,8 @@ public class DiplotypeFactory {
   }
 
   /**
-   * Fill in the phenotype and activity score depending on what information is already in the diplotype
+   * Fill in the phenotype and activity score depending on what information is already in the diplotype.
+   *
    * @param diplotype the diplotype to add information to
    * @param env Global PharmCAT environment
    * @param source which data source is supplying the phenotype/activity information
@@ -254,7 +261,7 @@ public class DiplotypeFactory {
 
   /**
    * Make a list of phenotype strings based on what diplotypes are specified.
-   *
+   * <p>
    * <em>Note:</em> This only applies when diplotypes are available in the {@link Diplotype} object. If only phenotype is supplied
    * then this will return an empty list.
    * @param diplotype the diplotype to analyze
@@ -268,13 +275,25 @@ public class DiplotypeFactory {
       return new ArrayList<>();
     }
     if (diplotype.getGene().equals("HLA-A")) {
-      return ImmutableList.of(diplotype.containsAllele("*31:01"));
+      return ImmutableList.of(hlaPhenotype(diplotype, "*31:01"));
     } else {
       List<String> phenotypes = new ArrayList<>();
-      phenotypes.add(diplotype.containsAllele("*15:02"));
-      phenotypes.add(diplotype.containsAllele("*57:01"));
-      phenotypes.add(diplotype.containsAllele("*58:01"));
+      phenotypes.add(hlaPhenotype(diplotype, "*15:02"));
+      phenotypes.add(hlaPhenotype(diplotype, "*57:01"));
+      phenotypes.add(hlaPhenotype(diplotype, "*58:01"));
       return phenotypes;
     }
+  }
+
+  private static String hlaPhenotype(Diplotype diplotype, String allele) {
+    if (nameContainsAllele(diplotype.getAllele1(), allele) || nameContainsAllele(diplotype.getAllele2(), allele)) {
+      return allele + " positive";
+    } else {
+      return allele + " negative";
+    }
+  }
+
+  private static boolean nameContainsAllele(Haplotype hap, String allele) {
+    return hap != null && hap.getName().contains(allele);
   }
 }

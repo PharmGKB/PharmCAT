@@ -1,23 +1,26 @@
-package org.pharmgkb.pharmcat.reporter.io;
+package org.pharmgkb.pharmcat.phenotype;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
-import org.pharmgkb.pharmcat.reporter.model.OutsideCall;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 
 
 /**
- * Class to parse outside-call text files into {@link OutsideCall} objects. This was created with Astrolabe in mind but 
- * can be used for any outside calls. This parser will ignore any lines starting with "#" or blank lines and interpret 
- * the rest as TSV formatted lines with the first field as gene symbol, the second field as diplotype call, and the
- * third field as the phenotype call.
+ * Class to parse outside-call text files into {@link OutsideCall} objects.
+ * This parser will ignore any lines starting with "#" or blank lines and interpret the rest as TSV formatted lines as:
+ * <ol>
+ *   <li>gene symbol</li>
+ *   <li>diplotype</li>
+ *   <li>phenotype</li>
+ *   <li>activity score</li>
+ * </ol>with
  * <p>
  * The diplotype call in the second "column" can optionally include the gene symbol as a prefix on the allele name, but
  * it will be ignored. The gene is read from the first "column". As an example, this means both
@@ -38,17 +41,29 @@ public class OutsideCallParser {
   public static List<OutsideCall> parse(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
 
-    try (Stream<String> lines = Files.lines(filePath)) {
-      return lines.filter(sf_nonCommentLine)
-          .map(OutsideCall::new)
-          .collect(Collectors.toList());
+    List<OutsideCall> calls = new ArrayList<>();
+    try (BufferedReader reader = Files.newBufferedReader(filePath)) {
+      int x = 0;
+      String line;
+      while ((line = reader.readLine()) != null) {
+        x += 1;
+        if (sf_nonCommentLine.test(line)) {
+          calls.add(new OutsideCall(line, x));
+        }
+      }
     }
+    return calls;
   }
 
   public static List<OutsideCall> parse(String outsideCallData) {
-    return Arrays.stream(StringUtils.stripToEmpty(outsideCallData).split("\n"))
-        .filter(sf_nonCommentLine)
-        .map(OutsideCall::new)
-        .collect(Collectors.toList());
+    List<OutsideCall> calls = new ArrayList<>();
+    String[] lines = StringUtils.stripToEmpty(outsideCallData).split("\n");
+    for (int x = 0; x < lines.length; x += 1) {
+      String line = lines[x];
+      if (sf_nonCommentLine.test(line)) {
+        calls.add(new OutsideCall(line, x + 1));
+      }
+    }
+    return calls;
   }
 }

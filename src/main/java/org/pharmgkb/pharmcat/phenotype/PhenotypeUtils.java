@@ -1,6 +1,5 @@
-package org.pharmgkb.pharmcat.util;
+package org.pharmgkb.pharmcat.phenotype;
 
-import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 import org.apache.commons.lang3.StringUtils;
@@ -13,11 +12,11 @@ public class PhenotypeUtils {
 
   private static final Map<String,String> ABBREVIATIONS = new TreeMap<>();
   static {
-    ABBREVIATIONS.put("PM", "Poor Metabolizer");
-    ABBREVIATIONS.put("IM", "Intermediate Metabolizer");
-    ABBREVIATIONS.put("NM", "Normal Metabolizer");
-    ABBREVIATIONS.put("EM", "Normal Metabolizer"); // not a typo, extensives are now normals
-    ABBREVIATIONS.put("UM", "Ultrarapid Metabolizer");
+    ABBREVIATIONS.put("pm", "Poor Metabolizer");
+    ABBREVIATIONS.put("im", "Intermediate Metabolizer");
+    ABBREVIATIONS.put("nm", "Normal Metabolizer");
+    ABBREVIATIONS.put("em", "Normal Metabolizer"); // not a typo, extensives are now normals
+    ABBREVIATIONS.put("um", "Ultrarapid Metabolizer");
   }
   private static final String INDETERMINATE = "Indeterminate";
 
@@ -32,20 +31,14 @@ public class PhenotypeUtils {
     }
 
     // get rid of redundant whitespace
-    String trimmed = StringUtils.trim(value.replaceAll("\\s\\s+", " "));
+    String trimmed = StringUtils.strip(value.replaceAll("\\s\\s+", " "));
+    // use a "z" in metablizer
+    trimmed = trimmed.replaceAll("[Mm][Ee][Tt][Aa][Bb][Oo][Ll][Ii][Ss][Ee][Rr]", "Metabolizer");
+    String lowered = trimmed.toLowerCase();
 
     // if this is a known abbreviation, expand it
-    if (ABBREVIATIONS.containsKey(trimmed.toUpperCase(Locale.US))) {
-      return ABBREVIATIONS.get(trimmed.toUpperCase(Locale.US));
-    }
-
-    String lowered = trimmed.toLowerCase();
-    if (lowered.contains("etaboliser")) {
-      lowered = lowered.replaceAll("etaboliser", "etabolizer"); // use a "z" in metablizer
-    }
-
-    if (lowered.contains("extensive")) {
-      lowered = lowered.replaceAll("extensive", "normal"); // rename extensives to normals
+    if (ABBREVIATIONS.containsKey(lowered)) {
+      return ABBREVIATIONS.get(lowered);
     }
 
     if (lowered.contains("indeterminate")) {
@@ -53,6 +46,9 @@ public class PhenotypeUtils {
     }
 
     // if any common pheno name is in the string, use that
+    if (lowered.contains("extensive")) {
+      lowered = lowered.replaceAll("extensive", "normal"); // rename extensives to normals
+    }
     for (String phenoName : ABBREVIATIONS.values()) {
       if (lowered.contains(phenoName.toLowerCase())) {
         if (lowered.startsWith("likely")) {
