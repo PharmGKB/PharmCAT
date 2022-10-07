@@ -52,11 +52,14 @@ Notes:
 
 We rely on string matching to match outside calls to recommendations.
 
+Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named alleles, phenotypes and activity scores.
+
+
 #### Diplotypes
 
-Named allele matching in diplotypes/single allele calls should be fairly straightforward.  The biggest potential problem comes when dealing with copy numbers.  Note that PharmCAT is only aware of copy numbers in CYP2D6, and only for copy number variation that have a function assignment through CPIC: \*1x2, \*1x≥3, \*2x2, \*2x≥3, \*3x2, \*4x2, \*4x≥3, \*6x2, \*9x2, \*10x2, \*17x2, \*29x2, \*35x2, \*36x2, \*41x2, \*41x3, \*43x2, \*45x2. These alleles are part of the CPIC diplotype to phenotype translation and can be connected to corresponding recommendations.  For \*1, \*2, and \*4, copy numbers over 3 are combined in a single bin (≥3).  So if you have "\*1x5", you will need to translate that to "\*1≥3".
+Named allele matching in diplotypes/single allele calls should be fairly straightforward.  The biggest potential problem comes when dealing with copy numbers.  Note that PharmCAT is only aware of copy numbers in CYP2D6, and only for copy number variations that have a function assignment through CPIC: `*1x2`, `*1x≥3`, `*2x2`, `*2x≥3`, `*3x2`, `*4x2`, `*4x≥3`, `*6x2`, `*9x2`, `*10x2`, `*17x2`, `*29x2`, `*35x2`, `*36x2`, `*41x2`, `*41x3`, `*43x2`, `*45x2`. These alleles are part of the CPIC diplotype to phenotype translation and can be connected to a corresponding recommendation.  For `*1`, `*2`, and `*4`, copy numbers over 3 are combined in a single bin (≥3).  So if you have `*1x3` or `*1x5`, you will need to translate that to `*1≥3`.
 
-**IMPORTANT**: PharmCAT expects files encoded in UTF-8.  This is particularly important when it comes to the `≥` signs that are used in copy number names.
+**IMPORTANT**: PharmCAT expects files encoded in UTF-8.  This is particularly important when it comes to the "≥" signs that are used in copy number names.
 
 #### Phenotypes
 
@@ -76,5 +79,3 @@ When providing phenotypes, you will need to match our values, although we do som
 #### Activity Scores
 
 String matching also applies to activity scores.  For example, one possible activity score for CYP2D6 is "≥6.0".  If you provide "7.0", this will result in a no call.  Simlarly, if we look for an activity score of "0.0" and "0.25", and you provide "0.1", this will also result in a no call. 
-
-Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named alleles, phenotypes and activity scores.
