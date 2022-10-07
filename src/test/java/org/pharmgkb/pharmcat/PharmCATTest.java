@@ -1933,10 +1933,11 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   // has multimatch
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t*1/*1");
-      writer.println("CYP2D6\t*1/*2");
+      writer.println("CYP2D6\t*1/*1x7");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -1949,6 +1950,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertEquals(2, geneReport.getRecommendationDiplotypes().size());
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+    diplotype = geneReport.getRecommendationDiplotypes().get(1);
+    assertEquals("*1x≥3", diplotype.getAllele2().getName());
+    assertEquals("One increased function allele and one normal function allele", diplotype.printFunctionPhrase());
   }
 
   @Test

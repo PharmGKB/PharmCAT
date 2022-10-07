@@ -33,7 +33,7 @@ public class PhenotypeUtils {
     // get rid of redundant whitespace
     String trimmed = StringUtils.strip(value.replaceAll("\\s\\s+", " "));
     // use a "z" in metablizer
-    trimmed = trimmed.replaceAll("[Mm][Ee][Tt][Aa][Bb][Oo][Ll][Ii][Ss][Ee][Rr]", "Metabolizer");
+    trimmed = trimmed.replaceAll("[Mm][Ee][Tt][Aa][Bb][Oo][Ll][Ii][ZzSs][Ee][Rr][Ss]?", "Metabolizer");
     String lowered = trimmed.toLowerCase();
 
     // if this is a known abbreviation, expand it

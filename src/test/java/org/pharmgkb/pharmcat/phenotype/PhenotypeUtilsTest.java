@@ -13,10 +13,11 @@ class PhenotypeUtilsTest {
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Normal Metaboliser"));
     assertNull(PhenotypeUtils.normalize("  "));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("  Normal    Metabolizer"));
+    assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("  Normal    Metabolizers"));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("NM"));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("EM"));
     assertEquals("Poor Metabolizer", PhenotypeUtils.normalize("PM"));
-    assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Extensive Metaboliser"));
+    assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Extensive Metabolisers"));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Extensive Metabolizer"));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Normal Metabolizer"));
     assertEquals("Normal Metabolizer", PhenotypeUtils.normalize("Normal MetaboliSer"));

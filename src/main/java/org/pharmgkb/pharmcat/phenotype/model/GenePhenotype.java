@@ -160,7 +160,8 @@ public class GenePhenotype {
   }
 
   /**
-   * Gets the activity score for the given diplotype using the alleles of the diplotype
+   * Gets the activity score for the given diplotype using the alleles of the diplotype.
+   *
    * @param diplotype a diplotype which should have alleles
    * @return the activity score string for the given diplotype
    */

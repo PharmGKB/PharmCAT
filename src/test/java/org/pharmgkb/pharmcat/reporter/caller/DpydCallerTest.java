@@ -35,7 +35,7 @@ class DpydCallerTest {
 
   @Test
   void infer_outsideCall_noMatch() {
-    List<Diplotype> dips = DpydCaller.inferOutsideDiplotypes("*1/*5", s_env, CPIC);
+    List<Diplotype> dips = DpydCaller.inferFromOutsideCall("*1/*5", s_env, CPIC);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -109,7 +109,7 @@ class DpydCallerTest {
   }
 
   private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
-    List<Diplotype> dips = DpydCaller.inferOutsideDiplotypes(diplotype, s_env, source);
+    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(diplotype, s_env, source);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -137,14 +137,14 @@ class DpydCallerTest {
     matches.add(new HaplotypeMatch(na3));
     matches.add(new HaplotypeMatch(na4));
 
-    List<Diplotype> dips = DpydCaller.inferDiplotypes(matches, s_env, CPIC);
+    List<Diplotype> dips = DpydCaller.inferFromHaplotypeMatches(matches, s_env, CPIC);
     Diplotype dip = dips.get(0);
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());
     assertEquals("No function", dip.getAllele1().getFunction());
     assertEquals("Decreased function", dip.getAllele2().getFunction());
 
-    dips = DpydCaller.inferDiplotypes(matches, s_env, DPWG);
+    dips = DpydCaller.inferFromHaplotypeMatches(matches, s_env, DPWG);
     dip = dips.get(0);
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());

@@ -58,7 +58,7 @@ public class DpydCaller {
   /**
    * Infer diplotypes from matcher results (based on true diplotypes).
    */
-  public static List<Diplotype> inferTrueDiplotypes(Collection<DiplotypeMatch> matches, Env env, DataSource source) {
+  public static List<Diplotype> inferFromDiplotypes(Collection<DiplotypeMatch> matches, Env env, DataSource source) {
     if (matches.size() == 0) {
       return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
     }
@@ -74,7 +74,7 @@ public class DpydCaller {
   /**
    * Infer diplotypes from matcher results (based on haplotype matches).
    */
-  public static List<Diplotype> inferDiplotypes(Collection<HaplotypeMatch> matches, Env env, DataSource source) {
+  public static List<Diplotype> inferFromHaplotypeMatches(Collection<HaplotypeMatch> matches, Env env, DataSource source) {
 
     if (matches.size() == 0) {
       return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
@@ -91,7 +91,7 @@ public class DpydCaller {
   /**
    * Infer diplotypes from outside call.
    */
-  public static List<Diplotype> inferOutsideDiplotypes(String diplotype, Env env, DataSource source) {
+  public static List<Diplotype> inferFromOutsideCall(String diplotype, Env env, DataSource source) {
     if (diplotype == null) {
       return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
     }
@@ -148,7 +148,7 @@ public class DpydCaller {
   }
 
 
-  static Object[] makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
+  private static Object[] makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
     String refAllele = env.getReferenceAllele(GENE);
     AtomicBoolean inferred = new AtomicBoolean(false);
     List<Haplotype> haplotypes = hapNames.stream()

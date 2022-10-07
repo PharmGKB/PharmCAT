@@ -7,19 +7,17 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
-import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -74,87 +72,38 @@ public class DiplotypeFactory {
   }
 
 
-  public List<Diplotype> makeDiplotypes(@SuppressWarnings("rawtypes") Collection matches, DataSource source) {
-    if (matches.size() > 0) {
-      List<Diplotype> diplotypes = new ArrayList<>();
-      for (Object obj : matches) {
-        if (obj instanceof BaseMatch bm) {
-          diplotypes.add(makeDiplotype(bm, source));
-        } else if (obj instanceof DiplotypeMatch dm) {
-          diplotypes.add(makeDiplotype(dm, source));
-        } else if (obj instanceof String name) {
-          diplotypes.add(makeDiplotype(name, source));
-        } else {
-          throw new IllegalStateException("Unknown type: " + obj.getClass());
-        }
-      }
-      return diplotypes;
-    } else {
+  public List<Diplotype> makeDiplotypes(Collection<DiplotypeMatch> matches, DataSource source) {
+    if (matches.size() == 0) {
       return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
+    return matches.stream()
+        .map((dm) -> {
+          BaseMatch h1 = dm.getHaplotype1();
+          BaseMatch h2 = dm.getHaplotype2();
+
+          Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, h1.getName(), source),
+              m_env.makeHaplotype(m_gene, h2.getName(), source));
+          fillDiplotype(diplotype, m_env, source);
+
+          diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
+          return diplotype;
+        })
+        .toList();
   }
 
-  private Diplotype makeDiplotype(BaseMatch baseMatch, DataSource source) {
-    Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, baseMatch.getName(), source));
-    fillDiplotype(diplotype, m_env, source);
-    return diplotype;
+  public List<Diplotype> makeDiplotypesFromHaplotypeMatches(Collection<HaplotypeMatch> matches, DataSource source) {
+    if (matches.size() == 0) {
+      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
-
-  private Diplotype makeDiplotype(DiplotypeMatch diplotypeMatch, DataSource source) {
-    BaseMatch h1 = diplotypeMatch.getHaplotype1();
-    BaseMatch h2 = diplotypeMatch.getHaplotype2();
-
-    Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, h1.getName(), source),
-        m_env.makeHaplotype(m_gene, h2.getName(), source));
-    fillDiplotype(diplotype, m_env, source);
-
-    diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
-    return diplotype;
+    return matches.stream()
+        .map((hm) -> {
+          Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, hm.getName(), source));
+          fillDiplotype(diplotype, m_env, source);
+          return diplotype;
+        })
+        .toList();
   }
 
-
-  /**
-   * Make diplotype objects based on {@link OutsideCall} objects
-   */
-  public Diplotype makeDiplotype(OutsideCall outsideCall, DataSource source) {
-    Preconditions.checkNotNull(outsideCall);
-    Preconditions.checkArgument(outsideCall.getGene().equals(m_gene));
-
-    Diplotype diplotype;
-    if (outsideCall.getDiplotype() != null) {
-      diplotype = makeDiplotype(outsideCall.getDiplotype(), source);
-
-      if (outsideCall.getPhenotype() != null) {
-        diplotype.setOutsidePhenotypes(true);
-        // check for phenotype assignment mismatch and override
-        if (diplotype.getPhenotypes().size() > 0 &&
-            !diplotype.getPhenotypes().contains(outsideCall.getPhenotype())) {
-          sf_logger.warn("Outside call phenotype does not match known phenotype: {} != {}", outsideCall.getPhenotype(), String.join("; ", diplotype.getPhenotypes()));
-          diplotype.setPhenotypes(ImmutableList.of(outsideCall.getPhenotype()));
-        }
-      }
-      if (outsideCall.getActivityScore() != null) {
-        diplotype.setOutsideActivityScore(true);
-        // check for activity score mismatch and override
-        if (!outsideCall.getActivityScore().equals(diplotype.getActivityScore())) {
-          sf_logger.warn("Outside call activity score does not match known activity score: {} != {}", outsideCall.getActivityScore(), diplotype.getActivityScore());
-          diplotype.setActivityScore(outsideCall.getActivityScore());
-        }
-      }
-    }
-    else {
-      diplotype = new Diplotype(outsideCall);
-      GenePhenotype gp = m_env.getPhenotype(m_gene, source);
-      if (gp != null && gp.isMatchedByActivityScore()
-          && diplotype.isUnknownPhenotype()
-          && diplotype.hasActivityScore()) {
-        diplotype.setPhenotypes(ImmutableList.of(gp.getPhenotypeForActivity(diplotype)));
-      }
-      fillDiplotype(diplotype, m_env, source);
-    }
-
-    return diplotype;
-  }
 
 
   public static String[] splitDiplotype(String gene, String diplotypeText) {
@@ -183,24 +132,6 @@ public class DiplotypeFactory {
       return CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(haplotypeText);
     }
     return Lists.newArrayList(haplotypeText);
-  }
-
-
-  /**
-   * Make a faux Diplotype based on a string in the form "*1/*20".
-   *
-   * @param diplotypeText a string in the form "*1/*20"
-   * @return a Diplotype containing the specified haplotypes
-   */
-  public Diplotype makeDiplotype(String diplotypeText, DataSource source) {
-    Preconditions.checkArgument(StringUtils.isNotBlank(diplotypeText));
-
-    String[] alleles = splitDiplotype(m_gene, diplotypeText);
-    Haplotype hap1 = m_env.makeHaplotype(m_gene, alleles[0], source);
-    Haplotype hap2 = alleles.length == 2 ? m_env.makeHaplotype(m_gene, alleles[1], source) : null;
-    Diplotype diplotype = new Diplotype(m_gene, hap1, hap2);
-    fillDiplotype(diplotype, m_env, source);
-    return diplotype;
   }
 
 
@@ -243,9 +174,11 @@ public class DiplotypeFactory {
     if (gp == null) {
       return;
     }
+    // fill in activity score (based on alleles) if none specified
     if (gp.isMatchedByActivityScore() && diplotype.getActivityScore() == null) {
       diplotype.setActivityScore(gp.getActivityForDiplotype(diplotype));
     }
+    // fill in phenotypes if none specified
     if (diplotype.getPhenotypes().size() == 0) {
       if (diplotype.isUnknownAlleles()) {
         diplotype.addPhenotype(gp.getPhenotypeForActivity(diplotype));

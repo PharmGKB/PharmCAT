@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.handlebars;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
@@ -196,6 +197,27 @@ public class ReportHelpers {
             .append("</span>");
       }
     }
+    return builder.toString();
+  }
+
+  public static String rxImplications(SortedMap<String, String> implications) {
+    if (implications.size() == 0) {
+      return "";
+    }
+    if (implications.size() == 1) {
+      Map.Entry<String, String> entry = implications.entrySet().iterator().next();
+      return entry.getKey() + ": " + capitalizeNA(entry.getValue());
+    }
+    StringBuilder builder = new StringBuilder()
+        .append("<ul class=\"noPadding mt-0\">");
+    for (Map.Entry<String, String> entry : implications.entrySet()) {
+      builder.append("<li>")
+          .append(entry.getKey())
+          .append(": ")
+          .append(capitalizeNA(entry.getValue()))
+          .append("</li>");
+    }
+    builder.append("</ul>");
     return builder.toString();
   }
 

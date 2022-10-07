@@ -12,6 +12,7 @@ import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
+import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -48,6 +49,9 @@ public class Env {
     m_phenotypeMap = new PhenotypeMap();
     m_cpicDrugs = new DrugCollection();
     m_dpwgDrugs = new PgkbGuidelineCollection();
+
+    // initialize dependent classes
+    Cyp2d6CopyNumberCaller.initialize(this);
   }
 
 

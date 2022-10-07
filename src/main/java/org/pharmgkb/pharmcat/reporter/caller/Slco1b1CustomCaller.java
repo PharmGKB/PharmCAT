@@ -1,13 +1,13 @@
 package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
-import org.pharmgkb.pharmcat.ParseException;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
-import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -16,81 +16,80 @@ import org.pharmgkb.pharmcat.reporter.model.result.Observation;
 
 
 /**
- * This class calls SLCO1B1 using only rs4149056. This is only to be used when the matcher can't make a call
+ * This class calls SLCO1B1 using only rs4149056. This is only to be used when the matcher can't make a call.
  *
  * @author Ryan Whaley
  */
 public class Slco1b1CustomCaller {
-  
-  private static final String SLCO1B1 = "SLCO1B1";
+  public static final String GENE = "SLCO1B1";
   private static final String sf_callPosition = "rs4149056";
   private static final String sf_vcfCallSplitter = "[|/]";
 
-  /**
-   * Returns true if this matcher is appropriate to use for the given {@link GeneReport}
-   * @param report a GeneReport to check
-   * @return true if this matcher should be used, false otherwise
-   */
-  public static boolean shouldBeUsedOn(GeneReport report) {
-    return report != null
-        && report.getGene().equals(SLCO1B1)
-        && !report.isOutsideCall()
-        && (report.getSourceDiplotypes().isEmpty() || report.getSourceDiplotypes().stream().allMatch(Diplotype::isUnknown));
-  }
 
   /**
-   * Makes the diplotype call that should be used for lookup of guideline annotations.
-   * @param report an SLCO1B1 {@link GeneReport}
-   * @param diplotypeFactory The factory class responsible for constructing diplotypes
-   * @return an Optional Diplotype result, can be empty if the necessary position is missing
+   * Gets the diplotype calls that should be used to look up guideline annotations.
    */
-  public static Optional<Diplotype> makeLookupCalls(GeneReport report, DiplotypeFactory diplotypeFactory,
+  public static List<Diplotype> inferDiplotypes(GeneReport report, Env env,
       DataSource source) {
-    Preconditions.checkNotNull(report);
-    Preconditions.checkArgument(report.getGene().equals(SLCO1B1), "Can only be used on SLCO1B1");
-    
+    Preconditions.checkArgument(report.getGene().equals(GENE), "Can only be used on SLCO1B1");
+
+    if (report.isOutsideCall() || !report.getSourceDiplotypes().stream().allMatch(Diplotype::isUnknown)) {
+      return report.getSourceDiplotypes();
+    }
+
     List<VariantReport> variants = report.getVariantReports().stream()
-        .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().equals(sf_callPosition))
+        .filter(v -> sf_callPosition.equals(v.getDbSnpId()))
         .toList();
     if (variants.size() == 0) {
-      return Optional.empty();
+      return report.getSourceDiplotypes();
     }
     if (variants.size() > 1) {
       throw new UnexpectedStateException("More than one report found for " + sf_callPosition);
     }
 
     VariantReport variant = variants.get(0);
-    if (StringUtils.isBlank(variant.getCall())) return Optional.empty();
-    
-    String diplotypeText = makeDiplotype(variant);
-    Diplotype diplotype = diplotypeFactory.makeDiplotype(diplotypeText, source);
-    
+    String[] haps = makeDiplotype(variant);
+    if (haps == null) {
+      return report.getSourceDiplotypes();
+    }
+
+    Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source);
     diplotype.setVariant(variant);
     diplotype.setObserved(Observation.INFERRED);
     
-    return Optional.of(diplotype);
+    return List.of(diplotype);
   }
 
   /**
-   * Make a diplotype string based off of the calls for the given variant
-   * @param variant a {@link VariantReport} for rs4149056
-   * @return a String diplotype in the form "*1/*5"
+   * Make a diplotype string based off of the calls for the given variant.
    */
-  private static String makeDiplotype(VariantReport variant) {
+  private static @Nullable String[] makeDiplotype(VariantReport variant) {
+    if (StringUtils.isBlank(variant.getCall())) {
+      return null;
+    }
     String[] alleles = variant.getCall().split(sf_vcfCallSplitter);
+    if (alleles.length != 2) {
+      return null;
+    }
+    // sort descending (T before C so *1 before *5)
+    Arrays.sort(alleles, Comparator.reverseOrder());
+    String[] haps = new String[2];
+    haps[0] = alleleToHap(alleles[0]);
+    if (haps[0] == null) {
+      return null;
+    }
+    haps[1] = alleleToHap(alleles[1]);
+    if (haps[1] == null) {
+      return null;
+    }
+    return haps;
+  }
 
-    if (Arrays.equals(alleles, new String[]{"T","T"})) {
-      return "*1/*1";
-    }
-    else if (Arrays.equals(alleles, new String[]{"C","C"})) {
-      return "*5/*5";
-    }
-    else if ((Arrays.equals(alleles, new String[]{"T","C"})) || (Arrays.equals(alleles, new String[]{"C","T"}))) {
-      return "*1/*5";
-    }
-    else {
-      throw new ParseException("Unexpected genotype for " + variant);
-    }
-
+  private static String alleleToHap(String allele) {
+    return switch (allele) {
+      case "T" -> "*1";
+      case "C" -> "*5";
+      default -> null;
+    };
   }
 }

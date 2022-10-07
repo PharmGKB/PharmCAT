@@ -13,7 +13,6 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -21,8 +20,13 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.HaplotypeNameComparator;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 
 import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
@@ -45,19 +49,25 @@ public class Diplotype implements Comparable<Diplotype> {
 
   @Expose
   @SerializedName("allele1")
-  private final Haplotype m_allele1;
+  private Haplotype m_allele1;
   @Expose
   @SerializedName("allele2")
-  private final Haplotype m_allele2;
+  private Haplotype m_allele2;
   @Expose
   @SerializedName("gene")
-  private final String m_gene;
+  private String m_gene;
   @Expose
   @SerializedName("phenotypes")
   private List<String> m_phenotypes = new ArrayList<>();
   @Expose
   @SerializedName("outsidePhenotypes")
   private boolean m_outsidePhenotypes;
+  @Expose
+  @SerializedName("activityScore")
+  private String m_activityScore;
+  @Expose
+  @SerializedName("outsideActivityScore")
+  private boolean m_outsideActivityScore;
   @Expose
   @SerializedName("variant")
   private VariantReport m_variant;
@@ -66,13 +76,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private List<String> m_lookupKeys = new ArrayList<>();
   @Expose
   @SerializedName("label")
-  private final String f_label;
-  @Expose
-  @SerializedName("activityScore")
-  private String m_activityScore;
-  @Expose
-  @SerializedName("outsideActivityScore")
-  private boolean m_outsideActivityScore;
+  private String m_label;
   @Expose
   @SerializedName("observed")
   private Observation m_observed = Observation.DIRECT;
@@ -165,24 +169,35 @@ public class Diplotype implements Comparable<Diplotype> {
    * Public constructor.
    */
   public Diplotype(String gene, Haplotype h1, Haplotype h2) {
+    m_gene = gene;
     m_allele1 = h1;
     m_allele2 = h2;
-    m_gene = gene;
-    f_label = printBare();
+    m_label = printBare();
   }
 
   public Diplotype(String gene, Haplotype h) {
+    m_gene = gene;
     m_allele1 = h;
     m_allele2 = null;
-    m_gene = gene;
-    f_label = printBare();
+    m_label = printBare();
   }
 
+  public Diplotype(String gene, String hap1, String hap2, Env env, DataSource source) {
+    m_gene = gene;
+    m_allele1 = env.makeHaplotype(gene, hap1, source);
+    m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
+    m_label = printBare();
+    DiplotypeFactory.fillDiplotype(this, env, source);
+  }
+
+  /**
+   * Constructor for tests.
+   */
   public Diplotype(String gene, String phenotype) {
+    m_gene = gene;
     m_allele1 = null;
     m_allele2 = null;
-    m_gene = gene;
-    f_label = phenotype;
+    m_label = phenotype;
     m_phenotypes.add(phenotype);
     m_lookupKeys.add(phenotype);
   }
@@ -193,30 +208,74 @@ public class Diplotype implements Comparable<Diplotype> {
    *
    * @param outsideCall an {@link OutsideCall} object
    */
-  public Diplotype(OutsideCall outsideCall) {
-    Preconditions.checkArgument(outsideCall.getDiplotype() == null,
-        "Must use the DiplotypeFactory when making diplotype from outside calls with explicit diplotype call");
-    Preconditions.checkArgument(StringUtils.isNotBlank(outsideCall.getPhenotype()) || StringUtils.isNotBlank(outsideCall.getActivityScore()),
-        "Outside call must supply at least a phenotype or an activity score");
-
-    m_allele1 = null;
-    m_allele2 = null;
+  public Diplotype(GeneReport geneReport, OutsideCall outsideCall, Env env, DataSource source) {
     m_gene = outsideCall.getGene();
-    if (outsideCall.getPhenotype() != null) {
-      m_phenotypes.add(outsideCall.getPhenotype());
-      m_outsidePhenotypes = true;
-    }
-    m_activityScore = outsideCall.getActivityScore();
-    if (m_activityScore != null) {
-      m_outsideActivityScore = true;
-    }
-    if (outsideCall.getPhenotype() != null) {
-      f_label = outsideCall.getPhenotype();
-    }
-    else {
-      f_label = outsideCall.getActivityScore();
+    if (outsideCall.getDiplotype() != null) {
+      String[] alleles = DiplotypeFactory.splitDiplotype(m_gene, outsideCall.getDiplotype());
+      m_allele1 = env.makeHaplotype(m_gene, alleles[0], source);
+      m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1], source) : null;
+      m_label = printBare();
+
+      DiplotypeFactory.fillDiplotype(this, env, source);
+
+      if (outsideCall.getPhenotype() != null) {
+        m_outsidePhenotypes = true;
+        // check for phenotype assignment mismatch and override
+        if (!m_phenotypes.contains(outsideCall.getPhenotype())) {
+          String expected = m_phenotypes.size() == 0
+              ? "no assigned phenotype"
+              : String.join(", ", m_phenotypes);
+          geneReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "warn.mismatch.phenotype",
+              "Phenotype from outside call  (" + outsideCall.getPhenotype() + ") does not match expected " +
+                  "phenotype for " + m_gene + " " + m_label + " (" + expected + ")"));
+          m_phenotypes = ImmutableList.of(outsideCall.getPhenotype());
+        }
+      }
+      if (outsideCall.getActivityScore() != null) {
+        m_outsideActivityScore = true;
+        // check for activity score mismatch and override
+        if (!outsideCall.getActivityScore().equals(m_activityScore)) {
+          String expected = m_activityScore == null
+              ? "no assigned activity score"
+              : m_activityScore;
+          geneReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "warn.mismatch.score",
+              "Activity score from outside call (" + outsideCall.getPhenotype() + ") does not match expected " +
+                  "activity score for " + m_gene + " " + m_label + " (" + expected + ")"));
+          m_activityScore = outsideCall.getActivityScore();
+        }
+      }
+
+    } else {
+      if (outsideCall.getPhenotype() != null) {
+        m_phenotypes.add(outsideCall.getPhenotype());
+        m_outsidePhenotypes = true;
+      }
+      m_activityScore = outsideCall.getActivityScore();
+      if (m_activityScore != null) {
+        m_outsideActivityScore = true;
+      }
+      if (outsideCall.getPhenotype() != null) {
+        m_label = outsideCall.getPhenotype();
+      }
+      else {
+        m_label = outsideCall.getActivityScore();
+      }
+
+      GenePhenotype gp = env.getPhenotype(m_gene, source);
+      if (gp != null && gp.isMatchedByActivityScore() && isUnknownPhenotype() && hasActivityScore()) {
+        m_phenotypes = ImmutableList.of(gp.getPhenotypeForActivity(this));
+      }
+      DiplotypeFactory.fillDiplotype(this, env, source);
     }
   }
+
+
+  /**
+   * Private constructor for GSON.
+   */
+  private Diplotype() {
+  }
+
 
   /**
    * Gets the gene this diplotype is for
@@ -227,7 +286,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   public String getLabel() {
-    return f_label;
+    return m_label;
   }
 
   /**
@@ -578,9 +637,5 @@ public class Diplotype implements Comparable<Diplotype> {
 
   public void setCombination(boolean combination) {
     m_combination = combination;
-  }
-
-  private boolean isAvailable(String value) {
-    return value != null && !value.equals(TextConstants.NA);
   }
 }

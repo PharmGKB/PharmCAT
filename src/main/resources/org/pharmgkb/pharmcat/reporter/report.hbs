@@ -248,7 +248,7 @@
                         </div>
                       </td>
                   {{else}}
-                      <td>{{{implications}}}</td>
+                      <td>{{{rxImplications implications}}}</td>
                       <td>{{{drugRecommendation}}}</td>
                       <td>{{capitalizeNA comments}}</td>
                       <td>{{capitalizeNA classification}}</td>
@@ -282,7 +282,7 @@
 
         {{#if hasInferred}}
           <div class="footnote" id="rx-dagger">
-            <sup>&dagger;</sup> Inferred Genotype used to look up Phenotype.
+            <sup>&dagger;</sup> Inferred genotype used to look up phenotype.
           </div>
         {{/if}}
         {{#if hasDpydInferred}}

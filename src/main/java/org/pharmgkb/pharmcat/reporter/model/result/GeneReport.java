@@ -31,6 +31,7 @@ import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
+import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.caller.DpydCaller;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -170,7 +171,7 @@ public class GeneReport implements Comparable<GeneReport> {
       if (hasTrueDiplotype(call)) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_matcherComponentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferTrueDiplotypes(call.getDiplotypes(), env, phenotypeSource));
+        m_recommendationDiplotypes.addAll(DpydCaller.inferFromDiplotypes(call.getDiplotypes(), env, phenotypeSource));
       } else {
         List<HaplotypeMatch> matches = new ArrayList<>();
         call.getHaplotypeMatches().forEach((hm) -> {
@@ -178,19 +179,16 @@ public class GeneReport implements Comparable<GeneReport> {
             matches.add(hm);
           }
         });
-        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(matches, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferDiplotypes(call.getHaplotypeMatches(), env, phenotypeSource));
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(matches, m_phenotypeSource));
+        m_recommendationDiplotypes.addAll(DpydCaller.inferFromHaplotypeMatches(call.getHaplotypeMatches(), env, phenotypeSource));
       }
 
     } else {
       List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource);
       m_sourceDiplotypes.addAll(diplotypes);
 
-      if (Slco1b1CustomCaller.shouldBeUsedOn(this)) {
-        Slco1b1CustomCaller
-            .makeLookupCalls(this, diplotypeFactory, m_phenotypeSource)
-            .ifPresent(m_recommendationDiplotypes::add);
-
+      if (Slco1b1CustomCaller.GENE.equals(m_gene)) {
+        m_recommendationDiplotypes.addAll(Slco1b1CustomCaller.inferDiplotypes(this, env, phenotypeSource));
       } else {
         m_recommendationDiplotypes.addAll(diplotypes);
       }
@@ -220,12 +218,13 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void addOutsideCall(OutsideCall call, Env env) {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
-    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
 
-    Diplotype diplotype = diplotypeFactory.makeDiplotype(call, m_phenotypeSource);
+    Diplotype diplotype = new Diplotype(this, call, env, m_phenotypeSource);
     m_sourceDiplotypes.add(diplotype);
     if (isDpyd(m_gene)) {
-      m_recommendationDiplotypes.addAll(DpydCaller.inferOutsideDiplotypes(call.getDiplotype(), env, m_phenotypeSource));
+      m_recommendationDiplotypes.addAll(DpydCaller.inferFromOutsideCall(call.getDiplotype(), env, m_phenotypeSource));
+    } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
+      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env, m_phenotypeSource));
     } else {
       m_recommendationDiplotypes.add(diplotype);
     }

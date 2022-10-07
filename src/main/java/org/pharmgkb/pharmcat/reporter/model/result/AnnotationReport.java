@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
@@ -17,7 +16,7 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 public class AnnotationReport {
   @Expose
   @SerializedName("implications")
-  private final SortedMap<String,String> m_implications = new TreeMap<>();
+  private final SortedMap<String, String> m_implications = new TreeMap<>();
   @Expose
   @SerializedName("drugRecommendation")
   private String m_drugRecommendation;
@@ -147,10 +146,8 @@ public class AnnotationReport {
     return m_population;
   }
 
-  public String getImplications() {
-    return m_implications.keySet().stream()
-        .map(k -> k + ": " + m_implications.get(k))
-        .collect(Collectors.joining("\n"));
+  public Map<String, String> getImplications() {
+    return m_implications;
   }
 
   public Map<String, String> getPhenotypes() {
