@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -52,8 +51,7 @@ public class Recommendation {
   @SerializedName("source")
   private DataSource m_source;
 
-  private final Set<String> m_matchedDiplotypes = new TreeSet<>();
-  private final List<Genotype> f_matchedGenotypes = new ArrayList<>();
+  private transient final Set<String> m_matchedDiplotypes = new TreeSet<>();
 
   public Map<String, String> getImplications() {
     return m_implications;
@@ -152,7 +150,8 @@ public class Recommendation {
   }
 
   /**
-   * Whether the given {@link Genotype} match this Recommendation
+   * Whether the given {@link Genotype} match this Recommendation.
+   *
    * @param genotype a genotype
    * @return true if a match
    */
@@ -160,19 +159,11 @@ public class Recommendation {
     if (m_lookupKey == null) {
       return false;
     }
-    return genotype.toLookupKeys().stream()
+    return genotype.getLookupKeys().stream()
         .anyMatch(matchesLookupKey);
   }
 
-  protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> getLookupKey() != null
-      && lookupKey.keySet().containsAll(getLookupKey().keySet())
-      && getLookupKey().keySet().stream().allMatch(key -> Objects.equals(getLookupKey().get(key), lookupKey.get(key)));
-
-  public List<Genotype> getMatchedGenotypes() {
-    return f_matchedGenotypes;
-  }
-
-  public void addMatchedGenotype(Genotype genotype) {
-    f_matchedGenotypes.add(genotype);
-  }
+  protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> m_lookupKey != null
+      && lookupKey.keySet().containsAll(m_lookupKey.keySet())
+      && m_lookupKey.keySet().stream().allMatch(key -> Objects.equals(m_lookupKey.get(key), lookupKey.get(key)));
 }

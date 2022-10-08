@@ -355,7 +355,7 @@ public class HtmlFormat extends AbstractFormat {
               .collect(Collectors.toCollection(TreeSet::new))));
         } else {
           report.put("unmatchedCalls", String.join(" and ", drugReport.getGuidelines().stream()
-              .flatMap((gr) -> gr.getRelatedGeneReports().stream())
+              .flatMap((guidelineReport) -> guidelineReport.getGeneReports().stream())
               .flatMap((gr) -> {
                 String geneLink = "<a href=\"#" + gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() + "</a>";
                 return gr.getRecommendationDiplotypes().stream()

@@ -13,7 +13,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
@@ -68,13 +67,9 @@ public class DrugReport implements Comparable<DrugReport> {
     }
 
     // 1 guideline report per CPIC drug
-    GuidelineReport guidelineReport = new GuidelineReport(drug);
-    addGenes(guidelineReport, drug.getGenes(), reportContext, DataSource.CPIC);
-    // add matching recommendations
-    if (drug.getRecommendations() != null || m_drugName.equals("warfarin")) {
-      List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
-      guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, drug);
-    }
+    GuidelineReport guidelineReport = new GuidelineReport(drug, reportContext);
+    // link gene report back to drug report
+    guidelineReport.getGeneReports().forEach((gr) -> gr.addRelatedDrug(this));
     m_guidelines.add(guidelineReport);
   }
 
@@ -95,23 +90,10 @@ public class DrugReport implements Comparable<DrugReport> {
         m_citations.addAll(guidelinePackage.getCitations());
       }
 
-      GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage);
-      addGenes(guidelineReport, guidelinePackage.getGenes(), reportContext, DataSource.DPWG);
-      // add matching recommendations
-      List<Genotype> possibleGenotypes = Genotype.makeGenotypes(guidelineReport.getRelatedGeneReports());
-      guidelineReport.matchAnnotationsToGenotype(possibleGenotypes, guidelinePackage);
+      GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage, reportContext);
+      // link gene report back to drug report
+      guidelineReport.getGeneReports().forEach((gr) -> gr.addRelatedDrug(this));
       m_guidelines.add(guidelineReport);
-    }
-  }
-
-  private void addGenes(GuidelineReport guidelineReport, Collection<String> genes, ReportContext reportContext,
-      DataSource source) {
-    // link guideline report to gene report
-    for (String geneSymbol : genes) {
-      GeneReport geneReport = reportContext.getGeneReport(source, geneSymbol);
-      guidelineReport.addRelatedGeneReport(geneReport);
-      // add inverse relationship (gene report back to drug report)
-      geneReport.addRelatedDrug(this);
     }
   }
 
@@ -150,7 +132,7 @@ public class DrugReport implements Comparable<DrugReport> {
    */
   public Collection<String> getRelatedGeneSymbols() {
     return m_guidelines.stream()
-        .flatMap((guidelineReport) -> guidelineReport.getRelatedGeneReports().stream())
+        .flatMap((guidelineReport) -> guidelineReport.getGeneReports().stream())
         .map(GeneReport::getGene)
         .distinct()
         .sorted()

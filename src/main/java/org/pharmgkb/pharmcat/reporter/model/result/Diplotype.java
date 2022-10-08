@@ -426,15 +426,9 @@ public class Diplotype implements Comparable<Diplotype> {
     return String.format(sf_toStringPattern, m_gene, printBare());
   }
 
-  /**
-   * Gets a String term for the overall phenotype of this Diplotype.
-   * <p>
-   * Will print a default N/A String if no phenotype exists.
-   * <p>
-   * <strong>Use only for display purposes, not for matching recommendations</strong>
-   */
+
   public List<String> getPhenotypes() {
-    return m_phenotypes == null ? ImmutableList.of(TextConstants.NA) : m_phenotypes;
+    return m_phenotypes;
   }
 
   public void setPhenotypes(List<String> phenotypes) {

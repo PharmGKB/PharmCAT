@@ -165,7 +165,7 @@ public class MessageHelper {
         String geneSymbol = msgAnn.getMatches().getGene();
         String genotype = null;
         for (GuidelineReport guidelineReport : drugReport.getGuidelines()) {
-          if (geneSymbol == null || guidelineReport.getRelatedGenes().contains(geneSymbol)) {
+          if (geneSymbol == null || guidelineReport.getGenes().contains(geneSymbol)) {
             for (AnnotationReport annotationReport : guidelineReport.getAnnotations()) {
               if (genotype == null) {
                 genotype = computeGenotype(msgAnn, reportContext, source);

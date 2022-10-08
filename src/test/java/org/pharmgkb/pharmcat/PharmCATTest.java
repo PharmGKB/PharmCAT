@@ -1848,7 +1848,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     DrugReport azaReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "azathioprine");
     assertNotNull(azaReport);
     GuidelineReport azaCpicGuideline = azaReport.getGuidelines().iterator().next();
-    List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getRelatedGeneReports());
+    List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getGeneReports());
     assertEquals(1, genotypes.size());
 
     testWrapper.testMatchedAnnotations("azathioprine", 2);

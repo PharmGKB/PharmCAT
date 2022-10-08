@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,9 +34,8 @@ class RecommendationTest {
     recommendation.setLookupKey(sourceGenotype);
 
     Diplotype diplotype = new Diplotype("GENEX", "TEST");
-    Genotype genotype = new Genotype(diplotype);
     Diplotype diplotype2 = new Diplotype("GENEY", "TOAST");
-    genotype.addDiplotype(diplotype2);
+    Genotype genotype = Genotype.forTest(List.of(diplotype, diplotype2));
     assertTrue(recommendation.matchesGenotype(genotype));
   }
 }
