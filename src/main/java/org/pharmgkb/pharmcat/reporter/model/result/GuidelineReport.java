@@ -63,7 +63,7 @@ public class GuidelineReport {
     m_id = guidelinePackage.getGuideline().getId();
     m_name = guidelinePackage.getGuideline().getName();
     m_source = DataSource.DPWG;
-    m_version = String.valueOf(guidelinePackage.getVersion());
+    m_version = guidelinePackage.getVersion();
     m_url = guidelinePackage.getGuideline().getUrl();
     initializeGenes(guidelinePackage.getGenes(), reportContext);
     matchAnnotations(guidelinePackage);

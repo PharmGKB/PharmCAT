@@ -25,26 +25,28 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   @Expose
   @SerializedName("citations")
   private List<Publication> citations = new ArrayList<>();
+  @Expose
+  @SerializedName("version")
+  private String m_version;
+
+
+  /**
+   * Private constructor for GSON;
+   */
+  private GuidelinePackage() {
+  }
 
 
   public DosingGuideline getGuideline() {
     return guideline;
   }
 
-  public void setGuideline(DosingGuideline guideline) {
-    this.guideline = guideline;
-  }
 
-  
   public List<Group> getGroups() {
     return groups;
   }
 
-  public void setGroups(List<Group> groups) {
-    this.groups = groups;
-  }
 
-  
   public List<Publication> getCitations() {
     return citations;
   }
@@ -60,6 +62,11 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
     return guideline.getRelatedChemicals().stream()
         .map(AccessionObject::getName)
         .collect(Collectors.toSet());
+  }
+
+
+  public String getVersion() {
+    return m_version;
   }
 
 
@@ -81,9 +88,5 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
 
   public void applyFunctions(Genotype genotype) {
     getGuideline().applyFunctions(genotype);
-  }
-
-  public Integer getVersion() {
-    return guideline.getVersion();
   }
 }

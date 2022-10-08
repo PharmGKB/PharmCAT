@@ -10,6 +10,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -35,6 +36,9 @@ public class ReportContext {
   @Expose
   @SerializedName("cpicVersion")
   private String m_cpicVersion;
+  @Expose
+  @SerializedName("dpwgVersion")
+  private String m_dpwgVersion;
   @Expose
   @SerializedName("genes")
   private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports;
@@ -63,6 +67,7 @@ public class ReportContext {
     }
 
     // get DPWG/PharmGKB drug data
+    m_dpwgVersion = validateDpwgVersions(env.getDpwgDrugs());
     Map<String, DrugReport> dpwgReports = m_drugReports.computeIfAbsent(DataSource.DPWG, (s) -> new TreeMap<>());
     // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
     for (String drugName : env.getDpwgDrugs().getChemicals()) {
@@ -142,6 +147,35 @@ public class ReportContext {
     }
   }
 
+  private String validateDpwgVersions(PgkbGuidelineCollection dpwgCollection) {
+    Set<String> dpwgVersions = new HashSet<>();
+    // check GeneReports from the Phenotyper
+    for (GeneReport geneReport : m_geneReports.get(DataSource.DPWG).values()) {
+      if (geneReport.getPhenotypeVersion() != null) {
+        dpwgVersions.add(geneReport.getPhenotypeVersion());
+      }
+      if (geneReport.getAlleleDefinitionVersion() != null) {
+        dpwgVersions.add(geneReport.getAlleleDefinitionVersion());
+      }
+    }
+
+    // check DPWG drug data
+    for (GuidelinePackage guidelinePackage : dpwgCollection.getGuidelinePackages()) {
+      dpwgVersions.add(guidelinePackage.getVersion());
+    }
+
+    if (dpwgVersions.size() == 0) {
+      return TextConstants.NA;
+    } else {
+      if (dpwgVersions.size() > 1) {
+        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-dpwg-versions",
+            "Multiple DPWG versions used to generate gene and drug reports: " + dpwgVersions + "."
+        ));
+      }
+      return String.join(", ", dpwgVersions);
+    }
+  }
+
 
 
   /**
@@ -211,6 +245,10 @@ public class ReportContext {
 
   public String getCpicVersion() {
     return m_cpicVersion;
+  }
+
+  public String getDpwgVersion() {
+    return m_dpwgVersion;
   }
 
   public List<MessageAnnotation> getMessages() {

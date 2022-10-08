@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.stream.Collectors;
-import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
@@ -33,11 +33,15 @@ public class DrugReport implements Comparable<DrugReport> {
   @SerializedName("name")
   private final String m_drugName;
   @Expose
-  @SerializedName("cpicId")
-  private String m_cpicId;
+  @SerializedName("id")
+  private String m_id;
   @Expose
-  @SerializedName("pharmgkbId")
-  private String m_pgkbId;
+  @SerializedName("source")
+  private DataSource m_source;
+  @Expose
+  @SerializedName("version")
+  private String m_version;
+
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> m_messages = new ArrayList<>();
@@ -57,7 +61,9 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public DrugReport(Drug drug, ReportContext reportContext) {
     m_drugName = drug.getDrugName();
-    m_cpicId = drug.getDrugId();
+    m_id = drug.getDrugId();
+    m_source = DataSource.CPIC;
+    m_version = drug.getCpicVersion();
     m_urls.add(drug.getUrl());
     if (drug.getCitations() != null) {
       // cpic data can have array with null value in it
@@ -76,12 +82,14 @@ public class DrugReport implements Comparable<DrugReport> {
   public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
     Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
     m_drugName = name;
-    m_pgkbId = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
+    m_id = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
         .filter((c) -> c.getName().equals(name))
         .findFirst()
         .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
             guidelinePackages.first().getGuideline().getId() + " is supposd to be related to " + name + " but is not"))
         .getId();
+    m_source = DataSource.DPWG;
+    m_version = guidelinePackages.stream().map(GuidelinePackage::getVersion).collect(Collectors.joining(", "));
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
@@ -106,26 +114,20 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   /**
-   * Gets the CPIC or the PGKB ID, whichever is specified, in that order
-   * @return an ID for this drug
+   * Gets the drug ID.
    */
   public String getId() {
-    return MoreObjects.firstNonNull(m_cpicId, m_pgkbId);
+    return m_id;
   }
 
-  /**
-   * Gets the CPIC ID of the drug
-   */
-  private String getCpicId() {
-    return m_cpicId;
+  public DataSource getSource() {
+    return m_source;
   }
 
-  /**
-   * Gets the PharmGKB ID of the drug
-   */
-  private String getPgkbId() {
-    return m_pgkbId;
+  public String getVersion() {
+    return m_version;
   }
+
 
   /**
    * Gets just the symbols of the related genes of the guideline. Calculated from data in the original guideline.
@@ -140,7 +142,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public boolean isMatched() {
-    return sf_notApplicableMatches.contains(getCpicId())
+    return (m_source == DataSource.CPIC && sf_notApplicableMatches.contains(m_id))
         || m_guidelines.stream().anyMatch(GuidelineReport::isMatched);
   }
 
@@ -201,14 +203,6 @@ public class DrugReport implements Comparable<DrugReport> {
    */
   public List<Publication> getCitations() {
     return m_citations;
-  }
-
-  public boolean isCpic() {
-    return m_cpicId != null;
-  }
-
-  public boolean isDpwg() {
-    return m_pgkbId != null;
   }
 
   public List<GuidelineReport> getGuidelines() {
