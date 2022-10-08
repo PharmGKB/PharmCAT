@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.DiplotypeUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,44 +68,44 @@ class DiplotypeTest {
   @Test
   void testJoinPhased() {
     String result = Stream.of("*1/*60", "*1/*80")
-        .reduce(Diplotype.phasedReducer)
+        .reduce(DiplotypeUtils.PhasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*1/*60+*80", result);
 
     result = Stream.of("*1/*2", "*2/*3")
-        .reduce(Diplotype.phasedReducer)
+        .reduce(DiplotypeUtils.PhasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*1+*3/*2", result);
 
     result = Stream.of("*1/*2", "*1/*3", "*2/*3")
-        .reduce(Diplotype.phasedReducer)
+        .reduce(DiplotypeUtils.PhasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*1+*3/*2+*3", result);
 
     result = Stream.of("*6/*80+*28", "*60/*80+*28")
-        .reduce(Diplotype.phasedReducer)
+        .reduce(DiplotypeUtils.PhasedReducer)
         .orElseThrow(RuntimeException::new);
     assertEquals("*6+*60/*28+*80", result);
   }
 
   @Test
   void testReducePhasedAlleles() {
-    String result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*60", "*1/*80"));
+    String result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*1/*60", "*1/*80"));
     assertEquals("*1/*60+*80", result);
 
-    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*2/*3"));
+    result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*2/*3"));
     assertEquals("*1+*3/*2", result);
 
-    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*1/*3", "*2/*3")); // throw an error for this scenario
+    result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*1/*2", "*1/*3", "*2/*3")); // throw an error for this scenario
     assertEquals("*1+*3/*2+*3", result);
 
-    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*60/*80+*28"));
+    result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*60/*80+*28"));
     assertEquals("*6+*60/*80+*28", result);
 
-    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*80+*37"));
+    result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*80+*37"));
     assertEquals("*6/(*80+*28)+(*80+*37)", result);
 
-    result = Diplotype.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*60"));
+    result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*60"));
     assertEquals("*6/*60+(*80+*28)", result);
   }
 }

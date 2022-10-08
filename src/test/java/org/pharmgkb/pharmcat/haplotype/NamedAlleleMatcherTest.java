@@ -13,13 +13,13 @@ import com.google.common.collect.Sets;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -145,7 +145,7 @@ class NamedAlleleMatcherTest {
       pairs.add(dm.getName());
     }
 
-    String testResult = pairs.stream().reduce(Diplotype.phasedReducer).orElseThrow(RuntimeException::new);
+    String testResult = pairs.stream().reduce(DiplotypeUtils.PhasedReducer).orElseThrow(RuntimeException::new);
 
     assertEquals(expected, testResult, "Phased output wasn't expected");
   }

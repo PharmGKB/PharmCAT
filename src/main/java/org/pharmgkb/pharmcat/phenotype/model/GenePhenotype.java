@@ -185,7 +185,7 @@ public class GenePhenotype {
 
   /**
    * Gets the lookup key for the given bare diplotype of this gene.
-   *
+   * <p>
    * Runs through all the possible diplotypes in this {@link GenePhenotype} record to find one that matches
    *
    * @param diplotype in the form of "*1/*3"
