@@ -400,43 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166241001",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420402,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420403,
-        "html": "<ol>\n<li>use the maximum dose for the relevant indication as a target dose. 2. if the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative. Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451420401,
-        "html": "<p>The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420400,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166240982",
       "name": "Normal Metabolizer",
       "strength": {
@@ -485,19 +448,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451723005,
+        "id": 1451838302,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723006,
+        "id": 1451838303,
         "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA: 1. use smaller steps in dose titration and/or prescribe no more than 25% of the standard dose. OTHER CASES: 1. no action required</p>\n"
       },
       "implications": {
-        "id": 1451723004,
+        "id": 1451838301,
         "html": "<p>The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia.</p>\n"
       },
       "activityScore": {
-        "id": 1451723003,
+        "id": 1451838300,
         "html": "<p>Total gene activity score = 0</p>\n"
       }
     },
@@ -518,20 +481,57 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451723009,
+        "id": 1451838306,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723010,
+        "id": 1451838307,
         "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA: 1. use smaller steps in dose titration and/or prescribe no more than 50% of the standard dose. OTHER CASES: 1. no action required</p>\n"
       },
       "implications": {
-        "id": 1451723008,
+        "id": 1451838305,
         "html": "<p>The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia.</p>\n"
       },
       "activityScore": {
-        "id": 1451723007,
+        "id": 1451838304,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166241001",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451905802,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451905803,
+        "html": "<ol>\n<li>use the maximum dose for the relevant indication as a target dose. 2. if the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative. Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451905801,
+        "html": "<p>The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451905800,
+        "html": "<p>Total gene activity score ≥3</p>\n"
       }
     }
   ],
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

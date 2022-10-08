@@ -448,19 +448,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451420930,
+        "id": 1451837318,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420931,
+        "id": 1451837319,
         "html": "<p>Reduce the dose to 30% of the standard dose, perform an ECG and monitor plasma concentrations.</p>\n"
       },
       "implications": {
-        "id": 1451420929,
+        "id": 1451837317,
         "html": "<p>Genetic variation increases the sum of the plasma concentrations of propafenone and the active metabolite 5-hydroxypropafenone. This increases the risk of side effects.</p>\n"
       },
       "activityScore": {
-        "id": 1451420928,
+        "id": 1451837316,
         "html": "<p>Total gene activity score = 0</p>\n"
       }
     },
@@ -481,19 +481,19 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451420934,
+        "id": 1451837322,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420935,
+        "id": 1451837323,
         "html": "<p>It is not possible to offer adequately substantiated recommendations for dose adjustment based on the literature.</p>\n<ol>\n<li>Either guide the dose by therapeutic drug monitoring, perform an ECG and be alert to side effects</li>\n<li>Or choose an alternative. Antiarrhythmic drugs that are hardly if at all metabolised by CYP2D6 include, for example, sotalol, disopyramide, quinidine and amiodarone.</li>\n</ol>\n"
       },
       "implications": {
-        "id": 1451420933,
+        "id": 1451837321,
         "html": "<p>Genetic variation increases the sum of the plasma concentrations of propafenone and the active metabolite 5-hydroxypropafenone. This may increase the risk of side effects.</p>\n"
       },
       "activityScore": {
-        "id": 1451420932,
+        "id": 1451837320,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     },
@@ -518,19 +518,19 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451420942,
+        "id": 1451837326,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420943,
+        "id": 1451837327,
         "html": "<p>It is not possible to offer adequately substantiated recommendations for dose adjustment based on the literature.</p>\n<ol>\n<li>Either monitor plasma concentrations, perform an ECG and be alert to reduced efficacy of the therapy.</li>\n<li>Or choose an alternative. Antiarrhythmic drugs that are hardly if at all metabolised by CYP2D6 include, for example, sotalol, disopyramide, quinidine and amiodarone.</li>\n</ol>\n"
       },
       "implications": {
-        "id": 1451420941,
+        "id": 1451837325,
         "html": "<p>Genetic variation decreases the sum of the plasma concentrations of propafenone and the active metabolite 5-hydroxypropafenone. This increases the risk of reduced or no efficacy</p>\n"
       },
       "activityScore": {
-        "id": 1451420940,
+        "id": 1451837324,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
     }
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

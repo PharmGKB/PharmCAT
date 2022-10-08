@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.20.0-8-g795cafa",
-  "modificationDate": "Oct 3, 2022, 4:14:22 PM",
+  "version": "v1.21.0",
+  "modificationDate": "Oct 5, 2022, 10:21:55 AM",
   "gene": "VKORC1",
   "orientation": null,
   "chromosome": "chr16",

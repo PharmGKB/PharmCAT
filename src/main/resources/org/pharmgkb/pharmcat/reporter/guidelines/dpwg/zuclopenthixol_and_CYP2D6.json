@@ -434,70 +434,6 @@
       }
     },
     {
-      "id": "PA166241341",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451701082,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451701083,
-        "html": "<p>Use 75% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451701081,
-        "html": "<p>The risk of side effects may be elevated. The genetic variation leads to decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.35-fold higher.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451701080,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
-      }
-    },
-    {
-      "id": "PA166241321",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451723423,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451723424,
-        "html": "<p>Use 50% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451723422,
-        "html": "<p>The risk of side effects may be elevated. The genetic variation results in a decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.6-fold higher.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451723421,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
       "id": "PA166241343",
       "name": "Ultrarapid Metabolizer",
       "strength": {
@@ -533,6 +469,70 @@
         "id": 1451723425,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
+    },
+    {
+      "id": "PA166241321",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838282,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838283,
+        "html": "<p>Use 50% of the standard dose.</p>\n"
+      },
+      "implications": {
+        "id": 1451838281,
+        "html": "<p>The risk of side effects may be elevated. The genetic variation results in a decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.6-fold higher.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838280,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166241341",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838286,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838287,
+        "html": "<p>Use 75% of the standard dose.</p>\n"
+      },
+      "implications": {
+        "id": 1451838285,
+        "html": "<p>The risk of side effects may be elevated. The genetic variation leads to decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.35-fold higher.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838284,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
     }
   ],
   "citations": [
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

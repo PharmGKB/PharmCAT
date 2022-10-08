@@ -159,36 +159,6 @@
       "activityScore": null
     },
     {
-      "id": "PA166240501",
-      "name": "PM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C19:Decreased function/Decreased function",
-        "CYP2C19:Decreased function/No function",
-        "CYP2C19:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417561,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417562,
-        "html": "<p>Do not give doses exceeding 75 mg/day. Guide the dose by response and side effects and/or sertraline plasma concentration.</p>\n"
-      },
-      "implications": {
-        "id": 1451417560,
-        "html": "<p>The risk of side effects is increased. The gene variation leads to increased plasma concentrations of sertraline.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166240488",
       "name": "UM",
       "strength": {
@@ -244,6 +214,36 @@
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on sertraline.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166240501",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Decreased function",
+        "CYP2C19:Decreased function/No function",
+        "CYP2C19:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838051,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838052,
+        "html": "<p>Do not give doses exceeding 75 mg/day. Guide the dose by response and side effects and/or sertraline plasma concentration.</p>\n"
+      },
+      "implications": {
+        "id": 1451838050,
+        "html": "<p>The risk of side effects is increased. The gene variation leads to increased plasma concentrations of sertraline.</p>\n"
+      },
+      "activityScore": null
     }
   ],
   "citations": [
@@ -292,5 +292,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

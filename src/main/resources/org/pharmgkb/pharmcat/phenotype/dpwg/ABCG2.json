@@ -1,39 +1,39 @@
 {
   "gene": "ABCG2",
   "haplotypes": {
-    "c.421 G (141Q)": "Normal function",
-    "c.421 T (141K)": "Decreased function"
+    "rs2231142 reference (G)": "Normal function",
+    "rs2231142 variant (T)": "Decreased function"
   },
   "activityValues": {},
   "diplotypes": [
     {
       "generesult": null,
-      "diplotype": "c.421 G (141Q)/c.421 G (141Q)",
+      "diplotype": "rs2231142 reference (G)/rs2231142 reference (G)",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "c.421 G (141Q)": 2
+        "rs2231142 reference (G)": 2
       }
     },
     {
       "generesult": null,
-      "diplotype": "c.421 G (141Q)/c.421 T (141K)",
+      "diplotype": "rs2231142 reference (G)/rs2231142 variant (T)",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "c.421 G (141Q)": 1,
-        "c.421 T (141K)": 1
+        "rs2231142 reference (G)": 1,
+        "rs2231142 variant (T)": 1
       }
     },
     {
       "generesult": null,
-      "diplotype": "c.421 T (141K)/c.421 T (141K)",
+      "diplotype": "rs2231142 variant (T)/rs2231142 variant (T)",
       "description": null,
       "lookupkey": null,
       "diplotypekey": {
-        "c.421 T (141K)": 2
+        "rs2231142 variant (T)": 2
       }
     }
   ],
-  "version": "2022-10-03-16-30"
+  "version": "2022-10-08-09-34"
 }

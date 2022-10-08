@@ -208,62 +208,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166244901",
-      "name": "PM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "TPMT:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451450501,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451450502,
-        "html": "<p>Choose an alternative or start with 10% of the standard dose.\nAny adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness.\nIf the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur.</p>\n"
-      },
-      "implications": {
-        "id": 1451450500,
-        "html": "<p>Grade ≥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166244881",
-      "name": "IM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "TPMT:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451450461,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451450462,
-        "html": "<p>IMMUNOSUPPRESSION\nStart with 50% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. Dose adjustment is not required for doses lower than 1.5 mg/kg per day for azathioprine or 0.75 mg/kg per day for mercaptopurine.\n-LEUKAEMIA:\nstart with 50% of the standard mercaptopurine dose, or start with the standard dose and reduce to 50% if side effects necessitate a dose reduction\nIt is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM or NUDT15 PM.</p>\n"
-      },
-      "implications": {
-        "id": 1451450460,
-        "html": "<p>Grade ≥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166244861",
       "name": "NM",
       "strength": {
@@ -288,6 +232,62 @@
       "implications": {
         "id": 1451450440,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on mercaptopurine.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244881",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "TPMT:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837279,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837300,
+        "html": "<p>IMMUNOSUPPRESSION\nStart with 50% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. Dose adjustment is not required for doses lower than 1.5 mg/kg per day for azathioprine or 0.75 mg/kg per day for mercaptopurine.\n-LEUKAEMIA:\nstart with 50% of the standard mercaptopurine dose, or start with the standard dose and reduce to 50% if side effects necessitate a dose reduction\nIt is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM or NUDT15 PM.</p>\n"
+      },
+      "implications": {
+        "id": 1451837278,
+        "html": "<p>Grade ≥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244901",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "TPMT:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837302,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837303,
+        "html": "<p>Choose an alternative or start with 10% of the standard dose.\nAny adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness.\nIf the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur.</p>\n"
+      },
+      "implications": {
+        "id": 1451837301,
+        "html": "<p>Grade ≥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine.</p>\n"
       },
       "activityScore": null
     }
@@ -315,5 +315,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

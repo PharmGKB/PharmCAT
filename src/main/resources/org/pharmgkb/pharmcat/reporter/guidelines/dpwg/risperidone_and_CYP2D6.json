@@ -400,74 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166241146",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420948,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420949,
-        "html": "<p>Use 67% of the standard dose. If problematic side effects originating in the central nervous system occur despite this reduced dose, then reduce the dose further to 50% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451420947,
-        "html": "<p>The percentage of patients with therapy failure increased from 16% to 26%. The gene variation increases the plasma concentration of risperidone plus the active metabolite and increases the proportion of risperidone in this ratio, which is more effective at crossing the blood-brain barrier.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420946,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
-      "id": "PA166241181",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420987,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420988,
-        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
-      },
-      "implications": {
-        "id": 1451420986,
-        "html": "<p>The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420985,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166241161",
       "name": "Normal Metabolizer",
       "strength": {
@@ -533,6 +465,74 @@
         "id": 1451420950,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
+    },
+    {
+      "id": "PA166241146",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837214,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837215,
+        "html": "<p>Use 67% of the standard dose. If problematic side effects originating in the central nervous system occur despite this reduced dose, then reduce the dose further to 50% of the standard dose.</p>\n"
+      },
+      "implications": {
+        "id": 1451837213,
+        "html": "<p>The percentage of patients with therapy failure increased from 16% to 26%. The gene variation increases the plasma concentration of risperidone plus the active metabolite and increases the proportion of risperidone in this ratio, which is more effective at crossing the blood-brain barrier.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837212,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166241181",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837218,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837219,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": {
+        "id": 1451837217,
+        "html": "<p>The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837216,
+        "html": "<p>Total gene activity score ≥3</p>\n"
+      }
     }
   ],
   "citations": [
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

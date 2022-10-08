@@ -56,56 +56,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166248401",
-      "name": "521 CC",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "SLCO1B1:Decreased function/Decreased function"
-      ],
-      "metabolizerStatus": null,
-      "recommendation": {
-        "id": 1451492917,
-        "html": "<ul>\n<li>Patient has ADDITIONAL SIGNIFICANT RISK FACTORS for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Choose an alternative.\nDo not select simvastatin, as this is also affected by the SLCO1B1 gene variation. Rosuvastatin and pravastatin are influenced to a similar extent by SLCO1B1 polymorphisms, but are not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced significantly by SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option: advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n<ul>\n<li>Patient has NO additional significant risk factors for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451492915,
-        "html": "<p>The risk of myopathy may be increased. The gene variation may lead to reduced atorvastatin transport to the liver, which may increase the atorvastatin plasma concentration.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166248402",
-      "name": "521 CT",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "SLCO1B1:Decreased function/Normal function"
-      ],
-      "metabolizerStatus": null,
-      "recommendation": {
-        "id": 1451492870,
-        "html": "<ul>\n<li>Patient has ADDITIONAL SIGNIFICANT RISK FACTORS for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Choose an alternative.\nRosuvastatin and pravastatin are influenced to a similar extent by the SLCO1B1 gene variation, but are not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced significantly by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option: advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n<ul>\n<li>Patient has NO additional significant risk factors for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451492868,
-        "html": "<p>The risk of myopathy can be elevated. The gene variation may lead to reduced atorvastatin transport to the liver, which may increase atorvastatin plasma concentrations.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166248421",
       "name": "521 TT",
       "strength": {
@@ -129,7 +79,58 @@
         "html": "<p>The guideline does not provide a description of the impact of the <em>SLCO1B1</em> 521 TT genotype on atorvastatin.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166248401",
+      "name": "521 CC",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "SLCO1B1:Decreased function/Decreased function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451838364,
+        "html": "<ul>\n<li>Patient has ADDITIONAL SIGNIFICANT RISK FACTORS for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Choose an alternative.\nDo not select simvastatin, as this is also affected by the SLCO1B1 gene variation. Rosuvastatin and pravastatin are influenced to a similar extent by SLCO1B1 polymorphisms, but are not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced significantly by SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option: advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n<ul>\n<li>Patient has NO additional significant risk factors for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838362,
+        "html": "<p>The risk of myopathy may be increased. The gene variation may lead to reduced atorvastatin transport to the liver, which may increase the atorvastatin plasma concentration.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166248402",
+      "name": "521 CT",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "SLCO1B1:Decreased function/Normal function"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451838361,
+        "html": "<ul>\n<li>Patient has ADDITIONAL SIGNIFICANT RISK FACTORS for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Choose an alternative.\nRosuvastatin and pravastatin are influenced to a similar extent by the SLCO1B1 gene variation, but are not influenced by CYP3A4 inhibitors such as amiodarone, verapamil and diltiazem. Fluvastatin is not influenced significantly by the SLCO1B1 gene variation or CYP3A4 inhibitors.</li>\n<li>If an alternative is not an option: advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n<ul>\n<li>Patient has NO additional significant risk factors for statin-induced myopathy:</li>\n</ul>\n<ol>\n<li>Advise the patient to contact their doctor in the event of muscle symptoms.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838359,
+        "html": "<p>The risk of myopathy can be elevated. The gene variation may lead to reduced atorvastatin transport to the liver, which may increase atorvastatin plasma concentrations.</p>\n"
+      },
+      "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

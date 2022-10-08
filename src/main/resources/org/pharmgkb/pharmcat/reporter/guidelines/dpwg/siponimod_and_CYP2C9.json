@@ -120,153 +120,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166244001",
-      "name": "*3/*3",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C9:Decreased function (CYP2C9*3)/Decreased function (CYP2C9*3)"
-      ],
-      "metabolizerStatus": {
-        "id": 1451445341,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451445343,
-        "html": "<p>Avoid siponimod.</p>\n"
-      },
-      "implications": {
-        "id": 1451445340,
-        "html": "<p>Siponimod is contraindicated in patients with this genetic variation. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166243961",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C9:Decreased function (CYP2C9*2)/No function",
-        "CYP2C9:Decreased function (CYP2C9*3)/No function",
-        "CYP2C9:Decreased function/Decreased function",
-        "CYP2C9:Decreased function/Decreased function (CYP2C9*2)",
-        "CYP2C9:Decreased function/Decreased function (CYP2C9*3)",
-        "CYP2C9:Decreased function/No function",
-        "CYP2C9:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451445303,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451445304,
-        "html": "<p>Avoid siponimod.</p>\n"
-      },
-      "implications": {
-        "id": 1451445302,
-        "html": "<p>Siponimod is contraindicated in patients with the comparable genetic variation *3/*3. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166243963",
-      "name": "*1/*3",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C9:Decreased function (CYP2C9*3)/Normal function (CYP2C9*1)"
-      ],
-      "metabolizerStatus": {
-        "id": 1451445310,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451445312,
-        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
-      },
-      "implications": {
-        "id": 1451445309,
-        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166243982",
-      "name": "*2/*3",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*3)"
-      ],
-      "metabolizerStatus": {
-        "id": 1451445325,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451445327,
-        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
-      },
-      "implications": {
-        "id": 1451445324,
-        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166243941",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C9:Decreased function/Normal function (CYP2C9*1)",
-        "CYP2C9:No function/Normal function (CYP2C9*1)"
-      ],
-      "metabolizerStatus": {
-        "id": 1451445245,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451445246,
-        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For the comparable genetic variation *1/*3, the moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
-      },
-      "implications": {
-        "id": 1451445244,
-        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166243962",
       "name": "*1/*2",
       "strength": {
@@ -349,7 +202,155 @@
         "html": "<p>The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166243941",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function/Normal function (CYP2C9*1)",
+        "CYP2C9:No function/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838427,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838428,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For the comparable genetic variation *1/*3, the moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": {
+        "id": 1451838426,
+        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243961",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/No function",
+        "CYP2C9:Decreased function (CYP2C9*3)/No function",
+        "CYP2C9:Decreased function/Decreased function",
+        "CYP2C9:Decreased function/Decreased function (CYP2C9*2)",
+        "CYP2C9:Decreased function/Decreased function (CYP2C9*3)",
+        "CYP2C9:Decreased function/No function",
+        "CYP2C9:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838391,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838392,
+        "html": "<p>Avoid siponimod.</p>\n"
+      },
+      "implications": {
+        "id": 1451838390,
+        "html": "<p>Siponimod is contraindicated in patients with the comparable genetic variation *3/*3. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243963",
+      "name": "*1/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*3)/Normal function (CYP2C9*1)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838441,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838443,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": {
+        "id": 1451838440,
+        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166243982",
+      "name": "*2/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*2)/Decreased function (CYP2C9*3)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838430,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838432,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": {
+        "id": 1451838429,
+        "html": "<p>Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244001",
+      "name": "*3/*3",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C9:Decreased function (CYP2C9*3)/Decreased function (CYP2C9*3)"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838409,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838411,
+        "html": "<p>Avoid siponimod.</p>\n"
+      },
+      "implications": {
+        "id": 1451838408,
+        "html": "<p>Siponimod is contraindicated in patients with this genetic variation. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod.</p>\n"
+      },
+      "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

@@ -400,43 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240801",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418422,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418423,
-        "html": "<p>Double the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose. The therapeutic range is 100-250 ng/mL for the sum of doxepin and nordoxepin plasma concentrations. Values higher than 400 ng/mL are considered toxic. If a dose increase is not wanted due to the potentially cardiotoxic hydroxy metabolites: avoid doxepin. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
-      },
-      "implications": {
-        "id": 1451418421,
-        "html": "<p>The risk of ineffectiveness and cardiotoxic side effects may be increased. The gene variation leads to reduced plasma concentrations of doxepin and the active metabolite nordoxepin and an increase in the plasma concentrations of the potentially cardiotoxic hydroxy metabolites.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418420,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166240784",
       "name": "Normal Metabolizer",
       "strength": {
@@ -485,19 +448,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451418405,
+        "id": 1451838298,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451418406,
+        "id": 1451838299,
         "html": "<p>Use 40% of the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose. The therapeutic range is 100-250 ng/mL for the sum of doxepin and nordoxepin plasma concentrations. Values higher than 400 ng/mL are considered toxic.</p>\n"
       },
       "implications": {
-        "id": 1451418404,
+        "id": 1451838297,
         "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of doxepin and the active metabolite nordoxepin.</p>\n"
       },
       "activityScore": {
-        "id": 1451418403,
+        "id": 1451838296,
         "html": "<p>Total gene activity score = 0</p>\n"
       }
     },
@@ -518,20 +481,57 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451418314,
+        "id": 1451838294,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451418315,
+        "id": 1451838295,
         "html": "<p>Use 80% of the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose. The therapeutic range is 100-250 ng/mL for the sum of doxepin and nordoxepin plasma concentrations. Values higher than 400 ng/mL are considered toxic.</p>\n"
       },
       "implications": {
-        "id": 1451418313,
+        "id": 1451838293,
         "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of doxepin and the active metabolite nordoxepin.</p>\n"
       },
       "activityScore": {
-        "id": 1451418312,
+        "id": 1451838292,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166240801",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838290,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838291,
+        "html": "<p>Double the standard dose and monitor the effect and side effects or the plasma concentrations of doxepin and nordoxepin in order to set the maintenance dose. The therapeutic range is 100-250 ng/mL for the sum of doxepin and nordoxepin plasma concentrations. Values higher than 400 ng/mL are considered toxic. If a dose increase is not wanted due to the potentially cardiotoxic hydroxy metabolites: avoid doxepin. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
+      },
+      "implications": {
+        "id": 1451838289,
+        "html": "<p>The risk of ineffectiveness and cardiotoxic side effects may be increased. The gene variation leads to reduced plasma concentrations of doxepin and the active metabolite nordoxepin and an increase in the plasma concentrations of the potentially cardiotoxic hydroxy metabolites.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838288,
+        "html": "<p>Total gene activity score ≥3</p>\n"
       }
     }
   ],
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

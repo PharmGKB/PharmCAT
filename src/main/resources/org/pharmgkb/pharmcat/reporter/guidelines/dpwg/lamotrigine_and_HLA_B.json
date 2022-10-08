@@ -97,15 +97,16 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451782589,
+        "id": 1451838445,
         "html": "<ul>\n<li>Carefully weigh the risk of SJS/TEN against the benefits.</li>\n<li>Avoid lamotrigine if an alternative is available.\n<ul>\n<li>Carbamazepine carries a much higher risk of SJS/TEN in these patients and is therefore not an alternative.</li>\n<li>A similar risk has been reported for phenytoin as for lamotrigine.</li>\n<li>The same applies to oxcarbazepine, but the most severe forms (SJS/TEN overlap and TEN) have not been observed with oxcarbazepine.</li>\n</ul>\n</li>\n<li>If it is not possible to avoid these products, advise the patient to report any rash immediately.</li>\n</ul>\n"
       },
       "implications": {
-        "id": 1451782588,
+        "id": 1451838444,
         "html": "<p>The life-threatening cutaneous side effect Stevens-Johnson Syndrome/Toxic Epidermal Necrolysis (SJS/TEN) occurs more often in patients with this genetic variation. Based on the estimated risk for all patients and the increase by a factor 3.6 for patients with this genetic variation, the risk of lamotrigine-induced SJS/TEN in patients with HLA-B*1502 is estimated at 0.4%.</p>\n"
       },
       "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

@@ -3,7 +3,7 @@
     "id": "PA166264961",
     "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
     "source": "DPWG",
-    "version": 9,
+    "version": 11,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
     "relatedChemicals": [
       {
@@ -24,16 +24,16 @@
       {
         "alleles": [
           {
-            "id": 1451699242,
-            "_label": "c.421 G (141Q)",
+            "id": 1451903461,
+            "_label": "rs2231142 reference (G)",
             "function": {
               "term": "Normal function",
               "termId": "haplotypeTags:1445558335"
             }
           },
           {
-            "id": 1451699241,
-            "_label": "c.421 T (141K)",
+            "id": 1451903462,
+            "_label": "rs2231142 variant (T)",
             "function": {
               "term": "Decreased function",
               "termId": "haplotypeTags:1445558331"
@@ -71,12 +71,12 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451699268,
-        "html": "<p>The guideline does not provide a recommendation for allopurinol in patients with the the ABCG2 c.421 GG genotype.</p>\n"
+        "id": 1451903565,
+        "html": "<p>The guideline does not provide a recommendation for allopurinol in patients with the the ABCG2 rs2231142 GG genotype (c.421CC; p.141QQ)</p>\n"
       },
       "implications": {
-        "id": 1451699266,
-        "html": "<p>The guideline does not provide a description of the impact of the ABCG2 c.421 GG genotype on allopurinol.</p>\n"
+        "id": 1451903563,
+        "html": "<p>The guideline does not provide a description of the impact of the ABCG2 rs2231142 GG genotype (c.421CC; p.141QQ) on allopurinol.</p>\n"
       },
       "activityScore": null
     },
@@ -96,11 +96,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451699271,
+        "id": 1451903562,
         "html": "<p>Use 1.25 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 200, 400 and 500 mg/day instead of the usual schedule of 100, 200, 300 and 400 mg/day.</p>\n"
       },
       "implications": {
-        "id": 1451699269,
+        "id": 1451903560,
         "html": "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n"
       },
       "activityScore": null
@@ -121,11 +121,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451699265,
+        "id": 1451903545,
         "html": "<p>Use 1.4 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 300, 400, 600 and 700 mg/day instead of the usual schedule of 100, 200, 300, 400 and 500 mg/day.</p>\n"
       },
       "implications": {
-        "id": 1451699263,
+        "id": 1451903543,
         "html": "<p>The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration.</p>\n"
       },
       "activityScore": null
@@ -155,5 +155,6 @@
       "journal": "European journal of human genetics : EJHG",
       "year": 2022
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

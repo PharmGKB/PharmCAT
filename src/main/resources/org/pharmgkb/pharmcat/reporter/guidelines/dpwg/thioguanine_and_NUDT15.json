@@ -112,69 +112,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166244583",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "NUDT15:Decreased function/Normal function",
-        "NUDT15:No function/Normal function",
-        "NUDT15:Normal function/Strongly decreased function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451448657,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451448658,
-        "html": "<p>IMMUNOSUPPRESSION: start with 75% of the standard dose. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</p>\n<ul>\n<li>LEUKAEMIA: start with 75% of the standard tioguanine dose or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.\nNote: more stringent dose reductions are necessary if the patient is also TPMT IM.</li>\n</ul>\n"
-      },
-      "implications": {
-        "id": 1451448656,
-        "html": "<p>Grade &ge;2 leukopaenia occurs in an estimated 40% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166244582",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "NUDT15:Decreased function/Decreased function",
-        "NUDT15:Decreased function/No function",
-        "NUDT15:Decreased function/Strongly decreased function",
-        "NUDT15:No function/No function",
-        "NUDT15:No function/Strongly decreased function",
-        "NUDT15:Strongly decreased function/Strongly decreased function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451448661,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451448662,
-        "html": "<ul>\n<li>avoid thioguanine</li>\n<li>if it is not possible to avoid tioguanine: use 10% of the standard dose and advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 10% is based on the analogy with azathioprine and mercaptopurine and the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. For NUDT15 PM, a percentage of &lt; 20% was calculated for azathioprine and mercaptopurine, but there were insufficient data available to calculate the exact percentage.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</li>\n</ul>\n"
-      },
-      "implications": {
-        "id": 1451448660,
-        "html": "<p>Grade &ge;2 leukopaenia occurs in an estimated 95% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166244601",
       "name": "Normal Metabolizer",
       "strength": {
@@ -201,7 +138,71 @@
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on thioguanine.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166244582",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "NUDT15:Decreased function/Decreased function",
+        "NUDT15:Decreased function/No function",
+        "NUDT15:Decreased function/Strongly decreased function",
+        "NUDT15:No function/No function",
+        "NUDT15:No function/Strongly decreased function",
+        "NUDT15:Strongly decreased function/Strongly decreased function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838385,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838386,
+        "html": "<ul>\n<li>avoid thioguanine</li>\n<li>if it is not possible to avoid tioguanine: use 10% of the standard dose and advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 10% is based on the analogy with azathioprine and mercaptopurine and the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. For NUDT15 PM, a percentage of &lt; 20% was calculated for azathioprine and mercaptopurine, but there were insufficient data available to calculate the exact percentage.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</li>\n</ul>\n"
+      },
+      "implications": {
+        "id": 1451838384,
+        "html": "<p>Grade &ge;2 leukopaenia occurs in an estimated 95% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166244583",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "NUDT15:Decreased function/Normal function",
+        "NUDT15:No function/Normal function",
+        "NUDT15:Normal function/Strongly decreased function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838403,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838404,
+        "html": "<p>IMMUNOSUPPRESSION: start with 75% of the standard dose. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</p>\n<ul>\n<li>LEUKAEMIA: start with 75% of the standard tioguanine dose or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNOTE: The percentage of 75% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15.\nNOTE: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.\nNote: more stringent dose reductions are necessary if the patient is also TPMT IM.</li>\n</ul>\n"
+      },
+      "implications": {
+        "id": 1451838402,
+        "html": "<p>Grade &ge;2 leukopaenia occurs in an estimated 40% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of thioguanine.</p>\n"
+      },
+      "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

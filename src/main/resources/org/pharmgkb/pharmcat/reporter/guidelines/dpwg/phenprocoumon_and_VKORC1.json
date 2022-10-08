@@ -3,7 +3,7 @@
     "id": "PA166104940",
     "name": "Annotation of DPWG Guideline for phenprocoumon and VKORC1",
     "source": "DPWG",
-    "version": 33,
+    "version": 35,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104940",
     "relatedChemicals": [
       {
@@ -24,19 +24,19 @@
       {
         "alleles": [
           {
-            "id": 1451694743,
-            "_label": "-1639 A",
-            "function": {
-              "term": "Higher coumarin sensitivity",
-              "termId": "alleleFunction:1451694740"
-            }
-          },
-          {
-            "id": 1451694744,
-            "_label": "-1639 G",
+            "id": 1451903900,
+            "_label": "rs9923231 reference (C)",
             "function": {
               "term": "Normal coumarin sensitivity",
               "termId": "alleleFunction:1451694741"
+            }
+          },
+          {
+            "id": 1451903901,
+            "_label": "rs9923231 variant (T)",
+            "function": {
+              "term": "Higher coumarin sensitivity",
+              "termId": "alleleFunction:1451694740"
             }
           }
         ],
@@ -56,6 +56,31 @@
   },
   "annotationGroups": [
     {
+      "id": "PA166264801",
+      "name": "-1639 AA",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "VKORC1:Higher coumarin sensitivity/Higher coumarin sensitivity"
+      ],
+      "metabolizerStatus": null,
+      "recommendation": {
+        "id": 1451903925,
+        "html": "<p>Monitoring by a ANTICOAGULATION CLINIC:</p>\n<ul>\n<li>recommend to use 50% of the standard initial dose</li>\n</ul>\n<p>NO monitoring by a anticoagulation clinic:</p>\n<ul>\n<li>recommend to use 50% of the standard initial dose</li>\n<li>recommend more frequent monitoring of the INR</li>\n</ul>\n"
+      },
+      "implications": {
+        "id": 1451903923,
+        "html": "<p>An INR ≥ 6, resulting in an increased risk of bleeding, occurs in 17% of these patients with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to phenprocoumon.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
       "id": "PA166264802",
       "name": "-1639 AG",
       "strength": {
@@ -71,11 +96,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451694822,
+        "id": 1451903922,
         "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
       },
       "implications": {
-        "id": 1451694820,
+        "id": 1451903920,
         "html": "<p>The gene variation leads to a lower dose requirement, but regular monitoring of patients ensures that this does not lead to a distinct increase in the risk of bleeding.</p>\n"
       },
       "activityScore": null
@@ -96,37 +121,12 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451694802,
-        "html": "<p>The guideline does not provide a recommendation for phenprocoumon in patients with the VKORC1 -1639 GG genotype.</p>\n"
+        "id": 1451903904,
+        "html": "<p>The guideline does not provide a recommendation for phenprocoumon in patients with the VKORC1 rs9923231 CC genotype (-1639 GG genotype).</p>\n"
       },
       "implications": {
-        "id": 1451694800,
-        "html": "<p>The guideline does not provide a description of the impact of the -1639 GG genotype on phenprocoumon.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166264801",
-      "name": "-1639 AA",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "VKORC1:Higher coumarin sensitivity/Higher coumarin sensitivity"
-      ],
-      "metabolizerStatus": null,
-      "recommendation": {
-        "id": 1451694805,
-        "html": "<p>Monitoring by a ANTICOAGULATION CLINIC:</p>\n<ul>\n<li>recommend to use 50% of the standard initial dose</li>\n</ul>\n<p>NO monitoring by a anticoagulation clinic:</p>\n<ul>\n<li>recommend to use 50% of the standard initial dose</li>\n<li>recommend more frequent monitoring of the INR</li>\n</ul>\n"
-      },
-      "implications": {
-        "id": 1451694803,
-        "html": "<p>An INR ≥ 6, resulting in an increased risk of bleeding, occurs in 17% of these patients with standard regulation by the Anticoagulation Clinic. The genetic variation increases the sensitivity to phenprocoumon.</p>\n"
+        "id": 1451903902,
+        "html": "<p>The guideline does not provide a description of the impact of the VKORC1 rs9923231 CC genotype (-1639 GG genotype) on phenprocoumon.</p>\n"
       },
       "activityScore": null
     }
@@ -154,5 +154,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

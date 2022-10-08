@@ -138,11 +138,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451701143,
+        "id": 1451838067,
         "html": "<p>LIVER TRANSPLANTATION\nIn addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HOMOZYGOUS EXPRESSOR: Use 2.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.\nLIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.</p>\n<p>OTHER TRANSPLANTATION\nUse 2.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. For example: One Dutch study found a median trough concentration for tacrolimus after three days of 9.4 ng/mL at an initial dose of 0.15 mg/kg twice daily for 5 homozygous kidney transplant patients. Their target value was 10 - 15 ng/mL.</p>\n"
       },
       "implications": {
-        "id": 1451701141,
+        "id": 1451838065,
         "html": "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in an increased conversion of tacrolimus to inactive metabolites and therefore a higher required dose.</p>\n"
       },
       "activityScore": null
@@ -164,11 +164,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451701162,
+        "id": 1451838082,
         "html": "<p>RECOMMENDATION LIVER TRANSPLANTATION\nIn addition to the patient’s genotype, the metabolism of tacrolimus is also determined by the genotype of the transplanted liver.\nLIVER is also of the genotype HETEROZYGOUS EXPRESSOR: Use 1.5 times the normal initial dose. Adjustment of the dose should then be based on therapeutic drug monitoring.<br />\nIf LIVER has a DIFFERENT genotype: There is insufficient evidence in the literature to support a dose recommendation.<br />\nRECOMMENDATION INDICATIONS OTHER THAN LIVER TRANSPLANTATION\nUse 1.5 times the initial dose that would yield the desired result in non-expressers. Adjustment of the dose should then be based on therapeutic drug monitoring. Adjustment of the dose should then be based on therapeutic drug monitoring.\nFor example: A Dutch study found a median trough concentration for tacrolimus of 14.7 ng/mL after 3 days at an initial dose of 0.15 mg/kg twice daily for 29 kidney transplant patients who were heterozygous expressers. Their target value was 10 - 15 ng/mL.</p>\n"
       },
       "implications": {
-        "id": 1451701160,
+        "id": 1451838080,
         "html": "<p>An increase of the initial dose can result in an increased chance of reaching a tacrolimus concentration within the target range before the start of therapeutic drug monitoring. However, there is no direct evidence that this results in improved clinical results. The genetic variation results in increased conversion of tacrolimus to inactive metabolites and therefore in a higher required dose.</p>\n"
       },
       "activityScore": null
@@ -197,5 +197,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

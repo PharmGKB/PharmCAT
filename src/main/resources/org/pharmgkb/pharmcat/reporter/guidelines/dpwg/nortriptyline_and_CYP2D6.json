@@ -434,6 +434,37 @@
       }
     },
     {
+      "id": "PA166241021",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837306,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837307,
+        "html": "<p>Use 40% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose.\nThe therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": {
+        "id": 1451837305,
+        "html": "<p>The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837304,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
       "id": "PA166241022",
       "name": "Intermediate Metabolizer",
       "strength": {
@@ -450,19 +481,19 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451420436,
+        "id": 1451837310,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420437,
+        "id": 1451837311,
         "html": "<p>Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose.\nThe therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
       },
       "implications": {
-        "id": 1451420435,
+        "id": 1451837309,
         "html": "<p>The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline.</p>\n"
       },
       "activityScore": {
-        "id": 1451420434,
+        "id": 1451837308,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     },
@@ -487,51 +518,20 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451420524,
+        "id": 1451837314,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420525,
+        "id": 1451837315,
         "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.\nIf a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
       },
       "implications": {
-        "id": 1451420523,
+        "id": 1451837313,
         "html": "<p>The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline.</p>\n"
       },
       "activityScore": {
-        "id": 1451420522,
+        "id": 1451837312,
         "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166241021",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420432,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420433,
-        "html": "<p>Use 40% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose.\nThe therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
-      },
-      "implications": {
-        "id": 1451420431,
-        "html": "<p>The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420430,
-        "html": "<p>Total gene activity score = 0</p>\n"
       }
     }
   ],
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

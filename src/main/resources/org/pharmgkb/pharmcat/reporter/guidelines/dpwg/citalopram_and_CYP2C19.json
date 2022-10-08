@@ -128,67 +128,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240201",
-      "name": "PM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C19:Decreased function/Decreased function",
-        "CYP2C19:Decreased function/No function",
-        "CYP2C19:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417061,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417062,
-        "html": "<p>Do not exceed the following daily doses (50% of the standard maximum dose):</p>\n<ol>\n<li>adults up to 65 years: 20mg as tablets or 16mg as drops,</li>\n<li>Adults 65 years or older: 10mg as tablets or 8mg as drops</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451417060,
-        "html": "<p>The risk of QT prolongation and therefore also the theoretical risk of torsades de pointes is increased as the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the increased risk of QT prolongation will be offset.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
-      "id": "PA166240221",
-      "name": "IM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C19:Decreased function/Increased function",
-        "CYP2C19:Decreased function/Normal function",
-        "CYP2C19:Increased function/No function",
-        "CYP2C19:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417121,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417122,
-        "html": "<p>Do not exceed the following daily doses:</p>\n<ol>\n<li>Adults up to 65 years: 30mg as tablets or 22mg as drops,</li>\n<li>Adults 65 years or older: 15mg as tablets or 10mg as drops</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451417120,
-        "html": "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166240261",
       "name": "UM",
       "strength": {
@@ -244,6 +183,67 @@
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on citalopram.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166240201",
+      "name": "PM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Decreased function",
+        "CYP2C19:Decreased function/No function",
+        "CYP2C19:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838045,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838046,
+        "html": "<p>Do not exceed the following daily doses (50% of the standard maximum dose):</p>\n<ol>\n<li>adults up to 65 years: 20mg as tablets or 16mg as drops,</li>\n<li>Adults 65 years or older: 10mg as tablets or 8mg as drops</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838044,
+        "html": "<p>The risk of QT prolongation and therefore also the theoretical risk of torsades de pointes is increased as the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the increased risk of QT prolongation will be offset.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166240221",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Increased function",
+        "CYP2C19:Decreased function/Normal function",
+        "CYP2C19:Increased function/No function",
+        "CYP2C19:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838048,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838049,
+        "html": "<p>Do not exceed the following daily doses:</p>\n<ol>\n<li>Adults up to 65 years: 30mg as tablets or 22mg as drops,</li>\n<li>Adults 65 years or older: 15mg as tablets or 10mg as drops</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838047,
+        "html": "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased citalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n"
+      },
+      "activityScore": null
     }
   ],
   "citations": [
@@ -292,5 +292,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

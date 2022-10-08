@@ -434,37 +434,6 @@
       }
     },
     {
-      "id": "PA166240881",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451698382,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451698383,
-        "html": "<p>Use 60% of the standard.</p>\n"
-      },
-      "implications": {
-        "id": 1451698381,
-        "html": "<p>There are indications for an increased risk of side effects. The genetic variation leads to decreased conversion of haloperidol, resulting in plasma concentrations that are approximately 1.7-fold higher.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451698380,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
       "id": "PA166240901",
       "name": "Intermediate Metabolizer",
       "strength": {
@@ -498,6 +467,37 @@
       }
     },
     {
+      "id": "PA166240881",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838142,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838143,
+        "html": "<p>Use 60% of the standard.</p>\n"
+      },
+      "implications": {
+        "id": 1451838141,
+        "html": "<p>There are indications for an increased risk of side effects. The genetic variation leads to decreased conversion of haloperidol, resulting in plasma concentrations that are approximately 1.7-fold higher.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838140,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
       "id": "PA166240902",
       "name": "Ultrarapid Metabolizer",
       "strength": {
@@ -518,19 +518,19 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451698390,
+        "id": 1451838162,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451698391,
+        "id": 1451838163,
         "html": "<p>Use 1.5 times the standard dose or choose an alternative. Antipsychotics that are not metabolised by CYP2D6 - or to a much lesser extent - include, for example, flupentixol, penfluridol, quetiapine, olanzapine or clozapine.</p>\n"
       },
       "implications": {
-        "id": 1451698389,
+        "id": 1451838161,
         "html": "<p>There are indications of a risk of reduced effectiveness. The genetic variation leads to an increased conversion of haloperidol, resulting in a plasma concentration that is\napproximately 40% lower.</p>\n"
       },
       "activityScore": {
-        "id": 1451698388,
+        "id": 1451838160,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
     }
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

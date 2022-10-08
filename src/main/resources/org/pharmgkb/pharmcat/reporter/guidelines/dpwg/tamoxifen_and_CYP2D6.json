@@ -400,37 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166241201",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451421062,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451421063,
-        "html": "<p>Select an alternative or increase the dose to 40 mg/day and monitor the endoxifen concentration. Studies have demonstrated that PM can achieve an adequate endoxifen concentration when the dose is increased to 40-60 mg/day. Aromatase inhibitors are a possible alternative for post-menopausal women.</p>\n"
-      },
-      "implications": {
-        "id": 1451421061,
-        "html": "<p>This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451421060,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
       "id": "PA166241241",
       "name": "Normal Metabolizer",
       "strength": {
@@ -462,39 +431,6 @@
       "activityScore": {
         "id": 1451421100,
         "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
-      }
-    },
-    {
-      "id": "PA166241221",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451421082,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451421083,
-        "html": "<ol>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451421081,
-        "html": "<p>This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451421080,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     },
     {
@@ -533,6 +469,70 @@
         "id": 1451421104,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
+    },
+    {
+      "id": "PA166241201",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837386,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837387,
+        "html": "<p>Select an alternative or increase the dose to 40 mg/day and monitor the endoxifen concentration. Studies have demonstrated that PM can achieve an adequate endoxifen concentration when the dose is increased to 40-60 mg/day. Aromatase inhibitors are a possible alternative for post-menopausal women.</p>\n"
+      },
+      "implications": {
+        "id": 1451837385,
+        "html": "<p>This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837384,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166241221",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837374,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837375,
+        "html": "<ol>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451837373,
+        "html": "<p>This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837372,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
     }
   ],
   "citations": [
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

@@ -448,20 +448,53 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451420262,
+        "id": 1451837470,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420263,
+        "id": 1451837471,
         "html": "<p>Use 30% of the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose. The therapeutic range is 150-300 ng/mL for the sum of the imipramine and desipramine plasma concentrations. Values exceeding 500 ng/mL are considered toxic.</p>\n"
       },
       "implications": {
-        "id": 1451420261,
+        "id": 1451837469,
         "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of imipramine and the active metabolite desipramine.</p>\n"
       },
       "activityScore": {
-        "id": 1451420260,
+        "id": 1451837468,
         "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166240922",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837474,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837475,
+        "html": "<p>Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose. The therapeutic range is 150-300 ng/mL for the sum of the imipramine and desipramine plasma concentrations. Values exceeding 500 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": {
+        "id": 1451837473,
+        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of imipramine and desipramine.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837472,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     },
     {
@@ -485,53 +518,20 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451420274,
+        "id": 1451837478,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451420275,
+        "id": 1451837479,
         "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose. If a dose increase is not wanted due to the potentially cardiotoxic hydroxy metabolites: avoid imipramine. Antidepressants that are not metabolised by CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
       },
       "implications": {
-        "id": 1451420273,
+        "id": 1451837477,
         "html": "<p>The risk of ineffectiveness and cardiotoxic side effects may be increased. The gene variation leads to reduced plasma concentrations of imipramine and the active metabolite desipramine and to increased plasma concentrations of the potentially cardiotoxic hydroxy metabolites.</p>\n"
       },
       "activityScore": {
-        "id": 1451420272,
+        "id": 1451837476,
         "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166240922",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420266,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420267,
-        "html": "<p>Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of imipramine and desipramine in order to set the maintenance dose. The therapeutic range is 150-300 ng/mL for the sum of the imipramine and desipramine plasma concentrations. Values exceeding 500 ng/mL are considered toxic.</p>\n"
-      },
-      "implications": {
-        "id": 1451420265,
-        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of imipramine and desipramine.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420264,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     }
   ],
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

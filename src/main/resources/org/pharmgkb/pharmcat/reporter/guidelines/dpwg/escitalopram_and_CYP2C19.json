@@ -128,37 +128,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240402",
-      "name": "IM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2C19:Decreased function/Increased function",
-        "CYP2C19:Decreased function/Normal function",
-        "CYP2C19:Increased function/No function",
-        "CYP2C19:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417304,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417305,
-        "html": "<p>Do not exceed the following doses (75% of the standard maximum dose): adults &lt; 65 years 15 mg/day, =65 years 7.5 mg/day</p>\n"
-      },
-      "implications": {
-        "id": 1451417303,
-        "html": "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased escitalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166240403",
       "name": "NM",
       "strength": {
@@ -202,15 +171,15 @@
         "CYP2C19:Increased function/Increased function"
       ],
       "metabolizerStatus": {
-        "id": 1451695562,
+        "id": 1451837481,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451695563,
+        "id": 1451837482,
         "html": "<p>Avoid escitalopram. Antidepressants that are not metabolised or that are metabolised to a lesser extent by CYP2C19 are, for example, paroxetine or fluvoxamine.</p>\n"
       },
       "implications": {
-        "id": 1451695561,
+        "id": 1451837480,
         "html": "<p>The risk of switching to another antidepressant is increased as the gene variation leads to a reduction in the escitalopram plasma concentration.</p>\n"
       },
       "activityScore": null
@@ -232,16 +201,47 @@
         "CYP2C19:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451695565,
+        "id": 1451837484,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451695566,
+        "id": 1451837485,
         "html": "<p>Do not exceed the following doses (50% of the standard maximum dose): adults &lt; 65 years 10 mg/day, =65 years 5 mg/day</p>\n"
       },
       "implications": {
-        "id": 1451695564,
+        "id": 1451837483,
         "html": "<p>The risk of switching to another antidepressant is increased. In addition, the risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased escitalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration, the theoretically increased risk of QT prolongation and the increased risk of switching to another antidepressant will be offset.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166240402",
+      "name": "IM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Decreased function/Increased function",
+        "CYP2C19:Decreased function/Normal function",
+        "CYP2C19:Increased function/No function",
+        "CYP2C19:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837487,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837488,
+        "html": "<p>Do not exceed the following doses (75% of the standard maximum dose): adults &lt; 65 years 15 mg/day, =65 years 7.5 mg/day</p>\n"
+      },
+      "implications": {
+        "id": 1451837486,
+        "html": "<p>The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased escitalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset.</p>\n"
       },
       "activityScore": null
     }
@@ -292,5 +292,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

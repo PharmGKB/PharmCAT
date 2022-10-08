@@ -400,107 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240781",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418303,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418304,
-        "html": "<p>Indication DEPRESSION: use 50% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine in order to set the maintenance dose. The therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. Values higher than 600 ng/mL are considered toxic.</p>\n<p>Indication ANXIETY DISORDERS or OBSESSIVE COMPULSIVE DISORDER: if side effects occur: use 50% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine in order to set the maintenance dose. It is not known whether it is possible to reduce the dose to such an extent that the side effects disappear while the effectiveness is retained. Clomipramine and desmethylclomipramine both contribute to the side effects. Only clomipramine contributes to the effectiveness.</p>\n<p>For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. A sum of the plasma concentrations of clomipramine and desmethylclomipramine higher than 600 ng/mL is considered toxic, whilst the therapeutic upper limit for depression is 400 ng/mL. If dose reduction does not have the desired effect: avoid clomipramine. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
-      },
-      "implications": {
-        "id": 1451418302,
-        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of clomipramine and the active metabolite desmethylclomipramine.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418301,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
-      "id": "PA166240762",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418354,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418355,
-        "html": "<p>Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine. For depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. A sum of the plasma concentrations of clomipramine and desmethylclomipramine higher than 600 ng/mL is considered toxic.</p>\n"
-      },
-      "implications": {
-        "id": 1451418353,
-        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of clomipramine and the active metabolite desmethylclomipramine.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418352,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
-      }
-    },
-    {
-      "id": "PA166240763",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418358,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418359,
-        "html": "<p>Use 1.5 times the standard dose and monitor the effect and side effects of the plasma concentrations of clomipramine and desmethylclomipramine to set the maintenance dose. For depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. If a dose increase is not wanted due to potential cardiotoxic hydroxy metabolites: avoid clomipramine. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
-      },
-      "implications": {
-        "id": 1451418357,
-        "html": "<p>The risk of ineffectiveness and cardiotoxic side effects may be increased. The gene variation leads to reduced plasma concentrations of clomipramine and the active metabolite desmethylclomipramine and to increased concentrations of the potentially cardiotoxic hydroxy metabolites.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418356,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166240782",
       "name": "Normal Metabolizer",
       "strength": {
@@ -533,6 +432,107 @@
         "id": 1451418305,
         "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
       }
+    },
+    {
+      "id": "PA166240762",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837366,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837367,
+        "html": "<p>Use 70% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine. For depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. A sum of the plasma concentrations of clomipramine and desmethylclomipramine higher than 600 ng/mL is considered toxic.</p>\n"
+      },
+      "implications": {
+        "id": 1451837365,
+        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of clomipramine and the active metabolite desmethylclomipramine.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837364,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166240763",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837370,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837371,
+        "html": "<p>Use 1.5 times the standard dose and monitor the effect and side effects of the plasma concentrations of clomipramine and desmethylclomipramine to set the maintenance dose. For depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. If a dose increase is not wanted due to potential cardiotoxic hydroxy metabolites: avoid clomipramine. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
+      },
+      "implications": {
+        "id": 1451837369,
+        "html": "<p>The risk of ineffectiveness and cardiotoxic side effects may be increased. The gene variation leads to reduced plasma concentrations of clomipramine and the active metabolite desmethylclomipramine and to increased concentrations of the potentially cardiotoxic hydroxy metabolites.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837368,
+        "html": "<p>Total gene activity score ≥3</p>\n"
+      }
+    },
+    {
+      "id": "PA166240781",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837382,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837383,
+        "html": "<p>Indication DEPRESSION: use 50% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine in order to set the maintenance dose. The therapeutic range is 200-400 ng/mL for the sum of the plasma concentrations of clomipramine and desmethylclomipramine. Values higher than 600 ng/mL are considered toxic.</p>\n<p>Indication ANXIETY DISORDERS or OBSESSIVE COMPULSIVE DISORDER: if side effects occur: use 50% of the standard dose and monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine in order to set the maintenance dose. It is not known whether it is possible to reduce the dose to such an extent that the side effects disappear while the effectiveness is retained. Clomipramine and desmethylclomipramine both contribute to the side effects. Only clomipramine contributes to the effectiveness.</p>\n<p>For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL, in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is higher than 200 ng/mL, in combination with a plasma concentration of desmethylclomipramine that is as low as possible. A sum of the plasma concentrations of clomipramine and desmethylclomipramine higher than 600 ng/mL is considered toxic, whilst the therapeutic upper limit for depression is 400 ng/mL. If dose reduction does not have the desired effect: avoid clomipramine. Antidepressants that are not metabolised by CYP2D6, or to a lesser extent, include citalopram and sertraline.</p>\n"
+      },
+      "implications": {
+        "id": 1451837381,
+        "html": "<p>The risk of side effects may be increased, because the gene variation leads to increased plasma concentrations of clomipramine and the active metabolite desmethylclomipramine.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837380,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
     }
   ],
   "citations": [
@@ -558,5 +558,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

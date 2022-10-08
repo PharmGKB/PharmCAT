@@ -400,107 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240083",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451416556,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451416557,
-        "html": "<p>DOSES HIGHER THAN 20 mg every 6 hours for adults and 10 mg every 6 hours for children aged 12 years or older AND/OR ADDITIONAL RISK FACTORS, such as co-medication with CYP3A4 inhibitors and/or reduced kidney function:\nCodeine is contra-indicated.\nif possible, select an alternative</p>\n<ul>\n<li>For PAIN: do not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in side effects in patients.</li>\n<li>For COUGH: noscapine is not metabolised by CYP2D6.</li>\n</ul>\n<p>DOSES LOWER THAN OR EQUAL TO 20 mg every 6 hours for adults and 10 mg every 6 hours for children aged 12 years or older AND NO ADDITIONAL RISK FACTORS, such as co-medication with CYP3A4 inhibitors and/or reduced kidney function:\nNo action required.</p>\n"
-      },
-      "implications": {
-        "id": 1451416555,
-        "html": "<p>The genetic variation increases the conversion of codeine to morphine. This can result in an increase in side effects. Death has occurred in children who received analgesic doses. One adult with reduced kidney function and co-medication with two CYP3A4 inhibitors became comatose after use of codeine for a cough.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451416554,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166240081",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451416544,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451416545,
-        "html": "<p>For COUGH:</p>\n<ol>\n<li>No action required.</li>\n</ol>\n<p>For PAIN:\nIt is not possible to offer adequately substantiated advice for dose adjustment based on the limited available literature for this phenotype.</p>\n<ol>\n<li>Choose an alternative.\nDo not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>If an alternative is not an option: advise the patient to report inadequate analgesia.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451416543,
-        "html": "<p>The genetic variation reduces the conversion of codeine to morphine. This can result in reduced analgesia.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451416542,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
-      "id": "PA166240101",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451416548,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451416549,
-        "html": "<p>For COUGH:</p>\n<ol>\n<li>No action required.</li>\n</ol>\n<p>For PAIN:\nIt is not possible to offer adequately substantiated advice for dose adjustment based on the limited available literature for this phenotype.</p>\n<ol>\n<li>Be alert to a reduced effectiveness.</li>\n<li>In the case of inadequate effectiveness: 1. Try a dose increase., 2. If this does not work: choose an alternative.\nDo not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>If no alternative is selected: advise the patient to report inadequate analgesia.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451416547,
-        "html": "<p>The genetic variation reduces the conversion of codeine to morphine. This can result in reduced analgesia.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451416546,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
-      }
-    },
-    {
       "id": "PA166240082",
       "name": "Normal Metabolizer",
       "strength": {
@@ -532,6 +431,107 @@
       "activityScore": {
         "id": 1451417720,
         "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
+      }
+    },
+    {
+      "id": "PA166240081",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837442,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837443,
+        "html": "<p>For COUGH:</p>\n<ol>\n<li>No action required.</li>\n</ol>\n<p>For PAIN:\nIt is not possible to offer adequately substantiated advice for dose adjustment based on the limited available literature for this phenotype.</p>\n<ol>\n<li>Choose an alternative.\nDo not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>If an alternative is not an option: advise the patient to report inadequate analgesia.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451837441,
+        "html": "<p>The genetic variation reduces the conversion of codeine to morphine. This can result in reduced analgesia.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837440,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166240083",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837462,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837463,
+        "html": "<p>DOSES HIGHER THAN 20 mg every 6 hours for adults and 10 mg every 6 hours for children aged 12 years or older AND/OR ADDITIONAL RISK FACTORS, such as co-medication with CYP3A4 inhibitors and/or reduced kidney function:\nCodeine is contra-indicated.\nif possible, select an alternative</p>\n<ul>\n<li>For PAIN: do not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in side effects in patients.</li>\n<li>For COUGH: noscapine is not metabolised by CYP2D6.</li>\n</ul>\n<p>DOSES LOWER THAN OR EQUAL TO 20 mg every 6 hours for adults and 10 mg every 6 hours for children aged 12 years or older AND NO ADDITIONAL RISK FACTORS, such as co-medication with CYP3A4 inhibitors and/or reduced kidney function:\nNo action required.</p>\n"
+      },
+      "implications": {
+        "id": 1451837461,
+        "html": "<p>The genetic variation increases the conversion of codeine to morphine. This can result in an increase in side effects. Death has occurred in children who received analgesic doses. One adult with reduced kidney function and co-medication with two CYP3A4 inhibitors became comatose after use of codeine for a cough.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837460,
+        "html": "<p>Total gene activity score ≥3</p>\n"
+      }
+    },
+    {
+      "id": "PA166240101",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451837466,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451837467,
+        "html": "<p>For COUGH:</p>\n<ol>\n<li>No action required.</li>\n</ol>\n<p>For PAIN:\nIt is not possible to offer adequately substantiated advice for dose adjustment based on the limited available literature for this phenotype.</p>\n<ol>\n<li>Be alert to a reduced effectiveness.</li>\n<li>In the case of inadequate effectiveness: 1. Try a dose increase., 2. If this does not work: choose an alternative.\nDo not select tramadol, as this is also metabolised by CYP2D6. Morphine is not metabolised by CYP2D6. Oxycodone is metabolised by CYP2D6 to a limited extent, but this does not result in differences in analgesia in patients.</li>\n<li>If no alternative is selected: advise the patient to report inadequate analgesia.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451837465,
+        "html": "<p>The genetic variation reduces the conversion of codeine to morphine. This can result in reduced analgesia.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451837464,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     }
   ],
@@ -580,5 +580,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

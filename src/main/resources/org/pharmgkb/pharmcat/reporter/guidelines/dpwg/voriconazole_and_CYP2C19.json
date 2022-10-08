@@ -202,15 +202,15 @@
         "CYP2C19:Increased function/Increased function"
       ],
       "metabolizerStatus": {
-        "id": 1451417553,
+        "id": 1451838221,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451417554,
+        "id": 1451838222,
         "html": "<p>Use an initial dose that is 1.5x higher and monitor the plasma concentration.</p>\n"
       },
       "implications": {
-        "id": 1451417552,
+        "id": 1451838220,
         "html": "<p>The gene variation increases the conversion of voriconazole, which increases the risk of ineffectiveness.</p>\n"
       },
       "activityScore": null
@@ -232,15 +232,15 @@
         "CYP2C19:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451417568,
+        "id": 1451838241,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451417569,
+        "id": 1451838242,
         "html": "<p>Use 50% of the standard dose and monitor the plasma concentration.</p>\n"
       },
       "implications": {
-        "id": 1451417567,
+        "id": 1451838240,
         "html": "<p>The gene variation can reduce the conversion of voriconazole and consequently increase the plasma concentration. This could result in improved efficacy or an increase in the risk of side effects. Initially, the risk of side effects is of particular interest.</p>\n"
       },
       "activityScore": null
@@ -269,5 +269,6 @@
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2011
     }
-  ]
+  ],
+  "version": "2022-10-08-09-34"
 }

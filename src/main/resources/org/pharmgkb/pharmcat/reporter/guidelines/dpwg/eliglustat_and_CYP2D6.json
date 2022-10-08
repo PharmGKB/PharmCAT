@@ -400,107 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240824",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418520,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418521,
-        "html": "<p>Eliglustat is contra-indicated. Choose an alternative if possible.</p>\n"
-      },
-      "implications": {
-        "id": 1451418519,
-        "html": "<p>This gene variation increases the conversion of eliglustat to inactive metabolites. As a result, a normal dose is not effective. There is not enough scientific substantiation to suggest an effective dose for all UM.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418518,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166240822",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Possibly",
-        "termId": "rxChange:1448602496"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418512,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418513,
-        "html": "<ul>\n<li>Co-medication with BOTH a MODERATE to STRONG CYP2D6 INHIBITOR AND a MODERATE to STRONG CYP3A INHIBITOR: Eliglustat is contra-indicated.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.\nStrong CYP2D6 inhibitor: for example paroxetine, fluoxetine, quinidine, bupropione. Moderate CYP2D6 inhibitor: for example duloxetine, terbinafine, moclobemide, mirabegron, cinacalcet, dronedarone. Strong CYP3A inhibitor: for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir. Moderate CYP3A inhibitor: for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP2D6 INHIBITOR (e.g. paroxetine, fluoxetine, quinidine, bupropione):</li>\n</ul>\n<ol>\n<li>Use a dose of 84mg eliglustat 1x daily.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP2D6 INHIBITOR (for example duloxetine, terbinafine, moclobemide, mirabegron, cinacalcet, dronedarone):</li>\n</ul>\n<ol>\n<li>Consider a dose of 84mg eliglustat 1x daily.</li>\n<li>Be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INHIBITOR (for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir):</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n<li>If an alternative is not an option: consider a dose of 84 mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP3A INHIBITOR (for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine):</li>\n</ul>\n<ol>\n<li>Choose an alternative.</li>\n<li>If an alternative is not an option: consider a dose of 84mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INDUCER (for example rifampicin, carbamazepine, phenobarbital, phenytoin, rifabutine, hypericum): Eliglustat is not recommended. The plasma concentration may decrease so sharply that a therapeutic effect cannot be achieved.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong CYP3A inducer:</li>\n</ul>\n<ol>\n<li>Use the standard dose of 84mg 2x daily.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451418511,
-        "html": "<p>This gene variation reduces the conversion of eliglustat to inactive metabolites. However, in the absence of CYP2D6 and CYP3A inhibitors, this does not result in a clinically significant increased risk of side effects.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418510,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
-      }
-    },
-    {
-      "id": "PA166240821",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418508,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418509,
-        "html": "<ul>\n<li>Co-medication with a STRONG CYP3A INHIBITOR (for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir): Eliglustat is contra-indicated.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP3A INHIBITOR (for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine): Eliglustat is not recommended.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>Co-medication with a WEAK CYP3A INHIBITOR (for example amlopidine, cilostazole, fluvoxamine, goldenseal, isoniazide, ranitidine, ranolazine):</li>\n</ul>\n<ol>\n<li>Choose an alternative for the weak CYP3A inhibitor if possible.</li>\n<li>If an alternative is not an option: Use a dose of 84mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INDUCER (for example rifampicin, carbamazepine, phenobarbital, phenytoin, rifabutine, hypericum): Eliglustat is not recommended. The plasma concentration may decrease so sharply that a therapeutic effect cannot be achieved.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>NO co-medication with a CYP3A inhibitor or strong CYP3A inducer:</li>\n</ul>\n<ol>\n<li>Use a dose of 84mg 1x daily.</li>\n</ol>\n"
-      },
-      "implications": {
-        "id": 1451418507,
-        "html": "<p>This gene variation reduces the conversion of eliglustat to inactive metabolites. This increases the risk of side effects, such as a (small, dose-dependent) elongation of the QT interval. CYP3A inhibitors increase this risk even further.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418506,
-        "html": "<p>Total gene activity score = 0</p>\n"
-      }
-    },
-    {
       "id": "PA166240823",
       "name": "Normal Metabolizer",
       "strength": {
@@ -533,7 +432,109 @@
         "id": 1451418514,
         "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
       }
+    },
+    {
+      "id": "PA166240821",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838324,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838325,
+        "html": "<ul>\n<li>Co-medication with a STRONG CYP3A INHIBITOR (for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir): Eliglustat is contra-indicated.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP3A INHIBITOR (for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine): Eliglustat is not recommended.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>Co-medication with a WEAK CYP3A INHIBITOR (for example amlopidine, cilostazole, fluvoxamine, goldenseal, isoniazide, ranitidine, ranolazine):</li>\n</ul>\n<ol>\n<li>Choose an alternative for the weak CYP3A inhibitor if possible.</li>\n<li>If an alternative is not an option: Use a dose of 84mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INDUCER (for example rifampicin, carbamazepine, phenobarbital, phenytoin, rifabutine, hypericum): Eliglustat is not recommended. The plasma concentration may decrease so sharply that a therapeutic effect cannot be achieved.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>NO co-medication with a CYP3A inhibitor or strong CYP3A inducer:</li>\n</ul>\n<ol>\n<li>Use a dose of 84mg 1x daily.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838323,
+        "html": "<p>This gene variation reduces the conversion of eliglustat to inactive metabolites. This increases the risk of side effects, such as a (small, dose-dependent) elongation of the QT interval. CYP3A inhibitors increase this risk even further.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838322,
+        "html": "<p>Total gene activity score = 0</p>\n"
+      }
+    },
+    {
+      "id": "PA166240822",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Possibly",
+        "termId": "rxChange:1448602496"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838328,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838329,
+        "html": "<ul>\n<li>Co-medication with BOTH a MODERATE to STRONG CYP2D6 INHIBITOR AND a MODERATE to STRONG CYP3A INHIBITOR: Eliglustat is contra-indicated.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.\nStrong CYP2D6 inhibitor: for example paroxetine, fluoxetine, quinidine, bupropione. Moderate CYP2D6 inhibitor: for example duloxetine, terbinafine, moclobemide, mirabegron, cinacalcet, dronedarone. Strong CYP3A inhibitor: for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir. Moderate CYP3A inhibitor: for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP2D6 INHIBITOR (e.g. paroxetine, fluoxetine, quinidine, bupropione):</li>\n</ul>\n<ol>\n<li>Use a dose of 84mg eliglustat 1x daily.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP2D6 INHIBITOR (for example duloxetine, terbinafine, moclobemide, mirabegron, cinacalcet, dronedarone):</li>\n</ul>\n<ol>\n<li>Consider a dose of 84mg eliglustat 1x daily.</li>\n<li>Be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INHIBITOR (for example ketoconazole, clarithromycin, itraconazole, cobicistat, indinavir, lopinavir, ritonavir, saquinavir, telaprevir, tipranavir, posaconazole, voriconazole, telithromycin, conivaptan, boceprevir):</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n<li>If an alternative is not an option: consider a dose of 84 mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a MODERATE CYP3A INHIBITOR (for example erythromycin, ciprofloxacin, fluconazole, diltiazem, verapamil, aprepitant, atazanavir, darunavir, fosamprenavir, imatinib, cimetidine):</li>\n</ul>\n<ol>\n<li>Choose an alternative.</li>\n<li>If an alternative is not an option: consider a dose of 84mg eliglustat 1x daily and be alert to side effects.</li>\n</ol>\n<ul>\n<li>Co-medication with a STRONG CYP3A INDUCER (for example rifampicin, carbamazepine, phenobarbital, phenytoin, rifabutine, hypericum): Eliglustat is not recommended. The plasma concentration may decrease so sharply that a therapeutic effect cannot be achieved.</li>\n</ul>\n<ol>\n<li>Choose an alternative if possible.</li>\n</ol>\n<ul>\n<li>NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong CYP3A inducer:</li>\n</ul>\n<ol>\n<li>Use the standard dose of 84mg 2x daily.</li>\n</ol>\n"
+      },
+      "implications": {
+        "id": 1451838327,
+        "html": "<p>This gene variation reduces the conversion of eliglustat to inactive metabolites. However, in the absence of CYP2D6 and CYP3A inhibitors, this does not result in a clinically significant increased risk of side effects.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838326,
+        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166240824",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1451838332,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1451838333,
+        "html": "<p>Eliglustat is contra-indicated. Choose an alternative if possible.</p>\n"
+      },
+      "implications": {
+        "id": 1451838331,
+        "html": "<p>This gene variation increases the conversion of eliglustat to inactive metabolites. As a result, a normal dose is not effective. There is not enough scientific substantiation to suggest an effective dose for all UM.</p>\n"
+      },
+      "activityScore": {
+        "id": 1451838330,
+        "html": "<p>Total gene activity score ≥3</p>\n"
+      }
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

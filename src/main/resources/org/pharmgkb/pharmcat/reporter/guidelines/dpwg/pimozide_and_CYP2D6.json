@@ -485,19 +485,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451723383,
+        "id": 1451838316,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723384,
+        "id": 1451838317,
         "html": "<p>Use no more than the following doses (50% of the standard maximum dose):\n12 years and older: 10 mg/day\nyounger than 12 years: 0.05 mg/kg per day to a maximum of 2 mg/day</p>\n"
       },
       "implications": {
-        "id": 1451723382,
+        "id": 1451838315,
         "html": "<p>The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma\nconcentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose\nrecommendations provided below.</p>\n"
       },
       "activityScore": {
-        "id": 1451723381,
+        "id": 1451838314,
         "html": "<p>Total gene activity score = 0</p>\n"
       }
     },
@@ -518,22 +518,23 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451723387,
+        "id": 1451838320,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723388,
+        "id": 1451838321,
         "html": "<p>Use no more than the following doses (80% of the standard maximum dose):\n12 years and older: 16 mg/day\nyounger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</p>\n"
       },
       "implications": {
-        "id": 1451723386,
+        "id": 1451838319,
         "html": "<p>The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below.</p>\n"
       },
       "activityScore": {
-        "id": 1451723385,
+        "id": 1451838318,
         "html": "<p>Total gene activity score = 0.5-1</p>\n"
       }
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }

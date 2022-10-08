@@ -329,8 +329,7 @@ public class DataManager {
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : definitionFiles) {
         String gene = df.getGeneSymbol();
-        // TODO: remove after v1 is released
-        if (gene.equals("MT-RNR1")) {
+        if (gene.equals("MT-RNR1") || gene.equals("G6PD")) {
           continue;
         }
         DefinitionExemption exemption = exemptionsMap.get(gene);

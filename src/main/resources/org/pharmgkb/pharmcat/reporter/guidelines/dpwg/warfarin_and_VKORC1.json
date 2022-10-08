@@ -3,7 +3,7 @@
     "id": "PA166182841",
     "name": "Annotation of DPWG Guideline for warfarin and VKORC1",
     "source": "DPWG",
-    "version": 6,
+    "version": 8,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182841",
     "relatedChemicals": [
       {
@@ -24,19 +24,19 @@
       {
         "alleles": [
           {
-            "id": 1451694857,
-            "_label": "-1639 A",
-            "function": {
-              "term": "Higher coumarin sensitivity",
-              "termId": "alleleFunction:1451694740"
-            }
-          },
-          {
-            "id": 1451694858,
-            "_label": "-1639 G",
+            "id": 1451903942,
+            "_label": "rs9923231 reference (C)",
             "function": {
               "term": "Normal coumarin sensitivity",
               "termId": "alleleFunction:1451694741"
+            }
+          },
+          {
+            "id": 1451903960,
+            "_label": "rs9923231 variant (T)",
+            "function": {
+              "term": "Higher coumarin sensitivity",
+              "termId": "alleleFunction:1451694740"
             }
           }
         ],
@@ -71,11 +71,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451695542,
+        "id": 1451903948,
         "html": "<p>Use 60% of the standard initial dose.</p>\n<p>The genotype-specific initial dose and maintenance dose can be calculated using an algorithm, as used in EU-PACT: see\nhttps://www.knmp.nl/patientenzorg/medicatiebewaking/farmacogenetica.</p>\n<p>From day 6 on the standard algorithm without genotype information can be used to calculate the dose.</p>\n"
       },
       "implications": {
-        "id": 1451695540,
+        "id": 1451903946,
         "html": "<p>The genetic variation results in increased sensitivity to warfarin. This results in an increase in the risk of excessively severe inhibition of blood clotting (INR &gt; 4) during the\nfirst month of the treatment.</p>\n"
       },
       "activityScore": null
@@ -96,11 +96,11 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451695545,
+        "id": 1451903945,
         "html": "<p>NO action is required for the gene-drug interaction.</p>\n"
       },
       "implications": {
-        "id": 1451695543,
+        "id": 1451903943,
         "html": "<p>The genetic variation results in a reduction in the required dose and an increase in the risk of excessively severe inhibition of blood clotting during the first month of the\ntreatment. However, the effect is small and GA is also the most common genotype, meaning that the standard treatment will primarily be based on patients with this genotype.</p>\n"
       },
       "activityScore": null
@@ -121,15 +121,16 @@
       ],
       "metabolizerStatus": null,
       "recommendation": {
-        "id": 1451695548,
-        "html": "<p>The guideline does not provide a recommendation for warfarin in patients with the VKORC1 -1639 GG genotype.</p>\n"
+        "id": 1451903963,
+        "html": "<p>The guideline does not provide a recommendation for warfarin in patients with the VKORC1 rs9923231 CC genotype (-1639 GG genotype).</p>\n"
       },
       "implications": {
-        "id": 1451695546,
-        "html": "<p>The guideline does not provide a description of the impact of the -1639 GG genotype on warfarin.</p>\n"
+        "id": 1451903961,
+        "html": "<p>The guideline does not provide a description of the impact of the VKORC1 rs9923231 CC genotype (-1639 GG genotype) on warfarin.</p>\n"
       },
       "activityScore": null
     }
   ],
-  "citations": []
+  "citations": [],
+  "version": "2022-10-08-09-34"
 }
