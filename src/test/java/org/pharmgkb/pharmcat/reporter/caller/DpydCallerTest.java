@@ -15,6 +15,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.pharmgkb.pharmcat.reporter.model.DataSource.CPIC;
 import static org.pharmgkb.pharmcat.reporter.model.DataSource.DPWG;
 
@@ -40,6 +41,7 @@ class DpydCallerTest {
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
     assertEquals("*1", dip.getAllele1().getName());
+    assertNotNull(dip.getAllele2());
     assertEquals("*5", dip.getAllele2().getName());
     assertEquals(1, dip.getPhenotypes().size());
     Assertions.assertEquals(TextConstants.NA, dip.getPhenotypes().get(0));

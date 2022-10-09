@@ -5,8 +5,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +20,13 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class DiplotypeTest {
+  private static Env s_env;
+
+  @BeforeAll
+  static void prepare() throws Exception {
+    s_env = new Env();
+  }
+
 
   @Test
   void testCftr() {
@@ -26,12 +36,13 @@ class DiplotypeTest {
     h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "D110H");
 
-    Diplotype diplotype = new Diplotype(gene, h1, h2);
+    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
 
     assertEquals("CFTR:D110H (heterozygous)", diplotype.toString());
     assertEquals("D110H (heterozygous)", diplotype.printBare());
     assertEquals("D110H (heterozygous)", diplotype.printDisplay());
-    assertEquals(ImmutableMap.of("D110H", 1, "ivacaftor non-responsive CFTR sequence", 1), diplotype.makeLookupMap());
+    assertEquals(ImmutableMap.of("D110H", 1, "ivacaftor non-responsive CFTR sequence", 1),
+        diplotype.computeLookupMap());
 
     Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
     assertEquals(1, alleles.size());
@@ -49,12 +60,12 @@ class DiplotypeTest {
     h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "*3");
 
-    Diplotype diplotype = new Diplotype(gene, h1, h2);
+    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
 
     assertEquals("CYP2D6:*1/*3", diplotype.toString());
     assertEquals("*1/*3", diplotype.printBare());
     assertEquals("*1/*3", diplotype.printDisplay());
-    assertEquals(ImmutableMap.of("*1", 1, "*3", 1), diplotype.makeLookupMap());
+    assertEquals(ImmutableMap.of("*1", 1, "*3", 1), diplotype.computeLookupMap());
 
     Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
     assertEquals(1, alleles.size());

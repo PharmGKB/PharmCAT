@@ -17,7 +17,6 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -66,7 +65,7 @@ public class DiplotypeFactory {
       }
     }
     for (NamedAllele na : haps) {
-      dips.add(new Diplotype(m_gene, m_env.makeHaplotype(m_gene, na.getName(), source)));
+      dips.add(new Diplotype(m_gene, na.getName(), null, m_env, source));
     }
     return dips;
   }
@@ -81,10 +80,7 @@ public class DiplotypeFactory {
           BaseMatch h1 = dm.getHaplotype1();
           BaseMatch h2 = dm.getHaplotype2();
 
-          Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, h1.getName(), source),
-              m_env.makeHaplotype(m_gene, h2.getName(), source));
-          fillDiplotype(diplotype, m_env, source);
-
+          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2.getName(), m_env, source);
           diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
           return diplotype;
         })
@@ -96,11 +92,7 @@ public class DiplotypeFactory {
       return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
     return matches.stream()
-        .map((hm) -> {
-          Diplotype diplotype = new Diplotype(m_gene, m_env.makeHaplotype(m_gene, hm.getName(), source));
-          fillDiplotype(diplotype, m_env, source);
-          return diplotype;
-        })
+        .map((hm) -> new Diplotype(m_gene, hm.getName(), null, m_env, source))
         .toList();
   }
 
@@ -144,52 +136,11 @@ public class DiplotypeFactory {
     Haplotype haplotype = new Haplotype(gene, Haplotype.UNKNOWN);
     Diplotype diplotype;
     if (isSinglePloidy(gene)) {
-      diplotype = new Diplotype(gene, haplotype);
+      diplotype = new Diplotype(gene, haplotype, null, env, source);
     } else {
-      diplotype = new Diplotype(gene, haplotype, haplotype);
+      diplotype = new Diplotype(gene, haplotype, haplotype, env, source);
     }
-    fillDiplotype(diplotype, env, source);
     return diplotype;
-  }
-
-  /**
-   * Fill in the phenotype and activity score depending on what information is already in the diplotype.
-   *
-   * @param diplotype the diplotype to add information to
-   * @param env Global PharmCAT environment
-   * @param source which data source is supplying the phenotype/activity information
-   */
-  public static void fillDiplotype(Diplotype diplotype, Env env, DataSource source) {
-    if (diplotype.getGene().startsWith("HLA")) {
-      if (!diplotype.isUnknownAlleles() && diplotype.isUnknownPhenotype()) {
-        diplotype.setPhenotypes(makeHlaPhenotype(diplotype));
-        diplotype.setLookupKeys(makeHlaPhenotype(diplotype));
-      }
-      else if (diplotype.isUnknownAlleles() && !diplotype.isUnknownPhenotype()) {
-        diplotype.setLookupKeys(diplotype.getPhenotypes());
-      }
-      return;
-    }
-    GenePhenotype gp = env.getPhenotype(diplotype.getGene(), source);
-    if (gp == null) {
-      return;
-    }
-    // fill in activity score (based on alleles) if none specified
-    if (gp.isMatchedByActivityScore() && diplotype.getActivityScore() == null) {
-      diplotype.setActivityScore(gp.getActivityForDiplotype(diplotype));
-    }
-    // fill in phenotypes if none specified
-    if (diplotype.getPhenotypes().size() == 0) {
-      if (diplotype.isUnknownAlleles()) {
-        diplotype.addPhenotype(gp.getPhenotypeForActivity(diplotype));
-      }
-      else {
-        diplotype.addPhenotype(gp.getPhenotypeForDiplotype(diplotype));
-      }
-    }
-    diplotype.addLookupKey(gp.getLookupKeyForDiplotype(diplotype));
-    gp.assignActivity(diplotype.getAllele1());
-    gp.assignActivity(diplotype.getAllele2());
   }
 
   /**
@@ -200,7 +151,7 @@ public class DiplotypeFactory {
    * @param diplotype the diplotype to analyze
    * @return a List of all applicable phenotype strings for this diplotype
    */
-  private static List<String> makeHlaPhenotype(Diplotype diplotype) {
+  public static List<String> makeHlaPhenotype(Diplotype diplotype) {
     if (!diplotype.getGene().equals("HLA-A") && !diplotype.getGene().equals("HLA-B")) {
       throw new RuntimeException("Gene not supported for HLA phenotype calling: " + diplotype.getGene());
     }

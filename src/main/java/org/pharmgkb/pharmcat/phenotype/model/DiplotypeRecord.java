@@ -34,10 +34,6 @@ public class DiplotypeRecord {
     return m_geneResult;
   }
 
-  public void setGeneResult(String geneResult) {
-    m_geneResult = geneResult;
-  }
-
   /**
    * The bare diplotype name.
    *
@@ -45,10 +41,6 @@ public class DiplotypeRecord {
    */
   public String getDiplotype() {
     return m_diplotype;
-  }
-
-  public void setDiplotype(String diplotype) {
-    m_diplotype = diplotype;
   }
 
   public String toString() {
@@ -59,24 +51,12 @@ public class DiplotypeRecord {
     return m_description;
   }
 
-  public void setDescription(String description) {
-    m_description = description;
-  }
-
   public String getLookupKey() {
     return m_lookupKey;
   }
 
-  public void setLookupKey(String lookupKey) {
-    m_lookupKey = lookupKey;
-  }
-
   public Map<String, Integer> getDiplotypeKey() {
     return m_diplotypeKey;
-  }
-
-  public void setDiplotypeKey(Map<String, Integer> diplotypeKey) {
-    m_diplotypeKey = diplotypeKey;
   }
 
 

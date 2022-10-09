@@ -849,7 +849,6 @@ class PharmCATTest {
 
   @Test
   void testRosuvastatin(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("ABCG2", "rs2231142", "G", "T")
@@ -1933,7 +1932,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   // has multimatch
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t*1/*1");
@@ -1948,11 +1946,37 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
     assertEquals(2, geneReport.getRecommendationDiplotypes().size());
+
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
+    assertThat(diplotype.getPhenotypes(), contains("Normal Metabolizer"));
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+
     diplotype = geneReport.getRecommendationDiplotypes().get(1);
+    assertNotNull(diplotype.getAllele2());
     assertEquals("*1x≥3", diplotype.getAllele2().getName());
     assertEquals("One increased function allele and one normal function allele", diplotype.printFunctionPhrase());
+  }
+
+  @Test
+  void testCyp2d6PhenotypeOverride(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*1/*1\tUM\t≥4.0");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    assertNotNull(geneReport);
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
+
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
+    assertThat(diplotype.getPhenotypes(), contains("Ultrarapid Metabolizer"));
+    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
   }
 
   @Test
@@ -2144,6 +2168,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testPrintCalls(DataSource.DPWG, "F5", "rs6025 C/rs6025 T (Factor V Leiden)");
 
     GeneReport f5Report = testWrapper.getContext().getGeneReport(DataSource.DPWG, "F5");
+    f5Report.getRecommendationDiplotypes().stream()
+            .flatMap(d -> d.getPhenotypes().stream())
+                .forEach(System.out::println);
     assertTrue(f5Report.getRecommendationDiplotypes().stream()
         .flatMap(d -> d.getPhenotypes().stream())
         .allMatch(p -> p.equals("Factor V Leiden heterozygous")), "F5 het phenotype call missing");
@@ -2334,9 +2361,9 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
       assertTrue(geneReport.getRecommendationDiplotypes().stream()
-          .anyMatch(d -> d.makeLookupMap().equals(lookup)),
+          .anyMatch(d -> d.computeLookupMap().equals(lookup)),
           "Lookup key " + lookup + " not found in lookup " +
-              geneReport.getRecommendationDiplotypes().stream().map(Diplotype::makeLookupMap).toList());
+              geneReport.getRecommendationDiplotypes().stream().map(Diplotype::computeLookupMap).toList());
     }
 
     private void testLookupByActivity(String gene, String activityScore) {

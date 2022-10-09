@@ -220,6 +220,6 @@ class PhenotyperTest {
     GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, gene).orElseThrow(unfoundGene);
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
-        .anyMatch(d -> d.makeLookupMap().equals(lookup)));
+        .anyMatch(d -> d.computeLookupMap().equals(lookup)));
   }
 }

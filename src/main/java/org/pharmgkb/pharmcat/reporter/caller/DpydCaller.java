@@ -117,8 +117,7 @@ public class DpydCaller {
     if (haplotypes.size() > 1) {
       hap2 = haplotypes.get(1);
     }
-    Diplotype diplotype = new Diplotype(GENE, hap1, hap2);
-    DiplotypeFactory.fillDiplotype(diplotype, env, source);
+    Diplotype diplotype = new Diplotype(GENE, hap1, hap2, env, source);
     if (isInferred || haplotypes.size() > 2) {
       diplotype.setObserved(Observation.INFERRED);
     }
@@ -139,8 +138,7 @@ public class DpydCaller {
       hap2 = ((List<Haplotype>)hapData2[0]).get(0);
       isInferred = isInferred || (Boolean)hapData2[1];
     }
-    Diplotype diplotype = new Diplotype(GENE, hap1, hap2);
-    DiplotypeFactory.fillDiplotype(diplotype, env, source);
+    Diplotype diplotype = new Diplotype(GENE, hap1, hap2, env, source);
     if (isInferred || hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
       diplotype.setObserved(Observation.INFERRED);
     }

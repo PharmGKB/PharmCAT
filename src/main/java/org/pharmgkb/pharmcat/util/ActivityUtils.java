@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 
 public class ActivityUtils {
-  private static final Pattern decimalPattern = Pattern.compile("≥?\\d+(\\.\\d+)?$");
+  private static final Pattern decimalPattern = Pattern.compile("[>≥]?\\d+(\\.\\d+)?$");
 
   /**
    * Normalizes an activity value/score to use decimal notiation if it is appropriate

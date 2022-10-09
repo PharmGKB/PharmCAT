@@ -1,9 +1,12 @@
 package org.pharmgkb.pharmcat.definition;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
@@ -16,6 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class PhenotypeMapTest {
+  private static Env s_env;
+
+  @BeforeAll
+  static void prepare() throws Exception {
+    s_env = new Env();
+  }
+
 
   @Test
   void test() throws Exception {
@@ -40,16 +50,14 @@ class PhenotypeMapTest {
   @Test
   void testLookupPhenotype() {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
-    Diplotype diplotype = new Diplotype(
-        "CYP2C19",
-        new Haplotype("CYP2C19", "*1"),
-        new Haplotype("CYP2C19", "*1")
-    );
+    Diplotype diplotype = new Diplotype("CYP2C19", "*1", "*1", s_env, DataSource.CPIC);
 
-    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2C9")
-        .orElseThrow(() -> new RuntimeException("No CYP2C9 phenotype map found"));
+    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2C19")
+        .orElseThrow(() -> new RuntimeException("No CYP2C19 phenotype map found"));
     assertNotNull(genePhenotype.getDiplotypes());
-    assertEquals("2.0", genePhenotype.getLookupKeyForDiplotype(diplotype));
+
+    assertEquals(1, diplotype.getLookupKeys().size());
+    assertEquals("Normal Metabolizer", diplotype.getLookupKeys().get(0));
   }
 
   @Test
@@ -63,22 +71,28 @@ class PhenotypeMapTest {
     Diplotype diplotype1 = new Diplotype(
         "DPYD",
         new Haplotype("DPYD", "Reference"),
-        new Haplotype("DPYD", "c.2846A>T")
+        new Haplotype("DPYD", "c.2846A>T"),
+        s_env, DataSource.CPIC
     );
-    assertEquals("1.5", genePhenotype.getLookupKeyForDiplotype(diplotype1));
+    assertEquals(1, diplotype1.getLookupKeys().size());
+    assertEquals("1.5", diplotype1.getLookupKeys().get(0));
 
     Diplotype diplotype2 = new Diplotype(
         "DPYD",
         new Haplotype("DPYD", "c.2846A>T"),
-        new Haplotype("DPYD", "Reference")
+        new Haplotype("DPYD", "Reference"),
+        s_env, DataSource.CPIC
     );
-    assertEquals("1.5", genePhenotype.getLookupKeyForDiplotype(diplotype2));
+    assertEquals(1, diplotype2.getLookupKeys().size());
+    assertEquals("1.5", diplotype2.getLookupKeys().get(0));
 
     Diplotype diplotype3 = new Diplotype(
         "DPYD",
         new Haplotype("DPYD", "foo"),
-        new Haplotype("DPYD", "bar")
+        new Haplotype("DPYD", "bar"),
+        s_env, DataSource.CPIC
     );
-    assertEquals(TextConstants.NA, genePhenotype.getLookupKeyForDiplotype(diplotype3));
+    assertEquals(1, diplotype3.getLookupKeys().size());
+    assertEquals(TextConstants.NA, diplotype3.getLookupKeys().get(0));
   }
 }

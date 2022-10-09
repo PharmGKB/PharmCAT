@@ -9,7 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -77,8 +76,7 @@ public class Cyp2d6CopyNumberCaller {
 
     Haplotype hap1 = needsInfer1 ? env.makeHaplotype(GENE, (String)r1[1], source) : diplotype.getAllele1();
     Haplotype hap2 = needsInfer2 ? env.makeHaplotype(GENE, (String)r2[1], source) : diplotype.getAllele2();
-    Diplotype inferredDiplotype = new Diplotype(GENE, hap1, hap2);
-    DiplotypeFactory.fillDiplotype(inferredDiplotype, env, source);
+    Diplotype inferredDiplotype = new Diplotype(GENE, hap1, hap2, env, source);
     inferredDiplotype.setObserved(Observation.INFERRED);
     return inferredDiplotype;
   }
