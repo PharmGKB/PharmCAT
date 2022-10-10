@@ -32,6 +32,7 @@ import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -2027,6 +2028,40 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     // TODO(whaleyr): is this check correct?
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
   }
+
+
+  /**
+   * In this test, we check to make sure that a single CYP2D6 phenotype is mapped to the multiple activity scores that
+   * could possibly map to it. Specifically, "Intermediate Metabolizer" maps to both "0.5" and "1.0" activity scores for
+   * CYP2D6.
+   */
+  @Test
+  void testCyp2d6OnlyOutsidePhenotype(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t\tIntermediate Metabolizer");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    testWrapper.execute(outsideCallPath);
+
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    assertNotNull(geneReport);
+
+    // we expect one diplotype to exist with multiple lookup keys
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().iterator().next();
+    // there should be no single activity score specified since this phenotype maps to more than one
+    assertTrue(TextConstants.isUnspecified(diplotype.getActivityScore()));
+    // there should be two and only two lookup keys, one for each activity score
+    assertEquals(2, diplotype.getLookupKeys().size());
+    // the two lookup keys should be the two activity scores that correspond to Intermediate Metabolizer
+    assertThat(diplotype.getLookupKeys(), contains("0.5", "1.0"));
+  }
+
 
   @Test
   void testCyp3a4(TestInfo testInfo) throws Exception {
