@@ -103,8 +103,8 @@ public class GeneReport implements Comparable<GeneReport> {
   @SerializedName("sourceDiplotypes")
   private final List<Diplotype> m_sourceDiplotypes = new ArrayList<>();
   @Expose
-  @SerializedName("matcherComponentDiplotypes")
-  private final SortedSet<Diplotype> m_matcherComponentDiplotypes = new TreeSet<>();
+  @SerializedName("matcherComponentHaplotypes")
+  private final SortedSet<Diplotype> m_matcherComponentHaplotypes = new TreeSet<>();
 
   @Expose
   @SerializedName("recommendationDiplotypes")
@@ -170,7 +170,7 @@ public class GeneReport implements Comparable<GeneReport> {
     if (isDpyd(m_gene)) {
       if (hasTrueDiplotype(call)) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
-        m_matcherComponentDiplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+        m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
         m_recommendationDiplotypes.addAll(DpydCaller.inferFromDiplotypes(call.getDiplotypes(), env, phenotypeSource));
       } else {
         List<HaplotypeMatch> matches = new ArrayList<>();
@@ -575,8 +575,8 @@ public class GeneReport implements Comparable<GeneReport> {
    * Gets the list of component haplotypes as {@link Diplotype}s.  This comes from the {@link NamedAlleleMatcher}.
    * This is currently only used by DPYD.
    */
-  public SortedSet<Diplotype> getMatcherComponentDiplotypes() {
-    return m_matcherComponentDiplotypes;
+  public SortedSet<Diplotype> getMatcherComponentHaplotypes() {
+    return m_matcherComponentHaplotypes;
   }
 
 

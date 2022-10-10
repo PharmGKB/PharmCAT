@@ -235,10 +235,10 @@ public class HtmlFormat extends AbstractFormat {
       if (!summary.containsKey("diplotypes")) {
         summary.put("source", report.getPhenotypeSource());
         if (report.getCallSource() == CallSource.MATCHER) {
-          if (isDpyd(symbol) && report.getMatcherComponentDiplotypes().size() > 0) {
+          if (isDpyd(symbol) && report.getMatcherComponentHaplotypes().size() > 0) {
             summary.put("showComponents", true);
             summary.put("diplotypes", report.getSourceDiplotypes().get(0));
-            summary.put("componentDiplotypes", report.getMatcherComponentDiplotypes());
+            summary.put("componentDiplotypes", report.getMatcherComponentHaplotypes());
           } else {
             summary.put("diplotypes", report.getSourceDiplotypes());
           }

@@ -79,7 +79,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private String m_label;
   @Expose
   @SerializedName("observed")
-  private Observation m_observed = Observation.DIRECT;
+  private Observation m_observed = Observation.INPUT;
   @Expose
   @SerializedName("combination")
   private boolean m_combination = false;
