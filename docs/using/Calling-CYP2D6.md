@@ -53,7 +53,7 @@ To include outside calls you need to use the `-po` flag in PharmCAT to specify t
 where `patient_001_cyp2d6.txt` takes the format of:
 
 ```text
-# CYP2D6	*1x2/*2+*6
+CYP2D6	*1x2/[*2 + *6]
 ```
 
 For more information: 

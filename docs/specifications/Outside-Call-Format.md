@@ -57,13 +57,24 @@ Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named all
 
 #### Diplotypes
 
-Named allele matching in diplotypes/single allele calls should be fairly straightforward.  The biggest potential problem comes when dealing with copy numbers.  Note that PharmCAT is only aware of copy numbers in CYP2D6, and only for copy number variations that have a function assignment through CPIC: `*1x2`, `*1x≥3`, `*2x2`, `*2x≥3`, `*3x2`, `*4x2`, `*4x≥3`, `*6x2`, `*9x2`, `*10x2`, `*17x2`, `*29x2`, `*35x2`, `*36x2`, `*41x2`, `*41x3`, `*43x2`, `*45x2`. These alleles are part of the CPIC diplotype to phenotype translation and can be connected to a corresponding recommendation.  For `*1`, `*2`, and `*4`, copy numbers over 3 are combined in a single bin (≥3).  So if you have `*1x3` or `*1x5`, you will need to translate that to `*1≥3`.
+Named allele matching in diplotypes/single allele calls should be fairly straightforward.
+
+If the call is a combination call (e.g. `[*2 + *3]`), it needs to use PharmCAT's combination syntax: it has to be 
+wrapped in square brackets (`[` and `]`) and each named allele must be separated with a plus sign with a space on either
+side (` + `).  More examples: `*1/[*6 + *8]`, `[*3 + *4 + *5]/[*18 + *37]`.
+
+
+##### Gene copy number
+
+PharmCAT relies on CPIC or PharmVar gene definitions.  CYP2D6 is the only gene with copy numbers defined in these resources.  Furthermore, PharmCAT only recognizes copy number variations that have a function assignment from CPIC.  Consult the [CYP2D6 phenotypes list](/Phenotypes-List#cyp2d6) for the full list. These alleles are part of the CPIC diplotype to phenotype translation and can be connected to a corresponding recommendation.  Some copy number variations (e.g. for `*1`, `*2` and `*4`) over 3 are combined in a single bin (≥3).  So if you have `*1x3` or `*1x5`, you will need to translate that to `*1≥3`.
+
+PharmCAT will automatically attempt to translate your CYP2D6 copy number variation into a matching CPIC copy number variation if possible.
 
 **IMPORTANT**: PharmCAT expects files encoded in UTF-8.  This is particularly important when it comes to the "≥" signs that are used in copy number names.
 
 #### Phenotypes
 
-When providing phenotypes, you will need to match our values, although we do some interpolation.
+When providing phenotypes, you will need to use CPIC standardized terms, although we do provide some interpretation:
 
 1. We automatically normalize spelling (e.g. "metabolizer" instead of "metaboliser") and capitalization.
 2. We will translate common synonyms:
@@ -73,9 +84,11 @@ When providing phenotypes, you will need to match our values, although we do som
     * EM = Normal Metabolizer
     * UM = Ultrarapid Metabolizer
 
-   Note that we treat "extensive" as "normal", so the translation from "EM" above to "Normal Metabolizer" is not a mistake. 
-3. We will try to extract the main phenotypes above if possible.  For example, "CYP2D6 Ultrarapid Metabolizers (NM)" becomes "Ultrarapid Metabolizer".  When this happens, we keep retain "likely" and "possible" modifiers.  For example, "likely cyp2d6 extensive metaboliser" becomes "Likely Normal Metabolizer".
+   Note that CPIC uses "normal" instead of "extensive", so the translation from "EM" above to "Normal Metabolizer" is not a mistake. 
+3. We will try to extract the main phenotypes above if possible.  For example, "CYP2D6 Ultrarapid Metabolizers (UM)" becomes "Ultrarapid Metabolizer".
+4. Some CPIC standardized terms for phenotypes include modifiers such as "likely" or "possible".  We retain these modifiers.  For example, "likely cyp2c19 poor metaboliser" becomes "Likely Poor Metabolizer".
 
 #### Activity Scores
 
-String matching also applies to activity scores.  For example, one possible activity score for CYP2D6 is "≥6.0".  If you provide "7.0", this will result in a no call.  Simlarly, if we look for an activity score of "0.0" and "0.25", and you provide "0.1", this will also result in a no call. 
+String matching also applies to activity scores.  PharmCAT only recognizes CPIC assigned
+activity scores.  For example, one possible CPIC activity score for CYP2D6 is "≥6.0".  If you provide "7.0", this will result in a no call.  Similarly, if CPIC defines activity scores of "0.0" and "0.25", and you provide "0.1", this will also result in a no call. 

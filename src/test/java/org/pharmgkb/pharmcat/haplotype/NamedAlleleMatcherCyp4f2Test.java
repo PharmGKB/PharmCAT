@@ -36,7 +36,7 @@ class NamedAlleleMatcherCyp4f2Test {
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "C", "T")
         .generate();
-    assertDiplotypePairs("*2/*2 + *3", testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true));
+    assertDiplotypePairs("*2/[*2 + *3]", testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true));
   }
 
   @Test
@@ -46,6 +46,6 @@ class NamedAlleleMatcherCyp4f2Test {
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "T", "T")
         .generate();
-    assertDiplotypePairs("*2 + *3/*2 + *3", testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true));
+    assertDiplotypePairs("[*2 + *3]/[*2 + *3]", testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true));
   }
 }

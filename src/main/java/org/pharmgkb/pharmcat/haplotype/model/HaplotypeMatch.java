@@ -1,8 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
 import org.apache.commons.lang3.ObjectUtils;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -53,12 +53,16 @@ public class HaplotypeMatch extends BaseMatch {
         // push off-reference partial to bottom
         return -1;
       }
-      int rez = ObjectUtils.compare(getHaplotype(), cm.getComponentHaplotypes().first());
+      int rez = HaplotypeNameComparator.getComparator().compare(getName(), cm.getName());
+      if (rez != 0) {
+        return rez;
+      }
+      rez = ObjectUtils.compare(getHaplotype(), cm.getComponentHaplotypes().first());
       if (rez != 0) {
         return rez;
       }
       return -1;
     }
-    throw new UnsupportedOperationException("Don't know how to compare HaplotypeMatch to " + o.getClass());
+    return HaplotypeNameComparator.getComparator().compare(getName(), o.getName());
   }
 }

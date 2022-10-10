@@ -120,8 +120,8 @@ public class DiplotypeFactory {
   }
 
   public static List<String> splitHaplotype(String haplotypeText) {
-    if (haplotypeText.contains(CombinationMatch.COMBINATION_JOINER)) {
-      return CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(haplotypeText);
+    if (CombinationMatch.isCombinationName(haplotypeText))  {
+      return CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(CombinationMatch.extractCombinationName(haplotypeText));
     }
     return Lists.newArrayList(haplotypeText);
   }

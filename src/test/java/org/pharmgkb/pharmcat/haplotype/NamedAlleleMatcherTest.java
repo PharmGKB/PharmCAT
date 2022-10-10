@@ -332,7 +332,7 @@ class NamedAlleleMatcherTest {
 
     GeneCall geneCall = result.getGeneCalls().get(0);
     assertEquals(1, geneCall.getDiplotypes().size());
-    assertEquals("*2 + *5/*2 + *5", geneCall.getDiplotypes().iterator().next().getName());
+    assertEquals("[*2 + *5]/[*2 + *5]", geneCall.getDiplotypes().iterator().next().getName());
   }
 
   @Test
@@ -353,7 +353,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*1/*6 + *27 + *28 + *80", dm.getName());
+    assertEquals("*1/[*6 + *27 + *28 + *80]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertTrue(dm.getHaplotype2().getHaplotype().isCombination());
   }
@@ -376,7 +376,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*1/*6 + *27 + *28 + *80", dm.getName());
+    assertEquals("*1/[*6 + *27 + *28 + *80]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertTrue(dm.getHaplotype2().getHaplotype().isCombination());
   }
@@ -399,7 +399,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*1/*6 + *28 + g.233760973C>T", dm.getName());
+    assertEquals("*1/[*6 + *28 + g.233760973C>T]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
     assertTrue(dm.getHaplotype2().getHaplotype().isCombination());
@@ -422,7 +422,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*6/*6 + g.233760973C>T", dm.getName());
+    assertEquals("*6/[*6 + g.233760973C>T]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
     assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
@@ -447,7 +447,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*2/*17 + g.94781859G>A", dm.getName());
+    assertEquals("*2/[*17 + g.94781859G>A]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
     assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
@@ -472,10 +472,10 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*9 + *14/*10", dm.getName());
-    assertTrue(dm.getHaplotype1().getHaplotype().isCombination());
+    assertEquals("*10/[*9 + *14]", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
-    assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype2().getHaplotype().isPartial());
   }
 
@@ -494,12 +494,12 @@ class NamedAlleleMatcherTest {
     GeneCall geneCall = result.getGeneCalls().get(0);
     List<String> matches = printMatches(geneCall);
     assertEquals(1, matches.size());
-    assertThat(matches, contains("*6 + *14/*13"));
+    assertThat(matches, contains("*13/[*6 + *14]"));
 
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertTrue(dm.getHaplotype1().getHaplotype().isCombination());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
-    assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
+    assertTrue(dm.getHaplotype2().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype2().getHaplotype().isPartial());
   }
 
@@ -523,7 +523,7 @@ class NamedAlleleMatcherTest {
     GeneCall geneCall = result.getGeneCalls().get(0);
     List<String> matches = printMatches(geneCall);
     assertEquals(2, matches.size());
-    assertThat(matches, contains("*1/*6 + g.41010006G>C", "*1/*36 + g.41010006G>C"));
+    assertThat(matches, contains("*1/[*6 + g.41010006G>C]", "*1/[*36 + g.41010006G>C]"));
   }
 
   @Test
@@ -542,7 +542,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(4, geneCall.getDiplotypes().size());
     Optional<DiplotypeMatch> opt = geneCall.getDiplotypes().stream()
-        .filter(dm -> dm.getName().equals("*6 + *14/*13"))
+        .filter(dm -> dm.getName().equals("*13/[*6 + *14]"))
         .findFirst();
     assertTrue(opt.isPresent());
   }
@@ -565,7 +565,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*1/*9 + g.41012316T>G", dm.getName());
+    assertEquals("*1/[*9 + g.41012316T>G]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
     assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
@@ -590,7 +590,7 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("*9/g.41006968T>A + g.41012316T>G", dm.getName());
+    assertEquals("*9/[g.41006968T>A + g.41012316T>G]", dm.getName());
     assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
     assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
     assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
@@ -684,13 +684,13 @@ class NamedAlleleMatcherTest {
     printMatches(geneCall);
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("Reference/c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A", dm.getName());
+    assertEquals("Reference/[c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A]", dm.getName());
     System.out.println(geneCall.getHaplotypes());
     assertEquals(2, geneCall.getHaplotypes().size());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
-    assertThat(names, contains("Reference", "c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A"));
+    assertThat(names, contains("Reference", "[c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A]"));
   }
 
   @Test
@@ -758,12 +758,12 @@ class NamedAlleleMatcherTest {
     System.out.println(geneCall.getHaplotypes());
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A/c.62G>A + c.3067C>A", dm.getName());
+    assertEquals("[c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A]/[c.62G>A + c.3067C>A]", dm.getName());
     assertEquals(2, geneCall.getHaplotypes().size());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
-    assertThat(names, contains("c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A", "c.62G>A + c.3067C>A"));
+    assertThat(names, contains("[c.62G>A + c.1129-5923C>G, c.1236G>A (HapB3) + c.3067C>A]", "[c.62G>A + c.3067C>A]"));
   }
 
 
@@ -793,11 +793,11 @@ class NamedAlleleMatcherTest {
     System.out.println(geneCall.getHaplotypes());
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("c.62G>A + c.3067C>A/c.62G>A + c.3067C>A", dm.getName());
+    assertEquals("[c.62G>A + c.3067C>A]/[c.62G>A + c.3067C>A]", dm.getName());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
-    assertThat(names, contains("c.62G>A + c.3067C>A"));
+    assertThat(names, contains("[c.62G>A + c.3067C>A]"));
   }
 
 
@@ -831,12 +831,12 @@ class NamedAlleleMatcherTest {
     System.out.println(geneCall.getHaplotypes());
     assertEquals(1, geneCall.getDiplotypes().size());
     DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
-    assertEquals("c.1627A>G (*5)/c.1627A>G (*5) + c.85T>C (*9A)", dm.getName());
+    assertEquals("c.1627A>G (*5)/[c.1627A>G (*5) + c.85T>C (*9A)]", dm.getName());
     assertEquals(2, geneCall.getHaplotypes().size());
     List<String> names = geneCall.getHaplotypes().stream()
         .map(BaseMatch::getName)
         .toList();
-    assertThat(names, contains("c.1627A>G (*5)", "c.1627A>G (*5) + c.85T>C (*9A)"));
+    assertThat(names, contains("c.1627A>G (*5)", "[c.1627A>G (*5) + c.85T>C (*9A)]"));
   }
 
 

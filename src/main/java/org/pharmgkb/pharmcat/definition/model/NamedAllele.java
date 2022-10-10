@@ -15,9 +15,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**

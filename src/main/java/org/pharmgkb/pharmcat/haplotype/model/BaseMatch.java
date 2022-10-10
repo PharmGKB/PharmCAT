@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -100,13 +100,17 @@ public class BaseMatch implements Comparable<BaseMatch> {
         throw new IllegalStateException("Cannot create partial based on reference!");
       }
 
-      StringBuilder builder = new StringBuilder()
-          .append(getName());
+      StringBuilder builder = new StringBuilder();
+      if (CombinationMatch.isCombinationName(m_name))  {
+        builder.append(CombinationMatch.extractCombinationName(m_name));
+      } else {
+        builder.append(getName());
+      }
       for (String partial : partials) {
         builder.append(CombinationMatch.COMBINATION_JOINER)
             .append(partial);
       }
-      setName(builder.toString());
+      setName("[" + builder + "]");
 
       NamedAllele partialHap = new NamedAllele(hap.getId(), builder.toString(), hap.getAlleles(),
           hap.getCpicAlleles(), hap.getMissingPositions(), false, hap.getNumCombinations(), partials.size());

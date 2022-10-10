@@ -8,8 +8,8 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**

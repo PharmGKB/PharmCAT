@@ -84,26 +84,26 @@ class DpydCallerTest {
     //  c.498G>A    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
-    diplotype = "c.2933A>G + c.1905+1G>A (*2A)/c.498G>A";
-    checkInferred(diplotype, DataSource.CPIC, "c.1905+1G>A (*2A)", "c.498G>A",
-        "No function", "Normal function");
-    checkInferred(diplotype, DPWG, "c.1905+1G>A (*2A)", "Reference",
-        "No function", "Normal function");
+    diplotype = "c.498G>A/[c.2933A>G + c.1905+1G>A (*2A)]";
+    checkInferred(diplotype, DataSource.CPIC, "c.498G>A","c.1905+1G>A (*2A)",
+        "Normal function", "No function");
+    checkInferred(diplotype, DPWG, "Reference", "c.1905+1G>A (*2A)",
+        "Normal function", "No function");
 
     //  c.498G>A    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
-    diplotype = "c.498G>A + c.2933A>G/c.1905+1G>A (*2A)";
-    checkInferred(diplotype, DataSource.CPIC, "c.2933A>G", "c.1905+1G>A (*2A)",
+    diplotype = "c.1905+1G>A (*2A)/[c.498G>A + c.2933A>G]";
+    checkInferred(diplotype, DataSource.CPIC, "c.1905+1G>A (*2A)", "c.2933A>G",
         "No function", "No function");
-    checkInferred(diplotype, DPWG, "c.2933A>G", "c.1905+1G>A (*2A)",
-        GenePhenotype.UNASSIGNED_FUNCTION, "No function");
+    checkInferred(diplotype, DPWG, "c.1905+1G>A (*2A)", "c.2933A>G",
+        "No function", GenePhenotype.UNASSIGNED_FUNCTION);
 
     //  c.498G>A    - normal
     //  c.2582A>G   - normal
     //  c.2846A>T   - decreased, DPWG
     //  c.2933A>G   - no function
-    diplotype = "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G";
+    diplotype = "[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]";
     checkInferred(diplotype, DataSource.CPIC, "c.498G>A", "c.2933A>G",
         "Normal function", "No function");
     checkInferred(diplotype, DPWG, "Reference", "c.2933A>G",

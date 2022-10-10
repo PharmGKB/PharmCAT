@@ -15,7 +15,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### ABCG2
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -27,7 +27,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### CACNA1S
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -39,7 +39,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### CFTR
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -145,7 +145,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### DPYD
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
 </tr>
@@ -159,7 +159,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### F5
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs6025 C</li><li>rs6025 T (Factor V Leiden)</li></ul></td>
@@ -169,7 +169,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### G6PD
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -201,7 +201,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### IFNL3
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs12979860 reference (C)</li><li>rs12979860 variant (T)</li></ul></td>
@@ -211,7 +211,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### MT-RNR1
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -237,7 +237,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### RYR1
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
@@ -275,7 +275,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### UGT1A1
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">DPWG Phenotypes</th>
 </tr>
@@ -289,7 +289,7 @@ If you are using [outside calls](/specifications/Outside-Call-Format/), you can 
 ### VKORC1
 <table>
 <tr>
-<th style="text-align: left">Named Alleles</th>
+<th style="text-align: left">Variants</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs9923231 reference (C)</li><li>rs9923231 variant (T)</li></ul></td>

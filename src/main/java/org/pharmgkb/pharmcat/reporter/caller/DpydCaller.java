@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.caller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
@@ -9,7 +10,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -21,6 +21,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Observation;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -97,6 +98,7 @@ public class DpydCaller {
     }
 
     String[] haplotypes = DiplotypeFactory.splitDiplotype(GENE, diplotype);
+    Arrays.sort(haplotypes, HaplotypeNameComparator.getComparator());
     List<String> hapNames1 = new ArrayList<>(DiplotypeFactory.splitHaplotype(haplotypes[0]));
     List<String> hapNames2 = new ArrayList<>();
     if (haplotypes.length == 2) {

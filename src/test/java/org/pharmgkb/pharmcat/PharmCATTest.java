@@ -1091,8 +1091,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testMatcher("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
-    testWrapper.testPrintCpicCalls("DPYD", "c.498G>A + c.2582A>G/c.2846A>T + c.2933A>G");
+    testWrapper.testMatcher("DPYD", "[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]");
+    testWrapper.testPrintCpicCalls("DPYD", "[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.498G>A", "c.2933A>G");
 
@@ -1152,8 +1152,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testMatcher("DPYD", "c.61C>T/[c.61C>T + c.313G>A]");
+    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/[c.61C>T + c.313G>A]");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 
@@ -1172,8 +1172,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testMatcher("DPYD", "c.61C>T/c.61C>T + c.313G>A");
-    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/c.61C>T + c.313G>A");
+    testWrapper.testMatcher("DPYD", "c.61C>T/[c.61C>T + c.313G>A]");
+    testWrapper.testPrintCpicCalls("DPYD", "c.61C>T/[c.61C>T + c.313G>A]");
     assertEquals(1, testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD").getRecommendationDiplotypes().size());
     testWrapper.testLookup("DPYD", "c.61C>T", "c.61C>T");
 

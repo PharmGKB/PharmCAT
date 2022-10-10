@@ -6,13 +6,13 @@ import java.util.Map;
 import java.util.TreeMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**

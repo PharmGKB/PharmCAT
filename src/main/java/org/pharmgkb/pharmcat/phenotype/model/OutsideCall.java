@@ -7,9 +7,9 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeUtils;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**

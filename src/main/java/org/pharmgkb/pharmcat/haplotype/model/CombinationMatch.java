@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,6 +12,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -67,7 +67,11 @@ public class CombinationMatch extends BaseMatch {
         numPartials += 1;
       }
     }
-    setName(builder.toString());
+    if (numPartials > 1) {
+      setName("[" + builder + "]");
+    } else {
+      setName(builder.toString());
+    }
     setHaplotype(buildHaplotype(numPartials, true));
     addSequence(seq);
   }
@@ -77,9 +81,24 @@ public class CombinationMatch extends BaseMatch {
   }
 
   private String buildName() {
-    return m_componentHaplotypes.stream()
-        .map(NamedAllele::getName)
-        .collect(Collectors.joining(COMBINATION_JOINER));
+    StringBuilder builder = new StringBuilder();
+    int count = 0;
+    for (NamedAllele na : m_componentHaplotypes) {
+      if (builder.length() > 0) {
+        builder.append(COMBINATION_JOINER);
+      }
+      if (na.isCombination()) {
+        builder.append(extractCombinationName(na.getName()));
+        count += 2;
+      } else {
+        builder.append(na.getName());
+        count += 1;
+      }
+    }
+    if (count > 1) {
+      return "[" + builder + "]";
+    }
+    return builder.toString();
   }
 
   /**
@@ -189,13 +208,17 @@ public class CombinationMatch extends BaseMatch {
         // push off-reference partial to bottom
         return 1;
       }
-      int rez = ObjectUtils.compare(m_componentHaplotypes.first(), hm.getHaplotype());
+      int rez = HaplotypeNameComparator.getComparator().compare(getName(), hm.getName());
+      if (rez != 0) {
+        return rez;
+      }
+      rez = ObjectUtils.compare(m_componentHaplotypes.first(), hm.getHaplotype());
       if (rez != 0) {
         return rez;
       }
       return 1;
     }
-    return ObjectUtils.compare(getName(), o.getName());
+    return HaplotypeNameComparator.getComparator().compare(getName(), o.getName());
   }
 
   @Override
@@ -213,5 +236,14 @@ public class CombinationMatch extends BaseMatch {
     }
     return Objects.equals(getName(), that.getName()) &&
         Arrays.equals(getSequences().toArray(), that.getSequences().toArray());
+  }
+
+
+  public static boolean isCombinationName(String name) {
+    return name.startsWith("[") && name.contains(CombinationMatch.COMBINATION_JOINER) && name.endsWith("]");
+  }
+
+  public static String extractCombinationName(String name) {
+    return name.substring(1, name.length() - 1);
   }
 }

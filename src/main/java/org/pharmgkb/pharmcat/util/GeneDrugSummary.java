@@ -16,7 +16,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -220,10 +219,12 @@ public class GeneDrugSummary {
           }
         }
 
+        boolean isNamedAllele = haplotypes.first().startsWith("*") && !gene.equals("UGT1A1");
+        String type = isNamedAllele ? "Named Alleles" : "Variants";
         mdWriter.println("### " + gene);
         mdWriter.println("<table>");
         mdWriter.println("<tr>");
-        mdWriter.println("<th style=\"text-align: left\">Named Alleles</th>");
+        mdWriter.println("<th style=\"text-align: left\">" + type + "</th>");
         if (cpicPhenotypes.size() > 0) {
           mdWriter.println("<th style=\"text-align: left\">CPIC Phenotypes</th>");
         }

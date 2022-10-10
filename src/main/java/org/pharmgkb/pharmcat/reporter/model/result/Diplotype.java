@@ -16,7 +16,6 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
@@ -27,6 +26,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.ActivityUtils;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
