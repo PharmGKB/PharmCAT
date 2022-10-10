@@ -367,10 +367,6 @@ public class Diplotype implements Comparable<Diplotype> {
     return m_outsidePhenotypes;
   }
 
-  public void setOutsidePhenotypes(boolean fromOutsideCall) {
-    m_outsidePhenotypes = fromOutsideCall;
-  }
-
 
   /**
    * Print the overriding diplotype string if it exists.  Only applicable for CFTR.
@@ -524,11 +520,6 @@ public class Diplotype implements Comparable<Diplotype> {
     return m_outsideActivityScore;
   }
 
-  public void setOutsideActivityScore(boolean fromOutsideCall) {
-    m_outsideActivityScore = fromOutsideCall;
-  }
-
-
   public boolean hasActivityScore() {
     return !TextConstants.isUnspecified(m_activityScore);
   }
@@ -553,7 +544,7 @@ public class Diplotype implements Comparable<Diplotype> {
   /**
    * Fill in the phenotype and activity score depending on what information is already in the diplotype.
    */
-  public void annotateDiplotype(Env env, DataSource source) {
+  private void annotateDiplotype(Env env, DataSource source) {
     if (m_gene.startsWith("HLA")) {
       if (!isUnknownAlleles() && isUnknownPhenotype()) {
         m_phenotypes = DiplotypeFactory.makeHlaPhenotype(this);

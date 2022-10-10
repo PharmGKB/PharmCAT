@@ -1976,6 +1976,16 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertThat(diplotype.getPhenotypes(), contains("Ultrarapid Metabolizer"));
+
+    DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "clomipramine");
+    assertNotNull(drugReport);
+    assertEquals(1, drugReport.getGuidelines().size());
+    GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
+    assertEquals(1, guidelineReport.getAnnotations().size());
+    AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
+    assertEquals("Ultrarapid Metabolizer", annotationReport.getPhenotypes().get("CYP2D6"));
+
+    // TODO(whaleyr): is this check correct?
     assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
   }
 
