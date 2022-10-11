@@ -120,14 +120,21 @@ public class DataManager {
         boolean skipGuidelines = cliHelper.hasOption("sg");
         boolean skipPhenotypes = cliHelper.hasOption("sp");
         boolean skipAlleles = cliHelper.hasOption("sa");
-        if (!skipDownload && (!skipGuidelines || !skipPhenotypes || !skipAlleles)) {
-          System.out.println("Downloading DPWG data...");
-          // download DPWG data
+        if (!skipGuidelines || !skipPhenotypes || !skipAlleles) {
           Path dpwgZipFile = downloadDir.resolve(sf_dpwgZipFileName);
-          FileUtils.copyURLToFile(
-              new URL("https://s3.pgkb.org/data/" + sf_dpwgZipFileName),
-              dpwgZipFile.toFile());
-          ZipUtils.unzip(dpwgZipFile, downloadDir);
+          if (!skipDownload) {
+            System.out.println("Downloading DPWG data...");
+            // download DPWG data
+            FileUtils.copyURLToFile(
+                new URL("https://s3.pgkb.org/data/" + sf_dpwgZipFileName),
+                dpwgZipFile.toFile());
+            ZipUtils.unzip(dpwgZipFile, downloadDir);
+          }
+          if (Files.exists(dpwgZipFile)) {
+            ZipUtils.unzip(dpwgZipFile, downloadDir);
+          } else {
+            System.out.println("WARNING: Cannot find " + dpwgZipFile + " - will have to rely on unpacked content");
+          }
         }
 
         // must get guidelines before alleles
