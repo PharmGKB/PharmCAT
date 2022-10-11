@@ -54,8 +54,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -75,8 +74,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -96,8 +94,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -117,8 +114,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -138,8 +134,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -159,8 +154,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -180,8 +174,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -201,8 +194,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

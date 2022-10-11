@@ -94,8 +94,7 @@
       },
       "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -119,8 +118,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -144,8 +142,7 @@
       },
       "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -169,8 +166,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -194,8 +190,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -219,8 +214,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -244,8 +238,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -269,8 +262,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -294,8 +286,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -319,8 +310,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -344,8 +334,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -369,8 +358,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -394,8 +382,7 @@
       },
       "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -419,8 +406,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -444,8 +430,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -469,8 +454,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -494,8 +478,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -519,8 +502,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -544,8 +526,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -569,8 +550,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -594,8 +574,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -619,8 +598,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -644,8 +622,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -669,8 +646,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -694,8 +670,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -719,8 +694,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -744,8 +718,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -769,8 +742,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -794,8 +766,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -819,8 +790,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -844,8 +814,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -869,8 +838,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -894,8 +862,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -919,8 +886,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -944,8 +910,7 @@
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

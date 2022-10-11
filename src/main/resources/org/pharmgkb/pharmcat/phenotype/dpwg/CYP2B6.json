@@ -19,13 +19,13 @@
       }
     },
     {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*7",
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*1/*5",
       "description": null,
-      "lookupkey": "Intermediate Metabolizer",
+      "lookupkey": "Normal Metabolizer",
       "diplotypekey": {
         "*1": 1,
-        "*7": 1
+        "*5": 1
       }
     },
     {
@@ -40,6 +40,16 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*7",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*7": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*1/*18",
       "description": null,
       "lookupkey": "Intermediate Metabolizer",
@@ -49,22 +59,42 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*7/*7",
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*5/*5",
       "description": null,
-      "lookupkey": "Poor Metabolizer",
+      "lookupkey": "Normal Metabolizer",
       "diplotypekey": {
-        "*7": 2
+        "*5": 2
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*7/*18",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*5/*6",
       "description": null,
-      "lookupkey": "Poor Metabolizer",
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*5": 1,
+        "*6": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*5/*7",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*5": 1,
+        "*7": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*5/*18",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
       "diplotypekey": {
         "*18": 1,
-        "*7": 1
+        "*5": 1
       }
     },
     {
@@ -98,62 +128,32 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*7/*7",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*7": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*7/*18",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*18": 1,
+        "*7": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*18/*18",
       "description": null,
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*18": 2
       }
-    },
-    {
-      "generesult": "Normal Metabolizer",
-      "diplotype": "*1/*5",
-      "description": null,
-      "lookupkey": "Normal Metabolizer",
-      "diplotypekey": {
-        "*1": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": "Normal Metabolizer",
-      "diplotype": "*5/*5",
-      "description": null,
-      "lookupkey": "Normal Metabolizer",
-      "diplotypekey": {
-        "*5": 2
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*5/*6",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*5": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*5/*18",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*18": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*5/*7",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*5": 1,
-        "*7": 1
-      }
     }
   ],
-  "version": "2022-10-08-09-34"
+  "version": "2022-10-13-18-52"
 }

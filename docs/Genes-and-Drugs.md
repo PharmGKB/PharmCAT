@@ -44,8 +44,6 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
 | [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
 | [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
-| [HLA-A](/Phenotypes-List#hla-a) |  | :heavy_check_mark: |
-| [HLA-B](/Phenotypes-List#hla-b) |  | :heavy_check_mark: |
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
 
 
@@ -58,7 +56,7 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 
 | Drug | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
-| abacavir | :heavy_check_mark: | :heavy_check_mark: |
+| abacavir | :heavy_check_mark: |  |
 | acenocoumarol |  | :heavy_check_mark: |
 | allopurinol | :heavy_check_mark: | :heavy_check_mark: |
 | amikacin | :heavy_check_mark: |  |
@@ -72,7 +70,7 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | azathioprine | :heavy_check_mark: | :heavy_check_mark: |
 | brexpiprazole |  | :heavy_check_mark: |
 | capecitabine | :heavy_check_mark: | :heavy_check_mark: |
-| carbamazepine | :heavy_check_mark: | :heavy_check_mark: |
+| carbamazepine | :heavy_check_mark: |  |
 | celecoxib | :heavy_check_mark: |  |
 | chloramphenicol | :heavy_check_mark: |  |
 | chloroquine | :heavy_check_mark: |  |
@@ -93,7 +91,6 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | enflurane | :heavy_check_mark: |  |
 | escitalopram | :heavy_check_mark: | :heavy_check_mark: |
 | flecainide |  | :heavy_check_mark: |
-| flucloxacillin |  | :heavy_check_mark: |
 | flucytosine |  | :heavy_check_mark: |
 | fluorouracil | :heavy_check_mark: | :heavy_check_mark: |
 | flurbiprofen | :heavy_check_mark: |  |
@@ -114,7 +111,6 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | isoflurane | :heavy_check_mark: |  |
 | ivacaftor | :heavy_check_mark: |  |
 | kanamycin | :heavy_check_mark: |  |
-| lamotrigine |  | :heavy_check_mark: |
 | lansoprazole | :heavy_check_mark: | :heavy_check_mark: |
 | lornoxicam | :heavy_check_mark: |  |
 | lovastatin | :heavy_check_mark: |  |
@@ -131,7 +127,7 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | ofloxacin | :heavy_check_mark: |  |
 | omeprazole | :heavy_check_mark: | :heavy_check_mark: |
 | ondansetron | :heavy_check_mark: |  |
-| oxcarbazepine | :heavy_check_mark: | :heavy_check_mark: |
+| oxcarbazepine | :heavy_check_mark: |  |
 | pantoprazole | :heavy_check_mark: | :heavy_check_mark: |
 | paromomycin | :heavy_check_mark: |  |
 | paroxetine | :heavy_check_mark: | :heavy_check_mark: |

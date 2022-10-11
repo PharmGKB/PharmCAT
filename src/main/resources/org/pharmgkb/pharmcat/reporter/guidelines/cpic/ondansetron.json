@@ -47,8 +47,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -68,8 +67,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -89,8 +87,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -110,8 +107,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -131,8 +127,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -152,8 +147,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -173,8 +167,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -194,8 +187,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -215,8 +207,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -236,8 +227,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -257,8 +247,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -278,8 +267,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -299,8 +287,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -320,8 +307,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -341,8 +327,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -362,8 +347,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -383,8 +367,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -404,8 +387,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -425,8 +407,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -446,8 +427,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -467,8 +447,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -488,8 +467,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

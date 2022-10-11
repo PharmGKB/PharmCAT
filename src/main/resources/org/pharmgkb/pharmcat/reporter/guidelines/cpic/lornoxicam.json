@@ -44,8 +44,7 @@
       },
       "comments": "Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -65,8 +64,7 @@
       },
       "comments": "Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -86,8 +84,7 @@
       },
       "comments": "IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -107,8 +104,7 @@
       },
       "comments": "IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -128,8 +124,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -149,8 +144,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

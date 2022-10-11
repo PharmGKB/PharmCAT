@@ -451,7 +451,9 @@ class PharmCATTest {
         .collect(Collectors.toSet())
         .size()
     );
-    assertEquals(125, testWrapper.getContext().getDrugReports().keySet().stream()
+    // TODO: revert when HLA's are supported again
+    //assertEquals(125, testWrapper.getContext().getDrugReports().keySet().stream()
+    assertEquals(123, testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toSet())
@@ -1648,12 +1650,16 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     // *57:01 guideline
     testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
-    testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
     // *58:01 guideline
     testWrapper.testMatchedAnnotations("allopurinol", DataSource.CPIC, 1);
-    testWrapper.testMatchedAnnotations("allopurinol", DataSource.DPWG, 1);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("allopurinol", DataSource.DPWG, 1);
     // *15:02 guideline (along with CYP2C9)
-    testWrapper.testMatchedAnnotations("phenytoin", 4);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("phenytoin", 4);
+    testWrapper.testMatchedAnnotations("phenytoin", 3);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
   }
@@ -1674,9 +1680,12 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("CYP2C9");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testMatchedAnnotations("abacavir", 2);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("abacavir", 2);
+    testWrapper.testMatchedAnnotations("abacavir", 1);
     testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
-    testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
     // allopurinol relies on a different allele for recs so no matches
     testWrapper.testMatchedAnnotations("allopurinol", 0);
     // phenytoin also relies on a different allele but there will be a match for DPWG since the recommendations are
@@ -1732,13 +1741,16 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     testWrapper.testMatchedAnnotations("clopidogrel", DataSource.CPIC, 3);
     testWrapper.testMatchedAnnotations("clopidogrel", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("flucloxacillin", DataSource.CPIC);
-    testWrapper.testMatchedAnnotations("flucloxacillin", DataSource.DPWG, 1);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("flucloxacillin", DataSource.DPWG, 1);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.CPIC);
     testWrapper.testNoMatchFromSource("fluvoxamine", DataSource.DPWG);
     testWrapper.testMatchedAnnotations("siponimod", 1);
     testWrapper.testAnyMatchFromSource("siponimod", DataSource.DPWG);
 
-    testWrapper.testMatchedAnnotations("carbamazepine", 5);
+    // TODO: revert when HLA's are supported again
+    //testWrapper.testMatchedAnnotations("carbamazepine", 5);
+    testWrapper.testMatchedAnnotations("carbamazepine", 3);
   }
 
   @Test

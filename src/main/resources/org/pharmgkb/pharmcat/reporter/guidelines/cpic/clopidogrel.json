@@ -85,8 +85,7 @@
       },
       "comments": "n/a",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -104,8 +103,7 @@
       },
       "comments": "n/a",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -123,8 +121,7 @@
       },
       "comments": "n/a",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -142,8 +139,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -161,8 +157,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -180,8 +175,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -199,8 +193,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -218,8 +211,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -237,8 +229,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -256,8 +247,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -275,8 +265,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -294,8 +283,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -313,8 +301,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -332,8 +319,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -351,8 +337,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -370,8 +355,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -389,8 +373,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -408,8 +391,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms. Alternative P2Y12 inhibitors not impacted by CYP2C19 genetic variants include ticagrelor and ticlopidine. Prasugrel is contraindicated in patients with a history of stroke or TIA. Given limited outcomes data for genotype-guided anti-platelet therapy for neurovascular indications, selection of therapy should depend on individual patient treatment goals and risks for adverse events.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -427,8 +409,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -446,8 +427,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -465,8 +445,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -484,8 +463,7 @@
       },
       "comments": "For neurovascular indications. Neurovascular disease includes acute ischemic stroke or transient ischemic attack, secondary prevention of stroke, or prevention of thromboembolic events following neurointerventional procedures such as carotid artery stenting and stent-assisted coiling of intracranial aneurysms.",
       "population": "NVI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -503,8 +481,7 @@
       },
       "comments": "For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.",
       "population": "CVI ACS PCI ",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -522,8 +499,7 @@
       },
       "comments": "For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.",
       "population": "CVI non-ACS non-PCI",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

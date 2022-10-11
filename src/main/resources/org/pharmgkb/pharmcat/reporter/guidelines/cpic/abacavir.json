@@ -57,8 +57,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -76,8 +75,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

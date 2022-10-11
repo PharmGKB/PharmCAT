@@ -46,8 +46,7 @@
       },
       "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
       "population": "standard dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -65,8 +64,7 @@
       },
       "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
       "population": "medium dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -84,8 +82,7 @@
       },
       "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
       "population": "single low dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -103,8 +100,7 @@
       },
       "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
       "population": "standard dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -122,8 +118,7 @@
       },
       "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
       "population": "medium dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -141,8 +136,7 @@
       },
       "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria.There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis",
       "population": "single low dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -160,8 +154,7 @@
       },
       "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
       "population": "standard dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -179,8 +172,7 @@
       },
       "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
       "population": "single low dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -198,8 +190,7 @@
       },
       "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
       "population": "medium dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -217,8 +208,7 @@
       },
       "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
       "population": "medium dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -236,8 +226,7 @@
       },
       "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
       "population": "standard dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -255,8 +244,7 @@
       },
       "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
       "population": "single low dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -274,8 +262,7 @@
       },
       "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
       "population": "standard dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -293,8 +280,7 @@
       },
       "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
       "population": "single low dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -312,8 +298,7 @@
       },
       "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
       "population": "medium dose",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

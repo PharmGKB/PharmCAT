@@ -46,8 +46,7 @@
       },
       "comments": "aspirin ≤ 1 g/day. Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs",
       "population": "<= 1g per day",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -65,8 +64,7 @@
       },
       "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for for acute exacerbation of chronic hemolysis.",
       "population": "<= 1g per day",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -84,8 +82,7 @@
       },
       "comments": "aspirin ≤ 1 g/day",
       "population": "<= 1g per day",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -103,8 +100,7 @@
       },
       "comments": "aspirin ≤ 1 g/day",
       "population": "<= 1g per day",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -122,8 +118,7 @@
       },
       "comments": "aspirin ≤ 1 g/day. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
       "population": "<= 1g per day",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

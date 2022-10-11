@@ -54,8 +54,7 @@
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine (PMID 22565785). However, a 30% decrease in dose may not be feasible given the dosage forms; therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -75,8 +74,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -96,8 +94,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -117,8 +114,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -138,8 +134,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -159,8 +154,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -180,8 +174,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -201,8 +194,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -222,8 +214,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -243,8 +234,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -264,8 +254,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -285,8 +274,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -306,8 +294,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -327,8 +314,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -348,8 +334,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -369,8 +354,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -390,8 +374,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -411,8 +394,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -432,8 +414,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -453,8 +434,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -474,8 +454,7 @@
       },
       "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -495,8 +474,7 @@
       },
       "comments": "n/a",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

@@ -70,8 +70,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -95,8 +94,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -120,8 +118,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -145,8 +142,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -170,8 +166,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -195,8 +190,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -220,8 +214,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -245,8 +238,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -270,8 +262,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -295,8 +286,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -320,8 +310,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -345,8 +334,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -370,8 +358,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -395,8 +382,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -420,8 +406,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -445,8 +430,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -470,8 +454,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -495,8 +478,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -520,8 +502,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -545,8 +526,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -570,8 +550,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -595,8 +574,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -620,8 +598,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -645,8 +622,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -670,8 +646,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -695,8 +670,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -720,8 +694,7 @@
       },
       "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -745,8 +718,7 @@
       },
       "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -770,8 +742,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -795,8 +766,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -820,8 +790,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -845,8 +814,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -870,8 +838,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -895,8 +862,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -920,8 +886,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -945,8 +910,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -970,8 +934,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -995,8 +958,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -1020,8 +982,7 @@
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -1045,8 +1006,7 @@
       },
       "comments": "n/a",
       "population": "PHT naive",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

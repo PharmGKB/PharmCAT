@@ -1091,5 +1091,35 @@
     },
     "exception_type": "note",
     "message": "Alleles determined based on the CPIC UGT1A1 allele definition file due to limited allele definition information in the DPWG UGT1A1 document"
+  },
+  {
+    "rule_name": "pcat-call-multimatch",
+    "version": "1",
+    "matches": {
+      "gene": null,
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "PharmCAT found multiple possible genotypes that have the same recommendation."
+  },
+  {
+    "rule_name": "pcat-score-multimatch",
+    "version": "1",
+    "matches": {
+      "gene": null,
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "note",
+    "message": "Outside phenotype-only call matches multiple activity scores so multiple recommendations could be shown."
   }
 ]

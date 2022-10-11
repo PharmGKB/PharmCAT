@@ -24,7 +24,8 @@ class PgkbGuidelineCollectionTest {
   @Test
   void testLoad() throws IOException {
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection();
-    assertTrue(pgkbGuidelineCollection.getGuidelinePackages().size() > 60);
+    System.out.println("# DPWG guideilnes: " + pgkbGuidelineCollection.getGuidelinePackages().size());
+    assertTrue(pgkbGuidelineCollection.getGuidelinePackages().size() > 50);
   }
 
   @Test

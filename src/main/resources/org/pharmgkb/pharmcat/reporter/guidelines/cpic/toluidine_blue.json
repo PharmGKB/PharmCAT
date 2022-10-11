@@ -46,8 +46,7 @@
       },
       "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -65,8 +64,7 @@
       },
       "comments": "Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals. Toluidine blue classification strength is based on extrapolation from methylene blue data",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -84,8 +82,7 @@
       },
       "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -103,8 +100,7 @@
       },
       "comments": "Toluidine blue classification strength is based on extrapolation from methylene blue data",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -122,8 +118,7 @@
       },
       "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases. Toluidine blue classification strength is based on extrapolation from methylene blue data",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

@@ -46,8 +46,7 @@
       },
       "comments": "Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -65,8 +64,7 @@
       },
       "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -84,8 +82,7 @@
       },
       "comments": null,
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -103,8 +100,7 @@
       },
       "comments": null,
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     },
     {
       "implications": {
@@ -122,8 +118,7 @@
       },
       "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
       "population": "general",
-      "genotypes": null,
-      "source": "CPIC"
+      "genotypes": null
     }
   ],
   "genes": [

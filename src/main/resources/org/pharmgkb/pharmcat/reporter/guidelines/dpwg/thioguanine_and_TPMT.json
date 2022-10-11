@@ -277,13 +277,16 @@
       "genePhenotypes": [
         "TPMT:Normal function/Normal function"
       ],
-      "metabolizerStatus": null,
+      "metabolizerStatus": {
+        "id": 1451908421,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
       "recommendation": {
-        "id": 1451450603,
+        "id": 1451908422,
         "html": "<p>The guideline does not provide a recommendation for thioguanine in normal metabolizers.</p>\n"
       },
       "implications": {
-        "id": 1451450601,
+        "id": 1451908420,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on thioguanine.</p>\n"
       },
       "activityScore": null
@@ -313,5 +316,5 @@
       "year": 2011
     }
   ],
-  "version": "2022-10-08-09-34"
+  "version": "2022-10-13-18-52"
 }

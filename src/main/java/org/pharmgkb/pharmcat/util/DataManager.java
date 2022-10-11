@@ -285,15 +285,12 @@ public class DataManager {
           if (filename.startsWith("Annotation_of_DPWG_Guideline_for_")) {
             filename = filename.substring(33);
           }
-          Path expectedGuideline = PgkbGuidelineCollection.GUIDELINES_DIR.resolve(filename);
-          if (Files.exists(expectedGuideline)) {
-            count.incrementAndGet();
-            try (Reader reader = Files.newBufferedReader(file)) {
-              GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(reader, GuidelinePackage.class);
-              guidelinePackage.getCitations().forEach(Publication::normalize);
-              try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
-                DataSerializer.GSON.toJson(guidelinePackage, writer);
-              }
+          count.incrementAndGet();
+          try (Reader reader = Files.newBufferedReader(file)) {
+            GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(reader, GuidelinePackage.class);
+            guidelinePackage.getCitations().forEach(Publication::normalize);
+            try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
+              DataSerializer.GSON.toJson(guidelinePackage, writer);
             }
           }
         } catch (IOException ex) {

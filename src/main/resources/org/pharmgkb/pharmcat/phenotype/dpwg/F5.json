@@ -7,33 +7,33 @@
   "activityValues": {},
   "diplotypes": [
     {
-      "generesult": null,
+      "generesult": "Factor V Leiden absent",
       "diplotype": "rs6025 C/rs6025 C",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Factor V Leiden absent",
       "diplotypekey": {
         "rs6025 C": 2
       }
     },
     {
-      "generesult": null,
+      "generesult": "Factor V Leiden heterozygous",
       "diplotype": "rs6025 C/rs6025 T (Factor V Leiden)",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Factor V Leiden heterozygous",
       "diplotypekey": {
         "rs6025 C": 1,
         "rs6025 T (Factor V Leiden)": 1
       }
     },
     {
-      "generesult": null,
+      "generesult": "Factor V Leiden homozygous",
       "diplotype": "rs6025 T (Factor V Leiden)/rs6025 T (Factor V Leiden)",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Factor V Leiden homozygous",
       "diplotypekey": {
         "rs6025 T (Factor V Leiden)": 2
       }
     }
   ],
-  "version": "2022-10-08-09-34"
+  "version": "2022-10-13-18-52"
 }
