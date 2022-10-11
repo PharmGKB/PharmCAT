@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FilenameUtils;
@@ -242,6 +243,9 @@ public class PharmCAT {
     m_runMatcher = runMatcher;
     if (runMatcher) {
       m_vcfFile = vcfFile;
+      if (baseFilename == null) {
+        baseFilename = getBaseFilename(vcfFile);
+      }
       m_matcherJsonFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
@@ -264,6 +268,9 @@ public class PharmCAT {
       if (inputFile == null) {
         throw new IllegalStateException("No phenotyper input file");
       }
+      if (baseFilename == null) {
+        baseFilename = getBaseFilename(inputFile);
+      }
       m_phenotyperJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".phenotype.json");
     }
 
@@ -277,23 +284,16 @@ public class PharmCAT {
       if (inputFile == null) {
         throw new IllegalStateException("No reporter input file");
       }
+      if (baseFilename == null) {
+        baseFilename = getBaseFilename(inputFile);
+      }
       m_reporterHtmlFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.html");
       if (reporterJson) {
         m_reporterJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.json");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
-        if (baseFilename != null) {
-          m_reporterTitle = baseFilename;
-        } else if (vcfFile != null) {
-          m_reporterTitle = getBaseFilename(vcfFile);
-        } else if (phenotyperInputFile != null) {
-          m_reporterTitle = getBaseFilename(phenotyperInputFile);
-        } else if (phenotyperOutsideCallsFile != null) {
-          m_reporterTitle = getBaseFilename(phenotyperOutsideCallsFile);
-        } else if (reporterInputFile != null) {
-          m_reporterTitle = getBaseFilename(reporterInputFile);
-        }
+        m_reporterTitle = baseFilename;
       }
       m_reporterSources = reporterSources;
       m_reporterCompact = reporterCompact;
@@ -400,16 +400,15 @@ public class PharmCAT {
   /**
    * Gets {@link Path} to an output file based on command line arguments.
    */
-  private Path getOutputFile(Path inputFile, @Nullable Path outputDir, @Nullable String baseFilename,
-      String defaultSuffix) {
+  private Path getOutputFile(Path inputFile, @Nullable Path outputDir, String baseFilename, String defaultSuffix) {
+    Preconditions.checkNotNull(baseFilename);
     Path dir;
     if (outputDir != null) {
       dir = outputDir;
     } else {
       dir = inputFile.getParent();
     }
-    String filename = Objects.requireNonNullElseGet(baseFilename, () -> getBaseFilename(inputFile));
-    return dir.resolve(filename + defaultSuffix);
+    return dir.resolve(baseFilename + defaultSuffix);
   }
 
   public static String getBaseFilename(Path inputFile) {
