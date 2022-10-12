@@ -160,7 +160,7 @@
       {{/each}}
     {{else}}
       <p>
-        No genotypes called.  See <a href="section-iii">Section III</a> for details.
+        No genotypes called.  See <a href="#section-iii">Section III</a> for details.
       </p>
       <p>
         For a full list of disclaimers and limitations see the <a href="#disclaimer">Section IV</a>.
@@ -175,13 +175,6 @@
     {{#each recommendations}}
       <section class="guideline {{drug}}">
         <h3 id="{{drug}}">{{drug}}</h3>
-
-        {{#if multiMatch}}
-          <div class="alert alert-info">
-            <strong>Note:</strong> More than one call was made for the applicable gene so multiple annotation groups
-            could be shown.
-          </div>
-        {{/if}}
 
         {{#each messages}}
           <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
@@ -222,8 +215,8 @@
                           <li id="{{../localId}}">
                             <span class="noWrap">
                               {{{rxGenotype this ../this}}}
-                              {{#if (rxInferred this)}}<sup><a href="#rx-dagger" title="Inferred">&dagger;</a></sup>{{/if}}
-                              {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger" title="Inferred">&ddagger;</a></sup>{{/if}}
+                              {{#if (rxInferred this)}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
+                              {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
                             </span>
                           </li>
                         {{/each}}
@@ -281,12 +274,12 @@
         </table>
 
         {{#if hasInferred}}
-          <div class="footnote" id="rx-dagger">
-            <sup>&dagger;</sup> Inferred genotype used to look up phenotype.
+          <div class="footnote" id="rx-dagger-{{drug}}">
+            <sup>&dagger;</sup> Inferred genotype used to look up phenotype.  See <a href="#section-iii">Section III</a> for original genotype.
           </div>
         {{/if}}
         {{#if hasDpydInferred}}
-          <div class="footnote" id="rx-ddagger">
+          <div class="footnote" id="rx-ddagger-{{drug}}">
             <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype is inferred from the two lowest function
             haplotypes. Consult the
             {{{externalHref "https://pharmcat.org/methods/gene-definition-exceptions/#dpyd" "PharmCAT documentation"}}}

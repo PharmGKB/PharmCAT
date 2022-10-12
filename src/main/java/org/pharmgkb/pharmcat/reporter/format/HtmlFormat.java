@@ -12,10 +12,15 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -50,8 +55,8 @@ public class HtmlFormat extends AbstractFormat {
    * @param testMode if true will leave out some time-related metadata that may give false-positives while diffing
    * output
    */
-  public HtmlFormat(Path outputPath, boolean testMode) {
-    super(outputPath);
+  public HtmlFormat(Path outputPath, Env env, boolean testMode) {
+    super(outputPath, env);
     f_testMode = testMode;
   }
 
@@ -268,11 +273,10 @@ public class HtmlFormat extends AbstractFormat {
   }
 
 
-  private static class Recommendation implements Comparable<Recommendation> {
+  private class Recommendation implements Comparable<Recommendation> {
     private final String m_drug;
     private Map<String, Object> m_cpicReport;
     private Map<String, Object> m_dpwgReport;
-    private boolean m_isMultiMatch;
     private boolean m_hasInferred;
     private boolean m_hasDpydInferred;
     private final Set<MessageAnnotation> m_messages = new LinkedHashSet<>();
@@ -299,8 +303,70 @@ public class HtmlFormat extends AbstractFormat {
             throw new IllegalStateException("Multiple drug reports for " + report.getName() + " from " +
                 source.getDisplayName());
           }
-          m_dpwgReport = buildReport(source, report);;
+          m_dpwgReport = buildReport(source, report);
         }
+      }
+
+      boolean callMultiMatch = false;
+      boolean scoreMultimatch = false;
+      Multimap<String, Diplotype> mismatchDiplotypes = HashMultimap.create();
+      for (GuidelineReport guideline : report.getGuidelines()) {
+        for (AnnotationReport annotation : guideline.getAnnotations()) {
+          if (annotation.getGenotypes().size() > 1) {
+            callMultiMatch = true;
+          }
+          for (Genotype genotype : annotation.getGenotypes()) {
+            for (Diplotype diplotype : genotype.getDiplotypes()) {
+              if (!scoreMultimatch && diplotype.getLookupKeys().size() > 1) {
+                GenePhenotype gp = getEnv().getPhenotype(diplotype.getGene(), source);
+                scoreMultimatch = gp != null && gp.isMatchedByActivityScore();
+              }
+              if (diplotype.getOutsidePhenotypeMismatch() != null ||
+                  diplotype.getOutsideActivityScoreMismatch() != null) {
+                mismatchDiplotypes.put(diplotype.getGene(), diplotype);
+              }
+            }
+            if (scoreMultimatch || genotype.getDiplotypes().stream().anyMatch((d) -> {
+              if (d.getLookupKeys().size() > 1) {
+                GenePhenotype gp = getEnv().getPhenotype(d.getGene(), source);
+                return gp != null && gp.isMatchedByActivityScore();
+              }
+              return false;
+            })) {
+              scoreMultimatch = true;
+            }
+            if (genotype.isInferred()) {
+              if (genotype.getDiplotypes().stream()
+                  .map(Diplotype::getGene)
+                  .anyMatch(g -> g.equals("DPYD"))) {
+                m_hasDpydInferred = true;
+              } else {
+                m_hasInferred = true;
+              }
+              break;
+            }
+          }
+        }
+      }
+      if (callMultiMatch) {
+        m_messages.add(getEnv().getMessage(MessageHelper.MSG_MUlTI_CALL));
+      }
+      if (scoreMultimatch) {
+        m_messages.add(getEnv().getMessage(MessageHelper.MSG_MULTI_SCORE));
+      }
+      for (String gene : mismatchDiplotypes.keySet()) {
+        StringBuilder builder = new StringBuilder()
+            .append("Conflicting outside call data was provided for ")
+            .append(gene)
+            .append(".  PharmCAT will use provided ");
+        if (mismatchDiplotypes.get(gene).stream().anyMatch(Diplotype::hasActivityScore)) {
+          builder.append("activity score");
+        } else {
+          builder.append("phenotype");
+        }
+        builder.append(" to match recommendations.");
+        m_messages.add(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "warn.mismatch.outsideCalll",
+            builder.toString()));
       }
 
       // messages
@@ -316,25 +382,6 @@ public class HtmlFormat extends AbstractFormat {
         m_citations.addAll(report.getCitations());
       }
 
-      for (GuidelineReport guideline : report.getGuidelines()) {
-        for (AnnotationReport annotation : guideline.getAnnotations()) {
-          if (annotation.getGenotypes().size() > 1) {
-            m_isMultiMatch = true;
-          }
-          for (Genotype genotype : annotation.getGenotypes()) {
-            if (genotype.isInferred()) {
-              if (genotype.getDiplotypes().stream()
-                  .map(Diplotype::getGene)
-                  .anyMatch(g -> g.equals("DPYD"))) {
-                m_hasDpydInferred = true;
-              } else {
-                m_hasInferred = true;
-              }
-              break;
-            }
-          }
-        }
-      }
     }
 
     private Map<String, Object> buildReport(DataSource source, DrugReport drugReport) {
@@ -390,10 +437,6 @@ public class HtmlFormat extends AbstractFormat {
 
     public Map<String, Object> getDpwgReport() {
       return m_dpwgReport;
-    }
-
-    public boolean isMultiMatch() {
-      return m_isMultiMatch;
     }
 
     public boolean isHasInferred() {

@@ -39,6 +39,8 @@ public class MessageHelper {
   public static final String MSG_CYP2D6_MODE = "pcat-cyp2d6-research-mode";
   public static final String MSG_CYP2D6_NOTE = "pcat-cyp2d6-gene-note";
   public static final String MSG_OUTSIDE_CALL = "pcat-outside-call";
+  public static final String MSG_MUlTI_CALL = "pcat-call-multimatch";
+  public static final String MSG_MULTI_SCORE = "pcat-score-multimatch";
   // -- end static keys
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/" + MESSAGES_JSON_FILE_NAME;

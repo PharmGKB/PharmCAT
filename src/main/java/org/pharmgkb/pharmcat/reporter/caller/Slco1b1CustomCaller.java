@@ -12,7 +12,6 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.Observation;
 
 
 /**
@@ -55,7 +54,7 @@ public class Slco1b1CustomCaller {
 
     Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source);
     diplotype.setVariant(variant);
-    diplotype.setObserved(Observation.INFERRED);
+    diplotype.setInferred(true);
     
     return List.of(diplotype);
   }

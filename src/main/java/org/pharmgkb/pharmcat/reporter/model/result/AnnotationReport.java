@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
@@ -25,10 +27,10 @@ public class AnnotationReport {
   private String m_classification;
   @Expose
   @SerializedName("phenotypes")
-  private final SortedMap<String,String> m_phenotypes = new TreeMap<>();
+  private final SortedMap<String, String> m_phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("activityScore")
-  private final SortedMap<String,String> m_activityScore = new TreeMap<>();
+  private final SortedMap<String, String> m_activityScore = new TreeMap<>();
   @Expose
   @SerializedName("population")
   private String m_population = TextConstants.NA;
@@ -76,6 +78,7 @@ public class AnnotationReport {
     if (recommendation.getPhenotypes() != null) {
       m_phenotypes.putAll(recommendation.getPhenotypes());
     }
+
     if (recommendation.getActivityScore() != null) {
       m_activityScore.putAll(recommendation.getActivityScore());
     }
@@ -178,5 +181,25 @@ public class AnnotationReport {
 
   public void addHighlightedVariant(String var) {
     m_highlightedVariants.add(var);
+  }
+
+
+  /**
+   * Checks diplotypes for overriding phenotype from outside call.
+   * If found, replaces phenotype from recommendation.
+   */
+  public void checkDiplotypes() {
+    Multimap<String, String> mismatches = HashMultimap.create();
+    for (Genotype genotype : m_genotypes) {
+      for (Diplotype diplotype : genotype.getDiplotypes()) {
+        String expected = diplotype.getOutsidePhenotypeMismatch();
+        if (expected != null) {
+          mismatches.put(diplotype.getGene(), diplotype.getPhenotypes().get(0));
+        }
+      }
+    }
+    for (String gene : mismatches.keySet()) {
+      m_phenotypes.put(gene, String.join("/", mismatches.values()));
+    }
   }
 }

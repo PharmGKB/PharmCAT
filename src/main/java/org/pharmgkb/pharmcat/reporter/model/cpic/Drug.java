@@ -143,10 +143,6 @@ public class Drug implements Comparable<Drug> {
 
   public void setSource(DataSource source) {
     m_source = source;
-
-    if (m_recommendations != null) {
-      m_recommendations.forEach(r -> r.setSource(source));
-    }
   }
 
   @Override

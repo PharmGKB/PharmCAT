@@ -68,7 +68,7 @@ public class Genotype {
   }
 
   public boolean isInferred() {
-    return m_diplotypes.stream().anyMatch(d -> d.getObserved() == Observation.INFERRED);
+    return m_diplotypes.stream().anyMatch(Diplotype::isInferred);
   }
 
   public String toString() {

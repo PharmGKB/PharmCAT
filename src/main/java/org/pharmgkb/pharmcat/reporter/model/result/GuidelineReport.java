@@ -2,7 +2,9 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -141,19 +143,25 @@ public class GuidelineReport {
       m_annotationReports.add(annGroup);
     } else if (cpicDrug.getRecommendations() != null) {
       int gx = 0;
+      Map<Recommendation, AnnotationReport> recommendationMap = new HashMap<>();
       for (Genotype genotype : m_possibleGenotypes) {
         gx += 1;
-        int rx = 0;
         for (Recommendation rec : cpicDrug.getRecommendations()) {
           if (rec.matchesGenotype(genotype)) {
-            rx += 1;
-            String id = "cpic-" + cpicDrug.getDrugName() + "-" + rx + "-" + gx;
-            AnnotationReport annGroup = new AnnotationReport(rec, id);
-            annGroup.addGenotype(genotype);
-            m_annotationReports.add(annGroup);
+            AnnotationReport annotationReport = recommendationMap.get(rec);
+            if (annotationReport == null) {
+              String id = "cpic-" + cpicDrug.getDrugName() + "-" + (recommendationMap.size() + 1) + "-" + gx;
+              annotationReport = new AnnotationReport(rec, id);
+              recommendationMap.put(rec, annotationReport);
+            }
+            annotationReport.addGenotype(genotype);
           }
         }
       }
+      recommendationMap.values().forEach((ar) -> {
+        ar.checkDiplotypes();
+        m_annotationReports.add(ar);
+      });
     }
    }
 
@@ -181,12 +189,14 @@ public class GuidelineReport {
       rx += 1;
       String geneSymbol = guidelinePackage.getGenes().iterator().next();
       String id = "dpwg-" + guidelinePackage.getGuideline().getId() + "-" + rx;
-      AnnotationReport annGroup = new AnnotationReport(group, geneSymbol, id);
+      AnnotationReport annotationReport = new AnnotationReport(group, geneSymbol, id);
       matchedGenotypes.get(group).forEach((genotype) -> {
+        // TODO(markwoon): check with Ryan why we're doing this
         guidelinePackage.applyFunctions(genotype);
-        annGroup.addGenotype(genotype);
+        annotationReport.addGenotype(genotype);
       });
-      m_annotationReports.add(annGroup);
+      annotationReport.checkDiplotypes();
+      m_annotationReports.add(annotationReport);
     }
   }
 }

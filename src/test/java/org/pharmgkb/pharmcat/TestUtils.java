@@ -206,4 +206,16 @@ public class TestUtils {
       }
     }
   }
+
+  public static void deleteTestOutputDirectory(TestInfo testInfo) {
+    if (!s_saveTestOutput) {
+      try {
+        Path outputPath = getTestOutputDir(testInfo, false);
+        FileUtils.deleteDirectory(outputPath.toFile());
+      } catch (IOException ex) {
+        // log and ignore
+        ex.printStackTrace();
+      }
+    }
+  }
 }

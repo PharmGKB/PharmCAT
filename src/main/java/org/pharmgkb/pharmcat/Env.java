@@ -14,6 +14,7 @@ import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -108,6 +109,10 @@ public class Env {
       }
     }
     return m_messageHelper;
+  }
+
+  public MessageAnnotation getMessage(String key) {
+    return m_messageHelper.getMessage(key);
   }
 
 

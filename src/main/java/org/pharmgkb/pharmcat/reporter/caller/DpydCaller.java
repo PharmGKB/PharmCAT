@@ -20,7 +20,6 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.Observation;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
@@ -121,7 +120,7 @@ public class DpydCaller {
     }
     Diplotype diplotype = new Diplotype(GENE, hap1, hap2, env, source);
     if (isInferred || haplotypes.size() > 2) {
-      diplotype.setObserved(Observation.INFERRED);
+      diplotype.setInferred(true);
     }
     return diplotype;
   }
@@ -142,7 +141,7 @@ public class DpydCaller {
     }
     Diplotype diplotype = new Diplotype(GENE, hap1, hap2, env, source);
     if (isInferred || hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
-      diplotype.setObserved(Observation.INFERRED);
+      diplotype.setInferred(true);
     }
     return diplotype;
   }

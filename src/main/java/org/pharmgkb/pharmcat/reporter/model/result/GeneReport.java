@@ -219,7 +219,7 @@ public class GeneReport implements Comparable<GeneReport> {
   public void addOutsideCall(OutsideCall call, Env env) {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
 
-    Diplotype diplotype = new Diplotype(this, call, env, m_phenotypeSource);
+    Diplotype diplotype = new Diplotype(call, env, m_phenotypeSource);
     m_sourceDiplotypes.add(diplotype);
     if (isDpyd(m_gene)) {
       m_recommendationDiplotypes.addAll(DpydCaller.inferFromOutsideCall(call.getDiplotype(), env, m_phenotypeSource));
@@ -381,11 +381,10 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * True if the {@link NamedAlleleMatcher} has returned at least one call for this gene, false otherwise
+   * True if there is at least one call for this gene, false otherwise.
    */
   public boolean isCalled() {
-    return m_callSource == CallSource.MATCHER &&
-        m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**

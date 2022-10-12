@@ -22,6 +22,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -90,6 +91,11 @@ class PharmCATTest {
     try (FileWriter fw = new FileWriter(s_otherOutsideCallFilePath.toFile())) {
       fw.write(sf_otherOutsideCalls);
     }
+  }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
   }
 
 
@@ -1981,9 +1987,44 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
 
-  // has multimatch
+  /**
+   * Should have call multimatch message.
+   */
+  @Test
+  void testCyp2d6EquivalentDoubleCall(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CYP2D6\t*1/*1");
+      writer.println("CYP2D6\t*1/*2");
+    }
+
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19");
+    Path vcfFile = testWrapper.execute(outsideCallPath);
+
+    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    assertNotNull(geneReport);
+    assertEquals(2, geneReport.getRecommendationDiplotypes().size());
+
+    Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
+    assertThat(diplotype.getPhenotypes(), contains("Normal Metabolizer"));
+    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements clomipramineSection = document.select(".guideline.clomipramine");
+    assertEquals(1, clomipramineSection.size());
+    assertEquals(1, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MUlTI_CALL).size());
+  }
+
+  /**
+   * Should not have call multimatch message.
+   * Should have inferred CYP2D6 copy number.
+   */
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t*1/*1");
@@ -1993,7 +2034,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.execute(outsideCallPath);
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
@@ -2007,14 +2048,19 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertNotNull(diplotype.getAllele2());
     assertEquals("*1x≥3", diplotype.getAllele2().getName());
     assertEquals("One increased function allele and one normal function allele", diplotype.printFunctionPhrase());
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements clomipramineSection = document.select(".guideline.clomipramine");
+    assertEquals(1, clomipramineSection.size());
+    assertEquals(0, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MUlTI_CALL).size());
   }
 
   @Test
-  void testCyp2d6PhenotypeOverride(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
+  void testOutsideOverrides(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      writer.println("CYP2D6\t*1/*1\tUM\t≥4.0");
+      writer.println("CYP2D6\t*1/*1\tPM\t≥4.0");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -2027,7 +2073,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
 
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
-    assertThat(diplotype.getPhenotypes(), contains("Ultrarapid Metabolizer"));
+    assertThat(diplotype.getPhenotypes(), contains("Poor Metabolizer"));
 
     DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "clomipramine");
     assertNotNull(drugReport);
@@ -2035,21 +2081,19 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
     assertEquals(1, guidelineReport.getAnnotations().size());
     AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
-    assertEquals("Ultrarapid Metabolizer", annotationReport.getPhenotypes().get("CYP2D6"));
-
-    // TODO(whaleyr): is this check correct?
-    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+    assertEquals("Poor Metabolizer", annotationReport.getPhenotypes().get("CYP2D6"));
   }
 
 
   /**
    * In this test, we check to make sure that a single CYP2D6 phenotype is mapped to the multiple activity scores that
-   * could possibly map to it. Specifically, "Intermediate Metabolizer" maps to both "0.5" and "1.0" activity scores for
-   * CYP2D6.
+   * could possibly map to it. Specifically, "Intermediate Metabolizer" maps to both "0.25", "0.5", "0.75" and "1.0"
+   * activity scores for CYP2D6.
+   * <p>
+   * Has score multimatch
    */
   @Test
   void testCyp2d6OnlyOutsidePhenotype(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t\tIntermediate Metabolizer");
@@ -2058,7 +2102,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.execute(outsideCallPath);
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
@@ -2069,9 +2113,15 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
     // there should be no single activity score specified since this phenotype maps to more than one
     assertTrue(TextConstants.isUnspecified(diplotype.getActivityScore()));
     // there should be two and only two lookup keys, one for each activity score
-    assertEquals(2, diplotype.getLookupKeys().size());
+    assertEquals(4, diplotype.getLookupKeys().size());
     // the two lookup keys should be the two activity scores that correspond to Intermediate Metabolizer
-    assertThat(diplotype.getLookupKeys(), contains("0.5", "1.0"));
+    assertThat(diplotype.getLookupKeys(), contains("0.25", "0.5", "0.75", "1.0"));
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements clomipramineSection = document.select(".guideline.clomipramine");
+    assertEquals(1, clomipramineSection.size());
+    assertEquals(1, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MULTI_SCORE).size());
   }
 
 

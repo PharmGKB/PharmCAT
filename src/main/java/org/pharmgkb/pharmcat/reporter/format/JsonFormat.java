@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
@@ -14,8 +15,8 @@ import org.pharmgkb.pharmcat.util.DataSerializer;
  */
 public class JsonFormat extends AbstractFormat {
 
-  public JsonFormat(Path outputPath) {
-    super(outputPath);
+  public JsonFormat(Path outputPath, Env env) {
+    super(outputPath, env);
   }
 
   @Override
