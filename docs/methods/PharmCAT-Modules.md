@@ -15,4 +15,6 @@ The `Phenotyper` module is reponsible for translating diplotypes and other genot
 
 The `Reporter` module is responsible for generating a report with genotype-specific expert-reviewed drug prescribing recommendations for clinical decision support.
 
+See [Matching Recommendations](/methods/Matching-Recommendations) for details on how the `Phenotyper` and `Reporter` works. 
+
 ![process diagram](/images/flowchart.png)

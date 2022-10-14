@@ -126,9 +126,6 @@ Each module has its own arguments to customize its behavior.
 -ma <span class="altArg"><br />or --matcher-all-results</span>
 : return all possible diplotypes, not just top hits
 
--md `<dir>` <span class="altArg"><br />or --matcher-definitions-dir `<dir>`</span>
-: directory containing named allele definitions (JSON files)
-
 -matcherHtml <span class="altArg"><br />or --matcher-save-html</span>
 : save named allele matcher results as HTML
 
@@ -153,6 +150,12 @@ Each module has its own arguments to customize its behavior.
 
 -rt `<title>` <span class="altArg"><br />or --reporter-title `<title>`</span>
 : text to add to the report title
+
+-rs `<CPIC or DPWG>` <span class="altArg"><br />or --reporter-sources `<CPIC or DPWG>`</span> 
+: comma-separated list of sources to limit recommendations to (defaults to both)
+
+-re <span class="altArg"><br />or --reporter-extended</span>
+: generate extended report (includes all possible genes and drugs, even if no data is available)
 
 -reporterJson
 : save reporter results as JSON
@@ -256,9 +259,19 @@ A partial allele is when a sample matches all the (core) variants of a defined a
 Note that PharmCAT only provides the match(es) with the highest score by default. Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually *1) will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6 `*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`, `*23/[*5 + *9]` are also valid.
 
 
-
 #### Calling CYP2D6
 
 For details on calling CYP2D6 in PharmCAT, see [Calling CYP2D6](/using/Calling-CYP2D6).
 
 This option is not listed here because we do **NOT** recommend calling CYP2D6 from VCF, and [Calling CYP2D6](/using/Calling-CYP2D6) explains why and what your options are. 
+
+
+
+### Custom Definition Files
+
+Advanced users can provide PharmCAT with custom allele definitions:  
+
+-def `<dir>` <span class="altArg"><br />or --definitions-dir `<dir>`</span>
+: directory containing named allele definitions (JSON files)
+
+This can be used to get PharmCAT to call diplotypes for genes that PharmCAT does not support by default.  Unless these are genes that PharmCAT supports through [outside calls](/Genes-Drugs/#genes-handled-by-outside-callers), PharmCAT will **NOT** be able to match them to any recommendations. 

@@ -64,7 +64,7 @@ For more information:
 
 #### Formatting StellarPGx output for PharmCAT
 
-As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainer at [twesigomwedavid@gmail.com](twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [GitHub repo](https://github.com/SBIMB/StellarPGx).
+As mentioned above, if you have whole genome sequencing (WGS) CRAM/BAM files, your best option is a tool like StellarPGx.  Please note we are not affiliated with the StellarPGx team and offer no guarantees about its performance. Any questions or concerns on StellarPGx should be directed to the StellarPGx maintainer at [twesigomwedavid@gmail.com](mailto:twesigomwedavid@gmail.com). Usage instructions for StellarPGx can be found on their [GitHub repo](https://github.com/SBIMB/StellarPGx).
 
 While this tutorial is StellarPGx specific, it should illustrate how to integrate genotype calls from other tools.
 

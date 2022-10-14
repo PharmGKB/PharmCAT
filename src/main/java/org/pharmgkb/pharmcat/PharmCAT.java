@@ -97,8 +97,8 @@ public class PharmCAT {
           .addOption("reporter", "reporter", "run reporter")
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
           .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
-          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
-          .addOption("re", "reporter-extended", "output extended report")
+          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit recommendations to", false, "sources")
+          .addOption("re", "reporter-extended", "generate extended report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
 
           // outputs
