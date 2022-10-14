@@ -24,20 +24,20 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 | [CYP2C9](/Phenotypes-List#cyp2c9) | :heavy_check_mark: | :heavy_check_mark: |
 | [CYP3A4](/Phenotypes-List#cyp3a4) |  | :heavy_check_mark: |
 | [CYP3A5](/Phenotypes-List#cyp3a5) | :heavy_check_mark: | :heavy_check_mark: |
-| [CYP4F2](/Phenotypes-List#cyp4f2) |  |  |
+| [CYP4F2](/Phenotypes-List#cyp4f2) | :heavy_check_mark: |  |
 | [DPYD](/Phenotypes-List#dpyd) | :heavy_check_mark: | :heavy_check_mark: |
-| [IFNL3](/Phenotypes-List#ifnl3) |  |  |
+| [IFNL3](/Phenotypes-List#ifnl3) | :heavy_check_mark: |  |
 | [NUDT15](/Phenotypes-List#nudt15) | :heavy_check_mark: | :heavy_check_mark: |
 | [RYR1](/Phenotypes-List#ryr1) | :heavy_check_mark: |  |
 | [SLCO1B1](/Phenotypes-List#slco1b1) | :heavy_check_mark: | :heavy_check_mark: |
 | [TPMT](/Phenotypes-List#tpmt) | :heavy_check_mark: | :heavy_check_mark: |
 | [UGT1A1](/Phenotypes-List#ugt1a1) | :heavy_check_mark: | :heavy_check_mark: |
-| [VKORC1](/Phenotypes-List#vkorc1) |  | :heavy_check_mark: |
+| [VKORC1](/Phenotypes-List#vkorc1) | :heavy_check_mark: | :heavy_check_mark: |
 
 
 ### Genes handled by outside callers
 
-These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you can use an outside caller like [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) or [StellarPGx](https://github.com/SBIMB/StellarPGx) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.  See [Outside Call Format](/specifications/Outside-Call-Format/) for details.
+These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you can use an outside caller like [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) or [StellarPGx](https://github.com/SBIMB/StellarPGx) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.  See [Outside Call Format](using/Outside-Call-Format) for details.
 
 | Gene | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
@@ -47,7 +47,7 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
 
 
-<sup>*</sup> Except for CYP2D6 if the requisite [research mode](using/Running-PharmCAT/#research-only-options) is enabled.
+<sup>*</sup> Except for CYP2D6 if the requisite [research mode](using/Running-PharmCAT#research-only-options) is enabled.
 
 
 ## Drugs

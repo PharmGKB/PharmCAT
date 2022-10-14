@@ -294,11 +294,13 @@ public class GeneDrugSummary {
         .append("](/Phenotypes-List#")
         .append(gene.toLowerCase())
         .append(") | ");
-    if (m_phenotypeMap.getPhenotype(gene, DataSource.CPIC) != null) {
+    if (m_phenotypeMap.getPhenotype(gene, DataSource.CPIC) != null ||
+        m_cpicDrugs.getAllReportableGenes().contains(gene)) {
       builder.append(":heavy_check_mark:");
     }
     builder.append(" | ");
-    if (m_phenotypeMap.getPhenotype(gene, DataSource.DPWG) != null) {
+    if (m_phenotypeMap.getPhenotype(gene, DataSource.DPWG) != null ||
+        m_dpwgDrugs.getGenes().contains(gene)) {
       builder.append(":heavy_check_mark:");
     }
     builder.append(" |\n");

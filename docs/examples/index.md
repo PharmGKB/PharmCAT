@@ -12,11 +12,11 @@ inforamtion about running PharmCAT, read the [documentation](/using/Running-Phar
 
 ## Input
 
-First, a properly formatted [single-sample VCF file](/specifications/VCF-Requirements/) with all positions specified.
+First, a properly formatted [single-sample VCF file](/using/VCF-Requirements/) with all positions specified.
 
 - [example input VCF](https://raw.githubusercontent.com/PharmGKB/PharmCAT/main/pharmcat_positions.vcf)
 
-This is an example of an optional file of [outside diplotype calls](/specifications/Outside-Call-Format/). This one specifies a CYP2D6 call.
+This is an example of an optional file of [outside diplotype calls](/using/Outside-Call-Format/). This one specifies a CYP2D6 call.
 
 - [example outside calls](pharmcat.example.outsideCall.tsv)
 

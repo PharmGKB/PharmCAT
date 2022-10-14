@@ -10,7 +10,7 @@ This page documents all named alleles, phenotypes and activity scores used by Ph
 
 [Download as .tsv](/phenotypes.tsv){: .btn .btn-blue .umami--click--download-phenotypes-button }
 
-If you are using [outside calls](/specifications/Outside-Call-Format/), you can see how well PharmCAT will be able to annotate your data by checking if your names align with ours.
+If you are using [outside calls](using/Outside-Call-Format), you can see how well PharmCAT will be able to annotate your data by checking if your names align with ours.
 
 ### ABCG2
 <table>

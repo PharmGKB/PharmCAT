@@ -48,10 +48,10 @@ GEM
       gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
-    just-the-docs (0.3.3)
+    just-the-docs (0.4.0.rc3)
       jekyll (>= 3.8.5)
-      jekyll-seo-tag (~> 2.0)
-      rake (>= 12.3.1, < 13.1.0)
+      jekyll-seo-tag (>= 2.0)
+      rake (>= 12.3.1)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -94,7 +94,7 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (>= 4.2.2)
   jemoji (~> 0.12.0)
-  just-the-docs (>= 0.3.3)
+  just-the-docs (= 0.4.0.rc3)
   kramdown-parser-gfm (>= 1.1.0)
   tzinfo (~> 1.2)
   tzinfo-data

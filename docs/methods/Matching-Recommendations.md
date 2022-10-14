@@ -158,10 +158,3 @@ particular medication or a particular clinical finding, or something else.
 There are genes that need to use special, individual logic to determine their gene results for recommendation lookup.
 
 See [Gene Definition Exceptions](/methods/Gene-Definition-Exceptions) for details on these genes.
-
-A quick example: for DPYD, CPIC defines no, decreased, and normal function variants for the gene. A number of normal
-function variants are common and can be present together with no or decreased function variants. The DPYD gene activity
-score is determined by the two variants with the lowest activity value for unphased data or the lowest activity value
-per gene copy for phased data. In case a sample matches to more than two variants a DPYD diplotype is inferred for
-lookup of recommendation text. The rules for these algorithms can be complex so it is beneficial to read the original
-guideline for background.

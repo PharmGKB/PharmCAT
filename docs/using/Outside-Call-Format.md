@@ -1,8 +1,8 @@
 ---
-parent: Specifications
+parent: Using PharmCAT
 title: Outside Call Format
 permalink: specifications/Outside-Call-Format/
-nav_order: 4
+nav_order: 3
 ---
 # Outside Call Format
 

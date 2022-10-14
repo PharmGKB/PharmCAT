@@ -33,7 +33,7 @@ two DPYD variants with the lowest variant activity score.
 > decreased/no function variants.
 
 More details are available on the [PharmGKB's CPIC DPYD reference page](https://www.pharmgkb.org/page/dpydRefMaterials).
-The_DPYD Allele Functionality Table_ has function assignment information and the _DPYD Diplotype-Phenotype Table_
+The _DPYD Allele Functionality Table_ has function assignment information and the _DPYD Diplotype-Phenotype Table_
 includes example translations considering one or two variants. 
 
 ### Calling DPYD named alleles

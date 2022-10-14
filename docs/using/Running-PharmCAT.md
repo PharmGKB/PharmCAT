@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: Running PharmCAT
 permalink: using/Running-PharmCAT/
-nav_order: 2
+nav_order: 1
 render_with_liquid: false
 mermaid: true
 ---
@@ -25,9 +25,9 @@ You can skip this if are [running PharmCAT in Docker](PharmCAT-in-Docker).
 PharmCAT takes VCF files as input.
 
 {: .warn}
-> Please make sure you have read and undertand PharmCAT's [VCF requirements](/specifications/VCF-Requirements).
+> Please make sure you have read and undertand PharmCAT's [VCF requirements](VCF-Requirements).
 > 
-> If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor).
+> If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF preprocessor](VCF-Preprocessor).
 
 
 ## Running PharmCAT
@@ -44,7 +44,7 @@ Where:
 : The compiled PharmCAT Jar file
  
 -vcf `<vcf_file>`
-: Input VCF file (must comply with PharmCAT's [VCF requirements](/specifications/VCF-Requirements))
+: Input VCF file (must comply with PharmCAT's [VCF requirements](VCF-Requirements))
 
 By default, the output will be saved to the same directory as the input VCF file and will use the same base file name.  For example:
 
@@ -84,7 +84,7 @@ Saving reporter HTML results to /tmp/results/input.report.html
 
 ### Outside Calls
 
-If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](/specifications/Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call. 
+If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call. 
 
 To do so, provide:
 

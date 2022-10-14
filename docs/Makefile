@@ -6,6 +6,7 @@ serve:
 	bundle exec jekyll serve --incremental
 
 build:
+	bundle exec just-the-docs rake search:init
 	bundle exec jekyll build
 
 clean:

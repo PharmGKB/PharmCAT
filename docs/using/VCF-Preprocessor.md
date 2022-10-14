@@ -1,8 +1,8 @@
 ---
 parent: Using PharmCAT
-title: VCF Preprocessor
+title: Running the VCF Preprocessor
 permalink: using/VCF-Preprocessor/
-nav_order: 3
+nav_order: 4
 render_with_liquid: false
 ---
 # PharmCAT VCF Preprocessor
