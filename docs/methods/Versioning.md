@@ -2,7 +2,7 @@
 parent: Methods
 title: Versioning & Releases
 permalink: methods/Versioning/
-nav_order: 7
+nav_order: 8
 ---
 # Versioning & Releases
 

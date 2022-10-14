@@ -2,7 +2,7 @@
 parent: Methods
 title: Matching Recommendations
 permalink: methods/Matching-Recommendations/
-nav_order: 5
+nav_order: 6
 ---
 # Matching Recommendations
 
@@ -10,8 +10,8 @@ PharmCAT was built, among other tasks, to take genotyping results and match them
 by expert groups like CPIC and DPWG. This document explains how this process works within the `Phenotyper` and
 `Reporter` modules of the PharmCAT tool.
 
-{:info}
-> It is important to note that all guideline information discussed below is authored by the source expert groups and not
+{:.info}
+> All guideline information discussed below is authored by the source expert groups and not
 by PharmCAT. PharmCAT attempts to use the information as the guideline authors intended and to transform the data as
 little as possible to make it work with the application.
 
@@ -52,7 +52,7 @@ of annotations and translates them into a single format that can be displayed or
 The `Phenotyper` handles the "gene result" assignment, and the `Reporter` handles the recommendation assignments.
 
 
-{:info}
+{:.info}
 > Each guideline describes the method it uses to match recommendation text to genotyping results.
 > 
 > If you have questions about why a lookup method works the way it does, it will most probably be answered by reading
@@ -149,7 +149,7 @@ For example, the CPIC atomoxetine guideline has recommendations for both an adul
 The populations are not always based on age. Some populations may be based on how long the person has been taking a 
 particular medication or a particular clinical finding, or something else.
 
-{:info}
+{:.info}
 > Read the source guidelines to find how the population should be interpreted.
 
 
