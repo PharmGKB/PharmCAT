@@ -1,7 +1,7 @@
 ---
 parent: Using PharmCAT
 title: Outside Call Format
-permalink: specifications/Outside-Call-Format/
+permalink: using/Outside-Call-Format/
 nav_order: 3
 ---
 # Outside Call Format

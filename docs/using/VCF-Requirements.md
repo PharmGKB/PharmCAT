@@ -1,7 +1,7 @@
 ---
 parent: Using PharmCAT
 title: VCF Requirements
-permalink: specifications/VCF-Requirements/
+permalink: using/VCF-Requirements/
 nav_order: 2
 ---
 # VCF Requirements

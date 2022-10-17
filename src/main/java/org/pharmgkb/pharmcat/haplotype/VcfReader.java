@@ -218,7 +218,7 @@ public class VcfReader implements VcfLineParser {
 
     if (sampleData.size() > 1) {
       addWarning(chrPos, "Multiple samples found, only using first entry.  " +
-          "See https://pharmcat.org/specifications/VCF-Requirements/");
+          "See https://pharmcat.org/using/VCF-Requirements/");
     }
 
     String gt = sampleData.get(0).getProperty("GT");
