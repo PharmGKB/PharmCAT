@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -22,8 +23,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
  */
 public class Cyp2d6CopyNumberCaller {
   public static final String GENE = "CYP2D6";
-  public static final String GTE = "≥";
-  private static final Pattern sf_copyNumberPattern = Pattern.compile("\\*(\\d+)[Xx](≥?)(\\d+)");
+  private static final Pattern sf_copyNumberPattern = Pattern.compile("\\*(\\d+)[Xx](" + TextConstants.GTE + "?)(\\d+)");
   private static final Set<Integer> m_gteThree = new HashSet<>();
 
 
@@ -39,13 +39,14 @@ public class Cyp2d6CopyNumberCaller {
         .getHaplotypes().keySet());
 
     for (String allele : alleles) {
-      if (allele.contains(GTE)) {
+      if (allele.contains(TextConstants.GTE)) {
         Matcher m = sf_copyNumberPattern.matcher(allele);
         if (!m.matches()) {
           throw new UnsupportedOperationException(allele + " does not match expected pattern");
         }
         if (!m.group(3).equals("3")) {
-          throw new UnsupportedOperationException("Expecting x" + GTE + "3 but got " + m.group(2) + m.group(3));
+          throw new UnsupportedOperationException("Expecting x" + TextConstants.GTE + "3 but got " + m.group(2) +
+              m.group(3));
         }
         m_gteThree.add(Integer.parseInt(m.group(1)));
       }
@@ -97,12 +98,12 @@ public class Cyp2d6CopyNumberCaller {
     if (cn <= 2) {
       return new Object[] {false, haplotype.getName()};
     }
-    if (haplotype.getName().contains(GTE)) {
+    if (haplotype.getName().contains(TextConstants.GTE)) {
       if (cn == 3) {
         // ignore >= 3
         return new Object[] {false, haplotype.getName()};
       }
     }
-    return new Object[] {true, "*" + hap + "x" + GTE + "3"};
+    return new Object[] {true, "*" + hap + "x" + TextConstants.GTE + "3"};
   }
 }

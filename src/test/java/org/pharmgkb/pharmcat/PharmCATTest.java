@@ -311,7 +311,7 @@ class PharmCATTest {
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
       assertTrue(grOpt.isPresent());
-      assertFalse(grOpt.get().isCalled());
+      assertTrue(grOpt.get().isCalled());
       assertTrue(grOpt.get().isOutsideCall());
 
     } finally {
@@ -2046,7 +2046,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
     diplotype = geneReport.getRecommendationDiplotypes().get(1);
     assertNotNull(diplotype.getAllele2());
-    assertEquals("*1x≥3", diplotype.getAllele2().getName());
+    assertEquals("*1x" + TextConstants.GTE + "3", diplotype.getAllele2().getName());
     assertEquals("One increased function allele and one normal function allele", diplotype.printFunctionPhrase());
 
     Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
@@ -2060,7 +2060,7 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   void testOutsideOverrides(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      writer.println("CYP2D6\t*1/*1\tPM\t≥4.0");
+      writer.println("CYP2D6\t*1/*1\tPM\t" + TextConstants.GTE + "4.0");
     }
 
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
@@ -2529,7 +2529,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       assertTrue(genes != null && genes.length > 0);
       Arrays.stream(genes)
           .forEach(g -> {
-            assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isCalled),
+            assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isCalled) &&
+                getContext().getGeneReports(g).stream().noneMatch(GeneReport::isOutsideCall),
                 g + " is not called");
           });
     }
@@ -2550,7 +2551,8 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
       Preconditions.checkArgument(genes != null && genes.length > 0);
       Arrays.stream(genes)
           .forEach(g -> {
-            assertTrue(getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
+            assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isOutsideCall) ||
+                    getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
                 g + " is called");
           });
     }

@@ -3,10 +3,11 @@ package org.pharmgkb.pharmcat.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
 public class ActivityUtils {
-  private static final Pattern decimalPattern = Pattern.compile("[>≥]?\\d+(\\.\\d+)?$");
+  private static final Pattern decimalPattern = Pattern.compile("[>" + TextConstants.GTE + "]?\\d+(\\.\\d+)?$");
 
   /**
    * Normalizes an activity value/score to use decimal notiation if it is appropriate

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -53,7 +54,7 @@ class Cyp2d6CopyNumberCallerTest {
     assertEquals("CYP2D6", outsideCall.getGene());
 
     Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env, DataSource.CPIC);
-    assertEquals("*1/*1x" + Cyp2d6CopyNumberCaller.GTE + "3", inferred.getLabel());
+    assertEquals("*1/*1x" + TextConstants.GTE + "3", inferred.getLabel());
   }
 
 

@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
@@ -42,7 +43,7 @@ public class OutsideCallParser {
     Preconditions.checkNotNull(filePath);
 
     List<OutsideCall> calls = new ArrayList<>();
-    try (BufferedReader reader = Files.newBufferedReader(filePath)) {
+    try (BufferedReader reader = Files.newBufferedReader(filePath, Charsets.UTF_8)) {
       int x = 0;
       String line;
       while ((line = reader.readLine()) != null) {

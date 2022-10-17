@@ -17,6 +17,8 @@ public class TextConstants {
   public static final String UNKNOWN_FUNCTION = "Unknown";
   public static final String UNKNOWN_GENOTYPE = "Empty genotype";
   public static final String NO_RESULT = "No Result";
+  // greater than or equal to symbol
+  public static final String GTE = "\u2265";
 
   /**
    * Displayed when gene has not been called.
