@@ -501,12 +501,18 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                             len_alt = sum(map(len, alt_alleles))
                             is_snp = ((len_ref - len_alt) == 0)
 
+                            # a tuple variable for ref and alt alleles in this VCF record
+                            input_ref_alt = (fields[3], fields[4])
+
                             # update id when the id is not in the input
                             ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
                             input_id = fields[2].split(';')
                             updated_id = ';'.join(set(ref_id + input_id)) if fields[2] != '.' else ';'.join(ref_id)
 
-                            input_ref_alt = (fields[3], fields[4])
+                            # update info
+                            ref_info = list(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
+                            updated_info = ';'.join(ref_info + fields[7]) if fields[7] != '.' else ';'.join(ref_info)
+
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
                                 # record input PGx positions in a list
@@ -521,8 +527,12 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                                             input_pos_phased[input_chr_pos] = False
                                         else:
                                             input_pos_phased[input_chr_pos] = True
+
                                 # update id
                                 fields[2] = updated_id
+                                # update info
+                                fields[7] = updated_info
+
                                 # concat and write to output file
                                 out_f.write('\t'.join(fields) + '\n')
                                 # elimination: remove the dictionary item so that the variant won't be matched again
@@ -544,8 +554,10 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                                         fields[2] = updated_id
                                         fields[3] = ref_alleles[i]
                                         fields[4] = alt_alleles[i]
+                                        fields[7] = updated_info
                                         # concat and write to output file
                                         out_f.write('\t'.join(fields) + '\n')
+
                                         # for hom ref SNPs, remove the position from the dict for record
                                         if input_chr_pos in ref_pos_dynamic:
                                             ref_pos_dynamic[input_chr_pos].pop((ref_alleles[i], alt_alleles[i]))
@@ -564,8 +576,10 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                                             input_pos_phased[input_chr_pos] = False
                                         else:
                                             input_pos_phased[input_chr_pos] = True
+                                # update info
+                                fields[7] = updated_info
                                 # write to output
-                                out_f.write(line + '\n')
+                                out_f.write('\t'.join(fields) + '\n')
                             # INDELs with a unspecified allele, ALT="<*>"
                             elif not is_snp and (fields[4] in ['.', '<*>']):
                                 print('=============================================================\n\n'
