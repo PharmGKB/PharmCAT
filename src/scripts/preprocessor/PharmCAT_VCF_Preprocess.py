@@ -8,9 +8,10 @@ import sys
 import re
 from pathlib import Path
 from timeit import default_timer as timer
-
 import vcf_preprocess_utilities as util
 
+_bcftools_version = 1.16
+_bgzip_version = 1.16
 
 def run(args):
     """ normalize and prepare the input VCF for PharmCAT """
@@ -26,18 +27,23 @@ def run(args):
     except:
         print('Error: %s not found or not executable' % bcftools_path)
         sys.exit(1)
-    # warn for lower versions of bcftools that have not been tested
-    tool_version = re.search(r'^bcftools (\d\.\d+)*', version_message).group(1)
-    if float(tool_version) < 1.14:
-        print("Please use bcftools 1.14 or higher")
+    # warn for bcftools of lower versions
+    tool_version = re.search(r'bcftools (\d\.\d+)*', version_message).group(1)
+    if float(tool_version) < _bcftools_version:
+        print('Please use bcftools %s or higher' % str(_bcftools_version))
         sys.exit(1)
 
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
     try:
-        subprocess.run([bgzip_path, '-h'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        version_message = subprocess.run([bgzip_path, '-h'], capture_output=True, text=True).stdout
     except:
         print('Error: %s not found or not executable' % bgzip_path)
+        sys.exit(1)
+    # warn for bgzip of lower versions
+    tool_version = re.search(r'Version: (\d\.\d+)*', version_message).group(1)
+    if float(tool_version) < _bgzip_version:
+        print("Please use htslib/bgzip %s or higher" % str(_bgzip_version))
         sys.exit(1)
 
     # validate input vcf or file list
