@@ -12,7 +12,8 @@ diplotypes, phenotypes, or other allele calls to PharmCAT that were called by ot
 These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the
 `-po` flag.
 
-Calls specified in this file will override results from the `Named Allele Matcher`.
+{: .warn}
+> Calls specified in this file will override results from the `Named Allele Matcher`.
 
 
 ## File format
@@ -26,12 +27,31 @@ Each line has up to 4 fields, separated by tabs:
 3. Phenotype or other gene result (_required if second and fourth columns not specified_)
 4. Activity score (_required if second and third columns not specified_)
 
-The second, third, and fourth fields can be used individually or together. If you only supply diplotypes then PharmCAT
-will attempt to assign phenotype and activity score where applicable. If you specify both a diplotype and a phenotype
-then PharmCAT will rely on your phenotype, although it will emit a warning if your phenotype does not match the expected
-phenotype for the given diplotype.
+The second, third, and fourth fields can be used individually or together.
 
 Different genes on different lines can mix whether they give the diplotype, phenotype, or activity values.
+
+
+### Activity score genes
+
+For [activity score genes](/methods/Matching-Recommendations/#method-2-activity-score-lookup), a provided activity score
+value will trump other values.  If you also provide diplotype and/or phenotype value, a warning will be issued if they
+do not match the expected values.  For example, if you specify a `*1/*6` diplotype and `4.0` activity score, a warning
+will be issued because CPIC expects an activity score of `1.0` for `*1/*6`.
+
+If you don't specify an activity score, PharmCAT will look up the activity score based on the phenotype (if provided)
+and then diplotype (if phenotype is not provided).  Once again, PharmCAT will issue a warning if both phenotype and 
+diplotype is provided, and they do not match the expected values. 
+
+### Non activity score genes
+
+For non-activity score genes, the activity score is ignored (although it may be displayed in the final report).
+
+If you specify both a diplotype and a phenotype then PharmCAT will _rely on your phenotype_. PharmCAT will issue a
+warning if your phenotype does not match the expected phenotype for the given diplotype.
+
+
+### Example
 
 Here's an example of an outside call file:
 

@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -144,51 +145,36 @@ public class Diplotype implements Comparable<Diplotype> {
       m_allele1 = env.makeHaplotype(m_gene, alleles[0], source);
       m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1], source) : null;
       m_label = printBare();
-
-      // must set activity score before phenotype because phenotype calculation may depend on activity score
+    } else if (gp != null && gp.isMatchedByActivityScore()) {
       if (outsideCall.getActivityScore() != null) {
-        m_outsideActivityScore = true;
-        m_activityScore = outsideCall.getActivityScore();
-        if (gp != null) {
-          // check for activity score mismatch
-          String expected = lookupExpectedActivityScore(outsideCall.getPhenotype(), gp);
-          if (!m_activityScore.equals(expected)) {
-            m_outsideActivityScoreMismatch = expected;
-          }
-        }
-      }
-      if (outsideCall.getPhenotype() != null) {
-        m_outsidePhenotype = true;
-        m_phenotypes = List.of(outsideCall.getPhenotype());
-        if (gp != null) {
-          // check for phenotype assignment mismatch
-          String expected = lookupExpectedPhenotype(outsideCall.getActivityScore(), gp);
-          if (!outsideCall.getPhenotype().equals(expected)) {
-            m_outsidePhenotypeMismatch = expected;
-          }
-        }
-      }
-      annotateDiplotype(gp);
-    }
-    else {
-      // no diplotypes - phenotype or activity score only
-
-      if (outsideCall.getPhenotype() != null) {
-        m_phenotypes.add(outsideCall.getPhenotype());
-        m_outsidePhenotype = true;
-      }
-      m_activityScore = outsideCall.getActivityScore();
-      if (m_activityScore != null) {
-        m_outsideActivityScore = true;
-      }
-      if (outsideCall.getPhenotype() != null) {
+        m_label = outsideCall.getActivityScore();
+      } else {
         m_label = outsideCall.getPhenotype();
       }
-      else {
-        m_label = outsideCall.getActivityScore();
-      }
-      annotateDiplotype(gp);
+    } else if (outsideCall.getPhenotype() != null) {
+      m_label = outsideCall.getPhenotype();
+    } else {
+      m_label = outsideCall.getActivityScore();
     }
+
+    // must set activity score before phenotype because phenotype calculation may depend on activity score
+    if (outsideCall.getActivityScore() != null) {
+      m_outsideActivityScore = true;
+      m_activityScore = outsideCall.getActivityScore();
+      if (gp != null && gp.isMatchedByActivityScore()) {
+        // check for activity score mismatch
+        checkActivityScore(outsideCall.getPhenotype(), gp);
+      }
+    }
+    if (outsideCall.getPhenotype() != null) {
+      m_outsidePhenotype = true;
+      m_phenotypes = List.of(outsideCall.getPhenotype());
+      if (gp != null) {
+        // check for phenotype assignment mismatch
+        checkPhenotype(gp);
+      }
+    }
+    annotateDiplotype(gp);
   }
 
 
@@ -577,45 +563,44 @@ public class Diplotype implements Comparable<Diplotype> {
     Map<String, Integer> lookupMap = computeLookupMap();
     if (gp.isMatchedByActivityScore()) {
       if (m_activityScore == null) {
-        // diplotype -> activity score
-        m_activityScore = Objects.requireNonNull(
-            ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap)));
+        if (m_phenotypes.size() == 0) {
+          // diplotype -> activity score
+          m_activityScore = Objects.requireNonNull(
+              ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap)));
+        } else {
+          // leave activity score as NA but generate 1 lookupKey per activty score that matches phenotype below
+          // reporter will handle displaying correct activity score
+          m_activityScore = TextConstants.NA;
+        }
       }
       if (m_phenotypes.size() == 0) {
-        String phenotype = TextConstants.NA;
-        if (!TextConstants.NA.equals(m_activityScore)) {
-          phenotype = lookupPhenotypeByActivityScore(gp, m_activityScore);
+        if (m_outsideActivityScore) {
+          // activity score -> phenotypes
+          m_phenotypes.addAll(lookupPhenotypeByActivityScore(gp, m_activityScore));
+        } else {
+          // diplotype -> phenotype
+          m_phenotypes.add(lookupPhenotypesByDiplotype(gp, lookupMap));
         }
-        // fallback if we can't fine phenotype from activity score
-        if (phenotype.equals(TextConstants.NA)) {
-          phenotype = lookupPhenotypesByDiplotype(gp, lookupMap);
-        }
-        m_phenotypes.add(phenotype);
       }
       if (!TextConstants.NA.equals(m_activityScore)) {
-        m_lookupKeys = List.of(m_activityScore);
+        m_lookupKeys.add(m_activityScore);
       } else {
         if (isUnknown()) {
-          m_lookupKeys = List.of(TextConstants.NO_RESULT);
+          m_lookupKeys.add(TextConstants.NO_RESULT);
         } else {
-          SortedSet<String> rez = gp.getDiplotypes().stream()
-              .filter((d) -> m_phenotypes.contains(d.getGeneResult()))
-              .map(DiplotypeRecord::getLookupKey)
-              .collect(Collectors.toCollection(TreeSet::new));
-          if (rez.size() == 0) {
-            m_lookupKeys = List.of(TextConstants.NA);
-          } else {
-            m_lookupKeys = new ArrayList<>(rez);
-          }
+          // if had diplotype, activity score would have been filled in
+          m_lookupKeys.addAll(lookupActivityScoresByPhenotype(gp, m_phenotypes));
         }
       }
-    } else {
+    }
+    // non-activity score genes
+    else {
       if (m_phenotypes.size() == 0) {
         // phenotype based on diplotype
         m_phenotypes = List.of(lookupPhenotypesByDiplotype(gp, lookupMap));
       }
       if (isUnknown()) {
-        m_lookupKeys = List.of(TextConstants.NO_RESULT);
+        m_lookupKeys.add(TextConstants.NO_RESULT);
       } else {
         m_lookupKeys = m_phenotypes;
       }
@@ -646,11 +631,11 @@ public class Diplotype implements Comparable<Diplotype> {
     if (isUnknownAlleles()) {
       return TextConstants.NO_RESULT;
     }
-    Set<String> keys = gp.getDiplotypes().stream()
+    SortedSet<String> keys = gp.getDiplotypes().stream()
         .filter(d -> d.getDiplotypeKey().equals(lookupMap))
         .map(DiplotypeRecord::getGeneResult)
         .filter(Objects::nonNull)
-        .collect(Collectors.toSet());
+        .collect(Collectors.toCollection(TreeSet::new));
     if (keys.size() > 1) {
       throw new IllegalStateException("More than one phenotype matched for " + this + ": " +
           String.join("; ", keys));
@@ -661,41 +646,70 @@ public class Diplotype implements Comparable<Diplotype> {
     }
   }
 
-  private String lookupPhenotypeByActivityScore(GenePhenotype gp, String activityScore) {
-    return gp.getDiplotypes().stream()
-        .filter(d -> d.getLookupKey().equals(activityScore))
+  private SortedSet<String> lookupPhenotypeByActivityScore(GenePhenotype gp, String activityScore) {
+    SortedSet<String> rez = gp.getDiplotypes().stream()
+        .filter(d -> d.getLookupKey().equals(activityScore) && d.getGeneResult() != null)
         .map(DiplotypeRecord::getGeneResult)
-        .filter(Objects::nonNull)
-        .findFirst()
-        .orElse(TextConstants.NA);
+        .collect(Collectors.toCollection(TreeSet::new));
+    if (rez.size() == 0) {
+      rez.add(TextConstants.NA);
+    }
+    return rez;
+  }
+
+  private static SortedSet<String> lookupActivityScoresByPhenotype(GenePhenotype gp, Collection<String> phenotypes) {
+    SortedSet<String> rez = gp.getDiplotypes().stream()
+        .filter(d -> phenotypes.contains(d.getGeneResult()))
+        .map(DiplotypeRecord::getLookupKey)
+        .collect(Collectors.toCollection(TreeSet::new));
+    if (rez.size() == 0) {
+      rez.add(TextConstants.NA);
+    }
+    return rez;
   }
 
   /**
    * Look up activity score based on either haplotypes or phenotype.
    * Used to check outside call activity score.
-   *
-   * @return activty score or {@link TextConstants#NA}
    */
-  private String lookupExpectedActivityScore(@Nullable String phenotype, GenePhenotype gp) {
-    if (gp.isMatchedByActivityScore()) {
-      Map<String, Integer> lookupMap = computeLookupMap(m_allele1, m_allele2, phenotype);
-      return ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap));
+  private void checkActivityScore(@Nullable String phenotype, GenePhenotype gp) {
+    if (phenotype != null) {
+      SortedSet<String> expected = lookupActivityScoresByPhenotype(gp, List.of(phenotype));
+      if (!expected.contains(m_activityScore)) {
+        m_outsideActivityScoreMismatch = String.join(", ", expected);
+        return;
+      }
     }
-    return TextConstants.NA;
+    if (!isUnknownAlleles()) {
+      Map<String, Integer> lookupMap = computeLookupMap(m_allele1, m_allele2, phenotype);
+      String expected = ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap));
+      if (!m_activityScore.equals(expected)) {
+        m_outsideActivityScoreMismatch = expected;
+      }
+    }
   }
+
 
 
   /**
    * Look up phenotype based on either haplotypes or activity score.
    * Used to check outside call phenotype.
-   *
-   * @return phenotype or {@link TextConstants#NA}
    */
-  private String lookupExpectedPhenotype(String activityScore, GenePhenotype gp) {
-    if (gp.isMatchedByActivityScore() && activityScore != null) {
-      return lookupPhenotypeByActivityScore(gp, activityScore);
+  private void checkPhenotype(GenePhenotype gp) {
+
+    if (gp.isMatchedByActivityScore() && hasActivityScore()) {
+      SortedSet<String> expected = lookupPhenotypeByActivityScore(gp, m_activityScore);
+      if (!expected.contains(m_phenotypes.get(0))) {
+        m_outsidePhenotypeMismatch = String.join(", ", expected);
+        return;
+      }
     }
-    Map<String, Integer> lookupMap = computeLookupMap(m_allele1, m_allele2, null);
-    return lookupPhenotypesByDiplotype(gp, lookupMap);
+    if (!isUnknownAlleles()) {
+      Map<String, Integer> lookupMap = computeLookupMap(m_allele1, m_allele2, null);
+      String expected = lookupPhenotypesByDiplotype(gp, lookupMap);
+      if (!expected.equals(m_phenotypes.get(0))) {
+        m_outsidePhenotypeMismatch = expected;
+      }
+    }
   }
 }

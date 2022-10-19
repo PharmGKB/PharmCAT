@@ -99,6 +99,25 @@ public class Env {
     }
   }
 
+  /**
+   * Checks if gene is used in any drug recommendation from any source.
+   */
+  public boolean hasGene(String gene) {
+    return getCpicGenes().contains(gene) || getDpwgGenes().contains(gene);
+  }
+
+  /**
+   * Checks if this gene is matched by activity score in any source.
+   */
+  public boolean isActivityScoreGene(String gene) {
+    GenePhenotype gp = getPhenotype(gene, DataSource.CPIC);
+    if (gp != null && gp.isMatchedByActivityScore()) {
+      return true;
+    }
+    gp = getPhenotype(gene, DataSource.DPWG);
+    return gp != null && gp.isMatchedByActivityScore();
+  }
+
 
   public MessageHelper getMessageHelper() {
     if (m_messageHelper == null) {

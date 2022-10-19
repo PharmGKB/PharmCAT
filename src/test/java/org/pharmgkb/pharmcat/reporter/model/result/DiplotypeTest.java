@@ -9,8 +9,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -118,5 +122,87 @@ class DiplotypeTest {
 
     result = DiplotypeUtils.reducePhasedDiplotypes(ImmutableList.of("*6/*80+*28", "*6/*60"));
     assertEquals("*6/*60+(*80+*28)", result);
+  }
+
+
+  @Test
+  void testOutsideCall() {
+    OutsideCall outsideCall = new OutsideCall("CYP2D6\t\tNM\t4.0", 1);
+    Diplotype dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    //logDiplotype(dip);
+    assertTrue(dip.isUnknownAlleles());
+    assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
+    assertEquals("4.0", dip.getActivityScore());
+    assertThat(dip.getLookupKeys(), contains("4.0"));
+    assertNotNull(dip.getOutsidePhenotypeMismatch());
+    assertNotNull(dip.getOutsideActivityScoreMismatch());
+
+    outsideCall = new OutsideCall("CYP2D6\t\tNM", 1);
+    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    //logDiplotype(dip);
+    assertTrue(dip.isUnknownAlleles());
+    assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
+    assertEquals(TextConstants.NA, dip.getActivityScore());
+    assertTrue(dip.getLookupKeys().size() > 1);
+    assertNull(dip.getOutsidePhenotypeMismatch());
+    assertNull(dip.getOutsideActivityScoreMismatch());
+
+    outsideCall = new OutsideCall("CYP2D6\t\t\t4.0", 1);
+    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    //logDiplotype(dip);
+    assertTrue(dip.isUnknownAlleles());
+    assertThat(dip.getPhenotypes(), contains("Ultrarapid Metabolizer"));
+    assertEquals("4.0", dip.getActivityScore());
+    assertThat(dip.getLookupKeys(), contains("4.0"));
+    assertNull(dip.getOutsidePhenotypeMismatch());
+    assertNull(dip.getOutsideActivityScoreMismatch());
+
+
+    outsideCall = new OutsideCall("CYP2D6\t*1/*1\tNM\t4.0", 1);
+    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    //logDiplotype(dip);
+    assertEquals("*1", dip.getAllele1().getName());
+    assertNotNull(dip.getAllele2());
+    assertEquals("*1", dip.getAllele2().getName());
+    assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
+    assertEquals("4.0", dip.getActivityScore());
+    assertThat(dip.getLookupKeys(), contains("4.0"));
+    assertNotNull(dip.getOutsidePhenotypeMismatch());
+    assertNotNull(dip.getOutsideActivityScoreMismatch());
+
+    outsideCall = new OutsideCall("CYP2D6\t*1/*1\tNM", 1);
+    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    //logDiplotype(dip);
+    assertEquals("*1", dip.getAllele1().getName());
+    assertNotNull(dip.getAllele2());
+    assertEquals("*1", dip.getAllele2().getName());
+    assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
+    assertEquals(TextConstants.NA, dip.getActivityScore());
+    assertTrue(dip.getLookupKeys().size() > 1);
+    assertNull(dip.getOutsidePhenotypeMismatch());
+    assertNull(dip.getOutsideActivityScoreMismatch());
+
+
+    outsideCall = new OutsideCall("CYP2D6\t*1/*1\t\t4.0", 1);
+    //logDiplotype(dip);
+    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    assertEquals("*1", dip.getAllele1().getName());
+    assertNotNull(dip.getAllele2());
+    assertEquals("*1", dip.getAllele2().getName());
+    assertThat(dip.getPhenotypes(), contains("Ultrarapid Metabolizer"));
+    assertEquals("4.0", dip.getActivityScore());
+    assertThat(dip.getLookupKeys(), contains("4.0"));
+    assertNull(dip.getOutsidePhenotypeMismatch());
+    assertNotNull(dip.getOutsideActivityScoreMismatch());
+  }
+
+  private void logDiplotype(Diplotype dip) {
+    System.out.println();
+    System.out.println(dip);
+    System.out.println("score: " + dip.getActivityScore());
+    System.out.println("score mismatch: " + dip.getOutsideActivityScoreMismatch());
+    System.out.println("pheno: " + dip.getPhenotypes());
+    System.out.println("pheno mismatch: " + dip.getOutsidePhenotypeMismatch());
+    System.out.println("lookup keys: " + dip.getLookupKeys());
   }
 }

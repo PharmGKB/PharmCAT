@@ -30,6 +30,8 @@ import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -38,6 +40,7 @@ import org.pharmgkb.pharmcat.util.CliUtils;
  * @author Ryan Whaley
  */
 public class PharmCAT {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   public enum Mode {
     /**
@@ -350,7 +353,23 @@ public class PharmCAT {
 
       List<OutsideCall> outsideCalls = new ArrayList<>();
       if (m_phenotyperOutsideCallsFile != null) {
-        outsideCalls = OutsideCallParser.parse(m_phenotyperOutsideCallsFile);
+        for (OutsideCall call : OutsideCallParser.parse(m_phenotyperOutsideCallsFile)) {
+          if (!m_env.hasGene(call.getGene())) {
+            String msg = "Discarded outside call for " + call.getGene() + " because it is not supported by PharmCAT.";
+            warnings.put(call.getGene(), List.of(msg));
+            sf_logger.warn(msg);
+            continue;
+          }
+          if (!m_env.isActivityScoreGene(call.getGene())) {
+            if (call.getDiplotype() == null && call.getPhenotype() == null) {
+              String msg = call.getGene() + " is not an activity score gene but has outside call with only an " +
+                  "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
+              warnings.put(call.getGene(), List.of(msg));
+              sf_logger.warn(msg);
+            }
+          }
+          outsideCalls.add(call);
+        }
       }
 
       phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
