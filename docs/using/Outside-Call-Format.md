@@ -94,7 +94,9 @@ PharmCAT will automatically attempt to translate your CYP2D6 copy number variati
 
 #### Phenotypes
 
-When providing phenotypes, you will need to use CPIC standardized terms, although we do provide some interpretation:
+When providing phenotypes, you will need to use
+[CPIC standardized terms](https://cpicpgx.org/resources/term-standardization/), although we do provide some
+interpretation:
 
 1. We automatically normalize spelling (e.g. "metabolizer" instead of "metaboliser") and capitalization.
 2. We will translate common synonyms:

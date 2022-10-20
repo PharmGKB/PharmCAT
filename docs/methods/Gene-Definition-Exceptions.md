@@ -6,17 +6,23 @@ nav_order: 7
 ---
 # Gene Definition Exceptions
 
-The genotype determination is based on [CPIC gene definition
-tables](https://www.pharmgkb.org/page/pgxGeneRef), with
-the following modifications:
-    
+Genotype determination is based on [CPIC gene definition tables](https://www.pharmgkb.org/page/pgxGeneRef), with 
+modifications for the following genes:
+
+* [SLC01B1](#slco1b1)
+* [DPYD](#dpyd)
+* [CYP3A4](#cyp3a4)
+
+---    
+
+
 ## SLCO1B1
 
 CPIC provides recommendations based on the SLCO1B1 star allele genotype. The CPIC guideline for statins and SLCO1B1, ABCG2, and CYP2C9 [(PMID:35152405)](https://pubmed.ncbi.nlm.nih.gov/35152405/) includes the following excerpt:
 
 > The most common and well-studied variant in SLCO1B1 is c.521T>C (rs4149056), and can be genotyped alone (e.g., PCR-based single SNV assay) or multiplexed on a variety of array-based platforms. All SLCO1B1 genetic tests should interrogate c.521T>C; however, while other less common variants in this gene may have limited evidence to guide action, they may also be important. 
 
-PharmCAT attempts to determine the star allele genotype for SLCO1B1, in case no call can be determined it provides the CPIC recommendation based on the rs4149056 variant genotype.
+PharmCAT attempts to determine the star allele genotype for SLCO1B1, but in cases where no call can be determined it provides the CPIC recommendation based on the rs4149056 variant genotype.
 
 
 ## DPYD
@@ -89,8 +95,9 @@ For example, in the above sample, the inferred genotype `c.1905+1G>A (*2A)/c.498
 `c.1905+1G>A (*2A)/Reference` and used to query DPWG data. Since `c.1905+1G>A (*2A)` is a no function variant included
 in the DPWG data, DPWG guidance for `c.1905+1G>A (*2A)/Reference` will be included in the report.
 
+
 ## CYP3A4
 
 PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
-CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only \*16, \*20, and \*22 have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4\*20 and \*22 definitions are the same in the DPWG CYP3A4 gene document and PharmVar, while the \*16 allele definition includes besides rs12721627 an additional SNP rs2242480 in PharmVar. Besides in \*16, c.1026+12G>A (rs2242480) is part of several star alleles including CYP3A4\*36 (formerly \*1G). See PharmVar's CYP3A4 documentation for further details.
+CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*20` and `*22` definitions are the same in the DPWG CYP3A4 gene document and PharmVar, while the `*16` allele definition includes besides rs12721627 an additional SNP rs2242480 in PharmVar. Besides `*16`, c.1026+12G>A (rs2242480) is part of several star alleles including CYP3A4 `*36` (formerly `*1G`). See PharmVar's CYP3A4 documentation for further details.

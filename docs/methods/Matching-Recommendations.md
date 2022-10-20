@@ -65,12 +65,14 @@ match genotyping data to guideline recommendations.
 ### Method 1: Phenotype lookup
 
 Currently, most guidelines use a common "phenotype" lookup method. Guidelines have different recommendations that apply
-to individual gene phenotypes. These phenotypes are based on a standard vocabulary with values like "Normal Metabolizer"
-or "Poor Metabolizer". The guideline will also have a translation table that describes what combinations of gene
-function are assigned to a given phenotype. For example, a diplotype of one "normal function" allele and one
-"no function" allele could be assigned to a "Intermediate Metabolizer". The guideline source also includes mapping for
-named alleles to clinical functional status. For example, `*1` maps to "normal function" and `*7` maps to "no function".
-Using these mappings, PharmCAT 
+to individual gene phenotypes. These phenotypes are based on a 
+[standard vocabulary](https://cpicpgx.org/resources/term-standardization/) with values like "Normal Metabolizer" or
+"Poor Metabolizer". The guideline will also have a translation table that describes what combinations of gene function
+are assigned to a given phenotype. For example, a diplotype of one "normal function" allele and one "no function" allele
+could be assigned to a "Intermediate Metabolizer". The guideline source also includes mapping for named alleles to 
+clinical functional status. For example, `*1` maps to "normal function" and `*7` maps to "no function".
+
+Using these mappings, PharmCAT: 
 
 1. takes a diplotype from the `Named Allele Matcher` or from an outside call,
 2. assigns function values to each alleles,
