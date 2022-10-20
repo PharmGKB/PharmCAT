@@ -44,13 +44,22 @@ show_downloads: true
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
 #   - node_modules/
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
 exclude:
-  - Makefile
+  - .jekyll-cache/
+  - _includes/
+  - _sass/
+  - _site/
+  - assets/
+  - vendor/
+  - .ruby-version
+  - _config.yml
+  - CNAME
   - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - Makefile

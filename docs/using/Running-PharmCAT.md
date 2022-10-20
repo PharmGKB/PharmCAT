@@ -14,7 +14,7 @@ This document teaches you how to use the core PharmCAT tool.
 ## Requirements
 
 ### Install the Software
-You can skip this if are [running PharmCAT in Docker](PharmCAT-in-Docker).
+You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
 
 1. You will need [Java 17 or newer](https://adoptium.net/index.html?variant=openjdk17&jvmVariant=hotspot).
 2. Download the PharmCAT Jar file from our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
@@ -25,9 +25,9 @@ You can skip this if are [running PharmCAT in Docker](PharmCAT-in-Docker).
 PharmCAT takes VCF files as input.
 
 {: .warn}
-> Please make sure you have read and undertand PharmCAT's [VCF requirements](VCF-Requirements).
+> Please make sure you have read and undertand PharmCAT's [VCF requirements](/using/VCF-Requirements).
 > 
-> If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF preprocessor](VCF-Preprocessor).
+> If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor).
 
 
 ## Running PharmCAT
@@ -44,7 +44,7 @@ Where:
 : The compiled PharmCAT Jar file
  
 -vcf `<vcf_file>`
-: Input VCF file (must comply with PharmCAT's [VCF requirements](VCF-Requirements))
+: Input VCF file (must comply with PharmCAT's [VCF requirements](/using/VCF-Requirements))
 
 By default, the output will be saved to the same directory as the input VCF file and will use the same base file name.  For example:
 
@@ -84,7 +84,7 @@ Saving reporter HTML results to /tmp/results/input.report.html
 
 ### Outside Calls
 
-If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call. 
+If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](/using/Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call. 
 
 To do so, provide:
 

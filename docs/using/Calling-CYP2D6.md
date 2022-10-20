@@ -42,7 +42,7 @@ There is drastic variation in the calls produced by the three sequencing technol
 
 ### Using Outside Calls
 
-PharmCAT supports pulling in results from other tools using what we call ["outside calls"](Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and use PharmCAT for the phenotype translation and to include CYP2D6 results in a PharmCAT report.
+PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/using/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and use PharmCAT for the phenotype translation and to include CYP2D6 results in a PharmCAT report.
 
 To include outside calls you need to use the `-po` flag in PharmCAT to specify the outside calls file. For example:
 
@@ -58,8 +58,8 @@ CYP2D6	*1x2/[*2 + *6]
 
 For more information: 
 
-* see [Running PharmCAT](Running-PharmCAT#phenotyper) for details on the `-po` flag
-* see [Outside Call Format](Outside-Call-Format) for details on the outside call file
+* see [Running PharmCAT](/using/Running-PharmCAT#phenotyper) for details on the `-po` flag
+* see [Outside Call Format](/using/Outside-Call-Format) for details on the outside call file
 
 
 #### Formatting StellarPGx output for PharmCAT

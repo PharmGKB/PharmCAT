@@ -59,7 +59,7 @@ chr7	99652770	rs41303343	T	TA	.	PASS	desired-insertion-format	GT	0/1
 ## Preparing VCF Files
 
 {: .info}
-> We highly recommend that you use [PharmCAT's VCF Preprocessor](VCF-Preprocessor) to prepare your VCF files for use by PharmCAT.
+> We highly recommend that you use [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) to prepare your VCF files for use by PharmCAT.
 
 If you'd like to prepare your VCF yourself, the rest of this document explores the reasoning behind our requirements and some specific examples of fulfilling them.  
 
@@ -140,7 +140,7 @@ We recommend performing this normalization with [bcftools](http://samtools.githu
 
 Please consult the [bcftools documentation](http://samtools.github.io/bcftools/bcftools.html) for details.
 
-Alternatively, you can use PharmCAT's [VCF preprocessor](VCF-Preprocessor), which also relies on bcftools for this.
+Alternatively, you can use PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor), which also relies on bcftools for this.
 
 It is highly recommended that you always check the output files from these tools manually to make sure the correct format normalizations have been made.
 
@@ -149,7 +149,7 @@ It is highly recommended that you always check the output files from these tools
 
 PharmCAT expects the `CHROM` field to have entries that begin with "chr" (e.g. `chr1` instead of just `1`).
 
-[PharmCAT's VCF preprocessor](VCF-Preprocessor) takes care of this issue by automatically detecting and updating the `CHROM` field format.
+[PharmCAT's VCF preprocessor](/using/VCF-Preprocessor) takes care of this issue by automatically detecting and updating the `CHROM` field format.
 
 Alternatively,`CHROM` field format can be updated using the following command:
 

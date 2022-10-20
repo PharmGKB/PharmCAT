@@ -63,7 +63,7 @@ vcf_preprocess_utilities.py
 
 ### Running the VCF preprocessor
 
-Your VCF files needs to comply with [PharmCAT's requirements](VCF-Requirements).  [PharmCAT's VCF preprocessor](VCF-Preprocessor) will handle much of this for you.
+Your VCF files needs to comply with [PharmCAT's requirements](/using/VCF-Requirements).  [PharmCAT's VCF preprocessor](/using/VCF-Preprocessor) will handle much of this for you.
 
 ```console
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./PharmCAT_VCF_Preprocess.py
