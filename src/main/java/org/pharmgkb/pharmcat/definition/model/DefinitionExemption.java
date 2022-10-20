@@ -74,7 +74,12 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
    */
   public boolean shouldIgnorePosition(VariantLocus position) {
     return m_ignoredPositions.stream()
-        .anyMatch(vl -> vl.getRsid().equals(position.getRsid()));
+        .anyMatch(vl -> {
+          if (vl.getRsid() != null) {
+            return vl.getRsid().equals(position.getRsid());
+          }
+          return vl.getChromosomeHgvsName().equals(position.getChromosomeHgvsName());
+        });
   }
 
 

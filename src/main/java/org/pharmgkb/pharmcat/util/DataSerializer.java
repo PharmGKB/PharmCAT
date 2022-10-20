@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -38,6 +39,7 @@ public class DataSerializer {
       .excludeFieldsWithoutExposeAnnotation()
       .setPrettyPrinting()
       .create();
+  private static final Pattern sf_rsidPattern = Pattern.compile("rs\\d+");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
 
 
@@ -78,7 +80,8 @@ public class DataSerializer {
     }
   }
 
-  public Set<DefinitionExemption> deserializeExemptionsFromTsv(Path tsvFile) throws IOException {
+
+  Set<DefinitionExemption> deserializeExemptionsFromTsv(Path tsvFile) throws IOException {
     Preconditions.checkNotNull(tsvFile);
     Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
     Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
@@ -94,14 +97,22 @@ public class DataSerializer {
         String gene = data[0];
         final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
         if (data.length > 1) {
-          for (String rsid : sf_commaSplitter.splitToList(data[1])) {
-            ignoreLoci.add(vcfHelper.rsidToVariantLocus(rsid));
+          for (String var : sf_commaSplitter.splitToList(data[1])) {
+            if (sf_rsidPattern.matcher(var).matches()) {
+              ignoreLoci.add(vcfHelper.rsidToVariantLocus(var));
+            } else {
+              ignoreLoci.add(vcfHelper.hgvsToVariantLocus(var));
+            }
           }
         }
         final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
         if (data.length > 2) {
-          for (String rsid : sf_commaSplitter.splitToList(data[2])) {
-            extraLoci.add(vcfHelper.rsidToVariantLocus(rsid));
+          for (String var : sf_commaSplitter.splitToList(data[2])) {
+            if (sf_rsidPattern.matcher(var).matches()) {
+              extraLoci.add(vcfHelper.rsidToVariantLocus(var));
+            } else {
+              extraLoci.add(vcfHelper.hgvsToVariantLocus(var));
+            }
           }
         }
         SortedSet<String> ignoreAlleles = null;

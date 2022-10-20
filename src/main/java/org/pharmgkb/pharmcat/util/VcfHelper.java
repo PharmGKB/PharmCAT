@@ -101,33 +101,44 @@ public class VcfHelper implements AutoCloseable {
   }
 
   /**
+   * Translate HGVS to {@link VariantLocus}.
+   */
+  public VariantLocus hgvsToVariantLocus(String hgvs) throws IOException {
+    VcfData vcfData = hgvsToVcf(hgvs);
+    return vcfDataToVariantLocus(vcfData, null);
+  }
+
+  /**
    * Translate RSID to {@link VariantLocus}.
    */
   public VariantLocus rsidToVariantLocus(String rsid) throws IOException {
     String url = String.format(sf_extraPositionUrl, URLEncoder.encode(rsid, StandardCharsets.UTF_8));
     try {
       VcfData vcfData = new VcfData(runQuery(url));
-
-      VariantLocus vl = new VariantLocus(vcfData.chrom, vcfData.pos,
-          vcfData.hgvs.substring(0, vcfData.hgvs.indexOf(":") + 1));
-      vl.setRsid(rsid);
-      vl.setRef(vcfData.ref);
-      vl.addAlt(vcfData.alt);
-
-      SortedSet<String> cpicAlleles = new TreeSet<>();
-      cpicAlleles.add(vcfData.ref);
-      cpicAlleles.add(vcfData.alt);
-      vl.setCpicAlleles(cpicAlleles);
-
-      Map<String, String> vcfMap = new HashMap<>();
-      vcfMap.put(vcfData.ref, vcfData.ref);
-      vcfMap.put(vcfData.alt, vcfData.alt);
-      vl.setCpicToVcfAlleleMap(vcfMap);
-
-      return vl;
+      return vcfDataToVariantLocus(vcfData, rsid);
     } catch (IOException ex) {
       throw new IOException("Error looking up " + rsid, ex);
     }
+  }
+
+  private VariantLocus vcfDataToVariantLocus(VcfData vcfData, @Nullable String rsid) {
+    VariantLocus vl = new VariantLocus(vcfData.chrom, vcfData.pos,
+        vcfData.hgvs.substring(vcfData.hgvs.indexOf(":") + 1));
+    vl.setRsid(rsid);
+    vl.setRef(vcfData.ref);
+    vl.addAlt(vcfData.alt);
+
+    SortedSet<String> cpicAlleles = new TreeSet<>();
+    cpicAlleles.add(vcfData.ref);
+    cpicAlleles.add(vcfData.alt);
+    vl.setCpicAlleles(cpicAlleles);
+
+    Map<String, String> vcfMap = new HashMap<>();
+    vcfMap.put(vcfData.ref, vcfData.ref);
+    vcfMap.put(vcfData.alt, vcfData.alt);
+    vl.setCpicToVcfAlleleMap(vcfMap);
+
+    return vl;
   }
 
   private Map<String, Object> runQuery(String url) throws IOException, ParseException {
