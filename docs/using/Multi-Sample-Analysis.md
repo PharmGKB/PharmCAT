@@ -70,7 +70,6 @@ $ python3 PharmCAT_VCF_Preprocess.py -vcf <multi_sample_vcf>
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 python3 PharmCAT_VCF_Preprocess.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.bgz
 ```
 
@@ -85,7 +84,6 @@ $ python3 PharmCAT_VCF_Preprocess.py -vcf <list_of_input_vcf>
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 # run the PharmCAT VCF preprocessor for multiple VCFs with non-overlapping genetic regions of the same cohort
 python3 PharmCAT_VCF_Preprocess.py -vcf data/input_vcf_list.txt
 ```
@@ -101,7 +99,6 @@ $ java -jar <path_to_the_latest_pharmcat_jar> -vcf <single_sample_vcf>
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 # running multiple samples
 for SINGLE_SAMPLE in $(cat data/test_get-rm_samples.txt)
 do
@@ -129,7 +126,6 @@ $ java -jar <path_to_the_latest_pharmcat_jar> -matcher -vcf <sample.vcf>
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat data/test_get-rm_samples.txt)"
 do
   java -jar pharmcat.jar -matcher -vcf results/pharmcat_ready/${SINGLE_SAMPLE}.preprocessed.vcf
@@ -145,7 +141,6 @@ $ java -jar <path_to_the_latest_pharmcat_jar> -phenotyper -pi <sample.match.json
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat data/test_get-rm_samples.txt)"
 do
   java -jar pharmcat.jar -phenotyper -pi results/pharmcat_ready/${SINGLE_SAMPLE}.preprocessed.match.json
@@ -161,7 +156,6 @@ $ java -jar <path_to_the_latest_pharmcat_jar> -reporter -ri <sample.phenotype.js
 
 Sample script:
 ```shell
-cd PharmCAT-tutorial/
 for SINGLE_SAMPLE in "$(cat <sample_list.txt>)"
 do
   java -jar pharmcat.jar -reporter -ri ${SINGLE_SAMPLE}.preprocessed.phenotype.json -reporterJson \
@@ -173,7 +167,7 @@ These commands yield `Named Allele Matcher`, `Phenotyper`, and `Reporter` result
 
 ### Extracting PharmCAT JSON content into TSV
 
-We also provide accessory R scripts that organize and extract the content from the [Named Allele Matcher](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/organize_pharmcat_named_allele_matcher_results.R) or [Phenotyper](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/organize_pharmcat_phenotyper_results.R) JSON outputs into tab-separated values (TSV) files. Here is an example TSV that the users will obtain from the provided R scripts.
+We also provide accessory R scripts that organize and extract the content from the [Named Allele Matcher](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat_named_allele_matcher.R) or from [the final reports](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat_report.R) JSON outputs into tab-separated values (TSV) files. Here is an example TSV that the users will obtain from the provided R scripts.
 
 |samples|gene |diplotype                                      |haplotype_1            |haplotype_2            |haplotype_1_variants|haplotype_2_variants|missing_positions|
 |-------|-----|-----------------------------------------------|-----------------------|-----------------------|--------------------|--------------------|-----------------|
@@ -189,28 +183,26 @@ We also provide accessory R scripts that organize and extract the content from t
 
 #### Extracting the PharmCAT Named Allele Matcher JSON data into a TSV file
 ```shell
-cd PharmCAT-tutorial/
-SCRIPT_PATH=src/organize_pharmcat_named_allele_matcher_results.R
+SCRIPT_PATH=src/json2tsv_pharmcat_named_allele_matcher.R
 MATCHER_DIR=results/pharmcat_named_allele_matcher/
-MATCHER_PATTERN=pharmcat_named_allele_matcher*json
+MATCHER_PATTERN=*match.json
 PROJECT_DIR="$PWD"
-Rscript  “$SCRIPT_PATH” \
+Rscript  "$SCRIPT_PATH" \
 --input-dir "$MATCHER_DIR" \
 --input-file-pattern "$MATCHER_PATTERN" \
 --output-dir "$PROJECT_DIR"
 ```
 
-#### Extracting the PharmCAT Phenotyper JSON data into a TSV file
+#### Extracting the PharmCAT reports (in JSON files) into a TSV file
 
 ```shell
-cd PharmCAT-tutorial/
-SCRIPT_PATH=src/organize_pharmcat_phenotyper_results.R
-PHENOTYPER_DIR=results/pharmcat_phenotyper/
-PHENOTYPER_PATTERN=pharmcat_phenotyper*json
+SCRIPT_PATH=src/json2tsv_pharmcat_report.R
+PHARMCAT_ALL_DIR=results/pharmcat_all/
+REPORT_PATTERN=*report.json
 PROJECT_DIR="$PWD"
 Rscript  "$SCRIPT_PATH" \
---input-dir "$PHENOTYPER_DIR" \
---input-file-pattern "$PHENOTYPER_PATTERN" \
+--input-dir "$PHARMCAT_ALL_DIR" \
+--input-file-pattern "$REPORT_PATTERN" \
 --output-dir "$PROJECT_DIR"
 ```
 
@@ -260,7 +252,7 @@ Here is a exemplary python output for the PharmCAT Named Allele Matcher:
 |SAMPLE_3 |Reference/Reference|No CPIC variants found|\*1/\*1 |\*1/\*1  |G/G       |\*1/\*1 |<...truncated for visual clarity...>|
 
 
-Below is Python3 code for converting the JSON files from PharmCAT Named Allele Matcher and Phenotyper into Pandas DataFrames, which can be exported to CSV or processed further in python. Because of the long runtime of this process, we recommend saving the calls to CSV and loading the data from CSV when needed, instead of regenerating the DataFrames many times.
+Below is Python3 code for converting the report JSON files into Pandas DataFrames, which can be exported to CSV or processed further in python. Because of the long runtime of this process, we recommend saving the calls to CSV and loading the data from CSV when needed, instead of regenerating the DataFrames many times.
 
 ```python
 # Need to give a list of sample IDs
