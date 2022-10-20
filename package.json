@@ -1,6 +1,6 @@
 {
   "name": "pharmcat",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/PharmGKB/PharmCAT.git"
@@ -31,10 +31,22 @@
               "fix"
             ],
             "types": [
-              { "type": "feat", "section": "Features" },
-              { "type": "feature", "section": "Features" },
-              { "type": "fix", "section": "Improvements" },
-              { "type": "perf", "section": "Improvements" }
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "feature",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Improvements"
+              },
+              {
+                "type": "perf",
+                "section": "Improvements"
+              }
             ],
             "commitsSort": "header"
           }
