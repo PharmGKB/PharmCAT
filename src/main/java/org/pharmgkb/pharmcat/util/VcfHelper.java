@@ -163,11 +163,13 @@ public class VcfHelper implements AutoCloseable {
 
       Map<String, Object> data;
       try (InputStreamReader reader = new InputStreamReader(entity.getContent())) {
-        //noinspection unchecked
-        data = (Map<String, Object>)DataSerializer.GSON.fromJson(reader, Map.class).get("data");
+        @SuppressWarnings("unchecked")
+        Map<String, Object> rez = (Map<String, Object>)DataSerializer.GSON.fromJson(reader, Map.class).get("data");
+        // do it this way for @SupressWarnings
+        data = rez;
       }
       if (response.getStatusLine().getStatusCode() != 200) {
-        //noinspection unchecked
+        @SuppressWarnings("unchecked")
         String msg = ((List<Map<String, String>>)data.get("errors")).get(0).get("message");
         ParseException ex = new ParseException(msg);
         ex.setAdditionalInfo(response.getStatusLine().getStatusCode() + " error querying " + url);

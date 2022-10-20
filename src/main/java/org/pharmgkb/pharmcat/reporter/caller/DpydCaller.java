@@ -109,10 +109,9 @@ public class DpydCaller {
   }
 
   private static Diplotype inferUnphasedDiplotype(List<String> hapNames, Env env, DataSource source) {
-    Object[] hapData = makeHaplotypes(hapNames, env, source);
-    //noinspection unchecked
-    List<Haplotype> haplotypes = (List<Haplotype>)hapData[0];
-    boolean isInferred = (Boolean)hapData[1];
+    InferredHaps hapData = makeHaplotypes(hapNames, env, source);
+    List<Haplotype> haplotypes = hapData.haplotypes;
+    boolean isInferred = hapData.isInferred;
     Haplotype hap1 = haplotypes.get(0);
     Haplotype hap2 = null;
     if (haplotypes.size() > 1) {
@@ -128,16 +127,14 @@ public class DpydCaller {
   private static Diplotype inferPhasedDiplotype(List<String> hapNames1, List<String> hapNames2, Env env,
       DataSource source) {
 
-    Object[] hapData1 = makeHaplotypes(hapNames1, env, source);
-    boolean isInferred = (Boolean)hapData1[1];
-    //noinspection unchecked
-    Haplotype hap1 = ((List<Haplotype>)hapData1[0]).get(0);
+    InferredHaps hapData1 = makeHaplotypes(hapNames1, env, source);
+    boolean isInferred = hapData1.isInferred;
+    Haplotype hap1 = hapData1.haplotypes.get(0);
     Haplotype hap2 = null;
     if (hapNames2 != null && hapNames2.size() > 0) {
-      Object[] hapData2 = makeHaplotypes(hapNames2, env, source);
-      //noinspection unchecked
-      hap2 = ((List<Haplotype>)hapData2[0]).get(0);
-      isInferred = isInferred || (Boolean)hapData2[1];
+      InferredHaps hapData2 = makeHaplotypes(hapNames2, env, source);
+      hap2 = hapData2.haplotypes.get(0);
+      isInferred = isInferred || hapData2.isInferred;
     }
     Diplotype diplotype = new Diplotype(GENE, hap1, hap2, env, source);
     if (isInferred || hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
@@ -147,7 +144,7 @@ public class DpydCaller {
   }
 
 
-  private static Object[] makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
+  private static InferredHaps makeHaplotypes(List<String> hapNames, Env env, DataSource source) {
     String refAllele = env.getReferenceAllele(GENE);
     AtomicBoolean inferred = new AtomicBoolean(false);
     List<Haplotype> haplotypes = hapNames.stream()
@@ -163,10 +160,21 @@ public class DpydCaller {
         })
         .sorted(new DpydActivityComparator(env))
         .toList();
-    return new Object[] {
-        haplotypes,
-        inferred.get(),
-    };
+    return new InferredHaps(haplotypes, inferred.get());
+  }
+
+
+  /**
+   * Wrapper class to hold multiple returned values.
+   */
+  private static class InferredHaps {
+    List<Haplotype> haplotypes;
+    boolean isInferred;
+
+    private InferredHaps(List<Haplotype> haplotypes, boolean isInferred) {
+      this.haplotypes = haplotypes;
+      this.isInferred = isInferred;
+    }
   }
 
 
