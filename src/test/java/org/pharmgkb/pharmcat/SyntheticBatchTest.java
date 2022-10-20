@@ -70,12 +70,12 @@ class SyntheticBatchTest {
         }
 
         List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
-        doRun(dir.resolve("default"), false, sources, true);
-        doRun(dir.resolve("compact"), true, sources, true);
-        doRun(dir.resolve("cpic"), false, Lists.newArrayList(DataSource.CPIC), true);
-        doRun(dir.resolve("cpic-compact"), true, Lists.newArrayList(DataSource.CPIC), true);
-        doRun(dir.resolve("dpwg"), false, Lists.newArrayList(DataSource.DPWG), true);
-        doRun(dir.resolve("dpwg-compact"), true, Lists.newArrayList(DataSource.DPWG), true);
+        doRun(dir.resolve("default"), true, sources, true);
+        doRun(dir.resolve("extended"), false, sources, true);
+        doRun(dir.resolve("cpic"), true, Lists.newArrayList(DataSource.CPIC), true);
+        doRun(dir.resolve("cpic-extended"), false, Lists.newArrayList(DataSource.CPIC), true);
+        doRun(dir.resolve("dpwg"), true, Lists.newArrayList(DataSource.DPWG), true);
+        doRun(dir.resolve("dpwg-extended"), false, Lists.newArrayList(DataSource.DPWG), true);
 
 
       } else {
