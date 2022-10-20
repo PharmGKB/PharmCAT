@@ -35,7 +35,9 @@ import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Markdown;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -289,6 +291,10 @@ public class DataManager {
           try (Reader reader = Files.newBufferedReader(file)) {
             GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(reader, GuidelinePackage.class);
             guidelinePackage.getCitations().forEach(Publication::normalize);
+            guidelinePackage.getGroups().stream()
+                .map(Group::getActivityScore)
+                .filter(Objects::nonNull)
+                .forEach(Markdown::cleanupActivityScore);
             try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
               DataSerializer.GSON.toJson(guidelinePackage, writer);
             }

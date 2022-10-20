@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
@@ -141,7 +142,7 @@ public class Group implements Comparable<Group> {
     this.implications = implications;
   }
 
-  public Markdown getActivityScore() {
+  public @Nullable Markdown getActivityScore() {
     return activityScore;
   }
 

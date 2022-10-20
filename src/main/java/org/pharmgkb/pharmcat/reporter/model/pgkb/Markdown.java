@@ -21,12 +21,13 @@ public class Markdown {
   @Expose
   private String m_html;
 
-  public String getHtml() {
-    return m_html;
+
+  public long getId() {
+    return m_id;
   }
 
-  public void setHtml(String html) {
-    m_html = html;
+  public String getHtml() {
+    return m_html;
   }
 
   /**
@@ -38,11 +39,13 @@ public class Markdown {
     return m.replaceAll("");
   }
 
-  public long getId() {
-    return m_id;
-  }
 
-  public void setId(long id) {
-    m_id = id;
+  /**
+   * Used by DataManager to clean up activity score text.
+   */
+  public void cleanupActivityScore() {
+    if (m_html.contains("Total gene activity score = ")) {
+      m_html = m_html.replace("Total gene activity score = ", "");
+    }
   }
 }

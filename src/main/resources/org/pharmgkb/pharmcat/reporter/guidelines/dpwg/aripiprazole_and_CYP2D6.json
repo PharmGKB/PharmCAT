@@ -430,7 +430,7 @@
       },
       "activityScore": {
         "id": 1451417853,
-        "html": "<p>Total gene activity score = 1.5-2.5</p>\n"
+        "html": "<p>1.5-2.5</p>\n"
       }
     },
     {
@@ -500,7 +500,7 @@
       },
       "activityScore": {
         "id": 1451417844,
-        "html": "<p>Total gene activity score = 0.5-1</p>\n"
+        "html": "<p>0.5-1</p>\n"
       }
     },
     {
@@ -531,7 +531,7 @@
       },
       "activityScore": {
         "id": 1451837186,
-        "html": "<p>Total gene activity score = 0</p>\n"
+        "html": "<p>0</p>\n"
       }
     }
   ],

@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example",
-  "generatedOn": "Oct 20, 2022, 12:09:24 AM",
-  "pharmcatVersion": "v1.8.0-251-gc131e6c6",
+  "generatedOn": "Oct 20, 2022, 11:23:00 AM",
+  "pharmcatVersion": "v1.8.0-258-g302b5ce8",
   "cpicVersion": "v1.21.0",
   "dpwgVersion": "2022-10-13-18-52, v1.21.0",
   "genes": {
@@ -16280,7 +16280,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -16381,7 +16381,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -16482,7 +16482,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -16768,7 +16768,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -17089,7 +17089,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -17257,7 +17257,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -17358,7 +17358,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -17512,7 +17512,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -17681,7 +17681,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -18022,7 +18022,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -18199,7 +18199,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -18624,7 +18624,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -18725,7 +18725,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -18939,7 +18939,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -19232,7 +19232,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -19333,7 +19333,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -19528,7 +19528,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -19916,7 +19916,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -20344,7 +20344,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -20445,7 +20445,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -20728,7 +20728,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "Total gene activity score = 0.5-1"
+                  "CYP2D6": "0.5-1"
                 },
                 "population": "n/a",
                 "genotypes": [
