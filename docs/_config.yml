@@ -51,10 +51,7 @@ show_downloads: true
 #   - vendor/ruby/
 exclude:
   - .jekyll-cache/
-  - _includes/
-  - _sass/
   - _site/
-  - assets/
   - vendor/
   - .ruby-version
   - _config.yml

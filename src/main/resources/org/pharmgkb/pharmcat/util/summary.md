@@ -18,11 +18,14 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 
 ### Genes handled by outside callers
 
-These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you can use an outside caller like [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) or [StellarPGx](https://github.com/SBIMB/StellarPGx) to get diplotype calls and then supply that to PharmCAT for use in matching recommendation data.  See [Outside Call Format](using/Outside-Call-Format) for details.
+These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you can use an outside caller like
+[Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) or
+[StellarPGx](https://github.com/SBIMB/StellarPGx) to get diplotype calls and then supply that to PharmCAT for use in
+matching recommendation data.  See [Outside Call Format](/using/Outside-Call-Format) for details.
 
 %s
 
-<sup>*</sup> Except for CYP2D6 if the requisite [research mode](using/Running-PharmCAT#research-only-options) is enabled.
+<sup>*</sup> Except for CYP2D6 if the requisite [research mode](/using/Running-PharmCAT#research-only-options) is enabled.
 
 
 ## Drugs
