@@ -333,7 +333,7 @@ public class DataManager {
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : definitionFiles) {
         String gene = df.getGeneSymbol();
-        if (gene.equals("MT-RNR1") || gene.equals("G6PD")) {
+        if (gene.equals("MT-RNR1")) {
           continue;
         }
         DefinitionExemption exemption = exemptionsMap.get(gene);

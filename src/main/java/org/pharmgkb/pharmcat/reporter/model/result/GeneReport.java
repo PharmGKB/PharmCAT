@@ -55,9 +55,9 @@ public class GeneReport implements Comparable<GeneReport> {
    * cannot make a call.
    */
   public static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
-  private static final Set<String> SINGLE_PLOIDY       = ImmutableSet.of("G6PD", "MT-RNR1");
-  private static final Set<String> CHROMO_X            = ImmutableSet.of("G6PD");
-  private static final Set<String> ALLELE_PRESENCE     = ImmutableSet.of("HLA-A", "HLA-B");
+  private static final Set<String> SINGLE_PLOIDY      = ImmutableSet.of("G6PD", "MT-RNR1");
+  private static final Set<String> CHROMO_X           = ImmutableSet.of("G6PD");
+  private static final Set<String> ALLELE_PRESENCE    = ImmutableSet.of("HLA-A", "HLA-B");
   public static  final String YES = "Yes";
   public static  final String NO  = "No";
 

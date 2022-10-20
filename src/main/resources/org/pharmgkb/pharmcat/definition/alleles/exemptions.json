@@ -8,7 +8,7 @@
         "position": 94645745,
         "cpicPosition": 94645745,
         "rsid": "rs12777823",
-        "chromosomeHgvsName": "NC_000010.11:",
+        "chromosomeHgvsName": "g.94645745G>A",
         "cpicAlleles": [
           "A",
           "G"
@@ -43,7 +43,7 @@
         "position": 154532439,
         "cpicPosition": 154532439,
         "rsid": "rs2230037",
-        "chromosomeHgvsName": "NC_000023.11:",
+        "chromosomeHgvsName": "g.154532439A>G",
         "cpicAlleles": [
           "A",
           "G"
@@ -55,6 +55,25 @@
         "ref": "A",
         "alts": [
           "G"
+        ]
+      },
+      {
+        "chromosome": "chrX",
+        "position": 154532990,
+        "cpicPosition": 154532990,
+        "rsid": null,
+        "chromosomeHgvsName": "g.154532991_154532993delGGT",
+        "cpicAlleles": [
+          "C",
+          "CGGT"
+        ],
+        "cpicToVcfAlleleMap": {
+          "C": "C",
+          "CGGT": "CGGT"
+        },
+        "ref": "CGGT",
+        "alts": [
+          "C"
         ]
       }
     ],

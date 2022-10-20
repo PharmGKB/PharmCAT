@@ -26,6 +26,7 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 | [CYP3A5](/Phenotypes-List#cyp3a5) | :heavy_check_mark: | :heavy_check_mark: |
 | [CYP4F2](/Phenotypes-List#cyp4f2) | :heavy_check_mark: |  |
 | [DPYD](/Phenotypes-List#dpyd) | :heavy_check_mark: | :heavy_check_mark: |
+| [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
 | [IFNL3](/Phenotypes-List#ifnl3) | :heavy_check_mark: |  |
 | [NUDT15](/Phenotypes-List#nudt15) | :heavy_check_mark: | :heavy_check_mark: |
 | [RYR1](/Phenotypes-List#ryr1) | :heavy_check_mark: |  |
@@ -43,7 +44,6 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 | :--- | :---: | :---: |
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
 | [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
-| [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
 
 

@@ -4815,14 +4815,14 @@
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": null,
-              "reference": true,
+              "reference": false,
               "activityValue": null
             },
             "allele2": {
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": null,
-              "reference": true,
+              "reference": false,
               "activityValue": null
             },
             "gene": "G6PD",
@@ -4846,14 +4846,14 @@
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": null,
-              "reference": true,
+              "reference": false,
               "activityValue": null
             },
             "allele2": {
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": null,
-              "reference": true,
+              "reference": false,
               "activityValue": null
             },
             "gene": "G6PD",
@@ -11940,6 +11940,13 @@
             },
             "exception_type": "",
             "message": "This comes from an outside data source which does not supply position-level detail.  For specific disclaimers and limitations, see the original genotyping source."
+          },
+          {
+            "rule_name": "prefer-sample-data",
+            "version": null,
+            "matches": null,
+            "exception_type": "note",
+            "message": "PharmCAT would have called B (reference)/B (reference) based on the VCF but it has been ignored in favor of the outside call. If you want to use the PharmCAT call for this gene then remove the gene from the outside call data."
           }
         ],
         "relatedDrugs": [],
@@ -11949,14 +11956,14 @@
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": "Unassigned function",
-              "reference": true,
+              "reference": false,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": "Unassigned function",
-              "reference": true,
+              "reference": false,
               "activityValue": "n/a"
             },
             "gene": "G6PD",
@@ -11984,14 +11991,14 @@
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": "Unassigned function",
-              "reference": true,
+              "reference": false,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "G6PD",
               "name": "B (wildtype)",
               "function": "Unassigned function",
-              "reference": true,
+              "reference": false,
               "activityValue": "n/a"
             },
             "gene": "G6PD",

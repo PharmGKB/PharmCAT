@@ -1,6 +1,6 @@
 package org.pharmgkb.pharmcat;
 
-import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -57,12 +57,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Ryan Whaley
  */
 class PharmCATTest {
-  private static final String sf_outsideCalls = """
-      ##Test Outside Call Data
-      #Gene\tDiplotype\tdiplotype activity\tdiplotype calling notes\tjaccard\tpart\tpValue\tROI notes\tspecial case\tnomenclature version
-      CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09
-      """;
-  private static final String sf_otherOutsideCalls = "CYP2D6\t*3/*4\nG6PD\tB (wildtype)/B (wildtype)\n";
   private static final String sf_diplotypesTemplate = "\nmatcher: %s\nreporter: %s\nprint (displayCalls): %s";
   private static boolean m_compact = true;
   private static List<DataSource> m_sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
@@ -83,13 +77,19 @@ class PharmCATTest {
   static void prepare() throws IOException {
 
     s_outsideCallFilePath = TestUtils.createTestFile(PharmCATTest.class, "outsideCall.tsv");
-    try (FileWriter fw = new FileWriter(s_outsideCallFilePath.toFile())) {
-      fw.write(sf_outsideCalls);
+    try (BufferedWriter writer = Files.newBufferedWriter(s_outsideCallFilePath)) {
+      writer.write("""
+          ##Test Outside Call Data
+          CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09
+              """);
     }
 
     s_otherOutsideCallFilePath = TestUtils.createTestFile(PharmCATTest.class, "otherOutsideCall.tsv");
-    try (FileWriter fw = new FileWriter(s_otherOutsideCallFilePath.toFile())) {
-      fw.write(sf_otherOutsideCalls);
+    try (BufferedWriter writer = Files.newBufferedWriter(s_otherOutsideCallFilePath)) {
+      writer.write("""
+          CYP2D6\t*3/*4
+          G6PD\tB (wildtype)/B (wildtype)
+          """);
     }
   }
 
@@ -473,7 +473,6 @@ class PharmCATTest {
       writer.println(
           """
               CYP2D6\t*3/*4
-              G6PD\tB (wildtype)/B (wildtype)
               HLA-A\t\t*31:01 positive
               HLA-B\t*15:02/*57:01"""
       );
@@ -491,6 +490,7 @@ class PharmCATTest {
         .reference("CYP3A5")
         .reference("CYP4F2")
         .reference("DPYD")
+        .reference("G6PD")
         .reference("IFNL3")
         .reference("NUDT15")
         .reference("RYR1")
@@ -511,6 +511,7 @@ class PharmCATTest {
         "CYP3A5",
         "CYP4F2",
         "DPYD",
+        "G6PD",
         "IFNL3",
         "NUDT15",
         "RYR1",
@@ -519,7 +520,7 @@ class PharmCATTest {
         "UGT1A1",
         "VKORC1"
     );
-    testWrapper.testNotCalledByMatcher("CYP2D6", "G6PD", "HLA-A", "HLA-B");
+    testWrapper.testNotCalledByMatcher("CYP2D6", "HLA-A", "HLA-B");
   }
 
   /**

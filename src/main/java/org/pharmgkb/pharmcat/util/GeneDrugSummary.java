@@ -43,8 +43,8 @@ public class GeneDrugSummary {
   private static final String PHENOTYPES_TSV_FILE_NAME = "phenotypes.tsv";
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   // TODO: revert when HLA's are supported again
-  //private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "G6PD", "HLA-A", "HLA-B", "MT-RNR1");
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "G6PD", "MT-RNR1");
+  //private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "HLA-A", "HLA-B", "MT-RNR1");
+  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "MT-RNR1");
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
   private final DrugCollection m_cpicDrugs;
