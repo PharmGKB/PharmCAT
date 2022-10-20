@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.definition;
+package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
-import org.pharmgkb.pharmcat.util.DataSerializer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
