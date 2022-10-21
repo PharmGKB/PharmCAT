@@ -1,7 +1,7 @@
 ---
 title: Examples
-prermalink: examples/
-nav_order: 6
+permalink: examples/
+nav_order: 5
 ---
 
 # Examples

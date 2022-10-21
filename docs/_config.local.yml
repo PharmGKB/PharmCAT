@@ -11,7 +11,7 @@ github_username:  pharmgkb
 # Build settings
 plugins:
   - jemoji
-remote_theme: just-the-docs/just-the-docs@v0.4.0.rc3
+theme: just-the-docs
 defaults:
   -
     scope:
@@ -28,6 +28,8 @@ kramdown:
   typographic_symbols:
     mdash: "---"
     ndash: "--"
+mermaid:
+  version: "9.1.7"
 
 # Just-the-Docs settings
 color_scheme: pharmcat

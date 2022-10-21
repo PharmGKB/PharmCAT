@@ -1,7 +1,7 @@
 ---
 title: FAQs
 permalink: faqs/
-nav_order: 7
+nav_order: 6
 ---
 # Frequently Asked Questions
 {: .no_toc }

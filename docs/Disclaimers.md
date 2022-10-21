@@ -1,7 +1,7 @@
 ---
-title: Disclaimers and Other Information
+title: Disclaimers & Other Information
 permalink: Disclaimers/
-nav_order: 8
+nav_order: 7
 ---
 # Disclaimers and Other Information
 

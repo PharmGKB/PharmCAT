@@ -1,7 +1,7 @@
 ---
 title: Genes & Drugs
 permalink: Genes-Drugs/
-nav_order: 5
+nav_order: 4
 ---
 
 # PharmCAT Genes & Drugs

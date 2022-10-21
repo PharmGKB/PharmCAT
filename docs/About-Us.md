@@ -1,7 +1,7 @@
 ---
 title: About Us
 permalink: About-Us/
-nav_order: 9
+nav_order: 8
 ---
 # About Us
 
