@@ -31,8 +31,8 @@ The PharmCAT VCF preprocessing produces two types of **output**:
 We assume that the input VCF files are prepared following the [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
 To run the tool, you need to download the following bioinformatic tools:
-* [bcftools >= v1.15](http://www.htslib.org/download/)
-* [htslib >= v1.15](http://www.htslib.org/download/)
+* [bcftools >= v1.16](http://www.htslib.org/download/)
+* [htslib >= v1.16](http://www.htslib.org/download/)
 
 We assume a working python3 installation with necessary dependencies:
 * python >= 3.9.4
