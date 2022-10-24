@@ -511,7 +511,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
 
                             # update info
                             ref_info = list(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
-                            updated_info = ';'.join(ref_info + fields[7]) if fields[7] != '.' else ';'.join(ref_info)
+                            updated_info = ';'.join(ref_info + [fields[7]]) if fields[7] != '.' else ';'.join(ref_info)
 
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
