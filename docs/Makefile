@@ -3,11 +3,11 @@ setup:
 	bundle install
 
 serve:
-	bundle exec jekyll serve --incremental --config _config.local.yml
+	bundle exec jekyll serve --incremental
 
 build:
 	bundle exec just-the-docs rake search:init
-	bundle exec jekyll build --config _config.local.yml
+	bundle exec jekyll build
 
 clean:
 	rm -rf _site
