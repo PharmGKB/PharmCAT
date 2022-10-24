@@ -13,16 +13,11 @@ plugins:
   - jemoji
 theme: just-the-docs
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
+  - scope:
+      path: "**/*.md"
       type: "pages"
     values:
       layout: "home"
-  - scope:
-      path: "examples/*.html"
-    values:
-      search_exclude: true
 kramdown:
   smart_quotes: [ "apos", "apos", "quot", "quot" ]
   typographic_symbols:
