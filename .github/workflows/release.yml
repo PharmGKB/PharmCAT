@@ -13,12 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Checkout wiki
-        uses: actions/checkout@v3
-        with:
-          repository: PharmGKB/PharmCAT.wiki
-          path: 'PharmCAT.wiki'
-
       - name: Set appVersion
         uses: bhowell2/github-substring-action@v1
         id: appVersion
