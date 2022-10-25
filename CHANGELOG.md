@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/PharmGKB/PharmCAT/compare/v2.0.0...v2.0.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* **preprocessor:** declare and concat list variables ([d0899f0](https://github.com/PharmGKB/PharmCAT/commit/d0899f01e2139b91b6deb081adeaceee235ca5a6)), closes [#115](https://github.com/PharmGKB/PharmCAT/issues/115)
+* **preprocessor:** fix a bug in bcftools and bgzip version checks that interrupts the VCF preprocessor ([34f3f54](https://github.com/PharmGKB/PharmCAT/commit/34f3f54d645081042e32cd86b20d4abe127f7dc8)), closes [#116](https://github.com/PharmGKB/PharmCAT/issues/116)
+* **preprocessor:** fix a bug that interrupts the VCF preprocessor ([0ed6e22](https://github.com/PharmGKB/PharmCAT/commit/0ed6e2233859a1f33950bbe1694c4ca4be6c4c46)), closes [#115](https://github.com/PharmGKB/PharmCAT/issues/115)
+
 ## [2.0.0](https://github.com/PharmGKB/PharmCAT/compare/v1.8.0...v2.0.0) (2022-10-20)
 
 
