@@ -8,10 +8,14 @@ import sys
 import re
 from pathlib import Path
 from timeit import default_timer as timer
+from packaging import version
 import vcf_preprocess_utilities as util
 
-_bcftools_version = 1.16
-_bgzip_version = 1.16
+
+# expected tool versions
+MIN_BCFTOOLS_VERSION = '1.16'
+MIN_BGZIP_VERSION = '1.16'
+
 
 def run(args):
     """ normalize and prepare the input VCF for PharmCAT """
@@ -23,27 +27,41 @@ def run(args):
     # validate bcftools
     bcftools_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
     try:
-        version_message = subprocess.run([bcftools_path, '-v'], capture_output=True, text=True).stdout
+        bcftools_version_message = subprocess.run([bcftools_path, '-v'], capture_output=True, text=True).stdout
     except:
         print('Error: %s not found or not executable' % bcftools_path)
         sys.exit(1)
-    # warn for bcftools of lower versions
-    tool_version = re.search(r'bcftools (\d\.\d+)*', version_message).group(1)
-    if float(tool_version) < _bcftools_version:
-        print('Please use bcftools %s or higher' % str(_bcftools_version))
-        sys.exit(1)
+    # check the bcftools versions
+    bcftools_version_regex = re.search(r'bcftools (\d+(\.\d+)*)', bcftools_version_message)
+    # warn and quit
+    if bcftools_version_regex is not None:
+        current_bcftools_version = bcftools_version_regex.group(1)
+        if version.parse(current_bcftools_version) < version.parse(MIN_BCFTOOLS_VERSION):
+            print("Please use bcftools %s or higher" % MIN_BCFTOOLS_VERSION)
+            sys.exit(1)
+    else:
+        print('Could not find the version information for bcftools')
+        print("Please use bcftools %s or higher" % MIN_BCFTOOLS_VERSION)
 
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
     try:
-        version_message = subprocess.run([bgzip_path, '-h'], capture_output=True, text=True).stdout
+        bgzip_help_message = subprocess.run([bgzip_path, '-h'], capture_output=True, text=True).stdout
     except:
         print('Error: %s not found or not executable' % bgzip_path)
         sys.exit(1)
-    # warn for bgzip of lower versions
-    tool_version = re.search(r'Version: (\d\.\d+)*', version_message).group(1)
-    if float(tool_version) < _bgzip_version:
-        print("Please use htslib/bgzip %s or higher" % str(_bgzip_version))
+    # check the bgzip version
+    bgzip_version_regex = re.search(r'Version: (\d+(\.\d+)*)', bgzip_help_message)
+    # warn and quit
+    if bgzip_version_regex is not None:
+        current_bgzip_version = bgzip_version_regex.group(1)
+        if version.parse(current_bgzip_version) < version.parse(MIN_BGZIP_VERSION):
+            print("Please use bgzip %s or higher" % MIN_BGZIP_VERSION)
+            sys.exit(1)
+    else:
+        print("Could not find the version information for bgzip\n"
+              "It is likely you are using a bgzip <= 1.9\n"
+              "Please use bgzip %s or higher" % MIN_BGZIP_VERSION)
         sys.exit(1)
 
     # validate input vcf or file list
