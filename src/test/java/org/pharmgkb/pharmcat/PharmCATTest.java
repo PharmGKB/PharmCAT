@@ -2025,7 +2025,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
    */
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t*1/*1");
@@ -2353,7 +2352,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
   @Test
   void testG6pdRef_male(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .male()
@@ -2375,7 +2373,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
   @Test
   void testG6pd_Ref_female(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .female()
@@ -2397,7 +2394,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
   @Test
   void testG6pd_Arakawa_male(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .male()
@@ -2420,7 +2416,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
   @Test
   void testG6pd_Arakawa_female_het(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .female()
@@ -2443,7 +2438,6 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
 
   @Test
   void testG6pd_Arakawa_female_homo(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .female()
