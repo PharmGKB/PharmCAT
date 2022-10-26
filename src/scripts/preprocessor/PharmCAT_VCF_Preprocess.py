@@ -3,12 +3,13 @@
 __author__ = 'BinglanLi'
 
 import os
-import subprocess
-import sys
 import re
+import sys
 from pathlib import Path
 from timeit import default_timer as timer
+
 from packaging import version
+
 import vcf_preprocess_utilities as util
 
 
@@ -26,13 +27,9 @@ def run(args):
     """
     # validate bcftools
     bcftools_path = args.path_to_bcftools if args.path_to_bcftools else 'bcftools'
-    try:
-        bcftools_version_message = subprocess.run([bcftools_path, '-v'], capture_output=True, text=True).stdout
-    except:
-        print('Error: %s not found or not executable' % bcftools_path)
-        sys.exit(1)
+    bcftools_version_message = util.execute_subprocess([bcftools_path, '-v'])
     # check the bcftools versions
-    bcftools_version_regex = re.search(r'bcftools (\d+(\.\d+)*)', bcftools_version_message)
+    bcftools_version_regex = re.search(r'bcftools (\d+(\.\d+)*)', str(bcftools_version_message))
     # warn and quit
     if bcftools_version_regex is not None:
         current_bcftools_version = bcftools_version_regex.group(1)
@@ -45,13 +42,9 @@ def run(args):
 
     # validate bgzip
     bgzip_path = args.path_to_bgzip if args.path_to_bgzip else 'bgzip'
-    try:
-        bgzip_help_message = subprocess.run([bgzip_path, '-h'], capture_output=True, text=True).stdout
-    except:
-        print('Error: %s not found or not executable' % bgzip_path)
-        sys.exit(1)
+    bgzip_help_message = util.execute_subprocess([bgzip_path, '-h'])
     # check the bgzip version
-    bgzip_version_regex = re.search(r'Version: (\d+(\.\d+)*)', bgzip_help_message)
+    bgzip_version_regex = re.search(r'Version: (\d+(\.\d+)*)', str(bgzip_help_message))
     # warn and quit
     if bgzip_version_regex is not None:
         current_bgzip_version = bgzip_version_regex.group(1)
@@ -107,9 +100,9 @@ def run(args):
         # create the output folder
         Path(output_dir).mkdir(parents=True, exist_ok=True)
     elif input_vcf:
-        output_dir = os.path.split(input_vcf)[0]
+        output_dir = os.path.split(os.path.realpath(input_vcf))[0]
     else:
-        output_dir = os.path.split(input_list)[0]
+        output_dir = os.path.split(os.path.realpath(input_list))[0]
     print("Saving output to", output_dir)
 
     # download the human reference sequence if not provided
@@ -118,10 +111,10 @@ def run(args):
     else:
         if os.path.exists(os.path.join(output_dir, 'reference.fna.bgz')):
             reference_genome = os.path.join(output_dir, 'reference.fna.bgz')
-            print("Using default FASTA reference at ", reference_genome)
+            print("Using default FASTA reference at", reference_genome)
         elif os.path.exists(os.path.join(os.getcwd(), 'reference.fna.bgz')):
             reference_genome = os.path.join(os.getcwd(), 'reference.fna.bgz')
-            print("Using default FASTA reference at ", reference_genome)
+            print("Using default FASTA reference at", reference_genome)
         else:
             reference_genome = util.get_default_grch38_ref_fasta_and_index(output_dir)
             print("Downloaded to %s" % reference_genome)
@@ -186,11 +179,14 @@ def run(args):
 
     # remove intermediate files
     if not keep_intermediate_files:
+        print("Removing intermediate files:")
         for single_path in tmp_files_to_be_removed:
             util.remove_vcf_and_index(single_path)
 
     end = timer()
-    print("Successfully preprocessed input VCF in %s seconds" % (str(end - start)))
+    print()
+    print("Done.")
+    print("Preprocessed input VCF in %.2f seconds" % (end - start))
 
 
 if __name__ == "__main__":
@@ -200,8 +196,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
 
     # list arguments
-    parser.add_argument("-vcf", "--vcf", type=str, help="Path to a VCF file or a file of paths to VCF files "
-                                                        "(one file per line), sorted by chromosome position.")
+    parser.add_argument("-vcf", "--vcf", type=str, required=True,
+                        help="Path to a VCF file or a file of paths to VCF files (one file per line), "
+                             "sorted by chromosome position.")
     parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str,
                         default=os.path.join(os.getcwd(), "pharmcat_positions.vcf.bgz"),
                         help="A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. Default = "
@@ -225,11 +222,11 @@ if __name__ == "__main__":
                         help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.")
 
     # parse arguments
-    args = parser.parse_args()
+    parsed_args = parser.parse_args()
 
     # print warnings here
     # alternatively, could use the "warnings" module
-    if args.missing_to_ref:
+    if parsed_args.missing_to_ref:
         print('=============================================================\n'
               'Warning: Argument "-0"/"--missing-to-ref" supplied\n'
               '\n'
@@ -242,4 +239,4 @@ if __name__ == "__main__":
               '=============================================================\n')
 
     # normalize variant representations and reconstruct multi-allelic variants in the input VCF
-    run(args)
+    run(parsed_args)

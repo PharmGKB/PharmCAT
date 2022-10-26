@@ -34,6 +34,24 @@ if len(_chr_invalid) != len(_chr_valid):
     sys.exit(1)
 
 
+def execute_subprocess(args):
+    """
+    Executes command in subprocess with proper exception handling.
+    :return: stdout of command
+    """
+    try:
+        return subprocess.run(args, capture_output=True, text=True).stdout
+    except FileNotFoundError:
+        print('Error: %s not found' % args[0])
+        sys.exit(1)
+    except subprocess.TimeoutExpired:
+        print('Error: %s took too long' % args[0])
+        sys.exit(1)
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        sys.exit(1)
+
+
 def get_vcf_prefix(path):
     """
     return vcf or vcf.bgz file prefix
@@ -61,7 +79,7 @@ def bgzip_file(bgzip_path, vcf_path):
     """
 
     try:
-        print("Bgzipping", vcf_path)
+        print("  Bgzipping", vcf_path)
         # bgzip compress file
         subprocess.run([bgzip_path, '-f', vcf_path], check=True)
         # rename the file to use .bgz extension
@@ -79,7 +97,6 @@ def bgzipped_vcf(bgzip_path, file):
     make sure file is bgzipped
     """
     if not is_gz_file(file):
-        print("Bgzipping VCF!")
         file = bgzip_file(bgzip_path, file)
         if os.path.exists(file + '.tbi'):
             print("Removing pre-existing .tbi")
@@ -146,7 +163,7 @@ def index_vcf(bcftools_path, vcf_path):
     """
 
     try:
-        print('Generating index (' + vcf_path + '.csi)')
+        print('  Generating index (' + vcf_path + '.csi)')
         subprocess.run([bcftools_path, 'index', vcf_path], check=True)
     except Exception as e:
         print('Failed to index %s' % vcf_path)
@@ -194,8 +211,9 @@ def remove_vcf_and_index(path_to_vcf):
 
     try:
         os.remove(path_to_vcf)
+        print("  - %s" % path_to_vcf)
         os.remove(path_to_vcf + '.csi')
-        print("Removed intermediate files:\n\t%s\n\t%s" % (path_to_vcf, path_to_vcf + '.csi'))
+        print("  - %s" % (path_to_vcf + '.csi'))
     except OSError as error_remove_tmp:
         print("Error: %s : %s" % (path_to_vcf, error_remove_tmp.strerror))
 
@@ -404,12 +422,8 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         # the ref_pos_static (dict) will be used to static dictionary of reference PGx positions
         # the ref_pos_dynamic (dict) will be used to retain only PGx pos in the input
         ref_pos_dynamic = {}
-        with gzip.open(file_ref_pgx_uniallelic, 'r') as in_f:
+        with gzip.open(file_ref_pgx_uniallelic, mode='rt', encoding='utf-8') as in_f:
             for line in in_f:
-                try:
-                    line = byte_decoder(line)
-                except:
-                    line = line
                 # skip headers
                 if line[0] == '#':
                     continue
@@ -435,12 +449,8 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         with open(input_pgx_pos_updated, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
             print('Updating VCF header and PGx position annotations')
-            with gzip.open(input_pgx_pos_only) as in_f:
+            with gzip.open(input_pgx_pos_only, mode='rt', encoding='utf-8') as in_f:
                 for line in in_f:
-                    try:
-                        line = byte_decoder(line)
-                    except:
-                        line = line
                     # process header lines, skip contig
                     if line[0:8] == '##contig':
                         continue  # skip contig info in the original vcf
@@ -471,7 +481,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                         input_chr_pos = (fields[0], fields[1])
 
                         # check whether input is a block gVCF, which will be supported in the future
-                        if re.search('END', fields[7]):
+                        if re.search('END', str(fields[7])):
                             print('=============================================================\n'
                                   'The PharmCAT VCF Preprocessor will support block gVCF in the future.\n'
                                   '=============================================================\n')
@@ -507,12 +517,14 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
 
                             # update id when the id is not in the input
                             ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
-                            input_id = fields[2].split(';')
+                            input_id = str(fields[2]).split(';')
                             updated_id = ';'.join(set(ref_id + input_id)) if fields[2] != '.' else ';'.join(ref_id)
 
                             # update info
                             ref_info = list(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
-                            updated_info = ';'.join(ref_info.append(fields[7])) if fields[7] != '.' else ';'.join(ref_info)
+                            if fields[7] != '.':
+                                ref_info.append(str(fields[7]))
+                            updated_info = ';'.join(ref_info)
 
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
