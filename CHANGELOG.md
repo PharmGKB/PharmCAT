@@ -1,3 +1,13 @@
+## [2.0.2](https://github.com/PharmGKB/PharmCAT/compare/v2.0.1...v2.0.2) (2022-10-26)
+
+
+### Bug Fixes
+
+* errors in the names of sex and mitochondria chromosomes in the reference genome sequence ([b5e1412](https://github.com/PharmGKB/PharmCAT/commit/b5e1412c5cab74eb5b046b195302c914d7259293)), closes [#116](https://github.com/PharmGKB/PharmCAT/issues/116)
+* fix support for haploid genes (chrX, chrY, chrM) ([dc8a43d](https://github.com/PharmGKB/PharmCAT/commit/dc8a43df69cda82957badbf88cd62297c4c1fab7))
+* **data:** fix problem with chrX data preprocessor relies on ([2d71671](https://github.com/PharmGKB/PharmCAT/commit/2d716716dd7b8e6636fe43d619b13cb78f3a646e))
+* **data:** update to latest CPIC data ([4393cb3](https://github.com/PharmGKB/PharmCAT/commit/4393cb33dc58b8361b24274c2dbc32146dd084f5))
+
 ## [2.0.1](https://github.com/PharmGKB/PharmCAT/compare/v2.0.0...v2.0.1) (2022-10-25)
 
 
