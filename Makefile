@@ -235,7 +235,7 @@ referenceFasta:
 	@echo "Uncompressing..."
 	@gunzip genomic.fna.gz
 	@echo "Fixing chromosomes:"
-	@cat genomic.fna |  sed -r 's/^>(NC_0+([0-9]+)\.*)/>chr\2 \1/g' > chrfix.fna
+	@cat genomic.fna| sed -r 's/^>(NC.*Homo sapiens chromosome ([0-9XY]+),.*)/>chr\2 \1/g' | sed -r 's/^>(NC.*Homo sapiens mitochondrion,.*)/>chrM \1/g' > chrfix.fna
 	@echo "Compressing with bgzip..."
 	@bgzip -c chrfix.fna > reference.fna.bgz
 	@echo "Building index..."
