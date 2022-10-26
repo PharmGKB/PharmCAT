@@ -196,15 +196,7 @@ fuzzyVcfMissingTests: clean _generateVcf-missing _fuzzyVcfTests-missing
 
 .PHONY: release
 release:
-	yarn release
-	@echo "Updating main branch..."
-	git checkout main
-	git pull
-	git rebase origin/development
-	git push
-	# switching back to development
-	git checkout development
-	@echo "\nDone."
+	bin/release.sh
 
 
 .PHONY: dockerRelease
@@ -235,7 +227,7 @@ referenceFasta:
 	@echo "Uncompressing..."
 	@gunzip genomic.fna.gz
 	@echo "Fixing chromosomes:"
-	@cat genomic.fna| sed -r 's/^>(NC.*Homo sapiens chromosome ([0-9XY]+),.*)/>chr\2 \1/g' | sed -r 's/^>(NC.*Homo sapiens mitochondrion,.*)/>chrM \1/g' > chrfix.fna
+	@cat genomic.fna | sed -r 's/^>(NC.*Homo sapiens chromosome ([0-9XY]+),.*)/>chr\2 \1/g' | sed -r 's/^>(NC.*Homo sapiens mitochondrion,.*)/>chrM \1/g' > chrfix.fna
 	@echo "Compressing with bgzip..."
 	@bgzip -c chrfix.fna > reference.fna.bgz
 	@echo "Building index..."
