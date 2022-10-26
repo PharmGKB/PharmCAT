@@ -225,7 +225,7 @@ PharmCAT takes this file and prepares it for use with the following commands:
 ```console
 # curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz -o genomic.fna.gz
 # gunzip genomic.fna.gz
-# cat genomic.fna |  sed -r 's/^>(NC_0+([0-9]+)\.*)/>chr\2 \1/g' > chrfix.fna
+# cat genomic.fna | sed -r 's/^>(NC.*Homo sapiens chromosome ([0-9XY]+),.*)/>chr\2 \1/g' | sed -r 's/^>(NC.*Homo sapiens mitochondrion,.*)/>chrM \1/g' > chrfix.fna
 # bgzip -c chrfix.fna > reference.fna.bgz
 # samtools faidx reference.fna.bgz
 # tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi
