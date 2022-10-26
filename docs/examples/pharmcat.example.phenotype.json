@@ -2,7 +2,7 @@
   "geneReports": {
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
@@ -101,7 +101,7 @@
         "variantsOfInterest": []
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
@@ -714,7 +714,7 @@
         "variantsOfInterest": []
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
@@ -1351,7 +1351,7 @@
         "variantsOfInterest": []
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
@@ -3253,7 +3253,7 @@
         "variantsOfInterest": []
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
@@ -3416,7 +3416,7 @@
         "variantsOfInterest": []
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
@@ -5062,7 +5062,7 @@
         "variantsOfInterest": []
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
@@ -5396,7 +5396,7 @@
         "variantsOfInterest": []
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
@@ -5967,7 +5967,7 @@
         "variantsOfInterest": []
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
@@ -6666,7 +6666,7 @@
         "variantsOfInterest": []
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
@@ -6821,7 +6821,7 @@
         "variantsOfInterest": []
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": "2022-10-13-18-52",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
@@ -6922,8 +6922,8 @@
     },
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -7021,8 +7021,8 @@
         "variantsOfInterest": []
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -7045,14 +7045,14 @@
             "allele1": {
               "gene": "CACNA1S",
               "name": "Reference",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "CACNA1S",
               "name": "Reference",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -7080,14 +7080,14 @@
             "allele1": {
               "gene": "CACNA1S",
               "name": "Reference",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "CACNA1S",
               "name": "Reference",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -7142,8 +7142,8 @@
         "variantsOfInterest": []
       },
       "CFTR": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -7773,8 +7773,8 @@
         "variantsOfInterest": []
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -8386,8 +8386,8 @@
         "variantsOfInterest": []
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -9023,8 +9023,8 @@
         "variantsOfInterest": []
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -10259,7 +10259,7 @@
       },
       "CYP2D6": {
         "alleleDefinitionVersion": null,
-        "phenotypeVersion": "v1.21.0",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -10358,8 +10358,8 @@
         "variantsOfInterest": []
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -10521,7 +10521,7 @@
         "variantsOfInterest": []
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP4F2",
@@ -10634,8 +10634,8 @@
         "variantsOfInterest": []
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -11917,7 +11917,7 @@
       },
       "G6PD": {
         "alleleDefinitionVersion": null,
-        "phenotypeVersion": "v1.21.0",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": null,
@@ -12207,7 +12207,7 @@
         "variantsOfInterest": []
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
@@ -12299,7 +12299,7 @@
       },
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
-        "phenotypeVersion": "v1.21.0",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -12386,8 +12386,8 @@
         "variantsOfInterest": []
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -12410,14 +12410,14 @@
             "allele1": {
               "gene": "NUDT15",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "NUDT15",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -12445,14 +12445,14 @@
             "allele1": {
               "gene": "NUDT15",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "NUDT15",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -12720,8 +12720,8 @@
         "variantsOfInterest": []
       },
       "RYR1": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -13433,8 +13433,8 @@
         "variantsOfInterest": []
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -14004,8 +14004,8 @@
         "variantsOfInterest": []
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -14028,14 +14028,14 @@
             "allele1": {
               "gene": "TPMT",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "TPMT",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -14063,14 +14063,14 @@
             "allele1": {
               "gene": "TPMT",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "TPMT",
               "name": "*1",
-              "function": "Normal Function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -14703,8 +14703,8 @@
         "variantsOfInterest": []
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.21.0",
-        "phenotypeVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
+        "phenotypeVersion": "v1.21.2",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -14858,7 +14858,7 @@
         "variantsOfInterest": []
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.21.0",
+        "alleleDefinitionVersion": "v1.21.2",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
         "geneSymbol": "VKORC1",

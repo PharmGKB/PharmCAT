@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.21.0",
-  "modificationDate": "Oct 5, 2022, 10:21:53 AM",
+  "version": "v1.21.2",
+  "modificationDate": "Oct 24, 2022, 11:49:55 AM",
   "gene": "CFTR",
   "orientation": null,
   "chromosome": "chr7",

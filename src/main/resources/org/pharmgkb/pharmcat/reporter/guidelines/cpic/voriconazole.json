@@ -45,7 +45,7 @@
         "CYP2C19": "Indeterminate"
       },
       "comments": "n/a",
-      "population": "adults",
+      "population": "pediatrics",
       "genotypes": null
     },
     {
@@ -63,25 +63,7 @@
         "CYP2C19": "Indeterminate"
       },
       "comments": "n/a",
-      "population": "pediatrics",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
-      },
-      "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-      "population": "pediatrics",
+      "population": "adults",
       "genotypes": null
     },
     {
@@ -100,6 +82,24 @@
       },
       "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
       "population": "adults",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Higher dose-adjusted trough concentrations of voriconazole compared with normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended standard of care dosing",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+      "population": "pediatrics",
       "genotypes": null
     },
     {
@@ -241,24 +241,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Poor Metabolizer"
-      },
-      "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
-      "population": "adults",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
-      },
-      "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Rapid Metabolizer"
       },
       "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
       "population": "adults",
@@ -280,6 +262,24 @@
       },
       "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring (TDM), and comorbidities. Achieving voriconazole therapeutic concentrations in the pediatric population with ultrarapid and rapid metabolizer phenotypes in a timely manner is difficult. As critical time may be lost in achieving therapeutic concentrations, an alternative antifungal agent is recommended in order that the child receives effective antifungal therapy as soon as possible. Meticulous TDM is critical for rapid metabolizers. There is insufficient evidence to distinguish a CYP2C19*1/*17 and *1/*1 pediatric patient due to large variability in trough concentrations.",
       "population": "pediatrics",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "In patients for whom a rapid metabolizer genotype (*1/*17) is identified, the probability of attainment of therapeutic concentrations is modest with standard dosing"
+      },
+      "drugrecommendation": "Choose an alternative agent that is not dependent on CYP2C19 metabolism as primary therapy in lieu of voriconazole. Such agents include isavuconazole, liposomal amphotericin B, and posaconazole.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors, such as drug interactions, hepatic function, renal function, species, site of infection, therapeutic drug monitoring, and comorbidities.",
+      "population": "adults",
       "genotypes": null
     },
     {
@@ -323,6 +323,6 @@
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.0",
+  "cpicVersion": "v1.21.2",
   "source": "CPIC"
 }

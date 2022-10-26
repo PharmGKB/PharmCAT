@@ -1,9 +1,9 @@
 {
   "gene": "CACNA1S",
   "haplotypes": {
-    "c.3257G>A": "Malignant hyperthermia associated",
-    "c.520C>T": "Malignant hyperthermia associated",
-    "Reference": "Normal Function"
+    "c.3257G>A": "Malignant Hyperthermia associated",
+    "c.520C>T": "Malignant Hyperthermia associated",
+    "Reference": "Normal function"
   },
   "activityValues": {},
   "diplotypes": [
@@ -65,5 +65,5 @@
       }
     }
   ],
-  "version": "v1.21.0"
+  "version": "v1.21.2"
 }

@@ -2,14 +2,14 @@
   "gene": "UGT1A1",
   "haplotypes": {
     "*1": "Normal function",
-    "*27": "Decreased Function",
-    "*28": "Decreased Function",
-    "*36": "Increased Function",
-    "*37": "Decreased Function",
-    "*6": "Decreased Function",
-    "*80": "Unknown Function",
-    "*80+*28": "Decreased Function",
-    "*80+*37": "Decreased Function"
+    "*27": "Decreased function",
+    "*28": "Decreased function",
+    "*36": "Increased function",
+    "*37": "Decreased function",
+    "*6": "Decreased function",
+    "*80": "Unknown function",
+    "*80+*28": "Decreased function",
+    "*80+*37": "Decreased function"
   },
   "activityValues": {},
   "diplotypes": [
@@ -455,5 +455,5 @@
       }
     }
   ],
-  "version": "v1.21.0"
+  "version": "v1.21.2"
 }

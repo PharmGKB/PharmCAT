@@ -1,15 +1,15 @@
 {
   "gene": "NUDT15",
   "haplotypes": {
-    "*1": "Normal Function",
-    "*2": "No Function",
-    "*3": "No Function",
-    "*4": "Uncertain Function",
-    "*5": "Uncertain Function",
-    "*6": "Uncertain Function",
-    "*7": "Uncertain Function",
-    "*8": "Uncertain Function",
-    "*9": "No Function"
+    "*1": "Normal function",
+    "*2": "No function",
+    "*3": "No function",
+    "*4": "Uncertain function",
+    "*5": "Uncertain function",
+    "*6": "Uncertain function",
+    "*7": "Uncertain function",
+    "*8": "Uncertain function",
+    "*9": "No function"
   },
   "activityValues": {},
   "diplotypes": [
@@ -455,5 +455,5 @@
       }
     }
   ],
-  "version": "v1.21.0"
+  "version": "v1.21.2"
 }

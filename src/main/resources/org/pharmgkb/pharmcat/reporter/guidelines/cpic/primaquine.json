@@ -32,9 +32,9 @@
   "recommendations": [
     {
       "implications": {
-        "G6PD": "High risk of acute hemolytic anemia"
+        "G6PD": "High risk of acute hemolytic anemia with standard (or higher than standard) anti-relapse dosages for Plasmodium vivax or Plasmodium ovale of 0.25-0.5 mg/kg daily for 14 days"
       },
-      "drugrecommendation": "Avoid use",
+      "drugrecommendation": "Avoid primaquine, except in the following cases where established expert consensus guidelines for the treatment of malaria should be followed: (1) Treating Plasmodium vivax or Plasmodium ovale malaria for radical cure of liver-stage infections: 0.75 mg/kg once weekly x8 weeks (WHO) or 45 mg once weekly x8 weeks (CDC) - with close monitoring for hemolysis; (2) Treating Plasmodium falciparum malaria by using primaquine single dose as a gametocytocide at 0.25 mg/kg (WHO) - without need for monitoring for hemolysis.",
       "classification": "Strong",
       "phenotypes": {
         "G6PD": "Deficient"
@@ -44,51 +44,15 @@
       "lookupkey": {
         "G6PD": "Deficient"
       },
-      "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
-      "population": "standard dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Medium risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "Use at standard doses with caution and with close monitoring for anemia",
-      "classification": "Strong",
-      "phenotypes": {
-        "G6PD": "Deficient"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Deficient"
-      },
-      "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
-      "population": "medium dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low-to-no risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
-      "classification": "Strong",
-      "phenotypes": {
-        "G6PD": "Deficient"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Deficient"
-      },
-      "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Closer monitoring may be indicated higher-than-normal dosages, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
-      "population": "single low dose",
+      "comments": "Dosing recommendations for primaquine in patients with G6PD deficiency are derived from the malaria treatment guidelines issued by the World Health Organization and the U.S. Centers for Disease Control and Prevention.",
+      "population": "general",
       "genotypes": null
     },
     {
       "implications": {
         "G6PD": "High risk of acute of acute exacerbation of chronic hemolysis"
       },
-      "drugrecommendation": "Avoid use",
+      "drugrecommendation": "Avoid primaquine",
       "classification": "Strong",
       "phenotypes": {
         "G6PD": "Deficient with CNSHA"
@@ -98,44 +62,8 @@
       "lookupkey": {
         "G6PD": "Deficient with CNSHA"
       },
-      "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.",
-      "population": "standard dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "High risk of acute of acute exacerbation of chronic hemolysis"
-      },
-      "drugrecommendation": "Avoid",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Deficient with CNSHA"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Deficient with CNSHA"
-      },
-      "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
-      "population": "medium dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "High risk of acute exacerbation of chronic hemolysis"
-      },
-      "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
-      "classification": "Optional",
-      "phenotypes": {
-        "G6PD": "Deficient with CNSHA"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Deficient with CNSHA"
-      },
-      "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria.There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis",
-      "population": "single low dose",
+      "comments": "The strength of evidence among patients with the G6PD Deficient phenotype provides strong rationale to also avoid primaquine in the setting of the more severe G6PD Deficient with CNSHA phenotype.",
+      "population": "general",
       "genotypes": null
     },
     {
@@ -152,44 +80,8 @@
       "lookupkey": {
         "G6PD": "Indeterminate"
       },
-      "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
-      "population": "standard dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Unknown risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Indeterminate"
-      },
-      "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
-      "population": "single low dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Unknown risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Indeterminate"
-      },
-      "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
-      "population": "medium dose",
+      "comments": null,
+      "population": "general",
       "genotypes": null
     },
     {
@@ -206,44 +98,8 @@
       "lookupkey": {
         "G6PD": "Normal"
       },
-      "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria",
-      "population": "medium dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status",
-      "classification": "Strong",
-      "phenotypes": {
-        "G6PD": "Normal"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Normal"
-      },
-      "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days)",
-      "population": "standard dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low-to-no risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status",
-      "classification": "Strong",
-      "phenotypes": {
-        "G6PD": "Normal"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Normal"
-      },
-      "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria",
-      "population": "single low dose",
+      "comments": null,
+      "population": "general",
       "genotypes": null
     },
     {
@@ -260,44 +116,8 @@
       "lookupkey": {
         "G6PD": "Variable"
       },
-      "comments": "primaquine – standard dose (0.25-0.5 mg/kg daily for 14 days). Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
-      "population": "standard dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low-to-no risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "primaquine – single low dose (0.25 mg/kg) for Plasmodium falciparum malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
-      "population": "single low dose",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Variable risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "If deemed necessary to ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "primaquine – medium dose (0.75 mg/kg or 45 mg once weekly for 8 weeks) for Plasmodium vivax malaria. Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
-      "population": "medium dose",
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one nondeficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to guide treatment in such cases.",
+      "population": "general",
       "genotypes": null
     }
   ],
@@ -305,6 +125,6 @@
     "G6PD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.0",
+  "cpicVersion": "v1.21.2",
   "source": "CPIC"
 }

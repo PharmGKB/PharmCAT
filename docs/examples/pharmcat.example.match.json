@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Oct 20, 2022, 1:11:19 PM",
+    "timestamp": "Oct 26, 2022, 1:26:58 AM",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -11,7 +11,7 @@
   "results": [
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -103,7 +103,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -207,7 +207,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -755,7 +755,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1255,7 +1255,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1743,7 +1743,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -3266,7 +3266,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3406,7 +3406,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3510,7 +3510,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4586,7 +4586,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -6720,7 +6720,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -6812,7 +6812,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7096,7 +7096,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -7704,7 +7704,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -8156,7 +8156,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -8752,7 +8752,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -8880,7 +8880,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.21.0",
+      "version": "v1.21.2",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
