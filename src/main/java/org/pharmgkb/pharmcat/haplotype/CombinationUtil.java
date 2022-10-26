@@ -22,9 +22,10 @@ public class CombinationUtil {
     Preconditions.checkNotNull(alleles);
     Preconditions.checkArgument(alleles.size() > 0, "No alleles to generate permutations for");
 
-    Set<String> rez = generatePermutations(alleles, 0, true, "");
-    if (alleles.get(0).isEffectivelyPhased()) {
-      rez.addAll(generatePermutations(alleles, 0, false, ""));
+    boolean isHaploid = alleles.stream().allMatch(sa -> sa.getAllele2() == null);
+    Set<String> rez = generatePermutations(alleles, 0, isHaploid, true, "");
+    if (alleles.get(0).isEffectivelyPhased() && !isHaploid) {
+      rez.addAll(generatePermutations(alleles, 0, false, false, ""));
     }
     if (rez.size() == 0) {
       throw new IllegalStateException("No permutations generated from " + alleles.size() + " alleles");
@@ -36,7 +37,7 @@ public class CombinationUtil {
   /**
    * Builds permutations for given variants based on phasing.
    */
-  private static Set<String> generatePermutations(List<SampleAllele> sampleAlleles, int position,
+  private static Set<String> generatePermutations(List<SampleAllele> sampleAlleles, int position, boolean isHaploid,
       boolean firstAllele, String alleleSoFar) {
 
     if (position >= sampleAlleles.size()) {
@@ -45,11 +46,11 @@ public class CombinationUtil {
     SampleAllele allele = sampleAlleles.get(position);
 
     Set<String> alleles = new HashSet<>();
-    if (allele.isEffectivelyPhased()) {
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, firstAllele)));
+    if (allele.isEffectivelyPhased() || isHaploid) {
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, isHaploid, firstAllele, appendAllele(alleleSoFar, allele, firstAllele)));
     } else {
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, true)));
-      alleles.addAll(generatePermutations(sampleAlleles, position + 1, firstAllele, appendAllele(alleleSoFar, allele, false)));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, false, firstAllele, appendAllele(alleleSoFar, allele, true)));
+      alleles.addAll(generatePermutations(sampleAlleles, position + 1, false, firstAllele, appendAllele(alleleSoFar, allele, false)));
     }
     return alleles;
   }

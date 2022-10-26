@@ -118,7 +118,9 @@ public class GeneCall {
   public void addDiplotype(DiplotypeMatch diplotype) {
     m_diplotypes.add(diplotype);
     m_haplotypes.add(diplotype.getHaplotype1());
-    m_haplotypes.add(diplotype.getHaplotype2());
+    if (diplotype.getHaplotype2() != null) {
+      m_haplotypes.add(diplotype.getHaplotype2());
+    }
   }
 
 

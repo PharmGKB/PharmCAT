@@ -34,14 +34,19 @@ public class Variant implements Comparable<Variant>  {
    * Primary constructor.
    */
   public Variant(VariantLocus variant, SampleAllele allele) {
-    String call;
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-    if (allele.isPhased()) {
-      call = allele.getAllele1() + "|" + allele.getAllele2();
-    } else {
-      call = allele.getAllele1() + "/" + allele.getAllele2();
+
+    StringBuilder callBuilder = new StringBuilder()
+        .append(allele.getAllele1());
+    if (allele.getAllele2() != null) {
+      if (allele.isPhased()) {
+        callBuilder.append("|");
+      } else {
+        callBuilder.append("/");
+      }
+      callBuilder.append(allele.getAllele2());
     }
-    initialize(variant.getPosition(), variant.getRsid(), call, vcfAlleles);
+    initialize(variant.getPosition(), variant.getRsid(), callBuilder.toString(), vcfAlleles);
   }
 
   /**
@@ -56,7 +61,8 @@ public class Variant implements Comparable<Variant>  {
     m_rsid = rsids;
     m_vcfCall = call;
     if (call != null) {
-      m_isPhased = call.contains("|");
+      // check for phasing by lack of "/" to match behavior in VCF reader
+      m_isPhased = !call.contains("/");
     }
     m_vcfAlleles = vcfAlleles;
   }

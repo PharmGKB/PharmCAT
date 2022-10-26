@@ -252,10 +252,8 @@ public class ReportHelpers {
     if (report.getCallSource() == CallSource.NONE) {
       return true;
     } else if (report.getCallSource() == CallSource.MATCHER) {
-      if (report.getVariantReports().size() == 0 ||
-          report.getVariantReports().stream().allMatch(VariantReport::isMissing)) {
-        return true;
-      }
+      return report.getVariantReports().size() == 0 ||
+          report.getVariantReports().stream().allMatch(VariantReport::isMissing);
     }
     return false;
   }

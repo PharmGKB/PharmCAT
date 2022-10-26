@@ -84,7 +84,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
 
   @Override
   public String toString() {
-    return m_allele1 + "/" + m_allele2 + " @ " + m_chromosome + ":" + m_position;
+    return m_allele1 + (m_allele2 == null ? "" : "/" + m_allele2) + " @ " + m_chromosome + ":" + m_position;
   }
 
   @Override
@@ -94,6 +94,14 @@ public class SampleAllele implements Comparable<SampleAllele> {
     if (rez != 0) {
       return rez;
     }
-    return ObjectUtils.compare(m_position, o.getPosition());
+    rez = ObjectUtils.compare(m_position, o.getPosition());
+    if (rez != 0) {
+      return rez;
+    }
+    rez = ObjectUtils.compare(m_allele1, o.getAllele1());
+    if (rez != 0) {
+      return rez;
+    }
+    return ObjectUtils.compare(m_allele2, o.getAllele2());
   }
 }

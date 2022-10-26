@@ -231,10 +231,12 @@ public class VcfReader implements VcfLineParser {
       return;
     }
     // already filtered out no-calls, guaranteed to have at least 1 GT here
-    int[] alleleIdxs = sf_gtDelimiter.splitAsStream(gt)
+    String[] gtArray = sf_gtDelimiter.split(gt);
+    int[] alleleIdxs = Arrays.stream(gtArray)
         .filter(a -> !a.equals("."))
         .mapToInt(Integer::parseInt)
         .toArray();
+    boolean isHaploid = gtArray.length == 1;
 
     // normalize alleles to use same syntax as haplotype definition
     List<String> alleles = new ArrayList<>();
@@ -298,22 +300,22 @@ public class VcfReader implements VcfLineParser {
 
 
     String a1 = alleles.get(alleleIdxs[0]);
-    String a2 = ".";
+    String a2 = isHaploid ? null : ".";
     if (alleleIdxs.length > 1) {
       a2 = alleles.get(alleleIdxs[1]);
       if (alleleIdxs.length > 2) {
         addWarning(chrPos, alleleIdxs.length + " genotypes found.  Only using first 2 genotypes.");
       }
     } else if (!position.getChromosome().equals("chrM") &&
-        !position.getChromosome().equals("chrY")) {
-      // TODO(markwoon): need to figure out how to deal with chrX
+        !position.getChromosome().equals("chrY") &&
+        !position.getChromosome().equals("chrX")) {
       if (alleleIdxs[0] == 0) {
         // treating "./0" like any other missing position
         addWarning(chrPos, "Ignoring: only a single genotype found.  " +
             "Since it's reference, treating this as a missing position.");
         return;
       }
-      // going to accept "./1" because there's a variation and we want to pass this on to the reporter
+      // going to accept "./1" because there's a variation, and we want to pass this on to the reporter
       addWarning(chrPos, "Only a single genotype found.");
     }
 

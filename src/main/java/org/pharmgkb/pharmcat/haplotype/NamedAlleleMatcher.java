@@ -5,6 +5,7 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -322,8 +323,10 @@ public class NamedAlleleMatcher {
       for (String h : dm.getHaplotype1().getHaplotypeNames()) {
         haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
       }
-      for (String h : dm.getHaplotype2().getHaplotypeNames()) {
-        haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+      if (dm.getHaplotype2() != null) {
+        for (String h : dm.getHaplotype2().getHaplotypeNames()) {
+          haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+        }
       }
       for (String k : haps.keySet()) {
         if (haps.get(k) > 1) {
@@ -375,7 +378,10 @@ public class NamedAlleleMatcher {
     return cleaned.toArray(new DiplotypeMatch[0]);
   }
 
-  private Set<String> getNames(BaseMatch bm) {
+  private Set<String> getNames(@Nullable BaseMatch bm) {
+    if (bm == null) {
+      return Collections.emptySet();
+    }
     if (bm instanceof CombinationMatch cm) {
       return cm.getComponentHaplotypes().stream()
           .map(NamedAllele::getName)

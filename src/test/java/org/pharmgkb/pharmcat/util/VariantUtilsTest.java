@@ -18,6 +18,7 @@ class VariantUtilsTest {
     assertTrue(VariantUtils.isValidCall("A|A"));
     assertTrue(VariantUtils.isValidCall("C/T"));
     assertTrue(VariantUtils.isValidCall("G|TCCCT"));
+    assertTrue(VariantUtils.isValidCall("G"));
     assertFalse(VariantUtils.isValidCall("|"));
     assertFalse(VariantUtils.isValidCall("/"));
     assertFalse(VariantUtils.isValidCall(""));
@@ -31,6 +32,7 @@ class VariantUtilsTest {
     assertTrue(VariantUtils.isHetCall("C/T"));
     assertTrue(VariantUtils.isHetCall("C|T"));
     assertTrue(VariantUtils.isHetCall("G|TCCCT"));
+    assertFalse(VariantUtils.isHetCall("G"));
     assertFalse(VariantUtils.isHetCall("|"));
     assertFalse(VariantUtils.isHetCall("/"));
     assertFalse(VariantUtils.isHetCall(""));

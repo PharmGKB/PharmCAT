@@ -8,13 +8,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 /**
- * Code for dealing with variant specific stuff
+ * Code for dealing with variant specific stuff.
  *
  * @author Ryan Whaley
  */
 public class VariantUtils {
 
-  private static final Pattern sf_validCallPattern = Pattern.compile("^(.+)[|/](.+)$");
+  private static final Pattern sf_validCallPattern = Pattern.compile("^([A-Za-z]+)(?:[|/]([A-Za-z]+))?$");
 
   /**
    * Check whether a call string is in the expected format.
@@ -39,6 +39,9 @@ public class VariantUtils {
     }
     Matcher m = sf_validCallPattern.matcher(call);
     if (m.find()) {
+      if (m.group(2) == null) {
+        return false;
+      }
       return !Objects.equals(m.group(1), m.group(2));
     }
     return false;

@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
@@ -126,9 +127,11 @@ public class DiplotypeMatcher {
       for (DiplotypeMatch dm : pairs) {
         BaseMatch m1 = dm.getHaplotype1();
         BaseMatch m2 = dm.getHaplotype2();
-        dm.setScore(m1.getHaplotype().scoreForSample(m_dataset, m1.getSequences()) +
-            m2.getHaplotype().scoreForSample(m_dataset, m2.getSequences())
-        );
+        int m2Score = 0;
+        if (m2 != null) {
+          m2Score = m2.getHaplotype().scoreForSample(m_dataset, m2.getSequences());
+        }
+        dm.setScore(m1.getHaplotype().scoreForSample(m_dataset, m1.getSequences()) + m2Score);
       }
     }
     Collections.sort(pairs);
@@ -142,7 +145,10 @@ public class DiplotypeMatcher {
     return pairs;
   }
 
-  private int maxComboBonus(BaseMatch match, int curMax) {
+  private int maxComboBonus(@Nullable BaseMatch match, int curMax) {
+    if (match == null) {
+      return curMax;
+    }
     if (match instanceof CombinationMatch cm) {
       if (cm.getNumCombinations() > curMax) {
         return cm.getNumCombinations();
@@ -151,7 +157,10 @@ public class DiplotypeMatcher {
     return curMax;
   }
 
-  private int newComboScore(BaseMatch match, int maxBonus, boolean boostCombos) {
+  private int newComboScore(@Nullable BaseMatch match, int maxBonus, boolean boostCombos) {
+    if (match == null) {
+      return 0;
+    }
     NamedAllele na = match.getHaplotype();
     int score = na.scoreForSample(m_dataset, match.getSequences()) - na.getNumPartials();
     int bonus;
@@ -195,10 +204,18 @@ public class DiplotypeMatcher {
     String seq = m_dataset.getPermutations().iterator().next();
     List<DiplotypeMatch> matches = new ArrayList<>();
     if (haplotypeMatches.size() == 1) {
-      // matched a single haplotype: need to return that as a diplotype
-      BaseMatch hm = haplotypeMatches.first();
-      DiplotypeMatch dm = new DiplotypeMatch(hm, hm, m_dataset);
-      dm.addSequencePair(new String[]{ seq, seq });
+      // matched a single haplotype: need to return that as either homozygous diplotype or haploid
+      BaseMatch hm1 = haplotypeMatches.first();
+      BaseMatch hm2 = null;
+      String[] sequencePair;
+      if (m_dataset.isHaploid()) {
+        sequencePair = new String[] {seq};
+      } else {
+        hm2 = hm1;
+        sequencePair = new String[] {seq, seq};
+      }
+      DiplotypeMatch dm = new DiplotypeMatch(hm1, hm2, m_dataset);
+      dm.addSequencePair(sequencePair);
       matches.add(dm);
     } else {
       // return all possible pairings of matched haplotypes

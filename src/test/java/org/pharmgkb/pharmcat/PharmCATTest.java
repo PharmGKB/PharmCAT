@@ -2351,6 +2351,120 @@ void testSlco1b1Test4(TestInfo testInfo) throws Exception {
   }
 
 
+  @Test
+  void testG6pdRef_male(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .male()
+        .reference("G6PD");
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("G6PD");
+    testWrapper.testReportable("G6PD");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements g6pdSections = document.select(".gene.G6PD");
+    assertEquals(1, g6pdSections.size());
+    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
+    assertEquals(1, g6pdCallElems.size());
+    assertEquals("B (reference)", g6pdCallElems.text());
+  }
+
+  @Test
+  void testG6pd_Ref_female(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .female()
+        .reference("G6PD");
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("G6PD");
+    testWrapper.testReportable("G6PD");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements g6pdSections = document.select(".gene.G6PD");
+    assertEquals(1, g6pdSections.size());
+    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
+    assertEquals(1, g6pdCallElems.size());
+    assertEquals("B (reference)/B (reference)", g6pdCallElems.text());
+  }
+
+  @Test
+  void testG6pd_Arakawa_male(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .male()
+        .reference("G6PD")
+        .variation("G6PD", "chrX", 154532082, "A");
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("G6PD");
+    testWrapper.testReportable("G6PD");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements g6pdSections = document.select(".gene.G6PD");
+    assertEquals(1, g6pdSections.size());
+    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
+    assertEquals(1, g6pdCallElems.size());
+    assertEquals("Arakawa", g6pdCallElems.text());
+  }
+
+  @Test
+  void testG6pd_Arakawa_female_het(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .female()
+        .reference("G6PD")
+        .variation("G6PD", "chrX", 154532082, "G", "A");
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("G6PD");
+    testWrapper.testReportable("G6PD");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements g6pdSections = document.select(".gene.G6PD");
+    assertEquals(1, g6pdSections.size());
+    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
+    assertEquals(1, g6pdCallElems.size());
+    assertEquals("Arakawa/B (reference)", g6pdCallElems.text());
+  }
+
+  @Test
+  void testG6pd_Arakawa_female_homo(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    PharmCATTestWrapper testWrapper = new PharmCATTestWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .female()
+        .reference("G6PD")
+        .variation("G6PD", "chrX", 154532082, "A", "A");
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("G6PD");
+    testWrapper.testReportable("G6PD");
+
+    Path reporterOutput = vcfFile.getParent().resolve(PharmCAT.getBaseFilename(vcfFile) + ".report.html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    Elements g6pdSections = document.select(".gene.G6PD");
+    assertEquals(1, g6pdSections.size());
+    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
+    assertEquals(1, g6pdCallElems.size());
+    assertEquals("Arakawa/Arakawa", g6pdCallElems.text());
+  }
+
+
 
   private static String printDiagnostic(GeneReport geneReport) {
     return String.format(

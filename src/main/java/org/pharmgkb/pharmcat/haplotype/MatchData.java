@@ -35,6 +35,7 @@ import org.slf4j.LoggerFactory;
 public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private final SortedMap<Long, SampleAllele> m_sampleMap = new TreeMap<>();
+  private final boolean m_isHaploid;
   private final VariantLocus[] m_positions;
   @Expose
   @SerializedName("missingPositions")
@@ -94,6 +95,7 @@ public class MatchData {
         }
       }
     }
+    m_isHaploid = m_sampleMap.values().stream().allMatch(sa -> sa.getAllele2() == null);
   }
 
 
@@ -228,6 +230,11 @@ public class MatchData {
     }
     return sampleAllele;
   }
+
+  public boolean isHaploid() {
+    return m_isHaploid;
+  }
+
 
   /**
    * Gets all permutations of sample alleles at positions of interest.

@@ -26,11 +26,14 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
  * @author Mark Woon
  */
 public class TestVcfBuilder {
+  private static final int sf_numChrM = 1;
   private final Map<String, Map<String, VcfEdit>> m_edits = new HashMap<>();
   private final Map<String, Map<String, VcfEdit>> m_extraPositions = new HashMap<>();
   private final TestInfo m_testInfo;
   private final String m_name;
   private final List<Path> m_definitionFiles = new ArrayList<>();
+  private int m_numChrX = 2;
+  private int m_numChrY = 1;
   private boolean m_isPhased;
   private boolean m_deleteOnExit = true;
 
@@ -125,6 +128,24 @@ public class TestVcfBuilder {
     return this;
   }
 
+  public TestVcfBuilder male() {
+    m_numChrX = 1;
+    m_numChrY = 1;
+    return this;
+  }
+
+  public TestVcfBuilder female() {
+    m_numChrX = 2;
+    m_numChrY = 0;
+    return this;
+  }
+
+  public TestVcfBuilder sexChromosomes(int numX, int numY) {
+    m_numChrX = numX;
+    m_numChrY = numY;
+    return this;
+  }
+
 
   public Path generate() throws IOException {
     DefinitionReader definitionReader = new DefinitionReader();
@@ -178,8 +199,21 @@ public class TestVcfBuilder {
           edit = editMap.get(vl.getChromosome() + ":" + vl.getPosition());
         }
       }
-      String sample = m_isPhased ? "0|0" : "0/0";
-      if (edit != null) {
+      String sample;
+      if (edit == null) {
+        // reference sample
+        if (definitionFile.getChromosome().equals("chrX") && m_numChrX != 2) {
+          sample = buildRefSample(m_numChrX);
+        } else if (definitionFile.getChromosome().equals("chrY") && m_numChrY != 2) {
+          sample = buildRefSample(m_numChrY);
+        } else if (definitionFile.getChromosome().equals("chrM")) {
+          sample = buildRefSample(sf_numChrM);
+        } else {
+          sample = m_isPhased ? "0|0" : "0/0";
+        }
+
+      } else {
+        // custom sample
         matched.add(edit.id);
         if (edit.cpicAlleles == null || edit.cpicAlleles.length == 0) {
           writer.println("# missing: " + edit.id);
@@ -230,6 +264,16 @@ public class TestVcfBuilder {
     }
   }
 
+  private String buildRefSample(int times) {
+    StringBuilder builder = new StringBuilder();
+    for (int x = 0; x < times; x += 1) {
+      if (builder.length() > 0) {
+        builder.append(m_isPhased ? "|" : "/");
+      }
+      builder.append("0");
+    }
+    return builder.toString();
+  }
 
 
   private static class VcfEdit {

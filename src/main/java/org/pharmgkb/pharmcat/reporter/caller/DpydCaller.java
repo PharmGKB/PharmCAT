@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter.caller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,12 @@ public class DpydCaller {
     List<Diplotype> diplotypes = new ArrayList<>();
     for (DiplotypeMatch dm : matches) {
       List<String> hapNames1 = new ArrayList<>(dm.getHaplotype1().getHaplotypeNames());
-      List<String> hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
+      List<String> hapNames2;
+      if (dm.getHaplotype2() == null) {
+        hapNames2 = Collections.emptyList();
+      } else {
+        hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
+      }
       diplotypes.add(inferPhasedDiplotype(hapNames1, hapNames2, env, source));
     }
     return diplotypes;

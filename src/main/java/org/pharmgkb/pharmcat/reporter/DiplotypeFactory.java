@@ -79,8 +79,12 @@ public class DiplotypeFactory {
         .map((dm) -> {
           BaseMatch h1 = dm.getHaplotype1();
           BaseMatch h2 = dm.getHaplotype2();
+          String h2Name = null;
+          if (h2 != null) {
+            h2Name = h2.getName();
+          }
 
-          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2.getName(), m_env, source);
+          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2Name, m_env, source);
           diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
           return diplotype;
         })

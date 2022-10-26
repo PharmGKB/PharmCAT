@@ -7,6 +7,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
@@ -24,7 +25,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   private final BaseMatch m_haplotype1;
   @Expose
   @SerializedName("haplotype2")
-  private final BaseMatch m_haplotype2;
+  private BaseMatch m_haplotype2;
   @Expose
   @SerializedName("score")
   private int m_score;
@@ -33,13 +34,20 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
 
 
 
-  public DiplotypeMatch(BaseMatch hm1, BaseMatch hm2, MatchData dataset) {
-    BaseMatch[] sortedHaps = new BaseMatch[] {hm1, hm2};
-    Arrays.sort(sortedHaps);
-    m_haplotype1 = sortedHaps[0];
-    m_haplotype2 = sortedHaps[1];
-    m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
-    m_score = m_haplotype1.getHaplotype().getScore() + m_haplotype2.getHaplotype().getScore();
+  public DiplotypeMatch(BaseMatch hm1, @Nullable BaseMatch hm2, MatchData dataset) {
+    if (hm2 != null) {
+      BaseMatch[] sortedHaps = new BaseMatch[]{ hm1, hm2 };
+      Arrays.sort(sortedHaps);
+      m_haplotype1 = sortedHaps[0];
+      m_haplotype2 = sortedHaps[1];
+      m_name = m_haplotype1.getName() + "/" + m_haplotype2.getName();
+      m_score = m_haplotype1.getHaplotype().getScore() + m_haplotype2.getHaplotype().getScore();
+    } else {
+      // haploid
+      m_haplotype1 = hm1;
+      m_name = m_haplotype1.getName();
+      m_score = m_haplotype1.getHaplotype().getScore();
+    }
     m_dataset = dataset;
   }
 
@@ -59,7 +67,7 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
     return m_haplotype1;
   }
 
-  public BaseMatch getHaplotype2() {
+  public @Nullable BaseMatch getHaplotype2() {
     return m_haplotype2;
   }
 
@@ -69,7 +77,6 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
 
   public void addSequencePair(String[] pair) {
     Preconditions.checkNotNull(pair);
-    Preconditions.checkArgument(pair.length == 2, "Sequence pair must have 2 sequences");
     m_sequences.add(pair);
   }
 
