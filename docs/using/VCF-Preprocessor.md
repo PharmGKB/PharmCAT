@@ -231,4 +231,4 @@ PharmCAT takes this file and prepares it for use with the following commands:
 # tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi
 ```
 
-PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/6804231).
+PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/7251599).

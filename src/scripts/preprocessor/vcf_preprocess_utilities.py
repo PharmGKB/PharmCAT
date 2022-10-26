@@ -1,11 +1,9 @@
 #! /usr/bin/env python
 __author__ = 'BinglanLi'
 
-import allel
 import copy
 import gzip
 import os
-import pandas as pd
 import re
 import shutil
 import subprocess
@@ -14,6 +12,9 @@ import tarfile
 import tempfile
 import urllib.parse
 import urllib.request
+
+import allel
+import pandas as pd
 
 import vcf_preprocess_exceptions as Exceptions
 
@@ -127,7 +128,7 @@ def get_default_grch38_ref_fasta_and_index(download_to_dir, force_update=False):
     if os.path.exists(ref_file) and not force_update:
         return ref_file
 
-    tar_file = download_from_url('https://zenodo.org/record/6804231/files/GRCh38_reference_fasta.tar',
+    tar_file = download_from_url('https://zenodo.org/record/7251599/files/GRCh38_reference_fasta.tar',
                                  download_to_dir, None, force_update)
     with tarfile.open(tar_file, 'r') as tar:
         tar.extractall(path=download_to_dir)
