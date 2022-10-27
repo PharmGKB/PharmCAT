@@ -2,7 +2,7 @@
 #
 # Base Dockerfile for PharmCAT
 #
-FROM python:3.11
+FROM python:3.10
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
@@ -57,16 +57,20 @@ RUN rm -rf /usr/local/bin/htslib-${HTSLIB_VERSION}
 RUN rm  -f /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/samtools-${SAMTOOLS_VERSION}
 
-
-WORKDIR /pharmcat
 # setup python env
 COPY src/scripts/preprocessor/PharmCAT_VCF_Preprocess_py3_requirements.txt ./
 RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
+RUN rm PharmCAT_VCF_Preprocess_py3_requirements.txt
 
+# setup user
+COPY src/main/config/bashrc /root/.bashrc
+
+WORKDIR /pharmcat
 # add pharmcat scripts
 COPY src/scripts/preprocessor/*.py ./
-COPY src/scripts/pharmcat ./
-RUN chmod 755 *.py
-RUN chmod 755 pharmcat
+COPY bin/pharmcat ./
+COPY bin/preprocessor ./
 COPY pharmcat_positions.vcf* ./
 COPY build/pharmcat.jar ./
+RUN mkdir data
+RUN chmod 755 *.py pharmcat preprocessor data
