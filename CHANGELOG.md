@@ -1,3 +1,11 @@
+## [2.0.3](https://github.com/PharmGKB/PharmCAT/compare/v2.0.2...v2.0.3) (2022-10-27)
+
+
+### Bug Fixes
+
+* **pharmcat:** fix handling of relative files ([fa8e76f](https://github.com/PharmGKB/PharmCAT/commit/fa8e76fc51f83e201e7565042081a140e7c199fe))
+* **preprocessor:** fix preprocessor bug ([d542e52](https://github.com/PharmGKB/PharmCAT/commit/d542e520b283a19e3eac5ae74b4665dd8fd6ad12))
+
 ## [2.0.2](https://github.com/PharmGKB/PharmCAT/compare/v2.0.1...v2.0.2) (2022-10-26)
 
 
