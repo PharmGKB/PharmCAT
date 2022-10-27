@@ -62,7 +62,9 @@ gradlew          text eol=lf
 #
 # PharmCAT specific
 #
-src/scripts/pharmcat    text eol=lf
+bin/pharmcat            text eol=lf
+bin/preprocessor        text eol=lf
+src/main/config/bashrc  text eol=lf
 
 #
 # Binary files should be left alone (binary is a macro for -text -diff)
