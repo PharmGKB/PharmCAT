@@ -425,7 +425,7 @@ public class PharmCAT {
     if (outputDir != null) {
       dir = outputDir;
     } else {
-      dir = inputFile.getParent();
+      dir = inputFile.toAbsolutePath().getParent();
     }
     return dir.resolve(baseFilename + defaultSuffix);
   }
