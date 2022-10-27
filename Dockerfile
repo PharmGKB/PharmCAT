@@ -2,7 +2,7 @@
 #
 # Base Dockerfile for PharmCAT
 #
-FROM python:3.9
+FROM python:3.11
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
@@ -21,7 +21,7 @@ RUN apt-get update && \
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
 # download fasta files
-RUN wget https://zenodo.org/record/7251599/files/GRCh38_reference_fasta.tar && \
+RUN wget https://zenodo.org/record/7255850/files/GRCh38_reference_fasta.tar && \
     tar -xf GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
