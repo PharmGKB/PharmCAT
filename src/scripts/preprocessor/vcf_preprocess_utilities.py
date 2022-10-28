@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 __author__ = 'BinglanLi'
 
+import concurrent.futures
 import copy
 import gzip
 import os
@@ -12,11 +13,13 @@ import tarfile
 import tempfile
 import urllib.parse
 import urllib.request
+from itertools import repeat
 
 import allel
 import pandas as pd
+from packaging import version
 
-import vcf_preprocess_exceptions as Exceptions
+import vcf_preprocess_exceptions as exceptions
 
 
 # chromosome names
@@ -34,9 +37,51 @@ if len(_chr_invalid) != len(_chr_valid):
     sys.exit(1)
 
 
+def validate_bcftools(tool_path, min_version):
+    bcftools_path = tool_path if tool_path else 'bcftools'
+    bcftools_version_message = execute_subprocess([bcftools_path, '-v'])
+    # check the bcftools versions
+    bcftools_version_regex = re.search(r'bcftools (\d+(\.\d+)*)', str(bcftools_version_message))
+    # warn and quit
+    if bcftools_version_regex is not None:
+        current_bcftools_version = bcftools_version_regex.group(1)
+        if version.parse(current_bcftools_version) < version.parse(min_version):
+            print("Please use bcftools %s or higher." % min_version)
+            sys.exit(1)
+    else:
+        print("""
+        Could not find the version information for bcftools.
+        Please use bcftools %s or higher.
+        """ % min_version)
+        sys.exit(1)
+    return bcftools_path
+
+
+def validate_bgzip(tool_path, min_version):
+    bgzip_path = tool_path if tool_path else 'bgzip'
+    bgzip_help_message = execute_subprocess([bgzip_path, '-h'])
+    # check the bgzip version
+    bgzip_version_regex = re.search(r'Version: (\d+(\.\d+)*)', str(bgzip_help_message))
+    # warn and quit
+    if bgzip_version_regex is not None:
+        current_bgzip_version = bgzip_version_regex.group(1)
+        if version.parse(current_bgzip_version) < version.parse(min_version):
+            print("Please use bgzip %s or higher." % min_version)
+            sys.exit(1)
+    else:
+        print("""
+        Could not find the version information for bgzip.
+        It is likely you are using a bgzip <= 1.9
+        Please use bgzip %s or higher.
+        """ % min_version)
+        sys.exit(1)
+    return bgzip_path
+
+
 def execute_subprocess(args):
     """
     Executes command in subprocess with proper exception handling.
+
     :return: stdout of command
     """
     try:
@@ -62,7 +107,7 @@ def get_vcf_prefix(path):
     elif re.search('[.]vcf$', vcf_basename):
         return os.path.splitext(vcf_basename)[0]
     else:
-        raise Exceptions.InappropriateVCFSuffix(path)
+        raise exceptions.InappropriateVCFSuffix(path)
 
 
 def is_gz_file(filepath):
@@ -73,13 +118,14 @@ def is_gz_file(filepath):
         return test_f.read(2) == b'\x1f\x8b'
 
 
-def bgzip_file(bgzip_path, vcf_path):
+def bgzip_file(bgzip_path, vcf_path, verbose=False):
     """
     bgzip the file
     """
 
     try:
-        print("  Bgzipping", vcf_path)
+        if verbose:
+            print("    Bgzipping", vcf_path)
         # bgzip compress file
         subprocess.run([bgzip_path, '-f', vcf_path], check=True)
         # rename the file to use .bgz extension
@@ -92,24 +138,21 @@ def bgzip_file(bgzip_path, vcf_path):
         sys.exit(1)
 
 
-def bgzipped_vcf(bgzip_path, file):
+def bgzip_vcf(bgzip_path, file, verbose=False):
     """
     make sure file is bgzipped
     """
     if not is_gz_file(file):
-        file = bgzip_file(bgzip_path, file)
+        file = bgzip_file(bgzip_path, file, verbose)
         if os.path.exists(file + '.tbi'):
-            print("Removing pre-existing .tbi")
+            if verbose:
+                print("Removing pre-existing .tbi")
             os.remove(file + '.tbi')
         if os.path.exists(file + '.csi'):
-            print("Removing pre-existing .csi")
+            if verbose:
+                print("Removing pre-existing .csi")
             os.remove(file + '.csi')
     return file
-
-
-def byte_decoder(a):
-    """ Decode byte data into utf-8 """
-    return a.decode("utf-8")
 
 
 def download_from_url(url, download_to_dir, save_to_file=None, force_update=False):
@@ -135,7 +178,7 @@ def download_from_url(url, download_to_dir, save_to_file=None, force_update=Fals
             os.rename(temp_download_path, local_path)
         return local_path
     else:
-        raise Exceptions.InvalidURL(url)
+        raise exceptions.InvalidURL(url)
 
 
 def get_default_grch38_ref_fasta_and_index(download_to_dir, force_update=False):
@@ -154,7 +197,20 @@ def get_default_grch38_ref_fasta_and_index(download_to_dir, force_update=False):
     return ref_file
 
 
-def index_vcf(bcftools_path, vcf_path):
+def prep_pharmcat_positions(pharmcat_positions_vcf, bcftools_path, reference_genome, verbose):
+    if not os.path.exists(pharmcat_positions_vcf + '.csi'):
+        index_vcf(bcftools_path, pharmcat_positions_vcf, verbose)
+    uniallelic_positions_vcf = get_vcf_prefix(pharmcat_positions_vcf) + '.uniallelic.vcf.bgz'
+    if not os.path.exists(uniallelic_positions_vcf):
+        # convert reference PGx variants to the uniallelic format
+        # needed for extracting exact PGx positions and generating an accurate missing report
+        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', reference_genome,
+                            '-Oz', '-o', uniallelic_positions_vcf, pharmcat_positions_vcf]
+        run_bcftools(bcftools_command, show_msg='Preparing uniallelic PharmCAT posistions VCF')
+        index_vcf(bcftools_path, uniallelic_positions_vcf, verbose)
+
+
+def index_vcf(bcftools_path, vcf_path, verbose=False):
     """
     index the input vcf using bcftools, and the output index file will be written to the working directory
 
@@ -163,7 +219,8 @@ def index_vcf(bcftools_path, vcf_path):
     """
 
     try:
-        print('  Generating index (' + vcf_path + '.csi)')
+        if verbose:
+            print('    Generating index (' + vcf_path + '.csi)')
         subprocess.run([bcftools_path, 'index', vcf_path], check=True)
     except Exception as e:
         print('Failed to index %s' % vcf_path)
@@ -184,7 +241,10 @@ def run_bcftools(list_bcftools_command, show_msg=None):
     "-r chr|chr:pos|chr:beg-end|chr:beg-[,…]" extracts comma-separated list of regions
     """
 
-    print("%s" % show_msg) if show_msg else print("Running [ %s ]" % (' '.join(list_bcftools_command)))
+    if show_msg:
+        print("%s" % show_msg)
+    else:
+        print("Running [ %s ]" % (' '.join(list_bcftools_command)))
 
     p = subprocess.run(list_bcftools_command, stderr=subprocess.PIPE)
     if p.returncode != 0:
@@ -206,14 +266,15 @@ def obtain_vcf_sample_list(bcftools_path, path_to_vcf):
     return vcf_sample_list
 
 
-def remove_vcf_and_index(path_to_vcf):
+def remove_vcf_and_index(path_to_vcf, verbose=False):
     """remove the compressed vcf as well as the index file"""
 
     try:
         os.remove(path_to_vcf)
-        print("  - %s" % path_to_vcf)
         os.remove(path_to_vcf + '.csi')
-        print("  - %s" % (path_to_vcf + '.csi'))
+        if verbose:
+            print("  - %s" % path_to_vcf)
+            print("  - %s" % (path_to_vcf + '.csi'))
     except OSError as error_remove_tmp:
         print("Error: %s : %s" % (path_to_vcf, error_remove_tmp.strerror))
 
@@ -225,12 +286,8 @@ def _get_vcf_pos_min_max(positions, flanking_bp=100):
 
 def _is_valid_chr(input_vcf):
     chr_status = 'none'
-    with gzip.open(input_vcf) as f:
-        for line in f:
-            try:
-                line = byte_decoder(line)
-            except:
-                line = line
+    with gzip.open(input_vcf, mode='rt', encoding='utf-8') as in_f:
+        for line in in_f:
             if line[0] != '#':
                 fields = line.rstrip().split()
                 if fields[0] in _chr_valid:
@@ -244,8 +301,8 @@ def _is_valid_chr(input_vcf):
     return chr_status
 
 
-def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_dir, output_prefix,
-        sample_list):
+def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_dir, output_prefix, sample_list,
+                                     verbose=False):
     """
     Rename chromosomes in input vcf according to a chr-renaming mapping file.
     Extract pgx regions from input_vcf based on the ref_pgx.
@@ -258,15 +315,15 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
     print("Processing", input_vcf)
     # create index if not already existed
     if not (os.path.exists(input_vcf + '.csi') or os.path.exists(input_vcf + '.tbi')):
-        index_vcf(bcftools_path, input_vcf)
+        index_vcf(bcftools_path, input_vcf, verbose)
 
     # obtain PGx regions to be extracted
     df_ref_pgx_pos = allel.vcf_to_dataframe(pgx_vcf)
     df_ref_pgx_pos['CHROM'] = df_ref_pgx_pos['CHROM'].astype("category").cat.set_categories(_chr_valid_sorter)
     ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
     # add a special case for 'chrMT'
-    idx_chrM = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
-    ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chrM].assign(**{'CHROM': 'chrMT'})])
+    idx_chr_m = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
+    ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chr_m].assign(**{'CHROM': 'chrMT'})])
 
     # generate a temp dir to extract pgx regions and, if necessary, rename chr
     with tempfile.TemporaryDirectory(suffix='extract_pgx_regions', dir=output_dir) as temp_dir:
@@ -301,16 +358,16 @@ def extract_regions_from_single_file(bcftools_path, input_vcf, pgx_vcf, output_d
                             '--rename-chrs', file_chr_rename, '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
                             '-Oz', '-o', path_output, input_vcf]
         run_bcftools(bcftools_command,
-                     show_msg='Extracting PGx regions and modifying chromosome names for %s.' % input_vcf)
+                     show_msg='* Extracting PGx regions and normalizing chromosome names')
 
     # index the output PGx file
-    index_vcf(bcftools_path, path_output)
+    index_vcf(bcftools_path, path_output, verbose)
 
     return path_output
 
 
 def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, ref_pgx,
-        output_dir, output_prefix, sample_list):
+                                        output_dir, output_prefix, sample_list, verbose=False):
     """
     iterate through the list of input files
     """
@@ -330,11 +387,11 @@ def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, r
                         print("Cannot find", line)
                         continue
                     # bgzip file if not already so
-                    line = bgzipped_vcf(bgzip_path, line)
+                    line = bgzip_vcf(bgzip_path, line, verbose)
                     # preprocess each individual file
                     temp_output_prefix = get_vcf_prefix(line)
                     single_file = extract_regions_from_single_file(bcftools_path, line, ref_pgx,
-                                                                   temp_dir, temp_output_prefix, sample_list)
+                                                                   temp_dir, temp_output_prefix, sample_list, verbose)
                     processed_input_list.append(single_file)
                     i += 1
                 else:
@@ -350,14 +407,14 @@ def extract_regions_from_multiple_files(bcftools_path, bgzip_path, input_list, r
         path_output = os.path.join(output_dir, output_prefix + '.pgx_regions.vcf.bgz')
         bcftools_command = [bcftools_path, 'concat', '--no-version', '-a', '-f', temp_file_list, '-Oz', '-o',
                             path_output]
-        run_bcftools(bcftools_command, show_msg='Concatenating chromosome VCFs.')
+        run_bcftools(bcftools_command, show_msg='* Concatenating chromosome VCFs.')
 
     # index the concatenated VCF
-    index_vcf(bcftools_path, path_output)
+    index_vcf(bcftools_path, path_output, verbose)
     return path_output
 
 
-def normalize_vcf(bcftools_path, input_vcf, reference_genome, output_dir):
+def normalize_vcf(bcftools_path, input_vcf, reference_genome, output_dir, verbose=False):
     """
     Normalize the input VCF against the human reference genome sequence GRCh38/hg38
 
@@ -373,14 +430,14 @@ def normalize_vcf(bcftools_path, input_vcf, reference_genome, output_dir):
 
     bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o',
                         path_output, '-f', reference_genome, input_vcf]
-    run_bcftools(bcftools_command, show_msg='Normalizing VCF')
-    index_vcf(bcftools_path, path_output)
+    run_bcftools(bcftools_command, show_msg='* Normalizing VCF')
+    index_vcf(bcftools_path, path_output, verbose)
 
     return path_output
 
 
 def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, ref_pgx,
-        missing_to_ref, output_dir, output_prefix):
+                        missing_to_ref, output_dir, output_prefix, verbose=False):
     """
     Extract specific pgx positions that are present in the reference PGx VCF
     Generate a report of PGx positions that are missing in the input VCF
@@ -395,23 +452,17 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
     """
 
     with tempfile.TemporaryDirectory(suffix='extract_pgx_variants', dir=output_dir) as temp_dir:
-        # convert reference PGx variants to the uniallelic format
-        # needed for extracting exact PGx positions and generating an accurate missing report
-        file_ref_pgx_uniallelic = os.path.join(temp_dir, get_vcf_prefix(ref_pgx) + '.uniallelic.vcf.bgz')
-        bcftools_command = [bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f', reference_genome,
-                            '-Oz', '-o', file_ref_pgx_uniallelic, ref_pgx]
-        run_bcftools(bcftools_command, show_msg='Preparing the reference PGx VCF')
-        index_vcf(bcftools_path, file_ref_pgx_uniallelic)
+        file_ref_pgx_uniallelic = get_vcf_prefix(ref_pgx) + '.uniallelic.vcf.bgz'
 
         '''
-        extracg PGx positions from input using "bcftools view"
+        extracting PGx positions from input using "bcftools view"
         '''
         # extract any variants with matching positions
         input_pgx_pos_only = os.path.join(temp_dir, get_vcf_prefix(input_vcf) + '.pgx_pos_only.vcf.bgz')
         bcftools_command = [bcftools_path, 'view', '--no-version', '-T', file_ref_pgx_uniallelic,
                             '-Oz', '-o', input_pgx_pos_only, input_vcf]
-        run_bcftools(bcftools_command, show_msg='Retaining PGx positions, regardless of alleles')
-        index_vcf(bcftools_path, input_pgx_pos_only)
+        run_bcftools(bcftools_command, show_msg='* Retaining PGx positions, regardless of alleles')
+        index_vcf(bcftools_path, input_pgx_pos_only, verbose)
 
         '''
         extract PGx positions from input VCF
@@ -448,7 +499,7 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                                              '.update_pgx_annotations.vcf')
         with open(input_pgx_pos_updated, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
-            print('Updating VCF header and PGx position annotations')
+            print('* Updating VCF header and PGx position annotations')
             with gzip.open(input_pgx_pos_only, mode='rt', encoding='utf-8') as in_f:
                 for line in in_f:
                     # process header lines, skip contig
@@ -646,8 +697,8 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
         # sort vcf
         sorted_vcf = os.path.join(temp_dir, get_vcf_prefix(input_pgx_pos_updated) + '.sorted.vcf.bgz')
         bcftools_command = [bcftools_path, 'sort', '-Oz', '-o', sorted_vcf, input_pgx_pos_updated]
-        run_bcftools(bcftools_command, show_msg='Sorting file')
-        index_vcf(bcftools_path, sorted_vcf)
+        run_bcftools(bcftools_command, show_msg='* Sorting by chromosomal location')
+        index_vcf(bcftools_path, sorted_vcf, verbose)
 
         # if there was non-PGx variant at PGx positions, need to put back the non-PGx variants into VCF
         path_output = os.path.join(output_dir, get_vcf_prefix(input_vcf) + '.multiallelic.vcf.bgz')
@@ -660,19 +711,15 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
             bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', reference_genome,
                                 '-Oz', '-o', normed_vcf, sorted_vcf]
             run_bcftools(bcftools_command,
-                         show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
-            index_vcf(bcftools_path, normed_vcf)
+                         show_msg='* Enforcing multi-allelic variant representation')
+            index_vcf(bcftools_path, normed_vcf, verbose)
 
             # insert lines of concurrent non-PGx variants after the PGx positions
             path_output_noncompressed = os.path.splitext(path_output)[0]
             with open(path_output_noncompressed, 'w') as out_f:
                 print('Adding back non-PGx variants at PGx positions')
-                with gzip.open(normed_vcf) as in_f:
+                with gzip.open(normed_vcf, mode='rt', encoding='utf-8') as in_f:
                     for line in in_f:
-                        try:
-                            line = byte_decoder(line)
-                        except:
-                            line = line
                         # print all header lines
                         if line[0] == '#':
                             out_f.write(line)
@@ -702,27 +749,23 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                         out_f.write(non_pgx_records[0] + '\n')
                         non_pgx_records.pop(0)
             # bgzip and index file
-            bgzipped_vcf(bgzip_path, path_output_noncompressed)
-            index_vcf(bcftools_path, path_output)
+            bgzip_vcf(bgzip_path, path_output_noncompressed, verbose)
+            index_vcf(bcftools_path, path_output, verbose)
         else:
             # enforces the output to comply with the multi-allelic format
             bcftools_command = [bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', reference_genome,
                                 '-Oz', '-o', path_output, sorted_vcf]
             run_bcftools(bcftools_command,
-                         show_msg='Enforcing the multi-allelic variant representation per PharmCAT')
-            index_vcf(bcftools_path, path_output)
+                         show_msg='* Enforcing the multi-allelic variant representation')
+            index_vcf(bcftools_path, path_output, verbose)
 
         # report missing positions in the input VCF
         file_missing_pos = os.path.join(output_dir, output_prefix + '.missing_pgx_var.vcf')
         with open(file_missing_pos, 'w') as out_f:
-            print('Generating a report of missing PGx allele defining positions')
+            print('* Generating report of missing PGx allele defining positions')
             # get VCF header from the reference PGx VCF
-            with gzip.open(ref_pgx, 'r') as in_f:
+            with gzip.open(ref_pgx, mode='rt', encoding='utf-8') as in_f:
                 for line in in_f:
-                    try:
-                        line = byte_decoder(line)
-                    except:
-                        line = line
                     # process header lines
                     if line[0:2] == '##':
                         out_f.write(line)
@@ -740,11 +783,23 @@ def filter_pgx_variants(bcftools_path, bgzip_path, input_vcf, reference_genome, 
                     line = '\t'.join(val + ['0|0'])
                     out_f.write(line + '\n')
         # bgzip the missing report
-        bgzipped_vcf(bgzip_path, file_missing_pos)
+        bgzip_vcf(bgzip_path, file_missing_pos, verbose)
     return path_output
 
 
-def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefix, sample_list):
+def _output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefix, single_sample):
+    if output_prefix:
+        output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.preprocessed.vcf')
+    else:
+        output_file_name = os.path.join(output_dir, single_sample + '.preprocessed.vcf')
+    bcftools_command = [bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-s', single_sample,
+                        '-Ov', '-o', output_file_name, input_vcf]
+    run_bcftools(bcftools_command,
+                 show_msg='Generating PharmCAT-ready VCF for ' + single_sample)
+
+
+def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefix, sample_list, concurrent_mode=False,
+                              max_processes=1):
     """
     iteratively write to a PharmCAT-ready VCF for each sample
 
@@ -752,13 +807,16 @@ def output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefi
     "-U" exclude sites without any called genotype, i.e., all GT = './.'
     "--force-samples" only warn about unknown subset samples
     """
-
-    for single_sample in sample_list:
-        if output_prefix:
-            output_file_name = os.path.join(output_dir, output_prefix + '.' + single_sample + '.preprocessed.vcf')
-        else:
-            output_file_name = os.path.join(output_dir, single_sample + '.preprocessed.vcf')
-        bcftools_command = [bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-s', single_sample,
-                            '-Ov', '-o', output_file_name, input_vcf]
-        run_bcftools(bcftools_command,
-                     show_msg='Generating a PharmCAT-ready VCF for ' + single_sample)
+    if concurrent_mode:
+        if max_processes is None:
+            # number of cpus - 1, minimum of 1
+            max_processes = max(1, os.cpu_count() - 1)
+        elif max_processes < 1:
+            max_processes = 1
+        chunksize = max(1, len(sample_list) // max_processes)
+        with concurrent.futures.ProcessPoolExecutor() as e:
+            e.map(_output_pharmcat_ready_vcf, repeat(bcftools_path), repeat(input_vcf), repeat(output_dir),
+                  repeat(output_prefix), sample_list, chunksize=chunksize)
+    else:
+        for single_sample in sample_list:
+            _output_pharmcat_ready_vcf(bcftools_path, input_vcf, output_dir, output_prefix, single_sample)

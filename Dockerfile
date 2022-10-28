@@ -74,3 +74,4 @@ COPY pharmcat_positions.vcf* ./
 COPY build/pharmcat.jar ./
 RUN mkdir data
 RUN chmod 755 *.py pharmcat preprocessor data
+RUN python -c "import vcf_preprocess_utilities as util; util.prep_pharmcat_positions('pharmcat_positions.vcf.bgz', 'bcftools', 'reference.fna.bgz')"
