@@ -116,7 +116,6 @@
     </codeStyleSettings>
     <codeStyleSettings language="Python">
       <option name="BLANK_LINES_AFTER_IMPORTS" value="2" />
-      <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
     </codeStyleSettings>
     <codeStyleSettings language="SASS">
       <indentOptions>
