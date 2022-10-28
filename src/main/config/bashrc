@@ -13,5 +13,5 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias pcat='/pharmcat/pharmcat'
-alias prep='/pharmcat/preprocessor'
+alias pcat='/pharmcat/pharmcat -vcf '
+alias prep='/pharmcat/preprocessor -vcf '
