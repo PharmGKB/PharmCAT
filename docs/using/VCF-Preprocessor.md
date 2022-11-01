@@ -103,7 +103,7 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 -k, --keep-intermediate-files
 : This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.bgz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
 
--0 <span class="altArg"><br />or --missing_to_ref</span>
+-0 <span class="altArg"><br />or --missing-to-ref</span>
 : This option will add missing PGx positions to the output. Missing PGx positions are those whose genotypes are all missing "./." in every single sample.
   * This option will not convert "./." to "0/0" if any other sample has non-missing genotype at this position as these missing calls are likely missing for good reasons.
   * This **SHOULD ONLY BE USED** if you are sure your data is reference at the missing positions
