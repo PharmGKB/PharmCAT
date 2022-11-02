@@ -2,6 +2,9 @@
 #
 # Builds reference FASTA file for use by VCF preprocessor.
 #
+set -e
+set -u
+set -o pipefail
 
 echo "Removing old files..."
 rm -f GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi genomic.fna genomic.fna.gz chrfix.fna
