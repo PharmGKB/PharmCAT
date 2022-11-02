@@ -37,7 +37,7 @@ To run the tool, you need to download the following bioinformatic tools:
 We assume a working python3 installation with necessary dependencies:
 * python >= 3.9.4
 * pandas >= 1.4.2
-* scikit-allel >= 1.3.5
+* scikit-allel >= 1.3.5 (warning: testing compatibilty with python >= 3.11)
 
 To install necessary python packages, run the following code
 ```console
