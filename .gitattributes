@@ -73,6 +73,7 @@ src/main/config/bashrc  text eol=lf
 *.bmp     binary
 *.bgz     binary
 *.class   binary
+*.csi     binary
 *.dll     binary
 *.doc     binary
 *.docx    binary

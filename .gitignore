@@ -19,7 +19,7 @@
 # External tools
 .gradle/
 /node_modules/
-/venv/
+venv/
 
 # Wiki checkout
 /*.wiki/
