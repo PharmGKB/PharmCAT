@@ -17,6 +17,7 @@
 /.idea/PharmCAT.iml
 
 # External tools
+_trial_temp/
 .gradle/
 /node_modules/
 venv/
@@ -37,6 +38,8 @@ venv/
 /tmp/
 log.txt
 pharmcat*.log
+/pharmcat_positions.uniallelic.vcf.bgz*
+reference.fna.bgz*
 # temp files for testing the Jekyll site
 /docs/_site
 /docs/.bundle
