@@ -1,15 +1,19 @@
 ## Overview
 
-There are two types of files in this directory. One is the test files; and the other is the reference files (expected results).
+There are two types of files in this directory:
+* test files
+* reference files (expected results)
 
 ## Explanation of files
 
 ### 1. Test files for bcftools and the preprocessing scripts
+
+For example:
+
 1. test.vcf.bgz
 2. reference.Sample_1.preprocessed.vcf
 3. reference.Sample_2.preprocessed.vcf
 4. reference.missing_pgx_var.vcf.bgz
-
 
 _"test.vcf.bgz"_ are designed for tests on bcftools version as well as the PharmCAT VCF preprocessor. The output from the VCF preprocessor should match the content in *reference.Sample_1.preprocessed.vcf*, *reference.Sample_2.preprocessed.vcf*, and *reference.missing_pgx_var.vcf.bgz*.
 
@@ -23,7 +27,7 @@ The data was the 1000 Genomes Project sequences of Coriell samples with correspo
 # Follow the script 01-03 downloaded from the Stanford Digital Repository. You will need to modify the codes, such as file paths.
 
 # run VCF preprocessing
-python3 PharmCAT_VCF_Preprocess.py \
+python3 pharmcat_vcf_preprocessor.py \
 -vcf PharmCAT_calling_pipeline-master/data/1kg_data/GeT-RM_sample_data/PGx.chrAllPGx.GRCh38.genotypes.20170504.vcf.gz \
 -refFna GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
 -refVcf pharmcat_positions_0.8.0_updated_06222021.vcf.gz

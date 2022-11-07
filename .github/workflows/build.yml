@@ -21,8 +21,11 @@ jobs:
           java-version: 17
           cache: gradle
 
-      - name: Run tests
+      - name: Run PharmCAT tests
         run: ./gradlew test --no-daemon
+
+      - name: Run preprocessor tests
+        run: make test-preprocessor
 
       - name: Codecov
         uses: codecov/codecov-action@v3

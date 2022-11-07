@@ -46,14 +46,16 @@ If you run `ls`, it will list the contents of the `/pharmcat` directory:
 
 ```console
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ls
-PharmCAT_VCF_Preprocess.py
-PharmCAT_VCF_Preprocess_py3_requirements.txt
+pharmcat_vcf_preprocessor.py
 data
 pharmcat
 pharmcat.jar
+pharmcat_positions.uniallelic.vcf.bgz
+pharmcat_positions.uniallelic.vcf.bgz.csi
 pharmcat_positions.vcf
 pharmcat_positions.vcf.bgz
-pharmcat_positions.vcf.bgz.tbi
+pharmcat_positions.vcf.bgz.csi
+preprocessor
 reference.fna.bgz
 reference.fna.bgz.fai
 reference.fna.bgz.gzi
@@ -66,13 +68,13 @@ vcf_preprocess_utilities.py
 Your VCF files needs to comply with [PharmCAT's requirements](/using/VCF-Requirements).  [PharmCAT's VCF preprocessor](/using/VCF-Preprocessor) will handle much of this for you.
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./PharmCAT_VCF_Preprocess.py
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_vcf_preprocessor.py
 ```
 
 If you have a file `/path/to/data/sample.vcf`, you would use:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./PharmCAT_VCF_Preprocess.py -vcf data/sample.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_vcf_preprocessor.py -vcf data/sample.vcf
 ```
 
 Note: the GRCh38 reference is included in the Docker image, so you do not need to provide it unless you have special reference requirements.

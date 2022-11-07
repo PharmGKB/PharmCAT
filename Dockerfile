@@ -21,7 +21,7 @@ RUN apt-get update && \
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
 # download fasta files
-RUN wget https://zenodo.org/record/7255850/files/GRCh38_reference_fasta.tar && \
+RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     tar -xf GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
@@ -58,9 +58,9 @@ RUN rm  -f /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/samtools-${SAMTOOLS_VERSION}
 
 # setup python env
-COPY src/scripts/preprocessor/PharmCAT_VCF_Preprocess_py3_requirements.txt ./
-RUN pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
-RUN rm PharmCAT_VCF_Preprocess_py3_requirements.txt
+COPY src/scripts/preprocessor/requirements.txt ./
+RUN pip3 install -r requirements.txt
+RUN rm requirements.txt
 
 # setup user
 COPY src/main/config/bashrc /root/.bashrc
@@ -68,10 +68,11 @@ COPY src/main/config/bashrc /root/.bashrc
 WORKDIR /pharmcat
 # add pharmcat scripts
 COPY src/scripts/preprocessor/*.py ./
+RUN rm test_*.py
 COPY bin/pharmcat ./
 COPY bin/preprocessor ./
 COPY pharmcat_positions.vcf* ./
 COPY build/pharmcat.jar ./
 RUN mkdir data
 RUN chmod 755 *.py pharmcat preprocessor data
-RUN python -c "import vcf_preprocess_utilities as util; util.prep_pharmcat_positions('pharmcat_positions.vcf.bgz', 'bcftools', 'reference.fna.bgz')"
+RUN python -c "import utilities; utilities.prep_pharmcat_positions()"

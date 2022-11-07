@@ -66,12 +66,12 @@ public class DockerRunner {
 
 
   /**
-   * Runs {@code tabix} via Docker.
+   * Runs {@code bcftools index} via Docker.
    * Expects a container tagged "pcat" to be available.
    */
-  public static void tabix(Path inFile) throws IOException {
+  public static void indexVcf(Path inFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
-    String toolCmd = "tabix -p vcf -f data/" + PathUtils.getFilename(inFile);
+    String toolCmd = "bcftools index data/" + PathUtils.getFilename(inFile);
 
     runCmd(dockerCmd, toolCmd, inFile.getParent());
   }

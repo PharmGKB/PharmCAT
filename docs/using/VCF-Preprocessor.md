@@ -41,7 +41,7 @@ We assume a working python3 installation with necessary dependencies:
 
 To install necessary python packages, run the following code
 ```console
-$ pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 ### Command line
@@ -49,7 +49,7 @@ $ pip3 install -r PharmCAT_VCF_Preprocess_py3_requirements.txt
 To normalize and prepare a VCF file (single or multiple samples) for PharmCAT, run the following code substituted with proper arguments/inputs:
 
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py -vcf path/to/file.vcf(.bgz)
+$ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
 ```
 
 **Mandatory** argument: `-vcf`.
@@ -134,7 +134,7 @@ $ cat test_1.vcf
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py -vcf test_1.vcf.bgz
+$ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz
 ```
 
 VCF preprocessor will return two files in this test case.
@@ -179,7 +179,7 @@ M	1555	.	G	A	PASS	.	GT	1/0	0/1
 
 Command to run the PharmCAT VCF preprocessor:
 ```console
-$ python3 PharmCAT_VCF_Preprocess.py -vcf test_2.vcf.bgz
+$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
 ```
 
 VCF preprocessor will return three (3) files in this test case.
@@ -231,4 +231,4 @@ PharmCAT takes this file and prepares it for use with the following commands:
 # tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi
 ```
 
-PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/7255850).
+PharmCAT makes this indexed FASTA files available on [Zenodo](https://zenodo.org/record/7288118).

@@ -685,7 +685,7 @@ public class DataManager {
     VcfHelper.extractPositions(genes, definitionReader, positionsFile);
     Path bgzFile = DockerRunner.bgzip(positionsFile);
     System.out.println("Saved bgzip'd positions VCF to " + bgzFile);
-    DockerRunner.tabix(bgzFile);
+    DockerRunner.indexVcf(bgzFile);
   }
 
 
