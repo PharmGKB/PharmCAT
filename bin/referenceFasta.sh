@@ -2,9 +2,12 @@
 #
 # Builds reference FASTA file for use by VCF preprocessor.
 # Download from https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/
-# The no_alt_analysis_set contains the sequences, in FASTA format, of the chromosomes, mitochondrial genome, unlocalized scaffolds, and unplaced scaffolds.
-# The definition line has a UCSC-style sequence identifier and contains metadata in a series of space-separated tag-value pairs.
-# Soft-masking (low complexity sequence aka repetitive regions) is converted to uppercases in reference genome sequences for alignment pipelines.
+# * The no_alt_analysis_set contains the sequences, in FASTA format, of the chromosomes, mitochondrial genome,
+#   un-localized scaffolds, and unplaced scaffolds.
+# * The definition line has UCSC-style sequence identifier and contains metadata in a series of space-separated
+#   tag-value pairs.
+# * Soft-masking (low complexity sequence aka repetitive regions) is converted to uppercase in reference genome
+#   sequences for alignment pipelines.
 #
 set -e
 set -u
