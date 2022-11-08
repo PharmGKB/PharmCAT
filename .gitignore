@@ -32,6 +32,8 @@ venv/
 /build/
 
 # PharmCAT specific
+/.coverage
+/coverage-python.xml
 /docs/assets/
 /out/
 /testVcf/

@@ -5,6 +5,17 @@ on:
     branches:
       - "*"
 
+# cancel current build on push from the same PR, branch or tag (https://stackoverflow.com/a/72408109/1063501)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  BCFTOOLS_VERSION: 1.16
+  HTSLIB_VERSION: 1.16
+  REFERENCE_FASTA_ZENODO_ID: 7288118
+  TOOLS_DIR: /home/runner/work/PharmCAT/PharmCAT/tools
+
 jobs:
   build:
     name: Build project
@@ -14,23 +25,89 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Cache bcftools
+        id: cache-bcftools
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.TOOLS_DIR }}/bcftools
+          key: bcftools-${{ env.BCFTOOLS_VERSION }}
+
+      - name: Install bcftools
+        if: steps.cache-bcftools.outputs.cache-hit != 'true'
+        run: |
+          wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2
+          tar -xjf bcftools-${BCFTOOLS_VERSION}.tar.bz2
+          cd bcftools-${BCFTOOLS_VERSION}
+          ./configure --prefix ${TOOLS_DIR}/bcftools
+          make
+          make install
+
+      - name: Cache htslib
+        id: cache-htslib
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.TOOLS_DIR }}/htslib
+          key: htslib-${{ env.HTSLIB_VERSION }}
+
+      - name: Install htslib
+        if: steps.cache-htslib.outputs.cache-hit != 'true'
+        run: |
+          wget https://github.com/samtools/htslib/releases/download/${HTSLIB_VERSION}/htslib-${HTSLIB_VERSION}.tar.bz2
+          tar -xjf htslib-${HTSLIB_VERSION}.tar.bz2
+          cd htslib-${HTSLIB_VERSION}
+          ./configure --prefix ${TOOLS_DIR}/htslib
+          make
+          make install
+
+      - name: Add tools to path
+        run: echo "${TOOLS_DIR}/bcftools/bin:${TOOLS_DIR}/htslib/bin" >> $GITHUB_PATH
+
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: temurin
-          java-version: 17
-          cache: gradle
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install python dependencies
+        run: pip3 install -r src/scripts/preprocessor/requirements.txt
+
+      - name: Install pytest
+        run: pip3 install pytest pytest-cov pytest-github-actions-annotate-failures
 
       - name: Run PharmCAT tests
         run: ./gradlew test --no-daemon
 
+      - name: Cache reference FASTA
+        id: cache-ref-fasta
+        uses: actions/cache@v3
+        with:
+          path: |
+            reference.fna.bgz
+            reference.fna.bgz.fai
+            reference.fna.bgz.gzi
+          key: ref-fasta-${{ env.REFERENCE_FASTA_ZENODO_ID }}
+
+      - name: Download reference FASTA
+        if: steps.cache-ref-fasta.outputs.cache-hit != 'true'
+        run: |
+          wget https://zenodo.org/record/${REFERENCE_FASTA_ZENODO_ID}/files/GRCh38_reference_fasta.tar
+          tar -xf GRCh38_reference_fasta.tar
+          rm -f GRCh38_reference_fasta.tar
+
       - name: Run preprocessor tests
-        run: make test-preprocessor
+        run: pytest --cov-report=xml --cov=src/scripts/preprocessor src/scripts/preprocessor
 
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: ./build/reports/jacoco/test/jacocoTestReport.xml
+          files: ./build/reports/jacoco/test/jacocoTestReport.xml,./coverage-python.xml
           flags: unittests
 
       - name: Send Slack notification on failure

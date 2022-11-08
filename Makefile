@@ -195,7 +195,7 @@ fuzzyVcfMissingTests: clean _generateVcf-missing _fuzzyVcfTests-missing
 
 .PHONY: test-preprocessor
 test-preprocessor:
-	cd src/scripts/preprocessor; python3 -m unittest
+	pytest --cov=src/scripts/preprocessor src/scripts/preprocessor
 
 
 .PHONY: release
