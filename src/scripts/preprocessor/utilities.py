@@ -685,13 +685,22 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 2. Matching REF and mismatching ALT: separate and retain as another record
                                 3. Matching REF and ALT=<*>: uncertain nucleotide changes, warn and ignore
                             '''
+
+                            # check whether the position has unspecified alt '<*>' or is homozygous reference
+                            if fields[4] in ['.', '<*>']:
+                                is_nonspecific_alt: bool = True
+
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
                             alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
                             # check if the reference PGx variant is a SNP
                             len_ref = sum(map(len, ref_alleles))
                             len_alt = sum(map(len, alt_alleles))
-                            is_snp = ((len_ref - len_alt) == 0)
+                            if is_nonspecific_alt:
+                                if len_ref == 1:
+                                    is_snp: bool = True
+                            else:
+                                is_snp = ((len_ref - len_alt) == 0)
 
                             # a tuple variable for ref and alt alleles in this VCF record
                             input_ref_alt = (fields[3], fields[4])
@@ -731,7 +740,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                     if ref_pos_dynamic[input_chr_pos] == {}:
                                         del ref_pos_dynamic[input_chr_pos]
                             # SNPs - homozygous reference
-                            elif is_snp and (fields[3] in ref_alleles) and (fields[4] in ['.', '<*>']):
+                            elif is_snp and is_nonspecific_alt and (fields[3] in ref_alleles):
                                 # if reference ALT alleles are exhausted, next positions
                                 if input_chr_pos not in ref_pos_dynamic:
                                     continue
@@ -754,7 +763,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                             if ref_pos_dynamic[input_chr_pos] == {}:
                                                 del ref_pos_dynamic[input_chr_pos]
                             # SNPs - mismatching ALT
-                            elif is_snp and (fields[3] in ref_alleles) and (len(fields[4]) == 1):
+                            elif is_snp and (fields[3] in ref_alleles):
                                 # record input PGx positions in a list
                                 # use this to fill up multi-allelic ALT later
                                 if input_chr_pos not in input_pos:
@@ -765,7 +774,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 # write to output
                                 out_f.write('\t'.join(fields) + '\n')
                             # INDELs with a unspecified allele, ALT="<*>"
-                            elif not is_snp and (fields[4] in ['.', '<*>']):
+                            elif not is_snp and is_nonspecific_alt:
                                 print('  * WARNING: ignore \"%s:%s REF=%s ALT=%s\" which is not a valid GT format '
                                       'for INDELs'
                                       % (fields[0], fields[1], fields[3], fields[4]))
