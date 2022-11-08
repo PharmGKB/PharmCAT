@@ -304,202 +304,202 @@
   },
   "diplotypes": [
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*4x2/*57",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*3x2/*10x2",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*57": 1,
-        "*4x2": 1
+        "*3x2": 1,
+        "*10x2": 1
       }
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*31/*96",
+      "diplotype": "*60/*62",
       "description": null,
       "lookupkey": "0.0",
       "diplotypekey": {
-        "*31": 1,
-        "*96": 1
+        "*60": 1,
+        "*62": 1
       }
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*18/*81",
+      "diplotype": "*44/*68",
       "description": null,
       "lookupkey": "0.0",
       "diplotypekey": {
-        "*18": 1,
+        "*44": 1,
+        "*68": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3x2/*19",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*19": 1,
+        "*3x2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10x2/*42",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*42": 1,
+        "*10x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*81/*124",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*81": 1,
+        "*124": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10x2/*40",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*40": 1,
+        "*10x2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*54/*120",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*54": 1,
+        "*120": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*20/*81",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*20": 1,
         "*81": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*12/*56",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10x2/*44",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*12": 1,
-        "*56": 1
+        "*44": 1,
+        "*10x2": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*4x2/*56",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36x2/*49",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*56": 1,
-        "*4x2": 1
+        "*49": 1,
+        "*36x2": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*38/*38",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*3/*50",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*38": 2
+        "*3": 1,
+        "*50": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*7/*8",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*7/*14",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
         "*7": 1,
-        "*8": 1
+        "*14": 1
       }
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*6/*100",
+      "diplotype": "*3x2/*81",
       "description": null,
       "lookupkey": "0.0",
       "diplotypekey": {
-        "*6": 1,
-        "*100": 1
+        "*81": 1,
+        "*3x2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*3/*54",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*3": 1,
+        "*54": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10/*60",
+      "description": null,
+      "lookupkey": "0.25",
+      "diplotypekey": {
+        "*10": 1,
+        "*60": 1
       }
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*51/*101",
+      "diplotype": "*36x2/*36x2",
       "description": null,
       "lookupkey": "0.0",
       "diplotypekey": {
-        "*51": 1,
-        "*101": 1
+        "*36x2": 2
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*12/*40",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10/*40",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.25",
       "diplotypekey": {
-        "*12": 1,
+        "*10": 1,
         "*40": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*31/*92",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*4x≥3/*10",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.25",
       "diplotypekey": {
-        "*31": 1,
-        "*92": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*6/*101",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*6": 1,
-        "*101": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*11/*51",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*11": 1,
-        "*51": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*51/*100",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*51": 1,
-        "*100": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*12/*42",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*12": 1,
-        "*42": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*44",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*36": 1,
-        "*44": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*4x≥3",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*3x2": 1,
+        "*10": 1,
         "*4x≥3": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*56/*81",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*5/*10x2",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*56": 1,
-        "*81": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*11/*47",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*11": 1,
-        "*47": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*12/*38",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*12": 1,
-        "*38": 1
+        "*5": 1,
+        "*10x2": 1
       }
     },
     {
@@ -953,13 +953,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*96",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*29/*81",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 1,
-        "*96": 1
+        "*29": 1,
+        "*81": 1
       }
     },
     {
@@ -1182,13 +1182,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*11/*44",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*59/*101",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*11": 1,
-        "*44": 1
+        "*59": 1,
+        "*101": 1
       }
     },
     {
@@ -1632,13 +1632,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*4/*114",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*17/*92",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*4": 1,
-        "*114": 1
+        "*17": 1,
+        "*92": 1
       }
     },
     {
@@ -1862,12 +1862,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*36",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*6x2/*9",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 2
+        "*9": 1,
+        "*6x2": 1
       }
     },
     {
@@ -2329,13 +2330,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*57/*68",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*29/*96",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*57": 1,
-        "*68": 1
+        "*29": 1,
+        "*96": 1
       }
     },
     {
@@ -2556,13 +2557,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*12/*36",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*55/*124",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*12": 1,
-        "*36": 1
+        "*55": 1,
+        "*124": 1
       }
     },
     {
@@ -2995,13 +2996,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*120/*129",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*17/*96",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*120": 1,
-        "*129": 1
+        "*17": 1,
+        "*96": 1
       }
     },
     {
@@ -3215,13 +3216,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*8/*129",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*17/*99",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*8": 1,
-        "*129": 1
+        "*17": 1,
+        "*99": 1
       }
     },
     {
@@ -3445,13 +3446,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*31/*120",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10x2/*96",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*31": 1,
-        "*120": 1
+        "*96": 1,
+        "*10x2": 1
       }
     },
     {
@@ -3675,13 +3676,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*38",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*59/*124",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 1,
-        "*38": 1
+        "*59": 1,
+        "*124": 1
       }
     },
     {
@@ -5491,13 +5492,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*57/*100",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*49/*101",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*57": 1,
-        "*100": 1
+        "*49": 1,
+        "*101": 1
       }
     },
     {
@@ -5951,13 +5952,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*124",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*49/*100",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*124": 1,
-        "*3x2": 1
+        "*49": 1,
+        "*100": 1
       }
     },
     {
@@ -5992,6 +5993,16 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "*54/*92",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*54": 1,
+        "*92": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*21/*59",
       "description": null,
       "lookupkey": "0.5",
@@ -6002,42 +6013,32 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*12/*29",
+      "diplotype": "*21/*54",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*12": 1,
-        "*29": 1
+        "*21": 1,
+        "*54": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*13/*14",
+      "diplotype": "*57/*59",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*13": 1,
-        "*14": 1
+        "*57": 1,
+        "*59": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*4x2/*59",
+      "diplotype": "*14/*20",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*59": 1,
-        "*4x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*11/*50",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*11": 1,
-        "*50": 1
+        "*14": 1,
+        "*20": 1
       }
     },
     {
@@ -6052,102 +6053,102 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*4x2/*50",
+      "diplotype": "*55/*96",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*50": 1,
+        "*55": 1,
+        "*96": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*4x2/*55",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*55": 1,
         "*4x2": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*55/*92",
+      "diplotype": "*4x2/*54",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*55": 1,
-        "*92": 1
+        "*54": 1,
+        "*4x2": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*18",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*14": 1,
-        "*18": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*11/*49",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*11": 1,
-        "*49": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*47/*49",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*47": 1,
-        "*49": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*59/*60",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*59": 1,
-        "*60": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*13/*41",
+      "diplotype": "*13/*29",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
         "*13": 1,
-        "*41": 1
+        "*29": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*12/*54",
+      "diplotype": "*54/*99",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*54": 1,
+        "*99": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*50/*101",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*50": 1,
+        "*101": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*14/*31",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*14": 1,
+        "*31": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*55",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*36": 1,
+        "*55": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*50",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*36": 1,
+        "*50": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*12/*50",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
         "*12": 1,
-        "*54": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*59/*62",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*59": 1,
-        "*62": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*31",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*31": 1,
-        "*10x2": 1
+        "*50": 1
       }
     },
     {
@@ -6162,31 +6163,32 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*47/*59",
+      "diplotype": "*55/*99",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*47": 1,
-        "*59": 1
+        "*55": 1,
+        "*99": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*38",
+      "diplotype": "*36/*49",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*38": 1,
-        "*10x2": 1
+        "*36": 1,
+        "*49": 1
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*8/*8",
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*59/*120",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "0.5",
       "diplotypekey": {
-        "*8": 2
+        "*59": 1,
+        "*120": 1
       }
     },
     {
@@ -6640,46 +6642,6 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*96/*124",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*96": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*56",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*56": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*41/*124",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*41": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*19/*59",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*19": 1,
-        "*59": 1
-      }
-    },
-    {
       "generesult": "Intermediate Metabolizer",
       "diplotype": "*41/*129",
       "description": null,
@@ -6717,6 +6679,46 @@
       "diplotypekey": {
         "*17": 1,
         "*81": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*131/*133",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*131": 1,
+        "*133": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10x2/*56",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*56": 1,
+        "*10x2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*41/*124",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*41": 1,
+        "*124": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*19/*59",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*19": 1,
+        "*59": 1
       }
     },
     {
@@ -6821,22 +6823,22 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*101",
+      "diplotype": "*10x2/*124",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*14": 1,
-        "*101": 1
+        "*124": 1,
+        "*10x2": 1
       }
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*129",
+      "diplotype": "*14/*100",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
         "*14": 1,
-        "*129": 1
+        "*100": 1
       }
     },
     {
@@ -7794,13 +7796,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*7/*101",
+      "generesult": "Indeterminate",
+      "diplotype": "*64/*130",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "n/a",
       "diplotypekey": {
-        "*7": 1,
-        "*101": 1
+        "*64": 1,
+        "*130": 1
       }
     },
     {
@@ -8473,13 +8475,13 @@
       }
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*120",
+      "generesult": "Indeterminate",
+      "diplotype": "*131/*136",
       "description": null,
-      "lookupkey": "0.0",
+      "lookupkey": "n/a",
       "diplotypekey": {
-        "*120": 1,
-        "*3x2": 1
+        "*131": 1,
+        "*136": 1
       }
     },
     {
@@ -8931,95 +8933,6 @@
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*7/*7",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*7": 2
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*4/*120",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*4": 1,
-        "*120": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*42",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*36": 1,
-        "*42": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*13/*31",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*13": 1,
-        "*31": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*4x2/*51",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*51": 1,
-        "*4x2": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36/*40",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*36": 1,
-        "*40": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3/*129",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*3": 1,
-        "*129": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3/*124",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*3": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*57/*69",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*57": 1,
-        "*69": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
       "diplotype": "*31/*68",
       "description": null,
       "lookupkey": "0.0",
@@ -9153,6 +9066,95 @@
       "lookupkey": "0.0",
       "diplotypekey": {
         "*56": 1,
+        "*69": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*7/*7",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*7": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*4/*120",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*4": 1,
+        "*120": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*42",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 1,
+        "*42": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*13/*31",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*13": 1,
+        "*31": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*4x2/*51",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*51": 1,
+        "*4x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*11/*47",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*11": 1,
+        "*47": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3/*129",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*3": 1,
+        "*129": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3/*124",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*3": 1,
+        "*124": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*57/*69",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*57": 1,
         "*69": 1
       }
     },
@@ -9388,12 +9390,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*136",
+      "diplotype": "*131/*137",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*136": 1
+        "*131": 1,
+        "*137": 1
       }
     },
     {
@@ -10334,12 +10336,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*75/*105",
+      "diplotype": "*131/*135",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*75": 1,
-        "*105": 1
+        "*131": 1,
+        "*135": 1
       }
     },
     {
@@ -11514,12 +11516,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*74/*115",
+      "diplotype": "*65/*108",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*74": 1,
-        "*115": 1
+        "*65": 1,
+        "*108": 1
       }
     },
     {
@@ -12454,12 +12456,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*73/*125",
+      "diplotype": "*63/*128",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*73": 1,
-        "*125": 1
+        "*63": 1,
+        "*128": 1
       }
     },
     {
@@ -13404,12 +13406,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*135",
+      "diplotype": "*65/*107",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*135": 1
+        "*65": 1,
+        "*107": 1
       }
     },
     {
@@ -13644,12 +13646,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*37/*70",
+      "diplotype": "*63/*127",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*37": 1,
-        "*70": 1
+        "*63": 1,
+        "*127": 1
       }
     },
     {
@@ -14124,12 +14126,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*75/*104",
+      "diplotype": "*25/*90",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*75": 1,
-        "*104": 1
+        "*25": 1,
+        "*90": 1
       }
     },
     {
@@ -14364,12 +14366,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*74/*113",
+      "diplotype": "*64/*116",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*74": 1,
-        "*113": 1
+        "*64": 1,
+        "*116": 1
       }
     },
     {
@@ -14844,12 +14846,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*133",
+      "diplotype": "*25/*91",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*133": 1
+        "*25": 1,
+        "*91": 1
       }
     },
     {
@@ -15854,22 +15856,22 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*26/*54",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*26": 1,
+        "*54": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*49/*63",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*49": 1,
         "*63": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*49/*64",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*49": 1,
-        "*64": 1
       }
     },
     {
@@ -16504,26 +16506,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*75/*102",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*75": 1,
-        "*102": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*50/*72",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*50": 1,
-        "*72": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*50/*73",
       "description": null,
       "lookupkey": "n/a",
@@ -16534,22 +16516,32 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*63",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*63": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*52/*59",
+      "diplotype": "*52/*54",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*52": 1,
-        "*59": 1
+        "*54": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*65",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*9": 1,
+        "*65": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*50/*90",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*50": 1,
+        "*90": 1
       }
     },
     {
@@ -16574,182 +16566,182 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*82",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*50": 1,
-        "*82": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*9/*72",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*72": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*50/*85",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*50": 1,
-        "*85": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*9/*75",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*75": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*54/*61",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*54": 1,
-        "*61": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*30/*55",
+      "diplotype": "*30/*41",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*30": 1,
-        "*55": 1
+        "*41": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*98",
+      "diplotype": "*50/*84",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*50": 1,
-        "*98": 1
+        "*84": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*83",
+      "diplotype": "*9/*74",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*83": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*9/*82",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*82": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*9/*87",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*87": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*9/*89",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*89": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*54/*71",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*54": 1,
-        "*71": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*55/*63",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*55": 1,
-        "*63": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*54/*74",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*54": 1,
         "*74": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*55/*58",
+      "diplotype": "*30/*49",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*55": 1,
-        "*58": 1
+        "*30": 1,
+        "*49": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*54/*64",
+      "diplotype": "*32/*41",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*54": 1,
-        "*64": 1
+        "*32": 1,
+        "*41": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*94",
+      "diplotype": "*50/*97",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*50": 1,
+        "*97": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*50/*93",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*50": 1,
+        "*93": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*50/*95",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*50": 1,
+        "*95": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*85",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*94": 1
+        "*85": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*73/*122",
+      "diplotype": "*9/*86",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*73": 1,
-        "*122": 1
+        "*9": 1,
+        "*86": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*88",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*9": 1,
+        "*88": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*32/*50",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*32": 1,
+        "*50": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*54/*73",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*54": 1,
+        "*73": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*43x2/*49",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*49": 1,
+        "*43x2": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*90",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*9": 1,
+        "*90": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*54/*65",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*54": 1,
+        "*65": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*93",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*9": 1,
+        "*93": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*28/*61",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*28": 1,
+        "*61": 1
       }
     },
     {
@@ -17224,12 +17216,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*74/*111",
+      "diplotype": "*64/*115",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*74": 1,
-        "*111": 1
+        "*64": 1,
+        "*115": 1
       }
     },
     {
@@ -17464,12 +17456,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*73/*121",
+      "diplotype": "*63/*125",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*73": 1,
-        "*121": 1
+        "*63": 1,
+        "*125": 1
       }
     },
     {
@@ -18184,12 +18176,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*74/*110",
+      "diplotype": "*65/*104",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*74": 1,
-        "*110": 1
+        "*65": 1,
+        "*104": 1
       }
     },
     {
@@ -18424,12 +18416,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*130",
+      "diplotype": "*65/*103",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*130": 1
+        "*65": 1,
+        "*103": 1
       }
     },
     {
@@ -18664,12 +18656,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*37/*73",
+      "diplotype": "*63/*123",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*37": 1,
-        "*73": 1
+        "*63": 1,
+        "*123": 1
       }
     },
     {
@@ -19864,12 +19856,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*75/*109",
+      "diplotype": "*26/*98",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*75": 1,
-        "*109": 1
+        "*26": 1,
+        "*98": 1
       }
     },
     {
@@ -20584,12 +20576,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*139",
+      "diplotype": "*65/*102",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*139": 1
+        "*65": 1,
+        "*102": 1
       }
     },
     {
@@ -21774,12 +21766,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*75/*135",
+      "diplotype": "*63/*122",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*75": 1,
-        "*135": 1
+        "*63": 1,
+        "*122": 1
       }
     },
     {
@@ -25414,22 +25406,22 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*100/*109",
+      "diplotype": "*36/*108",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*100": 1,
-        "*109": 1
+        "*36": 1,
+        "*108": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*100/*107",
+      "diplotype": "*36/*105",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*100": 1,
-        "*107": 1
+        "*36": 1,
+        "*105": 1
       }
     },
     {
@@ -25444,12 +25436,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*100/*102",
+      "diplotype": "*36/*113",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*100": 1,
-        "*102": 1
+        "*36": 1,
+        "*113": 1
       }
     },
     {
@@ -25564,12 +25556,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*38/*112",
+      "diplotype": "*36/*132",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*38": 1,
-        "*112": 1
+        "*36": 1,
+        "*132": 1
       }
     },
     {
@@ -26604,32 +26596,22 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*44/*122",
+      "diplotype": "*110/*129",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*44": 1,
-        "*122": 1
+        "*110": 1,
+        "*129": 1
       }
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*111/*120",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*111": 1,
-        "*120": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*47/*116",
+      "diplotype": "*47/*126",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*47": 1,
-        "*116": 1
+        "*126": 1
       }
     },
     {
@@ -26640,6 +26622,16 @@
       "diplotypekey": {
         "*47": 1,
         "*125": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*110/*120",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*110": 1,
+        "*120": 1
       }
     },
     {
@@ -27764,12 +27756,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*37/*74",
+      "diplotype": "*64/*111",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*37": 1,
-        "*74": 1
+        "*64": 1,
+        "*111": 1
       }
     },
     {
@@ -28244,12 +28236,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*74/*118",
+      "diplotype": "*25/*97",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*74": 1,
-        "*118": 1
+        "*25": 1,
+        "*97": 1
       }
     },
     {
@@ -29443,12 +29435,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*138",
+      "diplotype": "*25/*98",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*72": 1,
-        "*138": 1
+        "*25": 1,
+        "*98": 1
       }
     },
     {
@@ -30161,6 +30153,145 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*64/*131",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*64": 1,
+        "*131": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*131/*131",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*131": 2
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*131/*134",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*131": 1,
+        "*134": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*64/*118",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*64": 1,
+        "*118": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*64/*117",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*64": 1,
+        "*117": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*65/*106",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*65": 1,
+        "*106": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*63/*126",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*63": 1,
+        "*126": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*65/*105",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*65": 1,
+        "*105": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*26/*82",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*26": 1,
+        "*82": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*64/*113",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*64": 1,
+        "*113": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*64/*112",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*64": 1,
+        "*112": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*63/*121",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*63": 1,
+        "*121": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*26/*87",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*26": 1,
+        "*87": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*26/*89",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*26": 1,
+        "*89": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*64/*122",
       "description": null,
       "lookupkey": "n/a",
@@ -30257,145 +30388,6 @@
       "diplotypekey": {
         "*64": 1,
         "*132": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*131",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*131": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*131/*131",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 2
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*131/*134",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 1,
-        "*134": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*118",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*118": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*117",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*117": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*106",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*106": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*91",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*25": 1,
-        "*91": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*105",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*105": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*26/*82",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*26": 1,
-        "*82": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*113",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*113": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*112",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*112": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*121",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*121": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*98",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*25": 1,
-        "*98": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*93",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*25": 1,
-        "*93": 1
       }
     },
     {
@@ -31832,16 +31824,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*37/*75",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*37": 1,
-        "*75": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*74/*87",
       "description": null,
       "lookupkey": "n/a",
@@ -32552,136 +32534,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*72/*134",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*72": 1,
-        "*134": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*37/*71",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*37": 1,
-        "*71": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*75/*103",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*75": 1,
-        "*103": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*73/*123",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*73": 1,
-        "*123": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*74/*112",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*74": 1,
-        "*112": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*72/*132",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*72": 1,
-        "*132": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*72/*131",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*72": 1,
-        "*131": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*37/*72",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*37": 1,
-        "*72": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*74/*119",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*74": 1,
-        "*119": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*75/*108",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*75": 1,
-        "*108": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*73/*128",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*73": 1,
-        "*128": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*75/*110",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*75": 1,
-        "*110": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*30/*105",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*30": 1,
-        "*105": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*74/*125",
       "description": null,
       "lookupkey": "n/a",
@@ -32788,6 +32640,136 @@
       "diplotypekey": {
         "*73": 1,
         "*126": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*115",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*115": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*70",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*70": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*71",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*71": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*73/*123",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*73": 1,
+        "*123": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*112",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*112": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*111",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*111": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*131",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*131": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*72",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*72": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*119",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*119": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*108",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*108": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*138",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*138": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*110",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*110": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*30/*105",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*30": 1,
+        "*105": 1
       }
     },
     {
@@ -33832,31 +33814,32 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*108/*118",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*108": 1,
-        "*118": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*109/*109",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*109": 2
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*108/*112",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*108": 1,
         "*112": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*106/*133",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*106": 1,
+        "*133": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*107/*123",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*107": 1,
+        "*123": 1
       }
     },
     {
@@ -33871,12 +33854,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*108/*110",
+      "diplotype": "*106/*131",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*108": 1,
-        "*110": 1
+        "*106": 1,
+        "*131": 1
       }
     },
     {
@@ -33921,12 +33904,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*105/*139",
+      "diplotype": "*107/*119",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*105": 1,
-        "*139": 1
+        "*107": 1,
+        "*119": 1
       }
     },
     {
@@ -33980,12 +33963,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*107/*110",
+      "diplotype": "*105/*135",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*107": 1,
-        "*110": 1
+        "*105": 1,
+        "*135": 1
       }
     },
     {
@@ -40431,6 +40414,16 @@
     },
     {
       "generesult": "Normal Metabolizer",
+      "diplotype": "*35x2/*51",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*51": 1,
+        "*35x2": 1
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
       "diplotype": "*2x2/*31",
       "description": null,
       "lookupkey": "2.0",
@@ -40646,16 +40639,6 @@
       "lookupkey": "2.0",
       "diplotypekey": {
         "*6x2": 1,
-        "*35x2": 1
-      }
-    },
-    {
-      "generesult": "Normal Metabolizer",
-      "diplotype": "*35x2/*51",
-      "description": null,
-      "lookupkey": "2.0",
-      "diplotypekey": {
-        "*51": 1,
         "*35x2": 1
       }
     },
@@ -41071,16 +41054,6 @@
     },
     {
       "generesult": "Normal Metabolizer",
-      "diplotype": "*36/*41x3",
-      "description": null,
-      "lookupkey": "1.5",
-      "diplotypekey": {
-        "*36": 1,
-        "*41x3": 1
-      }
-    },
-    {
-      "generesult": "Normal Metabolizer",
       "diplotype": "*2x2/*4x2",
       "description": null,
       "lookupkey": "2.0",
@@ -41326,6 +41299,16 @@
       "lookupkey": "1.5",
       "diplotypekey": {
         "*38": 1,
+        "*41x3": 1
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*36/*41x3",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "*36": 1,
         "*41x3": 1
       }
     },
@@ -42461,16 +42444,6 @@
     },
     {
       "generesult": "Normal Metabolizer",
-      "diplotype": "*33/*54",
-      "description": null,
-      "lookupkey": "1.5",
-      "diplotypekey": {
-        "*33": 1,
-        "*54": 1
-      }
-    },
-    {
-      "generesult": "Normal Metabolizer",
       "diplotype": "*29/*39",
       "description": null,
       "lookupkey": "1.5",
@@ -42691,6 +42664,16 @@
     },
     {
       "generesult": "Normal Metabolizer",
+      "diplotype": "*33/*54",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "*33": 1,
+        "*54": 1
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
       "diplotype": "*29x2/*41",
       "description": null,
       "lookupkey": "1.5",
@@ -42717,6 +42700,16 @@
       "diplotypekey": {
         "*9": 1,
         "*34": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*96",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "*1": 1,
+        "*96": 1
       }
     },
     {
@@ -43161,6 +43154,16 @@
     },
     {
       "generesult": "Normal Metabolizer",
+      "diplotype": "*27/*50",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "*27": 1,
+        "*50": 1
+      }
+    },
+    {
+      "generesult": "Normal Metabolizer",
       "diplotype": "*41/*46",
       "description": null,
       "lookupkey": "1.5",
@@ -43391,16 +43394,6 @@
     },
     {
       "generesult": "Normal Metabolizer",
-      "diplotype": "*27/*50",
-      "description": null,
-      "lookupkey": "1.5",
-      "diplotypekey": {
-        "*27": 1,
-        "*50": 1
-      }
-    },
-    {
-      "generesult": "Normal Metabolizer",
       "diplotype": "*17x2/*41",
       "description": null,
       "lookupkey": "1.5",
@@ -43577,16 +43570,6 @@
       "diplotypekey": {
         "*10": 1,
         "*27": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*7/*34",
-      "description": null,
-      "lookupkey": "1.0",
-      "diplotypekey": {
-        "*7": 1,
-        "*34": 1
       }
     },
     {
@@ -43811,6 +43794,16 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "*7/*34",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "*7": 1,
+        "*34": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*9x2/*124",
       "description": null,
       "lookupkey": "1.0",
@@ -43827,16 +43820,6 @@
       "diplotypekey": {
         "*5": 1,
         "*53": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*1/*96",
-      "description": null,
-      "lookupkey": "1.0",
-      "diplotypekey": {
-        "*1": 1,
-        "*96": 1
       }
     },
     {
@@ -44477,16 +44460,6 @@
       "diplotypekey": {
         "*2": 1,
         "*5": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*17x2/*96",
-      "description": null,
-      "lookupkey": "1.0",
-      "diplotypekey": {
-        "*96": 1,
-        "*17x2": 1
       }
     },
     {
@@ -45186,6 +45159,16 @@
       "lookupkey": "1.0",
       "diplotypekey": {
         "*92": 1,
+        "*17x2": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*17x2/*96",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "*96": 1,
         "*17x2": 1
       }
     },
@@ -46891,6 +46874,16 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "*45/*129",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "*45": 1,
+        "*129": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*5/*41x2",
       "description": null,
       "lookupkey": "1.0",
@@ -47117,16 +47110,6 @@
       "diplotypekey": {
         "*19": 1,
         "*29x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*45/*129",
-      "description": null,
-      "lookupkey": "1.0",
-      "diplotypekey": {
-        "*45": 1,
-        "*129": 1
       }
     },
     {
@@ -48435,16 +48418,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*9/*13",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*9": 1,
-        "*13": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*17/*29",
       "description": null,
       "lookupkey": "1.0",
@@ -48480,6 +48453,16 @@
       "lookupkey": "1.0",
       "diplotypekey": {
         "*10x2": 2
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*21/*41",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*21": 1,
+        "*41": 1
       }
     },
     {
@@ -48650,6 +48633,16 @@
       "diplotypekey": {
         "*5": 1,
         "*54": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*9/*13",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*9": 1,
+        "*13": 1
       }
     },
     {
@@ -49384,16 +49377,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*21/*41",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*21": 1,
-        "*41": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*55/*60",
       "description": null,
       "lookupkey": "0.5",
@@ -49664,16 +49647,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*54/*92",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*54": 1,
-        "*92": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*41/*99",
       "description": null,
       "lookupkey": "0.5",
@@ -49694,6 +49667,16 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "*12/*29",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "*12": 1,
+        "*29": 1
+      }
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*41/*96",
       "description": null,
       "lookupkey": "0.5",
@@ -49704,12 +49687,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*21/*54",
+      "diplotype": "*13/*14",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*21": 1,
-        "*54": 1
+        "*13": 1,
+        "*14": 1
       }
     },
     {
@@ -49724,12 +49707,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*57/*59",
+      "diplotype": "*4x2/*59",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*57": 1,
-        "*59": 1
+        "*59": 1,
+        "*4x2": 1
       }
     },
     {
@@ -49744,12 +49727,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*20",
+      "diplotype": "*11/*50",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*14": 1,
-        "*20": 1
+        "*11": 1,
+        "*50": 1
       }
     },
     {
@@ -49784,12 +49767,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*55/*96",
+      "diplotype": "*4x2/*50",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*55": 1,
-        "*96": 1
+        "*50": 1,
+        "*4x2": 1
       }
     },
     {
@@ -49804,12 +49787,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*4x2/*55",
+      "diplotype": "*55/*92",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
         "*55": 1,
-        "*4x2": 1
+        "*92": 1
       }
     },
     {
@@ -49824,12 +49807,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*4x2/*54",
+      "diplotype": "*14/*18",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*54": 1,
-        "*4x2": 1
+        "*14": 1,
+        "*18": 1
       }
     },
     {
@@ -49844,12 +49827,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*13/*29",
+      "diplotype": "*11/*49",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*13": 1,
-        "*29": 1
+        "*11": 1,
+        "*49": 1
       }
     },
     {
@@ -49864,12 +49847,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*54/*99",
+      "diplotype": "*47/*49",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*54": 1,
-        "*99": 1
+        "*47": 1,
+        "*49": 1
       }
     },
     {
@@ -49884,12 +49867,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*50/*101",
+      "diplotype": "*59/*60",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*50": 1,
-        "*101": 1
+        "*59": 1,
+        "*60": 1
       }
     },
     {
@@ -49904,12 +49887,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*31",
+      "diplotype": "*13/*41",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*14": 1,
-        "*31": 1
+        "*13": 1,
+        "*41": 1
       }
     },
     {
@@ -49924,12 +49907,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*36/*55",
+      "diplotype": "*12/*54",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 1,
-        "*55": 1
+        "*12": 1,
+        "*54": 1
       }
     },
     {
@@ -49944,12 +49927,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*36/*50",
+      "diplotype": "*59/*62",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 1,
-        "*50": 1
+        "*59": 1,
+        "*62": 1
       }
     },
     {
@@ -49964,12 +49947,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*12/*50",
+      "diplotype": "*10x2/*31",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*12": 1,
-        "*50": 1
+        "*31": 1,
+        "*10x2": 1
       }
     },
     {
@@ -50004,12 +49987,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*55/*99",
+      "diplotype": "*47/*59",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*55": 1,
-        "*99": 1
+        "*47": 1,
+        "*59": 1
       }
     },
     {
@@ -50024,12 +50007,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*36/*49",
+      "diplotype": "*10x2/*38",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*36": 1,
-        "*49": 1
+        "*38": 1,
+        "*10x2": 1
       }
     },
     {
@@ -51094,196 +51077,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*3x2/*10x2",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*3x2": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*42",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*42": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*40",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*40": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*54/*120",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*54": 1,
-        "*120": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*44",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*44": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*5/*10x2",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*5": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*29/*81",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*29": 1,
-        "*81": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*59/*101",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*59": 1,
-        "*101": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*17/*92",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*17": 1,
-        "*92": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*6x2/*9",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*9": 1,
-        "*6x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*29/*96",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*29": 1,
-        "*96": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*55/*124",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*55": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*17/*96",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*17": 1,
-        "*96": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*17/*99",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*17": 1,
-        "*99": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*96",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*96": 1,
-        "*10x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*59/*124",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*59": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*49/*101",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*49": 1,
-        "*101": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*49/*100",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*49": 1,
-        "*100": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*59/*120",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*59": 1,
-        "*120": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*59/*114",
       "description": null,
       "lookupkey": "0.5",
@@ -51354,12 +51147,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10x2/*124",
+      "diplotype": "*14/*101",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
-        "*124": 1,
-        "*10x2": 1
+        "*14": 1,
+        "*101": 1
       }
     },
     {
@@ -51374,12 +51167,12 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*14/*100",
+      "diplotype": "*14/*129",
       "description": null,
       "lookupkey": "0.5",
       "diplotypekey": {
         "*14": 1,
-        "*100": 1
+        "*129": 1
       }
     },
     {
@@ -51430,16 +51223,6 @@
       "diplotypekey": {
         "*14": 1,
         "*36x2": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*38",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*38": 1,
-        "*3x2": 1
       }
     },
     {
@@ -51674,46 +51457,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*36x2/*49",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*49": 1,
-        "*36x2": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*3/*50",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*3": 1,
-        "*50": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*7/*14",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*7": 1,
-        "*14": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*3/*54",
-      "description": null,
-      "lookupkey": "0.5",
-      "diplotypekey": {
-        "*3": 1,
-        "*54": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*7/*17",
       "description": null,
       "lookupkey": "0.5",
@@ -51933,36 +51676,6 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10/*60",
-      "description": null,
-      "lookupkey": "0.25",
-      "diplotypekey": {
-        "*10": 1,
-        "*60": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10/*40",
-      "description": null,
-      "lookupkey": "0.25",
-      "diplotypekey": {
-        "*10": 1,
-        "*40": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*4x≥3/*10",
-      "description": null,
-      "lookupkey": "0.25",
-      "diplotypekey": {
-        "*10": 1,
-        "*4x≥3": 1
-      }
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
       "diplotype": "*6x2/*10",
       "description": null,
       "lookupkey": "0.25",
@@ -52103,6 +51816,16 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*3x2/*38",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*38": 1,
+        "*3x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*3x2/*31",
       "description": null,
       "lookupkey": "0.0",
@@ -52178,35 +51901,6 @@
       "diplotypekey": {
         "*81": 1,
         "*92": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*60/*62",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*60": 1,
-        "*62": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*19",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*19": 1,
-        "*3x2": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*36x2/*36x2",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*36x2": 2
       }
     },
     {
@@ -52924,46 +52618,6 @@
       "diplotypekey": {
         "*21": 1,
         "*56": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*44/*68",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*44": 1,
-        "*68": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*81/*124",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*81": 1,
-        "*124": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*20/*81",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*20": 1,
-        "*81": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*3x2/*81",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*81": 1,
-        "*3x2": 1
       }
     },
     {
@@ -54476,16 +54130,6 @@
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*3/*96",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*3": 1,
-        "*96": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
       "diplotype": "*8/*11",
       "description": null,
       "lookupkey": "0.0",
@@ -54951,6 +54595,16 @@
       "diplotypekey": {
         "*7": 1,
         "*51": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3/*96",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*3": 1,
+        "*96": 1
       }
     },
     {
@@ -55780,6 +55434,16 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*96/*100",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*96": 1,
+        "*100": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*5/*7",
       "description": null,
       "lookupkey": "0.0",
@@ -56008,16 +55672,6 @@
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*96/*100",
-      "description": null,
-      "lookupkey": "0.0",
-      "diplotypekey": {
-        "*96": 1,
-        "*100": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
       "diplotype": "*31/*81",
       "description": null,
       "lookupkey": "0.0",
@@ -56173,6 +55827,234 @@
       "diplotypekey": {
         "*13": 1,
         "*15": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*4x2/*57",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*57": 1,
+        "*4x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*4x2/*56",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*56": 1,
+        "*4x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*7/*8",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*7": 1,
+        "*8": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*100",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*6": 1,
+        "*100": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*12/*40",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*40": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*31/*92",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*31": 1,
+        "*92": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*101",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*6": 1,
+        "*101": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*11/*51",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*11": 1,
+        "*51": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*12/*42",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*42": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*44",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 1,
+        "*44": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3x2/*4x≥3",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*3x2": 1,
+        "*4x≥3": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*56/*81",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*56": 1,
+        "*81": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*40",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 1,
+        "*40": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*12/*38",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*38": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*11/*44",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*11": 1,
+        "*44": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*4/*114",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*4": 1,
+        "*114": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*36",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*57/*68",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*57": 1,
+        "*68": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*12/*36",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*36": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*38",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 1,
+        "*38": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*8/*8",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*8": 2
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*96/*124",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*96": 1,
+        "*124": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*7/*101",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*7": 1,
+        "*101": 1
       }
     },
     {
@@ -56343,6 +56225,16 @@
       "diplotypekey": {
         "*12": 1,
         "*44": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*31/*96",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*31": 1,
+        "*96": 1
       }
     },
     {
@@ -56582,6 +56474,25 @@
       "diplotypekey": {
         "*56": 1,
         "*99": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*12/*56",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*56": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*38/*38",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*38": 2
       }
     },
     {
@@ -56826,6 +56737,26 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*51/*101",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*51": 1,
+        "*101": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*51/*100",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*51": 1,
+        "*100": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*6x2/*31",
       "description": null,
       "lookupkey": "0.0",
@@ -57065,6 +56996,36 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*36/*96",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*36": 1,
+        "*96": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*120/*129",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*120": 1,
+        "*129": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*8/*129",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*8": 1,
+        "*129": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*19/*19",
       "description": null,
       "lookupkey": "0.0",
@@ -57300,6 +57261,46 @@
       "diplotypekey": {
         "*18": 1,
         "*56": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*31/*120",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*31": 1,
+        "*120": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*57/*100",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*57": 1,
+        "*100": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3x2/*124",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*124": 1,
+        "*3x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*3x2/*120",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*120": 1,
+        "*3x2": 1
       }
     },
     {
@@ -57549,6 +57550,16 @@
       "diplotypekey": {
         "*12": 1,
         "*36x2": 1
+      }
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*18/*81",
+      "description": null,
+      "lookupkey": "0.0",
+      "diplotypekey": {
+        "*18": 1,
+        "*81": 1
       }
     },
     {
@@ -61510,16 +61521,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*17x2/*93",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*93": 1,
-        "*17x2": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*22/*41x2",
       "description": null,
       "lookupkey": "n/a",
@@ -61755,6 +61756,16 @@
       "lookupkey": "n/a",
       "diplotypekey": {
         "*91": 1,
+        "*17x2": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*17x2/*93",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*93": 1,
         "*17x2": 1
       }
     },
@@ -68680,6 +68691,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*41/*118",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*41": 1,
+        "*118": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*41/*71",
       "description": null,
       "lookupkey": "n/a",
@@ -69150,16 +69171,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*26/*54",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*26": 1,
-        "*54": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*26/*55",
       "description": null,
       "lookupkey": "n/a",
@@ -69176,6 +69187,16 @@
       "diplotypekey": {
         "*26": 1,
         "*50": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*49/*64",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*49": 1,
+        "*64": 1
       }
     },
     {
@@ -69396,16 +69417,6 @@
       "diplotypekey": {
         "*28": 1,
         "*54": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*41/*118",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*41": 1,
-        "*118": 1
       }
     },
     {
@@ -70440,22 +70451,22 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*50/*72",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*50": 1,
+        "*72": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*9/*61",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
         "*61": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*52/*54",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*52": 1,
-        "*54": 1
       }
     },
     {
@@ -70470,12 +70481,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*65",
+      "diplotype": "*9/*63",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*65": 1
+        "*63": 1
       }
     },
     {
@@ -70490,12 +70501,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*90",
+      "diplotype": "*52/*59",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*50": 1,
-        "*90": 1
+        "*52": 1,
+        "*59": 1
       }
     },
     {
@@ -70550,12 +70561,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*30/*41",
+      "diplotype": "*50/*82",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*30": 1,
-        "*41": 1
+        "*50": 1,
+        "*82": 1
       }
     },
     {
@@ -70570,12 +70581,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*84",
+      "diplotype": "*9/*72",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*50": 1,
-        "*84": 1
+        "*9": 1,
+        "*72": 1
       }
     },
     {
@@ -70590,12 +70601,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*74",
+      "diplotype": "*50/*85",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*9": 1,
-        "*74": 1
+        "*50": 1,
+        "*85": 1
       }
     },
     {
@@ -70610,12 +70621,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*30/*49",
+      "diplotype": "*9/*75",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*30": 1,
-        "*49": 1
+        "*9": 1,
+        "*75": 1
       }
     },
     {
@@ -70630,12 +70641,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*32/*41",
+      "diplotype": "*54/*61",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*32": 1,
-        "*41": 1
+        "*54": 1,
+        "*61": 1
       }
     },
     {
@@ -70650,12 +70661,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*97",
+      "diplotype": "*30/*55",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*50": 1,
-        "*97": 1
+        "*30": 1,
+        "*55": 1
       }
     },
     {
@@ -70670,12 +70681,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*93",
+      "diplotype": "*50/*98",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*50": 1,
-        "*93": 1
+        "*98": 1
       }
     },
     {
@@ -70690,12 +70701,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*50/*95",
+      "diplotype": "*9/*83",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*50": 1,
-        "*95": 1
+        "*9": 1,
+        "*83": 1
       }
     },
     {
@@ -70710,12 +70721,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*85",
+      "diplotype": "*9/*82",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*85": 1
+        "*82": 1
       }
     },
     {
@@ -70730,12 +70741,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*86",
+      "diplotype": "*9/*87",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*86": 1
+        "*87": 1
       }
     },
     {
@@ -70750,12 +70761,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*88",
+      "diplotype": "*9/*89",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*88": 1
+        "*89": 1
       }
     },
     {
@@ -70770,12 +70781,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*32/*50",
+      "diplotype": "*54/*71",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*32": 1,
-        "*50": 1
+        "*54": 1,
+        "*71": 1
       }
     },
     {
@@ -70790,12 +70801,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*54/*73",
+      "diplotype": "*55/*63",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*54": 1,
-        "*73": 1
+        "*55": 1,
+        "*63": 1
       }
     },
     {
@@ -70810,12 +70821,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*43x2/*49",
+      "diplotype": "*54/*74",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*49": 1,
-        "*43x2": 1
+        "*54": 1,
+        "*74": 1
       }
     },
     {
@@ -70830,12 +70841,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*90",
+      "diplotype": "*55/*58",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*9": 1,
-        "*90": 1
+        "*55": 1,
+        "*58": 1
       }
     },
     {
@@ -70850,12 +70861,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*54/*65",
+      "diplotype": "*54/*64",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*54": 1,
-        "*65": 1
+        "*64": 1
       }
     },
     {
@@ -70870,12 +70881,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*93",
+      "diplotype": "*9/*94",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*9": 1,
-        "*93": 1
+        "*94": 1
       }
     },
     {
@@ -71590,16 +71601,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*9/*109",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*9": 1,
-        "*109": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*17/*22",
       "description": null,
       "lookupkey": "n/a",
@@ -71846,6 +71847,16 @@
       "diplotypekey": {
         "*14": 1,
         "*58": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*9/*109",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*9": 1,
+        "*109": 1
       }
     },
     {
@@ -80510,6 +80521,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*5/*85",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*5": 1,
+        "*85": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*5/*52",
       "description": null,
       "lookupkey": "n/a",
@@ -81220,16 +81241,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*5/*85",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*5": 1,
-        "*85": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*4/*95",
       "description": null,
       "lookupkey": "n/a",
@@ -81426,16 +81437,6 @@
       "diplotypekey": {
         "*5": 1,
         "*91": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*91/*114",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*91": 1,
-        "*114": 1
       }
     },
     {
@@ -81916,6 +81917,16 @@
       "diplotypekey": {
         "*90": 1,
         "*124": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*91/*114",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*91": 1,
+        "*114": 1
       }
     },
     {
@@ -87780,16 +87791,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*36/*108",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*36": 1,
-        "*108": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*36/*107",
       "description": null,
       "lookupkey": "n/a",
@@ -87810,12 +87811,22 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*36/*105",
+      "diplotype": "*100/*109",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*36": 1,
-        "*105": 1
+        "*100": 1,
+        "*109": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*100/*107",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*100": 1,
+        "*107": 1
       }
     },
     {
@@ -87830,12 +87841,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*36/*113",
+      "diplotype": "*100/*102",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*36": 1,
-        "*113": 1
+        "*100": 1,
+        "*102": 1
       }
     },
     {
@@ -88050,12 +88061,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*36/*132",
+      "diplotype": "*38/*112",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*36": 1,
-        "*132": 1
+        "*38": 1,
+        "*112": 1
       }
     },
     {
@@ -90060,6 +90071,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*44/*122",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*44": 1,
+        "*122": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*44/*121",
       "description": null,
       "lookupkey": "n/a",
@@ -90076,6 +90097,16 @@
       "diplotypekey": {
         "*47": 1,
         "*119": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*111/*120",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*111": 1,
+        "*120": 1
       }
     },
     {
@@ -90100,32 +90131,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*110/*129",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*110": 1,
-        "*129": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*47/*126",
+      "diplotype": "*47/*116",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
         "*47": 1,
-        "*126": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*110/*120",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*110": 1,
-        "*120": 1
+        "*116": 1
       }
     },
     {
@@ -92120,16 +92131,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*6/*127",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*6": 1,
-        "*127": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*12/*73",
       "description": null,
       "lookupkey": "n/a",
@@ -92376,6 +92377,16 @@
       "diplotypekey": {
         "*8": 1,
         "*107": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*6/*127",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*6": 1,
+        "*127": 1
       }
     },
     {
@@ -93160,6 +93171,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*51/*130",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*51": 1,
+        "*130": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*18/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -93406,16 +93427,6 @@
       "diplotypekey": {
         "*8": 1,
         "*139": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*51/*130",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*51": 1,
-        "*130": 1
       }
     },
     {
@@ -97113,236 +97124,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*131/*133",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 1,
-        "*133": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*130",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*130": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*131/*136",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 1,
-        "*136": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*131/*137",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 1,
-        "*137": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*131/*135",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*131": 1,
-        "*135": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*108",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*108": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*128",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*128": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*107",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*107": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*127",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*127": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*90",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*25": 1,
-        "*90": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*116",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*116": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*126",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*126": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*28/*61",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*28": 1,
-        "*61": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*115",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*115": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*125",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*125": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*104",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*104": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*103",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*103": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*123",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*123": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*65/*102",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*65": 1,
-        "*102": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*63/*122",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*63": 1,
-        "*122": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*64/*111",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*64": 1,
-        "*111": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*97",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*25": 1,
-        "*97": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*26/*87",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*26": 1,
-        "*87": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*26/*88",
       "description": null,
       "lookupkey": "n/a",
@@ -97353,12 +97134,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*26/*89",
+      "diplotype": "*25/*93",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*26": 1,
-        "*89": 1
+        "*25": 1,
+        "*93": 1
       }
     },
     {
@@ -97618,16 +97399,6 @@
       "diplotypekey": {
         "*65": 1,
         "*134": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*26/*98",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*26": 1,
-        "*98": 1
       }
     },
     {
@@ -101742,6 +101513,226 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*72/*136",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*136": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*105",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*105": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*73/*125",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*73": 1,
+        "*125": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*135",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*135": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*104",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*104": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*134",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*134": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*103",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*103": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*113",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*113": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*133",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*133": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*102",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*102": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*73/*122",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*73": 1,
+        "*122": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*132",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*132": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*73/*121",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*73": 1,
+        "*121": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*110",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*110": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*130",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*130": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*73",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*73": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*109",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*109": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*72/*139",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*72": 1,
+        "*139": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*74",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*74": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*74/*118",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*74": 1,
+        "*118": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*73/*128",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*73": 1,
+        "*128": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*37/*75",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*37": 1,
+        "*75": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*73/*130",
       "description": null,
       "lookupkey": "n/a",
@@ -101818,6 +101809,16 @@
       "diplotypekey": {
         "*30": 1,
         "*102": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*75/*135",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*75": 1,
+        "*135": 1
       }
     },
     {
@@ -103767,6 +103768,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*108/*118",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*108": 1,
+        "*118": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*106/*139",
       "description": null,
       "lookupkey": "n/a",
@@ -103783,6 +103794,15 @@
       "diplotypekey": {
         "*108": 1,
         "*119": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*109/*109",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*109": 2
       }
     },
     {
@@ -103807,26 +103827,6 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*106/*133",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*106": 1,
-        "*133": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
-      "diplotype": "*107/*123",
-      "description": null,
-      "lookupkey": "n/a",
-      "diplotypekey": {
-        "*107": 1,
-        "*123": 1
-      }
-    },
-    {
-      "generesult": "Indeterminate",
       "diplotype": "*106/*130",
       "description": null,
       "lookupkey": "n/a",
@@ -103837,12 +103837,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*106/*131",
+      "diplotype": "*108/*110",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*106": 1,
-        "*131": 1
+        "*108": 1,
+        "*110": 1
       }
     },
     {
@@ -103927,12 +103927,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*107/*119",
+      "diplotype": "*105/*139",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*107": 1,
-        "*119": 1
+        "*105": 1,
+        "*139": 1
       }
     },
     {
@@ -104037,12 +104037,12 @@
     },
     {
       "generesult": "Indeterminate",
-      "diplotype": "*105/*135",
+      "diplotype": "*107/*110",
       "description": null,
       "lookupkey": "n/a",
       "diplotypekey": {
-        "*105": 1,
-        "*135": 1
+        "*107": 1,
+        "*110": 1
       }
     },
     {
@@ -111905,5 +111905,5 @@
       }
     }
   ],
-  "version": "v1.21.2"
+  "version": "v1.21.3"
 }

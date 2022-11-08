@@ -97,7 +97,7 @@
     "Malaga": "III/Deficient",
     "Manhattan": "I/Deficient with CNSHA",
     "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": "II/Deficient",
-    "Mediterranean Haplotype": "II/Deficient??",
+    "Mediterranean Haplotype": "II/Deficient",
     "Metaponto": "III/Deficient",
     "Mexico City": "III/Deficient",
     "Miaoli": "II/Deficient",
@@ -819,6 +819,15 @@
       "lookupkey": "Deficient",
       "diplotypekey": {
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -4070,6 +4079,16 @@
     },
     {
       "generesult": "Variable",
+      "diplotype": "A/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Variable",
+      "diplotypekey": {
+        "A": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Variable",
       "diplotype": "A/Miaoli",
       "description": null,
       "lookupkey": "Variable",
@@ -4576,6 +4595,16 @@
       "diplotypekey": {
         "B (reference)": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Variable",
+      "diplotype": "B (reference)/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Variable",
+      "diplotypekey": {
+        "B (reference)": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -5250,6 +5279,16 @@
     },
     {
       "generesult": "Variable",
+      "diplotype": "Insuli/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Variable",
+      "diplotypekey": {
+        "Insuli": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Variable",
       "diplotype": "Insuli/Miaoli",
       "description": null,
       "lookupkey": "Variable",
@@ -5616,6 +5655,16 @@
       "diplotypekey": {
         "Mira d'Aire": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Variable",
+      "diplotype": "Mediterranean Haplotype/Mira d'Aire",
+      "description": null,
+      "lookupkey": "Variable",
+      "diplotypekey": {
+        "Mira d'Aire": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -6086,6 +6135,16 @@
       "diplotypekey": {
         "Sao Borja": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Variable",
+      "diplotype": "Mediterranean Haplotype/Sao Borja",
+      "description": null,
+      "lookupkey": "Variable",
+      "diplotypekey": {
+        "Sao Borja": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -17633,6 +17692,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "A- 202A_376G/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "A- 202A_376G": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "A- 202A_376G/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -17723,6 +17792,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "A- 680T_376G/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "A- 680T_376G": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "A- 680T_376G/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -17809,6 +17888,16 @@
       "diplotypekey": {
         "A- 968C_376G": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "A- 968C_376G/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "A- 968C_376G": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -19453,6 +19542,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Asahi/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Asahi": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Asahi/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -19953,6 +20052,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Aures/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Aures": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Aures/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -20229,6 +20338,16 @@
       "diplotypekey": {
         "Bajo Maumere": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Bajo Maumere/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Bajo Maumere": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -21993,6 +22112,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Chinese-5/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Chinese-5": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Chinese-5/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -23733,6 +23862,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Gaohe/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Gaohe": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Gaohe/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -24039,6 +24178,16 @@
       "diplotypekey": {
         "Guangzhou": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Guangzhou/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Guangzhou": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -24509,6 +24658,16 @@
       "diplotypekey": {
         "Hammersmith": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Hammersmith/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Hammersmith": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -25393,6 +25552,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Ilesha/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Ilesha": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Ilesha/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -25833,6 +26002,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Kambos/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Kambos": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Kambos/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -26059,6 +26238,16 @@
       "diplotypekey": {
         "Kamiube, Keelung": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Kamiube, Keelung/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Kamiube, Keelung": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -26553,6 +26742,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Lages/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Lages": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Lages/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -26849,6 +27048,16 @@
       "diplotypekey": {
         "Lagosanto": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Lagosanto/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Lagosanto": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -27553,6 +27762,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mahidol/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mahidol": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mahidol/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -27923,6 +28142,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Malaga/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Malaga": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Malaga/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -28123,6 +28352,26 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Kalyan-Kerala, Jamnaga, Rohini/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Kalyan-Kerala, Jamnaga, Rohini": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Seattle, Lodi, Modena, Ferrara II, Athens-like",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Seattle, Lodi, Modena, Ferrara II, Athens-like": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Acrokorinthos/Metaponto",
       "description": null,
       "lookupkey": "Deficient",
@@ -28189,6 +28438,16 @@
       "diplotypekey": {
         "Metaponto": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Metaponto",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Metaponto": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -28339,6 +28598,16 @@
       "diplotypekey": {
         "Mexico City": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Mexico City",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mexico City": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -28903,6 +29172,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Montalbano",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Montalbano": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Montalbano/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -29013,6 +29292,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Murcia Oristano",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Murcia Oristano": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Murcia Oristano/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -29119,6 +29408,16 @@
       "diplotypekey": {
         "Musashino": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Musashino",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Musashino": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -29823,6 +30122,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nanning",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Nanning": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Nanning",
       "description": null,
       "lookupkey": "Deficient",
@@ -30383,6 +30692,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Neapolis",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Neapolis": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Neapolis",
       "description": null,
       "lookupkey": "Deficient",
@@ -30769,6 +31088,16 @@
       "diplotypekey": {
         "Nice": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nice",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Nice": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -31433,6 +31762,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Orissa",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Orissa": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Orissa",
       "description": null,
       "lookupkey": "Deficient",
@@ -31999,6 +32338,16 @@
       "diplotypekey": {
         "Palestrina": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Palestrina",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Palestrina": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -32583,6 +32932,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Quing Yan",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Quing Yan": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Quing Yan/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -33023,6 +33382,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Rignano",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Rignano": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Rignano",
       "description": null,
       "lookupkey": "Deficient",
@@ -33399,6 +33768,16 @@
       "diplotypekey": {
         "Salerno Pyrgos": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Salerno Pyrgos",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Salerno Pyrgos": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -34423,6 +34802,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sibari",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sibari": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Sibari",
       "description": null,
       "lookupkey": "Deficient",
@@ -34649,6 +35038,16 @@
       "diplotypekey": {
         "Sierra Leone": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sierra Leone",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sierra Leone": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -34889,6 +35288,16 @@
       "diplotypekey": {
         "Sinnai": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sinnai",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sinnai": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -35339,6 +35748,16 @@
       "diplotypekey": {
         "Split": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Split",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Split": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -36089,6 +36508,16 @@
       "diplotypekey": {
         "Ube Konan": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Ube Konan",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Ube Konan": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -68155,6 +68584,15 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 2
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -68632,6 +69070,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Abeno/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Abeno": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Abeno/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -68902,6 +69350,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Acrokorinthos/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Acrokorinthos": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Acrokorinthos/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -69058,6 +69516,16 @@
       "diplotypekey": {
         "Amazonia": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Amazonia/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Amazonia": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -69402,6 +69870,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Anadia/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Anadia": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Anadia/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -69658,6 +70136,16 @@
       "diplotypekey": {
         "Ananindeua": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Ananindeua/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Ananindeua": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -69928,6 +70416,16 @@
       "diplotypekey": {
         "Andalus": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Andalus/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Andalus": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -70278,6 +70776,16 @@
       "diplotypekey": {
         "Bao Loc": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Bao Loc/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Bao Loc": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -70708,6 +71216,16 @@
       "diplotypekey": {
         "Belem": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Belem/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Belem": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -71192,6 +71710,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Cairo/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Cairo": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Cairo/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -71602,6 +72130,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Cassano/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Cassano": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Cassano/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -71932,6 +72470,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Chatham/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Chatham": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Chatham/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -72182,6 +72730,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Chinese-1/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Chinese-1": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Chinese-1/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -72308,6 +72866,16 @@
       "diplotypekey": {
         "Coimbra Shunde": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Coimbra Shunde/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Coimbra Shunde": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -72498,6 +73066,16 @@
       "diplotypekey": {
         "Cosenza": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Cosenza/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Cosenza": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -72782,6 +73360,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Costanzo/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Costanzo": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Costanzo/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -73028,6 +73616,16 @@
       "diplotypekey": {
         "Crispim": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Crispim/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Crispim": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -73418,6 +74016,16 @@
       "diplotypekey": {
         "Flores": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Flores/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Flores": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -73832,6 +74440,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Fushan/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Fushan": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Fushan/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -74228,6 +74846,16 @@
       "diplotypekey": {
         "Haikou": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Haikou/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Haikou": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -74672,6 +75300,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Hechi/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Hechi": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Hechi/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -74952,6 +75590,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Hermoupolis/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Hermoupolis": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Hermoupolis/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -75068,6 +75716,16 @@
       "diplotypekey": {
         "Ierapetra": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Ierapetra/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Ierapetra": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -75288,6 +75946,16 @@
       "diplotypekey": {
         "Kamogawa": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Kamogawa/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Kamogawa": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -75528,6 +76196,16 @@
       "diplotypekey": {
         "Liuzhou": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Liuzhou/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Liuzhou": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -75792,6 +76470,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Ludhiana/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Ludhiana": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Ludhiana/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -75898,6 +76586,46 @@
       "diplotypekey": {
         "Ludhiana": 1,
         "Viangchan, Jammu": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Kaiping, Anant, Dhon, Sapporo-like, Wosera/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Kaiping, Anant, Dhon, Sapporo-like, Wosera": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Union,Maewo, Chinese-2, Kalo",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Union,Maewo, Chinese-2, Kalo": 1
       }
     },
     {
@@ -76098,6 +76826,16 @@
       "diplotypekey": {
         "Miaoli": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Miaoli",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Miaoli": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -76362,6 +77100,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Mizushima",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mizushima": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Partenope",
       "description": null,
       "lookupkey": "Deficient",
@@ -76578,6 +77326,16 @@
       "diplotypekey": {
         "Namouru": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Namouru",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Namouru": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -76868,6 +77626,16 @@
       "diplotypekey": {
         "Nankang": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nankang",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Nankang": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -77262,6 +78030,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Naone",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Naone": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Naone",
       "description": null,
       "lookupkey": "Deficient",
@@ -77608,6 +78386,16 @@
       "diplotypekey": {
         "Nilgiri": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nilgiri",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Nilgiri": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -77992,6 +78780,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Osaka",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Osaka": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Osaka",
       "description": null,
       "lookupkey": "Deficient",
@@ -78272,6 +79070,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Partenope",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Partenope": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Partenope/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -78548,6 +79356,16 @@
       "diplotypekey": {
         "Pawnee": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Pawnee",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Pawnee": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -78862,6 +79680,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Radlowo",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Radlowo": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Radlowo",
       "description": null,
       "lookupkey": "Deficient",
@@ -79122,6 +79950,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Roubaix",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Roubaix": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Roubaix",
       "description": null,
       "lookupkey": "Deficient",
@@ -79292,6 +80130,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Santa Maria",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Santa Maria": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Santa Maria/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -79388,6 +80236,16 @@
       "diplotypekey": {
         "S. Antioco": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/S. Antioco",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "S. Antioco": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -79698,6 +80556,16 @@
       "diplotypekey": {
         "Seoul": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Seoul",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Seoul": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -80032,6 +80900,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Shenzen",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Shenzen": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Shenzen",
       "description": null,
       "lookupkey": "Deficient",
@@ -80172,6 +81050,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Songklanagarind",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Songklanagarind": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Songklanagarind/Taipei‚ Chinese-3",
       "description": null,
       "lookupkey": "Deficient",
@@ -80288,6 +81176,16 @@
       "diplotypekey": {
         "Surabaya": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Surabaya",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Surabaya": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -80418,6 +81316,16 @@
       "diplotypekey": {
         "Taipei‚ Chinese-3": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Taipei‚ Chinese-3",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Taipei‚ Chinese-3": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -80628,6 +81536,16 @@
       "diplotypekey": {
         "Toledo": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Toledo",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Toledo": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -80892,6 +81810,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Valladolid",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Valladolid": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Santa Maria/Valladolid",
       "description": null,
       "lookupkey": "Deficient",
@@ -81012,6 +81940,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Vanua Lava",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Vanua Lava": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Santa Maria/Vanua Lava",
       "description": null,
       "lookupkey": "Deficient",
@@ -81092,6 +82030,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Viangchan, Jammu",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Viangchan, Jammu": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Taipei‚ Chinese-3/Viangchan, Jammu",
       "description": null,
       "lookupkey": "Deficient",
@@ -81138,6 +82086,16 @@
       "diplotypekey": {
         "202G>A_376A>G_1264C>G": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "202G>A_376A>G_1264C>G/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "202G>A_376A>G_1264C>G": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -81388,6 +82346,16 @@
       "diplotypekey": {
         "Aachen": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Aachen/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Aachen": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -82682,6 +83650,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Alhambra/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Alhambra": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Alhambra/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -83472,6 +84450,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Amiens/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Amiens": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Amiens/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -83758,6 +84746,16 @@
       "diplotypekey": {
         "Amsterdam": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Amsterdam/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Amsterdam": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -85622,6 +86620,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Arakawa/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Arakawa": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Arakawa/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -85878,6 +86886,16 @@
       "diplotypekey": {
         "Asahikawa": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Asahikawa/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Asahikawa": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -86208,6 +87226,16 @@
       "diplotypekey": {
         "Aveiro": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Aveiro/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Aveiro": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -86602,6 +87630,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Bangkok/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Bangkok": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Bangkok/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -86828,6 +87866,16 @@
       "diplotypekey": {
         "Bangkok Noi": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Bangkok Noi/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Bangkok Noi": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -87738,6 +88786,16 @@
       "diplotypekey": {
         "Bari": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Bari/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Bari": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -88932,6 +89990,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Brighton/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Brighton": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Brighton/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -89088,6 +90156,16 @@
       "diplotypekey": {
         "Buenos Aires": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Buenos Aires/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Buenos Aires": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -90002,6 +91080,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Calvo Mackenna/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Calvo Mackenna": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Calvo Mackenna/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -90158,6 +91246,16 @@
       "diplotypekey": {
         "Campinas": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Campinas/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Campinas": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -91602,6 +92700,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Chikugo/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Chikugo": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Chikugo/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -92122,6 +93230,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Cincinnati/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Cincinnati": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Cincinnati/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -92228,6 +93346,16 @@
       "diplotypekey": {
         "Cleveland Corum": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Cleveland Corum/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Cleveland Corum": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -92498,6 +93626,16 @@
       "diplotypekey": {
         "Clinic": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Clinic/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Clinic": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -93832,6 +94970,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Covao do Lobo/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Covao do Lobo": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Covao do Lobo/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -94672,6 +95820,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Durham/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Durham": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Durham/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -94898,6 +96056,16 @@
       "diplotypekey": {
         "Figuera da Foz": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Figuera da Foz/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Figuera da Foz": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -95848,6 +97016,16 @@
       "diplotypekey": {
         "Fukaya": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Fukaya/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Fukaya": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -96872,6 +98050,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Georgia/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Georgia": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Georgia/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -97098,6 +98286,16 @@
       "diplotypekey": {
         "Guadalajara": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Guadalajara/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Guadalajara": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -97942,6 +99140,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Harilaou/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Harilaou": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Harilaou/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -98252,6 +99460,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Harima/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Harima": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Harima/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -98558,6 +99776,16 @@
       "diplotypekey": {
         "Hartford": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Hartford/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Hartford": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -99822,6 +101050,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Honiara/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Honiara": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Honiara/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -100422,6 +101660,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Iwatsuki/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Iwatsuki": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Iwatsuki/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -100558,6 +101806,16 @@
       "diplotypekey": {
         "Japan, Shinagawa": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Japan, Shinagawa/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Japan, Shinagawa": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -101092,6 +102350,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Kawasaki/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Kawasaki": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Kawasaki/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -101298,6 +102566,16 @@
       "diplotypekey": {
         "Kozukata": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Kozukata/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Kozukata": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -101612,6 +102890,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Krakow/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Krakow": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Krakow/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -101908,6 +103196,16 @@
       "diplotypekey": {
         "La Jolla": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "La Jolla/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "La Jolla": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -102258,6 +103556,16 @@
       "diplotypekey": {
         "Lille": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Lille/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Lille": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -103102,6 +104410,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Loma Linda/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Loma Linda": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Loma Linda/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -103672,6 +104990,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Lynwood/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Lynwood": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Lynwood/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -104042,6 +105370,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Madrid/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Madrid": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Madrid/Miaoli",
       "description": null,
       "lookupkey": "Deficient",
@@ -104312,6 +105650,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Manhattan/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Manhattan": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Manhattan/Mizushima",
       "description": null,
       "lookupkey": "Deficient",
@@ -104408,6 +105756,56 @@
       "diplotypekey": {
         "Manhattan": 1,
         "Viangchan, Jammu": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Beverly Hills, Genova, Iwate, Niigata, Yamaguchi/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Beverly Hills, Genova, Iwate, Niigata, Yamaguchi": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Iowa, Walter Reed, Springfield/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Iowa, Walter Reed, Springfield": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Minnesota, Marion, Gastonia, LeJeune",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Minnesota, Marion, Gastonia, LeJeune": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nashville, Anaheim, Portici",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Nashville, Anaheim, Portici": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Santiago de Cuba, Morioka",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mediterranean Haplotype": 1,
+        "Santiago de Cuba, Morioka": 1
       }
     },
     {
@@ -105422,6 +106820,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Montpellier",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Montpellier": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Montpellier/Santa Maria",
       "description": null,
       "lookupkey": "Deficient",
@@ -105558,6 +106966,16 @@
       "diplotypekey": {
         "Mt Sinai": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Mt Sinai",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Mt Sinai": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -105868,6 +107286,16 @@
       "diplotypekey": {
         "Munich": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Munich",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Munich": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -108242,6 +109670,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Nara",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Nara": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Nara",
       "description": null,
       "lookupkey": "Deficient",
@@ -109182,6 +110620,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/No name",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "No name": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/No name",
       "description": null,
       "lookupkey": "Deficient",
@@ -109372,6 +110820,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/North Dallas",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "North Dallas": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "North Dallas/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -109538,6 +110996,16 @@
       "diplotypekey": {
         "Olomouc": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Olomouc",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Olomouc": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -109918,6 +111386,16 @@
       "diplotypekey": {
         "Omiya": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Omiya",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Omiya": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -111902,6 +113380,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Pedoplis-Ckaro",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Pedoplis-Ckaro": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Pedoplis-Ckaro/Songklanagarind",
       "description": null,
       "lookupkey": "Deficient",
@@ -112028,6 +113516,16 @@
       "diplotypekey": {
         "Piotrkow": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Piotrkow",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Piotrkow": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -112228,6 +113726,16 @@
       "diplotypekey": {
         "Plymouth": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Plymouth",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Plymouth": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -112582,6 +114090,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Praha",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Praha": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Praha",
       "description": null,
       "lookupkey": "Deficient",
@@ -112838,6 +114356,16 @@
       "diplotypekey": {
         "Puerto Limon": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Puerto Limon",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Puerto Limon": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -113532,6 +115060,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Rehevot",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Rehevot": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Rehevot",
       "description": null,
       "lookupkey": "Deficient",
@@ -113902,6 +115440,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Riley",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Riley": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Riley",
       "description": null,
       "lookupkey": "Deficient",
@@ -114178,6 +115726,16 @@
       "diplotypekey": {
         "Riverside": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Riverside",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Riverside": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -115028,6 +116586,16 @@
       "diplotypekey": {
         "Santiago": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Santiago",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Santiago": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -116402,6 +117970,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Serres",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Serres": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Serres",
       "description": null,
       "lookupkey": "Deficient",
@@ -117222,6 +118800,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Shinshu",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Shinshu": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Shinshu",
       "description": null,
       "lookupkey": "Deficient",
@@ -117458,6 +119046,16 @@
       "diplotypekey": {
         "Stonybrook": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Stonybrook",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Stonybrook": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -117768,6 +119366,16 @@
       "diplotypekey": {
         "Sugao": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sugao",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sugao": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -118172,6 +119780,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sumare",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sumare": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Sumare",
       "description": null,
       "lookupkey": "Deficient",
@@ -118408,6 +120026,16 @@
       "diplotypekey": {
         "Sunderland": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Sunderland",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Sunderland": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -118932,6 +120560,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Suwalki",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Suwalki": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Suwalki",
       "description": null,
       "lookupkey": "Deficient",
@@ -119172,6 +120810,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Swansea",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Swansea": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Swansea",
       "description": null,
       "lookupkey": "Deficient",
@@ -119398,6 +121046,16 @@
       "diplotypekey": {
         "Telti/Kobe": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Telti/Kobe",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Telti/Kobe": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -119708,6 +121366,16 @@
       "diplotypekey": {
         "Tenri": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Tenri",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Tenri": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -120772,6 +122440,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Tomah",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Tomah": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Tomah",
       "description": null,
       "lookupkey": "Deficient",
@@ -121098,6 +122776,16 @@
       "diplotypekey": {
         "Tondela": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Tondela",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Tondela": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -121448,6 +123136,16 @@
       "diplotypekey": {
         "Torun": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Torun",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Torun": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -121852,6 +123550,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Tsukui",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Tsukui": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Tsukui",
       "description": null,
       "lookupkey": "Deficient",
@@ -122182,6 +123890,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Urayasu",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Urayasu": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Urayasu",
       "description": null,
       "lookupkey": "Deficient",
@@ -122418,6 +124136,16 @@
       "diplotypekey": {
         "Utrecht": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Utrecht",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Utrecht": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -122798,6 +124526,16 @@
       "diplotypekey": {
         "Vancouver": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Vancouver",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Vancouver": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -123192,6 +124930,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Villeurbanne",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Villeurbanne": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Songklanagarind/Villeurbanne",
       "description": null,
       "lookupkey": "Deficient",
@@ -123318,6 +125066,16 @@
       "diplotypekey": {
         "Volendam": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Volendam",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Volendam": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -123662,6 +125420,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Wayne",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Wayne": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Miaoli/Wayne",
       "description": null,
       "lookupkey": "Deficient",
@@ -123898,6 +125666,16 @@
       "diplotypekey": {
         "West Virginia": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/West Virginia",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "West Virginia": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -124142,6 +125920,16 @@
     },
     {
       "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Wexham",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Wexham": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
       "diplotype": "Mizushima/Wexham",
       "description": null,
       "lookupkey": "Deficient",
@@ -124378,6 +126166,16 @@
       "diplotypekey": {
         "Wisconsin": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Deficient",
+      "diplotype": "Mediterranean Haplotype/Wisconsin",
+      "description": null,
+      "lookupkey": "Deficient",
+      "diplotypekey": {
+        "Wisconsin": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -163911,6 +165709,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "Dagua/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Dagua": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "Dagua/Miaoli",
       "description": null,
       "lookupkey": "Indeterminate",
@@ -164407,6 +166215,16 @@
       "diplotypekey": {
         "Gidra": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "Gidra/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Gidra": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -164921,6 +166739,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "Gond/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Gond": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "Gond/Miaoli",
       "description": null,
       "lookupkey": "Indeterminate",
@@ -165387,6 +167215,16 @@
       "diplotypekey": {
         "Laibin": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "Laibin/Mediterranean Haplotype",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Laibin": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -165891,6 +167729,16 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "Mediterranean Haplotype/Papua",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Papua": 1,
+        "Mediterranean Haplotype": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "Miaoli/Papua",
       "description": null,
       "lookupkey": "Indeterminate",
@@ -166357,6 +168205,16 @@
       "diplotypekey": {
         "Yunan": 1,
         "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": 1
+      }
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "Mediterranean Haplotype/Yunan",
+      "description": null,
+      "lookupkey": "Indeterminate",
+      "diplotypekey": {
+        "Yunan": 1,
+        "Mediterranean Haplotype": 1
       }
     },
     {
@@ -171864,5 +173722,5 @@
       }
     }
   ],
-  "version": "v1.21.2"
+  "version": "v1.21.3"
 }

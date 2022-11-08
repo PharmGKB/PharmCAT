@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.21.2",
-  "modificationDate": "Oct 24, 2022, 11:49:55 AM",
+  "version": "v1.21.3",
+  "modificationDate": "Oct 31, 2022, 3:19:06 PM",
   "gene": "ABCG2",
   "orientation": null,
   "chromosome": "chr4",

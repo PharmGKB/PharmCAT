@@ -47,6 +47,8 @@ matching recommendation data.  See [Outside Call Format](/using/Outside-Call-For
 | :--- | :---: | :---: |
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
 | [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
+| [HLA-A](/Phenotypes-List#hla-a) | :heavy_check_mark: |  |
+| [HLA-B](/Phenotypes-List#hla-b) | :heavy_check_mark: |  |
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
 
 
