@@ -275,6 +275,9 @@ class Test(TestCase):
 
                 self.assertTrue(tmp_uniallelic.is_file())
                 tmp_uniallelic.unlink()
+                tmp_uniallelic_index = Path(str(tmp_uniallelic) + '.csi')
+                self.assertTrue(tmp_uniallelic_index.is_file())
+                tmp_uniallelic_index.unlink()
             else:
                 # assumes that reference fasta is available next to pharmcat_positions
                 reference_fasta = pharmcat_positions.parent / 'reference.fna.bgz'

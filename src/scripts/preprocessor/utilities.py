@@ -338,7 +338,7 @@ def index_vcf(vcf_file: Path, verbose: bool = False) -> Path:
 
 
 def delete_vcf_and_index(vcf_file: Path, verbose: bool = False):
-    """Delete compressed vcf as well as the index file"""
+    """Delete compressed vcf as well as the index file."""
     if vcf_file.is_file():
         vcf_file.unlink()
     delete_index(vcf_file, '.csi', verbose)
@@ -369,9 +369,9 @@ def download_from_url(url: str, download_dir: Path, force_update: bool = False,
 
 def download_reference_fasta_and_index(download_dir: Union[Path, str], force_update: bool = False,
                                        verbose: bool = False):
+    """Download the human reference genome sequence GRCh38/hg38."""
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
-    """Download the human reference genome sequence GRCh38/hg38."""
     ref_file = download_dir / 'reference.fna.bgz'
     if ref_file.exists() and not force_update:
         return ref_file
