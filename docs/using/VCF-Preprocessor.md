@@ -79,27 +79,33 @@ VCF files can have more than 1 sample and should be bgzip compressed. If not bgz
 
 **Optional** arguments:
 
--refVcf `vcf_file` <span class="altArg"><br />or --reference-pgx-vcf `vcf_file`</span>
-: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT, by default, `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
+-refVcf `<vcf_file>` <span class="altArg"><br />or --reference-pgx-vcf `<vcf_file>`</span>
+: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT.  By default, the preprocessor will
+look for `pharmcat_positions.vcf.bgz` under the current working directory.  You can find this VCF in the
+`pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
 
--refFna `fna_file` <span class="altArg"><br />or --reference-genome `fna_file`</span>
-: The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~1GB) to the current working directory if not provided by user (see [Notes](#notes) for details).
+-refFna `<fna_file>` <span class="altArg"><br />or --reference-genome `<fna_file>`</span>
+: The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be
+decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~0.9GB) to the same directory
+as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#notes) for details).
 
--S `txt_file` <span class="altArg"><br />or --sample-file `txt_file`</span>
+-S `<txt_file>` <span class="altArg"><br />or --sample-file `<txt_file>`</span>
 : The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
 
--bcftools `/path/to/bcftools` <span class="altArg"><br />or --path-to-bcftools `/path/to/bcftools`</span>
-: bcftools must be installed. This argument is optional if bcftools is available in your PATH. If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the executable bcftools program.
-
--bgzip `/path/to/bgzip` <span class="altArg"><br />or --path-to-bgzip `/path/to/bgzip`</span>
-: bgzip must be installed. This argument is optional if bgzip is available in your PATH. If not, bgzip is a part of the
-[htslib](http://www.htslib.org/download/). You can download and compile it and provide the path to the executable bgzip
+-bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
+: bcftools must be installed. This argument is optional if bcftools is available in your PATH. 
+If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the bcftools
 program.
 
--o `dir` <span class="altArg"><br />or --output-dir `dir`</span>
-: Output a compressed PharmCAT VCF file to `/path/to/output/pharmcat/vcf`. The default is the parent directory of the input.
+-bgzip `</path/to/bgzip>` <span class="altArg"><br />or --path-to-bgzip `</path/to/bgzip>`</span>
+: bgzip must be installed. This argument is optional if bgzip is available in your PATH.
+If not, bgzip is a part of the [htslib](http://www.htslib.org/download/). You can download and compile it and provide
+the path to the bgzip program.
 
--bf `name` <span class="altArg"><br />or --base-filename `name`</span>
+-o `<dir>` <span class="altArg"><br />or --output-dir `<dir>`</span>
+: Directory to save preprocssed VCF to.  Default is the parent directory of the input VCF.
+
+-bf `<name>` <span class="altArg"><br />or --base-filename `<name>`</span>
 : Prefix of the output VCF files. Default is sample IDs from the input VCF(s).
 
 -k <span class="altArg"><br />or --keep-intermediate-files</span>
@@ -116,7 +122,7 @@ program.
 Note that this is only useful if processing many files/samples.  With only a few files/samples, the overhead of
 using concurrent mode is more than the benefit it may provide.
 
--cp `num proceseses` <span class="altArg"><br />or --max-concurrent-processes `num proceseses`</span>
+-cp `<num processes>` <span class="altArg"><br />or --max-concurrent-processes `<num processes>`</span>
 : The maximum number of processes to use if concurrent mode is enabled.
 
 **Output**

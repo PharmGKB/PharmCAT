@@ -7,6 +7,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@google/semantic-release-replace-plugin": "^1.1.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^5.0.0",
@@ -20,6 +21,29 @@
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",
+      [
+        "@google/semantic-release-replace-plugin",
+        {
+          "replacements": [
+            {
+              "files": [
+                "src/scripts/preprocessorutilities.py"
+              ],
+              "from": "VERSION = .*",
+              "to":   "VERSION = '${nextRelease.version}'",
+              "results": [
+                {
+                  "file": "Refined Nations.user.js",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            }
+          ]
+        }
+      ],
       [
         "@semantic-release/release-notes-generator",
         {
@@ -55,7 +79,16 @@
       "@semantic-release/changelog",
       "@semantic-release/github",
       "@semantic-release/npm",
-      "@semantic-release/git"
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "src/scripts/preprocessor/utilities.py"
+          ]
+        }
+      ]
     ],
     "ci": false
   },

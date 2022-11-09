@@ -88,27 +88,27 @@ if __name__ == "__main__":
     import argparse
 
     # describe the tool
-    parser = argparse.ArgumentParser(description='Prepare an input VCF for the PharmCAT')
+    parser = argparse.ArgumentParser(description='Prepares a VCF file for use by PharmCAT.')
 
     # list arguments
-    parser.add_argument("-vcf", "--vcf", type=str, required=True,
-                        help="Path to a VCF file or a file of paths to VCF files (one file per line), "
+    parser.add_argument("-vcf", "--vcf", type=str, required=True, metavar='<vcf file>',
+                        help="path to a VCF file or a file of paths to VCF files (one file per line), "
                              "sorted by chromosome position.")
-    parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str,
+    parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str, metavar='<vcf_file>',
                         default=os.path.join(os.getcwd(), PHARMCAT_POSITIONS),
-                        help="(Optional) A sorted VCF of PharmCAT PGx variants, gzipped with preprocessor scripts. "
-                             "Default = \'" + PHARMCAT_POSITIONS + "\' in the current working directory.")
-    parser.add_argument("-refFna", "--reference-genome",
+                        help="(Optional) a sorted, compressed VCF of PharmCAT PGx variants. "
+                             "Defaults to \'" + PHARMCAT_POSITIONS + "\' in the current working directory.")
+    parser.add_argument("-refFna", "--reference-genome", type=str, metavar='<fna_file>',
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
-    parser.add_argument("-S", "--sample-file",
+    parser.add_argument("-S", "--sample-file", type=str, metavar='<txt_file>',
                         help="(Optional) a file of samples to be prepared for the PharmCAT, one sample at a line.")
-    parser.add_argument("-bcftools", "--path-to-bcftools",
-                        help="(Optional) an alternative path to the executable bcftools.")
-    parser.add_argument("-bgzip", "--path-to-bgzip",
-                        help="(Optional) an alternative path to the executable bgzip.")
-    parser.add_argument("-o", "--output-dir", type=str,
-                        help="(Optional) directory for outputs, by default, directory of the first input VCF.")
-    parser.add_argument("-bf", "--base-filename", type=str,
+    parser.add_argument("-bcftools", "--path-to-bcftools", type=str, metavar='</path/to/bcftools>',
+                        help="(Optional) a path to the bcftools program.  Defaults to bcftools in PATH.")
+    parser.add_argument("-bgzip", "--path-to-bgzip", type=str, metavar='</path/to/bgzip>',
+                        help="(Optional) a path to the bgzip program.  Defaults to bgzip in PATH.")
+    parser.add_argument("-o", "--output-dir", type=str, metavar='<dir>',
+                        help="(Optional) directory for outputs.  Defaults to the directory of the input VCF.")
+    parser.add_argument("-bf", "--base-filename", type=str, metavar='<name>',
                         help="(Optional) output prefix (without file extensions), "
                              "by default the same base name as the input.")
     parser.add_argument("-k", "--keep-intermediate-files", action='store_true',
@@ -119,11 +119,12 @@ if __name__ == "__main__":
     parser.add_argument("-c", "--concurrent-mode", action="store_true",
                         help="(Optional) use multiple processes - maximum number of processes spawned will default to "
                              "to one less than the number of cpu cores.")
-    parser.add_argument("-cp", "--max-concurrent-processes", type=int, default=None,
-                        help="(Optional) maximum number of processes to use when concurrent mode is enabled.")
+    parser.add_argument("-cp", "--max-concurrent-processes", type=int, metavar='<num processes>', default=None,
+                        help="(Optional) the maximum number of processes to use when concurrent mode is enabled.")
 
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="(Optional) print more verbose messages")
+    parser.add_argument('-V', '--version', action='version', version='PharmCAT VCF Preprocessor v%s' % util.VERSION)
 
     # parse arguments
     args = parser.parse_args()

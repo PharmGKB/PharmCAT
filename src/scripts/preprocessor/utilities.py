@@ -25,15 +25,8 @@ from packaging import version
 from exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
 
 
-# chromosome names
-_chr_invalid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
-                "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
-_chr_valid = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-              "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-              "chr22", "chrX", "chrY", "chrM", "chrM", "chrM"]
-_chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-                     "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-                     "chr22", "chrX", "chrY", "chrM"]
+# version is dynamically updated - DO NOT MODIFY MANUALLY
+VERSION = '2.1.0'
 
 # expected tool versions
 MIN_BCFTOOLS_VERSION = '1.16'
@@ -47,6 +40,16 @@ this.script_dir = Path(globals().get("__file__", "./_")).absolute().parent
 this.chr_rename_file = this.script_dir / 'chr_rename_map.tsv'
 this.bcftools_path = 'bcftools'
 this.bgzip_path = 'bgzip'
+
+# chromosome names
+_chr_invalid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+                "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
+_chr_valid = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
+              "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
+              "chr22", "chrX", "chrY", "chrM", "chrM", "chrM"]
+_chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
+                     "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
+                     "chr22", "chrX", "chrY", "chrM"]
 
 
 def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> Path:
