@@ -1,3 +1,11 @@
+## [2.1.1](https://github.com/PharmGKB/PharmCAT/compare/v2.1.0...v2.1.1) (2022-11-09)
+
+
+### Bug Fixes
+
+* **preprocessor:** add version info and improve docs ([8d1d785](https://github.com/PharmGKB/PharmCAT/commit/8d1d785351b4d7e9865eeec6e812a210ff9f62d8))
+* **preprocessor:** fix automatic version update ([c3d5940](https://github.com/PharmGKB/PharmCAT/commit/c3d5940c2b778849c3859a26006022f5d28b4fff))
+
 ## [2.1.0](https://github.com/PharmGKB/PharmCAT/compare/v2.0.3...v2.1.0) (2022-11-09)
 
 

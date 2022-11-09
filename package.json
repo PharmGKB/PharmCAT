@@ -1,6 +1,6 @@
 {
   "name": "pharmcat",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/PharmGKB/PharmCAT.git"
@@ -30,7 +30,7 @@
                 "src/scripts/preprocessor/utilities.py"
               ],
               "from": "^PHARMCAT_VERSION = .*",
-              "to":   "PHARMCAT_VERSION = '${nextRelease.version}'",
+              "to": "PHARMCAT_VERSION = '${nextRelease.version}'",
               "results": [
                 {
                   "file": "src/scripts/preprocessor/utilities.py",
@@ -53,7 +53,7 @@
                 "docs/index.md"
               ],
               "from": "^pharmcat_version: .*",
-              "to":   "pharmcat_version: ${nextRelease.version}",
+              "to": "pharmcat_version: ${nextRelease.version}",
               "results": [
                 {
                   "file": "docs/index.md",
