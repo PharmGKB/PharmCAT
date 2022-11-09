@@ -668,6 +668,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                     'reference alleles">\n')
                         out_f.write('##FILTER=<ID=PCATxALT,Description="Alternate alleles do not match PharmCAT '
                                     'alternate alleles">\n')
+                        out_f.write('##FILTER=<ID=PCATxINDEL,Description="Unexpected format for INDELs">\n')
                         out_f.write(line)
                         # get the number of samples
                         line = line.rstrip('\n')
@@ -797,6 +798,10 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 print('  * WARNING: ignore \"%s:%s REF=%s ALT=%s\" which is not a valid GT format '
                                       'for INDELs'
                                       % (fields[0], fields[1], fields[3], fields[4]))
+                                # update filter
+                                fields[6] = 'PCATxINDEL'
+                                # save the line in the dictionary for non-PGx variants
+                                dict_non_pgx_records[input_chr_pos] = '\t'.join(fields)
                             # flag if the variant doesn't match PharmCAT ALT
                             elif fields[3] in ref_alleles:
                                 for i in range(len(ref_alleles)):
