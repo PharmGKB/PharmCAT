@@ -612,7 +612,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         pgx_pos_only_bgz: Path = tmp_dir / (output_basename + '.pgx_pos_only.vcf.bgz')
         if verbose:
             print('  * Retaining PGx positions, regardless of alleles')
-        run([this.bcftools_path, 'view', '--no-version', '-T', str(uniallelic_positions_vcf), '-Oz',
+        run([this.bcftools_path, 'view', '--no-version', '-U', '-T', str(uniallelic_positions_vcf), '-Oz',
              '-o', str(pgx_pos_only_bgz), str(vcf_file)])
         index_vcf(pgx_pos_only_bgz, verbose)
 
