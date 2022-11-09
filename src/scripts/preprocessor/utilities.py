@@ -700,13 +700,15 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                     3.2. There is no other matching ALT: label "FILTER/PCATxALT"
                             INDELs        
                                 1. Matching REF and ALT: retain and update the rsID and FORMAT/PGx gene name
-                                2. Matching REF and mismatching ALT: separate and retain as another record
+                                2. Matching REF and mismatching ALT: retain as non-PGx record
                                 3. Matching REF and ALT=<*>: uncertain nucleotide changes, warn and ignore
                             '''
 
                             # check whether the position has unspecified alt '<*>' or is homozygous reference
                             if fields[4] in ['.', '<*>']:
                                 is_nonspecific_alt: bool = True
+                            else:
+                                is_nonspecific_alt: bool = False
 
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
@@ -715,8 +717,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             len_ref = sum(map(len, ref_alleles))
                             len_alt = sum(map(len, alt_alleles))
                             if is_nonspecific_alt:
-                                if len_ref == 1:
-                                    is_snp: bool = True
+                                is_snp: bool = True if len_ref == 1 else False
                             else:
                                 is_snp = ((len_ref - len_alt) == 0)
 
