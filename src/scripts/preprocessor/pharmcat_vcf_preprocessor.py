@@ -120,7 +120,7 @@ if __name__ == "__main__":
                         help="(Optional) use multiple processes - maximum number of processes spawned will default to "
                              "to one less than the number of cpu cores.")
     parser.add_argument("-cp", "--max-concurrent-processes", type=int, default=None,
-                        help="(Optional) maximum number of processes to use when multiprocessing.")
+                        help="(Optional) maximum number of processes to use when concurrent mode is enabled.")
 
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="(Optional) print more verbose messages")
