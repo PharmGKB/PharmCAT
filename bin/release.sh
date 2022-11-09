@@ -32,6 +32,21 @@ then
   exit 1
 fi
 
+
+# update main branch so that we trigger GH actions (because release commit has [skip ci]
+echo ""
+echo "Updating main branch..."
+git checkout main
+git pull
+git rebase development
+git push
+
+# switching back to development
+echo ""
+echo "Switching back to development..."
+git checkout development
+
+
 # do release
 echo "Creating release..."
 yarn release
