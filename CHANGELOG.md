@@ -1,3 +1,23 @@
+## [2.1.0](https://github.com/PharmGKB/PharmCAT/compare/v2.0.3...v2.1.0) (2022-11-09)
+
+
+### Features
+
+* **preprocessor:** major refactoring and support for concurrent mode ([ce5c3e5](https://github.com/PharmGKB/PharmCAT/commit/ce5c3e5b9a5d58d8a3a677f0464246cd014c9201))
+
+
+### Bug Fixes
+
+* bug in reference genome sequence ([6fc5550](https://github.com/PharmGKB/PharmCAT/commit/6fc555015cc997af018656266787133d5db9724e))
+* **data:** update to CPIC 1.21.3 ([61143e6](https://github.com/PharmGKB/PharmCAT/commit/61143e68200da9a904791cff96f6a6f67b0026b6))
+* **preprocessor:** fix a bug for alt=<*> ([c3b96c3](https://github.com/PharmGKB/PharmCAT/commit/c3b96c3969fd208f0a26eca32dc4fe9ad39558c6))
+* **preprocessor:** process regions concurrently ([7c4f581](https://github.com/PharmGKB/PharmCAT/commit/7c4f581c1381962477c9753ee08a82d30bb1b47a))
+
+
+### Performance Improvements
+
+* **preprocessor:** add support for concurrent mode ([71855f2](https://github.com/PharmGKB/PharmCAT/commit/71855f2117599673a4678cfd91a5a93fc873e7d1))
+
 ## [2.0.3](https://github.com/PharmGKB/PharmCAT/compare/v2.0.2...v2.0.3) (2022-10-27)
 
 
