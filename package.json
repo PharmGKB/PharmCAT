@@ -110,7 +110,8 @@
             "docs/index.md",
             "package.json",
             "src/scripts/preprocessor/utilities.py"
-          ]
+          ],
+          "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
         }
       ]
     ],
