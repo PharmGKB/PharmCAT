@@ -2,6 +2,8 @@
 title: Home
 permalink: /
 nav_order: 1
+# version is dynamically updated - DO NOT MODIFY MANUALLY
+pharmcat_version: 2.1.0
 ---
 
 # PharmCAT:<br />Pharmacogenomics Clinical Annotation Tool
@@ -10,7 +12,7 @@ nav_order: 1
 ![PharmCAT logo](images/pharmcat_logo.png)
 </span>
 
-[Download {{ site.github.latest_release.tag_name }}](https://github.com/PharmGKB/PharmCAT/releases/latest){: .btn .btn-blue .umami--click--download-button } [View on GitHub](https://github.com/PharmGKB/PharmCAT){: .btn }
+[Download v{{ page.pharmcat_version }}](https://github.com/PharmGKB/PharmCAT/releases/latest){: .btn .btn-blue .umami--click--download-button } [View on GitHub](https://github.com/PharmGKB/PharmCAT){: .btn }
 
 An active area of genomic medicine implementation at many health care organizations and academic medical centers includes development of decision support and return of results around pharmacogenomics.  One of the challenges in implementing pharmacogenomics is the representation of the information in clinical dosing guidelines, including star-allele haplotypes, and extracting these variants and haplotypes from genetic datasets.  In a collaboration between the [Pharmacogenomics Knowledgebase (PharmGKB)](https://www.pharmgkb.org) and the former [PGRN Statistical Analysis Resource (P-STAR)](http://www.pgrn.org/p-star.html), with input from other groups, we are developing a software tool to extract guideline variants from a genetic dataset (represented as a vcf), interpret the variant alleles, and generate a report with genotype-based prescribing recommendations which can be used to inform treatment decisions.
 

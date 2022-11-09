@@ -27,10 +27,33 @@
           "replacements": [
             {
               "files": [
-                "src/scripts/preprocessorutilities.py"
+                "src/scripts/preprocessor/utilities.py"
               ],
               "from": "VERSION = .*",
               "to":   "VERSION = '${nextRelease.version}'",
+              "results": [
+                {
+                  "file": "Refined Nations.user.js",
+                  "hasChanged": true,
+                  "numMatches": 1,
+                  "numReplacements": 1
+                }
+              ],
+              "countMatches": true
+            }
+          ]
+        }
+      ],
+      [
+        "@google/semantic-release-replace-plugin",
+        {
+          "replacements": [
+            {
+              "files": [
+                "docs/index.md"
+              ],
+              "from": "pharmcat_version: .*",
+              "to":   "pharmcat_version: ${nextRelease.version}",
               "results": [
                 {
                   "file": "Refined Nations.user.js",
@@ -84,6 +107,7 @@
         {
           "assets": [
             "CHANGELOG.md",
+            "docs/index.md",
             "package.json",
             "src/scripts/preprocessor/utilities.py"
           ]
