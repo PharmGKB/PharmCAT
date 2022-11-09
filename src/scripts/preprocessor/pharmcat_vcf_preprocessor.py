@@ -49,7 +49,9 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     # shrink input VCF down to PGx allele defining regions and selected samples
     # modify input VCF chromosomes naming format to <chr##>
     pgx_region_vcf: Path = util.extract_pgx_regions(pharmcat_positions_vcf, vcf_files, samples, output_dir,
-                                                    input_basename, verbose=verbose)
+                                                    input_basename,
+                                                    concurrent_mode=concurrent_mode, max_processes=max_processes,
+                                                    verbose=verbose)
     tmp_files_to_be_removed.append(pgx_region_vcf)
 
     # normalize the input VCF

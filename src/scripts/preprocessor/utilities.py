@@ -56,7 +56,6 @@ def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> P
     return uniallelic_positions_vcf
 
 
-
 def run(command: List[str]):
     try:
         subprocess.run(command, check=True, stderr=subprocess.PIPE, universal_newlines=True)
@@ -445,7 +444,9 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 
 
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
-                        output_dir: Path, output_basename: str, verbose: bool = False) -> Path:
+                        output_dir: Path, output_basename: str,
+                        concurrent_mode: bool = False, max_processes: int = 1,
+                        verbose: bool = False) -> Path:
     """
     Extracts PGx regions from input VCF file(s) into a single VCF file and rename chromosomes to match PharmCAT
     expectations.
@@ -457,9 +458,9 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
         tmp_dir: Path = Path(td)
         # generate sample list
         tmp_sample_file: Path = tmp_dir / 'samples.txt'
-        with open(tmp_sample_file, 'w+') as f:
+        with open(tmp_sample_file, 'w+') as w:
             for sample in samples:
-                f.write('%s\n' % sample)
+                w.write('%s\n' % sample)
 
         pgx_region_vcf_file: Path = output_dir / (output_basename + '.pgx_regions.vcf.bgz')
         if len(vcf_files) == 1:
@@ -467,13 +468,27 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
             _extract_pgx_regions(pharmcat_positions, vcf_files[0], tmp_sample_file, output_dir, output_basename,
                                  verbose)
         else:
-            # generate a temporary list of files to be concatenated
-            tmp_file_list = tmp_dir / 'regions.txt'
-            with open(tmp_file_list, 'w+') as f:
+            # generate files to be concatenated
+            tmp_files: List[Path] = []
+            if concurrent_mode:
+                with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
+                    futures = []
+                    for vcf_file in vcf_files:
+                        futures.append(e.submit(_extract_pgx_regions, pharmcat_positions, vcf_file, tmp_sample_file,
+                                                output_dir, get_vcf_basename(vcf_file), verbose))
+                    concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
+                    for future in futures:
+                        tmp_files.append(future.result())
+            else:
                 for vcf_file in vcf_files:
-                    vf = _extract_pgx_regions(pharmcat_positions, vcf_file, tmp_sample_file, output_dir,
-                                              get_vcf_basename(vcf_file), verbose)
-                    f.write(str(vf) + "\n")
+                    tmp_files.append(_extract_pgx_regions(pharmcat_positions, vcf_file, tmp_sample_file, output_dir,
+                                                          get_vcf_basename(vcf_file), verbose))
+            # write file names to txt file for bcftools
+            tmp_file_list = tmp_dir / 'regions.txt'
+            with open(tmp_file_list, 'w+') as w:
+                for tf in tmp_files:
+                    w.write(str(tf) + "\n")
+
             # concatenate vcfs
             if verbose:
                 print('Concatenating PGx VCFs')
@@ -936,12 +951,7 @@ def output_pharmcat_ready_vcf(vcf_file: Path, samples: List[str], output_dir: Pa
     Write final PharmCAT-ready VCF for each sample.
     """
     if concurrent_mode:
-        if max_processes is None:
-            # number of cpus - 1, minimum of 1
-            max_processes = max(1, os.cpu_count() - 1)
-        elif max_processes < 1:
-            max_processes = 1
-        with concurrent.futures.ProcessPoolExecutor() as e:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
             futures = []
             for single_sample in samples:
                 futures.append(e.submit(_output_pharmcat_ready_vcf, vcf_file, output_dir, output_basename,
@@ -950,3 +960,15 @@ def output_pharmcat_ready_vcf(vcf_file: Path, samples: List[str], output_dir: Pa
     else:
         for single_sample in samples:
             _output_pharmcat_ready_vcf(vcf_file, output_dir, output_basename, single_sample)
+
+
+def check_max_processes(max_processes: int) -> int:
+    if max_processes is None:
+        # number of cpus - 1, minimum of 1
+        max_processes = max(1, os.cpu_count() - 1)
+    elif max_processes < 1:
+        max_processes = 1
+    if os.name == 'nt' and max_processes > 61:
+        # windows has max of 61 workers
+        max_processes = 61
+    return max_processes
