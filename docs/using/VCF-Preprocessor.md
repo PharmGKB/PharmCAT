@@ -227,15 +227,15 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 
 ### Notes
 
-PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz).
+PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/GCA_000001405.15_GRCh38_full_plus_hs38d1_analysis_set.fna.gz).
 
 PharmCAT takes this file and prepares it for use with the following commands:
 
 ```console
-# curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_genomic.fna.gz -o genomic.fna.gz
+# curl -#fSL https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/GCA_000001405.15_GRCh38_full_plus_hs38d1_analysis_set.fna.gz -o genomic.fna.gz
 # gunzip genomic.fna.gz
-# cat genomic.fna | sed -r 's/^>(NC.*Homo sapiens chromosome ([0-9XY]+),.*)/>chr\2 \1/g' | sed -r 's/^>(NC.*Homo sapiens mitochondrion,.*)/>chrM \1/g' > chrfix.fna
-# bgzip -c chrfix.fna > reference.fna.bgz
+# awk '{ if ((NR>1)&&($0~/^>/)) { printf("\n%s", $0); } else if (NR==1) { printf("%s", $0); } else { printf("\t%s", $0); } }' genomic.fna | grep -v "^>chr\S*_" - | tr "\t" "\n" > genomic.short.fna
+# bgzip -c genomic.short.fna > reference.fna.bgz
 # samtools faidx reference.fna.bgz
 # tar -czvf GRCh38_reference_fasta.tar reference.fna.bgz reference.fna.bgz.fai reference.fna.bgz.gzi
 ```
