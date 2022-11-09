@@ -46,10 +46,13 @@ includes example translations considering one or two variants.
 
 Note: the combination research flag is ignored when calling DPYD.
 
-#### Phased data
+#### Phased or effectively phased data
 
-If phased data is provided in the VCF file, or if the data are homozygous at all positions, the `Named Allele Matcher`
-produces an output that lists all detected variants per allele. For example:
+Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a position.
+In this case, we can effectively predict the alleles on each chromosome.
+
+If phased or effectively phased data is provided in the VCF file, or if the data are homozygous at all positions, the
+`Named Allele Matcher` produces an output that lists all detected variants per allele. For example:
 `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]` . If no variants are found on an allele, the `Named Allele Matcher`
 returns `Reference` for that allele.
 
