@@ -1,9 +1,14 @@
-name: Build project
+name: Preprocessor CI
 
 on:
+  workflow_dispatch:
+    branches:
+      - '*'
   push:
     branches:
-      - "*"
+      - '*'
+    paths:
+      - 'src/scripts/preprocessor/**'
 
 # cancel current build on push from the same PR, branch or tag (https://stackoverflow.com/a/72408109/1063501)
 concurrency:
@@ -62,13 +67,6 @@ jobs:
       - name: Add tools to path
         run: echo "${TOOLS_DIR}/bcftools/bin:${TOOLS_DIR}/htslib/bin" >> $GITHUB_PATH
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
-
       - name: Set up python
         uses: actions/setup-python@v4
         with:
@@ -80,9 +78,6 @@ jobs:
 
       - name: Install pytest
         run: pip3 install pytest pytest-cov pytest-github-actions-annotate-failures
-
-      - name: Run PharmCAT tests
-        run: ./gradlew test --no-daemon
 
       - name: Cache reference FASTA
         id: cache-ref-fasta
@@ -107,7 +102,7 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: ./build/reports/jacoco/test/jacocoTestReport.xml,./coverage-python.xml
+          files: ./coverage-python.xml
           flags: unittests
 
       - name: Send Slack notification on failure

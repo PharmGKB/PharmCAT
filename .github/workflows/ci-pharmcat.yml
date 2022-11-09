@@ -1,0 +1,53 @@
+name: PharmCAT CI
+
+on:
+  workflow_dispatch:
+    branches:
+      - '*'
+  push:
+    branches:
+      - '*'
+    paths:
+      - 'src/main/**'
+      - 'src/test/**'
+      - 'build.gradle'
+
+# cancel current build on push from the same PR, branch or tag (https://stackoverflow.com/a/72408109/1063501)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Run PharmCAT tests
+        run: ./gradlew test --no-daemon
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./build/reports/jacoco/test/jacocoTestReport.xml
+          flags: unittests
+
+      - name: Send Slack notification on failure
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: dev
+          status: FAILED
+          color: danger
