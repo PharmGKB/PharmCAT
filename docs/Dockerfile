@@ -15,5 +15,8 @@ RUN apt-get install -y nodejs
 RUN npm install --location=global surge
 RUN npm install --location=global npm
 
-WORKDIR /PharmCAT
+COPY Makefile Gemfile Gemfile.lock ./
+RUN make setup && \
+    rm -f Makefile Gemfile Gemfile.lock
 
+WORKDIR /PharmCAT
