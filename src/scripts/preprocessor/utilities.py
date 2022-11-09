@@ -26,7 +26,7 @@ from exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
 
 
 # version is dynamically updated - DO NOT MODIFY MANUALLY
-VERSION = '2.1.0'
+PHARMCAT_VERSION = '2.1.0'
 
 # expected tool versions
 MIN_BCFTOOLS_VERSION = '1.16'

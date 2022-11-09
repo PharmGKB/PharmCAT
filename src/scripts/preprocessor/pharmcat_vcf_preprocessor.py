@@ -124,7 +124,8 @@ if __name__ == "__main__":
 
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="(Optional) print more verbose messages")
-    parser.add_argument('-V', '--version', action='version', version='PharmCAT VCF Preprocessor v%s' % util.VERSION)
+    parser.add_argument('-V', '--version', action='version',
+                        version='PharmCAT VCF Preprocessor v%s' % util.PHARMCAT_VERSION)
 
     # parse arguments
     args = parser.parse_args()

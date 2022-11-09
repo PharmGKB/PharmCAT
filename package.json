@@ -29,11 +29,11 @@
               "files": [
                 "src/scripts/preprocessor/utilities.py"
               ],
-              "from": "VERSION = .*",
-              "to":   "VERSION = '${nextRelease.version}'",
+              "from": "^PHARMCAT_VERSION = .*",
+              "to":   "PHARMCAT_VERSION = '${nextRelease.version}'",
               "results": [
                 {
-                  "file": "Refined Nations.user.js",
+                  "file": "src/scripts/preprocessor/utilities.py",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
@@ -52,11 +52,11 @@
               "files": [
                 "docs/index.md"
               ],
-              "from": "pharmcat_version: .*",
+              "from": "^pharmcat_version: .*",
               "to":   "pharmcat_version: ${nextRelease.version}",
               "results": [
                 {
-                  "file": "Refined Nations.user.js",
+                  "file": "docs/index.md",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
