@@ -21,9 +21,9 @@ if __name__ == "__main__":
                         help="path to a VCF file or a file of paths to VCF files (one file per line), "
                              "sorted by chromosome position.")
     parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str, metavar='<vcf_file>',
-                        default=os.path.join(os.getcwd(), preprocessor.PHARMCAT_POSITIONS_FILENAME),
                         help='(Optional) a sorted, compressed VCF of PharmCAT PGx variants.  Defaults to "' +
-                             preprocessor.PHARMCAT_POSITIONS_FILENAME + '" in the current working directory.')
+                             preprocessor.PHARMCAT_POSITIONS_FILENAME + '" in the current working directory or the ' +
+                             'directory the preprocessor is in.')
     parser.add_argument("-refFna", "--reference-genome", type=str, metavar='<fna_file>',
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("-S", "--sample-file", type=str, metavar='<txt_file>',
