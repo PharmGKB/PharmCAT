@@ -67,12 +67,15 @@ COPY src/main/config/bashrc /root/.bashrc
 
 WORKDIR /pharmcat
 # add pharmcat scripts
-COPY src/scripts/preprocessor/*.py ./
-RUN rm test_*.py
-COPY bin/pharmcat ./
-COPY bin/preprocessor ./
-COPY pharmcat_positions.vcf* ./
-COPY build/pharmcat.jar ./
+COPY src/scripts/preprocessor/pharmcat_vcf_preprocessor.py \
+     bin/pharmcat \
+     build/pharmcat.jar \
+     pharmcat_positions.vcf* \
+     ./
+RUN mkdir preprocessor
+COPY src/scripts/preprocessor/preprocessor/*.py \
+     src/scripts/preprocessor/preprocessor/*.tsv \
+     preprocessor/
 RUN mkdir data
 RUN chmod 755 *.py pharmcat preprocessor data
-RUN python -c "import utilities; utilities.prep_pharmcat_positions()"
+RUN python -c "import preprocessor; preprocessor.prep_pharmcat_positions()"

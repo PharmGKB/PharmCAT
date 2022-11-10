@@ -52,8 +52,11 @@ docker: clean
 scriptPkg:
 	rm -rf build/preprocessor
 	mkdir -p build/preprocessor
-	cp src/scripts/preprocessor/*.txt build/preprocessor
-	cp src/scripts/preprocessor/*.py build/preprocessor
+	cp src/scripts/preprocessor/requirements.txt build/preprocessor
+	cp src/scripts/preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor
+	mkdir build/preprocessor/preprocessor
+	cp src/scripts/preprocessor/preprocessor/*.py build/preprocessor/preprocessor
+	cp src/scripts/preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor
 	cp pharmcat_positions.vcf* build/preprocessor
 	cp docs/using/VCF-Preprocessor.md build/preprocessor/README.md
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
@@ -195,7 +198,8 @@ fuzzyVcfMissingTests: clean _generateVcf-missing _fuzzyVcfTests-missing
 
 .PHONY: test-preprocessor
 test-preprocessor:
-	pytest --cov=src/scripts/preprocessor src/scripts/preprocessor
+	cd src/scripts/preprocessor
+	python3 -m pytest --cov=preprocessor
 
 
 .PHONY: release

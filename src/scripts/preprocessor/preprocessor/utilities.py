@@ -22,18 +22,9 @@ import allel
 import pandas as pd
 from packaging import version
 
-from exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
+from . import common
+from .exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
 
-
-# version is dynamically updated - DO NOT MODIFY MANUALLY
-PHARMCAT_VERSION = '2.1.1'
-
-# expected tool versions
-MIN_BCFTOOLS_VERSION = '1.16'
-MIN_BGZIP_VERSION = '1.16'
-
-UNIALLELIC_VCF_SUFFIX = '.uniallelic.vcf.bgz'
-UNIALLELIC_VCF_FILENAME = 'pharmcat_positions' + UNIALLELIC_VCF_SUFFIX
 
 this = sys.modules[__name__]
 this.script_dir = Path(globals().get("__file__", "./_")).absolute().parent
@@ -53,9 +44,9 @@ _chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "ch
 
 
 def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> Path:
-    uniallelic_positions_vcf: Path = pharmcat_positions.parent / UNIALLELIC_VCF_FILENAME
+    uniallelic_positions_vcf: Path = pharmcat_positions.parent / common.UNIALLELIC_VCF_FILENAME
     if must_exist and not uniallelic_positions_vcf.is_file():
-        raise ReportableException('Cannot find %s' % UNIALLELIC_VCF_FILENAME)
+        raise ReportableException('Cannot find %s' % common.UNIALLELIC_VCF_FILENAME)
     return uniallelic_positions_vcf
 
 
@@ -116,7 +107,7 @@ def validate_bcftools(tool_path: Optional[str], min_version: Optional[str] = Non
     :raises ReportableException if bcftools cannot be found or does not meet version requirement
     """
     tool_path = tool_path if tool_path else 'bcftools'
-    min_version = min_version if min_version else MIN_BCFTOOLS_VERSION
+    min_version = min_version if min_version else common.MIN_BCFTOOLS_VERSION
     validate_tool('bcftools', tool_path, min_version)
     this.bcftools_path = tool_path
 
@@ -130,7 +121,7 @@ def validate_bgzip(tool_path: Optional[str], min_version: Optional[str] = None):
     :raises ReportableException: if bgzip cannot be found or does not meet version requirement
     """
     bgzip_path = tool_path if tool_path else 'bgzip'
-    bgzip_version = min_version if min_version else MIN_BGZIP_VERSION
+    bgzip_version = min_version if min_version else common.MIN_BGZIP_VERSION
     validate_tool('bgzip', bgzip_path, bgzip_version)
     this.bgzip_path = bgzip_path
 
@@ -374,7 +365,7 @@ def download_reference_fasta_and_index(download_dir: Union[Path, str], force_upd
     """Download the human reference genome sequence GRCh38/hg38."""
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
-    ref_file = download_dir / 'reference.fna.bgz'
+    ref_file = download_dir / common.REFERENCE_FASTA_FILENAME
     if ref_file.exists() and not force_update:
         return ref_file
 
@@ -398,7 +389,7 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
 
     if reference_genome_fasta is None:
         # assume it's in current working directory
-        reference_genome_fasta = Path('reference.fna.bgz')
+        reference_genome_fasta = Path(common.REFERENCE_FASTA_FILENAME)
     if not reference_genome_fasta.is_file():
         download_reference_fasta_and_index(pharmcat_positions_vcf.parent, verbose)
 

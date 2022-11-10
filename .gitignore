@@ -33,14 +33,14 @@ venv/
 
 # PharmCAT specific
 /.coverage
-/coverage-python.xml
 /docs/assets/
 /out/
+/pharmcat_positions.uniallelic.vcf.bgz*
 /testVcf/
 /tmp/
+coverage-python.xml
 log.txt
 pharmcat*.log
-/pharmcat_positions.uniallelic.vcf.bgz*
 reference.fna.bgz*
 # temp files for testing the Jekyll site
 /docs/_site

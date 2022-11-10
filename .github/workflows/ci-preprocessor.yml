@@ -97,12 +97,13 @@ jobs:
           rm -f GRCh38_reference_fasta.tar
 
       - name: Run preprocessor tests
-        run: pytest --cov-report=xml --cov=src/scripts/preprocessor src/scripts/preprocessor
+        run: python3 -m pytest --cov-config=../../../.coveragerc --cov-report=xml --cov=preprocessor
+        working-directory: src/scripts/preprocessor
 
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: ./coverage-python.xml
+          files: src/scripts/preprocessor/coverage-python.xml
           flags: unittests
 
       - name: Send Slack notification on failure

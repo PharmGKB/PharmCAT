@@ -1,0 +1,412 @@
+import os
+import shutil
+import tempfile
+from pathlib import Path
+from timeit import default_timer as timer
+from typing import List
+
+import pytest
+
+import helpers
+import preprocessor
+import preprocessor.utilities as utils
+from preprocessor import ReportableException, InappropriateVCFSuffix, InvalidURL
+
+
+def test_chr_arrays():
+    # make sure chr arrays are of the same length
+    assert len(utils._chr_invalid) == len(utils._chr_valid)
+
+
+def test_validate_tool():
+    utils.validate_tool('bcftools', 'bcftools')
+
+
+def test_validate_tool_fail():
+    with pytest.raises(ReportableException) as context:
+        utils.validate_tool('bcftools', 'bcftools', '99')
+    # print(context.value)
+    assert 'use bcftools 99 or higher' in context.value.msg
+
+
+def test_validate_bcftools():
+    utils.validate_bcftools(None)
+    assert 'bcftools' == utils.bcftools_path
+
+    utils.validate_bcftools(None, '1.16')
+    assert 'bcftools' == utils.bcftools_path
+
+    with pytest.raises(ReportableException) as context:
+        utils.validate_bcftools('foo/bcftools', '1.16')
+    # print(context.value)
+    assert 'not found' in context.value.msg
+    assert 'bcftools' == utils.bcftools_path
+
+    with pytest.raises(ReportableException) as context:
+        utils.validate_bcftools(None, '99')
+    # print(context.value)
+    assert '99 or higher' in context.value.msg
+
+
+def test_validate_bgzip():
+    utils.validate_bgzip(None)
+    assert 'bgzip' == utils.bgzip_path
+
+    utils.validate_bgzip(None, '1.16')
+    assert 'bgzip' == utils.bgzip_path
+
+    with pytest.raises(ReportableException) as context:
+        utils.validate_bgzip('foo/bgzip')
+    # print(context.value)
+    assert 'not found' in context.value.msg
+    assert 'bgzip' == utils.bgzip_path
+
+    with pytest.raises(ReportableException) as context:
+        utils.validate_bgzip(None, '99')
+    # print(context.value)
+    assert '99 or higher' in context.value.msg
+
+
+def test_find_vcf_files():
+    vcf_files = utils.find_vcf_files(helpers.test_dir)
+    assert len(vcf_files) > 1
+
+
+def test_find_vcf_files_fail():
+    with pytest.raises(ReportableException) as context:
+        utils.find_vcf_files(helpers.src_dir)
+    assert 'no VCF files found' in context.value.msg
+
+    with pytest.raises(ReportableException) as context:
+        utils.find_vcf_files(helpers.src_dir / 'bad-dir')
+    # print(context.value)
+    assert 'not a directory' in context.value.msg
+
+
+def test_is_vcf_file():
+    valid_paths = [
+        Path('/this/dir/file.vcf'),
+        Path('/this/dir/file.vcf.bgz'),
+        Path('/this/dir/file.vcf.gz')
+    ]
+    for p in valid_paths:
+        assert utils.is_vcf_file(p), str(p)
+        assert utils.is_vcf_file(p.name), str(p)
+
+    invalid_paths = [
+        Path('/this/dir/'),
+        Path('/this/dir'),
+        Path('/this/dir/file.txt'),
+        Path('/this/dir/file.vcf.zip'),
+    ]
+    for p in invalid_paths:
+        assert not utils.is_vcf_file(p), str(p)
+        assert not utils.is_vcf_file(p.name), str(p)
+
+
+def test_get_vcf_basename():
+    valid_paths = [
+        Path('/this/dir/file.vcf'),
+        Path('/this/dir/file.vcf.bgz'),
+        Path('/this/dir/file.vcf.gz'),
+        Path('/this/dir/file.pgx_regions.vcf.gz'),
+        Path('/this/dir/file.normalized.vcf.gz'),
+        Path('/this/dir/file.pgx_regions.normalized.vcf.gz')
+    ]
+    for p in valid_paths:
+        assert 'file' == utils.get_vcf_basename(p), str(p)
+        assert 'file' == utils.get_vcf_basename(p.name), str(p)
+
+    invalid_path = Path('/this/dir/file.txt')
+    with pytest.raises(InappropriateVCFSuffix) as context:
+        utils.get_vcf_basename(invalid_path)
+    # print(context.value)
+    assert 'Inappropriate VCF suffix' in context.value.msg
+    assert str(invalid_path) in context.value.msg
+
+    with pytest.raises(InappropriateVCFSuffix) as context:
+        utils.get_vcf_basename(invalid_path.name)
+    # print(context.value)
+    assert invalid_path.name in context.value.msg
+
+
+def test_read_sample_file():
+    samples = utils.read_sample_file(helpers.test_dir / 'test-empty-samples.txt')
+    assert samples is not None
+    assert 0 == len(samples)
+
+    samples = utils.read_sample_file(helpers.test_dir / 'test-samples.txt')
+    assert samples is not None
+    assert 2 == len(samples)
+    assert ['SAMPLE_1', 'SAMPLE_2'] == samples
+
+
+def test_read_vcf_samples():
+    samples = utils.read_vcf_samples(helpers.test_dir / 'reference.Sample_1.preprocessed.vcf')
+    assert samples is not None
+    # print(samples)
+    assert 1 == len(samples)
+    assert 'Sample_1' in samples
+
+    samples = utils.read_vcf_samples(helpers.test_dir / 'test.vcf.bgz')
+    assert samples is not None
+    # print(samples)
+    assert 2 == len(samples)
+    assert ['Sample_1', 'Sample_2'] ==  samples
+
+
+def test_is_gz_file():
+    assert utils.is_gz_file(helpers.test_dir / 'test.vcf.bgz')
+    assert not utils.is_gz_file(helpers.test_dir / 'reference.Sample_1.preprocessed.vcf')
+
+
+def test_bgzip_file():
+    with tempfile.TemporaryDirectory() as td:
+        tmp_file = Path(td, 'foo.txt')
+        helpers.touch(tmp_file, 'hello, world')
+        bgz_file = utils.bgzip_file(tmp_file, True)
+        assert utils.is_gz_file(bgz_file)
+
+
+def test_bgzip_file_fail():
+    with pytest.raises(ReportableException) as context:
+        utils.bgzip_file(Path('/no-such-file'))
+    # print(context.value)
+    assert 'No such file' in context.value.msg
+
+
+def test_bgzip_vcf():
+    vcf_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        tmp_file = tmp_dir / 's1.vcf'
+        shutil.copyfile(vcf_file, tmp_file)
+        csi_file = tmp_dir / 's1.vcf.bgz.csi'
+        helpers.touch(csi_file)
+        tbi_file = tmp_dir / 's1.vcf.bgz.tbi'
+        helpers.touch(tbi_file)
+        bgz_file = utils.bgzip_vcf(tmp_file, True)
+        assert utils.is_gz_file(bgz_file)
+        files = os.listdir(tmp_dir)
+        assert 's1.vcf.bgz.csi' not in files
+        assert 's1.vcf.bgz.tbi' not in files
+
+
+def test_index_vcf():
+    vcf_file = Path(helpers.test_dir / 'reference.Sample_1.preprocessed.vcf')
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        tmp_file = tmp_dir / 's1.vcf'
+        shutil.copyfile(vcf_file, tmp_file)
+        bgz_file = utils.bgzip_vcf(tmp_file, True)
+        utils.index_vcf(bgz_file, True)
+        files = os.listdir(tmp_dir)
+        assert 's1.vcf.bgz.csi' in files
+        assert 's1.vcf.bgz.tbi' not in files
+
+
+def test_delete_vcf_and_index():
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        vcf_file = tmp_dir / 'foo.vcf'
+        assert not vcf_file.exists()
+        utils.delete_vcf_and_index(vcf_file, True)
+
+        csi_file = Path(str(vcf_file) + '.csi')
+        helpers.touch(vcf_file)
+        helpers.touch(csi_file)
+        assert vcf_file.exists()
+        assert csi_file.exists()
+        utils.delete_vcf_and_index(vcf_file)
+        assert not vcf_file.exists()
+        assert not csi_file.exists()
+
+
+def test_download_from_url_fail():
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        with pytest.raises(InvalidURL) as context:
+            preprocessor.download_from_url('https://no.such.org', tmp_dir)
+        assert 'https://no.such.org' in context.value.msg
+
+
+@pytest.mark.skipif(not helpers.TEST_DOWNLOAD, reason='Download disabled for tests')
+def test_download_reference_fasta_and_index():
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        ref_file = utils.download_reference_fasta_and_index(tmp_dir, verbose=True)
+        files = os.listdir(tmp_dir)
+        assert ref_file.name in files
+
+
+def test_prep_pharmcat_positions():
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        os.chdir(tmp_dir)
+
+        # no pharmcat_positions - should fail
+        with pytest.raises(ReportableException) as context:
+            utils.prep_pharmcat_positions(None, None, verbose=True)
+        # print(context.value)
+        assert 'Cannot find pharmcat_positions.vcf.bgz' in context.value.msg
+
+        # add pharmcat positions to tmp_dir
+        tmp_positions = tmp_dir / helpers.pharmcat_positions_file.name
+        shutil.copyfile(helpers.pharmcat_positions_file, tmp_positions)
+        tmp_uniallelic = tmp_dir / 'pharmcat_positions.uniallelic.vcf.bgz'
+
+        reference_fasta: Path
+        if helpers.TEST_DOWNLOAD:
+            # use pharmcat_positions from cwd and download reference fasta
+            start = timer()
+            utils.prep_pharmcat_positions(None, None, verbose=True)
+            full_time = timer() - start
+            print("time for full preparation:", full_time)
+            reference_fasta = tmp_dir / preprocessor.REFERENCE_FASTA_FILENAME
+            assert reference_fasta.is_file()
+
+            assert tmp_uniallelic.is_file()
+            tmp_uniallelic.unlink()
+            tmp_uniallelic_index = Path(str(tmp_uniallelic) + '.csi')
+            assert tmp_uniallelic_index.is_file()
+            tmp_uniallelic_index.unlink()
+        else:
+            # assumes that reference fasta is available next to pharmcat_positions
+            reference_fasta = helpers.pharmcat_positions_file.parent / preprocessor.REFERENCE_FASTA_FILENAME
+            assert reference_fasta.is_file(), 'Cannot find reference FASTA for testing!'
+
+        # already have reference fasta, so this should be faster, but still need to generate uniallelic positions
+        start = timer()
+        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=True)
+        build_time = timer() - start
+        print("time to build uniallelic positions:", build_time)
+        assert build_time < 2
+
+        tmp_uniallelic = tmp_dir / preprocessor.UNIALLELIC_VCF_FILENAME
+        assert tmp_uniallelic.is_file()
+        uniallelic_mtime = tmp_uniallelic.stat().st_mtime
+
+        # already have reference fasta and uniallelic positions, so this should be very fast
+        start = timer()
+        # utils.prep_pharmcat_positions(None, tmp_reference, verbose=True)
+        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=True)
+        check_time = timer() - start
+        print("time to run check preparation:", check_time)
+        assert check_time < build_time
+        # is an order of magnitude faster
+        assert check_time < (build_time / 10)
+
+        assert tmp_uniallelic.is_file()
+        assert uniallelic_mtime == tmp_uniallelic.stat().st_mtime
+
+
+def test_extract_pgx_regions():
+    vcf_file = helpers.test_dir / 'test.vcf.bgz'
+    vcf_file1 = helpers.test_dir / 'test1.vcf.bgz'
+    vcf_file2 = helpers.test_dir / 'test2.vcf.bgz'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_positions = tmp_dir / helpers.pharmcat_positions_file.name
+        shutil.copyfile(helpers.pharmcat_positions_file, tmp_positions)
+        shutil.copyfile(utils.chr_rename_file, tmp_dir / utils.chr_rename_file.name)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+        tmp_vcf1 = tmp_dir / vcf_file1.name
+        shutil.copyfile(vcf_file1, tmp_vcf1)
+        tmp_vcf2 = tmp_dir / vcf_file2.name
+        shutil.copyfile(vcf_file2, tmp_vcf2)
+
+        vcf_files: List[Path] = [tmp_vcf1, tmp_vcf2]
+        samples: List[str] = ['Sample_1', 'Sample_2']
+        combo_pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, vcf_files, samples, tmp_dir, 'combo_test',
+                                                       verbose=True)
+        assert combo_pgx_vcf_file.is_file()
+        index_file = utils.find_index_file(combo_pgx_vcf_file)
+        assert index_file is not None
+        combo_hash = helpers.md5hash(combo_pgx_vcf_file)
+        print("combo:", combo_hash)
+
+        pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, [tmp_vcf], samples, tmp_dir, 'test', verbose=True)
+        assert pgx_vcf_file.is_file()
+        single_hash = helpers.md5hash(pgx_vcf_file)
+        print("single:", single_hash)
+
+        assert combo_hash == single_hash
+
+
+def test_normalize_vcf():
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+
+    vcf_file = helpers.test_dir / 'test.pgx_regions.vcf.bgz'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        normalized_vcf = utils.normalize_vcf(reference_fasta, tmp_vcf, tmp_dir, 'test', verbose=True)
+        assert normalized_vcf.is_file()
+        # shutil.copyfile(normalized_vcf, vcf_file.parent / 'test.normalized.vcf.bgz')
+
+
+def test_extract_pgx_variants():
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+
+    vcf_file = helpers.test_dir / 'test.normalized.vcf.bgz'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        multiallelic_vcf = utils.extract_pgx_variants(helpers.pharmcat_positions_file, reference_fasta, tmp_vcf,
+                                                      tmp_dir, 'test', verbose=True)
+        assert multiallelic_vcf.is_file()
+        # shutil.copyfile(multiallelic_vcf, vcf_file.parent / multiallelic_vcf.name)
+
+
+def test_output_pharmcat_ready_vcf():
+    vcf_file = helpers.test_dir / 'test.multiallelic.vcf.bgz'
+    s1_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'
+    s2_file = helpers.test_dir / 'reference.Sample_2.preprocessed.vcf'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        basename = 'test1'
+        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename)
+
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
+        helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
+
+
+def test_output_pharmcat_ready_vcf_partial():
+    vcf_file = helpers.test_dir / 'test.multiallelic.vcf.bgz'
+    s1_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        basename = 'test_partial'
+        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1'], tmp_dir, basename)
+
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
+        tmp_s2: Path = tmp_dir / ('%s.Sample_2.preprocessed.vcf' % basename)
+        assert not tmp_s2.is_file(), '%s found!' % tmp_s2
+
+
+def test_output_pharmcat_ready_vcf_concurrent():
+    vcf_file = helpers.test_dir / 'test.multiallelic.vcf.bgz'
+    s1_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'
+    s2_file = helpers.test_dir / 'reference.Sample_2.preprocessed.vcf'
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+
+        basename = 'test2'
+        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename, concurrent_mode=True,
+                                        max_processes=2)
+
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
+        helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
