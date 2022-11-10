@@ -715,12 +715,9 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
                             alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
                             # check if the reference PGx variant is a SNP
-                            len_ref = sum(map(len, ref_alleles))
-                            len_alt = sum(map(len, alt_alleles))
-                            if is_nonspecific_alt:
-                                is_snp: bool = True if len_ref == 1 else False
-                            else:
-                                is_snp = ((len_ref - len_alt) == 0)
+                            len_ref: list[int] = [len(i) for i in ref_alleles]
+                            len_alt: list[int] = [len(i) for i in alt_alleles]
+                            is_snp: bool = (len_ref == len_alt)
 
                             # a tuple variable for ref and alt alleles in this VCF record
                             input_ref_alt = (fields[3], fields[4])
