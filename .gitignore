@@ -32,12 +32,12 @@ venv/
 /build/
 
 # PharmCAT specific
-/.coverage
 /docs/assets/
 /out/
 /pharmcat_positions.uniallelic.vcf.bgz*
 /testVcf/
 /tmp/
+.coverage
 coverage-python.xml
 log.txt
 pharmcat*.log
