@@ -45,6 +45,7 @@ public class VcfReader implements VcfLineParser {
   private static final Pattern sf_allelePattern = Pattern.compile("^[AaCcGgTt]+$");
   private static final String sf_filterCodeRef = "PCATxREF";
   private static final String sf_filterCodeAlt = "PCATxALT";
+  private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private VcfMetadata m_vcfMetadata;
   private String m_genomeBuild;
@@ -209,6 +210,9 @@ public class VcfReader implements VcfLineParser {
       }
       if (position.getFilters().contains(sf_filterCodeAlt)) {
         addWarning(chrPos, "Genotype at this position has novel bases");
+      }
+      if (position.getFilters().contains(sf_filterCodeIndel)) {
+        addWarning(chrPos, "Genotype at this position uses unexpected format for INDEL");
       }
     }
     if (m_alleleMap.containsKey(chrPos)) {
