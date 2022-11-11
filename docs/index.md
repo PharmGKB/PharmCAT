@@ -21,6 +21,7 @@ The [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx
 References:
 - _Commentary:_ TE Klein, MD Ritchie. [PharmCAT: A Pharmacogenomics Clinical Annotation Tool](https://dx.doi.org/10.1002/cpt.928). Clinical Pharmacology & Therapeutics (2018) 104(1):19-22.
 - _Methods paper:_ K Sangkuhl & M Whirl-Carrillo, et al. [Pharmacogenomics Clinical Annotation Tool (PharmCAT)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6977333). Clinical Pharmacology & Therapeutics (2020) 107(1):203-210.
+- _Tutorial paper:_ B Li & K Sangkuhl et al. [How to Run the Pharmacogenomics Clinical Annotation Tool (PharmCAT)](https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.2790). Clinical Pharmacology & Therapeutics (2022).
 
 PharmCAT is under active development.
 
