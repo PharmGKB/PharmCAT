@@ -46,24 +46,26 @@ includes example translations considering one or two variants.
 
 Note: the combination research flag is ignored when calling DPYD.
 
+{: .info}
+> Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a
+> position. Since we can effectively predict the alleles on each chromosome in this situation, we can treat the data as
+> we would phased data.
+
+
 #### Phased or effectively phased data
 
-Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a position.
-In this case, we can effectively predict the alleles on each chromosome.
-
-If phased or effectively phased data is provided in the VCF file, or if the data are homozygous at all positions, the
-`Named Allele Matcher` produces an output that lists all detected variants per allele. For example:
-`[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]` . If no variants are found on an allele, the `Named Allele Matcher`
-returns `Reference` for that allele.
+If phased or effectively phased data is provided in the VCF file, the `Named Allele Matcher` produces an output that
+lists all detected variants per allele. For example: `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]` . If no variants
+are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
 
 #### Unphased data
 
-If unphased data is provided in the VCF file, and the data are not homozygous at all positions, the
-`Named Allele Matcher` will not attempt to call a diplotype. Instead, it produces a list of all detected DPYD variants
-in the sample. It will, however, check if variants can be called on both strands. If so, it will call the variant twice.
-For example: `c.1627A>G (*5)`, `c.1905+1G>A (*2A)`, `c.1905+1G>A (*2A)`. If the sample doesn’t contain variants at the
-positions from the allele definition file, and/or if those positions are omitted from the vcf file, the 
-`Named Allele Matcher` returns `Reference`.
+If unphased data (that cannot be considered effectively phased) is provided in the VCF file, and the data are not
+homozygous at all positions, the `Named Allele Matcher` will not attempt to call a diplotype. Instead, it produces a
+list of all detected DPYD variants in the sample. It will, however, check if variants can be called on both strands.
+If so, it will call the variant twice.  For example: `c.1627A>G (*5)`, `c.1905+1G>A (*2A)`, `c.1905+1G>A (*2A)`. If the
+sample doesn’t contain variants at the positions from the allele definition file, and/or if those positions are omitted
+from the vcf file, the `Named Allele Matcher` returns `Reference`.
 
 ### Calling DPYD allele functionality and phenotype
 
