@@ -1,3 +1,15 @@
+## [2.1.2](https://github.com/PharmGKB/PharmCAT/compare/v2.1.1...v2.1.2) (2022-11-11)
+
+
+### Bug Fixes
+
+* **namedAlleleMatcher:** add support for PCATxINDEL from preprocessor ([bc04d5d](https://github.com/PharmGKB/PharmCAT/commit/bc04d5d41c8a5a12bffd9152b7943ee43a2a769a))
+* **preprocessor:** bug in determining indel ([35e25cc](https://github.com/PharmGKB/PharmCAT/commit/35e25cc98efd182ae62d525fd0da7bd39860d477))
+* **preprocessor:** fix a bug related to missing genotypes ([ff676c3](https://github.com/PharmGKB/PharmCAT/commit/ff676c30b73ae21e5969599fdd8907a6b80e910f))
+* **preprocessor:** fix a bug with the unspecified ALT ([88b94d2](https://github.com/PharmGKB/PharmCAT/commit/88b94d289d403a6ff14091d9cf88bb4f9e2f6257))
+* **preprocessor:** fix error for indels ([0bc0b74](https://github.com/PharmGKB/PharmCAT/commit/0bc0b7432f83c1db529e15908cb262ba509e3e4c))
+* **preprocessor:** fix pharmcat positions file lookup logic ([9f2a77a](https://github.com/PharmGKB/PharmCAT/commit/9f2a77a7b2de79bf7ef03d1517cd0a42d69e116e))
+
 ## [2.1.1](https://github.com/PharmGKB/PharmCAT/compare/v2.1.0...v2.1.1) (2022-11-09)
 
 
