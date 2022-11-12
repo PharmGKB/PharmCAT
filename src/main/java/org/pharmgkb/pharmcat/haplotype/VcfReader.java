@@ -279,6 +279,7 @@ public class VcfReader implements VcfLineParser {
     }
 
 
+    // reference: https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format
     String allelicDepth = sampleData.get(0).getProperty("AD");
     if (allelicDepth != null && !".".equals(allelicDepth)) {
       // try to catch reference overlap style VCF where
@@ -286,18 +287,13 @@ public class VcfReader implements VcfLineParser {
       // see https://github.com/PharmGKB/PharmCAT/issues/90 for example
       try {
         List<Integer> depths = Arrays.stream(allelicDepth.split(","))
-            .map(i -> {
-              if (".".equals(i)) {
-                return 0;
-              } else {
-                return Integer.parseInt(i);
-              }
-            })
+            .filter(a -> !a.equals("."))
+            .map(Integer::parseInt)
             .toList();
         Map<Integer, Integer> genotype = new HashMap<>();
         Arrays.stream(alleleIdxs)
             .forEach(g -> genotype.merge(g, 1, Integer::sum));
-        // GT is het, but AD is not
+        // GT is het, but AD is not (only one side has any reads)
         if (genotype.size() != 1 && depths.stream().filter(d -> d > 0).count() == 1) {
           addWarning(chrPos, "Discarding genotype at this position because GT field indicates heterozygous (" +
               gt + ") but AD field indicates homozygous (" + allelicDepth + ")");
