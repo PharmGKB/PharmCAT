@@ -286,7 +286,13 @@ public class VcfReader implements VcfLineParser {
       // see https://github.com/PharmGKB/PharmCAT/issues/90 for example
       try {
         List<Integer> depths = Arrays.stream(allelicDepth.split(","))
-            .map(Integer::parseInt)
+            .map(i -> {
+              if (".".equals(i)) {
+                return 0;
+              } else {
+                return Integer.parseInt(i);
+              }
+            })
             .toList();
         Map<Integer, Integer> genotype = new HashMap<>();
         Arrays.stream(alleleIdxs)
