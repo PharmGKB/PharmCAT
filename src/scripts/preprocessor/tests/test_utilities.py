@@ -31,16 +31,16 @@ def test_validate_tool_fail():
 
 def test_validate_bcftools():
     utils.validate_bcftools(None)
-    assert 'bcftools' == utils.bcftools_path
+    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
 
     utils.validate_bcftools(None, '1.16')
-    assert 'bcftools' == utils.bcftools_path
+    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bcftools('foo/bcftools', '1.16')
     # print(context.value)
     assert 'not found' in context.value.msg
-    assert 'bcftools' == utils.bcftools_path
+    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bcftools(None, '99')
@@ -50,16 +50,16 @@ def test_validate_bcftools():
 
 def test_validate_bgzip():
     utils.validate_bgzip(None)
-    assert 'bgzip' == utils.bgzip_path
+    assert 'bgzip' == preprocessor.BGZIP_PATH
 
     utils.validate_bgzip(None, '1.16')
-    assert 'bgzip' == utils.bgzip_path
+    assert 'bgzip' == preprocessor.BGZIP_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bgzip('foo/bgzip')
     # print(context.value)
     assert 'not found' in context.value.msg
-    assert 'bgzip' == utils.bgzip_path
+    assert 'bgzip' == preprocessor.BGZIP_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bgzip(None, '99')
@@ -152,7 +152,7 @@ def test_read_vcf_samples():
     assert samples is not None
     # print(samples)
     assert 2 == len(samples)
-    assert ['Sample_1', 'Sample_2'] ==  samples
+    assert ['Sample_1', 'Sample_2'] == samples
 
 
 def test_is_gz_file():
@@ -308,7 +308,7 @@ def test_extract_pgx_regions():
         tmp_dir = Path(td)
         tmp_positions = tmp_dir / helpers.pharmcat_positions_file.name
         shutil.copyfile(helpers.pharmcat_positions_file, tmp_positions)
-        shutil.copyfile(utils.chr_rename_file, tmp_dir / utils.chr_rename_file.name)
+        shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
         tmp_vcf = tmp_dir / vcf_file.name
         shutil.copyfile(vcf_file, tmp_vcf)
         tmp_vcf1 = tmp_dir / vcf_file1.name

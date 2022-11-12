@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 # version is dynamically updated - DO NOT MODIFY MANUALLY
 PHARMCAT_VERSION = '2.1.2'
 
@@ -10,3 +13,10 @@ PHARMCAT_POSITIONS_FILENAME = 'pharmcat_positions.vcf.bgz'
 REFERENCE_FASTA_FILENAME = 'reference.fna.bgz'
 UNIALLELIC_VCF_SUFFIX = '.uniallelic.vcf.bgz'
 UNIALLELIC_VCF_FILENAME = 'pharmcat_positions' + UNIALLELIC_VCF_SUFFIX
+CHR_RENAME_MAP_FILENAME = 'chr_rename_map.tsv'
+
+# paths
+SCRIPT_DIR: Path = Path(globals().get("__file__", "./_")).absolute().parent
+CHR_RENAME_FILE: Path = SCRIPT_DIR / CHR_RENAME_MAP_FILENAME
+BCFTOOLS_PATH = 'bcftools'
+BGZIP_PATH = 'bgzip'

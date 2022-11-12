@@ -26,12 +26,6 @@ from . import common
 from .exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
 
 
-this = sys.modules[__name__]
-this.script_dir = Path(globals().get("__file__", "./_")).absolute().parent
-this.chr_rename_file = this.script_dir / 'chr_rename_map.tsv'
-this.bcftools_path = 'bcftools'
-this.bgzip_path = 'bgzip'
-
 # chromosome names
 _chr_invalid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
                 "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
@@ -109,7 +103,7 @@ def validate_bcftools(tool_path: Optional[str], min_version: Optional[str] = Non
     tool_path = tool_path if tool_path else 'bcftools'
     min_version = min_version if min_version else common.MIN_BCFTOOLS_VERSION
     validate_tool('bcftools', tool_path, min_version)
-    this.bcftools_path = tool_path
+    common.BCFTOOLS_PATH = tool_path
 
 
 def validate_bgzip(tool_path: Optional[str], min_version: Optional[str] = None):
@@ -123,7 +117,7 @@ def validate_bgzip(tool_path: Optional[str], min_version: Optional[str] = None):
     bgzip_path = tool_path if tool_path else 'bgzip'
     bgzip_version = min_version if min_version else common.MIN_BGZIP_VERSION
     validate_tool('bgzip', bgzip_path, bgzip_version)
-    this.bgzip_path = bgzip_path
+    common.BGZIP_PATH = bgzip_path
 
 
 def validate_file(file: Union[Path, str]) -> Path:
@@ -245,7 +239,7 @@ def read_vcf_samples(vcf_file: Path) -> List[str]:
     """
 
     print('Reading samples from', vcf_file, '...')
-    output = subprocess.check_output([this.bcftools_path, 'query', '-l', str(vcf_file)], universal_newlines=True)
+    output = subprocess.check_output([common.BCFTOOLS_PATH, 'query', '-l', str(vcf_file)], universal_newlines=True)
     vcf_sample_list: List[str] = output.split('\n')[:-1]  # remove the black line at the end
     if len(vcf_sample_list) == 0:
         raise ReportableException('Error: No samples found in VCF.')
@@ -268,7 +262,7 @@ def bgzip_file(file: Path, verbose: bool = False):
     """
     if verbose:
         print('  * Bgzipping', file)
-    run([this.bgzip_path, '-f', str(file)])
+    run([common.BGZIP_PATH, '-f', str(file)])
     # make sure it worked
     gz_path: Path = Path(str(file) + '.gz')
     if not gz_path.exists():
@@ -323,7 +317,7 @@ def index_vcf(vcf_file: Path, verbose: bool = False) -> Path:
     """
     if verbose:
         print('  * Generating index for %s' % vcf_file)
-    run([this.bcftools_path, 'index', str(vcf_file)])
+    run([common.BCFTOOLS_PATH, 'index', str(vcf_file)])
     csi_file = Path(str(vcf_file) + '.csi')
     if not csi_file.exists():
         raise ReportableException('Cannot find indexed .csi file %s' % csi_file)
@@ -403,17 +397,17 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
             print('* Preparing uniallelic PharmCAT positions VCF')
         # convert reference PGx variants to the uniallelic format needed for extracting exact PGx positions
         # and generating an accurate missing report
-        bcftools_command = [this.bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-f',
+        bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-f',
                             str(reference_genome_fasta), '-Oz', '-o', str(uniallelic_positions_vcf),
                             str(pharmcat_positions_vcf)]
         run(bcftools_command)
         index_vcf(uniallelic_positions_vcf, verbose)
 
     # create chromosome mapping file
-    if not this.chr_rename_file.is_file() or update_chr_rename_file:
+    if not common.CHR_RENAME_FILE.is_file() or update_chr_rename_file:
         if verbose:
             print('* Preparing chromosome rename file')
-        with open(this.chr_rename_file, 'w+') as f:
+        with open(common.CHR_RENAME_FILE, 'w+') as f:
             for i in range(len(_chr_invalid)):
                 f.write(_chr_invalid[i] + "\t" + _chr_valid[i] + "\n")
 
@@ -486,7 +480,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
             # concatenate vcfs
             if verbose:
                 print('Concatenating PGx VCFs')
-            bcftools_command = [this.bcftools_path, 'concat', '--no-version', '-a', '-f', str(tmp_file_list), '-Oz',
+            bcftools_command = [common.BCFTOOLS_PATH, 'concat', '--no-version', '-a', '-f', str(tmp_file_list), '-Oz',
                                 '-o', str(pgx_region_vcf_file)]
             run(bcftools_command)
             # index the VCF file
@@ -532,8 +526,8 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
     if output_basename is None:
         output_basename = get_vcf_basename(vcf_file)
     pgx_regions_vcf = output_dir / (output_basename + '.pgx_regions.vcf.bgz')
-    bcftools_command = [this.bcftools_path, 'annotate', '--no-version', '-S', str(sample_file),
-                        '--rename-chrs', str(this.chr_rename_file), '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
+    bcftools_command = [common.BCFTOOLS_PATH, 'annotate', '--no-version', '-S', str(sample_file),
+                        '--rename-chrs', str(common.CHR_RENAME_FILE), '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
                         '-Oz', '-o', str(pgx_regions_vcf), str(bgz_file)]
     if verbose:
         print('  * Extracting PGx regions and normalizing chromosome names')
@@ -558,7 +552,7 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
     if output_basename is None:
         output_basename = get_vcf_basename(vcf_file)
     normalized_vcf = output_dir / (output_basename + '.normalized.vcf.bgz')
-    bcftools_command = [this.bcftools_path, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o', str(normalized_vcf),
+    bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o', str(normalized_vcf),
                         '-f', str(reference_genome), str(vcf_file)]
     if verbose:
         print('Normalizing VCF')
@@ -603,7 +597,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         pgx_pos_only_bgz: Path = tmp_dir / (output_basename + '.pgx_pos_only.vcf.bgz')
         if verbose:
             print('  * Retaining PGx positions, regardless of alleles')
-        run([this.bcftools_path, 'view', '--no-version', '-U', '-T', str(uniallelic_positions_vcf), '-Oz',
+        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-U', '-T', str(uniallelic_positions_vcf), '-Oz',
              '-o', str(pgx_pos_only_bgz), str(vcf_file)])
         index_vcf(pgx_pos_only_bgz, verbose)
 
@@ -832,14 +826,14 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         # sort vcf
         print('Sorting by chromosomal location...')
         sorted_bgz: Path = tmp_dir / (output_basename + '.sorted.vcf.bgz')
-        bcftools_command = [this.bcftools_path, 'sort', '-Oz', '-o', str(sorted_bgz), str(updated_pgx_pos_vcf)]
+        bcftools_command = [common.BCFTOOLS_PATH, 'sort', '-Oz', '-o', str(sorted_bgz), str(updated_pgx_pos_vcf)]
         run(bcftools_command)
         index_vcf(sorted_bgz, verbose)
 
         # make sure output complies with the multi-allelic format
         print('Enforcing multi-allelic variant representation...')
         normed_bgz: Path = tmp_dir / (output_basename + '.normed.vcf.bgz')
-        run([this.bcftools_path, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', str(reference_fasta), '-Oz',
+        run([common.BCFTOOLS_PATH, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', str(reference_fasta), '-Oz',
              '-o', str(normed_bgz), str(sorted_bgz)])
 
         filtered_bgz: Path = output_dir / (output_basename + '.multiallelic.vcf.bgz')
