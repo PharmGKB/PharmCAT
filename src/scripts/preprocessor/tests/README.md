@@ -1,8 +1,6 @@
 ## Overview
 
-There are two types of files in this directory:
-* test files
-* reference files (expected results)
+This directory contains the tests and test data for the PharmCAT VCF Preprocessor.
 
 ## Explanation of files
 
@@ -13,11 +11,11 @@ For example:
 1. test.vcf.bgz
 2. reference.Sample_1.preprocessed.vcf
 3. reference.Sample_2.preprocessed.vcf
-4. reference.missing_pgx_var.vcf.bgz
+4. reference.missing_pgx_var.vcf
 
-_"test.vcf.bgz"_ are designed for tests on bcftools version as well as the PharmCAT VCF preprocessor. The output from the VCF preprocessor should match the content in *reference.Sample_1.preprocessed.vcf*, *reference.Sample_2.preprocessed.vcf*, and *reference.missing_pgx_var.vcf.bgz*.
+_"test.vcf.bgz"_ are designed for tests on bcftools version as well as the PharmCAT VCF preprocessor. The output from the VCF preprocessor should match the content in *reference.Sample_1.preprocessed.vcf*, *reference.Sample_2.preprocessed.vcf*, and *reference.missing_pgx_var.vcf*.
 
-### 2. Test files for the VCF proprocessing script - Performance
+### 2. Test files for the VCF preprocessing script - Performance
 
 I tested the performance of the VCF preprocessing script, including run time, multi-sample VCF processing, etc.
 

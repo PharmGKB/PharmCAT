@@ -884,14 +884,16 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
             shutil.move(normed_bgz, filtered_bgz)
 
         # report missing positions in the input VCF
-        _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename, verbose)
+        if len(ref_pos_dynamic):
+            mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename, verbose)
+            print("Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), mf))
 
         index_vcf(filtered_bgz, verbose)
         return filtered_bgz
 
 
 def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str,
-                             verbose: bool = False):
+                             verbose: bool = False) -> Path:
     # report missing positions in the input VCF
     print('Generating report of missing PGx allele defining positions...')
     missing_pos_file: Path = output_dir / (output_basename + '.missing_pgx_var.vcf')
@@ -915,11 +917,11 @@ def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_d
             for val in input_ref_alt.values():
                 line = '\t'.join(val + ['0|0'])
                 out_f.write(line + '\n')
-    # bgzip the missing report
-    bgzip_vcf(missing_pos_file, verbose)
+    return missing_pos_file
 
 
-def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename: str, single_sample: str):
+def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename: str, sample: str,
+                               multisample: bool):
     """
     Create final PharmCAT-ready VCF file.
 
@@ -928,11 +930,15 @@ def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename
     "--force-samples" only warn about unknown subset samples
     """
     if output_basename:
-        output_file_name = output_dir / (output_basename + '.' + single_sample + '.preprocessed.vcf')
+        if multisample:
+            output_file_name = output_dir / (output_basename + '.' + sample + '.preprocessed.vcf')
+        else:
+            output_file_name = output_dir / (output_basename + '.preprocessed.vcf')
     else:
-        output_file_name = output_dir / (single_sample + '.preprocessed.vcf')
-    print('Generating PharmCAT-ready VCF for', single_sample)
-    run([this.bcftools_path, 'view', '--no-version', '--force-samples', '-U', '-s', single_sample, '-Ov',
+        output_file_name = output_dir / (sample + '.preprocessed.vcf')
+
+    print('Generating PharmCAT-ready VCF for', sample)
+    run([common.BCFTOOLS_PATH, 'view', '--no-version', '--force-samples', '-U', '-s', sample, '-Ov',
          '-o', str(output_file_name), str(vcf_file)])
 
 
@@ -941,16 +947,17 @@ def output_pharmcat_ready_vcf(vcf_file: Path, samples: List[str], output_dir: Pa
     """
     Write final PharmCAT-ready VCF for each sample.
     """
+    is_multisample = len(samples) > 1
     if concurrent_mode:
         with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
             futures = []
-            for single_sample in samples:
+            for sample in samples:
                 futures.append(e.submit(_output_pharmcat_ready_vcf, vcf_file, output_dir, output_basename,
-                                        single_sample))
+                                        sample, is_multisample))
             concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
     else:
-        for single_sample in samples:
-            _output_pharmcat_ready_vcf(vcf_file, output_dir, output_basename, single_sample)
+        for sample in samples:
+            _output_pharmcat_ready_vcf(vcf_file, output_dir, output_basename, sample, is_multisample)
 
 
 def check_max_processes(max_processes: int) -> int:

@@ -20,7 +20,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     start = timer()
     if verbose:
         print("Using reference FASTA at", reference_genome)
-    print("Saving output to", output_dir)
+    print("Saving output to", output_dir.absolute())
     if concurrent_mode:
         print("Using concurrent mode with max of %d processes..." % max_processes)
     print()
@@ -57,7 +57,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     # output PharmCAT-ready single-sample VCF
     # retain only the PharmCAT allele defining positions in the output VCF file
     print()
-    util.output_pharmcat_ready_vcf(pgx_variants_vcf, samples, output_dir, output_basename,
+    util.output_pharmcat_ready_vcf(pgx_variants_vcf, samples, output_dir, output_basename or input_basename,
                                    concurrent_mode=concurrent_mode, max_processes=max_processes)
 
     # remove intermediate files

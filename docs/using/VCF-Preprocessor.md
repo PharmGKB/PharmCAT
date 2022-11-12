@@ -26,7 +26,7 @@ The PharmCAT VCF preprocessing produces two types of **output**:
 
 ## How to run the PharmCAT VCF preprocessing tool
 
-### Prerequisite
+### Prerequisites
 
 We assume that the input VCF files are prepared following the [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
@@ -37,7 +37,7 @@ To run the tool, you need to download the following bioinformatic tools:
 We assume a working python3 installation with necessary dependencies:
 * python >= 3.9.4
 * pandas >= 1.4.2
-* scikit-allel >= 1.3.5 (warning: testing compatibilty with python >= 3.11)
+* scikit-allel >= 1.3.5 (warning: testing compatibility with python >= 3.11)
 
 To install necessary python packages, run the following code
 ```console
@@ -74,7 +74,7 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
   ...
   ```
 
-VCF files can have more than 1 sample and should be bgzip compressed. If not bgzip compressed, they will be automatically bgzipped.
+VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 
 
 **Optional** arguments:
@@ -103,7 +103,7 @@ If not, bgzip is a part of the [htslib](http://www.htslib.org/download/). You ca
 the path to the bgzip program.
 
 -o `<dir>` <span class="altArg"><br />or --output-dir `<dir>`</span>
-: Directory to save preprocssed VCF to.  Default is the parent directory of the input VCF.
+: Directory to save preprocessed VCF to.  Default is the parent directory of the input VCF.
 
 -bf `<name>` <span class="altArg"><br />or --base-filename `<name>`</span>
 : Prefix of the output VCF files. Default is sample IDs from the input VCF(s).
@@ -125,11 +125,13 @@ using concurrent mode is more than the benefit it may provide.
 -cp `<num processes>` <span class="altArg"><br />or --max-concurrent-processes `<num processes>`</span>
 : The maximum number of processes to use if concurrent mode is enabled.
 
-**Output**
-1. 1 or more PharmCAT-ready VCF file(s), which will be named as `<base_filename>.<sample_ID>.preprocessed.vcf`, or `<sample_ID>.preprocessed.vcf` if `--base-filename` or `-bf` is not supplied, for example, `sample_1.preprocessed.vcf`, `sample_2.preprocessed.vcf`, etc.
-2. The report of missing PGx positions, which will be named as `<base_input_filename>.missing_pgx_var.vcf.bgz`. This file only reports positions that are missing in all samples.
+### Output
 
-  If `--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
+All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument.  For example, if the input file is "study.vcf", then the base filename is "study".  If the input file is "biobank_files.txt" then the base filename is "biobank_files".
+
+The preprocessor will produce one PharmCAT-ready VCF file per sample.  If there is only one sample, the output file is named `<base_filename>.preprocessed.vcf`.  If there are more than one samples, the output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
+
+If there are missing PGx positions, it will also produce a report named `<base_filename>.missing_pgx_var.vcf`.  This file only reports positions that are missing in _all_ samples.  If `-0`/`--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 
 
 ## Tutorial
@@ -153,19 +155,18 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz
 ```
 
 VCF preprocessor will return two files in this test case.
-1. one named *"Sample_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
-2. the other named *"test_1.missing_pgx_var.vcf.bgz"* as a report of missing PGx positions.
+1. one named *"test_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
+2. the other named *"test_1.missing_pgx_var.vcf"* as a report of missing PGx positions.
 
-To be noted, the chr7 variant is not used in PharmCAT and as such, was accordingly removed by the PharmCAT VCF preprocessor.
+Note that the chr7 variant is not used in PharmCAT and was removed by the PharmCAT VCF preprocessor.
 
 ```console
-$ cat Sample_1.preprocessed.vcf
+$ cat test_1.preprocessed.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr2	233760233	rs3064744	CAT	C,CATATAT,CATAT	.	PASS	PX=UGT1A1	3/2
 
-$ gunzip -c test_1.missing_pgx_var.vcf.bgz
-$ cat reference.missing_pgx_var.vcf
+$ cat test_1.missing_pgx_var.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
@@ -197,13 +198,15 @@ Command to run the PharmCAT VCF preprocessor:
 $ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
 ```
 
-VCF preprocessor will return three (3) files in this test case.
-1. one named *"Sample_1.preprocessed.vcf"*. Note that the output PharmCAT-ready VCFs will use the exact sample names from the input VCF.
-2. one named *"Sample_2.preprocessed.vcf"*
-3. the third named *"test_2.missing_pgx_var.vcf.bgz"* as a report of missing PGx positions.
+VCF preprocessor will return three (3) files in this test case:
+1. *"test_2.Sample_1.preprocessed.vcf"* 
+2. *"test_2.Sample_2.preprocessed.vcf"*
+3. *"test_2.missing_pgx_var.vcf"*
+
+Note that the PharmCAT-ready VCFs will use the sample names from the input VCF.
 
 ```console
-$ cat Sample_1.preprocessed.vcf
+$ cat test_2.Sample_1.preprocessed.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
@@ -212,7 +215,7 @@ chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    
 chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
 
-$ cat Sample_2.preprocessed.vcf
+$ cat test_2.Sample_2.preprocessed.vcf
 <...header truncated...>
 #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
 chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
@@ -222,7 +225,7 @@ chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT1
 chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      0/1
 
 
-$ gunzip -c test_2.missing_pgx_var.vcf.bgz
+$ cat test_2.missing_pgx_var.vcf
 <...header truncated...>
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0
@@ -231,7 +234,7 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 <...truncated...>
 ```
 
-### Notes
+## Notes
 
 PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/GCA_000001405.15_GRCh38_full_plus_hs38d1_analysis_set.fna.gz).
 

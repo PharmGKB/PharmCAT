@@ -11,7 +11,7 @@ As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF
 
 This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a High-Performance Computing (HPC) environment.
 
-We expect readers to be familiar with using both PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).  In addition to the documentation, we also have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets.
+We expect readers to be familiar with using both PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).  In addition to this documentation, we also have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets.
 
 ---
 
@@ -90,7 +90,9 @@ python3 pharmcat_vcf_preprocessor.py -vcf data/input_vcf_list.txt
 
 ###  Running PharmCAT
 
-Assuming the users have run the PharmCAT VCF preprocessor to generate multiple single-sample VCFs which is named such as `<sample_id>.preprocessed.vcf`. Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh).
+After running the PharmCAT VCF preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`. 
+
+Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh).
 
 On the command line:
 ```console
