@@ -432,8 +432,8 @@ public class PharmCAT {
 
   public static String getBaseFilename(Path inputFile) {
     String filename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
-    if (filename.endsWith(".preprocesed")) {
-      filename = filename.substring(0, filename.length() - ".preprocesed".length());
+    if (filename.endsWith(".preprocessed")) {
+      filename = filename.substring(0, filename.length() - ".preprocessed".length());
     }
     if (filename.endsWith(".match")) {
       filename = filename.substring(0, filename.length() - ".match".length());
