@@ -53,7 +53,7 @@ public class BatchPharmCAT {
       }
 
       Path dir = cliHelper.getValidDirectory("dir", false);
-      PharmCAT.BaseConfig config = new PharmCAT.BaseConfig(cliHelper);
+      BaseConfig config = new BaseConfig(cliHelper);
 
       Collection<String> keys = null;
 
@@ -62,7 +62,7 @@ public class BatchPharmCAT {
         try (Stream<Path> stream = Files.list(dir)) {
           stream.filter(f -> f.toString().toLowerCase().endsWith(".vcf"))
               .forEach(f -> {
-                String baseFilename = PharmCAT.getBaseFilename(f);
+                String baseFilename = BaseConfig.getBaseFilename(f);
                 vcfFiles.put(baseFilename, f);
               });
         }
@@ -81,7 +81,7 @@ public class BatchPharmCAT {
           try (Stream<Path> stream = Files.list(dir)) {
             stream.filter(f -> f.toString().toLowerCase().endsWith(".match.json"))
                 .forEach(f -> {
-                  String baseFilename = PharmCAT.getBaseFilename(f);
+                  String baseFilename = BaseConfig.getBaseFilename(f);
                   phenotyperInputFiles.put(baseFilename, f);
                 });
           }
@@ -110,7 +110,7 @@ public class BatchPharmCAT {
           try (Stream<Path> stream = Files.list(dir)) {
             stream.filter(f -> f.toString().toLowerCase().endsWith(".phenotype.json"))
                 .forEach(f -> {
-                  String baseFilename = PharmCAT.getBaseFilename(f);
+                  String baseFilename = BaseConfig.getBaseFilename(f);
                   reporterInputFiles.put(baseFilename, f);
                 });
           }
@@ -138,14 +138,14 @@ public class BatchPharmCAT {
 
         x += 1;
         System.out.println(x + ": " + key);
-        new PharmCAT(env,
+        new Pipeline(env,
             config.runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
             config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,
-            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, PharmCAT.Mode.CLI)
-            .execute();
+            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI)
+            .call();
         System.out.println("---");
       }
 

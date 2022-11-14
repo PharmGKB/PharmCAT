@@ -115,11 +115,14 @@ class SyntheticBatchTest {
     piplelineTest.execute();
 
     if (allTests) {
-      PharmCATTest.setCompact(compact);
-      PharmCATTest.setSources(sources);
+      PipelineWrapper.setCompact(compact);
+      PipelineWrapper.setSources(sources);
       SummaryGeneratingListener listener = new SummaryGeneratingListener();
       LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
-          .selectors(selectClass(PharmCATTest.class))
+          .selectors(
+              selectClass(PharmCATTest.class),
+              selectClass(PipelineTest.class)
+          )
           .build();
       Launcher launcher = LauncherFactory.create();
       launcher.discover(request);
@@ -555,12 +558,12 @@ class SyntheticBatchTest {
     }
 
     Path sampleVcf = writeVcf(testDir.resolve(key + ".vcf"), testVcfs);
-    new PharmCAT(new Env(),
+    new Pipeline(new Env(),
         true, sampleVcf, true, false, false, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compact, false,
-        testDir, null, m_compact, PharmCAT.Mode.TEST
-    ).execute();
+        testDir, null, m_compact, Pipeline.Mode.TEST
+    ).call();
   }
 
   private void makeReportWithOutputString(String key, String[] testVcfs, String outsideCalls) throws Exception {
