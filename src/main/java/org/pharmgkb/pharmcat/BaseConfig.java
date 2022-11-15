@@ -43,11 +43,11 @@ class BaseConfig {
       runReporter = cliHelper.hasOption("reporter");
     }
 
-    if (runMatcher) {
-      if (cliHelper.hasOption("md")) {
-        definitionDir = cliHelper.getValidDirectory("md", false);
-      }
+    if (cliHelper.hasOption("def")) {
+      definitionDir = cliHelper.getValidDirectory("def", false);
+    }
 
+    if (runMatcher) {
       topCandidateOnly = !cliHelper.hasOption("ma");
 
       if (cliHelper.hasOption("research")) {
