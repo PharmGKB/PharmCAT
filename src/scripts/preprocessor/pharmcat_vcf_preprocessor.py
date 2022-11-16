@@ -57,6 +57,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # print warnings here
+    # print the version number
+    print("""
+    =============================================================
+    PharmCAT VCF Preprocessor version: %s
+    =============================================================
+    """ % preprocessor.PHARMCAT_VERSION)
     # alternatively, could use the "warnings" module
     if args.missing_to_ref:
         print("""
