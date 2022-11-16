@@ -25,8 +25,8 @@ You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker)
 PharmCAT takes VCF files as input.
 
 {: .warn}
-> Please make sure you have read and undertand PharmCAT's [VCF requirements](/using/VCF-Requirements).
-> 
+> Please make sure you have read and understand PharmCAT's [VCF requirements](/using/VCF-Requirements).
+> s
 > If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF preprocessor](/using/VCF-Preprocessor).
 
 
@@ -236,7 +236,7 @@ Saving reporter HTML results to /tmp/results/outside_calls.report.html
 
 ### Research-Only Options
 
-PharmCAT has two options that enables functionality meant for **resarch use only**!
+PharmCAT has two options that enables functionality meant for **research use only**!
 
 #### Calling combination and partial alleles
 

@@ -86,7 +86,7 @@ look for `pharmcat_positions.vcf.bgz` under the current working directory.  You 
 
 -refFna `<fna_file>` <span class="altArg"><br />or --reference-genome `<fna_file>`</span>
 : The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be
-decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~0.9GB) to the same directory
+decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~0.9 GB) to the same directory
 as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#notes) for details).
 
 -S `<txt_file>` <span class="altArg"><br />or --sample-file `<txt_file>`</span>
