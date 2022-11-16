@@ -26,6 +26,8 @@ The PharmCAT VCF preprocessing produces two types of **output**:
 
 ## How to run the PharmCAT VCF preprocessing tool
 
+We have put together interactive materials on 
+
 ### Prerequisites
 
 We assume that the input VCF files are prepared following the [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
@@ -233,6 +235,16 @@ chr1	97078993	rs148799944	C	G	.	PASS	PX=DPYD	GT	0/0
 chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 <...truncated...>
 ```
+
+## Explanation of INFO
+
+The PharmCAT VCF Preprocessor updates the INFO on genetic variants that warrant further inspection. Please check positions with these INFO flags:
+1. `PCATxREF`
+   1. The reference allele at this position does not match the PharmCAT reference allele at this PGx allele defining positions, which is based on the RefSeq reference human genome sequence on GRCh38. This cannot be fixed by normalizing and flipping the REF and ALT alleles in the PharmCAT VCF Preprocessor. 
+2. `PCATxALT`
+   1. The alternate allele at this position does not match the PharmCAT alternate alleles at this PGx allele defining positions.
+3. `PCATxINDEL`
+   1. This position has an unexpected format for INDELs, especially an INDEL with `<*>` (an unspecified ALT allele ) or `.` (absence of alternative alleles). INDELs needs to be represented with a meaningful alternative allele.
 
 ## Notes
 
