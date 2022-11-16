@@ -42,6 +42,9 @@ class BaseConfig {
       runPhenotyper = cliHelper.hasOption("phenotyper");
       runReporter = cliHelper.hasOption("reporter");
     }
+    if (runMatcher && !runPhenotyper && runReporter) {
+      throw new ReportableException("Cannot run matcher and reporter without also running phenotyper.");
+    }
 
     if (cliHelper.hasOption("def")) {
       definitionDir = cliHelper.getValidDirectory("def", false);

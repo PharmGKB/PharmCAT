@@ -2,9 +2,9 @@ package org.pharmgkb.pharmcat;
 
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
-import java.util.concurrent.TimeUnit;
 import com.google.common.base.Stopwatch;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.common.util.TimeUtils;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -135,7 +135,7 @@ public class PharmCAT {
 
       System.out.println("Done.");
       if (cliHelper.isVerbose()) {
-        System.out.println("Took " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms");
+        System.out.println("Elapsed time: " + TimeUtils.humanReadablePreciseDuration(stopwatch.elapsed()));
       }
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
@@ -151,7 +151,7 @@ public class PharmCAT {
   /**
    * Only use {@link System#exit(int)} if not running from within test.
    */
-  private static void failIfNotTest() {
+  static void failIfNotTest() {
     try {
       Class.forName("org.pharmgkb.pharmcat.TestUtils");
     } catch (Exception ex) {

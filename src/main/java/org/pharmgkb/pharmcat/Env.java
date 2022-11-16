@@ -138,7 +138,7 @@ public class Env {
   /**
    * Make or retrieve a cached {@link Haplotype} object that corresponds to the given allele name.
    */
-  public Haplotype makeHaplotype(String gene, String name, DataSource source) {
+  public synchronized Haplotype makeHaplotype(String gene, String name, DataSource source) {
     return m_haplotypeCache.computeIfAbsent(source, (s) -> new HashMap<>())
         .computeIfAbsent(gene, (g) -> new HashMap<>())
         .computeIfAbsent(name, (n) -> {

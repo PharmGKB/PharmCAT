@@ -39,6 +39,7 @@ public class Pipeline implements Callable<Boolean> {
      * Default mode.  Prints informative messages to console.
      */
     CLI,
+    BATCH,
     /**
      * In test mode, PharmCAT tries not to include version/timestamp in output to simplify diffing.
      */
@@ -70,13 +71,6 @@ public class Pipeline implements Callable<Boolean> {
   private final boolean m_deleteIntermediateFiles;
   private final Mode m_mode;
 
-
-  public Pipeline(Path vcfFile) throws IOException, ReportableException {
-    this(new Env(), true, vcfFile, true, false, false, false,
-        true, null, null,
-        true, null, null, null, false, false,
-        null, null, true, Mode.CLI);
-  }
 
   public Pipeline(Env env,
       boolean runMatcher, Path vcfFile, boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations,
@@ -164,8 +158,10 @@ public class Pipeline implements Callable<Boolean> {
     Result matcherResult = null;
     if (m_runMatcher) {
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6)
-              .printWarnings();
+          new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+      if (m_mode == Mode.CLI) {
+        namedAlleleMatcher.printWarnings();
+      }
       matcherResult = namedAlleleMatcher.call(m_vcfFile);
 
       if (m_mode == Mode.CLI) {

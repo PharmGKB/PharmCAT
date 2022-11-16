@@ -3,12 +3,20 @@ package org.pharmgkb.pharmcat;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Stream;
+import com.google.common.base.Stopwatch;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.common.util.TimeUtils;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -25,7 +33,7 @@ public class BatchPharmCAT {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
           // named allele matcher args
-          .addOption("d", "dir", "directory containing source data files", true, "dir")
+          .addOption("i", "input-dir", "directory containing source data files", true, "dir")
 
           .addOption("matcher", "matcher", "run named allele matcher")
           .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
@@ -37,7 +45,6 @@ public class BatchPharmCAT {
 
           // reporter args
           .addOption("reporter", "reporter", "run reporter")
-          .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
           .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
           .addOption("re", "reporter-extended", "output extended report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
@@ -46,108 +53,203 @@ public class BatchPharmCAT {
           .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory")
           .addOption("bf", "base-filename", "the base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
           // controls
+          .addOption("cp", "max-concurrent-processes", "maximum number of processes to use", false, "num")
+          .addOption("def", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("del", "delete-intermediary-files", "delete intermediary output files")
           .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        System.exit(1);
+        PharmCAT.failIfNotTest();
+        return;
       }
 
-      Path dir = cliHelper.getValidDirectory("dir", false);
       BaseConfig config = new BaseConfig(cliHelper);
 
-      Collection<String> keys = null;
+      Path dir = cliHelper.getValidDirectory("i", false);
+      List<Path> allVcfFiles = new ArrayList<>();
+      List<Path> allMatchFiles = new ArrayList<>();
+      List<Path> allOutsideCallFiles = new ArrayList<>();
+      List<Path> allPhenotypeFiles = new ArrayList<>();
+      try (Stream<Path> stream = Files.list(dir)) {
+        stream.filter(Files::isRegularFile)
+            .forEach(f -> {
+              String name = f.toString().toLowerCase();
+              if (name.endsWith(".vcf")) {
+                allVcfFiles.add(f);
+              } else if (name.endsWith(".match.json")) {
+                allMatchFiles.add(f);
+              } else if (name.endsWith(".outside.tsv")) {
+                allOutsideCallFiles.add(f);
+              } else if (name.endsWith(".phenotype.json")) {
+                allPhenotypeFiles.add(f);
+              }
+            });
+      }
 
+      final SortedSet<String> keys = new TreeSet<>();
       Map<String, Path> vcfFiles = new HashMap<>();
       if (config.runMatcher) {
-        try (Stream<Path> stream = Files.list(dir)) {
-          stream.filter(f -> f.toString().toLowerCase().endsWith(".vcf"))
-              .forEach(f -> {
-                String baseFilename = BaseConfig.getBaseFilename(f);
-                vcfFiles.put(baseFilename, f);
-              });
-        }
+        allVcfFiles.forEach(f -> {
+          String baseFilename = BaseConfig.getBaseFilename(f);
+          vcfFiles.put(baseFilename, f);
+        });
         if (vcfFiles.size() == 0) {
           System.out.println("No VCF files found in " + dir);
           return;
         }
-        keys = vcfFiles.keySet();
-        System.out.println("Found " + keys.size() + " VCF files...");
+        keys.addAll(vcfFiles.keySet());
+        System.out.println("Found " + vcfFiles.size() + " VCF files...");
       }
 
       Map<String, Path> phenotyperInputFiles = new HashMap<>();
       Map<String, Path> phenotyperOutsideCallFiles = new HashMap<>();
       if (config.runPhenotyper) {
-        if (keys == null) {
-          try (Stream<Path> stream = Files.list(dir)) {
-            stream.filter(f -> f.toString().toLowerCase().endsWith(".match.json"))
-                .forEach(f -> {
-                  String baseFilename = BaseConfig.getBaseFilename(f);
-                  phenotyperInputFiles.put(baseFilename, f);
-                });
-          }
-          if (phenotyperInputFiles.size() == 0) {
-            System.out.println("No Phenotyper input files found in " + dir);
+        if (keys.isEmpty()) {
+          allMatchFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            phenotyperInputFiles.put(baseFilename, f);
+          });
+          allOutsideCallFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            if (!keys.contains(baseFilename)) {
+              System.out.println("Warning: outside call file with no matching .match.json - " + f.getFileName());
+            }
+            phenotyperOutsideCallFiles.put(baseFilename, f);
+          });
+          if (phenotyperInputFiles.size() == 0 && phenotyperOutsideCallFiles.size() == 0) {
+            System.out.println("No phenotyper input files/outside call files found in " + dir);
             return;
           }
-          keys = phenotyperInputFiles.keySet();
-          System.out.println("Found " + keys.size() + " Phenotyper input files...");
+          keys.addAll(phenotyperInputFiles.keySet());
+          keys.addAll(phenotyperOutsideCallFiles.keySet());
+
+        } else {
+          allMatchFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            if (keys.contains(baseFilename)) {
+              System.out.println("Ignoring " + f.getFileName() + " - will recompute");
+              return;
+            }
+            // allow mixing phenotyper-only inputs
+            phenotyperInputFiles.put(baseFilename, f);
+            keys.add(baseFilename);
+          });
+          allOutsideCallFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            if (!keys.contains(baseFilename)) {
+              System.out.println("Warning: outside call file with no matching .vcf or .match.json - " + f.getFileName());
+              keys.add(baseFilename);
+            }
+            phenotyperOutsideCallFiles.put(baseFilename, f);
+          });
         }
 
-        for (String key : keys) {
-          Path f = dir.resolve(key + ".outside.tsv");
-          if (Files.isRegularFile(f)) {
-            phenotyperOutsideCallFiles.put(key, f);
-          }
+        if (phenotyperInputFiles.size() > 0) {
+          System.out.println(getCountString(phenotyperInputFiles, allMatchFiles) + " phenotyper input files...");
         }
         if (phenotyperOutsideCallFiles.size() > 0) {
-          System.out.println("Found " + keys.size() + " outside call files...");
+          System.out.println(getCountString(phenotyperOutsideCallFiles, allOutsideCallFiles) + " outside call files...");
         }
       }
 
       Map<String, Path> reporterInputFiles = new HashMap<>();
       if (config.runReporter) {
-        if (keys == null) {
-          try (Stream<Path> stream = Files.list(dir)) {
-            stream.filter(f -> f.toString().toLowerCase().endsWith(".phenotype.json"))
-                .forEach(f -> {
-                  String baseFilename = BaseConfig.getBaseFilename(f);
-                  reporterInputFiles.put(baseFilename, f);
-                });
-          }
+        if (keys.isEmpty()) {
+          // reporter only
+          allPhenotypeFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            reporterInputFiles.put(baseFilename, f);
+          });
           if (reporterInputFiles.size() == 0) {
-            System.out.println("No Reporter input files found in " + dir);
+            System.out.println("No reporter input files found in " + dir);
             return;
           }
-          keys = reporterInputFiles.keySet();
-          System.out.println("Found " + keys.size() + " Reporter input files...");
+          keys.addAll(reporterInputFiles.keySet());
+          System.out.println(getCountString(reporterInputFiles, allPhenotypeFiles) + " reporter input files...");
+
+        } else {
+          allPhenotypeFiles.forEach(f -> {
+            String baseFilename = BaseConfig.getBaseFilename(f);
+            if (keys.contains(baseFilename)) {
+              System.out.println("Ignoring " + f.getFileName() + " - will recompute");
+              return;
+            }
+            // allow mixing reporter-only inputs
+            System.out.println("Warning: reporter input file with no matching .vcf, .match.json or .outside.tsv - " +
+                f.getFileName());
+            reporterInputFiles.put(baseFilename, f);
+            keys.add(baseFilename);
+          });
         }
       }
 
-      if (keys == null || keys.size() == 0) {
+      if (keys.isEmpty()) {
         System.out.println("No files found to process.");
         return;
       }
+      SortedSet<String> sortedKeys = new TreeSet<>(keys);
+      System.out.println();
+      System.out.println("Queueing up " + sortedKeys.size() + " samples to process...");
 
       Env env = new Env(config.definitionDir);
-      int x = 0;
+      List<Pipeline> tasks = new ArrayList<>();
       for (String key : new TreeSet<>(keys)) {
         Path vcfFile = vcfFiles.get(key);
         Path phenotyperInputFile = phenotyperInputFiles.get(key);
         Path phenotyperOutsideCallsFile = phenotyperOutsideCallFiles.get(key);
         Path reporterInputFile = reporterInputFiles.get(key);
 
-        x += 1;
-        System.out.println(x + ": " + key);
-        new Pipeline(env,
-            config.runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
+        if (cliHelper.isVerbose()) {
+          System.out.println("  * " + key);
+        }
+        boolean runMatcher = config.runMatcher;
+        if (runMatcher && vcfFile == null) {
+          // allow mixing phenotyper-only inputs
+          runMatcher = false;
+        }
+        boolean runPhenotyper = config.runPhenotyper;
+        if (runPhenotyper && vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null) {
+          runPhenotyper = false;
+        }
+        Pipeline pipeline = new Pipeline(env,
+            runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
             config.matcherHtml,
-            config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+            runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,
-            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI)
-            .call();
-        System.out.println("---");
+            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.BATCH);
+        tasks.add(pipeline);
       }
+
+      int maxProcesses = Runtime.getRuntime().availableProcessors() - 2;
+      if (cliHelper.hasOption("cp")) {
+        try {
+          maxProcesses = cliHelper.getIntValue("cp");
+          if (maxProcesses > Runtime.getRuntime().availableProcessors()) {
+            maxProcesses = Runtime.getRuntime().availableProcessors();
+          }
+        } catch (NumberFormatException ex) {
+          System.out.println("\"" + cliHelper.getValue("cp") + "\" is not an integer.");
+          return;
+        }
+      }
+      if (maxProcesses < 1) {
+        maxProcesses = 1;
+      }
+      System.out.println();
+      System.out.println("Running PharmCAT in batch mode with a maximum of " + maxProcesses + " processes.");
+      Stopwatch stopwatch = Stopwatch.createStarted();
+      ExecutorService executor = Executors.newFixedThreadPool(maxProcesses);
+      List<Future<Boolean>> futures = executor.invokeAll(tasks);
+      executor.shutdown();
+
+      // must iterate through in case of errors
+      for (Future<Boolean> future : futures) {
+        future.get();
+      }
+
+      System.out.println();
+      System.out.println("Done.");
+      System.out.println("Elapsed time: " + TimeUtils.humanReadablePreciseDuration(stopwatch.elapsed()));
 
     } catch (CliHelper.InvalidPathException ex) {
       System.out.println(ex.getMessage());
@@ -156,5 +258,13 @@ public class BatchPharmCAT {
       e.printStackTrace();
       System.exit(1);
     }
+  }
+
+
+  private static String getCountString(Map<String, Path> using, Collection<Path> found) {
+    if (using.size() != found.size()) {
+      return "Adding " + using.size() + "/" + found.size();
+    }
+    return "Found " + using.size();
   }
 }

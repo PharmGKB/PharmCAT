@@ -62,7 +62,7 @@ dependencies {
       [group: 'org.apache.commons', name: 'commons-text', version: '1.10.0'],
       [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'],
       [group: 'org.checkerframework', name: 'checker-qual', version: '3.25.0'],
-      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.5.1'],
+      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.5.2'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.2.3'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'],
   )
