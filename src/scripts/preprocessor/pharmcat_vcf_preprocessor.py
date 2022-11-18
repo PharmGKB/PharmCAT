@@ -134,6 +134,12 @@ if __name__ == "__main__":
             print("Error: no VCF input")
             sys.exit(1)
 
+        for file in m_vcf_files:
+            if preprocessor.is_gvcf_file(file):
+                print('%s is a gVCF file, which is not currently supported.\n'
+                      'The PharmCAT VCF Preprocessor will support block gVCF in the future.' % str(file))
+                sys.exit(1)
+
         m_samples: List[str] = []
         if args.sample_file:
             # validate sample file

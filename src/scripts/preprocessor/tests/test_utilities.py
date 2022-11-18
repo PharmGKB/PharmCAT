@@ -104,6 +104,43 @@ def test_is_vcf_file():
         assert not utils.is_vcf_file(p.name), str(p)
 
 
+def test_is_gvcf_file():
+    test_vcf_file = helpers.test_dir / 'test.vcf.bgz'
+    test_gvcf_file = helpers.test_dir / 'test.g.vcf.bgz'
+    with tempfile.TemporaryDirectory() as td:
+        assert not utils.is_gvcf_file(test_vcf_file)
+
+        tmp_dir = Path(td)
+        f1 = tmp_dir / 'test.g.vcf.bgz'
+        shutil.copyfile(test_vcf_file, f1)
+        # is VCF file, but pass due to name
+        assert utils.is_gvcf_file(f1)
+
+        f2 = tmp_dir / 'test.genomic.vcf.gz'
+        shutil.move(f1, f2)
+        # is VCF file, but pass due to name
+        assert utils.is_gvcf_file(f2)
+
+        f1 = tmp_dir / 'test.genomic.vcf'
+        shutil.move(f2, f1)
+        # is VCF file, but pass due to name
+        assert utils.is_gvcf_file(f1)
+
+        f2 = tmp_dir / 'test.g.vcf'
+        shutil.move(f1, f2)
+        # is VCF file, but pass due to name
+        assert utils.is_gvcf_file(f2)
+
+        f = tmp_dir / 'test.vcf.bgz'
+        shutil.copyfile(test_vcf_file, f)
+        # pass due to compressed content check
+        assert utils.is_gvcf_file(f)
+
+        utils.run(['bgunzip', str(f)])
+        f = tmp_dir / 'test.vcf'
+        assert utils.is_gvcf_file(f)
+
+
 def test_get_vcf_basename():
     valid_paths = [
         Path('/this/dir/file.vcf'),

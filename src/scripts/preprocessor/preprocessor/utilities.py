@@ -8,7 +8,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import tarfile
 import tempfile
 import textwrap
@@ -192,6 +191,33 @@ def find_file(filename: str, dirs: List[Path]) -> Optional[Path]:
 
 def is_vcf_file(file: Union[Path, str]):
     return re.search('\\.vcf(\\.b?gz)?$', str(file)) is not None
+
+
+def is_gvcf_file(file: Path):
+    return re.search('\\.(g|genomic)\\.vcf(\\.b?gz)?', str(file)) or _is_gvcf_file(file)
+
+
+def _is_gvcf_file(file: Path) -> bool:
+    """Check file contents to see if it is a GVCF file. """
+    if is_gz_file(file):
+        with gzip.open(file, mode='rt', encoding='utf-8') as in_f:
+            return _check_for_gvcf(in_f)
+    else:
+        with open(file, mode='r', encoding='utf-8') as in_f:
+            return _check_for_gvcf(in_f)
+
+
+def _check_for_gvcf(in_f) -> bool:
+    for line in in_f:
+        if line[0] == '#':
+            continue
+        else:
+            line = line.rstrip('\n')
+            fields: List[str] = line.split('\t')
+            # check whether input is a block gVCF
+            if re.search('END', fields[7]):
+                return True
+    return False
 
 
 def get_vcf_basename(path: Union[Path, str]) -> str:
@@ -665,12 +691,10 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         fields = line.split('\t')
                         input_chr_pos = (fields[0], fields[1])
 
-                        # check whether input is a block gVCF, which will be supported in the future
+                        # check whether input is a block gVCF
+                        # this is a backup check - it should already have been checked earleir
                         if re.search('END', fields[7]):
-                            print('=============================================================\n'
-                                  'The PharmCAT VCF Preprocessor will support block gVCF in the future.\n'
-                                  '=============================================================\n')
-                            sys.exit(1)
+                            raise ReportableException('gVCF is not supported')
 
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
