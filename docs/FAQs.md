@@ -61,7 +61,23 @@ Please review the latest [CPIC SOP for assigning allele function](https://cpicpg
 ## How to render PharmCAT outputs into a tabular-formatted file
 PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON outputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
 
-## Can PharmCAT call _CYP2D6_?
+## Gene-specific
+
+### Can PharmCAT call _CYP2D6_?
 If you have access to whole genome sequencing (WGS) CRAM/BAM files, we strongly discourage calling CYP2D6 using PharmCAT. Please refer to our documentation about [calling CYP2D6](/using/Calling-CYP2D6).
 
 Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmCAT is designed to take VCF as input which is NOT a desirable file format for calling CYP2D6 alleles. This research mode for CYP2D6 calls alleles using ONLY SNPs and INDELs that are available in VCF files. Please note that this approach has many caveats. VCF can't handle structural variation (SV) and copy number variation (CNV) which are essential for calling CYP2D6 alleles, especially CNVs for ultrarapid metabolizers. VCF format cannot correctly reflect whole gene deletion (*5), which will lead to erroneous calls and beyond the capability of PharmCAT. CYP2D6 calls made from VCFs should not be used for clinical purposes. This research mode should be used at your own risk.
+
+
+### G6PD for male samples or samples with only one chrX
+You need to pay attention to the G6PD results in your samples, especially male samples or samples with only one X chromosome. Some samples only have one copy of the X chromosome, a.k.a., hemizygotes. Nonetheless, many variant calling software or bioinformatics pipelines do not necessarily consider the hemizygosity of the X chromosome in these samples and will represent these samples as homozygotes.
+
+Based on the VCF file format specifications, chrX should be observed as a haploid (_GT field = 0_) in a male with a single X chromosome and a diplotype (_GT field = 0/0_) in a female with two X chromosomes. 
+
+In reality, for many variant calling pipelines, you will find that all samples are diploid on the X chromosome regardless of the number of X chromosomes a sample actually has. Male samples (or a sample with a single X chromosome) appear to be homozygous across all chrX positions, while female samples (or samples with more than one X chromosome) tend to be heterozygous at some positions. 
+
+You won't be able to tell whether a sample is a male or a female, or whether the sample has one or more X chromosomes, if you only know that this sample is homozygous on the X chromosomes. This sample can be a haploid that is accidentally represented as homozygous diploid, or this sample can be indeed a homozygous diploid. 
+
+If you run PharmCAT on male samples or samples with only one chrX, be aware of the issue and use only the haploid for male samples or samples with a single X chromosome for reporting purposes. Nonetheless, the drug prescribing recommendations should be the same for these samples regardless whether they are observed correctly as a hemizygote or a diploid for the X chromosome.
+
+We will add the support for hemizygotes at the X chromosome in the PharmCAT VCF Preprocessor in the future.
