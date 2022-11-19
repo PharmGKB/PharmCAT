@@ -48,7 +48,7 @@ PharmCAT releases new versions when substantial updates are ready to be released
 
 ## What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
 
-Uncertain function and unknown function are standarized CPIC allele function terms. Alleles with uncertain function are alleles that have been reviewed by CPIC experts but there has not been enough evidence to sufficiently draw a conclusion about the allele's clinical functional status to inform prescirbing actionability. On the other hand, unknown function suggests that there is no literature descibing the function.
+Uncertain function and unknown function are standardized CPIC allele function terms. Alleles with uncertain function are alleles that have been reviewed by CPIC experts but there has not been enough evidence to sufficiently draw a conclusion about the allele's clinical functional status to inform prescribing actionability. On the other hand, unknown function suggests that there is no literature describing the function.
 
 Unassigned function is a PharmCAT term that describes a known allele which has not been assigned an allele function by CPIC. New alleles defined by e.g. PharmVar or the _TPMT_ nomenclature committee, will be included in the corresponding CPIC gene allele definition files based on the SOP and thus, subsequently becomes part of PharmCAT. Nonetheless, allele function is generally only assigned when there is a new guideline or a guideline update that involves that gene. In this case, these newer alleles are included and reported in PharmCAT as unassigned function since they have not been assigned an allele function term by CPIC.
 
@@ -58,8 +58,8 @@ Indeterminate is a standardized CPIC phenotype term assigned to genotypes contai
 
 Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
 
-## How to render PharmCAT outputs into a tabular-formated file
-PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON ouputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
+## How to render PharmCAT outputs into a tabular-formatted file
+PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON outputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
 
 ## Can PharmCAT call _CYP2D6_?
 If you have access to whole genome sequencing (WGS) CRAM/BAM files, we strongly discourage calling CYP2D6 using PharmCAT. Please refer to our documentation about [calling CYP2D6](/using/Calling-CYP2D6).
