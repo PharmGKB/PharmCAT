@@ -7,7 +7,7 @@ from preprocessor import preprocess
 
 
 def test_preprocess():
-    reference_fasta: Path =  helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
     vcf_file = helpers.test_dir / 'test.vcf.bgz'
     s1_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'

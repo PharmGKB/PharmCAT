@@ -29,11 +29,11 @@ This part uses the VCFs on multiple GeT-RM samples[1](#reference) generated from
 
 ### Preprocessing the data
 
-This section provides examples for working with different types of input VCFs.  For the full script, see  [PharmCAT-tutorial/src/02_VCF_preprocessing.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/).
+This section provides examples for working with different types of input VCFs.
 
 #### Case 1 - single-sample VCFs
 
-If your genetic data is already stored in single-sample VCFs, you are one step closer to running the PharmCAT. We recommend the users to still run the PharmCAT VCF preprocessor to ensure the appropriate variant representation format, which can be achieved by the following command.
+If your genetic data is already stored in single-sample VCFs, you are one step closer to running the PharmCAT. We recommend the users to still run the PharmCAT VCF Preprocessor to ensure the appropriate variant representation format, which can be achieved by the following command.
 
 On the command line:
 ```console
@@ -54,14 +54,14 @@ Sample script:
 # run the preprocessor iteratively across single-sample VCFs
 for SINGLE_VCF in $(cat data/single_sample_vcf_list.txt)
 do
-  # run the PharmCAT VCF preprocessor for a single-sample VCF
+  # run the PharmCAT VCF Preprocessor for a single-sample VCF
   python3 pharmcat_vcf_preprocessor.py -vcf "$SINGLE_VCF"
 done
 ```
 
 #### Case 2 - multi-sample VCF
 
-Population- or biobank-scale VCFs most likely come in multi-sample format. The PharmCAT VCF preprocessor is designed to help the users with this case and produce multiple single-sample VCFs that PharmCAT requires. The simplest command to preprocess a multi-sample VCF is as follows.
+Population- or biobank-scale VCFs most likely come in multi-sample format. The PharmCAT VCF Preprocessor is designed to help the users with this case and produce multiple single-sample VCFs that PharmCAT requires. The simplest command to preprocess a multi-sample VCF is as follows.
 
 On the command line:
 ```console
@@ -75,7 +75,7 @@ python3 pharmcat_vcf_preprocessor.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks
 
-As sometimes seen with large-scale genetic studies, the genetic data may be divided into multiple by-chromosome VCFs or VCFs with consecutive genetic blocks. The PharmCAT VCF preprocessor can manage this type of genetic data sets by taking a list of VCFs as the input.
+As sometimes seen with large-scale genetic studies, the genetic data may be divided into multiple by-chromosome VCFs or VCFs with consecutive genetic blocks. The PharmCAT VCF Preprocessor can manage this type of genetic data sets by taking a list of VCFs as the input.
 
 On the command line:
 ```console
@@ -84,13 +84,13 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf <list_of_input_vcf>
 
 Sample script:
 ```shell
-# run the PharmCAT VCF preprocessor for multiple VCFs with non-overlapping genetic regions of the same cohort
+# run the PharmCAT VCF Preprocessor for multiple VCFs with non-overlapping genetic regions of the same cohort
 python3 pharmcat_vcf_preprocessor.py -vcf data/input_vcf_list.txt
 ```
 
 ###  Running PharmCAT
 
-After running the PharmCAT VCF preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`. 
+After running the PharmCAT VCF Preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`. 
 
 Use the following command to batch annotate multiple VCFs using PharmCAT. A full example can be found at [PharmCAT-tutorial/src/03_PharmCAT.sh](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/03_PharmCAT.sh).
 
@@ -218,7 +218,7 @@ The Stanford and UPenn PharmCAT teams independently developed methods for post-p
 
 ### Preprocessing the data
 
-Before proceeding, you should preprocess your multi-sample VCF or single sample VCFs using [PharmCAT's VCF preprocessor](/using/VCF-Preprocessor).
+Before proceeding, you should preprocess your multi-sample VCF or single sample VCFs using [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor).
 
 ### Running PharmCAT
 

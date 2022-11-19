@@ -13,7 +13,7 @@ For example:
 3. reference.Sample_2.preprocessed.vcf
 4. reference.missing_pgx_var.vcf
 
-_"test.vcf.bgz"_ are designed for tests on bcftools version as well as the PharmCAT VCF preprocessor. The output from the VCF preprocessor should match the content in *reference.Sample_1.preprocessed.vcf*, *reference.Sample_2.preprocessed.vcf*, and *reference.missing_pgx_var.vcf*.
+_"test.vcf.bgz"_ are designed for tests on bcftools version as well as the PharmCAT VCF Preprocessor. The output from the VCF Preprocessor should match the content in *reference.Sample_1.preprocessed.vcf*, *reference.Sample_2.preprocessed.vcf*, and *reference.missing_pgx_var.vcf*.
 
 ### 2. Test files for the VCF preprocessing script - Performance
 

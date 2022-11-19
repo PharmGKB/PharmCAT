@@ -7,7 +7,7 @@ render_with_liquid: false
 ---
 # PharmCAT VCF Preprocessor
 
-The PharmCAT VCF preprocessor is a script that can preprocess VCF files for PharmCAT.
+The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT.
 
 This tool will:
 
@@ -151,16 +151,16 @@ $ cat test_1.vcf
 7	117548628	.	GTTTTTTTA	GTTTTTA	.	PASS	.	GT	0/1
 ```
 
-Command to run the PharmCAT VCF preprocessor:
+Command to run the PharmCAT VCF Preprocessor:
 ```console
 $ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz
 ```
 
-VCF preprocessor will return two files in this test case.
+The VCF Preprocessor will return two files in this test case.
 1. one named *"test_1.preprocessed.vcf"*, which is a PharmCAT-ready VCF
 2. the other named *"test_1.missing_pgx_var.vcf"* as a report of missing PGx positions.
 
-Note that the chr7 variant is not used in PharmCAT and was removed by the PharmCAT VCF preprocessor.
+Note that the chr7 variant is not used in PharmCAT and was removed by the PharmCAT VCF Preprocessor.
 
 ```console
 $ cat test_1.preprocessed.vcf
@@ -195,12 +195,12 @@ $ gunzip -c test_2.vcf.bgz
 M	1555	.	G	A	PASS	.	GT	1/0	0/1
 ```
 
-Command to run the PharmCAT VCF preprocessor:
+Command to run the PharmCAT VCF Preprocessor:
 ```console
 $ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
 ```
 
-VCF preprocessor will return three (3) files in this test case:
+The VCF Preprocessor will return three (3) files in this test case:
 1. *"test_2.Sample_1.preprocessed.vcf"* 
 2. *"test_2.Sample_2.preprocessed.vcf"*
 3. *"test_2.missing_pgx_var.vcf"*

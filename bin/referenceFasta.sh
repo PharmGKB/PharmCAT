@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Builds reference FASTA file for use by VCF preprocessor.
+# Builds reference FASTA file for use by the VCF Preprocessor.
 # Download from https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/
 # * The no_alt_analysis_set contains the sequences, in FASTA format, of the chromosomes, mitochondrial genome,
 #   un-localized scaffolds, and unplaced scaffolds.
