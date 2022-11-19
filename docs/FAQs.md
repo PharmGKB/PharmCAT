@@ -70,7 +70,7 @@ Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmC
 
 
 ### G6PD for male samples or samples with only one chrX
-You need to pay attention to the G6PD results in your samples, especially male samples or samples with only one X chromosome. Some samples only have one copy of the X chromosome, a.k.a., hemizygotes. Nonetheless, many variant calling software or bioinformatics pipelines do not necessarily consider the hemizygosity of the X chromosome in these samples and will represent these samples as homozygotes.
+While PharmCAT supports hemizygotes for genes such as G6PD, you need to pay attention to how the G6PD genotypes are represented in your VCF especially for male samples or samples with only one X chromosome. Some samples only have one copy of the X chromosome, a.k.a., hemizygotes. Nonetheless, many variant calling software or bioinformatics pipelines do not necessarily consider the hemizygosity of the X chromosome in these samples and will represent these samples as homozygotes.
 
 Based on the VCF file format specifications, chrX should be observed as a haploid (_GT field = 0_) in a male with a single X chromosome and a diplotype (_GT field = 0/0_) in a female with two X chromosomes. 
 
