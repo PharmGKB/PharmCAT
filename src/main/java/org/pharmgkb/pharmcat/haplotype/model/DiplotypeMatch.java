@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -89,6 +90,30 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   public String toString() {
     return m_name;
   }
+
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (obj == this) {
+      return true;
+    }
+    if (obj.getClass() != getClass()) {
+      return false;
+    }
+    DiplotypeMatch dm = (DiplotypeMatch)obj;
+    return Objects.equals(m_score, dm.getScore()) &&
+        Objects.equals(m_haplotype1, dm.getHaplotype1()) &&
+        Objects.equals(m_haplotype2, dm.getHaplotype2());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_score, m_haplotype1, m_haplotype2);
+  }
+
 
   @Override
   public int compareTo(DiplotypeMatch o) {

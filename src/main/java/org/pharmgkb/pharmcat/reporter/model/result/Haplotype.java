@@ -123,14 +123,12 @@ public class Haplotype implements Comparable<Haplotype> {
 
   @Override
   public boolean equals(Object o) {
-    if (!(o instanceof Haplotype)) {
-      return false;
-    }
     if (o == this) {
       return true;
     }
-
-    Haplotype h = (Haplotype)o;
+    if (!(o instanceof Haplotype h)) {
+      return false;
+    }
     return new EqualsBuilder()
         .append(m_gene, h.getGene())
         .append(m_name, h.getName())

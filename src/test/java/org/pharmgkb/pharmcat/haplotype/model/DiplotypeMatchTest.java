@@ -1,5 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -59,5 +62,98 @@ class DiplotypeMatchTest {
 
     matches = new TreeSet<>(Lists.newArrayList(dm3, dm4));
     assertEquals(dm3, matches.first());
+  }
+
+
+
+
+  /**
+   * A - c.1371C>T/[c.557A>G + c.1627A>G (*5) + c.85T>C (*9A)]
+   * B - c.1627A>G (*5)/[c.85T>C (*9A) + c.557A>G + c.1371C>T]
+   * C - c.85T>C (*9A)/[c.557A>G + c.1371C>T + c.1627A>G (*5)]
+   */
+  @Test
+  void testSorting() {
+    NamedAllele na1 = new NamedAllele("na1", "c.1371C>T", new String[0], new String[0], false);
+    NamedAllele na2 = new NamedAllele("na2", "c.557A>G", new String[0], new String[0], false);
+    NamedAllele na3 = new NamedAllele("na3", "c.1627A>G (*5)", new String[0], new String[0], false);
+    NamedAllele na4 = new NamedAllele("na4", "c.85T>C (*9A)", new String[0], new String[0], false);
+    MatchData dataset =  new MatchData(new TreeMap<>(), new VariantLocus[0], null, null);
+
+    // c.1371C>T
+    HaplotypeMatch hm1 = new HaplotypeMatch(na1);
+    // [c.557A>G + c.1627A>G (*5) + c.85T>C (*9A)]
+    CombinationMatch cm1 = new CombinationMatch(new VariantLocus[0], na3, "CCCCC");
+    cm1.merge(na4);
+    cm1.merge(na2);
+    DiplotypeMatch dmA = new DiplotypeMatch(hm1, cm1, dataset);
+
+    // c.1627A>G (*5)
+    HaplotypeMatch hm2 = new HaplotypeMatch(na3);
+    // [c.85T>C (*9A) + c.557A>G + c.1371C>T]
+    CombinationMatch cm2 = new CombinationMatch(new VariantLocus[0], na4, "CCCCC");
+    cm2.merge(na2);
+    cm2.merge(na1);
+    DiplotypeMatch dmB = new DiplotypeMatch(hm2, cm2, dataset);
+
+    // c.85T>C (*9A)
+    HaplotypeMatch hm3 = new HaplotypeMatch(na4);
+    // [c.557A>G + c.1371C>T + c.1627A>G (*5)]
+    CombinationMatch cm3 = new CombinationMatch(new VariantLocus[0], na2, "CCCCC");
+    cm3.merge(na1);
+    cm3.merge(na3);
+    DiplotypeMatch dmC = new DiplotypeMatch(hm3, cm3, dataset);
+
+    System.out.println(dmA);
+    System.out.println(dmB);
+    System.out.println(dmC);
+    System.out.println("-------------------");
+
+    List<DiplotypeMatch> matches = new ArrayList<>();
+    matches.add(dmA);
+    matches.add(dmB);
+    matches.add(dmC);
+    Collections.sort(matches);
+    System.out.println(matches);
+
+    List<DiplotypeMatch> comparisonMatches = new ArrayList<>();
+    comparisonMatches.add(dmA);
+    comparisonMatches.add(dmC);
+    comparisonMatches.add(dmB);
+    Collections.sort(comparisonMatches);
+    System.out.println(comparisonMatches);
+    assertEquals(matches, comparisonMatches);
+
+    comparisonMatches.clear();
+    comparisonMatches.add(dmC);
+    comparisonMatches.add(dmA);
+    comparisonMatches.add(dmB);
+    Collections.sort(comparisonMatches);
+    System.out.println(comparisonMatches);
+    assertEquals(matches, comparisonMatches);
+
+    comparisonMatches.clear();
+    comparisonMatches.add(dmC);
+    comparisonMatches.add(dmB);
+    comparisonMatches.add(dmA);
+    Collections.sort(comparisonMatches);
+    System.out.println(comparisonMatches);
+    assertEquals(matches, comparisonMatches);
+
+    comparisonMatches.clear();
+    comparisonMatches.add(dmB);
+    comparisonMatches.add(dmA);
+    comparisonMatches.add(dmC);
+    Collections.sort(comparisonMatches);
+    System.out.println(comparisonMatches);
+    assertEquals(matches, comparisonMatches);
+
+    comparisonMatches.clear();
+    comparisonMatches.add(dmB);
+    comparisonMatches.add(dmC);
+    comparisonMatches.add(dmA);
+    Collections.sort(comparisonMatches);
+    System.out.println(comparisonMatches);
+    assertEquals(matches, comparisonMatches);
   }
 }

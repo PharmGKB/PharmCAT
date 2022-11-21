@@ -226,8 +226,6 @@ class DiplotypeMatcherTest {
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutations(), equalTo(permutations));
 
-    DiplotypeMatcher diplotypeMatcher = new DiplotypeMatcher(dataset);
-
     SortedSet<HaplotypeMatch> matches = dataset.comparePermutations();
     assertEquals(2, matches.size());
     Iterator<HaplotypeMatch> it = matches.iterator();

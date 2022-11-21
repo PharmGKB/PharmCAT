@@ -4,6 +4,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -44,5 +46,21 @@ class HaplotypeNameComparatorTest {
     names.add("[*2 + *3 + *4]");
     names.add("[*2 + *3]");
     assertEquals("[*2 + *3]", names.first());
+  }
+
+  @Test
+  void testHgvsNames() {
+    SortedSet<String> names = new TreeSet<>(new HaplotypeNameComparator());
+    names.add("c.1627A>G (*5)");
+    names.add("c.1371C>T");
+    System.out.println(names);
+    assertThat(names, contains("c.1371C>T", "c.1627A>G (*5)"));
+
+    System.out.println();
+    names.clear();
+    names.add("c.1627A>G (*5)");
+    names.add("c.85T>C (*9 A)");
+    System.out.println(names);
+    assertThat(names, contains("c.85T>C (*9 A)", "c.1627A>G (*5)"));
   }
 }
