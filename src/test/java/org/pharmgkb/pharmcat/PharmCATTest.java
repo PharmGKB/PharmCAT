@@ -38,7 +38,7 @@ class PharmCATTest {
 
 
   @Test
-  void cliBasic() throws Exception {
+  void basic() throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
     Path refMatcherOutput = vcfFile.getParent().resolve("reference.match.json");
     Path refPhenotyperOutput = vcfFile.getParent().resolve("reference.phenotype.json");
@@ -95,7 +95,7 @@ class PharmCATTest {
 
 
   @Test
-  void cliReference(TestInfo testInfo) throws Exception {
+  void reference(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -142,7 +142,7 @@ class PharmCATTest {
 
 
   @Test
-  void cliCallCyp2d6(TestInfo testInfo) throws Exception {
+  void callCyp2d6(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -196,7 +196,7 @@ class PharmCATTest {
   }
 
   @Test
-  void cliCallCyp2d6WithOverlappingOutsideCall(TestInfo testInfo) throws Exception {
+  void callCyp2d6WithOverlappingOutsideCall(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
     Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
 
@@ -223,7 +223,7 @@ class PharmCATTest {
   }
 
   @Test
-  void cliOutsideCallsOnly(TestInfo testInfo) throws Exception {
+  void outsideCallsOnly(TestInfo testInfo) throws Exception {
     Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -262,7 +262,7 @@ class PharmCATTest {
    * It may fail if CYP2C19 definition changes too much.
    */
   @Test
-  void cliMatchAllFlag(TestInfo testInfo) throws Exception {
+  void matchAllFlag(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -334,7 +334,7 @@ class PharmCATTest {
    * one process.
    */
   @Test
-  void cliTestConsistentOutput(TestInfo testInfo) throws Exception {
+  void consistentOutput(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
@@ -372,6 +372,40 @@ class PharmCATTest {
       assertTrue(Files.exists(doublePhenotyperOutput));
 
       assertEquals(Files.readString(singlesPhenotyperOutput), Files.readString(doublePhenotyperOutput));
+    } finally {
+      TestUtils.deleteTestFiles(outputDir);
+    }
+  }
+
+
+  @Test
+  void multisample(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path matcherOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.match.json");
+    Path phenotyperOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json");
+    Path reporterOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.report.html");
+    Path matcherOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.match.json");
+    Path phenotyperOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.phenotype.json");
+    Path reporterOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString(),
+          "-o", outputDir.toString(),
+      }));
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+
+      assertTrue(Files.exists(matcherOutput1));
+      assertTrue(Files.exists(phenotyperOutput1));
+      assertTrue(Files.exists(reporterOutput1));
+
+      assertTrue(Files.exists(matcherOutput2));
+      assertTrue(Files.exists(phenotyperOutput2));
+      assertTrue(Files.exists(reporterOutput2));
+
     } finally {
       TestUtils.deleteTestFiles(outputDir);
     }

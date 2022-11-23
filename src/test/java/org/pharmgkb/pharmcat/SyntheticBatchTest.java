@@ -559,7 +559,7 @@ class SyntheticBatchTest {
 
     Path sampleVcf = writeVcf(testDir.resolve(key + ".vcf"), testVcfs);
     new Pipeline(new Env(),
-        true, sampleVcf, true, false, false, true,
+        true, sampleVcf, null, true, false, false, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compact, false,
         testDir, null, m_compact, Pipeline.Mode.TEST

@@ -48,6 +48,7 @@ public class Pipeline implements Callable<Boolean> {
   private final Env m_env;
   private final boolean m_runMatcher;
   private Path m_vcfFile;
+  private String m_sampleId;
   private boolean m_topCandidateOnly = true;
   private boolean m_findCombinations;
   private boolean m_callCyp2d6;
@@ -73,8 +74,8 @@ public class Pipeline implements Callable<Boolean> {
 
 
   public Pipeline(Env env,
-      boolean runMatcher, Path vcfFile, boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations,
-      boolean matcherHtml,
+      boolean runMatcher, Path vcfFile, @Nullable String sampleId,
+      boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
@@ -85,8 +86,12 @@ public class Pipeline implements Callable<Boolean> {
     m_runMatcher = runMatcher;
     if (runMatcher) {
       m_vcfFile = vcfFile;
+      m_sampleId = sampleId;
       if (baseFilename == null) {
         baseFilename = BaseConfig.getBaseFilename(vcfFile);
+      }
+      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
+        baseFilename += "." + sampleId;
       }
       m_matcherJsonFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.json");
       m_topCandidateOnly = topCandidateOnly;
@@ -113,6 +118,9 @@ public class Pipeline implements Callable<Boolean> {
       if (baseFilename == null) {
         baseFilename = BaseConfig.getBaseFilename(inputFile);
       }
+      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
+        baseFilename += "." + sampleId;
+      }
       m_phenotyperJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".phenotype.json");
     }
 
@@ -128,6 +136,9 @@ public class Pipeline implements Callable<Boolean> {
       }
       if (baseFilename == null) {
         baseFilename = BaseConfig.getBaseFilename(inputFile);
+      }
+      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
+        baseFilename += "." + sampleId;
       }
       m_reporterHtmlFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.html");
       if (reporterJson) {
@@ -162,7 +173,7 @@ public class Pipeline implements Callable<Boolean> {
       if (m_mode == Mode.CLI) {
         namedAlleleMatcher.printWarnings();
       }
-      matcherResult = namedAlleleMatcher.call(m_vcfFile);
+      matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
 
       if (m_mode == Mode.CLI) {
         if (!m_deleteIntermediateFiles) {

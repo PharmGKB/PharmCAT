@@ -47,6 +47,8 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final String m_sampleId;
+  private int m_sampleIdx = -1;
   private VcfMetadata m_vcfMetadata;
   private String m_genomeBuild;
   // <chr:position, allele>
@@ -57,12 +59,24 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.
-   * Reads in VCF file and pull the sample's alleles for positions of interest.
+   * Reads in VCF file and pull the (first) sample's alleles for positions of interest.
    *
    * @param locationsOfInterest set of chr:positions to pull alleles for
    */
   public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, Path vcfFile) throws IOException {
+    this(locationsOfInterest, vcfFile, null);
+  }
+
+  /**
+   * Constructor.
+   * Reads in VCF file and pull the sample's alleles for positions of interest.
+   *
+   * @param locationsOfInterest set of chr:positions to pull alleles for
+   */
+  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, Path vcfFile, @Nullable String sampleId)
+      throws IOException {
     m_locationsOfInterest = locationsOfInterest;
+    m_sampleId = sampleId;
     read(vcfFile);
   }
 
@@ -72,6 +86,7 @@ public class VcfReader implements VcfLineParser {
    */
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
+    m_sampleId = null;
     read(vcfFile);
   }
 
@@ -126,6 +141,19 @@ public class VcfReader implements VcfLineParser {
           .parseWith(this)
           .build()) {
         m_vcfMetadata = vcfParser.parseMetadata();
+        if (m_sampleId != null) {
+          for (int x = 0; x < m_vcfMetadata.getNumSamples(); x += 1) {
+            if (m_sampleId.equals(m_vcfMetadata.getSampleName(x))) {
+              m_sampleIdx = x;
+              break;
+            }
+          }
+          if (m_sampleIdx == -1) {
+            throw new IllegalStateException("Cannot find sample '" + m_sampleId + "'");
+          }
+        } else {
+          m_sampleIdx = 0;
+        }
         for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
           if (cm.getAssembly() != null) {
             if (m_genomeBuild == null) {
@@ -220,12 +248,12 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    if (sampleData.size() > 1) {
+    if (sampleData.size() > 1 && m_sampleId == null) {
       addWarning(chrPos, "Multiple samples found, only using first entry.  " +
           "See https://pharmcat.org/using/VCF-Requirements/");
     }
 
-    String gt = sampleData.get(0).getProperty("GT");
+    String gt = sampleData.get(m_sampleIdx).getProperty("GT");
     if (gt == null) {
       addWarning(chrPos, "Ignoring: no genotype");
       return;

@@ -158,8 +158,8 @@ public class NamedAlleleMatcher {
   /**
    * Builds a new VCF reader for the given file.
    */
-  VcfReader buildVcfReader(Path vcfFile) throws IOException {
-    return new VcfReader(m_locationsOfInterest, vcfFile);
+  VcfReader buildVcfReader(Path vcfFile, @Nullable String sampleId) throws IOException {
+    return new VcfReader(m_locationsOfInterest, vcfFile, sampleId);
   }
 
 
@@ -209,8 +209,14 @@ public class NamedAlleleMatcher {
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
   public Result call(Path vcfFile) throws IOException {
+    return call(vcfFile, null);
+  }
 
-    VcfReader vcfReader = buildVcfReader(vcfFile);
+  /**
+   * Calls diplotypes for the given VCF file for all genes for which a definition exists.
+   */
+  public Result call(Path vcfFile, @Nullable String sampleId) throws IOException {
+    VcfReader vcfReader = buildVcfReader(vcfFile, sampleId);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());

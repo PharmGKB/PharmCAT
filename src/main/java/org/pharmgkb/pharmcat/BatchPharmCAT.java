@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 import com.google.common.base.Stopwatch;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
+import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -210,14 +211,38 @@ public class BatchPharmCAT {
         if (runPhenotyper && vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null) {
           runPhenotyper = false;
         }
-        Pipeline pipeline = new Pipeline(env,
-            runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
-            config.matcherHtml,
-            runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
-            config.runReporter, reporterInputFile, config.reporterTitle,
-            config.reporterSources, config.reporterCompact, config.reporterJson,
-            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.BATCH);
-        tasks.add(pipeline);
+
+        if (runMatcher) {
+          VcfSampleReader sampleReader = new VcfSampleReader(vcfFile);
+          if (sampleReader.getSamples().size() > 1) {
+            for (String sampleId : sampleReader.getSamples()) {
+              tasks.add(new Pipeline(env,
+                  true, vcfFile, sampleId,
+                  config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+                  runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+                  config.runReporter, reporterInputFile, config.reporterTitle,
+                  config.reporterSources, config.reporterCompact, config.reporterJson,
+                  config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.BATCH));
+            }
+          } else {
+            tasks.add(new Pipeline(env,
+                true, vcfFile, null,
+                config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+                runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+                config.runReporter, reporterInputFile, config.reporterTitle,
+                config.reporterSources, config.reporterCompact, config.reporterJson,
+                config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.BATCH));
+          }
+
+        } else {
+          tasks.add(new Pipeline(env,
+              false, null, null,
+              config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+              runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+              config.runReporter, reporterInputFile, config.reporterTitle,
+              config.reporterSources, config.reporterCompact, config.reporterJson,
+              config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.BATCH));
+        }
       }
 
       int maxProcesses = Runtime.getRuntime().availableProcessors() - 2;

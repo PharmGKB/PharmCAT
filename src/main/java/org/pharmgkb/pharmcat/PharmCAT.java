@@ -2,9 +2,12 @@ package org.pharmgkb.pharmcat;
 
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import com.google.common.base.Stopwatch;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
+import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -119,18 +122,48 @@ public class PharmCAT {
         }
       }
 
-      Pipeline pipeline = new Pipeline(new Env(config.definitionDir),
-          config.runMatcher, vcfFile, config.topCandidateOnly, config.callCyp2d6, config.findCombinations,
-          config.matcherHtml,
-          config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
-          config.runReporter, reporterInputFile, config.reporterTitle,
-          config.reporterSources, config.reporterCompact, config.reporterJson,
-          config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI);
+      Env env = new Env(config.definitionDir);
+      boolean runSingleSample = true;
 
-      if (!pipeline.call()) {
-        cliHelper.printHelp();
-        failIfNotTest();
-        return;
+      if (config.runMatcher) {
+        VcfSampleReader sampleReader = new VcfSampleReader(vcfFile);
+        if (sampleReader.getSamples().size() > 1) {
+          runSingleSample = false;
+          List<String> blankRuns = new ArrayList<>();
+          for (String sampleId : sampleReader.getSamples()) {
+            Pipeline pipeline = new Pipeline(env,
+                config.runMatcher, vcfFile, sampleId,
+                config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+                config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+                config.runReporter, reporterInputFile, config.reporterTitle,
+                config.reporterSources, config.reporterCompact, config.reporterJson,
+                config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI);
+            if (!pipeline.call()) {
+              failIfNotTest();
+              blankRuns.add(sampleId);
+            }
+          }
+          if (blankRuns.size() > 0) {
+            System.out.println("Nothing to do for " + String.join(", ", blankRuns));
+          }
+        }
+      }
+
+      if (runSingleSample) {
+        // single sample is default for better error handling
+        Pipeline pipeline = new Pipeline(env,
+            config.runMatcher, vcfFile, null,
+            config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+            config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+            config.runReporter, reporterInputFile, config.reporterTitle,
+            config.reporterSources, config.reporterCompact, config.reporterJson,
+            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI);
+        if (!pipeline.call()) {
+          cliHelper.printHelp();
+          failIfNotTest();
+          System.out.println("Nothing to do.");
+          return;
+        }
       }
 
       System.out.println("Done.");
