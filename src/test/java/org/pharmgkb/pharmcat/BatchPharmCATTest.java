@@ -167,8 +167,11 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Warning: lone outside call file"));
     assertThat(systemOut, containsString("Found 1 independent reporter input file"));
     assertThat(systemOut, containsString("Queueing up 6 samples"));
-    // max processes is capped to number of samples
-    assertThat(systemOut, containsString("maximum of 6 processes"));
+    if (!TestUtils.isContinuousIntegration()) {
+      // max processes is capped to number of samples
+      // don't test this in CI because no way of guaranteeing # of processors
+      assertThat(systemOut, containsString("maximum of 6 processes"));
+    }
 
     List<Path> allInputs = new ArrayList<>();
     allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
@@ -218,8 +221,11 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Warning: lone outside call file"));
     assertThat(systemOut, containsString("Found 1 independent reporter input file"));
     assertThat(systemOut, containsString("Queueing up 6 samples"));
-    // max processes is lower than number of samples, so obey -cp
-    assertThat(systemOut, containsString("maximum of 3 processes"));
+    if (!TestUtils.isContinuousIntegration()) {
+      // max processes is lower than number of samples, so obey -cp
+      // don't test this in CI because no way of guaranteeing # of processors
+      assertThat(systemOut, containsString("maximum of 3 processes"));
+    }
 
     List<Path> allInputs = new ArrayList<>();
     allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
