@@ -49,7 +49,7 @@ class BatchPharmCATTest {
         "-i", tmpDir.toString(),
     }));
     System.out.println(systemOut);
-    assertThat(systemOut, containsString("No VCF files found"));
+    assertThat(systemOut, containsString("No input files"));
   }
 
   @Test
@@ -65,7 +65,8 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
-    assertThat(systemOut, containsString("maximum of 3 processes"));
+    // max processes is capped to number of samples
+    assertThat(systemOut, containsString("maximum of 1 processes"));
     checkForOutputFiles(tmpDir, vcfFile);
   }
 
@@ -110,18 +111,17 @@ class BatchPharmCATTest {
     Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.match.json"), matchFile3);
     Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.phenotype.json"), phenotypeFile5);
 
-
     String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
         "-i", tmpDir.toString(),
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
-    assertThat(systemOut, containsString("Queueing up 6 samples"));
-    assertThat(systemOut, containsString("Warning: outside call file with no matching"));
-    assertThat(systemOut, containsString("Warning: reporter input file with no matching"));
     assertThat(systemOut, containsString("Found 3 VCF files"));
-    assertThat(systemOut, containsString("Found 2 outside call files"));
-    assertThat(systemOut, containsString("Found 1 phenotyper input files"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));
+    assertThat(systemOut, containsString("Warning: lone outside call file"));
+    assertThat(systemOut, containsString("Found 1 independent reporter input file"));
+    assertThat(systemOut, containsString("Queueing up 6 samples"));
 
     List<Path> allInputs = new ArrayList<>(Arrays.asList(vcfFiles));
     allInputs.add(outsideFile1);
@@ -129,6 +129,111 @@ class BatchPharmCATTest {
     allInputs.add(outsideFile4);
     allInputs.add(phenotypeFile5);
     checkForOutputFiles(tmpDir, allInputs.toArray(new Path[0]));
+
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_1.phenotype.json"));
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
+  }
+
+
+  @Test
+  void multisample(TestInfo testInfo) throws Exception {
+    Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
+    Path[] vcfFiles = new Path[] {
+        PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf"),
+        na18526Vcf
+    };
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, vcfFiles);
+
+    Path outsideFile1 = tmpDir.resolve("Sample_1.outside.tsv");
+    Path matchFile3 = tmpDir.resolve("Sample_3.match.json");
+    Path outsideFile4 = tmpDir.resolve("Sample_4.outside.tsv");
+    Path phenotypeFile5 = tmpDir.resolve("Sample5.phenotype.json");
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile1);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile4);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.match.json"), matchFile3);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.phenotype.json"), phenotypeFile5);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-i", tmpDir.toString(),
+        "-v"
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, containsString("Found 2 VCF files"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));
+    assertThat(systemOut, containsString("Warning: lone outside call file"));
+    assertThat(systemOut, containsString("Found 1 independent reporter input file"));
+    assertThat(systemOut, containsString("Queueing up 6 samples"));
+    // max processes is capped to number of samples
+    assertThat(systemOut, containsString("maximum of 6 processes"));
+
+    List<Path> allInputs = new ArrayList<>();
+    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
+    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_2.vcf"));
+    allInputs.add(na18526Vcf);
+    // don't add outside call because multisample VCFs handle base names differently
+    //allInputs.add(outsideFile1);
+    allInputs.add(matchFile3);
+    allInputs.add(outsideFile4);
+    allInputs.add(phenotypeFile5);
+    checkForOutputFiles(tmpDir, allInputs.toArray(new Path[0]));
+
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json"));
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
+  }
+
+
+  @Test
+  void multisampleRestricted(TestInfo testInfo) throws Exception {
+    Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
+    Path[] vcfFiles = new Path[] {
+        PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf"),
+        na18526Vcf
+    };
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, vcfFiles);
+
+    Path outsideFile1 = tmpDir.resolve("Sample_1.outside.tsv");
+    Path matchFile3 = tmpDir.resolve("Sample_3.match.json");
+    Path outsideFile4 = tmpDir.resolve("Sample_4.outside.tsv");
+    Path phenotypeFile5 = tmpDir.resolve("Sample5.phenotype.json");
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile1);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile4);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.match.json"), matchFile3);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.phenotype.json"), phenotypeFile5);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-i", tmpDir.toString(),
+        "-cp", "3"
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, containsString("Found 2 VCF files"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
+    assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));
+    assertThat(systemOut, containsString("Warning: lone outside call file"));
+    assertThat(systemOut, containsString("Found 1 independent reporter input file"));
+    assertThat(systemOut, containsString("Queueing up 6 samples"));
+    // max processes is lower than number of samples, so obey -cp
+    assertThat(systemOut, containsString("maximum of 3 processes"));
+
+    List<Path> allInputs = new ArrayList<>();
+    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
+    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_2.vcf"));
+    allInputs.add(na18526Vcf);
+    // don't add outside call because multisample VCFs handle base names differently
+    //allInputs.add(outsideFile1);
+    allInputs.add(matchFile3);
+    allInputs.add(outsideFile4);
+    allInputs.add(phenotypeFile5);
+    checkForOutputFiles(tmpDir, allInputs.toArray(new Path[0]));
+
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json"));
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
   }
 
 
@@ -141,7 +246,7 @@ class BatchPharmCATTest {
 
   private static final boolean sf_debugCheckOutput = false;
 
-  private void checkForOutputFiles(Path dir, Path... inputFiles) throws IOException {
+  private void checkForOutputFiles(Path dir, Path... inputFiles) {
     for (Path file : inputFiles) {
       String baseName = BaseConfig.getBaseFilename(file);
       String extension = file.getFileName().toString().substring(baseName.length());

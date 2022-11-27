@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
@@ -201,9 +202,9 @@ class PharmCATTest {
     Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path refMatcherOutput = outputDir.resolve("reference.match.json");
-    Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
-    Path refReporterOutput = outputDir.resolve("reference.report.html");
+    Path matcherOutput = outputDir.resolve("reference.match.json");
+    Path phenotyperOutput = outputDir.resolve("reference.phenotype.json");
+    Path reporterOutput = outputDir.resolve("reference.report.html");
 
     try {
       String systemOut = tapSystemOut(() -> PharmCAT.main(new String[]{
@@ -213,9 +214,9 @@ class PharmCATTest {
           "-matcher", "-research", "cyp2d6"
       }));
       System.out.println(systemOut);
-      assertTrue(Files.exists(refMatcherOutput));
-      assertFalse(Files.exists(refPhenotyperOutput));
-      assertFalse(Files.exists(refReporterOutput));
+      assertTrue(Files.exists(matcherOutput));
+      assertFalse(Files.exists(phenotyperOutput));
+      assertFalse(Files.exists(reporterOutput));
 
     } finally {
       TestUtils.deleteTestFiles(outputDir);
@@ -243,14 +244,7 @@ class PharmCATTest {
       assertTrue(Files.exists(phenotyperOutput));
       assertFalse(Files.exists(reporterOutput));
 
-      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
-      Optional<GeneReport> grOpt = reports.stream()
-          .filter(gr -> gr.getGene().equals("CYP2D6"))
-          .findFirst();
-      assertTrue(grOpt.isPresent());
-      assertTrue(grOpt.get().isCalled());
-      assertTrue(grOpt.get().isOutsideCall());
+      validateCyp2d6OutsideCallOutput(phenotyperOutput);
 
     } finally {
       TestUtils.deleteTestFiles(outputDir);
@@ -409,5 +403,17 @@ class PharmCATTest {
     } finally {
       TestUtils.deleteTestFiles(outputDir);
     }
+  }
+
+
+  public static void validateCyp2d6OutsideCallOutput(Path phenotyperOutput) throws IOException {
+    Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
+        .values();
+    Optional<GeneReport> grOpt = reports.stream()
+        .filter(gr -> gr.getGene().equals("CYP2D6"))
+        .findFirst();
+    assertTrue(grOpt.isPresent());
+    assertTrue(grOpt.get().isCalled());
+    assertTrue(grOpt.get().isOutsideCall());
   }
 }

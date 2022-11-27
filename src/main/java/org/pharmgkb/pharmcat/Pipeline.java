@@ -288,4 +288,24 @@ public class Pipeline implements Callable<Boolean> {
   public ReportContext getReportContext() {
     return m_reportContext;
   }
+
+  @Override
+  public String toString() {
+    if (m_sampleId != null) {
+      return m_sampleId;
+    }
+    if (m_vcfFile != null) {
+      return BaseConfig.getBaseFilename(m_vcfFile);
+    }
+    if (m_phenotyperInputFile != null) {
+      return BaseConfig.getBaseFilename(m_phenotyperInputFile);
+    }
+    if (m_phenotyperOutsideCallsFile != null) {
+      return BaseConfig.getBaseFilename(m_phenotyperOutsideCallsFile);
+    }
+    if (m_reporterInputFile != null) {
+      return BaseConfig.getBaseFilename(m_reporterInputFile);
+    }
+    return super.toString();
+  }
 }

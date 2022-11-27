@@ -156,8 +156,7 @@ public class Phenotyper {
    */
   public static Phenotyper read(Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
-    Preconditions.checkArgument(filePath.toFile().exists());
-    Preconditions.checkArgument(filePath.toFile().isFile());
+    Preconditions.checkArgument(Files.isRegularFile(filePath));
     try (BufferedReader reader = Files.newBufferedReader(filePath)) {
       return DataSerializer.GSON.fromJson(reader, Phenotyper.class);
     }
