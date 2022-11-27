@@ -1,11 +1,10 @@
 import os
+import pytest
 import shutil
 import tempfile
 from pathlib import Path
 from timeit import default_timer as timer
 from typing import List
-
-import pytest
 
 import helpers
 import preprocessor
@@ -131,12 +130,14 @@ def test_is_gvcf_file():
         # is VCF file, but pass due to name
         assert utils.is_gvcf_file(f2)
 
-        f = tmp_dir / 'test.vcf.bgz'
-        shutil.copyfile(test_vcf_file, f)
+        f1 = tmp_dir / 'test.vcf.bgz'
+        shutil.copyfile(test_gvcf_file, f1)
         # pass due to compressed content check
-        assert utils.is_gvcf_file(f)
+        assert utils.is_gvcf_file(f1)
 
-        utils.run(['bgunzip', str(f)])
+        f2 = tmp_dir / 'test.vcf.gz'
+        shutil.move(f1, f2)
+        utils.run(['gunzip', str(f2)])
         f = tmp_dir / 'test.vcf'
         assert utils.is_gvcf_file(f)
 
@@ -427,7 +428,10 @@ def test_output_pharmcat_ready_vcf_partial():
         basename = 'test_partial'
         utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1'], tmp_dir, basename)
 
-        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
+        for file in os.listdir(tmp_dir):
+            print(file)
+
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename)
         tmp_s2: Path = tmp_dir / ('%s.Sample_2.preprocessed.vcf' % basename)
         assert not tmp_s2.is_file(), '%s found!' % tmp_s2
 

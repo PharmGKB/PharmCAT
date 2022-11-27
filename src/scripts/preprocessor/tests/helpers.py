@@ -51,8 +51,11 @@ def read_vcf(file: Path):
         return '\n'.join(lines)
 
 
-def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str, copy_to_test_dir: bool = False):
-    actual: Path = tmp_dir / ('%s.%s.preprocessed.vcf' % (basename, sample))
+def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, copy_to_test_dir: bool = False):
+    if sample:
+        actual: Path = tmp_dir / ('%s.%s.preprocessed.vcf' % (basename, sample))
+    else:
+        actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
     assert actual.is_file(), '%s not found' % actual
