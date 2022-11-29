@@ -1,10 +1,11 @@
 import os
-import pytest
 import shutil
 import tempfile
 from pathlib import Path
 from timeit import default_timer as timer
 from typing import List
+
+import pytest
 
 import helpers
 import preprocessor

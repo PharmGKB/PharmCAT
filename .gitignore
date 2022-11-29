@@ -7,7 +7,6 @@
 /.idea/markdown*
 /.idea/misc.xml
 /.idea/modules/
-/.idea/modules.xml
 /.idea/sassLintPlugin.xml
 /.idea/scssLintPlugin.xml
 /.idea/shelf/
@@ -18,7 +17,10 @@
 
 # External tools
 _trial_temp/
+.coverage
 .gradle/
+.pytest_cache/
+coverage-python.xml
 /node_modules/
 venv/
 
@@ -37,8 +39,6 @@ venv/
 /pharmcat_positions.uniallelic.vcf.bgz*
 /testVcf/
 /tmp/
-.coverage
-coverage-python.xml
 log.txt
 pharmcat*.log
 reference.fna.bgz*

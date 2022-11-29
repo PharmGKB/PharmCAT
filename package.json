@@ -27,13 +27,13 @@
           "replacements": [
             {
               "files": [
-                "src/scripts/preprocessor/preprocessor/common.py"
+                "preprocessor/preprocessor/common.py"
               ],
               "from": "^PHARMCAT_VERSION = .*",
               "to": "PHARMCAT_VERSION = '${nextRelease.version}'",
               "results": [
                 {
-                  "file": "src/scripts/preprocessor/preprocessor/common.py",
+                  "file": "preprocessor/preprocessor/common.py",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
@@ -109,7 +109,7 @@
             "CHANGELOG.md",
             "docs/index.md",
             "package.json",
-            "src/scripts/preprocessor/preprocessor/common.py"
+            "preprocessor/preprocessor/common.py"
           ],
           "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
         }

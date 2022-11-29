@@ -13,7 +13,7 @@ TEST_DOWNLOAD = False
 
 test_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 src_dir: Path = test_dir / '../preprocessor'
-pharmcat_positions_file: Path = src_dir / '../../../../pharmcat_positions.vcf.bgz'
+pharmcat_positions_file: Path = test_dir / '../../pharmcat_positions.vcf.bgz'
 
 
 def get_reference_fasta(pharmcat_positions: Path) -> Path:

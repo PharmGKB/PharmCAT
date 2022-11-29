@@ -58,7 +58,7 @@ RUN rm  -f /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
 RUN rm -rf /usr/local/bin/samtools-${SAMTOOLS_VERSION}
 
 # setup python env
-COPY src/scripts/preprocessor/requirements.txt ./
+COPY preprocessor/requirements.txt ./
 RUN pip3 install -r requirements.txt
 RUN rm requirements.txt
 
@@ -67,14 +67,14 @@ COPY src/main/config/bashrc /root/.bashrc
 
 WORKDIR /pharmcat
 # add pharmcat scripts
-COPY src/scripts/preprocessor/pharmcat_vcf_preprocessor.py \
+COPY preprocessor/pharmcat_vcf_preprocessor.py \
      bin/pharmcat \
      build/pharmcat.jar \
      pharmcat_positions.vcf* \
      ./
 RUN mkdir preprocessor
-COPY src/scripts/preprocessor/preprocessor/*.py \
-     src/scripts/preprocessor/preprocessor/*.tsv \
+COPY preprocessor/preprocessor/*.py \
+     preprocessor/preprocessor/*.tsv \
      preprocessor/
 RUN mkdir data
 RUN chmod 755 *.py pharmcat preprocessor data

@@ -8,7 +8,7 @@ on:
     branches:
       - '*'
     paths:
-      - 'src/scripts/preprocessor/**'
+      - 'preprocessor/**'
 
 # cancel current build on push from the same PR, branch or tag (https://stackoverflow.com/a/72408109/1063501)
 concurrency:
@@ -74,7 +74,7 @@ jobs:
           cache: 'pip'
 
       - name: Install python dependencies
-        run: pip3 install -r src/scripts/preprocessor/requirements.txt
+        run: pip3 install -r preprocessor/requirements.txt
 
       - name: Install pytest
         run: pip3 install pytest pytest-cov pytest-github-actions-annotate-failures
@@ -97,13 +97,13 @@ jobs:
           rm -f GRCh38_reference_fasta.tar
 
       - name: Run preprocessor tests
-        run: python3 -m pytest --cov-config=../../../.coveragerc --cov-report=xml --cov=preprocessor
-        working-directory: src/scripts/preprocessor
+        run: python3 -m pytest --cov-config=../.coveragerc --cov-report=xml --cov=preprocessor
+        working-directory: preprocessor
 
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: src/scripts/preprocessor/coverage-python.xml
+          files: preprocessor/coverage-python.xml
           flags: unittests
 
       - name: Send Slack notification on failure
