@@ -13,7 +13,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
-import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
@@ -39,20 +38,6 @@ public class DpydCaller {
 
   public static boolean isDpyd(GeneReport geneReport) {
     return GENE.equals(geneReport.getGene());
-  }
-
-
-  /**
-   * Checks if DPYD was called with a true diplotype.
-   */
-  public static boolean hasTrueDiplotype(GeneCall geneCall) {
-    if (!geneCall.isEffectivelyPhased()) {
-      return false;
-    }
-    if (geneCall.getDiplotypes().size() > 1) {
-      throw new IllegalStateException("Least function gene cannot have more than 1 diplotype");
-    }
-    return geneCall.getDiplotypes().size() == 1;
   }
 
 

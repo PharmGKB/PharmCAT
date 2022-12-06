@@ -40,7 +40,6 @@ import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
-import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.hasTrueDiplotype;
 import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
@@ -168,7 +167,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
     if (isDpyd(m_gene)) {
-      if (hasTrueDiplotype(call)) {
+      if (call.isEffectivelyPhased() && call.getDiplotypes().size() == 1) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
         m_recommendationDiplotypes.addAll(DpydCaller.inferFromDiplotypes(call.getDiplotypes(), env, phenotypeSource));

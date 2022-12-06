@@ -48,8 +48,14 @@ public class MatchData {
   private SortedSet<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
   @Expose
+  @SerializedName("phased")
+  private boolean m_isPhased;
+  @Expose
+  @SerializedName("homozygous")
+  private boolean m_isHomozygous;
+  @Expose
   @SerializedName("effectivelyPhased")
-  private boolean m_effectivelyPhased;
+  private boolean m_isEffectivelyPhased;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
 
@@ -96,6 +102,10 @@ public class MatchData {
       }
     }
     m_isHaploid = m_sampleMap.values().stream().allMatch(sa -> sa.getAllele2() == null);
+    m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
+    m_isHomozygous = m_isHaploid ||
+        m_sampleMap.values().stream().allMatch(sa -> sa.getAllele1().equals(sa.getAllele2()));
+    m_isEffectivelyPhased = m_isPhased || m_isHomozygous;
   }
 
 
@@ -256,14 +266,28 @@ public class MatchData {
             .sorted()
             .toList()
     );
-    m_effectivelyPhased = m_permutations.size() <= 2;
+    if (m_isEffectivelyPhased && m_permutations.size() > 2) {
+      throw new IllegalStateException("Calculated " + m_permutations.size() +
+          " permutations for effectively phased sample");
+    }
   }
 
   /**
-   * Gets data is "effectively phased" data (i.e. actually phased or unphased but homozygous at all positions).
+   * Gets whether data is phased (i.e. is phased at all positions).
+   */
+  public boolean isPhased() {
+    return m_isPhased;
+  }
+
+  public boolean isHomozygous() {
+    return m_isHomozygous;
+  }
+
+  /**
+   * Gets whether data is "effectively phased" (i.e. actually phased or unphased but homozygous at all positions).
    */
   public boolean isEffectivelyPhased() {
-    return m_effectivelyPhased;
+    return m_isEffectivelyPhased;
   }
 
 

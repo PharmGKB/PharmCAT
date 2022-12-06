@@ -166,7 +166,7 @@ public class NamedAlleleMatcher {
   /**
    * Collects all locations of interest (i.e. positions necessary to make a haplotype call).
    *
-   * @return a set of {@code <chr:position>} Strings
+   * @return a map of {@code <chr:position>} Strings to {@link VariantLocus}
    */
   static ImmutableMap<String, VariantLocus> calculateLocationsOfInterest(DefinitionReader definitionReader) {
 
@@ -311,7 +311,20 @@ public class NamedAlleleMatcher {
         for (int x = 0; x < matches.length; x += 1) {
           matches = removeSubCombos(matches, x);
         }
-        resultBuilder.diplotypes(gene, comboData, Arrays.asList(matches));
+        List<DiplotypeMatch> finalMatches = Arrays.asList(matches);
+        if (matches.length > 1) {
+          if (refData.isHomozygous()) {
+            finalMatches = finalMatches.stream()
+                .filter(m -> m.getHaplotype2() != null &&
+                    m.getHaplotype1().getName().equals(m.getHaplotype2().getName()))
+                .toList();
+          }
+        }
+        if (finalMatches.size() > 1) {
+          // this should never happen
+          throw new IllegalStateException("Least function gene cannot have more than 1 diplotype");
+        }
+        resultBuilder.diplotypes(gene, comboData, finalMatches);
         return;
       }
     }
