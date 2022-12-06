@@ -912,7 +912,6 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
             mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename, verbose)
             print("Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), mf))
 
-        index_vcf(filtered_bgz, verbose)
         return filtered_bgz
 
 

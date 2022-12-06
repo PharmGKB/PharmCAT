@@ -1,3 +1,4 @@
+import shutil
 from pathlib import Path
 from timeit import default_timer as timer
 from typing import Optional, List
@@ -8,7 +9,7 @@ from .exceptions import ReportableException
 
 def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                vcf_files: List[Path], samples: Optional[List[str]], input_basename: str,
-               output_dir: Path, output_basename: Optional[str] = '',
+               output_dir: Path, output_basename: Optional[str] = '', split_samples=False,
                keep_intermediate_files=False, missing_to_ref=False,
                concurrent_mode=False, max_processes=1, verbose=False) -> None:
     """
@@ -52,18 +53,25 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     pgx_variants_vcf: Path = util.extract_pgx_variants(pharmcat_positions_vcf, reference_genome, normalized_vcf,
                                                        output_dir, input_basename, missing_to_ref=missing_to_ref,
                                                        verbose=verbose)
-    tmp_files_to_be_removed.append(pgx_variants_vcf)
-
-    # output PharmCAT-ready single-sample VCF
-    # retain only the PharmCAT allele defining positions in the output VCF file
     print()
-    util.output_pharmcat_ready_vcf(pgx_variants_vcf, samples, output_dir, output_basename or input_basename,
-                                   concurrent_mode=concurrent_mode, max_processes=max_processes)
+    if split_samples:
+        util.index_vcf(pgx_variants_vcf, verbose)
+        tmp_files_to_be_removed.append(pgx_variants_vcf)
+
+        # output PharmCAT-ready single-sample VCF
+        # retain only the PharmCAT allele defining positions in the output VCF file
+        util.output_pharmcat_ready_vcf(pgx_variants_vcf, samples, output_dir, output_basename or input_basename,
+                                       concurrent_mode=concurrent_mode, max_processes=max_processes)
+    else:
+        final_vcf: Path = output_dir / ((output_basename or input_basename) + '.preprocessed.vcf.bgz')
+        shutil.move(pgx_variants_vcf, final_vcf)
+        print('Generated PharmCAT-ready VCF:', final_vcf)
 
     # remove intermediate files
     if not keep_intermediate_files:
-        print()
-        print("Removing intermediate files...")
+        if verbose:
+            print()
+            print("Removing intermediate files...")
         for single_path in tmp_files_to_be_removed:
             util.delete_vcf_and_index(single_path, verbose=verbose)
 

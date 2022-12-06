@@ -37,6 +37,8 @@ if __name__ == "__main__":
     parser.add_argument("-bf", "--base-filename", type=str, metavar='<name>',
                         help="(Optional) output prefix (without file extensions), "
                              "by default the same base name as the input.")
+    parser.add_argument("-ss", "--single-samples", action="store_true",
+                        help="(Optional) generate individual files per samples.")
     parser.add_argument("-k", "--keep-intermediate-files", action='store_true',
                         help="(Optional) keep intermediate files, false by default.")
     parser.add_argument("-0", "--missing-to-ref", action='store_true',
@@ -196,7 +198,7 @@ if __name__ == "__main__":
                                 input_basename=m_input_basename,
                                 output_dir=m_output_dir,
                                 output_basename=m_output_basename,
-
+                                split_samples=args.single_samples,
                                 keep_intermediate_files=args.keep_intermediate_files,
                                 missing_to_ref=args.missing_to_ref,
                                 concurrent_mode=args.concurrent_mode,
