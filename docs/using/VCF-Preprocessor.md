@@ -24,9 +24,9 @@ The PharmCAT VCF preprocessing produces two types of **output**:
 2. A report of missing pharmacogenomics core allele defining positions in user's input
 
 
-## How to run the PharmCAT VCF preprocessing tool
+## How to run the PharmCAT VCF Preprocessor
 
-We have put together interactive materials on 
+Below you will find detailed introduction to the PharmCAT VCF Preprocessor. We have put together interactive materials on the [PharmCAT tutorial GitHub repo](https://github.com/PharmGKB/PharmCAT-tutorial).
 
 ### Prerequisites
 
@@ -95,7 +95,7 @@ as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#
 : The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
 
 -bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
-: bcftools must be installed. This argument is optional if bcftools is available in your PATH. 
+: bcftools must be installed. This argument is optional if bcftools is available in your PATH.
 If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the bcftools
 program.
 
@@ -201,7 +201,7 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
 ```
 
 The VCF Preprocessor will return three (3) files in this test case:
-1. *"test_2.Sample_1.preprocessed.vcf"* 
+1. *"test_2.Sample_1.preprocessed.vcf"*
 2. *"test_2.Sample_2.preprocessed.vcf"*
 3. *"test_2.missing_pgx_var.vcf"*
 
@@ -240,7 +240,7 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 
 The PharmCAT VCF Preprocessor updates the INFO on genetic variants that warrant further inspection. Please check positions with these INFO flags:
 1. `PCATxREF`
-   1. The reference allele at this position does not match the PharmCAT reference allele at this PGx allele defining positions, which is based on the RefSeq reference human genome sequence on GRCh38. This cannot be fixed by normalizing and flipping the REF and ALT alleles in the PharmCAT VCF Preprocessor. 
+   1. The reference allele at this position does not match the PharmCAT reference allele at this PGx allele defining positions, which is based on the RefSeq reference human genome sequence on GRCh38. This cannot be fixed by normalizing and flipping the REF and ALT alleles in the PharmCAT VCF Preprocessor.
 2. `PCATxALT`
    1. The alternate allele at this position does not match the PharmCAT alternate alleles at this PGx allele defining positions.
 3. `PCATxINDEL`
