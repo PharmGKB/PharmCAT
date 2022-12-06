@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -55,8 +54,7 @@ public class ResultBuilder {
 
   public ResultBuilder forFile(Path vcfFile, Map<String, Collection<String>> warnings) {
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"));
-    Preconditions.checkArgument(Files.isRegularFile(vcfFile));
+    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
     m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
         PathUtils.getFilename(vcfFile), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6));

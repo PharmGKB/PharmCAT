@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +16,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.zip.GZIPInputStream;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SortedSetMultimap;
@@ -127,14 +129,11 @@ public class VcfReader implements VcfLineParser {
    * Read VCF file.
    */
   private void read(Path vcfFile) throws IOException {
-
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(Files.isRegularFile(vcfFile), "%s is not a file", vcfFile);
-    Preconditions.checkArgument(Files.isReadable(vcfFile), "%s is not readable", vcfFile);
-    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"), "%s is not a VCF file", vcfFile);
+    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
     // <chr:position, allele>
-    try (BufferedReader reader = Files.newBufferedReader(vcfFile)) {
+    try (BufferedReader reader = openVcfFile(vcfFile)) {
       // read VCF file
       try (VcfParser vcfParser = new VcfParser.Builder()
           .fromReader(reader)
@@ -435,5 +434,23 @@ public class VcfReader implements VcfLineParser {
     }
 
     return isValid;
+  }
+
+
+  static BufferedReader openVcfFile(Path vcfFile) throws  IOException {
+    String filename = vcfFile.toString();
+    if (filename.endsWith(".vcf.bgz") || filename.endsWith(".vcf.gz")) {
+      return new BufferedReader(new InputStreamReader(new GZIPInputStream(Files.newInputStream(vcfFile))));
+    }
+    return Files.newBufferedReader(vcfFile);
+  }
+
+  static boolean isVcfFile(Path vcfFile) {
+    if (!Files.isRegularFile(vcfFile)) {
+      return false;
+    }
+    String filename = vcfFile.toString();
+    boolean isGzipped = filename.endsWith(".vcf.bgz") || filename.endsWith(".vcf.gz");
+    return isGzipped || !filename.equals(".vcf");
   }
 }

@@ -103,6 +103,10 @@ class BaseConfig {
 
   public static String getBaseFilename(Path inputFile) {
     String filename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
+    if (filename.endsWith(".vcf")) {
+      // because .vcf might come in as .vcf.bgz or .vcf.gz
+      filename = FilenameUtils.getBaseName(filename);
+    }
     if (filename.endsWith(".preprocessed")) {
       filename = filename.substring(0, filename.length() - ".preprocessed".length());
     }

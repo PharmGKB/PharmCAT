@@ -130,7 +130,10 @@ public class PharmCAT {
         if (sampleReader.getSamples().size() > 1) {
           runSingleSample = false;
           List<String> blankRuns = new ArrayList<>();
+          int x = 0;
           for (String sampleId : sampleReader.getSamples()) {
+            x += 1;
+            System.out.println(x + " / " + sampleReader.getSamples().size() + " - " + sampleId);
             Pipeline pipeline = new Pipeline(env,
                 config.runMatcher, vcfFile, sampleId,
                 config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
@@ -141,6 +144,12 @@ public class PharmCAT {
             if (!pipeline.call()) {
               failIfNotTest();
               blankRuns.add(sampleId);
+            }
+
+            if (x != sampleReader.getSamples().size()) {
+              System.out.println();
+              System.out.println("---");
+              System.out.println();
             }
           }
           if (blankRuns.size() > 0) {

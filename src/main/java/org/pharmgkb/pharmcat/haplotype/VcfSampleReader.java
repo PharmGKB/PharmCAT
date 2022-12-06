@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +25,10 @@ public class VcfSampleReader implements VcfLineParser {
 
   public VcfSampleReader(Path vcfFile) throws IOException {
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(Files.isRegularFile(vcfFile), "%s is not a file", vcfFile);
-    Preconditions.checkArgument(Files.isReadable(vcfFile), "%s is not readable", vcfFile);
-    Preconditions.checkArgument(vcfFile.toString().endsWith(".vcf"), "%s is not a VCF file", vcfFile);
+    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
     // read VCF file
-    try (BufferedReader reader = Files.newBufferedReader(vcfFile);
+    try (BufferedReader reader = VcfReader.openVcfFile(vcfFile);
          VcfParser vcfParser = new VcfParser.Builder()
              .fromReader(reader)
              .parseWith(this)

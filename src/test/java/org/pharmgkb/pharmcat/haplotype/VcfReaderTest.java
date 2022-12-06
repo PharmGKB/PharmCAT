@@ -17,6 +17,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class VcfReaderTest {
 
   @Test
+  void testCompressed() throws Exception {
+
+    VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-compressed.vcf.bgz"));
+    assertEquals(2, reader.getVcfMetadata().getNumSamples());
+    Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
+    assertEquals(15, alleleMap.size());
+  }
+
+
+  @Test
   void testPhasing() throws Exception {
 
     VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));
