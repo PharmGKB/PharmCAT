@@ -72,11 +72,11 @@ Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmC
 ### G6PD for male samples or samples with only one chrX
 While PharmCAT supports hemizygotes for genes such as G6PD, you need to pay attention to how the G6PD genotypes are represented in your VCF especially for male samples or samples with only one X chromosome. Some samples only have one copy of the X chromosome, a.k.a., hemizygotes. Nonetheless, many variant calling software or bioinformatics pipelines do not necessarily consider the hemizygosity of the X chromosome in these samples and will represent these samples as homozygotes.
 
-Based on the VCF file format specifications, chrX should be observed as a haploid (_GT field = 0_) in a male with a single X chromosome and a diplotype (_GT field = 0/0_) in a female with two X chromosomes. 
+Based on the VCF file format specifications, chrX should be observed as a haploid (_GT field = 0_) in a male with a single X chromosome and a diplotype (_GT field = 0/0_) in a female with two X chromosomes.
 
-In reality, for many variant calling pipelines, you will find that all samples are diploid on the X chromosome regardless of the number of X chromosomes a sample actually has. Male samples (or a sample with a single X chromosome) appear to be homozygous across all chrX positions, while female samples (or samples with more than one X chromosome) tend to be heterozygous at some positions. 
+In reality, for many variant calling pipelines, you will find that all samples are diploid on the X chromosome regardless of the number of X chromosomes a sample actually has. Male samples (or a sample with a single X chromosome) appear to be homozygous across all chrX positions, while female samples (or samples with more than one X chromosome) tend to be heterozygous at some positions.
 
-You won't be able to tell whether a sample is a male or a female, or whether the sample has one or more X chromosomes, if you only know that this sample is homozygous on the X chromosomes. This sample can be a haploid that is accidentally represented as homozygous diploid, or this sample can be indeed a homozygous diploid. 
+You won't be able to tell whether a sample is a male or a female, or whether the sample has one or more X chromosomes, if you only know that this sample is homozygous on the X chromosomes. This sample can be a haploid that is accidentally represented as homozygous diploid, or this sample can be indeed a homozygous diploid.
 
 If you run PharmCAT on male samples or samples with only one chrX, be aware of the issue and use only the haploid for male samples or samples with a single X chromosome for reporting purposes. Nonetheless, the drug prescribing recommendations should be the same for these samples regardless whether they are observed correctly as a hemizygote or a diploid for the X chromosome.
 

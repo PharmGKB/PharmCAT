@@ -9,7 +9,7 @@ nav_order: 6
 
 As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF is provided, only the first sample will be annotated. However, PharmCAT can generate a PGx report in a matter of seconds for a preprocessed VCF. The fast runtime of PharmCAT allows you to batch-annotate VCFs, with a little help from a bit of scripting, to scale from a few dozen samples to a biobank-scale cohorts in an efficient manner.
 
-This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a High-Performance Computing (HPC) environment. We expect readers to be familiar with using both PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).  
+This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a High-Performance Computing (HPC) environment. We expect readers to be familiar with using both PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).
 
 Need an interactive tutorial? we have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets.
 
@@ -90,9 +90,9 @@ python3 pharmcat_vcf_preprocessor.py -vcf data/input_vcf_list.txt
 
 ###  Running PharmCAT
 
-After running the PharmCAT VCF Preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`. 
+After running the PharmCAT VCF Preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`.
 
-Use the following command to batch annotate multiple VCFs using PharmCAT. 
+Use the following command to batch annotate multiple VCFs using PharmCAT.
 
 On the command line:
 ```console
@@ -117,7 +117,7 @@ To incorporate outside PGx calls with PharmCAT for multiple samples, the users h
 
 ### Running individual components
 
-You can run the individual modules of PharmCAT on multiple samples in a similar manner to how you run the whole PharmCAT pipeline. This is useful if you are interested in understanding population PGx and specifically obtaining PGx frequencies (named alleles, diplotypes, or metabolizer phenotypes) in your cohort. To do so, you can run the following commands against your data. 
+You can run the individual modules of PharmCAT on multiple samples in a similar manner to how you run the whole PharmCAT pipeline. This is useful if you are interested in understanding population PGx and specifically obtaining PGx frequencies (named alleles, diplotypes, or metabolizer phenotypes) in your cohort. To do so, you can run the following commands against your data.
 
 #### Named Allele Matcher
 

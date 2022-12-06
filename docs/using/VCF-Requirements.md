@@ -61,7 +61,7 @@ chr7	99652770	rs41303343	T	TA	.	PASS	desired-insertion-format	GT	0/1
 {: .info}
 > We highly recommend that you use [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) to prepare your VCF files for use by PharmCAT.
 
-If you'd like to prepare your VCF yourself, the rest of this document explores the reasoning behind our requirements and some specific examples of fulfilling them.  
+If you'd like to prepare your VCF yourself, the rest of this document explores the reasoning behind our requirements and some specific examples of fulfilling them.
 
 
 ### Must be aligned to GRCh38 Assembly

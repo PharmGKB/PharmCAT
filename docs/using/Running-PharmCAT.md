@@ -42,7 +42,7 @@ Where:
 
 -jar `<path_to_jar_file>`
 : The compiled PharmCAT Jar file
- 
+
 -vcf `<vcf_file>`
 : Input VCF file (must comply with PharmCAT's [VCF requirements](/using/VCF-Requirements))
 
@@ -84,7 +84,7 @@ Saving reporter HTML results to /tmp/results/input.report.html
 
 ### Outside Calls
 
-If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](/using/Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call. 
+If you need to provide diplotypes directly to PharmCAT, you can do so using an ["outside calls" file](/using/Outside-Call-Format).  You might want to do this for genes that PharmCAT does not call directly, or to override PharmCAT's call.
 
 To do so, provide:
 
@@ -121,7 +121,7 @@ Each module has its own arguments to customize its behavior.
 #### Named Allele Matcher
 
 -matcher
-: run Named Allele Matcher 
+: run Named Allele Matcher
 
 -ma <span class="altArg"><br />or --matcher-all-results</span>
 : return all possible diplotypes, not just top hits
@@ -132,7 +132,7 @@ Each module has its own arguments to customize its behavior.
 #### Phenotyper
 
 -phenotyper
-: run Phenotyper 
+: run Phenotyper
 
 -pi `<json_file>` <span class="altArg"><br />or --phenotyper-input `<json_file>`</span>
 : JSON results from named allele matcher
@@ -151,7 +151,7 @@ Each module has its own arguments to customize its behavior.
 -rt `<title>` <span class="altArg"><br />or --reporter-title `<title>`</span>
 : text to add to the report title
 
--rs `<CPIC or DPWG>` <span class="altArg"><br />or --reporter-sources `<CPIC or DPWG>`</span> 
+-rs `<CPIC or DPWG>` <span class="altArg"><br />or --reporter-sources `<CPIC or DPWG>`</span>
 : comma-separated list of sources to limit recommendations to (defaults to both)
 
 -re <span class="altArg"><br />or --reporter-extended</span>
@@ -244,7 +244,7 @@ To call combinations and partial alleles, use the `--research combinations` flag
 
 For details on combinations and partial alleles, please see [NamedAlleleMatcher 201](/methods/NamedAlleleMatcher-201#combinations-and-partial-alleles).
 
-Remember that this is intended for **research use only**.  
+Remember that this is intended for **research use only**.
 
 ---
 
@@ -266,15 +266,15 @@ Note that PharmCAT only provides the match(es) with the highest score by default
 
 For details on calling CYP2D6 in PharmCAT, see [Calling CYP2D6](/using/Calling-CYP2D6).
 
-This option is not listed here because we do **NOT** recommend calling CYP2D6 from VCF, and [Calling CYP2D6](/using/Calling-CYP2D6) explains why and what your options are. 
+This option is not listed here because we do **NOT** recommend calling CYP2D6 from VCF, and [Calling CYP2D6](/using/Calling-CYP2D6) explains why and what your options are.
 
 
 
 ### Custom Definition Files
 
-Advanced users can provide PharmCAT with custom allele definitions:  
+Advanced users can provide PharmCAT with custom allele definitions:
 
 -def `<dir>` <span class="altArg"><br />or --definitions-dir `<dir>`</span>
 : directory containing named allele definitions (JSON files)
 
-This can be used to get PharmCAT to call diplotypes for genes that PharmCAT does not support by default.  Unless these are genes that PharmCAT supports through [outside calls](/Genes-Drugs/#genes-handled-by-outside-callers), PharmCAT will **NOT** be able to match them to any recommendations. 
+This can be used to get PharmCAT to call diplotypes for genes that PharmCAT does not support by default.  Unless these are genes that PharmCAT supports through [outside calls](/Genes-Drugs/#genes-handled-by-outside-callers), PharmCAT will **NOT** be able to match them to any recommendations.
