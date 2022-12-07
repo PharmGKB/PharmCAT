@@ -12,18 +12,44 @@ This page documents the records of PharmCAT runtime on different datasets.
 ### UK Biobank 200K Integrated Call Set
 These statistics were tested on the Stanford Sherlock high-performance computing center by Binglan Li from Gecko group at Stanford University.
 
-Case 1: the VCF Preprocessor using 20 processors
+Case 1: the VCF Preprocessor
+
+Case 1.1: Before the VCF Preprocessor switched to output a multi-sample VCF by default
 - Job: Running the VCF Preprocessor
+  - Date: Dec 3, 2022
+  - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
 - Sample Size = 200,044
 - Nodes: 1
-- Used builtin multiprocessing support `-c`: Yes
-- Cores/processors per node: 20
+- Utilized cores/processors: 31
   - A modern CPU is composed of numerous cores, typically 10 to 36.
-  - The VCF Preprocessor detected 31 usable processors for concurrent processing.
 - Elapsed time: 38 hr 12 min 19 sec
 - Maximum memory utilized: 2.98 GB
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 38 hours for 200K samples using 20 processors
+
+Case 1.2: Before the VCF Preprocessor switched to output a multi-sample VCF by default
+- Job: Running the VCF Preprocessor
+    - Date: Dec 6, 2022
+    - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
+- Sample Size = 200,044
+- Nodes: 1
+- Utilized cores/processors: 132
+- Elapsed time: 2 hr 10 min 04 sec
+- Maximum memory utilized: 1.69 GB
+- **Average speed** = 0.68 seconds/sample
+- **Overall time** = 2 hours for 200K samples using 132 processors
+
+**Case 1.3: After the VCF Preprocessor switched to output a multi-sample VCF**
+- Job: Running the VCF Preprocessor
+    - Date: Dec 6, 2022
+    - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
+- Sample Size = 200,044
+- Nodes: 1
+- Utilized cores/processors: 23
+- Elapsed time: 2 hr 49 min 56 sec
+- Maximum memory utilized: 1.56 GB
+- **Average speed** = 0.05 seconds/sample
+- **Overall time** = 3 hours for 200K samples using 23 processors
 
 Case 2: PharmCAT - 100 subsets
 - Job: Running PharmCAT
