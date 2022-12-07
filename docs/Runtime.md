@@ -10,6 +10,7 @@ This page documents the records of PharmCAT runtime on different datasets.
 
 
 ### UK Biobank 200K Integrated Call Set
+These statistics were tested on the Stanford Sherlock high-performance computing center by Binglan Li from Gecko group at Stanford University.
 
 Case 1: the VCF Preprocessor using 20 processors
 - Job: Running the VCF Preprocessor
@@ -24,7 +25,7 @@ Case 1: the VCF Preprocessor using 20 processors
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 38 hours for 200K samples using 20 processors
 
-Case 2: PharmCAT
+Case 2: PharmCAT - 100 subsets
 - Job: Running PharmCAT
 - Sample Size = 200,044
 - Nodes: 1
@@ -41,7 +42,25 @@ Case 2: PharmCAT
 - **Overall time** = 3 hours for 200K samples by running 100 parallel subsets
 
 
+Case 3: PharmCAT - 996 subsets
+- Job: Running PharmCAT
+- Sample Size = 200,044
+- Nodes: 1
+- Used builtin multiprocessing support: No
+- Used a parallelization framework: Yes
+- Cores/processors: 996
+    - 200K samples were divided into 996 subsets.
+    - Each of the 996 subsets was run in parallel on Stanford Sherlock HPC system.
+    - Within each subset, samples were run sequentially.
+- Elapsed time: 4 min 21 sec
+    - This was the time when the analyses on all subsets were finished
+- Maximum memory utilized: 180.44 MB
+- **Average speed** = 1.19 seconds/sample
+- **Overall time** = 4 mins for 200K samples by running 996 parallel subsets
+
+
 ### Penn Medicine Biobank
+The statistics were kindly provided by Karl Keat from Dr. Marylyn Ritchie's group at the University of Pennsylvania. We thank Karl Keat and Dr. Marylyn Ritchie for their collaboration and contribution to PharmCAT.
 
 Case 1: the VCF Preprocessor on 43K samples
 - Job: Running the VCF Preprocessor
@@ -72,6 +91,7 @@ Case 2: PharmCAT on 43K samples
 
 
 ### All of Us
+The statistics were kindly provided by Andrew Haddad from Dr. Philip Empey's at the University of Pittsburgh. We thank Andrew Haddad and Dr. Philip Empey for their collaboration and contribution to PharmCAT.
 
 Case 1: All on 100K WGS
 - Job: Running all analyses on 100K WGS _All of Us_ data
