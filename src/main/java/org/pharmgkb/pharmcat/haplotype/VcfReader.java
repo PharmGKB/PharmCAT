@@ -445,12 +445,12 @@ public class VcfReader implements VcfLineParser {
     return Files.newBufferedReader(vcfFile);
   }
 
-  static boolean isVcfFile(Path vcfFile) {
+  public static boolean isVcfFile(Path vcfFile) {
     if (!Files.isRegularFile(vcfFile)) {
       return false;
     }
     String filename = vcfFile.toString();
     boolean isGzipped = filename.endsWith(".vcf.bgz") || filename.endsWith(".vcf.gz");
-    return isGzipped || !filename.equals(".vcf");
+    return isGzipped || filename.endsWith(".vcf");
   }
 }

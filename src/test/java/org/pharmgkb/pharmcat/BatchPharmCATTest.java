@@ -39,7 +39,7 @@ class BatchPharmCATTest {
     // require input directory
     String systemErr = tapSystemErr(() -> BatchPharmCAT.main(null));
     //System.out.println(systemErr);
-    assertThat(systemErr, containsString("Missing required option: i"));
+    assertThat(systemErr, containsString("Missing input"));
   }
 
   @Test
@@ -68,6 +68,32 @@ class BatchPharmCATTest {
     // max processes is capped to number of samples
     assertThat(systemOut, containsString("maximum of 1 processes"));
     checkForOutputFiles(tmpDir, vcfFile);
+  }
+
+
+  @Test
+  void compressed(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/multisample.vcf.bgz");
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, vcfFile);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-vcf", tmpDir.resolve(vcfFile.getFileName()).toString(),
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    // max processes is capped to number of samples
+    assertThat(systemOut, containsString("maximum of 2 processes"));
+
+    checkForOutputFiles(tmpDir,
+        tmpDir.resolve("multisample.Sample_1.vcf"),
+        tmpDir.resolve("multisample.Sample_2.vcf"));
+
+    Path w1 = tmpDir.resolve("multisample.Sample_1.matcher_warnings.txt");
+    assertTrue(Files.exists(w1), "Missing " + w1);
+    Path w2 = tmpDir.resolve("multisample.Sample_2.matcher_warnings.txt");
+    assertTrue(Files.exists(w1), "Missing " + w2);
   }
 
 
@@ -260,7 +286,7 @@ class BatchPharmCATTest {
         System.out.println("--> " + baseName + " -- " + extension);
       }
       boolean checked = false;
-      if (extension.endsWith(".vcf")) {
+      if (extension.endsWith(".vcf") || extension.endsWith(".vcf.bgz") || extension.endsWith(".vcf.gz")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .match.json");
         }

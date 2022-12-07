@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import com.google.common.base.Preconditions;
+import org.apache.commons.io.FilenameUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
@@ -181,6 +183,21 @@ public class Pipeline implements Callable<Boolean> {
         }
         if (m_matcherHtmlFile != null) {
           System.out.println("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
+        }
+      } else if (m_mode == Mode.BATCH &&
+          matcherResult.getVcfWarnings() != null &&
+          matcherResult.getVcfWarnings().size() > 0) {
+        String basename = FilenameUtils.getBaseName(FilenameUtils.getBaseName(m_matcherJsonFile.getFileName().toString()));
+        Path txtFile = m_matcherJsonFile.getParent()
+            .resolve(basename + ".matcher_warnings.txt");
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
+          Map<String, Collection<String>> warningsMap = matcherResult.getVcfWarnings();
+          warningsMap.keySet()
+              .forEach(key -> {
+                writer.println(key);
+                warningsMap.get(key)
+                    .forEach(msg -> writer.println("\t" + msg));
+              });
         }
       }
       if (!m_deleteIntermediateFiles || !m_runPhenotyper) {

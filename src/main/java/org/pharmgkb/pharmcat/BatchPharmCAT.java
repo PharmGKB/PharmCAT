@@ -18,6 +18,7 @@ import com.google.common.base.Stopwatch;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
+import org.pharmgkb.pharmcat.haplotype.VcfReader;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
@@ -40,10 +41,12 @@ public class BatchPharmCAT {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
-          // named allele matcher args
-          .addOption("i", "input-dir", "directory containing source data files", true, "dir")
+          // inputs
+          .addOption("i", "input-dir", "directory containing source data files", false, "dir")
 
+          // named allele matcher args
           .addOption("matcher", "matcher", "run named allele matcher")
+          .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
           .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
           .addOption("md", "matcher-definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("matcherHtml", "matcher-save-html", "save named allele matcher results as HTML")
@@ -87,8 +90,24 @@ public class BatchPharmCAT {
         maxProcesses = 1;
       }
 
-      BatchPharmCAT pcat = new BatchPharmCAT(config, cliHelper.getValidDirectory("i", false),
-          cliHelper.isVerbose());
+      Path inputDir = null;
+      if (cliHelper.hasOption("i")) {
+        inputDir = cliHelper.getValidDirectory("i", false);
+      }
+      Path vcfFile = null;
+      if (cliHelper.hasOption("vcf")) {
+        vcfFile = cliHelper.getValidFile("vcf", true);
+        if (inputDir == null) {
+          inputDir = vcfFile.getParent();
+        }
+      }
+      if (inputDir == null) {
+        System.err.println("Missing input (specify with -i and/or -vcf");
+        PharmCAT.failIfNotTest();
+        return;
+      }
+
+      BatchPharmCAT pcat = new BatchPharmCAT(config, inputDir, vcfFile, cliHelper.isVerbose());
       pcat.execute(maxProcesses);
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
@@ -101,7 +120,8 @@ public class BatchPharmCAT {
   }
 
 
-  private BatchPharmCAT(BaseConfig config, Path inputDir, boolean verbose) throws IOException, ReportableException {
+  private BatchPharmCAT(BaseConfig config, Path inputDir, @Nullable Path vcfFile, boolean verbose)
+      throws IOException, ReportableException {
     m_config = config;
     m_verbose = verbose;
 
@@ -110,7 +130,7 @@ public class BatchPharmCAT {
           .forEach(f -> {
             String name = f.toString().toLowerCase();
             String basename = BaseConfig.getBaseFilename(f);
-            if (name.endsWith(".vcf")) {
+            if (VcfReader.isVcfFile(f)) {
               if (config.runMatcher) {
                 m_vcfFilesToProcess.put(basename, f);
               }
@@ -129,6 +149,12 @@ public class BatchPharmCAT {
             }
           });
     }
+    if (vcfFile != null) {
+      // input VCF file trumps other VCF files in inputDir
+      m_vcfFilesToProcess.clear();
+      m_vcfFilesToProcess.put(BaseConfig.getBaseFilename(vcfFile), vcfFile);
+    }
+
     if (m_vcfFilesToProcess.isEmpty() && m_matchFilesToProcess.isEmpty() && m_outsideCallFilesToProcess.isEmpty() &&
         m_phenotypeFilesToProcess.isEmpty()) {
       List<String> types = new ArrayList<>();
@@ -156,12 +182,14 @@ public class BatchPharmCAT {
       System.out.println("Found " + m_vcfFilesToProcess.size() + " VCF files...");
       for (String baseFilename : m_vcfFilesToProcess.keySet()) {
         Path file = m_vcfFilesToProcess.get(baseFilename);
-        VcfSampleReader sampleReader = new VcfSampleReader(file);
-        if (sampleReader.getSamples().size() == 1) {
-          taskBuilders.add(new Builder().fromMatcher(baseFilename, file, null));
-        } else {
-          for (String sampleId : sampleReader.getSamples()) {
-            taskBuilders.add(new Builder().fromMatcher(baseFilename, file, sampleId));
+        if (file != null) {
+          VcfSampleReader sampleReader = new VcfSampleReader(file);
+          if (sampleReader.getSamples().size() == 1) {
+            taskBuilders.add(new Builder().fromMatcher(baseFilename, file, null));
+          } else {
+            for (String sampleId : sampleReader.getSamples()) {
+              taskBuilders.add(new Builder().fromMatcher(baseFilename, file, sampleId));
+            }
           }
         }
       }

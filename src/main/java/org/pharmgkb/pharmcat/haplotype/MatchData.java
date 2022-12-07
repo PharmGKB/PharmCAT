@@ -105,7 +105,6 @@ public class MatchData {
     m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
     m_isHomozygous = m_isHaploid ||
         m_sampleMap.values().stream().allMatch(sa -> sa.getAllele1().equals(sa.getAllele2()));
-    m_isEffectivelyPhased = m_isPhased || m_isHomozygous;
   }
 
 
@@ -176,9 +175,7 @@ public class MatchData {
 
   private boolean isIgnorableCombination(String gene, NamedAllele hap) {
     if (gene.equalsIgnoreCase("UGT1A1")) {
-      if (hap.getName().contains("+")) {
-        return true;
-      }
+      return hap.getName().contains("+");
     }
     return false;
   }
@@ -266,10 +263,7 @@ public class MatchData {
             .sorted()
             .toList()
     );
-    if (m_isEffectivelyPhased && m_permutations.size() > 2) {
-      throw new IllegalStateException("Calculated " + m_permutations.size() +
-          " permutations for effectively phased sample");
-    }
+    m_isEffectivelyPhased = m_permutations.size() <= 2;
   }
 
   /**

@@ -1,9 +1,12 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +22,7 @@ class VcfReaderTest {
   @Test
   void testCompressed() throws Exception {
 
-    VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-compressed.vcf.bgz"));
+    VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/multisample.vcf.bgz"));
     assertEquals(2, reader.getVcfMetadata().getNumSamples());
     Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
     assertEquals(15, alleleMap.size());
@@ -196,5 +199,18 @@ class VcfReaderTest {
         reader.getWarnings().get("chr10:94949281").iterator().next());
 
     assertEquals(6, reader.getWarnings().size());
+  }
+
+
+  @Test
+  void testIsVcf(TestInfo testInfo) throws IOException {
+    Path file = TestUtils.createTempFile(testInfo, ".vcf");
+    assertFalse(VcfReader.isVcfFile(file.getParent()));
+    assertTrue(VcfReader.isVcfFile(file));
+    assertTrue(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.gz")));
+    assertTrue(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.bgz")));
+
+    assertFalse(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".txt")));
+    assertFalse(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".txt.gz")));
   }
 }
