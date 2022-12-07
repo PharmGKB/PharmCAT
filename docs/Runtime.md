@@ -12,9 +12,9 @@ This page documents the records of PharmCAT runtime on different datasets.
 ### UK Biobank 200K Integrated Call Set
 These statistics were tested on the Stanford Sherlock high-performance computing center by Binglan Li from Gecko group at Stanford University.
 
-Case 1: the VCF Preprocessor
+Case 1. The VCF Preprocessor - Before the VCF Preprocessor switched to output a multi-sample VCF by default
 
-Case 1.1: Before the VCF Preprocessor switched to output a multi-sample VCF by default
+Case 1.1. Using 31 processors
 - Job: Running the VCF Preprocessor
   - Date: Dec 3, 2022
   - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
@@ -27,7 +27,7 @@ Case 1.1: Before the VCF Preprocessor switched to output a multi-sample VCF by d
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 38 hours for 200K samples using 20 processors
 
-Case 1.2: Before the VCF Preprocessor switched to output a multi-sample VCF by default
+Case 1.2. Using 132 processors
 - Job: Running the VCF Preprocessor
     - Date: Dec 6, 2022
     - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
@@ -39,7 +39,8 @@ Case 1.2: Before the VCF Preprocessor switched to output a multi-sample VCF by d
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 2 hours for 200K samples using 132 processors
 
-**Case 1.3: After the VCF Preprocessor switched to output a multi-sample VCF**
+Case 2. the VCF Preprocessor - After the VCF Preprocessor switched to output a multi-sample VCF by default
+
 - Job: Running the VCF Preprocessor
     - Date: Dec 6, 2022
     - command: `python3 "$VCF_PREPROCESS_SCRIPT" -vcf "$INPUT_VCF" -refFna "$REF_SEQ" -refVcf "$REF_PGX_VCF" -o "$PREPROCESSED_VCF_OUTPUT_DIR"/ -c`
@@ -49,9 +50,11 @@ Case 1.2: Before the VCF Preprocessor switched to output a multi-sample VCF by d
 - Elapsed time: 2 hr 49 min 56 sec
 - Maximum memory utilized: 1.56 GB
 - **Average speed** = 0.05 seconds/sample
-- **Overall time** = 3 hours for 200K samples using 23 processors
+- **Overall time** = 3 hours for 200K samples using 23 processors (compare with case 1.1)
 
-Case 2: PharmCAT - 100 subsets
+Case 3. PharmCAT - 100 subsets
+
+Case 3.1. Running 100 subsets in parallel
 - Job: Running PharmCAT
 - Sample Size = 200,044
 - Nodes: 1
@@ -68,7 +71,7 @@ Case 2: PharmCAT - 100 subsets
 - **Overall time** = 3 hours for 200K samples by running 100 parallel subsets
 
 
-Case 3: PharmCAT - 996 subsets
+Case 3.2. Running 996 subsets in parallel
 - Job: Running PharmCAT
 - Sample Size = 200,044
 - Nodes: 1
@@ -88,7 +91,7 @@ Case 3: PharmCAT - 996 subsets
 ### Penn Medicine Biobank
 The statistics were kindly provided by Karl Keat from Dr. Marylyn Ritchie's group at the University of Pennsylvania. We thank Karl Keat and Dr. Marylyn Ritchie for their collaboration and contribution to PharmCAT.
 
-Case 1: the VCF Preprocessor on 43K samples
+Case 1. the VCF Preprocessor on 43K samples
 - Job: Running the VCF Preprocessor
 - Sample Size = 43K
 - Nodes: 1
@@ -119,7 +122,7 @@ Case 2: PharmCAT on 43K samples
 ### All of Us
 The statistics were kindly provided by Andrew Haddad from Dr. Philip Empey's at the University of Pittsburgh. We thank Andrew Haddad and Dr. Philip Empey for their collaboration and contribution to PharmCAT.
 
-Case 1: All on 100K WGS
+Case 1. All on 100K WGS
 - Job: Running all analyses on 100K WGS _All of Us_ data
   - This includes
   - (1) copying files from permanent storage on Google buckets to computing nodes
