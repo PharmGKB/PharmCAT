@@ -60,9 +60,9 @@ Case 3.1. Running 100 subsets in parallel
 - Nodes: 1
 - Used builtin multiprocessing support: No
 - Used a parallelization framework: Yes
-- Cores/processors per node: 100
+- Cores/processors per node: 1
   - 200K samples were divided into 100 subsets.
-  - Each of the 100 subsets was run in parallel on Stanford Sherlock HPC system.
+  - Each of the 100 subsets was run using 1 processor in parallel on Stanford Sherlock HPC system.
   - Within each subset, samples were run sequentially.
 - Elapsed time: 3 hr 17 min 00 sec
   - This was the time when the analyses on all subsets were finished
@@ -77,9 +77,9 @@ Case 3.2. Running 996 subsets in parallel
 - Nodes: 1
 - Used builtin multiprocessing support: No
 - Used a parallelization framework: Yes
-- Cores/processors: 996
+- Cores/processors: 1
     - 200K samples were divided into 996 subsets.
-    - Each of the 996 subsets was run in parallel on Stanford Sherlock HPC system.
+    - Each of the 996 subsets was run using 1 processor in parallel on Stanford Sherlock HPC system.
     - Within each subset, samples were run sequentially.
 - Elapsed time: 4 min 21 sec
     - This was the time when the analyses on all subsets were finished
