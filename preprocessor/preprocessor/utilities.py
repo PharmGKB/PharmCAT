@@ -573,12 +573,13 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
         and convert multi-allelic records into uniallelic format (-).
     "-f <reference_genome_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites.  's' will swap
-    alleles and update GT and AC acounts. Importantly, s will NOT fix strand issues in a VCF.
+    alleles and update GT and AC counts. Importantly, s will NOT fix strand issues in a VCF.
     """
     if output_basename is None:
         output_basename = get_vcf_basename(vcf_file)
     normalized_vcf = output_dir / (output_basename + '.normalized.vcf.bgz')
-    bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-Oz', '-o', str(normalized_vcf),
+    bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws',
+                        '-Oz', '-o', str(normalized_vcf),
                         '-f', str(reference_genome), str(vcf_file)]
     if verbose:
         print('Normalizing VCF')
@@ -692,7 +693,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         input_chr_pos = (fields[0], fields[1])
 
                         # check whether input is a block gVCF
-                        # this is a backup check - it should already have been checked earleir
+                        # this is a backup check - it should already have been checked earlier
                         if re.search('END', fields[7]):
                             raise ReportableException('gVCF is not supported')
 
