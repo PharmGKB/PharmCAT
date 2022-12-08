@@ -45,17 +45,17 @@ public class BatchPharmCAT {
           .addOption("i", "input-dir", "directory containing source data files", false, "dir")
 
           // named allele matcher args
-          .addOption("matcher", "matcher", "run named allele matcher")
+          .addOption("matcher", "matcher", "run named allele matcher independently")
           .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
           .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
           .addOption("md", "matcher-definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("matcherHtml", "matcher-save-html", "save named allele matcher results as HTML")
 
           // phenotyper args
-          .addOption("phenotyper", "phenotyper", "run phenotyper")
+          .addOption("phenotyper", "phenotyper", "run phenotyper independently")
 
           // reporter args
-          .addOption("reporter", "reporter", "run reporter")
+          .addOption("reporter", "reporter", "run reporter independently")
           .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
           .addOption("re", "reporter-extended", "output extended report")
           .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")

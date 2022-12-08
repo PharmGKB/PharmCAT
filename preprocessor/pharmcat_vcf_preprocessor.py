@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepares a VCF file for use by PharmCAT.')
 
     # list arguments
-    parser.add_argument("-vcf", "--vcf", type=str, required=True, metavar='<vcf file>',
+    parser.add_argument("-vcf", "--vcf", type=str, required=True, metavar='<file>',
                         help="path to a VCF file or a file of paths to VCF files (one file per line), "
                              "sorted by chromosome position.")
     parser.add_argument("-refVcf", "--reference-pgx-vcf", type=str, metavar='<vcf_file>',
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     parser.add_argument("-refFna", "--reference-genome", type=str, metavar='<fna_file>',
                         help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
     parser.add_argument("-S", "--sample-file", type=str, metavar='<txt_file>',
-                        help="(Optional) a file of samples to be prepared for the PharmCAT, one sample at a line.")
+                        help="(Optional) a file of samples to be prepared for PharmCAT, one sample at a line.")
     parser.add_argument("-bcftools", "--path-to-bcftools", type=str, metavar='</path/to/bcftools>',
                         help="(Optional) a path to the bcftools program.  Defaults to bcftools in PATH.")
     parser.add_argument("-bgzip", "--path-to-bgzip", type=str, metavar='</path/to/bgzip>',
@@ -107,9 +107,9 @@ if __name__ == "__main__":
             m_reference_genome = preprocessor.find_file(preprocessor.REFERENCE_FASTA_FILENAME,
                                                         list({m_pharmcat_positions_vcf.parent, Path.cwd(), script_dir}))
             if m_reference_genome is None:
+                print('Downloading reference FASTA.  This may take a while...')
                 m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
                                                                                      verbose=args.verbose)
-                print('Downloading reference FASTA.  This may take a while...')
 
         # validate input vcf or file list
         m_vcf_files: List[Path] = []
