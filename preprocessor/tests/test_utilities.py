@@ -10,7 +10,7 @@ import pytest
 import helpers
 import preprocessor
 import preprocessor.utilities as utils
-from preprocessor import ReportableException, InappropriateVCFSuffix, InvalidURL
+from preprocessor import ReportableException, InappropriateVCFSuffix, InvalidURL, common
 
 
 def test_chr_arrays():
@@ -65,6 +65,19 @@ def test_validate_bgzip():
         utils.validate_bgzip(None, '99')
     # print(context.value)
     assert '99 or higher' in context.value.msg
+
+
+def test_validate_java():
+    utils.validate_java()
+    assert 'java' == preprocessor.JAVA_PATH
+
+    utils.validate_java('17')
+    assert 'java' == preprocessor.JAVA_PATH
+
+    with pytest.raises(ReportableException) as context:
+        utils.validate_java('179')
+    print(context.value)
+    assert 'use Java 179 or higher' in context.value.msg
 
 
 def test_find_vcf_files():
@@ -278,6 +291,24 @@ def test_download_reference_fasta_and_index():
         assert ref_file.name in files
 
 
+def test_download_pharmcat_positions():
+    orig_version = common.PHARMCAT_VERSION
+    common.PHARMCAT_VERSION = 'nope'
+    with pytest.raises(ReportableException) as context:
+        with tempfile.TemporaryDirectory() as td:
+            tmp_dir: Path = Path(td)
+            utils.download_pharmcat_positions(tmp_dir, verbose=True)
+    assert 'Cannot find pharmcat_positions file' in context.value.msg
+    common.PHARMCAT_VERSION = orig_version
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir: Path = Path(td)
+        utils.download_pharmcat_positions(tmp_dir, verbose=True)
+        files = os.listdir(tmp_dir)
+        assert common.PHARMCAT_POSITIONS_FILENAME in files
+        assert ('%s.csi' % common.PHARMCAT_POSITIONS_FILENAME) in files
+
+
 def test_prep_pharmcat_positions():
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
@@ -432,7 +463,7 @@ def test_output_pharmcat_ready_vcf_partial():
         for file in os.listdir(tmp_dir):
             print(file)
 
-        helpers.compare_vcf_files(s1_file, tmp_dir, basename)
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename, split_sample=True)
         tmp_s2: Path = tmp_dir / ('%s.Sample_2.preprocessed.vcf' % basename)
         assert not tmp_s2.is_file(), '%s found!' % tmp_s2
 

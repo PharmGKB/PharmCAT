@@ -16,6 +16,7 @@ import urllib.request
 from concurrent.futures import ALL_COMPLETED
 from pathlib import Path
 from typing import Optional, Union, List
+from urllib.error import HTTPError
 
 import allel
 import pandas as pd
@@ -91,7 +92,7 @@ def validate_tool(tool_name: str, tool_path: str, min_version: Optional[str] = N
             """ % (tool_name, tool_name, min_version)))
 
 
-def validate_bcftools(tool_path: Optional[str], min_version: Optional[str] = None):
+def validate_bcftools(tool_path: Optional[str] = None, min_version: Optional[str] = None):
     """
     Validates that bcftools is available and meets minimum version requirement.
 
@@ -99,13 +100,17 @@ def validate_bcftools(tool_path: Optional[str], min_version: Optional[str] = Non
     :param min_version: minimum required bcftools version
     :raises ReportableException if bcftools cannot be found or does not meet version requirement
     """
-    tool_path = tool_path if tool_path else 'bcftools'
+    bcftools_path = 'bcftools'
+    if tool_path:
+        bcftools_path = tool_path
+    elif os.environ.get('BCFTOOLS_PATH'):
+        bcftools_path = os.environ['BCFTOOLS_PATH']
     min_version = min_version if min_version else common.MIN_BCFTOOLS_VERSION
-    validate_tool('bcftools', tool_path, min_version)
-    common.BCFTOOLS_PATH = tool_path
+    validate_tool('bcftools', bcftools_path, min_version)
+    common.BCFTOOLS_PATH = bcftools_path
 
 
-def validate_bgzip(tool_path: Optional[str], min_version: Optional[str] = None):
+def validate_bgzip(tool_path: Optional[str] = None, min_version: Optional[str] = None):
     """
     Validates that bgzip is available and meets minimum version requirement.
 
@@ -113,10 +118,47 @@ def validate_bgzip(tool_path: Optional[str], min_version: Optional[str] = None):
     :param min_version: minimum required bgzip version
     :raises ReportableException: if bgzip cannot be found or does not meet version requirement
     """
-    bgzip_path = tool_path if tool_path else 'bgzip'
+    bgzip_path = 'bgzip'
+    if tool_path:
+        bgzip_path = tool_path
+    elif os.environ.get('BGZIP_PATH'):
+        bgzip_path = os.environ['BGZIP_PATH']
     bgzip_version = min_version if min_version else common.MIN_BGZIP_VERSION
     validate_tool('bgzip', bgzip_path, bgzip_version)
     common.BGZIP_PATH = bgzip_path
+
+
+def validate_java(min_version: Optional[str] = None):
+    java_path: str = 'java'
+    if os.environ.get('JAVA_HOME'):
+        java_path = str(Path(os.environ['JAVA_HOME'] + '/bin/java'))
+    java_version = min_version if min_version else common.MIN_JAVA_VERSION
+
+    try:
+        rez = subprocess.run([java_path, '-version'], stdout=subprocess.PIPE, check=True, stderr=subprocess.PIPE,
+                             universal_newlines=True)
+        # temurin outputs version on stderr
+        version_message = rez.stderr or rez.stdout
+    except FileNotFoundError:
+        raise ReportableException('Error: %s not found' % java_path)
+    except subprocess.TimeoutExpired:
+        raise ReportableException('Error: %s took too long' % java_path)
+    except subprocess.CalledProcessError as e:
+        raise ReportableException(e.stderr if e.stderr else 'Error: Failed to run %s' % java_path)
+
+    if java_version is not None:
+        # check that the minimum version requirement is met
+        rez = re.search(r'version "(\d+(\.\d+)*)"', str(version_message), re.MULTILINE)
+        if rez is not None:
+            tool_version = rez.group(1)
+            if version.parse(tool_version) < version.parse(java_version):
+                raise ReportableException("Error: Please use Java %s or higher." % java_version)
+        else:
+            raise ReportableException(textwrap.dedent("""
+            Error: Could not find the version information for Java.
+            Please use Java %s or higher.
+            """ % min_version))
+    common.JAVA_PATH = java_path
 
 
 def validate_file(file: Union[Path, str]) -> Path:
@@ -357,8 +399,7 @@ def delete_vcf_and_index(vcf_file: Path, verbose: bool = False):
     delete_index(vcf_file, '.csi', verbose)
 
 
-def download_from_url(url: str, download_dir: Path, force_update: bool = False,
-                      verbose: bool = False):
+def download_from_url(url: str, download_dir: Path, force_update: bool = False, verbose: bool = False):
     """Download from a URL."""
 
     remote_basename = os.path.basename(urllib.parse.urlparse(url).path)
@@ -378,6 +419,27 @@ def download_from_url(url: str, download_dir: Path, force_update: bool = False,
         return dl_file
     else:
         raise InvalidURL(url)
+
+
+def download_pharmcat_positions(download_dir: Union[Path, str], force_update: bool = False, verbose: bool = False):
+    if not isinstance(download_dir, Path):
+        download_dir = Path(download_dir)
+    pos_file = download_dir / common.PHARMCAT_POSITIONS_FILENAME
+    if pos_file.exists() and not force_update:
+        return pos_file
+
+    url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_positions_%s.vcf.bgz' %\
+        (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
+    try:
+        dl_file = download_from_url(url, download_dir, force_update, verbose)
+        # use shutil.move instead of rename to deal with cross-device issues
+        shutil.move(dl_file, pos_file)
+        index_vcf(pos_file)
+        return pos_file
+    except HTTPError as e:
+        if e.status == 404:
+            raise ReportableException('Cannot find pharmcat_positions file for v%s' % common.PHARMCAT_VERSION)
+        raise e
 
 
 def download_reference_fasta_and_index(download_dir: Union[Path, str], force_update: bool = False,
@@ -573,7 +635,7 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
         and convert multi-allelic records into uniallelic format (-).
     "-f <reference_genome_fasta>" reference sequence. Supplying this option turns on left-alignment and normalization.
     "-c ws" when incorrect or missing REF allele is encountered, warn (w) and set/fix(s) bad sites.  's' will swap
-    alleles and update GT and AC counts. Importantly, s will NOT fix strand issues in a VCF.
+    alleles and update GT and AC counts. Importantly, 's' will NOT fix strand issues in a VCF.
     """
     if output_basename is None:
         output_basename = get_vcf_basename(vcf_file)
@@ -800,7 +862,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 fields[7] = updated_info
                                 # write to output
                                 out_f.write('\t'.join(fields) + '\n')
-                            # INDELs with a unspecified allele, ALT="<*>"
+                            # INDELs with an unspecified allele, ALT="<*>"
                             elif not is_snp and is_nonspecific_alt:
                                 print('  * WARNING: ignore \"%s:%s REF=%s ALT=%s\" which is not a valid GT format '
                                       'for INDELs'
@@ -910,14 +972,13 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
         # report missing positions in the input VCF
         if len(ref_pos_dynamic):
-            mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename, verbose)
+            mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename)
             print("Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), mf))
 
         return filtered_bgz
 
 
-def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str,
-                             verbose: bool = False) -> Path:
+def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str) -> Path:
     # report missing positions in the input VCF
     print('Generating report of missing PGx allele defining positions...')
     missing_pos_file: Path = output_dir / (output_basename + '.missing_pgx_var.vcf')

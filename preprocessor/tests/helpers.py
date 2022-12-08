@@ -51,14 +51,23 @@ def read_vcf(file: Path):
         return '\n'.join(lines)
 
 
-def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, copy_to_test_dir: bool = False):
+def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, split_sample: bool = False,
+                      copy_to_test_dir: bool = False):
     if sample:
         actual: Path = tmp_dir / ('%s.%s.preprocessed.vcf' % (basename, sample))
-    else:
+    elif split_sample:
         actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
+    else:
+        actual_bgz: Path = tmp_dir / ('%s.preprocessed.vcf.bgz' % basename)
+        assert actual_bgz.is_file(), '%s not found' % actual_bgz
+        actual_gz: Path = tmp_dir / ('%s.preprocessed.vcf.gz' % basename)
+        # use shutil.move instead of rename to deal with cross-device issues
+        shutil.move(actual_bgz, actual_gz)
+        preprocessor.run(['gunzip', str(actual_gz)])
+        actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
+    assert actual.is_file(), '%s not found' % actual
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
-    assert actual.is_file(), '%s not found' % actual
     assert read_vcf(expected) == read_vcf(actual), '%s mismatch' % sample
 
 

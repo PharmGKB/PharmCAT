@@ -87,6 +87,7 @@ if __name__ == "__main__":
         m_bgzip_path = preprocessor.validate_bgzip(args.path_to_bgzip)
 
         script_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
+
         # make sure we have pharmcat_positions.vcf.bgz
         m_pharmcat_positions_vcf: Path
         if args.reference_pgx_vcf:
@@ -95,9 +96,9 @@ if __name__ == "__main__":
             m_pharmcat_positions_vcf = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME,
                                                               list({Path.cwd(), script_dir}))
             if m_pharmcat_positions_vcf is None:
-                print('Error: Cannot find %s in current working directory or script directory' %
-                      preprocessor.PHARMCAT_POSITIONS_FILENAME)
-                sys.exit(1)
+                print('Downloading pharmcat_positions.vcf...')
+                m_pharmcat_positions_vcf = preprocessor.download_pharmcat_positions(script_dir, verbose=args.verbose)
+
         # make sure we have reference FASTA
         m_reference_genome: Path
         if args.reference_genome:
