@@ -35,6 +35,11 @@ _chr_valid = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "c
 _chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
                      "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
                      "chr22", "chrX", "chrY", "chrM"]
+_chr_valid_length = ["248956422", "242193529", "198295559", "190214555", "181538259",
+                     "170805979", "159345973", "145138636", "138394717", "133797422",
+                     "135086622", "133275309", "114364328", "107043718", "101991189",
+                     "90338345", "83257441", "80373285", "58617616", "64444167",
+                     "46709983", "50818468", "156040895", "57227415", "16569"]
 
 
 def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> Path:
@@ -733,8 +738,9 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         out_f.write(line)
                     # process the sample line, add PGx-related lines
                     elif line[0:6] == '#CHROM':
-                        for single_chr in _chr_valid_sorter:
-                            out_f.write('##contig=<ID=' + single_chr + ',assembly=GRCh38.p13,species="Homo sapiens">\n')
+                        for chr_index in range(len(_chr_valid_sorter)):
+                            out_f.write('##contig=<ID=' + _chr_valid_sorter[chr_index] + ',length=' +
+                                        _chr_valid_length[chr_index] + ',assembly=GRCh38.p13,species="Homo sapiens">\n')
                         out_f.write('##INFO=<ID=PX,Number=.,Type=String,Description="Gene">\n')
                         out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not'
                                     ' part of an allele definition">\n')
