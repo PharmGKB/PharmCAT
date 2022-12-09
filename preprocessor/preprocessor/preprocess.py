@@ -54,14 +54,14 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                                                        output_dir, input_basename, missing_to_ref=missing_to_ref,
                                                        verbose=verbose)
     print()
-    if split_samples:
+    if split_samples and len(samples) > 1:
         util.index_vcf(pgx_variants_vcf, verbose)
         tmp_files_to_be_removed.append(pgx_variants_vcf)
 
         # output PharmCAT-ready single-sample VCF
         # retain only the PharmCAT allele defining positions in the output VCF file
-        util.output_pharmcat_ready_vcf(pgx_variants_vcf, samples, output_dir, output_basename or input_basename,
-                                       concurrent_mode=concurrent_mode, max_processes=max_processes)
+        util.export_single_sample_vcf(pgx_variants_vcf, samples, output_dir, output_basename or input_basename,
+                                      concurrent_mode=concurrent_mode, max_processes=max_processes)
     else:
         final_vcf: Path = output_dir / ((output_basename or input_basename) + '.preprocessed.vcf.bgz')
         shutil.move(pgx_variants_vcf, final_vcf)

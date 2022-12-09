@@ -1027,8 +1027,8 @@ def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename
          '-o', str(output_file_name), str(vcf_file)])
 
 
-def output_pharmcat_ready_vcf(vcf_file: Path, samples: List[str], output_dir: Path, output_basename: str,
-                              concurrent_mode: bool = False, max_processes: int = 1):
+def export_single_sample_vcf(vcf_file: Path, samples: List[str], output_dir: Path, output_basename: str,
+                             concurrent_mode: bool = False, max_processes: int = 1):
     """
     Write final PharmCAT-ready VCF for each sample.
     """

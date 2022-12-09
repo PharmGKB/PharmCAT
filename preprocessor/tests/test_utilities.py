@@ -443,7 +443,7 @@ def test_output_pharmcat_ready_vcf():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'test1'
-        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename)
+        utils.export_single_sample_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename)
 
         helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
         helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
@@ -458,7 +458,7 @@ def test_output_pharmcat_ready_vcf_partial():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'test_partial'
-        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1'], tmp_dir, basename)
+        utils.export_single_sample_vcf(tmp_vcf, ['Sample_1'], tmp_dir, basename)
 
         for file in os.listdir(tmp_dir):
             print(file)
@@ -478,8 +478,8 @@ def test_output_pharmcat_ready_vcf_concurrent():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'test2'
-        utils.output_pharmcat_ready_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename, concurrent_mode=True,
-                                        max_processes=2)
+        utils.export_single_sample_vcf(tmp_vcf, ['Sample_1', 'Sample_2'], tmp_dir, basename, concurrent_mode=True,
+                                       max_processes=2)
 
         helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
         helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')

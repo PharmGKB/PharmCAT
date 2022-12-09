@@ -46,7 +46,7 @@ def test_preprocess_split_sample():
 
 
 def test_preprocess_concurrent():
-    reference_fasta: Path =  helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
     vcf_file = helpers.test_dir / 'test.vcf.bgz'
     preprocessed_file = helpers.test_dir / 'test.preprocessed.vcf'
@@ -63,7 +63,7 @@ def test_preprocess_concurrent():
 
 
 def test_preprocess_multi_vcf():
-    reference_fasta: Path =  helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
     vcf1_file = helpers.test_dir / 'test1.vcf.bgz'
     vcf2_file = helpers.test_dir / 'test2.vcf.bgz'
@@ -83,7 +83,7 @@ def test_preprocess_multi_vcf():
 
 
 def test_preprocess_multi_vcf_concurrent():
-    reference_fasta: Path =  helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
     vcf1_file = helpers.test_dir / 'test1.vcf.bgz'
     vcf2_file = helpers.test_dir / 'test2.vcf.bgz'

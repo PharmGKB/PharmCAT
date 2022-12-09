@@ -72,15 +72,18 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
 
 
 def split_test_vcf():
-    test_vcf = test_dir / 'test.vcf.bgz'
-    test1_vcf = test_dir / 'test1.vcf.bgz'
-    test2_vcf = test_dir / 'test2.vcf.bgz'
+    """
+    Split test.vcf.bgz into 2 multisample VCFS.
+    """
+    test_bgz = test_dir / 'test.vcf.bgz'
+    test1_bgz = test_dir / 'test1.vcf.bgz'
+    test2_bgz = test_dir / 'test2.vcf.bgz'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
-        tmp_vcf_gz = tmp_dir / 'test.vcf.gz'
-        shutil.copyfile(test_vcf, tmp_vcf_gz)
+        tmp_gz = tmp_dir / 'test.vcf.gz'
+        shutil.copyfile(test_bgz, tmp_gz)
 
-        preprocessor.run(['gunzip', str(tmp_vcf_gz)])
+        preprocessor.run(['gunzip', str(tmp_gz)])
         tmp_vcf = tmp_dir / 'test.vcf'
         assert tmp_vcf.is_file()
 
@@ -118,8 +121,8 @@ def split_test_vcf():
             f.write('\n')
         tmp_bgz2 = bgzip_vcf(tmp_vcf2)
 
-        shutil.copyfile(tmp_bgz1, test1_vcf)
-        shutil.copyfile(tmp_bgz2, test2_vcf)
+        shutil.copyfile(tmp_bgz1, test1_bgz)
+        shutil.copyfile(tmp_bgz2, test2_bgz)
 
 
 if __name__ == "__main__":
