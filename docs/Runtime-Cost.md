@@ -1,12 +1,12 @@
 ---
 parent: FAQs
-title: PharmCAT Runtime
-permalink: Runtime/
+title: PharmCAT Runtime and Cost
+permalink: Runtime-Cost/
 ---
 
-# PharmCAT Runtime
+# PharmCAT Runtime and Cost
 
-This page documents the records of PharmCAT runtime on different datasets.
+This page documents the records of PharmCAT runtime on different datasets and the estimates of computing resource cost on different cloud-based research analytic platforms.
 
 
 
