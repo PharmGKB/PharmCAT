@@ -9,8 +9,12 @@ permalink: Runtime/
 This page documents the records of PharmCAT runtime on different datasets.
 
 
+
 ### UK Biobank 200K Integrated Call Set
 These statistics were tested on the Stanford Sherlock high-performance computing center by Binglan Li from Gecko group at Stanford University.
+Computing Cost estimates:
+- [UK Biobank Research Analytic Platform](https://dnanexus.gitbook.io/uk-biobank-rap/working-on-the-research-analysis-platform/billing-and-costs). Please check out [the rate card](https://www.dnanexus.com/ratecards/ukbiobank_ratecard_current) for details.
+- All of Us workbench is powered by Google Cloud computing. Google Cloud provides a [Pricing Calculator](https://cloud.google.com/products/calculator).
 
 Case 1. The VCF Preprocessor - Before the VCF Preprocessor switched to output a multi-sample VCF by default
 
@@ -26,6 +30,14 @@ Case 1.1. Using 31 processors
 - Maximum memory utilized: 2.98 GB
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 38 hours for 200K samples using 20 processors
+- Cost estimate on the UK Biobank Research Analytic Platform using Swiss Army Knife
+  - Instance requested: 70.3 GB total memory, 3600 GB total storage, 36 cores
+  - Estimated Cost Per Hour: £0.4464
+  - Suppose the whole job takes 38 hrs to finish
+  - Total cost: ~ £17 or $18
+- Cost estimate on the Google Cloud for All of Us
+  - $166 per month for running 2 days per week using one instance of e2-highcpu-32 (vCPUs: 32, RAM: 32GB)
+  - Conservatively speaking, for running one job, it might cost $50
 
 Case 1.2. Using 132 processors
 - Job: Running the VCF Preprocessor
@@ -38,6 +50,12 @@ Case 1.2. Using 132 processors
 - Maximum memory utilized: 1.69 GB
 - **Average speed** = 0.68 seconds/sample
 - **Overall time** = 2 hours for 200K samples using 132 processors
+- Cost estimate on the UK Biobank Research Analytic Platform using Swiss Army Knife
+    - Instance requested: 187.5 GB total memory, 9600 GB total storage, 96 cores
+    - Estimated Cost Per Hour: £1.1904
+    - To make a conservative educated guess, suppose the whole job takes 5 hrs to finish
+    - Total cost: ~ £6 or $6.36
+
 
 Case 2. the VCF Preprocessor - After the VCF Preprocessor switched to output a multi-sample VCF by default
 
@@ -51,6 +69,11 @@ Case 2. the VCF Preprocessor - After the VCF Preprocessor switched to output a m
 - Maximum memory utilized: 1.56 GB
 - **Average speed** = 0.05 seconds/sample
 - **Overall time** = 3 hours for 200K samples using 23 processors (compare with case 1.1)
+- Cost estimate on the UK Biobank Research Analytic Platform
+  - Instance requested: 70.3 GB total memory, 3600 GB total storage, 36 cores
+  - Estimated Cost Per Hour: £0.4464
+  - To make a conservative educated guess, suppose the whole job takes 3 hrs to finish
+  - Total cost: ~ £1.3
 
 Case 3. PharmCAT - 100 subsets
 
@@ -69,7 +92,11 @@ Case 3.1. Running 100 subsets in parallel
 - Maximum memory utilized: 195.85 MB
 - **Average speed** = 5.9 seconds/sample
 - **Overall time** = 3 hours for 200K samples by running 100 parallel subsets
-
+- Cost estimate on the UK Biobank Research Analytic Platform
+    - Instance requested: 3.9 GB total memory, 200 GB total storage, 2 cores
+    - Estimated Cost Per Hour: £0.0248
+    - To make a conservative educated guess, suppose each subset job takes 4 hrs to finish
+    - Total cost: ~ £10 or $10.60
 
 Case 3.2. Running 996 subsets in parallel
 - Job: Running PharmCAT
@@ -86,6 +113,31 @@ Case 3.2. Running 996 subsets in parallel
 - Maximum memory utilized: 180.44 MB
 - **Average speed** = 1.19 seconds/sample
 - **Overall time** = 4 mins for 200K samples by running 996 parallel subsets
+- Cost estimate on the UK Biobank Research Analytic Platform
+    - Instance requested: 3.9 GB total memory, 200 GB total storage, 2 cores
+    - Estimated Cost Per Hour: £0.0248
+    - It's unclear if the UK Biobank Research Analytic Platform is charged based on hours or minutes
+    - To make a conservative educated guess, suppose the platform is charged based on hours
+    - Total cost: ~ £24.8 or $26
+
+
+Case 4. BatchPharmCAT (not available yet)
+
+
+Case 5. Extracting PharmCAT JSON results to a TSV file
+- Job: Extracting JSON content to a TSV file
+- Sample Size = 200,044
+- Nodes: 1
+- Used builtin multiprocessing support: Yes
+- Cores/processors: 40
+- Elapsed time: 10 hr 9 min 14 sec
+- Maximum memory utilized: 11.60 MB
+- **Overall time** = 10hr for 200K samples
+- Cost estimate on the UK Biobank Research Analytic Platform
+  - Instance requested: 70.3 GB total memory, 3600 GB total storage, 36 cores
+  - Estimated Cost Per Hour: £0.4464
+  - To make a conservative educated guess, suppose the whole job takes 15 hrs to finish
+  - Total cost: ~ £6.70 or $7.10
 
 
 ### Penn Medicine Biobank
