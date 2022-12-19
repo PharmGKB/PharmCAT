@@ -190,6 +190,8 @@ Case 1. All on 100K WGS
 - Maximum memory utilized: Unknown
 - **Average speed** = 0.55-0.58 seconds/sample
 - **Overall time** = 16 hours for 100K samples using 96 processors
+- Cost estimate for All of Us
+  - $100 per run of PharmCAT on 100K samples with a VM with 96 CPUs.
 
 
 
