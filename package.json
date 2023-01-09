@@ -6,12 +6,16 @@
     "url": "https://github.com/PharmGKB/PharmCAT.git"
   },
   "private": true,
+  "engines": {
+    "node": "> 18.0.0"
+  },
+  "packageManager": "yarn@3.2.1",
   "devDependencies": {
-    "@google/semantic-release-replace-plugin": "^1.1.0",
-    "@semantic-release/changelog": "^6.0.1",
+    "@google/semantic-release-replace-plugin": "^1.2.0",
+    "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^5.0.0",
-    "semantic-release": "^19.0.5"
+    "semantic-release": "^20.0.2"
   },
   "release": {
     "branches": [
