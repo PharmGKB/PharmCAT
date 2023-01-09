@@ -4,7 +4,7 @@
 ##reference=hg38
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FILTER=<ID=PASS,Description="All filters passed">
-#CHROM  POS  ID REF  ALT  QUAL FILTER INFO FORMAT NA12878
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA12878
 chr6	18149127	rs9333569	T	.	.	PASS	assume-default	GT	0/0
 chr6	18149126	rs267607275	A	.	.	PASS	assume-default	GT	0/0
 chr6	18149045	rs72552742	T	.	.	PASS	assume-default	GT	0/0
