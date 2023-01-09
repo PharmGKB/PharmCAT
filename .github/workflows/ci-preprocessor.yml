@@ -67,6 +67,13 @@ jobs:
       - name: Add tools to path
         run: echo "${TOOLS_DIR}/bcftools/bin:${TOOLS_DIR}/htslib/bin" >> $GITHUB_PATH
 
+      # need JDK present for tests
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Set up python
         uses: actions/setup-python@v4
         with:
