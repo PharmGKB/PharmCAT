@@ -1,11 +1,13 @@
 {
   "formatVersion": "2",
-  "contentVersion": null,
+  "source": "CPIC",
+  "version": "test",
   "modificationDate": "Apr 12, 2016 12:00:00 AM",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr1",
-  "genomeBuild": "b38",
+  "genomeBuild": "GRCh38.p13",
+  "refSeqChromosomeId": "NC_000007.14",
   "variants": [
     {
       "chromosome": "chr1",
@@ -69,7 +71,6 @@
     {
       "name": "*1",
       "id": "CA100125.1",
-      "function": "",
       "alleles": [
         "C",
         "C",
@@ -80,12 +81,14 @@
         "insT",
         "G"
       ],
-      "populationFrequency": {}
+      "populationFrequency": null,
+      "reference": true,
+      "numCombinations": 0,
+      "numPartials": 0
     },
     {
       "name": "*2",
       "id": "CA100126.1",
-      "function": "",
       "alleles": [
         "T",
         "CT",
@@ -96,7 +99,10 @@
         "del",
         "delG"
       ],
-      "populationFrequency": {}
+      "populationFrequency": null,
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
     }
-  ]
+ ]
 }
