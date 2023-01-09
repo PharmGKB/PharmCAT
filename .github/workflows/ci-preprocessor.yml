@@ -8,6 +8,7 @@ on:
     branches:
       - '*'
     paths:
+      - '.github/workflows/ci-preprocessor.yml'
       - 'preprocessor/**'
 
 # cancel current build on push from the same PR, branch or tag (https://stackoverflow.com/a/72408109/1063501)

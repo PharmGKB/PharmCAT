@@ -8,6 +8,7 @@ on:
     branches:
       - '*'
     paths:
+      - '.github/workflows/ci-pharmcat.yml'
       - 'src/main/**'
       - 'src/test/**'
       - 'build.gradle'
