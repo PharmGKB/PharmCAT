@@ -83,8 +83,11 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
-    // max processes is capped to number of samples
-    assertThat(systemOut, containsString("maximum of 2 processes"));
+    if (!TestUtils.isContinuousIntegration()) {
+      // max processes is capped to number of samples
+      // don't test this in CI because no way of guaranteeing # of processors
+      assertThat(systemOut, containsString("maximum of 2 processes"));
+    }
 
     checkForOutputFiles(tmpDir,
         tmpDir.resolve("multisample.Sample_1.vcf"),
