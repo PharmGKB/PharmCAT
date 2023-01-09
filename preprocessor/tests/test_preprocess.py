@@ -10,8 +10,8 @@ from preprocessor import preprocess
 def test_preprocess():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf_file = helpers.test_dir / 'test.vcf.bgz'
-    preprocessed_file = helpers.test_dir / 'test.preprocessed.vcf'
+    vcf_file = helpers.test_dir / 'raw.vcf.bgz'
+    preprocessed_file = helpers.test_dir / 'raw.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
         tmp_vcf = tmp_dir / vcf_file.name
@@ -29,9 +29,9 @@ def test_preprocess():
 def test_preprocess_split_sample():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf_file = helpers.test_dir / 'test.vcf.bgz'
-    s1_file = helpers.test_dir / 'reference.Sample_1.preprocessed.vcf'
-    s2_file = helpers.test_dir / 'reference.Sample_2.preprocessed.vcf'
+    vcf_file = helpers.test_dir / 'raw.vcf.bgz'
+    s1_file = helpers.test_dir / 'raw.Sample_1.preprocessed.vcf'
+    s2_file = helpers.test_dir / 'raw.Sample_2.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
         tmp_vcf = tmp_dir / vcf_file.name
@@ -48,8 +48,8 @@ def test_preprocess_split_sample():
 def test_preprocess_concurrent():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf_file = helpers.test_dir / 'test.vcf.bgz'
-    preprocessed_file = helpers.test_dir / 'test.preprocessed.vcf'
+    vcf_file = helpers.test_dir / 'raw.vcf.bgz'
+    preprocessed_file = helpers.test_dir / 'raw.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
         tmp_vcf = tmp_dir / vcf_file.name
@@ -65,9 +65,9 @@ def test_preprocess_concurrent():
 def test_preprocess_multi_vcf():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf1_file = helpers.test_dir / 'test1.vcf.bgz'
-    vcf2_file = helpers.test_dir / 'test2.vcf.bgz'
-    preprocessed_file = helpers.test_dir / 'test.preprocessed.vcf'
+    vcf1_file = helpers.test_dir / 'raw-p1.vcf.bgz'
+    vcf2_file = helpers.test_dir / 'raw-p2.vcf.bgz'
+    preprocessed_file = helpers.test_dir / 'raw.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
         tmp_vcf1 = tmp_dir / vcf1_file.name
@@ -85,9 +85,9 @@ def test_preprocess_multi_vcf():
 def test_preprocess_multi_vcf_concurrent():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf1_file = helpers.test_dir / 'test1.vcf.bgz'
-    vcf2_file = helpers.test_dir / 'test2.vcf.bgz'
-    preprocessed_file = helpers.test_dir / 'test.preprocessed.vcf'
+    vcf1_file = helpers.test_dir / 'raw-p1.vcf.bgz'
+    vcf2_file = helpers.test_dir / 'raw-p2.vcf.bgz'
+    preprocessed_file = helpers.test_dir / 'raw.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
         tmp_vcf1 = tmp_dir / vcf1_file.name

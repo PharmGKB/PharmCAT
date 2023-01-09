@@ -12,31 +12,31 @@
 ##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
 ##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
 ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
-##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr2,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr3,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr4,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr5,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr6,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr7,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr8,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr9,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr11,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr12,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr13,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr14,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr15,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr16,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr17,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr18,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr19,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr20,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr21,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr22,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chrX,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chrY,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chrM,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr1,length=248956422,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr2,length=242193529,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr3,length=198295559,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr4,length=190214555,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr5,length=181538259,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr6,length=170805979,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr7,length=159345973,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr8,length=145138636,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr9,length=138394717,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr10,length=133797422,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr11,length=135086622,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr12,length=133275309,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr13,length=114364328,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr14,length=107043718,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr15,length=101991189,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr16,length=90338345,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr17,length=83257441,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr18,length=80373285,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr19,length=58617616,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr20,length=64444167,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr21,length=46709983,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr22,length=50818468,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrX,length=156040895,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrY,length=57227415,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrM,length=16569,assembly=GRCh38.p13,species="Homo sapiens">
 ##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
 ##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
 ##FILTER=<ID=PCATxREF,Description="Reference allele does not match PharmCAT reference alleles">

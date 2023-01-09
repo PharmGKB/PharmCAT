@@ -1,15 +1,22 @@
 import hashlib
-import re
 import shutil
-import tempfile
+import urllib.request
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional
 
 import preprocessor
-from preprocessor import download_reference_fasta_and_index, ReportableException, bgzip_vcf
+from preprocessor import download_reference_fasta_and_index
 
 
 TEST_DOWNLOAD = False
+NETWORK_AVAILABLE = True
+
+try:
+    with urllib.request.urlopen('https://google.com') as response:
+        NETWORK_AVAILABLE = True
+except:
+    NETWORK_AVAILABLE = False
+
 
 test_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 src_dir: Path = test_dir / '../preprocessor'
@@ -68,63 +75,5 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
     assert actual.is_file(), '%s not found' % actual
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
+    print(read_vcf(actual))
     assert read_vcf(expected) == read_vcf(actual), '%s mismatch' % sample
-
-
-def split_test_vcf():
-    """
-    Split test.vcf.bgz into 2 multisample VCFS.
-    """
-    test_bgz = test_dir / 'test.vcf.bgz'
-    test1_bgz = test_dir / 'test1.vcf.bgz'
-    test2_bgz = test_dir / 'test2.vcf.bgz'
-    with tempfile.TemporaryDirectory() as td:
-        tmp_dir: Path = Path(td)
-        tmp_gz = tmp_dir / 'test.vcf.gz'
-        shutil.copyfile(test_bgz, tmp_gz)
-
-        preprocessor.run(['gunzip', str(tmp_gz)])
-        tmp_vcf = tmp_dir / 'test.vcf'
-        assert tmp_vcf.is_file()
-
-        comments: List[str] = []
-        data1: List[str] = []
-        data2: List[str] = []
-        pattern = re.compile(r'(?:chr)?([XYM]|\d+)\s.*')
-        with open(tmp_vcf, 'r') as f:
-            for line in f:
-                line = line.rstrip()
-                if line[0] == '#':
-                    comments.append(line)
-                else:
-                    rez = pattern.match(line)
-                    if not rez:
-                        raise ReportableException('Unrecognized chromosome in: %s' % line)
-                    if rez.group(1).isnumeric() and int(rez.group(1)) <= 10:
-                        data1.append(line)
-                    else:
-                        data2.append(line)
-
-        tmp_vcf1 = tmp_dir / 'test1.vcf'
-        with open(tmp_vcf1, 'w') as f:
-            f.write('\n'.join(comments))
-            f.write('\n')
-            f.write('\n'.join(data1))
-            f.write('\n')
-        tmp_bgz1 = bgzip_vcf(tmp_vcf1)
-
-        tmp_vcf2 = tmp_dir / 'test2.vcf'
-        with open(tmp_vcf2, 'w') as f:
-            f.write('\n'.join(comments))
-            f.write('\n')
-            f.write('\n'.join(data2))
-            f.write('\n')
-        tmp_bgz2 = bgzip_vcf(tmp_vcf2)
-
-        shutil.copyfile(tmp_bgz1, test1_bgz)
-        shutil.copyfile(tmp_bgz2, test2_bgz)
-
-
-if __name__ == "__main__":
-    split_test_vcf()
-
