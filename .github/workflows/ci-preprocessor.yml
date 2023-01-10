@@ -112,7 +112,7 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: preprocessor/coverage-python.xml
-          flags: unittests
+          flags: Preprocessor
 
       - name: Send Slack notification on failure
         if: failure()
