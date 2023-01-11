@@ -19,7 +19,7 @@ import org.pharmgkb.common.comparator.ChromosomeNameComparator;
  * @author Ryan Whaley
  */
 public class VariantLocus implements Comparable<VariantLocus> {
-  private static final Splitter sf_hgvsNameSplitter = Splitter.on(";").trimResults();
+  public static final Splitter HGVS_NAME_SPLITTER = Splitter.on(";").trimResults();
   @Expose
   @SerializedName("chromosome")
   private final String m_chromosome;
@@ -76,7 +76,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
     m_position = position;
     m_cpicPosition = position;
     m_chromosomeHgvsName = chromosomeHgvsName;
-    m_chromosomeHgvsNameList = sf_hgvsNameSplitter.splitToList(m_chromosomeHgvsName);
+    m_chromosomeHgvsNameList = HGVS_NAME_SPLITTER.splitToList(m_chromosomeHgvsName);
   }
 
 
@@ -201,7 +201,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
   public String getHgvsForVcfAllele(String vcfAllele) {
     Preconditions.checkNotNull(vcfAllele);
     if (m_chromosomeHgvsNameList == null) {
-      m_chromosomeHgvsNameList = sf_hgvsNameSplitter.splitToList(m_chromosomeHgvsName);
+      m_chromosomeHgvsNameList = HGVS_NAME_SPLITTER.splitToList(m_chromosomeHgvsName);
     }
     if (vcfAllele.equals(m_ref)) {
       return "g." + m_position + "=";
