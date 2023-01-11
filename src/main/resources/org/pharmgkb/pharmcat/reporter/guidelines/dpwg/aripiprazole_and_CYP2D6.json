@@ -3,7 +3,7 @@
     "id": "PA166104937",
     "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
     "source": "DPWG",
-    "version": 33,
+    "version": 34,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
     "relatedChemicals": [
       {
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2022-11-05-00-25"
+  "version": "2023-01-05-00-25"
 }

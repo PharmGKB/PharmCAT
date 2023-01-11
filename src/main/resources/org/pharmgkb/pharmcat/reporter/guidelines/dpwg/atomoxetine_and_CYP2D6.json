@@ -3,7 +3,7 @@
     "id": "PA166104989",
     "name": "Annotation of DPWG Guideline for atomoxetine and CYP2D6",
     "source": "DPWG",
-    "version": 26,
+    "version": 28,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104989",
     "relatedChemicals": [
       {
@@ -537,6 +537,29 @@
   ],
   "citations": [
     {
+      "pmid": "36509836",
+      "title": "Dutch pharmacogenetics working group (DPWG) guideline for the gene-drug interaction of CYP2D6 and COMT with atomoxetine and methylphenidate.",
+      "authors": [
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "Jama Wafa O M",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne Marie",
+        "Guchelaar Henk-Jan",
+        "Houwink Elisa J F",
+        "Rongen Gerard A",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van der Weide Jan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "Risselada Arne"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    },
+    {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
       "authors": [
@@ -559,5 +582,5 @@
       "year": 2011
     }
   ],
-  "version": "2022-11-05-00-25"
+  "version": "2023-01-05-00-25"
 }

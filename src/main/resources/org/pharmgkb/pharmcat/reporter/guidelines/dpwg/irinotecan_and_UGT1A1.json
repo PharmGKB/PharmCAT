@@ -3,7 +3,7 @@
     "id": "PA166104951",
     "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
     "source": "DPWG",
-    "version": 30,
+    "version": 34,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
     "relatedChemicals": [
       {
@@ -184,14 +184,6 @@
             }
           },
           {
-            "id": 1451493081,
-            "_label": "*21",
-            "function": {
-              "term": "No function",
-              "termId": "haplotypeTags:1445558515"
-            }
-          },
-          {
             "id": 1451493067,
             "_label": "*22",
             "function": {
@@ -200,32 +192,8 @@
             }
           },
           {
-            "id": 1451493068,
-            "_label": "*23",
-            "function": {
-              "term": "No function",
-              "termId": "haplotypeTags:1445558515"
-            }
-          },
-          {
-            "id": 1451493082,
-            "_label": "*24",
-            "function": {
-              "term": "No function",
-              "termId": "haplotypeTags:1445558515"
-            }
-          },
-          {
             "id": 1451493069,
             "_label": "*25",
-            "function": {
-              "term": "No function",
-              "termId": "haplotypeTags:1445558515"
-            }
-          },
-          {
-            "id": 1451493039,
-            "_label": "*26",
             "function": {
               "term": "No function",
               "termId": "haplotypeTags:1445558515"
@@ -290,14 +258,6 @@
           {
             "id": 1451493030,
             "_label": "*34",
-            "function": {
-              "term": "Decreased function",
-              "termId": "haplotypeTags:1445558331"
-            }
-          },
-          {
-            "id": 1451493031,
-            "_label": "*35",
             "function": {
               "term": "Decreased function",
               "termId": "haplotypeTags:1445558331"
@@ -440,15 +400,15 @@
         "UGT1A1:Decreased function (UGT1A1*28)/Decreased function (UGT1A1*28)"
       ],
       "metabolizerStatus": {
-        "id": 1451901064,
+        "id": 1451959562,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451901065,
-        "html": "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n"
+        "id": 1451959563,
+        "html": "<p>Start with 70% of the normal dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n<p><em>The normal dose is defined as the dose the patient would receive if he/she would not have a gene variant.</em></p>\n"
       },
       "implications": {
-        "id": 1451901063,
+        "id": 1451959561,
         "html": "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n"
       },
       "activityScore": null
@@ -472,21 +432,45 @@
         "UGT1A1:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451901054,
+        "id": 1451959581,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451901055,
-        "html": "<p>Start with 70% of the standard dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n"
+        "id": 1451959582,
+        "html": "<p>Start with 70% of the normal dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n<p><em>The normal dose is defined as the dose the patient would receive if he/she would not have a gene variant.</em></p>\n"
       },
       "implications": {
-        "id": 1451901053,
+        "id": 1451959580,
         "html": "<p>Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites.</p>\n"
       },
       "activityScore": null
     }
   ],
   "citations": [
+    {
+      "pmid": "36443464",
+      "title": "Dutch pharmacogenetics working group (DPWG) guideline for the gene-drug interaction between UGT1A1 and irinotecan.",
+      "authors": [
+        "Hulshof Emma C",
+        "Deenen Maarten J",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Touw Daan J",
+        "van der Weide Jan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "Guchelaar Henk-Jan",
+        "Swen Jesse J"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    },
     {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
@@ -510,5 +494,5 @@
       "year": 2011
     }
   ],
-  "version": "2022-11-05-00-25"
+  "version": "2023-01-05-00-25"
 }
