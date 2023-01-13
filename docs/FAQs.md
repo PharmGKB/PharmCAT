@@ -21,13 +21,13 @@ Regarding 23andMe in particular, some things to consider:
 2. As of May 2021, **[23andMe uses the GRCh37 assembly](https://customercare.23andme.com/hc/en-us/articles/212883767-Which-reference-genome-does-23andMe-use-)**. This means you will have to re-align your data to the GRCh38 assembly that PharmCAT uses.
 
 
-## Can PharmCAT treat missing positions as wild type?
+## Can PharmCAT treat missing positions as reference?
 
 PharmCAT will not be supporting this.
 
 We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it.  It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/using/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide.  We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
 
-For one thing, we do not know what "wild type" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "wild types" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
+For one thing, we do not know what "reference" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "reference" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
 
 You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
 
