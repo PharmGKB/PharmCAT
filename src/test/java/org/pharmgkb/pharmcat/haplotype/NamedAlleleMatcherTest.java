@@ -187,7 +187,7 @@ class NamedAlleleMatcherTest {
     VcfReader vcfReader = namedAlleleMatcher.buildVcfReader(vcfFile, null);
 
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(vcfReader.getAlleleMap(), definitionReader.getPositions(gene), null, null);
+    MatchData data = new MatchData("Sample1", gene, vcfReader.getAlleleMap(), definitionReader.getPositions(gene), null, null);
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
     // handle missing positions of interest in sample

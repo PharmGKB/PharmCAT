@@ -49,7 +49,8 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
-  private final String m_sampleId;
+  private boolean m_useSpecificSample;
+  private String m_sampleId;
   private int m_sampleIdx = -1;
   private VcfMetadata m_vcfMetadata;
   private String m_genomeBuild;
@@ -79,6 +80,7 @@ public class VcfReader implements VcfLineParser {
       throws IOException {
     m_locationsOfInterest = locationsOfInterest;
     m_sampleId = sampleId;
+    m_useSpecificSample = m_sampleId != null;
     read(vcfFile);
   }
 
@@ -89,7 +91,13 @@ public class VcfReader implements VcfLineParser {
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
     m_sampleId = null;
+    m_useSpecificSample = false;
     read(vcfFile);
+  }
+
+
+  public @Nullable String getSampleId() {
+    return m_sampleId;
   }
 
 
@@ -140,7 +148,7 @@ public class VcfReader implements VcfLineParser {
           .parseWith(this)
           .build()) {
         m_vcfMetadata = vcfParser.parseMetadata();
-        if (m_sampleId != null) {
+        if (m_useSpecificSample) {
           for (int x = 0; x < m_vcfMetadata.getNumSamples(); x += 1) {
             if (m_sampleId.equals(m_vcfMetadata.getSampleName(x))) {
               m_sampleIdx = x;
@@ -151,6 +159,7 @@ public class VcfReader implements VcfLineParser {
             throw new IllegalStateException("Cannot find sample '" + m_sampleId + "'");
           }
         } else {
+          m_sampleId = m_vcfMetadata.getSampleName(0);
           m_sampleIdx = 0;
         }
         for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
@@ -247,7 +256,7 @@ public class VcfReader implements VcfLineParser {
       return;
     }
 
-    if (sampleData.size() > 1 && m_sampleId == null) {
+    if (sampleData.size() > 1 && !m_useSpecificSample) {
       addWarning(chrPos, "Multiple samples found, only using first entry.  " +
           "See https://pharmcat.org/using/VCF-Requirements/");
     }

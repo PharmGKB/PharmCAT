@@ -71,7 +71,7 @@ class CombinationUtilTest {
   void testGeneratePerfectPairs() {
 
     SortedSet<NamedAllele> haplotypes = new TreeSet<>();
-    String[] alleles = new String[1];
+    String[] alleles = new String[] { "T" };
 
     NamedAllele hap = new NamedAllele("*1", "*1", alleles, alleles, true);
     haplotypes.add(hap);

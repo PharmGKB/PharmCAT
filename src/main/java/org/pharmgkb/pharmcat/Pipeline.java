@@ -10,14 +10,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.Callable;
-import com.google.common.base.Preconditions;
-import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
-import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.OutsideCallParser;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
@@ -34,7 +33,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Mark Woon
  */
-public class Pipeline implements Callable<Boolean> {
+public class Pipeline implements Callable<PipelineResult> {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   public enum Mode {
     /**
@@ -73,6 +72,9 @@ public class Pipeline implements Callable<Boolean> {
 
   private final boolean m_deleteIntermediateFiles;
   private final Mode m_mode;
+  private final boolean m_verbose;
+  private Path m_baseDir;
+  private String m_basename;
 
 
   public Pipeline(Env env,
@@ -81,26 +83,22 @@ public class Pipeline implements Callable<Boolean> {
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
-      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode)
-      throws ReportableException {
+      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode,
+      boolean verbose) throws ReportableException {
     m_env = env;
 
     m_runMatcher = runMatcher;
+    m_baseDir = outputDir;
     if (runMatcher) {
       m_vcfFile = vcfFile;
       m_sampleId = sampleId;
-      if (baseFilename == null) {
-        baseFilename = BaseConfig.getBaseFilename(vcfFile);
-      }
-      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
-        baseFilename += "." + sampleId;
-      }
-      m_matcherJsonFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.json");
+      generateBasename(baseFilename, vcfFile, sampleId);
+      m_matcherJsonFile = m_baseDir.resolve(m_basename + ".match.json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
       m_findCombinations = findCombinations;
       if (matcherHtml) {
-        m_matcherHtmlFile = getOutputFile(m_vcfFile, outputDir, baseFilename, ".match.html");
+        m_matcherHtmlFile = m_baseDir.resolve(m_basename + ".match.html");
       }
     }
 
@@ -117,13 +115,8 @@ public class Pipeline implements Callable<Boolean> {
       if (inputFile == null) {
         throw new IllegalStateException("No phenotyper input file");
       }
-      if (baseFilename == null) {
-        baseFilename = BaseConfig.getBaseFilename(inputFile);
-      }
-      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
-        baseFilename += "." + sampleId;
-      }
-      m_phenotyperJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".phenotype.json");
+      generateBasename(baseFilename, inputFile, sampleId);
+      m_phenotyperJsonFile = m_baseDir.resolve(m_basename + ".phenotype.json");
     }
 
     m_runReporter = runReporter;
@@ -136,169 +129,205 @@ public class Pipeline implements Callable<Boolean> {
       if (inputFile == null) {
         throw new IllegalStateException("No reporter input file");
       }
-      if (baseFilename == null) {
-        baseFilename = BaseConfig.getBaseFilename(inputFile);
-      }
-      if (sampleId != null && !baseFilename.contains("." + sampleId)) {
-        baseFilename += "." + sampleId;
-      }
-      m_reporterHtmlFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.html");
+      generateBasename(baseFilename, inputFile, sampleId);
+      m_reporterHtmlFile = m_baseDir.resolve(m_basename + ".report.html");
       if (reporterJson) {
-        m_reporterJsonFile = getOutputFile(inputFile, outputDir, baseFilename, ".report.json");
+        m_reporterJsonFile = m_baseDir.resolve(m_basename + ".report.json");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
-        m_reporterTitle = baseFilename;
+        m_reporterTitle = m_basename;
       }
       m_reporterSources = reporterSources;
       m_reporterCompact = reporterCompact;
     }
     m_deleteIntermediateFiles = deleteIntermediateFiles;
     m_mode = mode;
+    m_verbose = verbose;
+    Objects.requireNonNull(m_baseDir);
+    Objects.requireNonNull(m_basename);
   }
 
+
+  public @Nullable String getSampleId() {
+    return m_sampleId;
+  }
+
+  public String getBasename() {
+    return m_basename;
+  }
+
+  private void generateBasename(String baseFilename, Path inputFile, String sampleId) {
+    if (m_baseDir == null) {
+      m_baseDir = inputFile.getParent();
+    }
+    if (m_basename != null) {
+      return;
+    }
+    //noinspection ReplaceNullCheck
+    if (baseFilename != null) {
+      m_basename = baseFilename;
+    } else {
+      m_basename = BaseConfig.getBaseFilename(inputFile);
+    }
+    if (sampleId != null && !m_basename.contains("." + sampleId)) {
+      m_basename += "." + sampleId;
+    }
+  }
 
 
   /**
    * Run PharmCAT pipeline.
    *
-   * @return true if some any PharmCAT module was run, false if nothing was run
+   * @throws IOException if there is an error and not running in {@link Mode#BATCH} mode
    */
   @Override
-  public Boolean call() throws IOException {
+  public PipelineResult call() throws IOException {
     boolean didSomething = false;
 
-    Result matcherResult = null;
-    if (m_runMatcher) {
-      NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
-      if (m_mode == Mode.CLI) {
-        namedAlleleMatcher.printWarnings();
-      }
-      matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
-
-      if (m_mode == Mode.CLI) {
-        if (!m_deleteIntermediateFiles) {
-          System.out.println("Saving named allele matcher JSON results to " + m_matcherJsonFile);
-        }
-        if (m_matcherHtmlFile != null) {
-          System.out.println("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
-        }
-      } else if (m_mode == Mode.BATCH &&
-          matcherResult.getVcfWarnings() != null &&
-          matcherResult.getVcfWarnings().size() > 0) {
-        String basename = FilenameUtils.getBaseName(FilenameUtils.getBaseName(m_matcherJsonFile.getFileName().toString()));
-        Path txtFile = m_matcherJsonFile.getParent()
-            .resolve(basename + ".matcher_warnings.txt");
-        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
-          Map<String, Collection<String>> warningsMap = matcherResult.getVcfWarnings();
-          warningsMap.keySet()
-              .forEach(key -> {
-                writer.println(key);
-                warningsMap.get(key)
-                    .forEach(msg -> writer.println("\t" + msg));
-              });
-        }
-      }
-      if (!m_deleteIntermediateFiles || !m_runPhenotyper) {
-        namedAlleleMatcher.saveResults(matcherResult, m_matcherJsonFile, m_matcherHtmlFile);
-      }
-
-      didSomething = true;
+    if (m_mode == Mode.BATCH) {
+      System.out.println("* Starting " + m_basename);
     }
 
-    Phenotyper phenotyper = null;
-    if (m_runPhenotyper) {
-      List<GeneCall> calls;
-      Map<String, Collection<String>> warnings = new HashMap<>();
-      if (matcherResult != null) {
-        calls = matcherResult.getGeneCalls();
-        warnings = matcherResult.getVcfWarnings();
-      } else if (m_phenotyperInputFile != null) {
-        Result deserializedMatcherResult = new ResultSerializer().fromJson(m_phenotyperInputFile);
-        calls = deserializedMatcherResult.getGeneCalls();
-        warnings = deserializedMatcherResult.getVcfWarnings();
-      } else {
-        calls = new ArrayList<>();
+    try {
+      org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = null;
+      if (m_runMatcher) {
+        NamedAlleleMatcher namedAlleleMatcher =
+            new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+        if (m_mode == Mode.CLI) {
+          namedAlleleMatcher.printWarnings();
+        }
+        matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
+
+        if (m_mode == Mode.CLI) {
+          if (!m_deleteIntermediateFiles) {
+            System.out.println("Saving named allele matcher JSON results to " + m_matcherJsonFile);
+          }
+          if (m_matcherHtmlFile != null) {
+            System.out.println("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
+          }
+        } else if (m_mode == Mode.BATCH &&
+            matcherResult.getVcfWarnings() != null &&
+            matcherResult.getVcfWarnings().size() > 0) {
+          Path txtFile = m_matcherJsonFile.getParent()
+              .resolve(m_basename + ".matcher_warnings.txt");
+          try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
+            Map<String, Collection<String>> warningsMap = matcherResult.getVcfWarnings();
+            warningsMap.keySet()
+                .forEach(key -> {
+                  writer.println(key);
+                  warningsMap.get(key)
+                      .forEach(msg -> writer.println("\t" + msg));
+                });
+          }
+        }
+        if (!m_deleteIntermediateFiles || !m_runPhenotyper) {
+          namedAlleleMatcher.saveResults(matcherResult, m_matcherJsonFile, m_matcherHtmlFile);
+        }
+
+        didSomething = true;
       }
 
-      List<OutsideCall> outsideCalls = new ArrayList<>();
-      if (m_phenotyperOutsideCallsFile != null) {
-        for (OutsideCall call : OutsideCallParser.parse(m_phenotyperOutsideCallsFile)) {
-          if (!m_env.hasGene(call.getGene())) {
-            String msg = "Discarded outside call for " + call.getGene() + " because it is not supported by PharmCAT.";
-            warnings.put(call.getGene(), List.of(msg));
-            sf_logger.warn(msg);
-            continue;
-          }
-          if (!m_env.isActivityScoreGene(call.getGene())) {
-            if (call.getDiplotype() == null && call.getPhenotype() == null) {
-              String msg = call.getGene() + " is not an activity score gene but has outside call with only an " +
-                  "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
+      Phenotyper phenotyper = null;
+      if (m_runPhenotyper) {
+        List<GeneCall> calls;
+        Map<String, Collection<String>> warnings = new HashMap<>();
+        if (matcherResult != null) {
+          calls = matcherResult.getGeneCalls();
+          warnings = matcherResult.getVcfWarnings();
+        } else if (m_phenotyperInputFile != null) {
+          org.pharmgkb.pharmcat.haplotype.model.Result deserializedMatcherResult = new ResultSerializer()
+              .fromJson(m_phenotyperInputFile);
+          calls = deserializedMatcherResult.getGeneCalls();
+          warnings = deserializedMatcherResult.getVcfWarnings();
+        } else {
+          calls = new ArrayList<>();
+        }
+
+        List<OutsideCall> outsideCalls = new ArrayList<>();
+        if (m_phenotyperOutsideCallsFile != null) {
+          for (OutsideCall call : OutsideCallParser.parse(m_phenotyperOutsideCallsFile)) {
+            if (!m_env.hasGene(call.getGene())) {
+              String msg = "Discarded outside call for " + call.getGene() + " because it is not supported by PharmCAT.";
               warnings.put(call.getGene(), List.of(msg));
               sf_logger.warn(msg);
+              continue;
             }
+            if (!m_env.isActivityScoreGene(call.getGene())) {
+              if (call.getDiplotype() == null && call.getPhenotype() == null) {
+                String msg = call.getGene() + " is not an activity score gene but has outside call with only an " +
+                    "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
+                warnings.put(call.getGene(), List.of(msg));
+                sf_logger.warn(msg);
+              }
+            }
+            outsideCalls.add(call);
           }
-          outsideCalls.add(call);
         }
+
+        phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
+        if (m_mode == Mode.CLI) {
+          System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
+        }
+        if (!m_deleteIntermediateFiles || !m_runReporter) {
+          phenotyper.write(m_phenotyperJsonFile);
+        }
+        didSomething = true;
       }
 
-      phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
-      if (m_mode == Mode.CLI) {
-        System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
-      }
-      if (!m_deleteIntermediateFiles || !m_runReporter) {
-        phenotyper.write(m_phenotyperJsonFile);
-      }
-      didSomething = true;
-    }
-
-    if (m_runReporter) {
-      if (phenotyper == null) {
-        Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-        phenotyper = Phenotyper.read(inputFile);
-      }
-      m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
-      if (m_mode == Mode.CLI) {
-        if (!m_deleteIntermediateFiles) {
-          System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
+      if (m_runReporter) {
+        if (phenotyper == null) {
+          Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
+          phenotyper = Phenotyper.read(inputFile);
         }
-        if (m_reporterJsonFile != null) {
-          System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
+        m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
+        if (m_mode == Mode.CLI) {
+          if (!m_deleteIntermediateFiles) {
+            System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
+          }
+          if (m_reporterJsonFile != null) {
+            System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
+          }
         }
-      }
-      new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
-          .sources(m_reporterSources)
-          .compact(m_reporterCompact)
-          .write(m_reportContext);
-      if (m_reporterJsonFile != null) {
-        new JsonFormat(m_reporterJsonFile, m_env)
+        new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
+            .sources(m_reporterSources)
+            .compact(m_reporterCompact)
             .write(m_reportContext);
+        if (m_reporterJsonFile != null) {
+          new JsonFormat(m_reporterJsonFile, m_env)
+              .write(m_reportContext);
+        }
+        didSomething = true;
       }
-      didSomething = true;
+
+
+      if (m_deleteIntermediateFiles) {
+        Files.deleteIfExists(m_matcherJsonFile);
+        Files.deleteIfExists(m_phenotyperJsonFile);
+      }
+      if (m_mode == Mode.BATCH) {
+        String memUsage = "";
+        if (m_verbose) {
+          memUsage = " (current memory usage: " +
+              FileUtils.byteCountToDisplaySize(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) +
+              ")";
+        }
+        System.out.println("* Finished processing " +
+            (m_sampleId == null ? m_basename : m_sampleId) + memUsage);
+      }
+      return new PipelineResult((didSomething ? PipelineResult.Status.SUCCESS : PipelineResult.Status.NOOP), m_basename,
+          m_sampleId);
+    } catch (Exception ex) {
+      if (m_mode == Mode.BATCH) {
+        Path txtFile = m_baseDir.resolve(m_basename + ".ERROR.txt");
+        ex.printStackTrace();
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
+          ex.printStackTrace(writer);
+        }
+        return new PipelineResult(PipelineResult.Status.FAILURE, m_basename, m_sampleId);
+      }
+      throw ex;
     }
-
-
-    if (m_deleteIntermediateFiles) {
-      Files.deleteIfExists(m_matcherJsonFile);
-      Files.deleteIfExists(m_phenotyperJsonFile);
-    }
-    return didSomething;
-  }
-
-
-  /**
-   * Gets {@link Path} to an output file based on command line arguments.
-   */
-  private Path getOutputFile(Path inputFile, @Nullable Path outputDir, String baseFilename, String defaultSuffix) {
-    Preconditions.checkNotNull(baseFilename);
-    Path dir;
-    if (outputDir != null) {
-      dir = outputDir;
-    } else {
-      dir = inputFile.toAbsolutePath().getParent();
-    }
-    return dir.resolve(baseFilename + defaultSuffix);
   }
 
 
@@ -311,18 +340,6 @@ public class Pipeline implements Callable<Boolean> {
     if (m_sampleId != null) {
       return m_sampleId;
     }
-    if (m_vcfFile != null) {
-      return BaseConfig.getBaseFilename(m_vcfFile);
-    }
-    if (m_phenotyperInputFile != null) {
-      return BaseConfig.getBaseFilename(m_phenotyperInputFile);
-    }
-    if (m_phenotyperOutsideCallsFile != null) {
-      return BaseConfig.getBaseFilename(m_phenotyperOutsideCallsFile);
-    }
-    if (m_reporterInputFile != null) {
-      return BaseConfig.getBaseFilename(m_reporterInputFile);
-    }
-    return super.toString();
+    return m_basename;
   }
 }

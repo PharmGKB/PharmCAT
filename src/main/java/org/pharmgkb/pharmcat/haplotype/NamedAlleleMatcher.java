@@ -234,18 +234,18 @@ public class NamedAlleleMatcher {
         continue;
       }
       if (gene.equals("DPYD")) {
-        callDpyd(alleleMap, resultBuilder);
+        callDpyd(vcfReader.getSampleId(), alleleMap, resultBuilder);
       } else {
-        callAssumingReference(alleleMap, gene, resultBuilder);
+        callAssumingReference(vcfReader.getSampleId(), alleleMap, gene, resultBuilder);
       }
     }
     return resultBuilder.build();
   }
 
-  private void callAssumingReference(SortedMap<String, SampleAllele> alleleMap, String gene,
+  private void callAssumingReference(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
-    MatchData data = initializeCallData(alleleMap, gene, true, false);
+    MatchData data = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (data.getNumSampleAlleles() == 0) {
       resultBuilder.gene(gene, data);
       return;
@@ -257,16 +257,17 @@ public class NamedAlleleMatcher {
       if (!m_findCombinations) {
         resultBuilder.diplotypes(gene, data, matches);
       } else {
-        callCombination(alleleMap, gene, resultBuilder);
+        callCombination(sampleId, alleleMap, gene, resultBuilder);
       }
       return;
     }
     resultBuilder.diplotypes(gene, data, matches);
   }
 
-  private void callCombination(SortedMap<String, SampleAllele> alleleMap, String gene, ResultBuilder resultBuilder) {
+  private void callCombination(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
+      ResultBuilder resultBuilder) {
 
-    MatchData data = initializeCallData(alleleMap, gene, false, true);
+    MatchData data = initializeCallData(sampleId, alleleMap, gene, false, true);
     if (data.getNumSampleAlleles() == 0) {
       resultBuilder.gene(gene, data);
       return;
@@ -283,10 +284,10 @@ public class NamedAlleleMatcher {
    * If there is no exact match, we only look for potential haplotypes.
    * This tries to match all permutations to any potential haplotype (won't assume reference).
    */
-  private void callDpyd(SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
+  private void callDpyd(String sampleId, SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
     final String gene = "DPYD";
 
-    MatchData refData = initializeCallData(alleleMap, gene, true, false);
+    MatchData refData = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (refData.getNumSampleAlleles() == 0) {
       resultBuilder.gene(gene, refData);
       return;
@@ -303,7 +304,7 @@ public class NamedAlleleMatcher {
         return;
       }
       // try combinations
-      comboData = initializeCallData(alleleMap, gene, false, true);
+      comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
       diplotypeMatches = new DiplotypeMatcher(comboData)
           .compute(true, false, false, true);
       if (!diplotypeMatches.isEmpty()) {
@@ -330,7 +331,7 @@ public class NamedAlleleMatcher {
     }
 
     if (comboData == null) {
-      comboData = initializeCallData(alleleMap, gene, false, true);
+      comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
 
@@ -416,7 +417,7 @@ public class NamedAlleleMatcher {
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
    */
-  private MatchData initializeCallData(SortedMap<String, SampleAllele> alleleMap, String gene,
+  private MatchData initializeCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       boolean assumeReference, boolean findCombinations) {
 
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
@@ -430,7 +431,7 @@ public class NamedAlleleMatcher {
     }
 
     // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(alleleMap, allPositions, extraPositions, unusedPositions);
+    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
     data.checkAlleles();
     if (data.getNumSampleAlleles() == 0) {
       return data;

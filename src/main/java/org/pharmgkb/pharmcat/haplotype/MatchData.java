@@ -1,17 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.lang.invoke.MethodHandles;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -34,8 +24,11 @@ import org.slf4j.LoggerFactory;
  */
 public class MatchData {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+  private final String m_sampleId;
+  private final String m_gene;
   private final SortedMap<Long, SampleAllele> m_sampleMap = new TreeMap<>();
   private final boolean m_isHaploid;
+  /** Positions at which data is available for sample. */
   private final VariantLocus[] m_positions;
   @Expose
   @SerializedName("missingPositions")
@@ -68,9 +61,10 @@ public class MatchData {
    * @param extraPositions extra positions to track sample alleles for
    * @param ignoredPositions ignored positions due to ignored named alleles
    */
-  public MatchData(SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
+  public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
       @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions) {
-
+    m_sampleId = sampleId;
+    m_gene = gene;
     if (ignoredPositions != null) {
       m_ignoredPositions.addAll(ignoredPositions);
     }
@@ -187,26 +181,31 @@ public class MatchData {
   void defaultMissingAllelesToReference() {
 
     SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
-    NamedAllele referenceHaplotype = null;
+    Optional<NamedAllele> refHapOpt = m_haplotypes.stream().filter(NamedAllele::isReference).findAny();
+    if (refHapOpt.isEmpty()) {
+      throw new IllegalStateException(m_gene + " does not have a reference");
+    }
+    NamedAllele referenceHaplotype = refHapOpt.get();
+    int numAlleles = referenceHaplotype.getAlleles().length;
     for (NamedAllele hap : m_haplotypes) {
-      if (referenceHaplotype == null) {
-        referenceHaplotype = hap;
+      if (referenceHaplotype == hap) {
         updatedHaplotypes.add(hap);
         continue;
       }
 
-      String[] refAlleles = referenceHaplotype.getAlleles();
       String[] curAlleles = hap.getAlleles();
-      Preconditions.checkState(refAlleles.length == curAlleles.length);
+      Preconditions.checkState(numAlleles == curAlleles.length);
 
-      String[] newAlleles = new String[refAlleles.length];
-      String[] cpicAlleles = new String[refAlleles.length];
-      for (int x = 0; x < refAlleles.length; x += 1) {
+      String[] newAlleles = new String[numAlleles];
+      String[] cpicAlleles = new String[numAlleles];
+      for (int x = 0; x < numAlleles; x += 1) {
         if (curAlleles[x] == null) {
-          if (Iupac.isWobble(refAlleles[x])) {
+          // ref allele can be null if position is missing
+          String refAllele = referenceHaplotype.getAllele(x);
+          if (refAllele != null && Iupac.isWobble(refAllele)) {
             newAlleles[x] = m_positions[x].getRef();
           } else {
-            newAlleles[x] = refAlleles[x];
+            newAlleles[x] = refAllele;
           }
           cpicAlleles[x] = referenceHaplotype.getCpicAlleles()[x];
         } else {
@@ -366,5 +365,11 @@ public class MatchData {
     return haplotypeMatches.stream()
         .filter(h -> !h.getSequences().isEmpty())
         .collect(Collectors.toCollection(TreeSet::new));
+  }
+
+
+  @Override
+  public String toString() {
+    return m_gene + " match data for " + m_sampleId;
   }
 }

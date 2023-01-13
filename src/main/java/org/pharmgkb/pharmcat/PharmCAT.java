@@ -140,8 +140,9 @@ public class PharmCAT {
                 config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
                 config.runReporter, reporterInputFile, config.reporterTitle,
                 config.reporterSources, config.reporterCompact, config.reporterJson,
-                config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI);
-            if (!pipeline.call()) {
+                config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
+                Pipeline.Mode.CLI, cliHelper.isVerbose());
+            if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
               failIfNotTest();
               blankRuns.add(sampleId);
             }
@@ -166,11 +167,12 @@ public class PharmCAT {
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,
-            config.outputDir, config.baseFilename, config.deleteIntermediateFiles, Pipeline.Mode.CLI);
-        if (!pipeline.call()) {
+            config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
+            Pipeline.Mode.CLI, cliHelper.isVerbose());
+        if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
           cliHelper.printHelp();
-          failIfNotTest();
           System.out.println("Nothing to do.");
+          failIfNotTest();
           return;
         }
       }

@@ -16,6 +16,7 @@ import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -65,6 +66,7 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     // max processes is capped to number of samples
     assertThat(systemOut, containsString("maximum of 1 processes"));
     checkForOutputFiles(tmpDir, vcfFile);
@@ -83,6 +85,7 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     if (!TestUtils.isContinuousIntegration()) {
       // max processes is capped to number of samples
       // don't test this in CI because no way of guaranteeing # of processors
@@ -116,6 +119,7 @@ class BatchPharmCATTest {
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Queueing up 2 samples"));
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     checkForOutputFiles(tmpDir, vcfFiles);
   }
 
@@ -145,6 +149,7 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     assertThat(systemOut, containsString("Found 3 VCF files"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));
@@ -190,6 +195,7 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     assertThat(systemOut, containsString("Found 2 VCF files"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));
@@ -244,6 +250,7 @@ class BatchPharmCATTest {
     }));
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
     assertThat(systemOut, containsString("Found 2 VCF files"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper input file"));
     assertThat(systemOut, containsString("Found 1 independent phenotyper outside call file"));

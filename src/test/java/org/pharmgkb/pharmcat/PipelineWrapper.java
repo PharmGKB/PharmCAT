@@ -90,7 +90,8 @@ class PipelineWrapper {
         true, vcfFile, null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compactReport, true,
-        m_outputPath, null, m_compactReport, Pipeline.Mode.TEST
+        m_outputPath, null, m_compactReport,
+        Pipeline.Mode.TEST, false
     );
     pcat.call();
     m_reportContext = pcat.getReportContext();

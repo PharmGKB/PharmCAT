@@ -5,6 +5,7 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,6 +16,7 @@ import java.util.concurrent.Future;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
+import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
@@ -29,6 +31,8 @@ import org.pharmgkb.pharmcat.util.CliUtils;
  * @author Mark Woon
  */
 public class BatchPharmCAT {
+  private static final int sf_procsPerGb = 16;
+  private static final long sf_bytesPerProcess = (1024 / sf_procsPerGb) * 1024 * 1024;
   private final BaseConfig m_config;
   private final boolean m_verbose;
   private final Map<String, Path> m_vcfFilesToProcess = new TreeMap<>();
@@ -77,12 +81,19 @@ public class BatchPharmCAT {
       int maxProcesses = Runtime.getRuntime().availableProcessors() - 2;
       if (cliHelper.hasOption("cp")) {
         try {
-          maxProcesses = cliHelper.getIntValue("cp");
-          if (maxProcesses > Runtime.getRuntime().availableProcessors()) {
+          int cp = cliHelper.getIntValue("cp");
+          if (cp > Runtime.getRuntime().availableProcessors()) {
             maxProcesses = Runtime.getRuntime().availableProcessors();
+            System.out.println("Warning: This system only has " + maxProcesses + " processors.");
+            System.out.println("Limiting concurrent processes to " + maxProcesses + ".");
+            int futureMax = Math.min(1, maxProcesses - 2);
+            System.out.println("Recommending maximum of '-cp " + futureMax + "' in the future.");
+          } else {
+            maxProcesses = cp;
           }
         } catch (NumberFormatException ex) {
           System.out.println("\"" + cliHelper.getValue("cp") + "\" is not an integer.");
+          PharmCAT.failIfNotTest();
           return;
         }
       }
@@ -150,6 +161,11 @@ public class BatchPharmCAT {
           });
     }
     if (vcfFile != null) {
+      if (!Files.isRegularFile(vcfFile)) {
+        System.err.println("Not a file: " + vcfFile);
+        PharmCAT.failIfNotTest();
+        return;
+      }
       // input VCF file trumps other VCF files in inputDir
       m_vcfFilesToProcess.clear();
       m_vcfFilesToProcess.put(BaseConfig.getBaseFilename(vcfFile), vcfFile);
@@ -226,21 +242,50 @@ public class BatchPharmCAT {
     System.out.println("Queueing up " + taskBuilders.size() + " samples to process...");
     Env env = new Env(m_config.definitionDir);
     List<Pipeline> tasks = new ArrayList<>();
+    Map<String, Pipeline> taskMap = new HashMap<>();
     for (Builder builder : taskBuilders) {
-      tasks.add(builder.build(env));
+      Pipeline pipeline = builder.build(env);
+      tasks.add(pipeline);
     }
 
     int processes = Math.min(tasks.size(), maxProcesses);
     System.out.println();
     System.out.println("Running PharmCAT in batch mode with a maximum of " + processes + " processes.");
+    if (processes > 1) {
+      long maxMem = Runtime.getRuntime().maxMemory();
+      long memPerProcess = maxMem / processes;
+      if (memPerProcess < sf_bytesPerProcess) {
+        System.out.println("Warning: PharmCAT only has access to " + FileUtils.byteCountToDisplaySize(maxMem));
+        int gb = processes / sf_procsPerGb;
+        String recMem;
+        if (gb > 0 && processes % sf_procsPerGb == 0) {
+          recMem = gb + " G";
+        } else {
+          recMem = ((gb * 1024) + ((processes % sf_procsPerGb) * 1024 / sf_procsPerGb)) + " M";
+        }
+        System.out.println("Recommend boosting memory to PharmCAT to " + recMem + "B (using -Xmx" +
+            recMem.replace(" ", "") + ")");
+        long recCp = Math.min(1, maxMem / sf_bytesPerProcess);
+        System.out.println("Or running with " + recCp + " process" + (recCp == 1L ? "" : "es") +
+            " max (using -cp " + recCp + ")");
+      }
+    }
+
+    if (m_verbose) {
+      System.out.println("Current memory usage: " + FileUtils.byteCountToDisplaySize(
+          Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
+    }
     Stopwatch stopwatch = Stopwatch.createStarted();
-    ExecutorService executor = Executors.newFixedThreadPool(processes);
-    List<Future<Boolean>> futures = executor.invokeAll(tasks);
+    ExecutorService executor = Executors.newWorkStealingPool(processes);
+    List<Future<PipelineResult>> futures = executor.invokeAll(tasks);
     executor.shutdown();
 
     // must iterate through in case of errors
-    for (Future<Boolean> future : futures) {
-      future.get();
+    for (Future<PipelineResult> future : futures) {
+      PipelineResult rez = future.get();
+      if (rez.getStatus() == PipelineResult.Status.FAILURE) {
+        System.out.println("FAILED " + (rez.getSampleId() == null ? rez.getBasename() : rez.getSampleId()));
+      }
     }
 
     System.out.println();
@@ -301,9 +346,6 @@ public class BatchPharmCAT {
 
     public Pipeline build(Env env) throws ReportableException {
       Preconditions.checkState(m_runMatcher || m_runPhenotyper || m_runReporter);
-      if (m_verbose) {
-        System.out.println("  * " + (m_sampleId == null ? m_baseFilename : m_sampleId));
-      }
 
       return new Pipeline(env,
           m_runMatcher, m_vcfFile, m_sampleId,
@@ -311,7 +353,8 @@ public class BatchPharmCAT {
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
           m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson,
-          m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles, Pipeline.Mode.BATCH);
+          m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
+          Pipeline.Mode.BATCH, m_verbose);
     }
 
 

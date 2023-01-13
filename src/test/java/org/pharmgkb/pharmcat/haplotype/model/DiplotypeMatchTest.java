@@ -47,7 +47,7 @@ class DiplotypeMatchTest {
     HaplotypeMatch hm2 = new HaplotypeMatch(hap2);
     HaplotypeMatch hm3 = new HaplotypeMatch(hap3);
 
-    MatchData dataset = new MatchData(new TreeMap<>(), variants, null, null);
+    MatchData dataset = new MatchData("Sample1", "GENE", new TreeMap<>(), variants, null, null);
 
     DiplotypeMatch dm1 = new DiplotypeMatch(hm1, hm1, dataset);
     DiplotypeMatch dm2 = new DiplotypeMatch(hm1, hm2, dataset);
@@ -78,7 +78,7 @@ class DiplotypeMatchTest {
     NamedAllele na2 = new NamedAllele("na2", "c.557A>G", new String[0], new String[0], false);
     NamedAllele na3 = new NamedAllele("na3", "c.1627A>G (*5)", new String[0], new String[0], false);
     NamedAllele na4 = new NamedAllele("na4", "c.85T>C (*9A)", new String[0], new String[0], false);
-    MatchData dataset =  new MatchData(new TreeMap<>(), new VariantLocus[0], null, null);
+    MatchData dataset =  new MatchData("Sample1", "GENE", new TreeMap<>(), new VariantLocus[0], null, null);
 
     // c.1371C>T
     HaplotypeMatch hm1 = new HaplotypeMatch(na1);

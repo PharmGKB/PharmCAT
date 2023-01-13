@@ -19,7 +19,7 @@ class HaplotypeMatchTest {
   void testCompare() {
 
     SortedSet<HaplotypeMatch> sortedSet = new TreeSet<>();
-    String[] alleles = new String[1];
+    String[] alleles = new String[] { "T" };
 
     HaplotypeMatch hm1 = new HaplotypeMatch(new NamedAllele("*4", "*4", alleles, alleles, false));
     sortedSet.add(hm1);
