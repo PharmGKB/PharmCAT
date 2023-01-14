@@ -267,7 +267,10 @@ public class DiplotypeMatcher {
             if (hm1s.first() instanceof CombinationMatch && hm1s.size() == 2) {
               hm2s = new TreeSet<>();
               hm2s.add(hm1s.first());
-              hm1s.remove(hm1s.first());
+              // must create new hm1s to avoid messing with backing hapMap
+              SortedSet<BaseMatch> new1 = new TreeSet<>();
+              new1.add(hm1s.last());
+              hm1s = new1;
             }
           }
         }

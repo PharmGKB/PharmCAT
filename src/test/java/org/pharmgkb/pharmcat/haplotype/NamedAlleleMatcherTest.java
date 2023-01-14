@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -15,9 +18,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
+import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -535,9 +541,18 @@ class NamedAlleleMatcherTest {
   }
 
   @Test
-  void testCombinationLongestScoreMissing() throws Exception {
+  void testCombinationLongestScoreMissing(TestInfo testInfo) throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2b6.json");
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationLongestScoreMissing.vcf");
+    Path vcfFile = new TestVcfBuilder(testInfo, "foo")
+        .withDefinition(definitionFile)
+        // c.1218G>A
+        .variation("CYP2B6", "rs35773040", "G", "A")
+        // c.1627A>G (*5)
+        .variation("CYP2B6", "rs3745274", "T", "T")
+        // c.85T>C (*9A)
+        .variation("CYP2B6", "rs2279343", "G", "G")
+        .missing("CYP2B6", "rs12721655")
+        .generate();
 
     DefinitionReader definitionReader = new DefinitionReader();
     definitionReader.read(definitionFile);
@@ -664,6 +679,50 @@ class NamedAlleleMatcherTest {
         .map(BaseMatch::getName)
         .toList();
     assertThat(names, contains("Reference", "c.62G>A"));
+  }
+
+
+  @Test
+  void testDpydEffectivelyPhased2(TestInfo testInfo) throws Exception {
+    TestUtils.setSaveTestOutput(true);
+    // c.1218G>A/c.1218G>A c.1627A>G (*5)/c.1627A>G (*5) c.85T>C (*9A)
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "[c.85T>C (*9A) + c.1218G>A + c.1627A>G (*5)]/[c.1218G>A + c.1627A>G (*5)]")
+        .withDefinition(definitionFile)
+        // c.1218G>A
+        .variation("DPYD", "rs61622928", "T", "T")
+        // c.1627A>G (*5)
+        .variation("DPYD", "rs1801159", "C", "C")
+        // c.85T>C (*9A)
+        .variation("DPYD", "rs1801265", "A", "G")
+        .generate();
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(vcfFile);
+    // ignore novel bases
+    printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("[c.85T>C (*9A) + c.1218G>A + c.1627A>G (*5)]/[c.1218G>A + c.1627A>G (*5)]", dm.getName());
+    System.out.println(geneCall.getHaplotypes());
+    assertEquals(2, geneCall.getHaplotypes().size());
+    Set<String> names = geneCall.getHaplotypes().stream()
+        .flatMap(h -> {
+          if (h instanceof CombinationMatch cm) {
+            return cm.getComponentHaplotypes().stream()
+                .map(NamedAllele::getName);
+          }
+          return Stream.of(h.getHaplotype().getName());
+        })
+        .collect(Collectors.toCollection(TreeSet::new));
+    assertThat(new ArrayList<>(names), contains("c.1218G>A", "c.1627A>G (*5)", "c.85T>C (*9A)"));
   }
 
 
