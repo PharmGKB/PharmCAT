@@ -81,3 +81,8 @@ You won't be able to tell whether a sample is a male or a female, or whether the
 If you run PharmCAT on male samples or samples with only one chrX, be aware of the issue and use only the haploid for male samples or samples with a single X chromosome for reporting purposes. Nonetheless, the drug prescribing recommendations should be the same for these samples regardless whether they are observed correctly as a hemizygote or a diploid for the X chromosome.
 
 We will add the support for hemizygotes at the X chromosome in the PharmCAT VCF Preprocessor in the future.
+
+### Where to find the CYP2C Cluster variant in the PharmCAT JSONs?
+PharmCAT reports an independently significant single nucleotide variation (SNV; rs12777823) in the CYP2C cluster on chromosome 10. Till Jan 2023, rs12777823 is only used in the CPIC warfarin guideline. In addition, rs12777823 needs to be used in combination with _CYP2C9_ genotypes.
+
+In the PharmCAT HTML report, rs12777823 is listed independently of _CYP2C9_. In the JSON, given that the SNV cannot be used without _CYP2C9_ genotypes, rs12777823 is nested under CYP2C9 as a CYP2C _POI_ (position of interest) for concision. 
