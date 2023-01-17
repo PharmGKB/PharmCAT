@@ -94,7 +94,7 @@ public class HtmlFormat extends AbstractFormat {
 
     Map<String,Object> result = new HashMap<>();
     if (!f_testMode) {
-      result.put("generatedOn", new SimpleDateFormat("MMMMM dd, yyyy").format(reportContext.getGeneratedOn()));
+      result.put("timestamp", new SimpleDateFormat("MMMMM dd, yyyy").format(reportContext.timestamp()));
       result.put("pharmcatVersion", reportContext.getPharmcatVersion());
       result.put("cpicVersion", reportContext.getCpicVersion());
     }

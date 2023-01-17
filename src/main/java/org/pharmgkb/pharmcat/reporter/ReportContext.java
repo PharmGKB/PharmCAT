@@ -28,8 +28,8 @@ public class ReportContext {
   @SerializedName("title")
   private final String f_title;
   @Expose
-  @SerializedName("generatedOn")
-  private final Date f_generatedOn = new Date();
+  @SerializedName("timestamp")
+  private final Date m_timestamp = new Date();
   @Expose
   @SerializedName("pharmcatVersion")
   private final String f_pharmcatVersion = CliUtils.getVersion();
@@ -179,8 +179,9 @@ public class ReportContext {
 
 
   /**
-   * Gets the set of all {@link DrugReport} objects that hold drug information and thier recommendations
-   * @return a set of {@link DrugReport} objects
+   * Gets the set of all {@link DrugReport} objects that hold drug information and their recommendations.
+   *
+   * @return a map of {@link DrugReport} objects
    */
   public Map<DataSource, SortedMap<String, DrugReport>> getDrugReports() {
     return m_drugReports;
@@ -228,11 +229,12 @@ public class ReportContext {
   }
 
   /**
-   * Gets the timestamp this context was compiled
+   * Gets the timestamp this context was compiled.
+   *
    * @return the timestamp this context was compiled
    */
-  public Date getGeneratedOn() {
-    return f_generatedOn;
+  public Date timestamp() {
+    return m_timestamp;
   }
 
   /**
