@@ -91,7 +91,7 @@ class PipelineWrapper {
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compactReport, true,
         m_outputPath, null, m_compactReport,
-        Pipeline.Mode.TEST, false
+        Pipeline.Mode.TEST, true, false
     );
     pcat.call();
     m_reportContext = pcat.getReportContext();

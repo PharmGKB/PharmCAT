@@ -5,12 +5,15 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -44,10 +47,10 @@ public class DrugReport implements Comparable<DrugReport> {
 
   @Expose
   @SerializedName("messages")
-  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  private final SortedSet<MessageAnnotation> m_messages = new TreeSet<>();
   @Expose
   @SerializedName("variants")
-  private final List<String> m_reportVariants = new ArrayList<>();
+  private final SortedSet<String> m_reportVariants = new TreeSet<>();
   @Expose
   @SerializedName("urls")
   private final List<String> m_urls = new ArrayList<>();
@@ -56,7 +59,7 @@ public class DrugReport implements Comparable<DrugReport> {
   private final List<Publication> m_citations = new ArrayList<>();
   @Expose
   @SerializedName("guidelines")
-  private final List<GuidelineReport> m_guidelines = new ArrayList<>();
+  private final SortedSet<GuidelineReport> m_guidelines = new TreeSet<>();
 
 
   public DrugReport(Drug drug, ReportContext reportContext) {
@@ -154,12 +157,22 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   @Override
-  public int compareTo(DrugReport o) {
-    return toString().compareToIgnoreCase(o.toString());
+  public int compareTo(@NonNull DrugReport o) {
+    if (this == o) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compare(m_drugName, o.getName())
+        .compare(m_source, o.getSource())
+        .compare(m_version, o.getVersion())
+        .compare(m_id, o.getId())
+        .compare(m_guidelines, o.getGuidelines())
+        .compare(m_messages, o.getMessages())
+        .result();
   }
 
 
-  public List<MessageAnnotation> getMessages() {
+  public SortedSet<MessageAnnotation> getMessages() {
     return m_messages;
   }
 
@@ -190,12 +203,12 @@ public class DrugReport implements Comparable<DrugReport> {
   /**
    * Gets list of variants to display as part of genotype for recommendation.
    */
-  public List<String> getReportVariants() {
+  public SortedSet<String> getReportVariants() {
     return m_reportVariants;
   }
 
   public String toString() {
-    return String.join(", ", getName());
+    return m_drugName;
   }
 
   /**
@@ -205,7 +218,7 @@ public class DrugReport implements Comparable<DrugReport> {
     return m_citations;
   }
 
-  public List<GuidelineReport> getGuidelines() {
+  public SortedSet<GuidelineReport> getGuidelines() {
     return m_guidelines;
   }
 

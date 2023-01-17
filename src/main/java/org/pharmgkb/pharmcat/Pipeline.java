@@ -78,13 +78,13 @@ public class Pipeline implements Callable<PipelineResult> {
 
 
   public Pipeline(Env env,
-      boolean runMatcher, Path vcfFile, @Nullable String sampleId,
+      boolean runMatcher, @Nullable Path vcfFile, @Nullable String sampleId,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode,
-      boolean verbose) throws ReportableException {
+      boolean singleSample, boolean verbose) throws ReportableException {
     m_env = env;
 
     m_runMatcher = runMatcher;
@@ -92,7 +92,7 @@ public class Pipeline implements Callable<PipelineResult> {
     if (runMatcher) {
       m_vcfFile = vcfFile;
       m_sampleId = sampleId;
-      generateBasename(baseFilename, vcfFile, sampleId);
+      generateBasename(baseFilename, vcfFile, sampleId, singleSample);
       m_matcherJsonFile = m_baseDir.resolve(m_basename + ".match.json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
@@ -115,7 +115,7 @@ public class Pipeline implements Callable<PipelineResult> {
       if (inputFile == null) {
         throw new IllegalStateException("No phenotyper input file");
       }
-      generateBasename(baseFilename, inputFile, sampleId);
+      generateBasename(baseFilename, inputFile, sampleId, singleSample);
       m_phenotyperJsonFile = m_baseDir.resolve(m_basename + ".phenotype.json");
     }
 
@@ -129,7 +129,7 @@ public class Pipeline implements Callable<PipelineResult> {
       if (inputFile == null) {
         throw new IllegalStateException("No reporter input file");
       }
-      generateBasename(baseFilename, inputFile, sampleId);
+      generateBasename(baseFilename, inputFile, sampleId, singleSample);
       m_reporterHtmlFile = m_baseDir.resolve(m_basename + ".report.html");
       if (reporterJson) {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + ".report.json");
@@ -157,7 +157,7 @@ public class Pipeline implements Callable<PipelineResult> {
     return m_basename;
   }
 
-  private void generateBasename(String baseFilename, Path inputFile, String sampleId) {
+  private void generateBasename(String baseFilename, Path inputFile, String sampleId, boolean singleSample) {
     if (m_baseDir == null) {
       m_baseDir = inputFile.getParent();
     }
@@ -170,7 +170,8 @@ public class Pipeline implements Callable<PipelineResult> {
     } else {
       m_basename = BaseConfig.getBaseFilename(inputFile);
     }
-    if (sampleId != null && !m_basename.contains("." + sampleId)) {
+    if (!singleSample &&  sampleId != null && !m_basename.equals(m_sampleId) && !m_basename.startsWith(sampleId + ".") &&
+        !m_basename.contains("." + sampleId + ".")) {
       m_basename += "." + sampleId;
     }
   }

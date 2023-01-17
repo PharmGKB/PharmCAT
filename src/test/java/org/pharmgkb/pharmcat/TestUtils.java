@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.apache.commons.io.FileUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 
 
@@ -98,13 +99,18 @@ public class TestUtils {
    * @param deleteIfExist if directory exists, it will be deleted and re-created
    */
   public static Path getTestOutputDir(TestInfo testInfo, boolean deleteIfExist) throws IOException {
+    return getTestOutputDir(testInfo, null, deleteIfExist);
+  }
+
+  public static Path getTestOutputDir(TestInfo testInfo, @Nullable String subName, boolean deleteIfExist)
+      throws IOException {
     Path classOutputDir;
     if (testInfo.getTestClass().isPresent()) {
       classOutputDir = s_testOutputDir.resolve(testInfo.getTestClass().get().getSimpleName());
     } else {
       classOutputDir = s_testOutputDir;
     }
-    Path dir = classOutputDir.resolve(getTestName(testInfo));
+    Path dir = classOutputDir.resolve(getTestName(testInfo) + (subName == null ? "" : "-" + subName));
     if (Files.exists(dir)) {
       if (Files.isDirectory(dir)) {
         if (deleteIfExist) {
@@ -119,6 +125,7 @@ public class TestUtils {
     }
     return dir;
   }
+
 
   /**
    * Gets the output directory for the given class.

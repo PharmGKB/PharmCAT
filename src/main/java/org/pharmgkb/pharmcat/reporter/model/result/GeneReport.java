@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -93,7 +94,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private final SortedSet<String> m_uncalledHaplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
   @Expose
   @SerializedName("messages")
-  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  private final SortedSet<MessageAnnotation> m_messages = new TreeSet<>();
   @Expose
   @SerializedName("relatedDrugs")
   private SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
@@ -305,16 +306,16 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * The chromosome this gene appears on
+   * The chromosome this gene appears on.
    */
   public String getChr() {
     return m_chr;
   }
 
   /**
-   * The list of messages that apply to this gene
+   * The list of messages that apply to this gene.
    */
-  public List<MessageAnnotation> getMessages(){
+  public SortedSet<MessageAnnotation> getMessages(){
     return m_messages;
   }
 
@@ -679,17 +680,14 @@ public class GeneReport implements Comparable<GeneReport> {
     if (this == o) {
       return 0;
     }
-    int rez = Objects.compare(m_gene, o.getGene(), String.CASE_INSENSITIVE_ORDER);
+    int rez = new ComparisonChain()
+        .compareIgnoreCase(m_gene, o.getGene())
+        .compare(m_phenotypeSource, o.getPhenotypeSource())
+        .result();
     if (rez != 0) {
       return rez;
     }
-    rez = m_phenotypeSource.compareTo(o.getPhenotypeSource());
-    if (rez != 0) {
-      return rez;
-    }
-    rez = CallSource.compare(m_callSource, o.getCallSource());
-
-    return rez;
+    return CallSource.compare(m_callSource, o.getCallSource());
   }
 
   @Override

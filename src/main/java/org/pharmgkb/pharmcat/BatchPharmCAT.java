@@ -47,6 +47,7 @@ public class BatchPharmCAT {
           .addVersion("PharmCAT " + CliUtils.getVersion())
           // inputs
           .addOption("i", "input-dir", "directory containing source data files", false, "dir")
+          .addOption("s", "samples", "comma-separated list of samples", false, "samples")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "run named allele matcher independently")
@@ -200,11 +201,10 @@ public class BatchPharmCAT {
         Path file = m_vcfFilesToProcess.get(baseFilename);
         if (file != null) {
           VcfSampleReader sampleReader = new VcfSampleReader(file);
-          if (sampleReader.getSamples().size() == 1) {
-            taskBuilders.add(new Builder().fromMatcher(baseFilename, file, null));
-          } else {
-            for (String sampleId : sampleReader.getSamples()) {
-              taskBuilders.add(new Builder().fromMatcher(baseFilename, file, sampleId));
+          boolean singleSample = sampleReader.getSamples().size() == 1;
+          for (String sampleId : sampleReader.getSamples()) {
+            if (m_config.runSample(sampleId)) {
+              taskBuilders.add(new Builder().fromMatcher(baseFilename, file, sampleId, singleSample));
             }
           }
         }
@@ -216,14 +216,18 @@ public class BatchPharmCAT {
         System.out.println("Found " + m_matchFilesToProcess.size() + " independent phenotyper input file" +
             (m_matchFilesToProcess.size() > 1 ? "s" : "") + "...");
         for (String baseFilename : m_matchFilesToProcess.keySet()) {
-          taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
+          if (m_config.runSample(baseFilename)) {
+            taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
+          }
         }
       }
       if (m_outsideCallFilesToProcess.size() > 0) {
         System.out.println("Found " + m_outsideCallFilesToProcess.size() + " independent phenotyper outside call file" +
             (m_outsideCallFilesToProcess.size() > 1 ? "s" : "") + "...");
         for (String baseFilename : m_outsideCallFilesToProcess.keySet()) {
-          taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
+          if (m_config.runSample(baseFilename)) {
+            taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
+          }
         }
       }
     }
@@ -233,7 +237,9 @@ public class BatchPharmCAT {
         System.out.println("Found " + m_phenotypeFilesToProcess.size() + " independent reporter input file" +
             (m_phenotypeFilesToProcess.size() > 1 ? "s" : "") + "...");
         for (String baseFilename : m_phenotypeFilesToProcess.keySet()) {
-          taskBuilders.add(new Builder().fromReporter(baseFilename));
+          if (m_config.runSample(baseFilename)) {
+            taskBuilders.add(new Builder().fromReporter(baseFilename));
+          }
         }
       }
     }
@@ -305,9 +311,10 @@ public class BatchPharmCAT {
     private Path m_poFile;
     private boolean m_runReporter;
     private Path m_riFile;
+    private boolean m_singleSample;
 
 
-    public Builder fromMatcher(String baseFilename, Path file, @Nullable String sampleId) {
+    public Builder fromMatcher(String baseFilename, Path file, @Nullable String sampleId, boolean singleSample) {
       Preconditions.checkState(m_config.runMatcher);
       Preconditions.checkNotNull(file);
       m_baseFilename = baseFilename;
@@ -323,6 +330,7 @@ public class BatchPharmCAT {
         findPhenotyperFiles(baseFilename + "." + sampleId);
         findReporterFiles(baseFilename + "." + sampleId);
       }
+      m_singleSample = singleSample;
       return this;
     }
 
@@ -332,6 +340,7 @@ public class BatchPharmCAT {
       m_baseFilename = baseFilename;
       findPhenotyperFiles(baseFilename);
       findReporterFiles(baseFilename);
+      m_singleSample = true;
       return this;
     }
 
@@ -340,6 +349,7 @@ public class BatchPharmCAT {
       Preconditions.checkState(m_config.runReporter);
       m_baseFilename = baseFilename;
       findReporterFiles(baseFilename);
+      m_singleSample = true;
       return this;
     }
 
@@ -354,7 +364,7 @@ public class BatchPharmCAT {
           m_runReporter, m_riFile, m_config.reporterTitle,
           m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson,
           m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
-          Pipeline.Mode.BATCH, m_verbose);
+          Pipeline.Mode.BATCH, m_singleSample, m_verbose);
     }
 
 

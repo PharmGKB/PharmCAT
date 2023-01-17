@@ -8,6 +8,8 @@ import java.util.TreeSet;
 import java.util.function.Predicate;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 
@@ -15,7 +17,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
  * A Recommendation object sourced from the CPIC DB. This will reflect the properties of the CPIC Recommendation data
  * model.
  */
-public class Recommendation {
+public class Recommendation implements Comparable<Recommendation> {
   @Expose
   @SerializedName("implications")
   private Map<String,String> m_implications;
@@ -116,4 +118,23 @@ public class Recommendation {
   protected final Predicate<Map<String,String>> matchesLookupKey = (lookupKey) -> m_lookupKey != null
       && lookupKey.keySet().containsAll(m_lookupKey.keySet())
       && m_lookupKey.keySet().stream().allMatch(key -> Objects.equals(m_lookupKey.get(key), lookupKey.get(key)));
+
+
+  @Override
+  public int compareTo(@NonNull Recommendation o) {
+    if (this == o) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compareCollectionOfMaps(m_genotypes, o.getGenotypes())
+        .compare(m_classification, o.getClassification())
+        .compare(m_population, o.getPopulation())
+        .compare(m_drugRecommendation, o.getDrugRecommendation())
+        .compare(m_comments, o.getComments())
+        .compare(m_activityScore, o.getActivityScore())
+        .compare(m_alleleStatus, o.getAlleleStatus())
+        .compare(m_phenotypes, o.getPhenotypes())
+        .compare(m_lookupKey, o.getLookupKey())
+        .result();
+  }
 }

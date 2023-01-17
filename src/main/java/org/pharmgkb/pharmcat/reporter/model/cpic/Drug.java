@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.model.cpic;
 
 import java.util.List;
+import java.util.SortedSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -9,7 +10,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 /**
  * A drug record from an outside data source with related information.
- *
+ * <p>
  * This includes:
  * <ul>
  *   <li>recommendations</li>
@@ -39,10 +40,10 @@ public class Drug implements Comparable<Drug> {
   private List<Publication> m_citations;
   @Expose
   @SerializedName("recommendations")
-  private List<Recommendation> m_recommendations;
+  private SortedSet<Recommendation> m_recommendations;
   @Expose
   @SerializedName("genes")
-  private List<String> m_genes;
+  private SortedSet<String> m_genes;
   @Expose
   @SerializedName("notesonusage")
   private String m_notesOnUsage;
@@ -105,19 +106,19 @@ public class Drug implements Comparable<Drug> {
     m_citations = citations;
   }
 
-  public List<Recommendation> getRecommendations() {
+  public SortedSet<Recommendation> getRecommendations() {
     return m_recommendations;
   }
 
-  public void setRecommendations(List<Recommendation> recommendations) {
+  public void setRecommendations(SortedSet<Recommendation> recommendations) {
     m_recommendations = recommendations;
   }
 
-  public List<String> getGenes() {
+  public SortedSet<String> getGenes() {
     return m_genes;
   }
 
-  public void setGenes(List<String> genes) {
+  public void setGenes(SortedSet<String> genes) {
     m_genes = genes;
   }
 

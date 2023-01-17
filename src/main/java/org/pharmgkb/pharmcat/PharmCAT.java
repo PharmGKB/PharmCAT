@@ -24,6 +24,9 @@ public class PharmCAT {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
+          // inputs
+          .addOption("s", "sample", "comma-separated list of samples", false, "sample")
+
           // named allele matcher args
           .addOption("matcher", "matcher", "run named allele matcher")
           .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
@@ -76,6 +79,8 @@ public class PharmCAT {
           failIfNotTest();
           return;
         }
+      } else if (config.samples.size() > 0) {
+        throw new ReportableException("Cannot specify samples unless running matcher.");
       }
 
       Path phenotyperInputFile = null;
@@ -123,52 +128,61 @@ public class PharmCAT {
       }
 
       Env env = new Env(config.definitionDir);
-      boolean runSingleSample = true;
 
       if (config.runMatcher) {
         VcfSampleReader sampleReader = new VcfSampleReader(vcfFile);
-        if (sampleReader.getSamples().size() > 1) {
-          runSingleSample = false;
-          List<String> blankRuns = new ArrayList<>();
-          int x = 0;
-          for (String sampleId : sampleReader.getSamples()) {
-            x += 1;
-            System.out.println(x + " / " + sampleReader.getSamples().size() + " - " + sampleId);
-            Pipeline pipeline = new Pipeline(env,
-                config.runMatcher, vcfFile, sampleId,
-                config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
-                config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
-                config.runReporter, reporterInputFile, config.reporterTitle,
-                config.reporterSources, config.reporterCompact, config.reporterJson,
-                config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-                Pipeline.Mode.CLI, cliHelper.isVerbose());
-            if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
-              failIfNotTest();
-              blankRuns.add(sampleId);
-            }
-
-            if (x != sampleReader.getSamples().size()) {
-              System.out.println();
-              System.out.println("---");
-              System.out.println();
-            }
-          }
-          if (blankRuns.size() > 0) {
-            System.out.println("Nothing to do for " + String.join(", ", blankRuns));
+        if (config.samples.size() == 0) {
+          config.samples.addAll(sampleReader.getSamples());
+        } else {
+          List<String> missing = config.samples.stream()
+              .filter(s -> !sampleReader.getSamples().contains(s))
+              .toList();
+          if (missing.size() > 0) {
+            throw new ReportableException("The following samples could not be found in the VCF file: " +
+                String.join(", ", missing));
           }
         }
-      }
 
-      if (runSingleSample) {
-        // single sample is default for better error handling
+        List<String> blankRuns = new ArrayList<>();
+        int x = 0;
+        boolean singleSample = config.samples.size() == 1;
+        for (String sampleId : config.samples) {
+          x += 1;
+          if (config.samples.size() > 1) {
+            System.out.println(x + " / " + config.samples.size() + " - " + sampleId);
+          }
+          Pipeline pipeline = new Pipeline(env,
+              config.runMatcher, vcfFile, sampleId,
+              config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+              config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+              config.runReporter, reporterInputFile, config.reporterTitle,
+              config.reporterSources, config.reporterCompact, config.reporterJson,
+              config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
+              Pipeline.Mode.CLI, singleSample, cliHelper.isVerbose());
+          if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
+            failIfNotTest();
+            blankRuns.add(sampleId);
+          }
+
+          if (x != config.samples.size() && config.samples.size() > 1) {
+            System.out.println();
+            System.out.println("---");
+            System.out.println();
+          }
+        }
+        if (blankRuns.size() > 0) {
+          System.out.println("Nothing to do for " + String.join(", ", blankRuns));
+        }
+
+      } else {
         Pipeline pipeline = new Pipeline(env,
-            config.runMatcher, vcfFile, null,
+            false, null, null,
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-            Pipeline.Mode.CLI, cliHelper.isVerbose());
+            Pipeline.Mode.CLI, true, cliHelper.isVerbose());
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
           cliHelper.printHelp();
           System.out.println("Nothing to do.");

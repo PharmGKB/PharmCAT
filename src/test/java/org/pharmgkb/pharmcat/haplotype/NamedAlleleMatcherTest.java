@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
-import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -684,7 +683,6 @@ class NamedAlleleMatcherTest {
 
   @Test
   void testDpydEffectivelyPhased2(TestInfo testInfo) throws Exception {
-    TestUtils.setSaveTestOutput(true);
     // c.1218G>A/c.1218G>A c.1627A>G (*5)/c.1627A>G (*5) c.85T>C (*9A)
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-dpyd.json");
     Path vcfFile = new TestVcfBuilder(testInfo, "[c.85T>C (*9A) + c.1218G>A + c.1627A>G (*5)]/[c.1218G>A + c.1627A>G (*5)]")

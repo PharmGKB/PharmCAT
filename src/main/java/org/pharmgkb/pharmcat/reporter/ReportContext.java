@@ -103,7 +103,7 @@ public class ReportContext {
     DrugReport cpicWarfarinReport = getDrugReport(DataSource.CPIC, "warfarin");
     if (cpicWarfarinReport != null) {
       // move message from DrugReport level to AnnotationReport level
-      AnnotationReport cpicAnnotation = cpicWarfarinReport.getGuidelines().get(0).getAnnotations().get(0);
+      AnnotationReport cpicAnnotation = cpicWarfarinReport.getGuidelines().first().getAnnotations().first();
       SortedSet<MessageAnnotation> cpicMsgs = cpicWarfarinReport.getMessages().stream()
           .filter((msg) -> msg.getName().startsWith("pcat-"))
           .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(MessageAnnotation::getName))));

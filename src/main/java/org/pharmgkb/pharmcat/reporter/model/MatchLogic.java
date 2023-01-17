@@ -5,13 +5,15 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.ComparisonChain;
 
 
 /**
  * @author Ryan Whaley
  */
-public class MatchLogic {
+public class MatchLogic implements Comparable<MatchLogic> {
 
   @Expose
   @SerializedName("gene")
@@ -90,5 +92,22 @@ public class MatchLogic {
 
   public void setVariant(@Nullable String variant) {
     m_variant = StringUtils.stripToNull(variant);
+  }
+
+
+  @Override
+  public int compareTo(@NonNull MatchLogic o) {
+    if (o == this) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compare(m_gene, o.getGene())
+        .compare(m_hapsCalled, o.getHapsCalled())
+        .compare(m_hapsMissing, o.getHapsMissing())
+        .compare(m_dips, o.getDips())
+        .compare(m_drugs, o.getDrugs())
+        .compare(m_variant, o.getVariant())
+        .compare(m_variantsMissing, o.getVariantsMissing())
+        .result();
   }
 }

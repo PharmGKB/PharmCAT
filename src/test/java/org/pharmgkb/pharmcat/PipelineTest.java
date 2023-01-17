@@ -562,9 +562,9 @@ class PipelineTest {
 
     DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "simvastatin");
     assertNotNull(drugReport);
-    GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
+    GuidelineReport guidelineReport = drugReport.getGuidelines().first();
     assertEquals(1, guidelineReport.getAnnotations().size());
-    AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
+    AnnotationReport annotationReport = guidelineReport.getAnnotations().first();
     assertTrue(annotationReport.getHighlightedVariants().contains("rs4149056:T/T"));
   }
 
@@ -1709,9 +1709,9 @@ class PipelineTest {
     DrugReport drugReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "clomipramine");
     assertNotNull(drugReport);
     assertEquals(1, drugReport.getGuidelines().size());
-    GuidelineReport guidelineReport = drugReport.getGuidelines().get(0);
+    GuidelineReport guidelineReport = drugReport.getGuidelines().first();
     assertEquals(1, guidelineReport.getAnnotations().size());
-    AnnotationReport annotationReport = guidelineReport.getAnnotations().get(0);
+    AnnotationReport annotationReport = guidelineReport.getAnnotations().first();
     assertEquals("Poor Metabolizer", annotationReport.getPhenotypes().get("CYP2D6"));
   }
 

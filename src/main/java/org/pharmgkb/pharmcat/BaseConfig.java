@@ -5,6 +5,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import org.apache.commons.io.FilenameUtils;
@@ -34,6 +36,7 @@ class BaseConfig {
   Path outputDir;
   String baseFilename;
   boolean deleteIntermediateFiles;
+  SortedSet<String> samples = new TreeSet<>();
 
 
   BaseConfig(CliHelper cliHelper) throws IOException, ReportableException {
@@ -48,6 +51,12 @@ class BaseConfig {
 
     if (cliHelper.hasOption("def")) {
       definitionDir = cliHelper.getValidDirectory("def", false);
+    }
+    if (cliHelper.hasOption("s")) {
+      List<String> values = cliHelper.getValues("s");
+      for (String v : values) {
+        samples.addAll(sf_commaSplitter.splitToList(v));
+      }
     }
 
     if (runMatcher) {
@@ -100,6 +109,13 @@ class BaseConfig {
     deleteIntermediateFiles = cliHelper.hasOption("del");
   }
 
+
+  public boolean runSample(String sample) {
+    if (samples.size() == 0) {
+      return true;
+    }
+    return samples.contains(sample);
+  }
 
   public static String getBaseFilename(Path inputFile) {
     String filename = FilenameUtils.getBaseName(inputFile.getFileName().toString());

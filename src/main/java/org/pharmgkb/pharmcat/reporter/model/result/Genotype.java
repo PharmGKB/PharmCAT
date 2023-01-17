@@ -10,10 +10,12 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.pharmgkb.common.util.ComparatorUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
-public class Genotype {
+public class Genotype implements Comparable<Genotype> {
   @Expose
   @SerializedName("diplotypes")
   private final SortedSet<Diplotype> m_diplotypes = new TreeSet<>();
@@ -129,5 +131,13 @@ public class Genotype {
 
   public static Genotype forTest(List<Diplotype> diplotypes) {
     return new Genotype(diplotypes);
+  }
+
+  @Override
+  public int compareTo(@NonNull Genotype o) {
+    if (o == this) {
+      return 0;
+    }
+    return ComparatorUtils.compareCollection(m_diplotypes, o.getDiplotypes());
   }
 }

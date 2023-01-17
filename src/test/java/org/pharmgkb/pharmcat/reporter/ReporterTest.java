@@ -43,9 +43,9 @@ class ReporterTest {
     assertNotNull(warfarinReport, "Missing warfarin drug report");
     assertEquals(0, warfarinReport.getMessages().size());
     assertEquals(1, warfarinReport.getGuidelines().size());
-    GuidelineReport guidelineReport = warfarinReport.getGuidelines().get(0);
+    GuidelineReport guidelineReport = warfarinReport.getGuidelines().first();
     assertEquals(1, guidelineReport.getAnnotations().size());
-    assertEquals(2, guidelineReport.getAnnotations().get(0).getMessages().size());
+    assertEquals(2, guidelineReport.getAnnotations().first().getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()

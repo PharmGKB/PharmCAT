@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +10,8 @@ import java.util.TreeSet;
 import com.google.common.collect.HashMultimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
@@ -19,7 +20,7 @@ import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
-public class GuidelineReport {
+public class GuidelineReport implements Comparable<GuidelineReport> {
   @Expose
   @SerializedName("id")
   private String m_id;
@@ -38,7 +39,7 @@ public class GuidelineReport {
   private String m_url;
   @Expose
   @SerializedName("annotations")
-  private List<AnnotationReport> m_annotationReports = new ArrayList<>();
+  private SortedSet<AnnotationReport> m_annotationReports = new TreeSet<>();
 
   private transient final SortedSet<String> m_genes = new TreeSet<>();
   private transient final SortedSet<GeneReport> m_geneReports = new TreeSet<>();
@@ -107,7 +108,7 @@ public class GuidelineReport {
   }
 
 
-  public List<AnnotationReport> getAnnotations() {
+  public SortedSet<AnnotationReport> getAnnotations() {
     return m_annotationReports;
   }
 
@@ -198,5 +199,19 @@ public class GuidelineReport {
       annotationReport.checkDiplotypes();
       m_annotationReports.add(annotationReport);
     }
+  }
+
+  @Override
+  public int compareTo(@NonNull GuidelineReport o) {
+    if (this == o) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compare(m_name, o.getName())
+        .compare(m_source, o.getSource())
+        .compare(m_version, o.getVersion())
+        .compare(m_id, o.getId())
+        .compare(m_annotationReports, o.getAnnotations())
+        .result();
   }
 }

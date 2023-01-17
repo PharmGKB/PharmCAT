@@ -1,24 +1,28 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.google.common.base.Stopwatch;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -92,9 +96,7 @@ class BatchPharmCATTest {
       assertThat(systemOut, containsString("maximum of 2 processes"));
     }
 
-    checkForOutputFiles(tmpDir,
-        tmpDir.resolve("multisample.Sample_1.vcf"),
-        tmpDir.resolve("multisample.Sample_2.vcf"));
+    checkForOutputFiles(tmpDir, vcfFile);
 
     Path w1 = tmpDir.resolve("multisample.Sample_1.matcher_warnings.txt");
     assertTrue(Files.exists(w1), "Missing " + w1);
@@ -172,8 +174,9 @@ class BatchPharmCATTest {
   @Test
   void multisample(TestInfo testInfo) throws Exception {
     Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
+    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
     Path[] vcfFiles = new Path[] {
-        PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf"),
+        multisampleVcfFile,
         na18526Vcf
     };
 
@@ -209,8 +212,7 @@ class BatchPharmCATTest {
     }
 
     List<Path> allInputs = new ArrayList<>();
-    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
-    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_2.vcf"));
+    allInputs.add(multisampleVcfFile);
     allInputs.add(na18526Vcf);
     // don't add outside call because multisample VCFs handle base names differently
     //allInputs.add(outsideFile1);
@@ -227,8 +229,9 @@ class BatchPharmCATTest {
   @Test
   void multisampleRestricted(TestInfo testInfo) throws Exception {
     Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
+    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
     Path[] vcfFiles = new Path[] {
-        PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf"),
+        multisampleVcfFile,
         na18526Vcf
     };
 
@@ -264,8 +267,7 @@ class BatchPharmCATTest {
     }
 
     List<Path> allInputs = new ArrayList<>();
-    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_1.vcf"));
-    allInputs.add(tmpDir.resolve("VcfSampleReaderTest.Sample_2.vcf"));
+    allInputs.add(multisampleVcfFile);
     allInputs.add(na18526Vcf);
     // don't add outside call because multisample VCFs handle base names differently
     //allInputs.add(outsideFile1);
@@ -288,7 +290,8 @@ class BatchPharmCATTest {
 
   private static final boolean sf_debugCheckOutput = false;
 
-  private void checkForOutputFiles(Path dir, Path... inputFiles) {
+  private void checkForOutputFiles(Path dir, Path... inputFiles) throws IOException {
+    Multimap<String, String> sampleMap = HashMultimap.create();
     for (Path file : inputFiles) {
       String baseName = BaseConfig.getBaseFilename(file);
       String extension = file.getFileName().toString().substring(baseName.length());
@@ -300,16 +303,43 @@ class BatchPharmCATTest {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .match.json");
         }
-        Path f = dir.resolve(baseName + ".match.json");
-        assertTrue(Files.exists(f), "Missing " + f);
+        VcfSampleReader reader = new VcfSampleReader(file);
+        boolean singleSample = reader.getSamples().size() == 1;
+        for (String sampleId : reader.getSamples()) {
+          sampleMap.put(baseName, sampleId);
+          Path f;
+          if (singleSample) {
+            f = dir.resolve(baseName + ".match.json");
+          } else if (baseName.equals(sampleId)) {
+            f = dir.resolve(baseName + ".match.json");
+          } else {
+            f = dir.resolve(baseName + "." + sampleId + ".match.json");
+          }
+          assertTrue(Files.exists(f), "Missing " + f);
+        }
         checked = true;
       }
       if (extension.endsWith(".vcf") || extension.equals(".match.json") || extension.equals(".outside.tsv")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .phenotype.json");
         }
-        Path f = dir.resolve(baseName + ".phenotype.json");
-        assertTrue(Files.exists(f), "Missing " + f);
+        if (extension.endsWith(".vcf")) {
+          boolean singleSample = sampleMap.get(baseName).size() == 1;
+          for (String sampleId : sampleMap.get(baseName)) {
+            Path f;
+            if (singleSample) {
+              f = dir.resolve(baseName + ".match.json");
+            } else if (baseName.equals(sampleId)) {
+              f = dir.resolve(sampleId + ".phenotype.json");
+            } else {
+              f = dir.resolve(baseName + "." + sampleId + ".phenotype.json");
+            }
+            assertTrue(Files.exists(f), "Missing " + f);
+          }
+        } else {
+          Path f = dir.resolve(baseName + ".phenotype.json");
+          assertTrue(Files.exists(f), "Missing " + f);
+        }
         checked = true;
       }
       if (extension.endsWith(".vcf") || extension.equals(".match.json") || extension.equals(".outside.tsv") ||
@@ -317,13 +347,102 @@ class BatchPharmCATTest {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .report.html");
         }
-        Path f = dir.resolve(baseName + ".report.html");
-        assertTrue(Files.exists(f), "Missing " + f);
+        if (extension.endsWith(".vcf")) {
+          boolean singleSample = sampleMap.get(baseName).size() == 1;
+          for (String sampleId : sampleMap.get(baseName)) {
+            Path f;
+            if (singleSample) {
+              f = dir.resolve(baseName + ".match.json");
+            } else if (baseName.equals(sampleId)) {
+              f = dir.resolve(baseName + ".report.html");
+            } else {
+              f = dir.resolve(baseName + "." + sampleId + ".report.html");
+            }
+            assertTrue(Files.exists(f), "Missing " + f);
+          }
+        } else {
+          Path f = dir.resolve(baseName + ".report.html");
+          assertTrue(Files.exists(f), "Missing " + f);
+        }
         checked = true;
       }
       if (!checked) {
         fail("Unrecognized extension: " + extension + " (" + file.getFileName() + ")");
       }
     }
+  }
+
+  @Test
+  void compareToPharmcat100(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/100samples.vcf.bgz");
+
+    Path batchTmpDir = TestUtils.getTestOutputDir(testInfo, "batch", true);
+    copyFiles(batchTmpDir, vcfFile);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-vcf", batchTmpDir.resolve(vcfFile.getFileName().toString()).toString(),
+        "-v"
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
+
+
+    System.out.println("-------------------------");
+
+    Stopwatch stopwatch = Stopwatch.createStarted();
+    Path serialTmpDir = TestUtils.getTestOutputDir(testInfo, "serial", true);
+    copyFiles(serialTmpDir, vcfFile);
+    systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+        "-vcf", serialTmpDir.resolve(vcfFile.getFileName().toString()).toString(),
+        "-v"
+    }));
+    stopwatch.stop();
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+
+
+    VcfSampleReader vsReader = new VcfSampleReader(vcfFile);
+    List<String> samples = vsReader.getSamples();
+
+    for (String sampleId : samples) {
+      checkResult(batchTmpDir, serialTmpDir, "100samples", sampleId);
+    }
+  }
+
+  private void checkResult(Path batchDir, Path serialDir, String basename, String sampleId) throws IOException {
+    System.out.println("Checking " + sampleId);
+    System.out.println("Checking matcher results");
+    String batchMatchJson = readMatchJson(batchDir, basename, "match", sampleId);
+    String serialMatchJson = readMatchJson(serialDir, basename, "match", sampleId);
+    assertEquals(batchMatchJson, serialMatchJson, "Mismatch in " + sampleId);
+
+    System.out.println("Checking phenotyper results");
+    String batchPhenotypeJson = readMatchJson(batchDir, basename, "phenotype", sampleId);
+    String serialPhenotypeJson = readMatchJson(serialDir, basename, "phenotype", sampleId);
+    assertEquals(batchPhenotypeJson, serialPhenotypeJson, "Mismatch in " + sampleId);
+
+    System.out.println("Checking reporter results");
+    String batchReportHtml = Files.readString(batchDir.resolve("100samples." + sampleId + ".report.html"));
+    String serialReportHtml = Files.readString(serialDir.resolve("100samples." + sampleId + ".report.html"));
+    assertEquals(batchReportHtml, serialReportHtml, "Mismatch in " + sampleId);
+  }
+
+
+  private String readMatchJson(Path dir, String basename, String component, String sampleId) throws IOException {
+
+    Path file = dir.resolve(basename + "." + sampleId + "." + component + ".json");
+    assertTrue(Files.exists(file), "Cannot find " + file);
+    StringBuilder builder = new StringBuilder();
+    try (BufferedReader reader = Files.newBufferedReader(file)) {
+      String line;
+      while ((line = reader.readLine()) != null) {
+        if (!line.contains("\"timestamp\":")) {
+          builder.append(line)
+              .append("\n");
+        }
+      }
+    }
+    return builder.toString();
   }
 }

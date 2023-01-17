@@ -9,6 +9,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.pharmgkb.common.util.ComparisonChain;
 
 
 /**
@@ -18,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Lester Carter
  * @author Ryan Whaley
  */
-public class MessageAnnotation {
+public class MessageAnnotation implements Comparable<MessageAnnotation> {
   public static final String TYPE_AMBIGUITY = "ambiguity";
   public static final String TYPE_COMBO = "combo-partial";
   private static final String TYPE_EXTRA_POSITION = "extra-position-notes";
@@ -154,5 +156,19 @@ public class MessageAnnotation {
       return Collections.emptyList();
     }
     return ImmutableList.copyOf(sf_commaSplitter.split(value));
+  }
+
+  @Override
+  public int compareTo(@NonNull MessageAnnotation o) {
+    if (o == this) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compare(m_name, o.getName())
+        .compare(m_version, o.getVersion())
+        .compare(m_exceptionType, o.getExceptionType())
+        .compare(m_message, o.getMessage())
+        .compare(m_matches, o.getMatches())
+        .result();
   }
 }

@@ -1,21 +1,24 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
 
 
-public class AnnotationReport {
+public class AnnotationReport implements Comparable<AnnotationReport> {
   @Expose
   @SerializedName("implications")
   private final SortedMap<String, String> m_implications = new TreeMap<>();
@@ -36,16 +39,16 @@ public class AnnotationReport {
   private String m_population = TextConstants.NA;
   @Expose
   @SerializedName("genotypes")
-  private final List<Genotype> m_genotypes = new ArrayList<>();
+  private final SortedSet<Genotype> m_genotypes = new TreeSet<>();
   @Expose
   @SerializedName("comments")
   private String m_comments = TextConstants.NA;
   @Expose
   @SerializedName("messages")
-  private final List<MessageAnnotation> m_messages = new ArrayList<>();
+  private final SortedSet<MessageAnnotation> m_messages = new TreeSet<>();
   @Expose
   @SerializedName("highlightedVariants")
-  private final List<String> m_highlightedVariants = new ArrayList<>();
+  private final SortedSet<String> m_highlightedVariants = new TreeSet<>();
 
 
   /**
@@ -129,7 +132,7 @@ public class AnnotationReport {
   }
 
 
-  public List<Genotype> getGenotypes() {
+  public SortedSet<Genotype> getGenotypes() {
     return m_genotypes;
   }
 
@@ -166,7 +169,7 @@ public class AnnotationReport {
   }
 
 
-  public List<MessageAnnotation> getMessages(){
+  public SortedSet<MessageAnnotation> getMessages(){
     return m_messages;
   }
 
@@ -175,7 +178,7 @@ public class AnnotationReport {
   }
 
 
-  public List<String> getHighlightedVariants() {
+  public SortedSet<String> getHighlightedVariants() {
     return m_highlightedVariants;
   }
 
@@ -201,5 +204,26 @@ public class AnnotationReport {
     for (String gene : mismatches.keySet()) {
       m_phenotypes.put(gene, String.join("/", mismatches.values()));
     }
+  }
+
+
+  @Override
+  public int compareTo(@NonNull AnnotationReport o) {
+    if (o == this) {
+      return 0;
+    }
+    return new ComparisonChain()
+        .compare(m_localId, o.getLocalId())
+        .compare(m_genotypes, o.getGenotypes())
+        .compare(m_drugRecommendation, o.getDrugRecommendation())
+        .compare(m_classification, o.getClassification())
+        .compare(m_population, o.getPopulation())
+        .compare(m_comments, o.getComments())
+        .compare(m_highlightedVariants, o.getHighlightedVariants())
+        .compare(m_messages, o.getMessages())
+        .compare(m_implications, o.getImplications())
+        .compare(m_phenotypes, o.getPhenotypes())
+        .compare(m_activityScore, o.getActivityScores())
+        .result();
   }
 }

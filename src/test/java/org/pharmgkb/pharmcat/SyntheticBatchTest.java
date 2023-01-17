@@ -563,7 +563,7 @@ class SyntheticBatchTest {
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compact, false,
         testDir, null, m_compact,
-        Pipeline.Mode.TEST, false
+        Pipeline.Mode.TEST, true, false
     ).call();
   }
 
