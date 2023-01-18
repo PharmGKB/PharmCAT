@@ -691,7 +691,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         pgx_pos_only_bgz: Path = tmp_dir / (output_basename + '.pgx_pos_only.vcf.bgz')
         if verbose:
             print('  * Retaining PGx positions, regardless of alleles')
-        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-U', '-T', str(uniallelic_positions_vcf), '-Oz',
+        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-T', str(uniallelic_positions_vcf), '-Oz',
              '-o', str(pgx_pos_only_bgz), str(vcf_file)])
         index_vcf(pgx_pos_only_bgz, verbose)
 
@@ -813,6 +813,11 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
+                                # if all genotypes are missing, move next
+                                is_all_geno_missing = all(x.split(':')[0] in ['.|.', './.', '.'] for x in fields[9:])
+                                if is_all_geno_missing:
+                                    continue
+
                                 # record input PGx positions in a list
                                 # use this to fill up multi-allelic ALT later
                                 if input_chr_pos not in input_pos:
