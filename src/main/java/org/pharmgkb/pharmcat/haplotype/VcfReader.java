@@ -29,6 +29,7 @@ import org.pharmgkb.parser.vcf.model.ContigMetadata;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
+import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,7 +50,7 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
-  private boolean m_useSpecificSample;
+  private final boolean m_useSpecificSample;
   private String m_sampleId;
   private int m_sampleIdx = -1;
   private VcfMetadata m_vcfMetadata;
@@ -83,6 +84,22 @@ public class VcfReader implements VcfLineParser {
     m_useSpecificSample = m_sampleId != null;
     read(vcfFile);
   }
+
+
+  /**
+   * Constructor.
+   * Reads in VCF file and pull the sample's alleles for positions of interest.
+   *
+   * @param locationsOfInterest set of chr:positions to pull alleles for
+   */
+  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, BufferedReader vcfReader,
+      @Nullable String sampleId) throws IOException {
+    m_locationsOfInterest = locationsOfInterest;
+    m_sampleId = sampleId;
+    m_useSpecificSample = m_sampleId != null;
+    read(vcfReader);
+  }
+
 
   /**
    * Constructor.  Primarily for testing.
@@ -138,42 +155,48 @@ public class VcfReader implements VcfLineParser {
    */
   private void read(Path vcfFile) throws IOException {
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
+    Preconditions.checkArgument(VcfFile.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
-    // <chr:position, allele>
     try (BufferedReader reader = openVcfFile(vcfFile)) {
-      // read VCF file
-      try (VcfParser vcfParser = new VcfParser.Builder()
-          .fromReader(reader)
-          .parseWith(this)
-          .build()) {
-        m_vcfMetadata = vcfParser.parseMetadata();
-        if (m_useSpecificSample) {
-          for (int x = 0; x < m_vcfMetadata.getNumSamples(); x += 1) {
-            if (m_sampleId.equals(m_vcfMetadata.getSampleName(x))) {
-              m_sampleIdx = x;
-              break;
-            }
-          }
-          if (m_sampleIdx == -1) {
-            throw new IllegalStateException("Cannot find sample '" + m_sampleId + "'");
-          }
-        } else {
-          m_sampleId = m_vcfMetadata.getSampleName(0);
-          m_sampleIdx = 0;
-        }
-        for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
-          if (cm.getAssembly() != null) {
-            if (m_genomeBuild == null) {
-              m_genomeBuild = cm.getAssembly();
-            } else if (!m_genomeBuild.equals(cm.getAssembly())) {
-              throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " vs " +
-                  cm.getAssembly() + " for contig)");
-            }
+      read(reader);
+    }
+  }
+
+  /**
+   * Read VCF data via reader.
+   */
+  private void read(BufferedReader reader) throws IOException {
+    // read VCF file
+    try (VcfParser vcfParser = new VcfParser.Builder()
+        .fromReader(reader)
+        .parseWith(this)
+        .build()) {
+      m_vcfMetadata = vcfParser.parseMetadata();
+      if (m_useSpecificSample) {
+        for (int x = 0; x < m_vcfMetadata.getNumSamples(); x += 1) {
+          if (m_sampleId.equals(m_vcfMetadata.getSampleName(x))) {
+            m_sampleIdx = x;
+            break;
           }
         }
-        vcfParser.parse();
+        if (m_sampleIdx == -1) {
+          throw new IllegalStateException("Cannot find sample '" + m_sampleId + "'");
+        }
+      } else {
+        m_sampleId = m_vcfMetadata.getSampleName(0);
+        m_sampleIdx = 0;
       }
+      for (ContigMetadata cm : m_vcfMetadata.getContigs().values()) {
+        if (cm.getAssembly() != null) {
+          if (m_genomeBuild == null) {
+            m_genomeBuild = cm.getAssembly();
+          } else if (!m_genomeBuild.equals(cm.getAssembly())) {
+            throw new IllegalStateException("VCF file uses different assemblies (" + m_genomeBuild + " vs " +
+                cm.getAssembly() + " for contig)");
+          }
+        }
+      }
+      vcfParser.parse();
     }
   }
 
@@ -452,14 +475,5 @@ public class VcfReader implements VcfLineParser {
       return new BufferedReader(new InputStreamReader(new GZIPInputStream(Files.newInputStream(vcfFile))));
     }
     return Files.newBufferedReader(vcfFile);
-  }
-
-  public static boolean isVcfFile(Path vcfFile) {
-    if (!Files.isRegularFile(vcfFile)) {
-      return false;
-    }
-    String filename = vcfFile.toString();
-    boolean isGzipped = filename.endsWith(".vcf.bgz") || filename.endsWith(".vcf.gz");
-    return isGzipped || filename.endsWith(".vcf");
   }
 }

@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
@@ -8,20 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
-import org.pharmgkb.pharmcat.haplotype.VcfReader;
-import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -35,7 +34,7 @@ public class BatchPharmCAT {
   private static final long sf_bytesPerProcess = (1024 / sf_procsPerGb) * 1024 * 1024;
   private final BaseConfig m_config;
   private final boolean m_verbose;
-  private final Map<String, Path> m_vcfFilesToProcess = new TreeMap<>();
+  private final Map<String, VcfFile> m_vcfFilesToProcess = new TreeMap<>();
   private final Map<String, Path> m_matchFilesToProcess = new TreeMap<>();
   private final Map<String, Path> m_outsideCallFilesToProcess = new TreeMap<>();
   private final Map<String, Path> m_phenotypeFilesToProcess = new TreeMap<>();
@@ -137,29 +136,27 @@ public class BatchPharmCAT {
     m_config = config;
     m_verbose = verbose;
 
-    try (Stream<Path> stream = Files.list(inputDir)) {
-      stream.filter(Files::isRegularFile)
-          .forEach(f -> {
-            String name = f.toString().toLowerCase();
-            String basename = BaseConfig.getBaseFilename(f);
-            if (VcfReader.isVcfFile(f)) {
-              if (config.runMatcher) {
-                m_vcfFilesToProcess.put(basename, f);
-              }
-            } else if (name.endsWith(".match.json")) {
-              if (config.runPhenotyper) {
-                m_matchFilesToProcess.put(basename, f);
-              }
-            } else if (name.endsWith(".outside.tsv")) {
-              if (config.runPhenotyper) {
-                m_outsideCallFilesToProcess.put(basename, f);
-              }
-            } else if (name.endsWith(".phenotype.json")) {
-              if (config.runReporter) {
-                m_phenotypeFilesToProcess.put(basename, f);
-              }
-            }
-          });
+    for (File f : Objects.requireNonNull(inputDir.toFile().listFiles())) {
+      Path file = f.toPath();
+      String name = file.toString().toLowerCase();
+      String basename = BaseConfig.getBaseFilename(file);
+      if (VcfFile.isVcfFile(file)) {
+        if (config.runMatcher) {
+          m_vcfFilesToProcess.put(basename, new VcfFile(file));
+        }
+      } else if (name.endsWith(".match.json")) {
+        if (config.runPhenotyper) {
+          m_matchFilesToProcess.put(basename, file);
+        }
+      } else if (name.endsWith(".outside.tsv")) {
+        if (config.runPhenotyper) {
+          m_outsideCallFilesToProcess.put(basename, file);
+        }
+      } else if (name.endsWith(".phenotype.json")) {
+        if (config.runReporter) {
+          m_phenotypeFilesToProcess.put(basename, file);
+        }
+      }
     }
     if (vcfFile != null) {
       if (!Files.isRegularFile(vcfFile)) {
@@ -169,7 +166,7 @@ public class BatchPharmCAT {
       }
       // input VCF file trumps other VCF files in inputDir
       m_vcfFilesToProcess.clear();
-      m_vcfFilesToProcess.put(BaseConfig.getBaseFilename(vcfFile), vcfFile);
+      m_vcfFilesToProcess.put(BaseConfig.getBaseFilename(vcfFile), new VcfFile(vcfFile));
     }
 
     if (m_vcfFilesToProcess.isEmpty() && m_matchFilesToProcess.isEmpty() && m_outsideCallFilesToProcess.isEmpty() &&
@@ -198,13 +195,12 @@ public class BatchPharmCAT {
     if (m_config.runMatcher) {
       System.out.println("Found " + m_vcfFilesToProcess.size() + " VCF files...");
       for (String baseFilename : m_vcfFilesToProcess.keySet()) {
-        Path file = m_vcfFilesToProcess.get(baseFilename);
-        if (file != null) {
-          VcfSampleReader sampleReader = new VcfSampleReader(file);
-          boolean singleSample = sampleReader.getSamples().size() == 1;
-          for (String sampleId : sampleReader.getSamples()) {
+        VcfFile vcfFile = m_vcfFilesToProcess.get(baseFilename);
+        if (vcfFile != null) {
+          boolean singleSample = vcfFile.getSamples().size() == 1;
+          for (String sampleId : vcfFile.getSamples()) {
             if (m_config.runSample(sampleId)) {
-              taskBuilders.add(new Builder().fromMatcher(baseFilename, file, sampleId, singleSample));
+              taskBuilders.add(new Builder().fromMatcher(baseFilename, vcfFile, sampleId, singleSample));
             }
           }
         }
@@ -304,7 +300,7 @@ public class BatchPharmCAT {
   public class Builder {
     private String m_baseFilename;
     private boolean m_runMatcher;
-    private Path m_vcfFile;
+    private VcfFile m_vcfFile;
     private String m_sampleId;
     private boolean m_runPhenotyper;
     private Path m_piFile;
@@ -314,7 +310,7 @@ public class BatchPharmCAT {
     private boolean m_singleSample;
 
 
-    public Builder fromMatcher(String baseFilename, Path file, @Nullable String sampleId, boolean singleSample) {
+    public Builder fromMatcher(String baseFilename, VcfFile file, @Nullable String sampleId, boolean singleSample) {
       Preconditions.checkState(m_config.runMatcher);
       Preconditions.checkNotNull(file);
       m_baseFilename = baseFilename;

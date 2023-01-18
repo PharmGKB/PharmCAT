@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.TestUtils;
+import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -205,12 +206,12 @@ class VcfReaderTest {
   @Test
   void testIsVcf(TestInfo testInfo) throws IOException {
     Path file = TestUtils.createTempFile(testInfo, ".vcf");
-    assertFalse(VcfReader.isVcfFile(file.getParent()));
-    assertTrue(VcfReader.isVcfFile(file));
-    assertTrue(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.gz")));
-    assertTrue(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.bgz")));
+    assertFalse(VcfFile.isVcfFile(file.getParent()));
+    assertTrue(VcfFile.isVcfFile(file));
+    assertTrue(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.gz")));
+    assertTrue(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".vcf.bgz")));
 
-    assertFalse(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".txt")));
-    assertFalse(VcfReader.isVcfFile(TestUtils.createTempFile(testInfo, ".txt.gz")));
+    assertFalse(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".txt")));
+    assertFalse(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".txt.gz")));
   }
 }

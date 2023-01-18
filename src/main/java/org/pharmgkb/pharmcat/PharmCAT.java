@@ -4,10 +4,10 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import com.google.common.base.Stopwatch;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
-import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
@@ -60,10 +60,10 @@ public class PharmCAT {
 
       BaseConfig config = new BaseConfig(cliHelper);
 
-      Path vcfFile = null;
+      VcfFile vcfFile = null;
       if (config.runMatcher) {
         if (cliHelper.hasOption("vcf")) {
-          vcfFile = cliHelper.getValidFile("vcf", true);
+          vcfFile = new VcfFile(cliHelper.getValidFile("vcf", true));
         } else {
           System.out.println(
               """
@@ -130,13 +130,16 @@ public class PharmCAT {
       Env env = new Env(config.definitionDir);
 
       if (config.runMatcher) {
-        VcfSampleReader sampleReader = new VcfSampleReader(vcfFile);
+        Objects.requireNonNull(vcfFile);
         if (config.samples.size() == 0) {
-          config.samples.addAll(sampleReader.getSamples());
+          config.samples.addAll(vcfFile.getSamples());
         } else {
-          List<String> missing = config.samples.stream()
-              .filter(s -> !sampleReader.getSamples().contains(s))
-              .toList();
+          List<String> missing = new ArrayList<>();
+          for (String sid : config.samples) {
+            if (!vcfFile.getSamples().contains(sid)) {
+              missing.add(sid);
+            }
+          }
           if (missing.size() > 0) {
             throw new ReportableException("The following samples could not be found in the VCF file: " +
                 String.join(", ", missing));

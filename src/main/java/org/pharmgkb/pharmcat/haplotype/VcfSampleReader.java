@@ -12,6 +12,7 @@ import org.pharmgkb.parser.vcf.model.ContigMetadata;
 import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
+import org.pharmgkb.pharmcat.VcfFile;
 
 
 /**
@@ -25,14 +26,23 @@ public class VcfSampleReader implements VcfLineParser {
 
   public VcfSampleReader(Path vcfFile) throws IOException {
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
+    Preconditions.checkArgument(VcfFile.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
+    try (BufferedReader reader = VcfReader.openVcfFile(vcfFile)) {
+      read(reader);
+    }
+  }
+
+  public VcfSampleReader(BufferedReader reader) throws IOException {
+    read(reader);
+  }
+
+  private void read(BufferedReader reader) throws IOException {
     // read VCF file
-    try (BufferedReader reader = VcfReader.openVcfFile(vcfFile);
-         VcfParser vcfParser = new VcfParser.Builder()
-             .fromReader(reader)
-             .parseWith(this)
-             .build()) {
+    try (VcfParser vcfParser = new VcfParser.Builder()
+        .fromReader(reader)
+        .parseWith(this)
+        .build()) {
       String genomeBuild = null;
       VcfMetadata vcfMetadata = vcfParser.parseMetadata();
       for (ContigMetadata cm : vcfMetadata.getContigs().values()) {
@@ -40,8 +50,8 @@ public class VcfSampleReader implements VcfLineParser {
           if (genomeBuild == null) {
             genomeBuild = cm.getAssembly();
           } else if (!genomeBuild.equals(cm.getAssembly())) {
-            throw new IllegalStateException("VCF file " + vcfFile.getFileName() + " uses different assemblies (" +
-                genomeBuild + " vs " + cm.getAssembly() + " for contig)");
+            throw new IllegalStateException("VCF file uses different assemblies (" + genomeBuild + " vs. " +
+                cm.getAssembly() + " for contig)");
           }
         }
       }

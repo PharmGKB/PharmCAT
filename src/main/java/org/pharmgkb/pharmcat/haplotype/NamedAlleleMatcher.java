@@ -20,6 +20,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -126,7 +127,7 @@ public class NamedAlleleMatcher {
       NamedAlleleMatcher namedAlleleMatcher =
           new NamedAlleleMatcher(definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
               .printWarnings();
-      Result result = namedAlleleMatcher.call(vcfFile);
+      Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
       Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", ".match.json");
       ResultSerializer resultSerializer = new ResultSerializer();
@@ -152,14 +153,6 @@ public class NamedAlleleMatcher {
     if (htmlFile != null) {
       resultSerializer.toHtml(result, htmlFile);
     }
-  }
-
-
-  /**
-   * Builds a new VCF reader for the given file.
-   */
-  VcfReader buildVcfReader(Path vcfFile, @Nullable String sampleId) throws IOException {
-    return new VcfReader(m_locationsOfInterest, vcfFile, sampleId);
   }
 
 
@@ -208,15 +201,8 @@ public class NamedAlleleMatcher {
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
-  public Result call(Path vcfFile) throws IOException {
-    return call(vcfFile, null);
-  }
-
-  /**
-   * Calls diplotypes for the given VCF file for all genes for which a definition exists.
-   */
-  public Result call(Path vcfFile, @Nullable String sampleId) throws IOException {
-    VcfReader vcfReader = buildVcfReader(vcfFile, sampleId);
+  public Result call(VcfFile vcfFile, @Nullable String sampleId) throws IOException {
+    VcfReader vcfReader = vcfFile.getReader(m_locationsOfInterest, sampleId);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());

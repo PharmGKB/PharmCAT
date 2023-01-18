@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -11,6 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -52,12 +52,11 @@ public class ResultBuilder {
   }
 
 
-  public ResultBuilder forFile(Path vcfFile, Map<String, Collection<String>> warnings) {
+  public ResultBuilder forFile(VcfFile vcfFile, Map<String, Collection<String>> warnings) {
     Preconditions.checkNotNull(vcfFile);
-    Preconditions.checkArgument(VcfReader.isVcfFile(vcfFile), "%s is not a VCF file", vcfFile);
 
     m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
-        PathUtils.getFilename(vcfFile), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6));
+        PathUtils.getFilename(vcfFile.getFile()), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6));
     if (warnings != null) {
       m_result.setVcfWarnings(warnings);
     }

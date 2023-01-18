@@ -87,7 +87,7 @@ class PipelineWrapper {
   Path execute(Path outsideCallPath) throws Exception {
     Path vcfFile = m_vcfBuilder.generate();
     Pipeline pcat = new Pipeline(new Env(),
-        true, vcfFile, null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
+        true, new VcfFile(vcfFile, false), null, m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compactReport, true,
         m_outputPath, null, m_compactReport,

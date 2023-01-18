@@ -7,6 +7,7 @@ import java.util.SortedSet;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
+import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -118,7 +119,7 @@ class NamedAlleleMatcherCyp2c9Test {
     definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, false, true);
-    Result result = namedAlleleMatcher.call(vcfFile);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile, false), null);
     SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
     assertEquals(1, extraPositions.size());
     assertEquals("rs12777823", extraPositions.first().getRsid());

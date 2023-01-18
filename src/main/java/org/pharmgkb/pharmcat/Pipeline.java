@@ -48,7 +48,7 @@ public class Pipeline implements Callable<PipelineResult> {
   };
   private final Env m_env;
   private final boolean m_runMatcher;
-  private Path m_vcfFile;
+  private VcfFile m_vcfFile;
   private String m_sampleId;
   private boolean m_topCandidateOnly = true;
   private boolean m_findCombinations;
@@ -78,7 +78,7 @@ public class Pipeline implements Callable<PipelineResult> {
 
 
   public Pipeline(Env env,
-      boolean runMatcher, @Nullable Path vcfFile, @Nullable String sampleId,
+      boolean runMatcher, @Nullable VcfFile vcfFile, @Nullable String sampleId,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
@@ -90,9 +90,9 @@ public class Pipeline implements Callable<PipelineResult> {
     m_runMatcher = runMatcher;
     m_baseDir = outputDir;
     if (runMatcher) {
-      m_vcfFile = vcfFile;
+      m_vcfFile = Objects.requireNonNull(vcfFile);
       m_sampleId = sampleId;
-      generateBasename(baseFilename, vcfFile, sampleId, singleSample);
+      generateBasename(baseFilename, vcfFile.getFile(), sampleId, singleSample);
       m_matcherJsonFile = m_baseDir.resolve(m_basename + ".match.json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
