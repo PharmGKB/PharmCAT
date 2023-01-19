@@ -1,6 +1,8 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
@@ -52,10 +55,29 @@ class BaseConfig {
     if (cliHelper.hasOption("def")) {
       definitionDir = cliHelper.getValidDirectory("def", false);
     }
+    if (cliHelper.hasOption("s") && cliHelper.hasOption("S")) {
+      throw new ReportableException("Cannot specify both -s and -S");
+    }
     if (cliHelper.hasOption("s")) {
       List<String> values = cliHelper.getValues("s");
       for (String v : values) {
         samples.addAll(sf_commaSplitter.splitToList(v));
+      }
+    }
+    if (cliHelper.hasOption("S")) {
+      Path sampleFile = cliHelper.getValidFile("S", true);
+      try (BufferedReader reader = Files.newBufferedReader(sampleFile)) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+          String sample = StringUtils.stripToNull(line);
+          if (sample == null) {
+            continue;
+          }
+          if (sample.contains(",")) {
+            throw new ReportableException("Error: Please remove comma ',' from sample names");
+          }
+          samples.add(sample);
+        }
       }
     }
 

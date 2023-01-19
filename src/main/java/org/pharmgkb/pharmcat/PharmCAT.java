@@ -25,7 +25,8 @@ public class PharmCAT {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
           // inputs
-          .addOption("s", "sample", "comma-separated list of samples", false, "sample")
+          .addOption("s", "samples", "comma-separated list of samples", false, "samples")
+          .addOption("S", "sample-file", "file containing a list of sample, one per line", false, "file")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "run named allele matcher")

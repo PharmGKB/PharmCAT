@@ -47,6 +47,7 @@ public class BatchPharmCAT {
           // inputs
           .addOption("i", "input-dir", "directory containing source data files", false, "dir")
           .addOption("s", "samples", "comma-separated list of samples", false, "samples")
+          .addOption("S", "sample-file", "file containing a list of sample, one per line", false, "file")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "run named allele matcher independently")
