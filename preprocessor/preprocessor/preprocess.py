@@ -32,6 +32,12 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     # make sure we have samples
     if samples is None or len(samples) == 0:
         samples = util.read_vcf_samples(vcf_files[0])
+    else:
+        # make sure samples are in vcf file
+        vcf_samples = util.read_vcf_samples(vcf_files[0])
+        for sample in samples:
+            if sample not in vcf_samples:
+                raise ReportableException('Sample "%s" not in VCF' % sample)
 
     # list of files to be deleted
     tmp_files_to_be_removed: List[Path] = []

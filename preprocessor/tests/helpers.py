@@ -47,12 +47,14 @@ def md5hash(file: Path):
         return file_hash.hexdigest()
 
 
-def read_vcf(file: Path):
+def read_vcf(file: Path, skip_comments: bool = True):
     """Reads VCF file and (1) strips trailing spaces, (2) removes empty lines and (3) normalizes line endings."""
     with open(file, 'r') as f:
         lines = []
         for line in f:
             line = line.rstrip()
+            if line.startswith('##') and skip_comments:
+                continue
             if line:
                 lines.append(line)
         return '\n'.join(lines)
@@ -60,7 +62,9 @@ def read_vcf(file: Path):
 
 def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, split_sample: bool = False,
                       copy_to_test_dir: bool = False):
+    key: str = basename
     if sample:
+        key += '/%s' % sample
         actual: Path = tmp_dir / ('%s.%s.preprocessed.vcf' % (basename, sample))
     elif split_sample:
         actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
@@ -76,4 +80,5 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
     print(read_vcf(actual))
-    assert read_vcf(expected) == read_vcf(actual), '%s mismatch' % sample
+
+    assert read_vcf(expected) == read_vcf(actual), '%s mismatch' % key

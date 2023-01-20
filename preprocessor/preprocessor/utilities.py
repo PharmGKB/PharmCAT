@@ -1016,13 +1016,12 @@ def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_d
     return missing_pos_file
 
 
-def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename: str, sample: str,
-                               multisample: bool):
+def _export_single_sample(vcf_file: Path, output_dir: Path, output_basename: str, sample: str,
+                          multisample: bool):
     """
     Create final PharmCAT-ready VCF file.
 
     "bcftools view <options> <input_vcf>". For bcftools common options, see running_bcftools().
-    "-U" exclude sites without any called genotype, i.e., all GT = './.'
     "--force-samples" only warn about unknown subset samples
     """
     if output_basename:
@@ -1034,8 +1033,12 @@ def _output_pharmcat_ready_vcf(vcf_file: Path, output_dir: Path, output_basename
         output_file_name = output_dir / (sample + '.preprocessed.vcf')
 
     print('Generating PharmCAT-ready VCF for', sample)
-    run([common.BCFTOOLS_PATH, 'view', '--no-version', '--force-samples', '-U', '-s', sample, '-Ov',
-         '-o', str(output_file_name), str(vcf_file)])
+    tmp_file: Path = output_file_name.parent / ('tmp.' + sample + '.vcf')
+    run([common.BCFTOOLS_PATH, 'view', '--no-version', '-s', sample, '-Ov',
+         '-o', str(tmp_file), str(vcf_file)])
+    run([common.BCFTOOLS_PATH, 'annotate', '--no-version', '-x', '^INFO/PX', '-s', sample, '-Ov',
+         '-o', str(output_file_name), str(tmp_file)])
+    tmp_file.unlink()
 
 
 def export_single_sample_vcf(vcf_file: Path, samples: List[str], output_dir: Path, output_basename: str,
@@ -1048,12 +1051,12 @@ def export_single_sample_vcf(vcf_file: Path, samples: List[str], output_dir: Pat
         with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
             futures = []
             for sample in samples:
-                futures.append(e.submit(_output_pharmcat_ready_vcf, vcf_file, output_dir, output_basename,
+                futures.append(e.submit(_export_single_sample, vcf_file, output_dir, output_basename,
                                         sample, is_multisample))
             concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
     else:
         for sample in samples:
-            _output_pharmcat_ready_vcf(vcf_file, output_dir, output_basename, sample, is_multisample)
+            _export_single_sample(vcf_file, output_dir, output_basename, sample, is_multisample)
 
 
 def check_max_processes(max_processes: int) -> int:
