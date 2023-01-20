@@ -1,3 +1,36 @@
+## [2.2.0](https://github.com/PharmGKB/PharmCAT/compare/v2.1.2...v2.2.0) (2023-01-20)
+
+
+### Features
+
+* **namedallelematcher:** support multisample VCF ([4790ac0](https://github.com/PharmGKB/PharmCAT/commit/4790ac02fb4b3319171f51cb569d71982d394d60))
+* **pharmcat:** add concurrency support to pharmcat ([eba4c4c](https://github.com/PharmGKB/PharmCAT/commit/eba4c4cae7c0e99762fe52724aeffacd90864682))
+
+
+### Bug Fixes
+
+* **data:** update data ([77e5430](https://github.com/PharmGKB/PharmCAT/commit/77e54303bc6571070e44354e8374a1ece9802466))
+* **namedAlleleMatcher:** fix handling of homozygous combinations ([e13b587](https://github.com/PharmGKB/PharmCAT/commit/e13b58704cd436b2f3dad6681b7af7ea1d5967c7))
+* **namedallelematcher:** fix handling of homozygous result for DPYD ([ea127ea](https://github.com/PharmGKB/PharmCAT/commit/ea127eaedb2ad59fbdd12939a61547929ea3fd9b))
+* **namedallelematcher:** fix parsing of AD field ([b6b0d73](https://github.com/PharmGKB/PharmCAT/commit/b6b0d7346870ed26cfa0a8e65e82d0ae8dc7e36e))
+* **namedallelematcher:** fix parsing of AD field ([04326ef](https://github.com/PharmGKB/PharmCAT/commit/04326ef994d0064e91e3a880f9284eaa97ac17b9)), closes [#118](https://github.com/PharmGKB/PharmCAT/issues/118)
+* **namedallelematcher:** fix preprocessed spelling ([e7c4a65](https://github.com/PharmGKB/PharmCAT/commit/e7c4a65e05b82552b5047a29c42f554824390249))
+* **namedallelematcher:** haplotype name comparison ([8e1f547](https://github.com/PharmGKB/PharmCAT/commit/8e1f5479301486e5212766f53347b45e844e7150)), closes [#119](https://github.com/PharmGKB/PharmCAT/issues/119)
+* **namedallelematcher:** read VCF into memory if possible ([e1bc46d](https://github.com/PharmGKB/PharmCAT/commit/e1bc46d256c2a4baabd7e56cfcce8b98b8305b66))
+* **namedallelematcher:** support vcf.gz and vcf.bgz ([1710217](https://github.com/PharmGKB/PharmCAT/commit/1710217a1c2551f71de4254d76444c7aa6489ce5))
+* **pharmcat:** fix -def flag parsing ([3407310](https://github.com/PharmGKB/PharmCAT/commit/34073104610671ad10875292a27237b4cdffef71))
+* **pharmcat:** fix BatchPharmCAT problems ([7c045ff](https://github.com/PharmGKB/PharmCAT/commit/7c045ff0607b2f96e4f371b7693166f633b701d1))
+* **pharmcat:** improve pipeline, carry sample id throughout ([1a3b954](https://github.com/PharmGKB/PharmCAT/commit/1a3b9548bb0eb4bd19859e966d473006446cd342))
+* **pharmcat:** support specifying sample; sort data model to keep tests stable ([05007e3](https://github.com/PharmGKB/PharmCAT/commit/05007e3ac76e7533c7ca8cf33bf077ff992e2c26))
+* **preprocessor:** add java check, support tool paths via environment variables ([a762127](https://github.com/PharmGKB/PharmCAT/commit/a76212754de711550a523ea703663dd3d06ace0c))
+* **preprocessor:** change the way to determine positions without any called genotype ([ea43698](https://github.com/PharmGKB/PharmCAT/commit/ea43698aa89090d82d104f80a7e8dccd28e44a51))
+* **preprocessor:** fix bugs introduced by DPYD change ([c748725](https://github.com/PharmGKB/PharmCAT/commit/c7487259f75e229798ba82b47d737d77b4a9c283))
+* **preprocessor:** fix output filename handling ([ec26f66](https://github.com/PharmGKB/PharmCAT/commit/ec26f66501312969faaed6bbf0babd2d908c4029))
+* **preprocessor:** move gvcf check to beginning ([c9d3837](https://github.com/PharmGKB/PharmCAT/commit/c9d38374f34429d977f9421153c37b2935e5dfe8))
+* **preprocessor:** output single VCF by default ([2bf0c74](https://github.com/PharmGKB/PharmCAT/commit/2bf0c7415ec5629cd14e1c8940f2c4c5ddbc20ed))
+* **preprocessor:** print out the tool version ([9edc5ef](https://github.com/PharmGKB/PharmCAT/commit/9edc5ef26578f1a8f0672f1a2d62a6fce5186bda))
+* **reporter:** rename "generatedOn" property to "timestamp" ([c241d01](https://github.com/PharmGKB/PharmCAT/commit/c241d0125354b224cdb807a3744bc5189ae031f3))
+
 ## [2.1.2](https://github.com/PharmGKB/PharmCAT/compare/v2.1.1...v2.1.2) (2022-11-11)
 
 
