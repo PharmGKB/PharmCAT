@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/PharmGKB/PharmCAT/compare/v2.2.0...v2.2.1) (2023-01-21)
+
+
+### Bug Fixes
+
+* **preprocessor:** strip AN/AC info out of single sample output ([8554572](https://github.com/PharmGKB/PharmCAT/commit/8554572e67ae7402cbb833a3e05242fc3bbc954d))
+
 ## [2.2.0](https://github.com/PharmGKB/PharmCAT/compare/v2.1.2...v2.2.0) (2023-01-20)
 
 
