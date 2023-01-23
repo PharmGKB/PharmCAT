@@ -6,10 +6,10 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -19,10 +19,10 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.AnsiConsole;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
 import org.pharmgkb.pharmcat.util.CliUtils;
-
 
 /**
  * Command-line tool to run PharmCAT in batch mode.
@@ -45,34 +45,34 @@ public class BatchPharmCAT {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
           // inputs
-          .addOption("i", "input-dir", "directory containing source data files", false, "dir")
-          .addOption("s", "samples", "comma-separated list of samples", false, "samples")
-          .addOption("S", "sample-file", "file containing a list of sample, one per line", false, "file")
+          .addOption("i", "input-dir", "Directory containing source data files", false, "dir")
+          .addOption("s", "samples", "Comma-separated list of samples", false, "samples")
+          .addOption("S", "sample-file", "File containing a list of sample, one per line", false, "file")
 
           // named allele matcher args
-          .addOption("matcher", "matcher", "run named allele matcher independently")
-          .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
-          .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
-          .addOption("md", "matcher-definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
-          .addOption("matcherHtml", "matcher-save-html", "save named allele matcher results as HTML")
+          .addOption("matcher", "matcher", "Run named allele matcher independently")
+          .addOption("vcf", "matcher-vcf", "Input VCF file for named allele matcher", false, "file")
+          .addOption("mp", "matcher-preprocessed-only", "Only consider preprocessed VCFs")
+          .addOption("ma", "matcher-all-results", "Return all possible diplotypes, not just top hits")
+          .addOption("matcherHtml", "matcher-save-html", "Save named allele matcher results as HTML")
 
           // phenotyper args
-          .addOption("phenotyper", "phenotyper", "run phenotyper independently")
+          .addOption("phenotyper", "phenotyper", "Run phenotyper independently")
 
           // reporter args
-          .addOption("reporter", "reporter", "run reporter independently")
-          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit report to", false, "sources")
-          .addOption("re", "reporter-extended", "output extended report")
-          .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
+          .addOption("reporter", "reporter", "Run reporter independently")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
+          .addOption("re", "reporter-extended", "Output extended report")
+          .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 
           // outputs
-          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory")
-          .addOption("bf", "base-filename", "the base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
+          .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
+          .addOption("bf", "base-filename", "The base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
+          .addOption("del", "delete-intermediate-files", "Delete intermediate output files")
           // controls
-          .addOption("cp", "max-concurrent-processes", "maximum number of processes to use", false, "num")
-          .addOption("def", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
-          .addOption("del", "delete-intermediary-files", "delete intermediary output files")
-          .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
+          .addOption("cp", "max-concurrent-processes", "Maximum number of processes to use", false, "num")
+          .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
+          .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
         PharmCAT.failIfNotTest();
         return;
@@ -114,12 +114,13 @@ public class BatchPharmCAT {
         }
       }
       if (inputDir == null) {
-        System.err.println("Missing input (specify with -i and/or -vcf");
+        System.err.println(AnsiConsole.styleError("Missing input (specify with -i and/or -vcf)"));
         PharmCAT.failIfNotTest();
         return;
       }
 
-      BatchPharmCAT pcat = new BatchPharmCAT(config, inputDir, vcfFile, cliHelper.isVerbose());
+      BatchPharmCAT pcat = new BatchPharmCAT(config, inputDir, vcfFile, cliHelper.hasOption("mp"),
+          cliHelper.isVerbose());
       pcat.execute(maxProcesses);
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
@@ -132,8 +133,8 @@ public class BatchPharmCAT {
   }
 
 
-  private BatchPharmCAT(BaseConfig config, Path inputDir, @Nullable Path vcfFile, boolean verbose)
-      throws IOException, ReportableException {
+  private BatchPharmCAT(BaseConfig config, Path inputDir, @Nullable Path vcfFile, boolean preprocessedVcfOnly,
+      boolean verbose) throws IOException, ReportableException {
     m_config = config;
     m_verbose = verbose;
 
@@ -143,6 +144,13 @@ public class BatchPharmCAT {
       String basename = BaseConfig.getBaseFilename(file);
       if (VcfFile.isVcfFile(file)) {
         if (config.runMatcher) {
+          if (basename.endsWith(BaseConfig.VCF_MISSING_PGX_VAR_SUFFIX)) {
+            continue;
+          }
+          if (preprocessedVcfOnly &&
+              !file.getFileName().toString().contains(BaseConfig.VCF_PREPROCESSED_SUFFIX + ".vcf")) {
+            continue;
+          }
           m_vcfFilesToProcess.put(basename, new VcfFile(file));
         }
       } else if (name.endsWith(".match.json")) {
@@ -161,13 +169,24 @@ public class BatchPharmCAT {
     }
     if (vcfFile != null) {
       if (!Files.isRegularFile(vcfFile)) {
-        System.err.println("Not a file: " + vcfFile);
+        System.err.println(AnsiConsole.styleError("Not a file: " + vcfFile));
         PharmCAT.failIfNotTest();
         return;
       }
       // input VCF file trumps other VCF files in inputDir
+      Set<String> vcfBasenames = m_vcfFilesToProcess.keySet();
+      String vcfBasename = BaseConfig.getBaseFilename(vcfFile);
       m_vcfFilesToProcess.clear();
-      m_vcfFilesToProcess.put(BaseConfig.getBaseFilename(vcfFile), new VcfFile(vcfFile));
+      m_vcfFilesToProcess.put(vcfBasename, new VcfFile(vcfFile));
+      if (config.runPhenotyper) {
+        Path f = m_outsideCallFilesToProcess.get(vcfBasename);
+        m_outsideCallFilesToProcess.clear();
+        if (f != null) {
+          m_outsideCallFilesToProcess.put(vcfBasename, f);
+        }
+      }
+      m_matchFilesToProcess.clear();
+      m_phenotypeFilesToProcess.clear();
     }
 
     if (m_vcfFilesToProcess.isEmpty() && m_matchFilesToProcess.isEmpty() && m_outsideCallFilesToProcess.isEmpty() &&
@@ -192,9 +211,10 @@ public class BatchPharmCAT {
       ReportableException {
 
     List<Builder> taskBuilders = new ArrayList<>();
-
+    System.out.println("Checking files...");
     if (m_config.runMatcher) {
-      System.out.println("Found " + m_vcfFilesToProcess.size() + " VCF files...");
+      System.out.println("* Found " + m_vcfFilesToProcess.size() + " VCF file" +
+          (m_vcfFilesToProcess.size() > 1 ? "s" : ""));
       for (String baseFilename : m_vcfFilesToProcess.keySet()) {
         VcfFile vcfFile = m_vcfFilesToProcess.get(baseFilename);
         if (vcfFile != null) {
@@ -210,18 +230,18 @@ public class BatchPharmCAT {
 
     if (m_config.runPhenotyper) {
       if (m_matchFilesToProcess.size() > 0) {
-        System.out.println("Found " + m_matchFilesToProcess.size() + " independent phenotyper input file" +
-            (m_matchFilesToProcess.size() > 1 ? "s" : "") + "...");
-        for (String baseFilename : m_matchFilesToProcess.keySet()) {
+        System.out.println("* Found " + m_matchFilesToProcess.size() + " independent phenotyper input file" +
+            (m_matchFilesToProcess.size() > 1 ? "s" : ""));
+        for (String baseFilename : new ArrayList<>(m_matchFilesToProcess.keySet())) {
           if (m_config.runSample(baseFilename)) {
             taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
           }
         }
       }
       if (m_outsideCallFilesToProcess.size() > 0) {
-        System.out.println("Found " + m_outsideCallFilesToProcess.size() + " independent phenotyper outside call file" +
-            (m_outsideCallFilesToProcess.size() > 1 ? "s" : "") + "...");
-        for (String baseFilename : m_outsideCallFilesToProcess.keySet()) {
+        System.out.println("* Found " + m_outsideCallFilesToProcess.size() + " independent phenotyper outside call file" +
+            (m_outsideCallFilesToProcess.size() > 1 ? "s" : ""));
+        for (String baseFilename : new ArrayList<>(m_outsideCallFilesToProcess.keySet())) {
           if (m_config.runSample(baseFilename)) {
             taskBuilders.add(new Builder().fromPhenotyper(baseFilename));
           }
@@ -231,9 +251,9 @@ public class BatchPharmCAT {
 
     if (m_config.runReporter) {
       if (m_phenotypeFilesToProcess.size() > 0) {
-        System.out.println("Found " + m_phenotypeFilesToProcess.size() + " independent reporter input file" +
-            (m_phenotypeFilesToProcess.size() > 1 ? "s" : "") + "...");
-        for (String baseFilename : m_phenotypeFilesToProcess.keySet()) {
+        System.out.println("* Found " + m_phenotypeFilesToProcess.size() + " independent reporter input file" +
+            (m_phenotypeFilesToProcess.size() > 1 ? "s" : ""));
+        for (String baseFilename : new ArrayList<>(m_phenotypeFilesToProcess.keySet())) {
           if (m_config.runSample(baseFilename)) {
             taskBuilders.add(new Builder().fromReporter(baseFilename));
           }
@@ -241,20 +261,28 @@ public class BatchPharmCAT {
       }
     }
 
-    System.out.println();
-    System.out.println("Queueing up " + taskBuilders.size() + " samples to process...");
+    if (taskBuilders.size() > 1) {
+      System.out.println();
+      System.out.println("Queueing up " + taskBuilders.size() + " samples to process...");
+    }
     Env env = new Env(m_config.definitionDir);
     List<Pipeline> tasks = new ArrayList<>();
-    Map<String, Pipeline> taskMap = new HashMap<>();
+    int taskIdx = 0;
     for (Builder builder : taskBuilders) {
-      Pipeline pipeline = builder.build(env);
+      taskIdx += 1;
+      Pipeline pipeline = builder.build(env, taskIdx, taskBuilders.size());
       tasks.add(pipeline);
     }
 
     int processes = Math.min(tasks.size(), maxProcesses);
-    System.out.println();
-    System.out.println("Running PharmCAT in batch mode with a maximum of " + processes + " processes.");
-    if (processes > 1) {
+    if (taskBuilders.size() > 1 && processes > 1) {
+      System.out.println();
+      System.out.println("Running PharmCAT in batch mode with a maximum of " + processes + " processes.");
+      if (m_verbose) {
+        System.out.println("Current memory usage: " + FileUtils.byteCountToDisplaySize(
+            Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
+      }
+      System.out.println();
       long maxMem = Runtime.getRuntime().maxMemory();
       long memPerProcess = maxMem / processes;
       if (memPerProcess < sf_bytesPerProcess) {
@@ -266,7 +294,7 @@ public class BatchPharmCAT {
         } else {
           recMem = ((gb * 1024) + ((processes % sf_procsPerGb) * 1024 / sf_procsPerGb)) + " M";
         }
-        System.out.println("Recommend boosting memory to PharmCAT to " + recMem + "B (using -Xmx" +
+        System.out.println("Recommend boosting memory to PharmCAT to at least " + recMem + "B (using -Xmx" +
             recMem.replace(" ", "") + ")");
         long recCp = Math.min(1, maxMem / sf_bytesPerProcess);
         System.out.println("Or running with " + recCp + " process" + (recCp == 1L ? "" : "es") +
@@ -274,10 +302,6 @@ public class BatchPharmCAT {
       }
     }
 
-    if (m_verbose) {
-      System.out.println("Current memory usage: " + FileUtils.byteCountToDisplaySize(
-          Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
-    }
     Stopwatch stopwatch = Stopwatch.createStarted();
     ExecutorService executor = Executors.newWorkStealingPool(processes);
     List<Future<PipelineResult>> futures = executor.invokeAll(tasks);
@@ -293,8 +317,9 @@ public class BatchPharmCAT {
 
     System.out.println();
     System.out.println("Done.");
-    System.out.println("Elapsed time: " + TimeUtils.humanReadablePreciseDuration(stopwatch.elapsed()));
-
+    if (m_verbose) {
+      System.out.println("Elapsed time: " + TimeUtils.humanReadablePreciseDuration(stopwatch.elapsed()));
+    }
   }
 
 
@@ -326,6 +351,10 @@ public class BatchPharmCAT {
         findReporterFiles(sampleId);
         findPhenotyperFiles(baseFilename + "." + sampleId);
         findReporterFiles(baseFilename + "." + sampleId);
+        if (singleSample) {
+          findPhenotyperFiles(baseFilename);
+          findReporterFiles(baseFilename);
+        }
       }
       m_singleSample = singleSample;
       return this;
@@ -351,17 +380,20 @@ public class BatchPharmCAT {
     }
 
 
-    public Pipeline build(Env env) throws ReportableException {
+    /**
+     * Builds {@link Pipeline}.
+     */
+    public Pipeline build(Env env, int index, int totalTasks) throws ReportableException {
       Preconditions.checkState(m_runMatcher || m_runPhenotyper || m_runReporter);
-
+      Pipeline.Mode mode = totalTasks > 1 ? Pipeline.Mode.BATCH : Pipeline.Mode.CLI;
       return new Pipeline(env,
-          m_runMatcher, m_vcfFile, m_sampleId,
+          m_runMatcher, m_vcfFile, m_sampleId, m_singleSample,
           m_config.topCandidateOnly, m_config.callCyp2d6, m_config.findCombinations, m_config.matcherHtml,
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
           m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson,
           m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
-          Pipeline.Mode.BATCH, m_singleSample, m_verbose);
+          mode, (index + "/" + totalTasks), m_verbose);
     }
 
 
@@ -373,7 +405,7 @@ public class BatchPharmCAT {
       if (m_matchFilesToProcess.containsKey(basename)) {
         Path file = m_matchFilesToProcess.get(basename);
         if (m_config.runMatcher && m_vcfFile != null) {
-          System.out.println("Ignoring " + file.getFileName() + " - will recompute");
+          System.out.println("* Ignoring " + file.getFileName() + " - will recompute");
         } else {
           m_piFile = pickFirstFile(m_piFile, file);
         }
@@ -386,7 +418,7 @@ public class BatchPharmCAT {
         m_outsideCallFilesToProcess.remove(basename);
 
         if ((m_piFile == null && !m_config.runMatcher) || (m_piFile == null && m_vcfFile == null)) {
-          System.out.println("Warning: lone outside call file (" + m_poFile.getFileName() +
+          System.out.println("* Warning: lone outside call file (" + m_poFile.getFileName() +
               ") with no matching .vcf or .match.json");
         }
       }
@@ -402,7 +434,7 @@ public class BatchPharmCAT {
         Path file = m_phenotypeFilesToProcess.get(basename);
         if ((m_config.runMatcher && m_vcfFile != null) ||
             (m_config.runPhenotyper && (m_piFile != null || m_poFile != null))) {
-          System.out.println("Ignoring " + file.getFileName() + " - will recompute");
+          System.out.println("* Ignoring " + file.getFileName() + " - will recompute");
         } else {
           m_riFile = pickFirstFile(m_riFile, file);
         }
@@ -415,7 +447,7 @@ public class BatchPharmCAT {
       if (origFile == null) {
         return newFile;
       } else {
-        System.out.println("Ignoring " + newFile.getFileName() + " - using " + origFile.getFileName() + " instead");
+        System.out.println("* Ignoring " + newFile.getFileName() + " - using " + origFile.getFileName() + " instead");
         return origFile;
       }
     }

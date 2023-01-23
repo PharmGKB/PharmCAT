@@ -2,7 +2,7 @@ import hashlib
 import shutil
 import urllib.request
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 
 import preprocessor
 from preprocessor import download_reference_fasta_and_index
@@ -61,22 +61,28 @@ def read_vcf(file: Path, skip_comments: bool = True):
 
 
 def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, split_sample: bool = False,
-                      copy_to_test_dir: bool = False):
+                      copy_to_test_dir: bool = False, results: Optional[List[Path]] = None):
     key: str = basename
+    orig_actual_vcf: Path
     if sample:
         key += '/%s' % sample
         actual: Path = tmp_dir / ('%s.%s.preprocessed.vcf' % (basename, sample))
+        orig_actual_vcf = actual
     elif split_sample:
         actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
+        orig_actual_vcf = actual
     else:
         actual_bgz: Path = tmp_dir / ('%s.preprocessed.vcf.bgz' % basename)
         assert actual_bgz.is_file(), '%s not found' % actual_bgz
+        orig_actual_vcf = actual_bgz
         actual_gz: Path = tmp_dir / ('%s.preprocessed.vcf.gz' % basename)
         # use shutil.move instead of rename to deal with cross-device issues
         shutil.move(actual_bgz, actual_gz)
         preprocessor.run(['gunzip', str(actual_gz)])
         actual: Path = tmp_dir / ('%s.preprocessed.vcf' % basename)
     assert actual.is_file(), '%s not found' % actual
+    if results is not None:
+        assert orig_actual_vcf in results, ('%s not in results (%s)' % (actual, results))
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
     print(read_vcf(actual))

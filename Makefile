@@ -54,6 +54,7 @@ scriptPkg:
 	mkdir -p build/preprocessor
 	cp preprocessor/requirements.txt build/preprocessor
 	cp preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor
+	cp preprocessor/pharmcat_pipeline build/preprocessor
 	mkdir build/preprocessor/preprocessor
 	cp preprocessor/preprocessor/*.py build/preprocessor/preprocessor
 	cp preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor

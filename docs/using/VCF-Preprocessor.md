@@ -9,6 +9,8 @@ render_with_liquid: false
 
 The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT.
 
+Input VCF files must comply with [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
+
 This tool will:
 
 1. Strip out PGx positions that PharmCAT does not care about.
@@ -23,31 +25,39 @@ By default, the PharmCAT VCF preprocessing produces two types of **output**:
 2. A report of missing pharmacogenomics core allele defining positions in user's input
 
 
-## How to run the PharmCAT VCF Preprocessor
+## Prerequisites
 
-Below you will find a detailed introduction to the PharmCAT VCF Preprocessor. We have put together interactive materials on the [PharmCAT tutorial GitHub repo](https://github.com/PharmGKB/PharmCAT-tutorial).
+### Install the Software
 
-### Prerequisites
+You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
 
-We assume that the input VCF files are prepared following the [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
-
-To run the tool, you need to download the following bioinformatic tools:
-* [bcftools >= v1.16](http://www.htslib.org/download/)
-* [htslib >= v1.16](http://www.htslib.org/download/)
-
-You will also need python3 (version 3.9.4 or higher) installed along with the necessary dependencies:
-* pandas >= 1.5.1
-* scikit-allel == 1.3.5 (warning: testing compatibility with python >= 3.11)
-* packaging ~= 21.3
+1. You will need python 3.9.4 or higher
+2. You will need the following bioinformatic tools:
+    * [bcftools >= v1.16](http://www.htslib.org/download/)
+    * [htslib >= v1.16](http://www.htslib.org/download/)
+3. Download the preprocessor tar file from our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
+    * Untar the file
+4. You will need the following python dependencies:
+    * colorama >= 0.4.6
+    * pandas >= 1.5.1
+    * scikit-allel == 1.3.5 (warning: testing compatibility with python >= 3.11)
+    * packaging ~= 21.3
 
 To install the necessary python packages, run the following code:
 ```console
 $ pip3 install -r requirements.txt
 ```
 
+You can find `requirements.txt` in the preprocessor tar file you downloaded. 
+
+
+## How to run the PharmCAT VCF Preprocessor
+
+Below you will find a detailed introduction to the PharmCAT VCF Preprocessor. We have put together interactive materials on the [PharmCAT tutorial GitHub repo](https://github.com/PharmGKB/PharmCAT-tutorial).
+
 ### Command line
 
-To normalize and prepare a VCF file (single or multiple samples) for PharmCAT, run the following code substituted with proper arguments/inputs:
+To normalize and prepare a VCF file, run the following code substituted with proper arguments/inputs:
 
 ```console
 $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
@@ -82,6 +92,9 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 
 -S `<txt_file>` <span class="altArg"><br />or --sample-file `<txt_file>`</span>
 : The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
+
+-s `<samples>` <span class="altArg"><br />or --samples `<samples>`</span>
+: A comma-separated list of sample IDs.
 
 -o `<dir>` <span class="altArg"><br />or --output-dir `<dir>`</span>
 : Directory to save preprocessed VCF to.  Default is the parent directory of the input VCF.

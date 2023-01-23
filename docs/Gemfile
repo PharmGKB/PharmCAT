@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem "bundler", ">=2.3.0"
+gem "bundler", ">=2.4.1"
 gem "jekyll", ">=4.3.0"
 gem "jemoji", "~> 0.12.0"
-gem "just-the-docs", "0.4.0.rc3"
+gem "just-the-docs", "0.4.0.rc4"
 gem "kramdown-parser-gfm", ">=1.1.0"
 gem "rouge", ">=4.0.0"
 gem "escape_utils", ">=1.3.0"

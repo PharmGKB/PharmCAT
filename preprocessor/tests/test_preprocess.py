@@ -18,12 +18,12 @@ def test_preprocess():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'preprocess'
-        preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir, basename,
-                   verbose=True)
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir,
+                             basename, verbose=1)
         print(tmp_dir)
         files = os.listdir(tmp_dir)
         print(files)
-        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename)
+        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
 
 
 def test_preprocess_split_sample():
@@ -38,11 +38,12 @@ def test_preprocess_split_sample():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'preprocess'
-        preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir, basename,
-                   split_samples=True, verbose=True)
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir,
+                             basename, split_samples=True, verbose=1)
 
-        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
-        helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
+        assert len(results) == 2
+        helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1', results=results)
+        helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2', results=results)
 
 
 def test_preprocess_concurrent():
@@ -56,10 +57,11 @@ def test_preprocess_concurrent():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'preprocess'
-        preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir, basename,
-                   concurrent_mode=True, max_processes=2, verbose=True)
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], None, basename, tmp_dir,
+                             basename, concurrent_mode=True, max_processes=2, verbose=1)
 
-        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename)
+        assert len(results) == 1
+        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
 
 
 def test_preprocess_multi_vcf():
@@ -76,10 +78,11 @@ def test_preprocess_multi_vcf():
         shutil.copyfile(vcf2_file, tmp_vcf2)
 
         basename = 'preprocess'
-        preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf1, tmp_vcf2], None, basename, tmp_dir,
-                   basename)
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf1, tmp_vcf2], None, basename,
+                             tmp_dir, basename)
 
-        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename)
+        assert len(results) == 1
+        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)
 
 
 def test_preprocess_multi_vcf_concurrent():
@@ -96,7 +99,8 @@ def test_preprocess_multi_vcf_concurrent():
         shutil.copyfile(vcf2_file, tmp_vcf2)
 
         basename = 'preprocess'
-        preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf1, tmp_vcf2], None, basename, tmp_dir,
-                   basename, concurrent_mode=True, max_processes=2)
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf1, tmp_vcf2], None, basename,
+                             tmp_dir, basename, concurrent_mode=True, max_processes=2)
 
-        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename)
+        assert len(results) == 1
+        helpers.compare_vcf_files(preprocessed_file, tmp_dir, basename, results=results)

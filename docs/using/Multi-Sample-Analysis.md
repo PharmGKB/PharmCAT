@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: Multi-Sample Analysis
 permalink: using/Multi-Sample-Analysis/
-nav_order: 6
+nav_order: 7
 ---
 # Multi-Sample Analysis
 {: .no_toc }

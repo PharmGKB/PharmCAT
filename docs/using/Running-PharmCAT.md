@@ -11,7 +11,7 @@ mermaid: true
 This document teaches you how to use the core PharmCAT tool.
 
 
-## Requirements
+## Prerequisites
 
 ### Install the Software
 You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
@@ -80,6 +80,14 @@ Saving reporter HTML results to /tmp/results/sample.report.html
 # java -jar pharmcat.jar -vcf /tmp/input.vcf --output-dir /tmp/results -del
 Saving reporter HTML results to /tmp/results/input.report.html
 ```
+
+If the provided VCF file contains multiple samples, you can limit which samples get processed with either:
+
+-S `<txt_file>` <span class="altArg"><br />or --sample-file `<txt_file>`</span>
+: The list of samples to be processed and prepared for PharmCAT. The file should contain one sample per line.
+
+-s `<samples>` <span class="altArg"><br />or --samples `<samples>`</span>
+: A comma-separated list of sample IDs.
 
 
 ### Outside Calls

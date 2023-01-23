@@ -80,6 +80,46 @@ def test_validate_java():
     assert 'use Java 179 or higher' in context.value.msg
 
 
+def test_validate_dir():
+    with pytest.raises(ReportableException) as context:
+        utils.validate_dir('/does/not/exist')
+    assert 'does not exist' in context.value.msg
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+        utils.validate_dir(td)
+        utils.validate_dir(tmp_dir)
+
+        with pytest.raises(ReportableException) as context:
+            utils.validate_dir(td + '/does/not/exist')
+        assert 'does not exist' in context.value.msg
+
+        new_dir = utils.validate_dir(td + '/does/not/exist', create_if_not_exist=True)
+        assert new_dir.exists()
+        assert new_dir.is_dir()
+
+    with tempfile.NamedTemporaryFile() as tf:
+        with pytest.raises(ReportableException) as context:
+            utils.validate_dir(tf.name)
+        assert 'is not a directory' in context.value.msg
+
+
+def test_validate_file():
+    with pytest.raises(ReportableException) as context:
+        utils.validate_file('/does/not/exist')
+    assert 'does not exist' in context.value.msg
+
+    with tempfile.NamedTemporaryFile() as tf:
+        utils.validate_file(tf.name)
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp_dir = Path(td)
+
+        with pytest.raises(ReportableException) as context:
+            utils.validate_file(tmp_dir)
+        assert 'is not a file' in context.value.msg
+
+
 def test_find_vcf_files():
     vcf_files = utils.find_vcf_files(helpers.test_dir)
     assert len(vcf_files) > 1
@@ -274,9 +314,8 @@ def test_delete_vcf_and_index():
         assert not csi_file.exists()
 
 
+@pytest.mark.skipif(not helpers.NETWORK_AVAILABLE, reason='No network')
 def test_download_from_url_fail():
-    if True:
-        return
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
         with pytest.raises(InvalidURL) as context:
@@ -288,7 +327,7 @@ def test_download_from_url_fail():
 def test_download_reference_fasta_and_index():
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
-        ref_file = utils.download_reference_fasta_and_index(tmp_dir, verbose=True)
+        ref_file = utils.download_reference_fasta_and_index(tmp_dir, verbose=1)
         files = os.listdir(tmp_dir)
         assert ref_file.name in files
 
@@ -300,13 +339,13 @@ def test_download_pharmcat_positions():
     with pytest.raises(ReportableException) as context:
         with tempfile.TemporaryDirectory() as td:
             tmp_dir: Path = Path(td)
-            utils.download_pharmcat_positions(tmp_dir, verbose=True)
+            utils.download_pharmcat_positions(tmp_dir, verbose=1)
     assert 'Cannot find pharmcat_positions file' in context.value.msg
     common.PHARMCAT_VERSION = orig_version
 
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
-        utils.download_pharmcat_positions(tmp_dir, verbose=True)
+        utils.download_pharmcat_positions(tmp_dir, verbose=1)
         files = os.listdir(tmp_dir)
         assert common.PHARMCAT_POSITIONS_FILENAME in files
         assert ('%s.csi' % common.PHARMCAT_POSITIONS_FILENAME) in files
@@ -319,7 +358,7 @@ def test_prep_pharmcat_positions():
 
         # no pharmcat_positions - should fail
         with pytest.raises(ReportableException) as context:
-            utils.prep_pharmcat_positions(None, None, verbose=True)
+            utils.prep_pharmcat_positions(None, None, verbose=1)
         # print(context.value)
         assert 'Cannot find pharmcat_positions.vcf.bgz' in context.value.msg
 
@@ -332,7 +371,7 @@ def test_prep_pharmcat_positions():
         if helpers.TEST_DOWNLOAD:
             # use pharmcat_positions from cwd and download reference fasta
             start = timer()
-            utils.prep_pharmcat_positions(None, None, verbose=True)
+            utils.prep_pharmcat_positions(None, None, verbose=1)
             full_time = timer() - start
             print("time for full preparation:", full_time)
             reference_fasta = tmp_dir / preprocessor.REFERENCE_FASTA_FILENAME
@@ -350,7 +389,7 @@ def test_prep_pharmcat_positions():
 
         # already have reference fasta, so this should be faster, but still need to generate uniallelic positions
         start = timer()
-        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=True)
+        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=1)
         build_time = timer() - start
         print("time to build uniallelic positions:", build_time)
         assert build_time < 2
@@ -362,7 +401,7 @@ def test_prep_pharmcat_positions():
         # already have reference fasta and uniallelic positions, so this should be very fast
         start = timer()
         # utils.prep_pharmcat_positions(None, tmp_reference, verbose=True)
-        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=True)
+        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=1)
         check_time = timer() - start
         print("time to run check preparation:", check_time)
         assert check_time < build_time
@@ -392,14 +431,14 @@ def test_extract_pgx_regions():
         vcf_files: List[Path] = [tmp_vcf1, tmp_vcf2]
         samples: List[str] = ['Sample_1', 'Sample_2']
         combo_pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, vcf_files, samples, tmp_dir, 'combo_test',
-                                                       verbose=True)
+                                                       verbose=1)
         assert combo_pgx_vcf_file.is_file()
         index_file = utils.find_index_file(combo_pgx_vcf_file)
         assert index_file is not None
         combo_hash = helpers.md5hash(combo_pgx_vcf_file)
         print("combo:", combo_hash)
 
-        pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, [tmp_vcf], samples, tmp_dir, 'test', verbose=True)
+        pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, [tmp_vcf], samples, tmp_dir, 'test', verbose=1)
         assert pgx_vcf_file.is_file()
         single_hash = helpers.md5hash(pgx_vcf_file)
         print("single:", single_hash)
@@ -416,7 +455,7 @@ def test_normalize_vcf():
         tmp_vcf = tmp_dir / vcf_file.name
         shutil.copyfile(vcf_file, tmp_vcf)
 
-        normalized_vcf = utils.normalize_vcf(reference_fasta, tmp_vcf, tmp_dir, 'test', verbose=True)
+        normalized_vcf = utils.normalize_vcf(reference_fasta, tmp_vcf, tmp_dir, 'test', verbose=1)
         assert normalized_vcf.is_file()
         # shutil.copyfile(normalized_vcf, vcf_file.parent / 'test.normalized.vcf.bgz')
 
@@ -431,7 +470,7 @@ def test_extract_pgx_variants():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         multiallelic_vcf = utils.extract_pgx_variants(helpers.pharmcat_positions_file, reference_fasta, tmp_vcf,
-                                                      tmp_dir, 'test', verbose=True)
+                                                      tmp_dir, 'test', verbose=1)
         assert multiallelic_vcf.is_file()
         # shutil.copyfile(multiallelic_vcf, vcf_file.parent / multiallelic_vcf.name)
 

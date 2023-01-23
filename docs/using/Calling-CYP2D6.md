@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: Calling CYP2D6
 permalink: using/Calling-CYP2D6/
-nav_order: 7
+nav_order: 8
 ---
 # Calling CYP2D6
 

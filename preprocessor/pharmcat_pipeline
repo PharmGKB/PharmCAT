@@ -1,0 +1,323 @@
+#!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+from typing import Optional, List
+
+import preprocessor
+from preprocessor import ReportableException
+
+
+def add_sample_java_args(java_args: List[str], cli_args):
+    if cli_args.sample_file:
+        java_args.append('-S')
+        java_args.append(cli_args.sample_file)
+    elif cli_args.samples:
+        java_args.append('-s')
+        java_args.append(','.join(m_samples))
+
+
+def add_matcher_java_args(java_args: List[str], cli_args):
+    java_args.append('-matcher')
+    if cli_args.matcher_all_results:
+        java_args.append('-ma')
+    if cli_args.matcher_save_html:
+        java_args.append('-matcherHtml')
+    if cli_args.research_mode:
+        java_args.extend(['-research', cli_args.research_mode])
+
+
+def add_reporter_java_args(java_args: List[str], cli_args):
+    java_args.append('-reporter')
+    if cli_args.reporter_sources:
+        java_args.append('-rs')
+    if cli_args.reporter_extended:
+        java_args.append('-re')
+    if cli_args.reporter_save_json:
+        java_args.append('-reporterJson')
+
+
+def add_output_java_args(java_args: List[str], cli_args, output_dir: Optional[Path]):
+    if output_dir:
+        java_args.extend(['-o', str(output_dir.absolute())])
+    if cli_args.base_filename:
+        java_args.extend(['-bf', cli_args.base_filename])
+    if cli_args.delete_intermediate_pharmcat_files:
+        java_args.append('-del')
+
+
+if __name__ == '__main__':
+    import argparse
+    import colorama
+
+    # describe the tool
+    parser = argparse.ArgumentParser(description='Runs PharmCAT pipeline.')
+    # input arguments
+    input_group = parser.add_argument_group('Input arguments')
+    input_group.add_argument('vcf', type=str, metavar='input file or directory',
+                             help='Path to a VCF file or a file of paths to VCF files (one file per line), '
+                                  'sorted by chromosome position.')
+    sample_group = input_group.add_mutually_exclusive_group()
+    sample_group.add_argument('-s', '--samples', type=str, metavar='<samples>',
+                              help='A comma-separated list of sample.')
+    sample_group.add_argument('-S', '--sample-file', type=str, metavar='<txt_file>',
+                              help='A file containing a list of samples, one sample per line.')
+    # preprocessor args
+    preprocessor_group = parser.add_argument_group('Preprocessor arguments')
+    preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
+                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.')
+    # matcher args
+    matcher_group = parser.add_argument_group('Named allele matcher arguments')
+    matcher_group.add_argument('-matcher', action='store_true',
+                               help='Run named allele matcher independently.')
+    matcher_group.add_argument('-ma', '--matcher-all-results', action='store_true',
+                               help='Return all possible diplotypes, not just top hits.')
+    matcher_group.add_argument('-matcherHtml', '--matcher-save-html', action='store_true',
+                               help='Save named allele matcher results as HTML.')
+    matcher_group.add_argument('-research', '--research-mode', type=str, metavar='<type>',
+                               help='Comma-separated list of research features to enable: [cyp2d6, combinations]')
+    # phenotyper args
+    phenotyper_group = parser.add_argument_group('Phenotyper arguments')
+    phenotyper_group.add_argument('-phenotyper', action='store_true',
+                                  help='Run phenotyper independently.')
+    # reporter args
+    reporter_group = parser.add_argument_group('Reporter arguments')
+    reporter_group.add_argument('-reporter', action='store_true',
+                                help='Run reporter independently.')
+    reporter_group.add_argument('-rs', '--reporter-sources', type=str, metavar='<sources>',
+                                help='Comma-separated list of sources to limit report to: [CPIC, DPWG]')
+    reporter_group.add_argument('-re', '--reporter-extended', action='store_true',
+                                help='Output extended report.')
+    reporter_group.add_argument('-reporterJson', '--reporter-save-json', action='store_true',
+                                help='Save reporter results as JSON.')
+    # output args
+    output_group = parser.add_argument_group('Output arguments')
+    output_group.add_argument('-o', '--output-dir', type=str, metavar='<dir>',
+                              help='Directory for outputs.  Defaults to the directory of the input VCF.')
+    output_group.add_argument('-bf', '--base-filename', type=str, metavar='<name>',
+                              help='Prefix for output files.  Defaults to the same base name as the input.')
+    # output_group.add_argument('-k', '--keep-intermediate-preprocessor-files', action='store_true',
+    #                           help='Keep intermediate preprocessor files (deleted by default).')
+    output_group.add_argument('-del', '--delete-intermediate-pharmcat-files', action='store_true',
+                              help='Delete intermediate PharmCAT files (saved by default).')
+    # concurrency args
+    concurrency_group = parser.add_argument_group('Concurrency arguments')
+    concurrency_group.add_argument('-cp', '--max-concurrent-processes', type=int, metavar='<num processes>',
+                                   default=None,
+                                   help='The maximum number of processes to use when concurrent mode is enabled.')
+    # misc args
+    parser.add_argument('-v', '--verbose', action='count', default=0,
+                        help='Print more verbose messages')
+    parser.add_argument('-V', '--version', action='version',
+                        version='PharmCAT v%s' % preprocessor.PHARMCAT_VERSION)
+
+    # parse arguments
+    args = parser.parse_args()
+    colorama.init()
+
+    # print the version number
+    print('PharmCAT version: %s' % preprocessor.PHARMCAT_VERSION)
+    # print warnings here
+    if args.missing_to_ref:
+        print("""
+%sWarning: Argument "-0"/"--missing-to-ref" supplied
+
+THIS SHOULD ONLY BE USED IF: you sure your data is reference
+at the missing positions instead of unreadable/uncallable at
+those positions.
+
+Running PharmCAT with positions as missing vs reference can
+lead to different results.
+%s
+        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+    print()
+
+    try:
+        # make sure we have required tools
+        preprocessor.validate_bcftools()
+        preprocessor.validate_bgzip()
+        preprocessor.validate_java()
+
+        script_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
+
+        # make sure we have pharmcat.jar
+        m_pharmcat_jar: Path = preprocessor.find_file(preprocessor.PHARMCAT_JAR_FILENAME, list({script_dir}))
+        if m_pharmcat_jar is None:
+            print('Downloading %s...' % preprocessor.PHARMCAT_JAR_FILENAME)
+            m_pharmcat_jar = preprocessor.download_pharmcat_jar(script_dir, verbose=args.verbose)
+
+        # make sure we have pharmcat_positions.vcf.bgz
+        m_pharmcat_positions_vcf: Path = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME,
+                                                                list({script_dir}))
+        if m_pharmcat_positions_vcf is None:
+            print('Downloading %s...' % preprocessor.PHARMCAT_POSITIONS_FILENAME)
+            m_pharmcat_positions_vcf = preprocessor.download_pharmcat_positions(script_dir, verbose=args.verbose)
+
+        # make sure we have reference FASTA
+        m_reference_genome: Path = preprocessor.find_file(preprocessor.REFERENCE_FASTA_FILENAME,
+                                                          list({m_pharmcat_positions_vcf.parent, script_dir}))
+        if m_reference_genome is None:
+            print('Downloading reference FASTA.  This may take a while...')
+            m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
+                                                                                 verbose=args.verbose)
+
+        # prep pharmcat_positions helper files
+        preprocessor.prep_pharmcat_positions(m_pharmcat_positions_vcf, m_reference_genome, verbose=args.verbose)
+
+        # validate input
+        vcf_path: Path = Path(args.vcf)
+        if not vcf_path.exists():
+            raise ReportableException('%s does not exist' % str(vcf_path))
+        if not vcf_path.is_dir() and not vcf_path.is_file():
+            raise ReportableException('%s is neither a file nor a directory' % str(vcf_path))
+        m_samples: List[str] = []
+        if args.sample_file:
+            # validate sample file
+            m_samples = preprocessor.read_sample_file(preprocessor.validate_file(args.sample_file),
+                                                      verbose=args.verbose)
+        elif args.samples:
+            m_samples = preprocessor.parse_samples(args.samples)
+
+        # validate concurrent args
+        m_max_processes: int = preprocessor.check_max_processes(args.max_concurrent_processes, verbose=args.verbose)
+
+        # validate output args
+        m_output_dir: Optional[Path] = None
+        if args.output_dir:
+            m_output_dir = preprocessor.validate_dir(args.output_dir, create_if_not_exist=True)
+        # define output base name, default to empty string
+        m_output_basename: str = args.base_filename if args.base_filename else ''
+
+        run_individual_pharmcat_modules = False
+        run_matcher = True
+        run_phenotyper = True
+        run_reporter = True
+        if args.matcher or args.phenotyper or args.reporter:
+            run_matcher = args.matcher
+            run_phenotyper = args.phenotyper
+            run_reporter = args.reporter
+            run_individual_pharmcat_modules = True
+
+        if not run_matcher:
+            jargs = ['-i']
+            if vcf_path.is_dir():
+                jargs.append(str(vcf_path.absolute()))
+            else:
+                jargs.append(str(vcf_path.parent.absolute()))
+            if len(m_samples) > 0:
+                add_sample_java_args(jargs, args)
+            if run_phenotyper:
+                jargs.append('-phenotyper')
+            if run_reporter:
+                add_reporter_java_args(jargs, args)
+            add_output_java_args(jargs, args, m_output_dir)
+            print('\nRunning PharmCAT without NamedAlleleMatcher...')
+            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+            sys.exit(0)
+
+        if vcf_path.is_dir():
+            vcf_files: List[Path] = preprocessor.find_vcf_files(vcf_path, args.verbose)
+            if len(vcf_files) == 0:
+                raise ReportableException('Error: no VCF input')
+            if m_output_dir is None:
+                m_output_dir = vcf_path
+            preprocessed_vcf = preprocessor.preprocess_multiple_files(
+                pharmcat_positions_vcf=m_pharmcat_positions_vcf,
+                reference_genome=m_reference_genome,
+                vcf_files=vcf_files,
+                samples=m_samples,
+                output_dir=m_output_dir,
+                output_basename=m_output_basename,
+                keep_intermediate_files=False,
+                missing_to_ref=args.missing_to_ref,
+                concurrent_mode=True,
+                max_processes=m_max_processes,
+                verbose=args.verbose,
+            )
+            if len(preprocessed_vcf) == 0:
+                raise ReportableException('Error: no preprocessed VCFs')
+
+            jargs = ['-i', str(vcf_path.absolute())]
+            if len(m_samples) > 0:
+                add_sample_java_args(jargs, args)
+            add_matcher_java_args(jargs, args)
+            jargs.append('-mp')
+            if run_phenotyper:
+                jargs.append('-phenotyper')
+            if run_reporter:
+                add_reporter_java_args(jargs, args)
+            add_output_java_args(jargs, args, m_output_dir)
+            print('\nRunning PharmCAT...')
+            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+            sys.exit(0)
+
+        preprocessed_vcf: List[Path] = []
+        vcf_files: List[Path] = []
+        input_basename: str
+        concat_vcf_files: bool = False
+        if preprocessor.is_vcf_file(vcf_path):
+            vcf_files.append(vcf_path)
+            input_basename = preprocessor.get_vcf_basename(vcf_path)
+        else:
+            if args.verbose:
+                print("Looking up VCF files listed in", vcf_path)
+            with open(vcf_path, 'r') as in_f:
+                for line in in_f:
+                    line = line.strip()
+                    vcf_files.append(preprocessor.validate_file(line))
+            input_basename = vcf_path.stem
+            concat_vcf_files = True
+
+        if len(vcf_files) == 0:
+            raise ReportableException('Error: no VCF input')
+
+        for file in vcf_files:
+            if preprocessor.is_gvcf_file(file):
+                raise ReportableException('%s is a gVCF file, which is not currently supported.\n'
+                                          'The PharmCAT VCF Preprocessor will support block gVCF in the future.'
+                                          % str(file))
+
+        if len(m_samples) == 0:
+            m_samples = preprocessor.read_vcf_samples(vcf_files[0], verbose=args.verbose)
+
+        # define working directory, defaulting to the directory of the input VCF
+        if m_output_dir is None:
+            m_output_dir = vcf_path.parent
+
+        # normalize variant representations and reconstruct multi-allelic variants in the input VCF
+        preprocessed_vcf = preprocessor.preprocess(
+            pharmcat_positions_vcf=m_pharmcat_positions_vcf,
+            reference_genome=m_reference_genome,
+            vcf_files=vcf_files,
+            samples=m_samples,
+            input_basename=input_basename,
+            output_dir=m_output_dir,
+            output_basename=m_output_basename,
+            split_samples=False,
+            keep_intermediate_files=False,
+            missing_to_ref=args.missing_to_ref,
+            concurrent_mode=True,
+            max_processes=m_max_processes,
+            verbose=args.verbose,
+        )
+
+        if len(preprocessed_vcf) == 0:
+            raise ReportableException('Error: no preprocessed VCFs')
+
+        print('\nRunning PharmCAT...')
+        for vcf in preprocessed_vcf:
+            jargs = ['-vcf', str(vcf.absolute())]
+            if len(m_samples) > 0:
+                add_sample_java_args(jargs, args)
+            add_matcher_java_args(jargs, args)
+            if run_phenotyper:
+                jargs.append('-phenotyper')
+            if run_reporter:
+                add_reporter_java_args(jargs, args)
+            add_output_java_args(jargs, args, m_output_dir)
+            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+
+    except ReportableException as e:
+        print('%s%s%s' % (colorama.Fore.RED, e, colorama.Style.RESET_ALL))
+        colorama.deinit()
+        sys.exit(1)

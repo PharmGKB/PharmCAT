@@ -16,3 +16,5 @@ alias mv='mv -i'
 
 alias pcat='/pharmcat/pharmcat -vcf '
 alias prep='/pharmcat/pharmcat_vcf_preprocessor.py -vcf '
+alias preprocessor='/pharmcat/pharmcat_vcf_preprocessor.py'
+alias pipeline='/pharmcat/pharmcat_pipeline'

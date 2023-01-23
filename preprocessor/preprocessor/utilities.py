@@ -40,6 +40,7 @@ _chr_valid_length = ["248956422", "242193529", "198295559", "190214555", "181538
                      "135086622", "133275309", "114364328", "107043718", "101991189",
                      "90338345", "83257441", "80373285", "58617616", "64444167",
                      "46709983", "50818468", "156040895", "57227415", "16569"]
+_missing_pgx_var_suffix = '.missing_pgx_var'
 
 
 def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> Path:
@@ -61,6 +62,28 @@ def run(command: List[str]):
             raise ReportableException(e.stderr)
         else:
             raise ReportableException('Error: Failed to run %s' % ' '.join(command))
+
+
+def run_pharmcat(jar_location: Path, args: List[str], max_processes: int, max_memory: Optional[str] = None,
+                 verbose: int = 0):
+    command: List[str] = [common.JAVA_PATH, '-cp', str(jar_location.absolute())]
+    if max_memory:
+        command.extend(['-Xmx', max_memory])
+    command.append('org.pharmgkb.pharmcat.BatchPharmCAT')
+    command.extend(args)
+    if max_processes:
+        command.extend(['-cp', str(max_processes)])
+    if verbose:
+        command.append('-v')
+    try:
+        subprocess.run(command, check=True, stderr=subprocess.PIPE, universal_newlines=True)
+    except FileNotFoundError:
+        raise ReportableException('Error: %s not found' % command[0])
+    except subprocess.TimeoutExpired:
+        raise ReportableException('Error: %s took too long' % command[0])
+    except subprocess.CalledProcessError as e:
+        if e.stderr:
+            raise ReportableException(e.stderr)
 
 
 def validate_tool(tool_name: str, tool_path: str, min_version: Optional[str] = None):
@@ -166,11 +189,32 @@ def validate_java(min_version: Optional[str] = None):
     common.JAVA_PATH = java_path
 
 
+def validate_dir(directory: Union[Path, str], create_if_not_exist: bool = False) -> Path:
+    """
+    Checks that the specified directory exists.
+
+    :param directory: directory to check for
+    :param create_if_not_exist: if True and directory does not exist, create the directory, otherwise raise error
+    :raises ReportableException: if it does not exist
+    """
+    if isinstance(directory, str):
+        directory = Path(directory)
+    if directory.exists():
+        if not directory.is_dir():
+            raise ReportableException('%s is not a directory' % str(directory))
+    else:
+        if create_if_not_exist:
+            directory.mkdir(parents=True, exist_ok=True)
+        else:
+            raise ReportableException('%s does not exist' % str(directory))
+    return directory
+
+
 def validate_file(file: Union[Path, str]) -> Path:
     """
     Checks that the specified file exists.
 
-    :raises ReportableException: if it does not
+    :raises ReportableException: if it does not exist
     """
     if isinstance(file, str):
         file = Path(file)
@@ -182,7 +226,7 @@ def validate_file(file: Union[Path, str]) -> Path:
     return file
 
 
-def find_vcf_files(vcf_dir: Path, verbose: bool = False) -> List[Path]:
+def find_vcf_files(vcf_dir: Path, verbose: int = 0) -> List[Path]:
     """
     Finds all VCF files in the specified directory.
     VCF file can be compressed (either .bgz or .gz extension).
@@ -193,7 +237,7 @@ def find_vcf_files(vcf_dir: Path, verbose: bool = False) -> List[Path]:
     if not vcf_dir.is_dir():
         raise ReportableException('%s is not a directory' % vcf_dir)
     if verbose:
-        print('Looking for VCF files in', vcf_dir)
+        print('Looking for VCF files in', str(vcf_dir.absolute()))
     vcf_dict: dict[str, List[str]] = {}
     for f in vcf_dir.iterdir():
         if f.is_file():
@@ -203,11 +247,25 @@ def find_vcf_files(vcf_dir: Path, verbose: bool = False) -> List[Path]:
                     vcf_dict[vcf_basename].append(f.name)
                 else:
                     vcf_dict[vcf_basename] = [f.name]
+    prepped: List[str] = []
+    for basename in vcf_dict.keys():
+        if basename.endswith('.preprocessed'):
+            tmp_name = basename[0:len(basename) - 13]
+            if tmp_name in vcf_dict:
+                prepped.append(basename)
+    for basename in prepped:
+        if verbose:
+            print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])), '(will preprocess again)')
+        del vcf_dict[basename]
     vcf_files: List[Path] = []
     for basename in vcf_dict.keys():
         if basename.startswith('pharmcat_positions'):
             if verbose:
-                print('  - ignoring:', ', '.join(map(str, vcf_dict[basename])))
+                print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])))
+            continue
+        if basename.endswith(_missing_pgx_var_suffix):
+            if verbose:
+                print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])))
             continue
         vcfs: List[str] = vcf_dict[basename]
         if len(vcfs) == 1:
@@ -287,8 +345,16 @@ def validate_samples(samples: List[str]):
                                   "(commas violate bcftools sample name convention).")
 
 
-def read_sample_file(sample_file: Path) -> List[str]:
-    print('Reading samples from', sample_file, '...')
+def parse_samples(sample_string: str) -> List[str]:
+    samples: List[str] = []
+    for sample in sample_string.split(','):
+        samples.append(sample.strip())
+    return samples
+
+
+def read_sample_file(sample_file: Path, verbose: int = 0) -> List[str]:
+    if verbose:
+        print('Reading samples from', sample_file, '...')
     samples: List[str] = []
     with open(sample_file, 'r') as file:
         for line in file:
@@ -296,13 +362,14 @@ def read_sample_file(sample_file: Path) -> List[str]:
             if line and not line.startswith("#"):
                 samples.append(line)
     if len(samples) == 0:
-        print('  * WARNING: No samples found. Will use all samples listed in VCF.')
+        # TODO(markwoon): use colorama to highlight this in next release
+        print("Warning: No samples found. Will use all samples listed in VCF.")
     else:
         validate_samples(samples)
     return samples
 
 
-def read_vcf_samples(vcf_file: Path) -> List[str]:
+def read_vcf_samples(vcf_file: Path, verbose: int = 0) -> List[str]:
     """
     Obtain a list of samples from the input VCF.
 
@@ -311,7 +378,8 @@ def read_vcf_samples(vcf_file: Path) -> List[str]:
     Samples are delimited by '\\\\n' and the last line ends as 'last_sample_ID\\\\n\\\\n'.
     """
 
-    print('Reading samples from', vcf_file, '...')
+    if verbose:
+        print('Reading samples from', vcf_file, '...')
     output = subprocess.check_output([common.BCFTOOLS_PATH, 'query', '-l', str(vcf_file)], universal_newlines=True)
     vcf_sample_list: List[str] = output.split('\n')[:-1]  # remove the black line at the end
     if len(vcf_sample_list) == 0:
@@ -328,7 +396,7 @@ def is_gz_file(file: Path):
         return test_f.read(2) == b'\x1f\x8b'
 
 
-def bgzip_file(file: Path, verbose: bool = False):
+def bgzip_file(file: Path, verbose: int = 0):
     """
     bgzip the specified file.
     Will overwrite existing .gz/.bgz file.
@@ -349,7 +417,7 @@ def bgzip_file(file: Path, verbose: bool = False):
     return bgz_path
 
 
-def bgzip_vcf(file: Path, verbose: bool = False) -> Path:
+def bgzip_vcf(file: Path, verbose: int = 0) -> Path:
     """
     Make sure file is bgzipped.
     Will overwrite existing .gz/.bgz file.
@@ -363,11 +431,11 @@ def bgzip_vcf(file: Path, verbose: bool = False) -> Path:
     return file
 
 
-def delete_index(vcf_file: Path, suffix: str, verbose: bool = False):
+def delete_index(vcf_file: Path, suffix: str, verbose: int = 0):
     index = Path(str(vcf_file) + suffix)
     if index.exists():
         if index.is_file():
-            if verbose:
+            if verbose >= 2:
                 print('  * Removing pre-existing %s index' % suffix)
             index.unlink()
         else:
@@ -384,11 +452,11 @@ def find_index_file(vcf_file: Path) -> Optional[Path]:
     return None
 
 
-def index_vcf(vcf_file: Path, verbose: bool = False) -> Path:
+def index_vcf(vcf_file: Path, verbose: int = 0) -> Path:
     """
     Index the input vcf using bcftools, and the output index file will be written to the working directory.
     """
-    if verbose:
+    if verbose >= 2:
         print('  * Generating index for %s' % vcf_file)
     run([common.BCFTOOLS_PATH, 'index', str(vcf_file)])
     csi_file = Path(str(vcf_file) + '.csi')
@@ -397,14 +465,14 @@ def index_vcf(vcf_file: Path, verbose: bool = False) -> Path:
     return csi_file
 
 
-def delete_vcf_and_index(vcf_file: Path, verbose: bool = False):
+def delete_vcf_and_index(vcf_file: Path, verbose: int = 0):
     """Delete compressed vcf as well as the index file."""
     if vcf_file.is_file():
         vcf_file.unlink()
     delete_index(vcf_file, '.csi', verbose)
 
 
-def download_from_url(url: str, download_dir: Path, force_update: bool = False, verbose: bool = False):
+def download_from_url(url: str, download_dir: Path, force_update: bool = False, verbose: int = 0):
     """Download from a URL."""
 
     remote_basename = os.path.basename(urllib.parse.urlparse(url).path)
@@ -426,7 +494,7 @@ def download_from_url(url: str, download_dir: Path, force_update: bool = False, 
         raise InvalidURL(url)
 
 
-def download_pharmcat_positions(download_dir: Union[Path, str], force_update: bool = False, verbose: bool = False):
+def download_pharmcat_positions(download_dir: Union[Path, str], force_update: bool = False, verbose: int = 0):
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
     pos_file = download_dir / common.PHARMCAT_POSITIONS_FILENAME
@@ -448,7 +516,7 @@ def download_pharmcat_positions(download_dir: Union[Path, str], force_update: bo
 
 
 def download_reference_fasta_and_index(download_dir: Union[Path, str], force_update: bool = False,
-                                       verbose: bool = False):
+                                       verbose: int = 0):
     """Download the human reference genome sequence GRCh38/hg38."""
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
@@ -465,9 +533,29 @@ def download_reference_fasta_and_index(download_dir: Union[Path, str], force_upd
     return ref_file
 
 
+def download_pharmcat_jar(download_dir: Union[Path, str], force_update: bool = False, verbose: int = 0):
+    if not isinstance(download_dir, Path):
+        download_dir = Path(download_dir)
+    jar_file = download_dir / common.PHARMCAT_JAR_FILENAME
+    if jar_file.exists() and not force_update:
+        return jar_file
+
+    url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat-%s-all.jar' % \
+          (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
+    try:
+        dl_file = download_from_url(url, download_dir, force_update, verbose)
+        # use shutil.move instead of rename to deal with cross-device issues
+        shutil.move(dl_file, jar_file)
+        return jar_file
+    except HTTPError as e:
+        if e.status == 404:
+            raise ReportableException('Cannot find pharmcat jar file for v%s' % common.PHARMCAT_VERSION)
+        raise e
+
+
 def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
                             reference_genome_fasta: Optional[Path] = None,
-                            update_chr_rename_file: bool = False, verbose: bool = False):
+                            update_chr_rename_file: bool = False, verbose: int = 0):
     if pharmcat_positions_vcf is None:
         # assume it's in current working directory
         pharmcat_positions_vcf = Path('pharmcat_positions.vcf.bgz')
@@ -478,7 +566,7 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
         # assume it's in current working directory
         reference_genome_fasta = Path(common.REFERENCE_FASTA_FILENAME)
     if not reference_genome_fasta.is_file():
-        download_reference_fasta_and_index(pharmcat_positions_vcf.parent, verbose)
+        download_reference_fasta_and_index(pharmcat_positions_vcf.parent, verbose=verbose)
 
     csi_file = Path(str(pharmcat_positions_vcf) + '.csi')
     if not csi_file.is_file():
@@ -527,7 +615,7 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
                         output_dir: Path, output_basename: str,
                         concurrent_mode: bool = False, max_processes: int = 1,
-                        verbose: bool = False) -> Path:
+                        verbose: int = 0) -> Path:
     """
     Extracts PGx regions from input VCF file(s) into a single VCF file and rename chromosomes to match PharmCAT
     expectations.
@@ -552,7 +640,8 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
             # generate files to be concatenated
             tmp_files: List[Path] = []
             if concurrent_mode:
-                with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
+                with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes,
+                                                                                            validate=False)) as e:
                     futures = []
                     for vcf_file in vcf_files:
                         futures.append(e.submit(_extract_pgx_regions, pharmcat_positions, vcf_file, tmp_sample_file,
@@ -583,7 +672,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
 
 
 def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: Path, output_dir: Path,
-                         output_basename: Optional[str], verbose: bool = False) -> Path:
+                         output_basename: Optional[str], verbose: int = 0) -> Path:
     """
     Does the actual work to extract PGx regions from input VCF file(s) into a single VCF file and
     rename chromosomes to match PharmCAT expectations.
@@ -623,7 +712,7 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
                         '--rename-chrs', str(common.CHR_RENAME_FILE), '-r', ref_pgx_regions, '-i', 'ALT="."', '-k',
                         '-Oz', '-o', str(pgx_regions_vcf), str(bgz_file)]
     if verbose:
-        print('  * Extracting PGx regions and normalizing chromosome names')
+        print('* Extracting PGx regions and normalizing chromosome names')
     run(bcftools_command)
     # index the PGx VCF file
     index_vcf(pgx_regions_vcf, verbose)
@@ -631,7 +720,7 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
 
 
 def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, output_basename: Optional[str],
-                  verbose: bool = False):
+                  verbose: int = 0):
     """
     Normalize the input VCF against the human reference genome sequence GRCh38/hg38.
 
@@ -649,7 +738,7 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
                         '-Oz', '-o', str(normalized_vcf),
                         '-f', str(reference_genome), str(vcf_file)]
     if verbose:
-        print('Normalizing VCF')
+        print('* Normalizing VCF')
     run(bcftools_command)
     index_vcf(normalized_vcf, verbose)
     return normalized_vcf
@@ -669,7 +758,7 @@ def _is_phased(gt_field) -> bool:
 
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
                          output_dir: Path, output_basename: str, missing_to_ref: bool = False,
-                         verbose: bool = False) -> Path:
+                         verbose: int = 0) -> Path:
     """
     Extract specific pgx positions that are present in the reference PGx VCF.
     Generate a report of PGx positions that are missing in the input VCF.
@@ -724,7 +813,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         input_pos_phased = {}
         # this dictionary saves genetic variants concurrent at PGx positions
         dict_non_pgx_records = {}
-        print('Updating VCF header and PGx position annotations')
+        if verbose:
+            print('* Updating VCF header and PGx position annotations')
         updated_pgx_pos_vcf: Path = tmp_dir / (output_basename + '.updated_pgx_pos_only.vcf')
         with open(updated_pgx_pos_vcf, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
@@ -922,14 +1012,16 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         continue
 
         # sort vcf
-        print('Sorting by chromosomal location...')
+        if verbose:
+            print('* Sorting by chromosomal location...')
         sorted_bgz: Path = tmp_dir / (output_basename + '.sorted.vcf.bgz')
         bcftools_command = [common.BCFTOOLS_PATH, 'sort', '-Oz', '-o', str(sorted_bgz), str(updated_pgx_pos_vcf)]
         run(bcftools_command)
         index_vcf(sorted_bgz, verbose)
 
         # make sure output complies with the multi-allelic format
-        print('Enforcing multi-allelic variant representation...')
+        if verbose:
+            print('* Enforcing multi-allelic variant representation...')
         normed_bgz: Path = tmp_dir / (output_basename + '.normed.vcf.bgz')
         run([common.BCFTOOLS_PATH, 'norm', '--no-version', '-m+', '-c', 'ws', '-f', str(reference_fasta), '-Oz',
              '-o', str(normed_bgz), str(sorted_bgz)])
@@ -984,15 +1076,15 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         # report missing positions in the input VCF
         if len(ref_pos_dynamic):
             mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename)
-            print("Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), mf))
 
         return filtered_bgz
 
 
 def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str) -> Path:
     # report missing positions in the input VCF
-    print('Generating report of missing PGx allele defining positions...')
-    missing_pos_file: Path = output_dir / (output_basename + '.missing_pgx_var.vcf')
+    missing_pos_file: Path = output_dir / (output_basename + _missing_pgx_var_suffix + '.vcf')
+    # TODO(markwoon): use colorama to highlight this in next release
+    print("* Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), missing_pos_file))
     with open(missing_pos_file, 'w') as out_f:
         # get VCF header from pharmcat_positions
         with gzip.open(pharmcat_positions, mode='rt', encoding='utf-8') as in_f:
@@ -1017,7 +1109,7 @@ def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_d
 
 
 def _export_single_sample(vcf_file: Path, output_dir: Path, output_basename: str, sample: str,
-                          multisample: bool):
+                          multisample: bool) -> Path:
     """
     Create final PharmCAT-ready VCF file.
 
@@ -1039,33 +1131,66 @@ def _export_single_sample(vcf_file: Path, output_dir: Path, output_basename: str
     run([common.BCFTOOLS_PATH, 'annotate', '--no-version', '-x', '^INFO/PX', '-s', sample, '-Ov',
          '-o', str(output_file_name), str(tmp_file)])
     tmp_file.unlink()
+    return output_file_name
 
 
 def export_single_sample_vcf(vcf_file: Path, samples: List[str], output_dir: Path, output_basename: str,
-                             concurrent_mode: bool = False, max_processes: int = 1):
+                             concurrent_mode: bool = False, max_processes: int = 1) -> List[Path]:
     """
     Write final PharmCAT-ready VCF for each sample.
     """
     is_multisample = len(samples) > 1
+    results: List[Path] = []
     if concurrent_mode:
-        with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes)) as e:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes, validate=False))\
+                as executor:
             futures = []
             for sample in samples:
-                futures.append(e.submit(_export_single_sample, vcf_file, output_dir, output_basename,
-                                        sample, is_multisample))
+                futures.append(executor.submit(_export_single_sample, vcf_file, output_dir, output_basename,
+                                               sample, is_multisample))
             concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
+            for f in concurrent.futures.as_completed(futures):
+                results.append(f.result())
     else:
         for sample in samples:
-            _export_single_sample(vcf_file, output_dir, output_basename, sample, is_multisample)
+            results.append(_export_single_sample(vcf_file, output_dir, output_basename, sample, is_multisample))
+    return results
 
 
-def check_max_processes(max_processes: int) -> int:
-    if max_processes is None:
-        # number of cpus - 1, minimum of 1
-        max_processes = max(1, os.cpu_count() - 1)
-    elif max_processes < 1:
-        max_processes = 1
-    if os.name == 'nt' and max_processes > 61:
-        # windows has max of 61 workers
+def check_max_processes(requested_max_processes: Optional[int], validate: bool = True, verbose: int = 0) -> int:
+    if os.cpu_count() == 1:
+        if validate:
+            if requested_max_processes is None:
+                print('Only 1 CPU, cannot use concurrent mode')
+            elif requested_max_processes > 1:
+                print('Warning: only 1 CPU, cannot use concurrent mode')
+        return 1
+    max_processes: int = 1
+    if requested_max_processes is None:
+        # don't default to concurrent mode unless more than 2 CPU
+        if os.cpu_count() == 3:
+            max_processes = 2
+        elif os.cpu_count() > 3:
+            max_processes = max(2, os.cpu_count() - 2)
+    else:
+        max_processes = requested_max_processes
+        if requested_max_processes < 1:
+            max_processes = 1
+            if validate:
+                raise ReportableException('Cannot ask for less than 1 concurrent process')
+        elif requested_max_processes > os.cpu_count():
+            max_processes = max(2, os.cpu_count() - 2)
+            if validate:
+                print('Warning: request %s max processes, but only %s CPUs available.' %
+                      (requested_max_processes, os.cpu_count()))
+                print('Will use a maximum of %s concurrent processes.' % max_processes)
+
+    if os.name == 'nt' and requested_max_processes > 61:
+        # windows has max of 61 workers: https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor
         max_processes = 61
+        if validate:
+            print("Warning:", requested_max_processes, "processes requested, but python on Windows is limited to 61")
+
+    if verbose and not validate and requested_max_processes and requested_max_processes != max_processes:
+        print('Using a maximum of %s concurrent processes' % max_processes)
     return max_processes

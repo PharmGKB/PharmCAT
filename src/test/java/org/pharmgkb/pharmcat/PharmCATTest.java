@@ -21,6 +21,8 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -274,7 +276,7 @@ class PharmCATTest {
           "-bf", baseFilename,
       }));
       //System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
+      assertThat(systemOut, containsString("Done"));
       assertTrue(Files.exists(matcherOutput));
       assertFalse(Files.exists(phenotyperOutput));
       assertFalse(Files.exists(reporterOutput));

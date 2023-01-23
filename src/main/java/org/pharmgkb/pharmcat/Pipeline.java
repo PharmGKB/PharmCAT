@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.concurrent.Callable;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.AnsiConsole;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -55,6 +56,8 @@ public class Pipeline implements Callable<PipelineResult> {
   private boolean m_callCyp2d6;
   private Path m_matcherJsonFile;
   private Path m_matcherHtmlFile;
+  /** True if VCF file only contains a single sample. */
+  private final boolean m_singleSample;
 
   private final boolean m_runPhenotyper;
   private Path m_phenotyperInputFile;
@@ -75,16 +78,18 @@ public class Pipeline implements Callable<PipelineResult> {
   private final boolean m_verbose;
   private Path m_baseDir;
   private String m_basename;
+  private String m_displayName;
+  private final String m_displayCount;
 
 
   public Pipeline(Env env,
-      boolean runMatcher, @Nullable VcfFile vcfFile, @Nullable String sampleId,
+      boolean runMatcher, @Nullable VcfFile vcfFile, @Nullable String sampleId, boolean singleSample,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
-      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles, Mode mode,
-      boolean singleSample, boolean verbose) throws ReportableException {
+      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
+      Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
     m_env = env;
 
     m_runMatcher = runMatcher;
@@ -144,6 +149,8 @@ public class Pipeline implements Callable<PipelineResult> {
     m_deleteIntermediateFiles = deleteIntermediateFiles;
     m_mode = mode;
     m_verbose = verbose;
+    m_singleSample = singleSample;
+    m_displayCount = displayCount;
     Objects.requireNonNull(m_baseDir);
     Objects.requireNonNull(m_basename);
   }
@@ -170,9 +177,13 @@ public class Pipeline implements Callable<PipelineResult> {
     } else {
       m_basename = BaseConfig.getBaseFilename(inputFile);
     }
+    m_displayName = m_basename;
     if (!singleSample &&  sampleId != null && !m_basename.equals(m_sampleId) && !m_basename.startsWith(sampleId + ".") &&
         !m_basename.contains("." + sampleId + ".")) {
       m_basename += "." + sampleId;
+    }
+    if (sampleId != null) {
+      m_displayName = "sample " + sampleId + " in " + m_displayName;
     }
   }
 
@@ -185,30 +196,36 @@ public class Pipeline implements Callable<PipelineResult> {
   @Override
   public PipelineResult call() throws IOException {
     boolean didSomething = false;
+    boolean batchDisplayMode = !m_singleSample || m_mode == Mode.BATCH;
 
-    if (m_mode == Mode.BATCH) {
-      System.out.println("* Starting " + m_basename);
+    if (batchDisplayMode) {
+      StringBuilder builder = new StringBuilder("+ ");
+      if (m_displayCount != null) {
+        builder.append(m_displayCount)
+            .append(" ");
+      }
+      builder.append("Starting ")
+          .append(m_displayName);
+      if (m_verbose) {
+        builder.append(" (inputs: ")
+            .append(getInputDescription())
+            .append(")");
+      }
+      System.out.println(builder);
     }
 
     try {
+      List<String> output = new ArrayList<>();
       org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = null;
       if (m_runMatcher) {
         NamedAlleleMatcher namedAlleleMatcher =
             new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
-        if (m_mode == Mode.CLI) {
+        if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }
         matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
 
-        if (m_mode == Mode.CLI) {
-          if (!m_deleteIntermediateFiles) {
-            System.out.println("Saving named allele matcher JSON results to " + m_matcherJsonFile);
-          }
-          if (m_matcherHtmlFile != null) {
-            System.out.println("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
-          }
-        } else if (m_mode == Mode.BATCH &&
-            matcherResult.getVcfWarnings() != null &&
+        if (matcherResult.getVcfWarnings() != null &&
             matcherResult.getVcfWarnings().size() > 0) {
           Path txtFile = m_matcherJsonFile.getParent()
               .resolve(m_basename + ".matcher_warnings.txt");
@@ -221,8 +238,16 @@ public class Pipeline implements Callable<PipelineResult> {
                       .forEach(msg -> writer.println("\t" + msg));
                 });
           }
+          output.add(AnsiConsole.styleWarning("Saving VCF warnings to " + txtFile));
         }
+
         if (!m_deleteIntermediateFiles || !m_runPhenotyper) {
+          if (!batchDisplayMode) {
+            output.add("Saving named allele matcher JSON results to " + m_matcherJsonFile);
+            if (m_matcherHtmlFile != null) {
+              output.add("Saving named allele matcher HTML results to " + m_matcherHtmlFile);
+            }
+          }
           namedAlleleMatcher.saveResults(matcherResult, m_matcherJsonFile, m_matcherHtmlFile);
         }
 
@@ -267,10 +292,10 @@ public class Pipeline implements Callable<PipelineResult> {
         }
 
         phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
-        if (m_mode == Mode.CLI) {
-          System.out.println("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
-        }
         if (!m_deleteIntermediateFiles || !m_runReporter) {
+          if (!batchDisplayMode) {
+            output.add("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
+          }
           phenotyper.write(m_phenotyperJsonFile);
         }
         didSomething = true;
@@ -282,19 +307,17 @@ public class Pipeline implements Callable<PipelineResult> {
           phenotyper = Phenotyper.read(inputFile);
         }
         m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
-        if (m_mode == Mode.CLI) {
-          if (!m_deleteIntermediateFiles) {
-            System.out.println("Saving reporter HTML results to " + m_reporterHtmlFile);
-          }
-          if (m_reporterJsonFile != null) {
-            System.out.println("Saving reporter JSON results to " + m_reporterJsonFile);
-          }
+        if (!batchDisplayMode) {
+          output.add("Saving reporter HTML results to " + m_reporterHtmlFile);
         }
         new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
             .sources(m_reporterSources)
             .compact(m_reporterCompact)
             .write(m_reportContext);
         if (m_reporterJsonFile != null) {
+          if (!batchDisplayMode) {
+            output.add("Saving reporter JSON results to " + m_reporterJsonFile);
+          }
           new JsonFormat(m_reporterJsonFile, m_env)
               .write(m_reportContext);
         }
@@ -306,20 +329,32 @@ public class Pipeline implements Callable<PipelineResult> {
         Files.deleteIfExists(m_matcherJsonFile);
         Files.deleteIfExists(m_phenotyperJsonFile);
       }
-      if (m_mode == Mode.BATCH) {
-        String memUsage = "";
-        if (m_verbose) {
-          memUsage = " (current memory usage: " +
-              FileUtils.byteCountToDisplaySize(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) +
-              ")";
+
+      StringBuilder builder = new StringBuilder();
+      if (batchDisplayMode) {
+        builder.append("- ");
+        if (m_displayCount != null) {
+          builder.append(m_displayCount)
+              .append(" ");
         }
-        System.out.println("* Finished processing " +
-            (m_sampleId == null ? m_basename : m_sampleId) + memUsage);
+        builder.append("Finished processing ")
+            .append(m_displayName);
+        if (m_verbose) {
+          builder.append(" (current memory usage: ")
+              .append(FileUtils.byteCountToDisplaySize(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
+              .append(")");
+        }
+        builder.append(System.lineSeparator());
+        output.forEach(o -> builder.append("  * ").append(o).append(System.lineSeparator()));
+        System.out.print(builder);
+      } else {
+        output.forEach(System.out::println);
       }
       return new PipelineResult((didSomething ? PipelineResult.Status.SUCCESS : PipelineResult.Status.NOOP), m_basename,
           m_sampleId);
+
     } catch (Exception ex) {
-      if (m_mode == Mode.BATCH) {
+      if (!m_singleSample) {
         Path txtFile = m_baseDir.resolve(m_basename + ".ERROR.txt");
         ex.printStackTrace();
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
@@ -336,11 +371,35 @@ public class Pipeline implements Callable<PipelineResult> {
     return m_reportContext;
   }
 
+
+  public String getInputDescription() {
+    StringBuilder builder = new StringBuilder();
+    if (m_vcfFile != null) {
+      builder.append(m_vcfFile.getFile().getFileName());
+    }
+    if (m_phenotyperInputFile != null) {
+      if (builder.length() > 0) {
+        builder.append(", ");
+      }
+      builder.append(m_phenotyperInputFile.getFileName());
+    }
+    if (m_phenotyperOutsideCallsFile != null) {
+      if (builder.length() > 0) {
+        builder.append(", ");
+      }
+      builder.append(m_phenotyperOutsideCallsFile.getFileName());
+    }
+    if (m_reporterInputFile != null) {
+      if (builder.length() > 0) {
+        builder.append(", ");
+      }
+      builder.append(m_reporterInputFile.getFileName());
+    }
+    return builder.toString();
+  }
+
   @Override
   public String toString() {
-    if (m_sampleId != null) {
-      return m_sampleId;
-    }
-    return m_basename;
+    return m_displayName;
   }
 }

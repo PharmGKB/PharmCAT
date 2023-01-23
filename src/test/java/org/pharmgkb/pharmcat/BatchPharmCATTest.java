@@ -71,8 +71,8 @@ class BatchPharmCATTest {
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
     assertThat(systemOut, not(containsString("FAIL")));
-    // max processes is capped to number of samples
-    assertThat(systemOut, containsString("maximum of 1 processes"));
+    // max processes is capped to number of samples, so capped to 1, which is not shown
+    assertThat(systemOut, not(containsString("processes")));
     checkForOutputFiles(tmpDir, vcfFile);
   }
 
@@ -278,6 +278,42 @@ class BatchPharmCATTest {
 
     PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json"));
     PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
+  }
+
+
+  @Test
+  void singleSampleIgnoreUnrelated(TestInfo testInfo) throws Exception {
+    Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, na18526Vcf);
+
+    Path outsideFile1 = tmpDir.resolve("Sample_1.outside.tsv");
+    Path matchFile3 = tmpDir.resolve("Sample_3.match.json");
+    Path outsideFile4 = tmpDir.resolve("Sample_4.outside.tsv");
+    Path phenotypeFile5 = tmpDir.resolve("Sample5.phenotype.json");
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile1);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFile4);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.match.json"), matchFile3);
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.phenotype.json"), phenotypeFile5);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-vcf", na18526Vcf.toString(),
+        "-o", tmpDir.toString(),
+        "-cp", "3"
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
+    assertThat(systemOut, containsString("Found 1 VCF file"));
+    assertThat(systemOut, not(containsString("independent phenotyper input file")));
+    assertThat(systemOut, not(containsString("independent phenotyper outside call file")));
+    assertThat(systemOut, not(containsString("lone outside call file")));
+    assertThat(systemOut, not(containsString("independent reporter input file")));
+    // max processes is higher than number of samples, should limit to 1, which is not shown
+    assertThat(systemOut, not(containsString("processes")));
+
+    checkForOutputFiles(tmpDir, na18526Vcf);
   }
 
 

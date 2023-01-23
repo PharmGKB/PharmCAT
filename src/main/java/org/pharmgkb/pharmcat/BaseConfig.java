@@ -23,6 +23,8 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
  * @author Mark Woon
  */
 class BaseConfig {
+  public static final String VCF_PREPROCESSED_SUFFIX = ".preprocessed";
+  public static final String VCF_MISSING_PGX_VAR_SUFFIX = ".missing_pgx_var";
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   boolean runMatcher = true;
   Path definitionDir;

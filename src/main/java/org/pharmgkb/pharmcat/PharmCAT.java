@@ -25,35 +25,35 @@ public class PharmCAT {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
           // inputs
-          .addOption("s", "samples", "comma-separated list of samples", false, "samples")
-          .addOption("S", "sample-file", "file containing a list of sample, one per line", false, "file")
+          .addOption("s", "samples", "Comma-separated list of samples", false, "samples")
+          .addOption("S", "sample-file", "File containing a list of sample, one per line", false, "file")
 
           // named allele matcher args
-          .addOption("matcher", "matcher", "run named allele matcher")
-          .addOption("vcf", "matcher-vcf", "input VCF file for named allele matcher", false, "file")
-          .addOption("ma", "matcher-all-results", "return all possible diplotypes, not just top hits")
-          .addOption("matcherHtml", "matcher-save-html", "save named allele matcher results as HTML")
+          .addOption("matcher", "matcher", "Run named allele matcher independently")
+          .addOption("vcf", "matcher-vcf", "Input VCF file for named allele matcher", false, "file")
+          .addOption("ma", "matcher-all-results", "Return all possible diplotypes, not just top hits")
+          .addOption("matcherHtml", "matcher-save-html", "Save named allele matcher results as HTML")
 
           // phenotyper args
-          .addOption("phenotyper", "phenotyper", "run phenotyper")
+          .addOption("phenotyper", "phenotyper", "Run phenotyper independently")
           .addOption("pi", "phenotyper-input", "JSON results from named allele matcher", false, "file")
-          .addOption("po", "phenotyper-outside-call-file", "path to an outside call file (TSV)", false, "file")
+          .addOption("po", "phenotyper-outside-call-file", "Path to an outside call file (TSV)", false, "file")
 
           // reporter args
-          .addOption("reporter", "reporter", "run reporter")
+          .addOption("reporter", "reporter", "Run reporter independently")
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
-          .addOption("rt", "reporter-title", "optional, text to add to the report title", false, "title")
-          .addOption("rs", "reporter-sources", "comma-separated list of sources to limit recommendations to", false, "sources")
-          .addOption("re", "reporter-extended", "generate extended report")
-          .addOption("reporterJson", "reporter-save-json", "save reporter results as JSON")
+          .addOption("rt", "reporter-title", "Text to add to the report title", false, "title")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
+          .addOption("re", "reporter-extended", "Output extended report")
+          .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 
           // outputs
-          .addOption("o", "output-dir", "directory to output to (optional, default is input file directory)", false, "directory")
-          .addOption("bf", "base-filename", "the base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
+          .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
+          .addOption("bf", "base-filename", "The base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
+          .addOption("del", "delete-intermediate-files", "Delete intermediate output files")
           // controls
-          .addOption("def", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
-          .addOption("del", "delete-intermediary-files", "delete intermediary output files")
-          .addOption("research", "research-mode", "comma-separated list of research features to enable [cyp2d6, combinations]", false, "type");
+          .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
+          .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
         failIfNotTest();
         return;
@@ -156,13 +156,13 @@ public class PharmCAT {
             System.out.println(x + " / " + config.samples.size() + " - " + sampleId);
           }
           Pipeline pipeline = new Pipeline(env,
-              config.runMatcher, vcfFile, sampleId,
+              config.runMatcher, vcfFile, sampleId, singleSample,
               config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
               config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
               config.runReporter, reporterInputFile, config.reporterTitle,
               config.reporterSources, config.reporterCompact, config.reporterJson,
               config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-              Pipeline.Mode.CLI, singleSample, cliHelper.isVerbose());
+              Pipeline.Mode.CLI, null, cliHelper.isVerbose());
           if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
             failIfNotTest();
             blankRuns.add(sampleId);
@@ -180,13 +180,13 @@ public class PharmCAT {
 
       } else {
         Pipeline pipeline = new Pipeline(env,
-            false, null, null,
+            false, null, null, true,
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-            Pipeline.Mode.CLI, true, cliHelper.isVerbose());
+            Pipeline.Mode.CLI, null, cliHelper.isVerbose());
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
           cliHelper.printHelp();
           System.out.println("Nothing to do.");
