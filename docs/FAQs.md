@@ -82,7 +82,5 @@ If you run PharmCAT on male samples or samples with only one chrX, be aware of t
 
 We will add the support for hemizygotes at the X chromosome in the PharmCAT VCF Preprocessor in the future.
 
-### Where to find the CYP2C Cluster variant in the PharmCAT JSONs?
-PharmCAT reports an independently significant single nucleotide variation (SNV; rs12777823) in the CYP2C cluster on chromosome 10. Till Jan 2023, rs12777823 is only used in the CPIC warfarin guideline. In addition, rs12777823 needs to be used in combination with _CYP2C9_ genotypes.
-
-In the PharmCAT HTML report, rs12777823 is listed independently of _CYP2C9_. In the JSON, given that the SNV cannot be used without _CYP2C9_ genotypes, rs12777823 is nested under CYP2C9 as a CYP2C _POI_ (position of interest) for concision. 
+### What is the CYP2C Cluster variant, rs12777823, in the CYP2C9 section of PharmCAT JSONs?
+PharmCAT includes an intergenic single nucleotide variation (SNV), rs12777823, based on the [CPIC warfarin guideline](https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/). This SNV is in the _CYP2C_ cluster on chromosome 10 but independent of the _CYP2C9_ gene, and is listed independently in the PharmCAT HTML report. However, the PharmCAT JSON output is gene-dependent. For this reason, rs12777823 is nested under _CYP2C9_ as a _CYP2C_ POI (position of interest) in the JSON even though the SNV is not located within the _CYP2C9_ gene boundary and does not affect _CYP2C9_ genotype or phenotype.
