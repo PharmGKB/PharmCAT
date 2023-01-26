@@ -22,7 +22,7 @@ RUN mkdir /pharmcat
 WORKDIR /pharmcat
 # download fasta files
 RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
-    tar -xf GRCh38_reference_fasta.tar && \
+    tar -xf GRCh38_reference_fasta.tar --no-same-owner && \
     rm -f GRCh38_reference_fasta.tar
 
 
