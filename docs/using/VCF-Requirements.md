@@ -16,7 +16,6 @@ In addition, PharmCAT expects incoming VCF to have the following properties:
 4. Have insertions and deletions normalized to the expected representation.
 5. The `CHROM` field must be in the format __chr##__.
 6. The `QUAL` and `FILTER` columns are __not interpreted__. It is left to the user to remove data not meeting quality criteria _before_ passing it to PharmCAT.
-7. Should only have data for a __single sample__.  If it's a multi-sample VCF file, __only the first sample is used__.
 
 
 
@@ -115,7 +114,7 @@ Please refer to the [HaplotypeCaller](https://gatk.broadinstitute.org/hc/en-us/a
 
 ### Must normalize variant representation
 
-Variant representation is an on-going problem in NGS ([related article](https://macarthurlab.org/2014/04/28/converting-genetic-variants-to-their-minimal-representation/)).  For example, the following vcf lines all specify the same variant with different formats:
+Variant representation is an ongoing problem in NGS ([related article](https://macarthurlab.org/2014/04/28/converting-genetic-variants-to-their-minimal-representation/)).  For example, the following vcf lines all specify the same variant with different formats:
 
 ```text
 chr7    117548628    .    GTTTTTTTA    GTTTTTA    .    PASS    CFTR:5T    GT    0/1
@@ -124,7 +123,7 @@ chr7    117548628    .    G    .    .    PASS    CFTR:5T    GT    0/1
 chr7    117548628    .    G(T)7A    G(T)5A    .    PASS    CFTR:5T    GT    0/1
 ```
 
-Different NGS pipelines, the way files are created (for instance if a multisample file is split), and post-processing software tools all lead to these differences.  As PharmCAT is directly matching these strings to what is in the definition files this can cause problems. For example, PharmCAT expects to find deletions as the ref="ATCT"  alt="A", rather than ref="TCT" alt=".".  Therefore you will need to replace all the deletions within in the file. If the ref is a single letter it means no variant was found, so it's safe to replace it with the appropriate nucleotide string.
+Different NGS pipelines, the way files are created (for instance if a multisample file is split), and post-processing software tools all lead to these differences.  As PharmCAT is directly matching these strings to what is in the definition files this can cause problems. For example, PharmCAT expects to find deletions as the ref="ATCT"  alt="A", rather than ref="TCT" alt=".".  Therefore, you will need to replace all the deletions within in the file. If the ref is a single letter it means no variant was found, so it's safe to replace it with the appropriate nucleotide string.
 
 To avoid ambiguity in variant representation, PharmCAT uses a parsimonious, left-aligned variant representation format (as discussed in [Unified Representation of Genetic Variants](https://doi.org/10.1093/bioinformatics/btv112) by Tan, Abecasis, and Kang).
 
@@ -166,17 +165,4 @@ If you use a tool like VSQR you can use the following Perl one-liner to change t
 
 ```console
 # perl -pe '/^((?!PASS).)*$/ && /^((?!0\/0).)*$/ && /^((?!0\|0).)*$/ && s/[0-9][\/|][0-9]/0|0/' merged_output.vcf > merged_output_pass.vcf
-```
-
-### Splitting a multi-sample VCF into PharmCAT expected single-sample VCFs
-
-PharmCAT only takes a single-sample VCF. And if a multi-sample VCF is provided, PharmCAT only annotates the first sample.
-
-You can use the [bcftools](http://www.htslib.org/download/) to split your multi-sample VCF into single-sample VCFs that PharmCAT requires:
-```shell
-# assuming bcftools v1.15.1
-for SINGLE_SAMPLE in $(bcftools query -l input.vcf)
-do
-  bcftools view -s "$SINGLE_SAMPLE" -Ov -o output."$SINGLE_SAMPLE".vcf
-done
 ```

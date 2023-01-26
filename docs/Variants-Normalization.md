@@ -1,7 +1,7 @@
 ---
 parent: FAQs
 title: Instances of Normalizing VCF Variant Representation Formats
-permalink: Runtime-Cost/
+permalink: Variants-Normalization/
 ---
 
 This page presents a variety of instances of VCF variant representation formats that should be normalized and standardized for PharmCAT.

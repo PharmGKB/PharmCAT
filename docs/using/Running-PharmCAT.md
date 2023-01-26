@@ -26,7 +26,7 @@ PharmCAT takes VCF files as input.
 
 {: .warn}
 > Please make sure you have read and understand PharmCAT's [VCF requirements](/using/VCF-Requirements).
-> s
+>
 > If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor).
 
 

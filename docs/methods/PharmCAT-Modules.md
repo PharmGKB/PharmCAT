@@ -9,6 +9,8 @@ render_with_liquid: false
 
 The PharmCAT tool is really a pipeline comprised of multiple modules:
 
+The `VCF Preprocessor` module is responsible for normalizing the input VCF.  See [VCF Preprocessor](/using/VCF-Preprocessor) for details.
+
 The `Named AlleleMatcher` module is responsible for calling diplotypes for a sample based on a VCF file.  For an overview on how this works, see [Named Allele Matcher 101](/methods/NamedAlleleMatcher-101)
 
 The `Phenotyper` module is reponsible for translating diplotypes and other genotype information into gene-specific phenotypes. For example, CYP2C19 `*2/*4` is a poor metabolizer.
