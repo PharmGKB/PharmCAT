@@ -574,15 +574,7 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
 
     uniallelic_positions_vcf: Path = find_uniallelic_file(pharmcat_positions_vcf, must_exist=False)
     if not uniallelic_positions_vcf.is_file():
-        if verbose:
-            print('* Preparing uniallelic PharmCAT positions VCF')
-        # convert reference PGx variants to the uniallelic format needed for extracting exact PGx positions
-        # and generating an accurate missing report
-        bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-f',
-                            str(reference_genome_fasta), '-Oz', '-o', str(uniallelic_positions_vcf),
-                            str(pharmcat_positions_vcf)]
-        run(bcftools_command)
-        index_vcf(uniallelic_positions_vcf, verbose)
+        create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions_vcf, reference_genome_fasta)
 
     # create chromosome mapping file
     if not common.CHR_RENAME_FILE.is_file() or update_chr_rename_file:
@@ -591,6 +583,19 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
         with open(common.CHR_RENAME_FILE, 'w+') as f:
             for i in range(len(_chr_invalid)):
                 f.write(_chr_invalid[i] + "\t" + _chr_valid[i] + "\n")
+
+
+def create_uniallelic_vcf(uniallelic_positions_vcf: Path, pharmcat_positions_vcf: Path, reference_genome_fasta: Path,
+                          verbose: int = 0):
+    if verbose:
+        print('* Preparing uniallelic PharmCAT positions VCF')
+    # convert reference PGx variants to the uniallelic format needed for extracting exact PGx positions
+    # and generating an accurate missing report
+    bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-f',
+                        str(reference_genome_fasta), '-Oz', '-o', str(uniallelic_positions_vcf),
+                        str(pharmcat_positions_vcf)]
+    run(bcftools_command)
+    index_vcf(uniallelic_positions_vcf, verbose)
 
 
 def _get_vcf_pos_min_max(positions, flanking_bp=100):

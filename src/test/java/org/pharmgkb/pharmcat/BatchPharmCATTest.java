@@ -20,8 +20,7 @@ import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -72,7 +71,7 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Done."));
     assertThat(systemOut, not(containsString("FAIL")));
     // max processes is capped to number of samples, so capped to 1, which is not shown
-    assertThat(systemOut, not(containsString("processes")));
+    assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
     checkForOutputFiles(tmpDir, vcfFile);
   }
 
@@ -310,10 +309,8 @@ class BatchPharmCATTest {
     assertThat(systemOut, not(containsString("independent phenotyper outside call file")));
     assertThat(systemOut, not(containsString("lone outside call file")));
     assertThat(systemOut, not(containsString("independent reporter input file")));
-    if (!TestUtils.isContinuousIntegration()) {
-      // max processes is higher than number of samples, should limit to 1, which is not shown
-      assertThat(systemOut, not(containsString("processes")));
-    }
+    // max processes is higher than number of samples, should limit to 1, which is not shown
+    assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
 
     checkForOutputFiles(tmpDir, na18526Vcf);
   }

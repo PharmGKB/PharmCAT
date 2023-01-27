@@ -30,6 +30,10 @@ def get_reference_fasta(pharmcat_positions: Path) -> Path:
             download_reference_fasta_and_index(pharmcat_positions.parent, True)
         else:
             raise RuntimeError("CANNOT TEST: no reference fasta and TEST_DOWNLOAD=False")
+    # also make sure uniallelic positions vcf exists
+    uniallelic_positions_vcf: Path = preprocessor.find_uniallelic_file(pharmcat_positions, must_exist=False)
+    if not uniallelic_positions_vcf.is_file():
+        preprocessor.create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions, reference_fasta)
     return reference_fasta
 
 
