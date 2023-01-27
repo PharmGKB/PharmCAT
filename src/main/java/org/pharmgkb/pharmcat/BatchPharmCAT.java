@@ -87,7 +87,7 @@ public class BatchPharmCAT {
             maxProcesses = Runtime.getRuntime().availableProcessors();
             System.out.println("Warning: This system only has " + maxProcesses + " processors.");
             System.out.println("Limiting concurrent processes to " + maxProcesses + ".");
-            int futureMax = Math.min(1, maxProcesses - 2);
+            int futureMax = Math.max(1, maxProcesses - 2);
             System.out.println("Recommending maximum of '-cp " + futureMax + "' in the future.");
           } else {
             maxProcesses = cp;
@@ -275,7 +275,7 @@ public class BatchPharmCAT {
     }
 
     int processes = Math.min(tasks.size(), maxProcesses);
-    if (taskBuilders.size() > 1 && processes > 1) {
+    if (processes > 1) {
       System.out.println();
       System.out.println("Running PharmCAT in batch mode with a maximum of " + processes + " processes.");
       if (m_verbose) {
@@ -296,7 +296,7 @@ public class BatchPharmCAT {
         }
         System.out.println("Recommend boosting memory to PharmCAT to at least " + recMem + "B (using -Xmx" +
             recMem.replace(" ", "") + ")");
-        long recCp = Math.min(1, maxMem / sf_bytesPerProcess);
+        long recCp = Math.max(1, maxMem / sf_bytesPerProcess);
         System.out.println("Or running with " + recCp + " process" + (recCp == 1L ? "" : "es") +
             " max (using -cp " + recCp + ")");
       }
