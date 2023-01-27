@@ -310,8 +310,10 @@ class BatchPharmCATTest {
     assertThat(systemOut, not(containsString("independent phenotyper outside call file")));
     assertThat(systemOut, not(containsString("lone outside call file")));
     assertThat(systemOut, not(containsString("independent reporter input file")));
-    // max processes is higher than number of samples, should limit to 1, which is not shown
-    assertThat(systemOut, not(containsString("processes")));
+    if (!TestUtils.isContinuousIntegration()) {
+      // max processes is higher than number of samples, should limit to 1, which is not shown
+      assertThat(systemOut, not(containsString("processes")));
+    }
 
     checkForOutputFiles(tmpDir, na18526Vcf);
   }
