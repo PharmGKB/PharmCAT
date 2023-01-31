@@ -715,6 +715,56 @@ class PipelineTest {
   }
 
   /**
+   * Test to make sure AS 1.0 and AS 1.5 have different recommendations for capecitabine. Tests that the recommendation
+   * data is accurate but also that DPYD is using activity scores for matching instead of phenotype.
+   */
+  @Test
+  void testDpydDifferenceOnScore(TestInfo testInfo) throws Exception {
+    PipelineWrapper highScoreWrapper = new PipelineWrapper(testInfo, false);
+    highScoreWrapper.getVcfBuilder()
+        .phased()
+        .variation("DPYD", "rs67376798", "T", "A");
+    highScoreWrapper.execute(null);
+    highScoreWrapper.testCalledByMatcher("DPYD");
+    highScoreWrapper.testPrintCpicCalls("DPYD", "Reference/c.2846A>T");
+    highScoreWrapper.testLookup("DPYD", "Reference", "c.2846A>T");
+    GeneReport highScoreDpydReport = highScoreWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertTrue(highScoreDpydReport.getRecommendationDiplotypes().stream().allMatch((d) -> d.getActivityScore().equals("1.5")));
+
+    highScoreWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+    DrugReport highScoreDrug = highScoreWrapper.getContext().getDrugReport(DataSource.CPIC, "capecitabine");
+    assertNotNull(highScoreDrug);
+    List<String> highRecs = highScoreDrug.getGuidelines().stream()
+        .flatMap(g -> g.getAnnotations().stream())
+        .map(AnnotationReport::getDrugRecommendation)
+        .toList();
+    assertEquals(1, highRecs.size());
+
+
+    PipelineWrapper lowScoreWrapper = new PipelineWrapper(testInfo, false);
+    lowScoreWrapper.getVcfBuilder()
+        .phased()
+        .variation("DPYD", "rs67376798", "A", "A");
+    lowScoreWrapper.execute(null);
+    lowScoreWrapper.testCalledByMatcher("DPYD");
+    lowScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T/c.2846A>T");
+    lowScoreWrapper.testLookup("DPYD", "c.2846A>T", "c.2846A>T");
+    GeneReport lowScoreDpydReport = lowScoreWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertTrue(lowScoreDpydReport.getRecommendationDiplotypes().stream().allMatch((d) -> d.getActivityScore().equals("1.0")));
+
+    lowScoreWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+    DrugReport lowScoreDrug = lowScoreWrapper.getContext().getDrugReport(DataSource.CPIC, "capecitabine");
+    assertNotNull(lowScoreDrug);
+    List<String> lowRecs = lowScoreDrug.getGuidelines().stream()
+        .flatMap(g -> g.getAnnotations().stream())
+        .map(AnnotationReport::getDrugRecommendation)
+        .toList();
+    assertEquals(1, lowRecs.size());
+
+    assertNotEquals(highRecs.get(0), lowRecs.get(0));
+  }
+
+  /**
    * This test puts 2 alleles on each strand of a phased DPYD and then asserts that the least-function allele is used
    * for lookup on each of the strands.
    */
