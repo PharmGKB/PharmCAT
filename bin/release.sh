@@ -40,7 +40,7 @@ then
   safe_crlf=$(git config core.safecrlf)
   if [[ $safe_crlf == 'warn' ]]
   then
-    git config set core.safecrlf false
+    git config --set core.safecrlf false
   fi
 fi
 
@@ -54,7 +54,7 @@ fi
 
 if [[ $safe_crlf == 'warn' ]]
 then
-  git config set core.safecrlf warn
+  git config --set core.safecrlf warn
 fi
 
 
