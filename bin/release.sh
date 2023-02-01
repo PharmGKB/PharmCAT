@@ -29,7 +29,7 @@ then
   exit 1
 fi
 
-# update disclaimer.hbs
+# update disclaimers.hbs
 script_dir="$( dirname -- "$BASH_SOURCE"; )";
 "${script_dir}/update_disclaimer.js"
 
@@ -40,21 +40,21 @@ then
   safe_crlf=$(git config core.safecrlf)
   if [[ $safe_crlf == 'warn' ]]
   then
-    git config --set core.safecrlf false
+    git config core.safecrlf "false"
   fi
 fi
 
-diffs=$(git diff | grep -c "${script_dir}/disclaimer.hbs")
+diffs=$(git diff | grep -c "src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimers.hbs")
 if [[ $diffs -gt 0 ]]
 then
-  git add src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimer.hbs
+  git add src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimers.hbs
   git commit -m "chore: update disclaimer"
   git push
 fi
 
 if [[ $safe_crlf == 'warn' ]]
 then
-  git config --set core.safecrlf warn
+  git config core.safecrlf "warn"
 fi
 
 
