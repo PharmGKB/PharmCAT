@@ -50,6 +50,7 @@ pharmcat_vcf_preprocessor.py
 data
 pharmcat
 pharmcat.jar
+pharmcat_pipeline
 pharmcat_positions.uniallelic.vcf.bgz
 pharmcat_positions.uniallelic.vcf.bgz.csi
 pharmcat_positions.vcf
@@ -63,34 +64,52 @@ vcf_preprocess_exceptions.py
 vcf_preprocess_utilities.py
 ```
 
-### Running the VCF Preprocessor
 
-Your VCF files needs to comply with [PharmCAT's requirements](/using/VCF-Requirements).  [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) will handle much of this for you.
+### Running the PharmCAT pipeline
+
+The [Pharmcat pipeline](/using/Running-PharmCAT-Pipeline) combines the [VCF preprocessor](/using/VCF-Preprocessor) and
+the core [PharmCAT tool](/using/Running-PharmCAT).  You should be familiar with both tools and their requirements.
+
+That said, this is the easiest way to run PharmCAT:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_vcf_preprocessor.py
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline <vcf_file>
 ```
 
 If you have a file `/path/to/data/sample.vcf`, you would use:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_vcf_preprocessor.py -vcf data/sample.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline data/sample.vcf
 ```
 
-Note: the GRCh38 reference is included in the Docker image, so you do not need to provide it unless you have special reference requirements.
+
+### Running the VCF Preprocessor
+
+Your VCF files needs to comply with [PharmCAT's requirements](/using/VCF-Requirements).  [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) will handle much of this for you.
+
+```console
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_vcf_preprocessor.py -vcf <vcf_file>
+```
+
+If you have a file `/path/to/data/sample.vcf`, you would use:
+
+```console
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_vcf_preprocessor.py -vcf data/sample.vcf
+```
 
 
 ### Running PharmCAT
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat <vcf_file>
 ```
 
-After running the file `/path/to/data/sample.vcf` through the preprocessor, assuming the sample ID was "SAMPLE1", you would have gotten a file called `sample.preprocessed.vcf`.  You can then run this through PharmCAT with:
+After running the file `/path/to/data/sample.vcf` through the preprocessor, if it was a single sample file, you should 
+have gotten a file called `sample.preprocessed.vcf`.  You can then run this through PharmCAT with:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat -vcf data/sample.preprocessed.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat -vcf data/sample.preprocessed.vcf
 ```
 
-
-> The Docker image includes the `pharmcat` script, which is just a wrapper around the call to Java.  For details on using PharmCAT, please see the [Running PharmCAT](/using/Running-PharmCAT).
+> The Docker image includes the `pharmcat` script, which is just a wrapper around the call to Java.  For details on 
+> using PharmCAT, please see the [Running PharmCAT](/using/Running-PharmCAT).
