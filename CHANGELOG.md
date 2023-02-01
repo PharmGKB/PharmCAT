@@ -1,3 +1,13 @@
+## [2.2.2](https://github.com/PharmGKB/PharmCAT/compare/v2.2.1...v2.2.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* update to latest data from PharmVar and CPIC ([6ac3aeb](https://github.com/PharmGKB/PharmCAT/commit/6ac3aebb4719379f77f10137d0933e3127959814)), closes [#126](https://github.com/PharmGKB/PharmCAT/issues/126)
+* **docker:** sanitize ownership of reference FASTA files ([2599f4e](https://github.com/PharmGKB/PharmCAT/commit/2599f4e3e000474c96108d151a825f7360ed310c))
+* **pharmcat:** add pharmcat_pipeline script ([5c2fd85](https://github.com/PharmGKB/PharmCAT/commit/5c2fd851bde215c6e527491ce0331a61e03371e7))
+* **pharmcat:** fix max -cp recommendation ([76295d0](https://github.com/PharmGKB/PharmCAT/commit/76295d08dc8e5fbc95f4cbe5e25b1595e0418f43))
+
 ## [2.2.1](https://github.com/PharmGKB/PharmCAT/compare/v2.2.0...v2.2.1) (2023-01-21)
 
 
