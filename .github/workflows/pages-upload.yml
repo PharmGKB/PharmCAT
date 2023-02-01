@@ -5,6 +5,9 @@ on:
     branches: [main]
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/pages-upload.yml'
+      - 'docs/**'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
