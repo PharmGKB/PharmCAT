@@ -54,6 +54,26 @@
     },
     {
       "implications": {
+        "UGT1A1": "Markedly decreased UGT1A1 activity; high likelihood of bilirubin-related discontinuation of atazanavir."
+      },
+      "drugrecommendation": "Consider an alternative agent particularly where jaundice would be of concern to the patient. If atazanavir is to be prescribed, there is a high likelihood of developing jaundice that will result in atazanavir discontinuation (at least 20% and as high as 60%).",
+      "classification": "Strong",
+      "phenotypes": {
+        "UGT1A1": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "UGT1A1": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "UGT1A1": "Poor Metabolizer"
+      },
+      "comments": "All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir (PMID 23532097), and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir (PMID 23532097). Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir/r discontinuation therefore almost certainly translate to atazanavir/cobicistat.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "UGT1A1": "Somewhat decreased UGT1A1 activity; low likelihood of bilirubin-related discontinuation of atazanavir."
       },
       "drugrecommendation": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient’s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
@@ -91,32 +111,12 @@
       "comments": "All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir (PMID 23532097), and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir (PMID 23532097). Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir/r discontinuation therefore almost certainly translate to atazanavir/cobicistat. \"reference\" function refers to the UGT1A1 allele to which other alleles are compared.",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "UGT1A1": "Markedly decreased UGT1A1 activity; high likelihood of bilirubin-related discontinuation of atazanavir."
-      },
-      "drugrecommendation": "Consider an alternative agent particularly where jaundice would be of concern to the patient. If atazanavir is to be prescribed, there is a high likelihood of developing jaundice that will result in atazanavir discontinuation (at least 20% and as high as 60%).",
-      "classification": "Strong",
-      "phenotypes": {
-        "UGT1A1": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "UGT1A1": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "UGT1A1": "Poor Metabolizer"
-      },
-      "comments": "All studies correlating UGT1A1 genotypes with atazanavir adverse events have involved ritonavir boosting. However, concentration-time profiles are equivalent when boosted with either cobicistat or ritonavir (PMID 23532097), and bilirubin-related adverse events including discontinuation of atazanavir occur in a similar percentage of patients prescribed atazanavir with cobicistat or ritonavir (PMID 23532097). Associations between UGT1A1 genotype, bilirubin elevations, and atazanavir/r discontinuation therefore almost certainly translate to atazanavir/cobicistat.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "UGT1A1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

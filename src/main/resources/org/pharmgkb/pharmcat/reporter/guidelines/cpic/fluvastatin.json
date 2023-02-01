@@ -93,13 +93,13 @@
     {
       "implications": {
         "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
+      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+      "classification": "Moderate",
       "phenotypes": {
         "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Decreased Function"
+        "SLCO1B1": "No Result"
       },
       "activityscore": {
         "CYP2C9": "0.0"
@@ -107,7 +107,7 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2C9": "0.0",
-        "SLCO1B1": "Decreased Function"
+        "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
@@ -116,21 +116,21 @@
     {
       "implications": {
         "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
+        "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
       "classification": "Moderate",
       "phenotypes": {
         "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "No Result"
       },
       "activityscore": {
-        "CYP2C9": "0.0"
+        "CYP2C9": "0.5"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0.0",
-        "SLCO1B1": "Increased Function"
+        "CYP2C9": "0.5",
+        "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
@@ -164,144 +164,6 @@
         "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
         "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.0",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.0",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.0",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.0",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.5",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.5",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "n/a"
-      },
       "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
       "classification": "Moderate",
       "phenotypes": {
@@ -322,91 +184,22 @@
     },
     {
       "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
         "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
+      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
       "classification": "Moderate",
       "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
+        "CYP2C9": "Intermediate Metabolizer",
         "SLCO1B1": "No Result"
       },
       "activityscore": {
-        "CYP2C9": "0.5"
+        "CYP2C9": "1.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "0.5",
+        "CYP2C9": "1.0",
         "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.5",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.5",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "0.5",
-        "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
@@ -415,44 +208,21 @@
     {
       "implications": {
         "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
       "classification": "Moderate",
       "phenotypes": {
         "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "No Result"
       },
       "activityscore": {
-        "CYP2C9": "1.0"
+        "CYP2C9": "1.5"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "Increased Function"
+        "CYP2C9": "1.5",
+        "SLCO1B1": "No Result"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
@@ -486,144 +256,6 @@
         "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
         "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.0",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "n/a"
-      },
       "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
       "classification": "Moderate",
       "phenotypes": {
@@ -637,420 +269,6 @@
       "lookupkey": {
         "CYP2C9": "1.5",
         "SLCO1B1": "Indeterminate"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 genotype result is not available.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "1.5",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Indeterminate"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "Normal exposure.",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "2.0",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "n/a",
-      "classification": "n/a",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Indeterminate"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "n/a",
-      "classification": "n/a",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy)(PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C9": "n/a",
-        "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
@@ -1082,13 +300,13 @@
     {
       "implications": {
         "CYP2C9": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
       },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
-      "classification": "Strong",
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 genotype result is not available.",
+      "classification": "Moderate",
       "phenotypes": {
         "CYP2C9": "No Result",
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "Possible Decreased Function"
       },
       "activityscore": {
         "CYP2C9": "No Result"
@@ -1096,55 +314,55 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2C9": "No Result",
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "Possible Decreased Function"
       },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
         "CYP2C9": "n/a",
-        "SLCO1B1": "n/a"
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
       },
-      "drugrecommendation": "n/a",
-      "classification": "n/a",
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
+      "classification": "Moderate",
       "phenotypes": {
-        "CYP2C9": "No Result",
-        "SLCO1B1": "Indeterminate"
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Decreased Function"
       },
       "activityscore": {
-        "CYP2C9": "No Result"
+        "CYP2C9": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "No Result",
-        "SLCO1B1": "Indeterminate"
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Decreased Function"
       },
-      "comments": "n/a",
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
         "CYP2C9": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure."
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
       },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
-      "classification": "Strong",
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
+      "classification": "Moderate",
       "phenotypes": {
-        "CYP2C9": "No Result",
-        "SLCO1B1": "Normal Function"
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Possible Decreased Function"
       },
       "activityscore": {
-        "CYP2C9": "No Result"
+        "CYP2C9": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C9": "No Result",
-        "SLCO1B1": "Normal Function"
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Possible Decreased Function"
       },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
     },
@@ -1174,13 +392,611 @@
     {
       "implications": {
         "CYP2C9": "n/a",
-        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
       },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day. CYP2C9 genotype result is not available.",
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy)(PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day. CYP2C9 phenotype could not be assigned based on genotyping.",
       "classification": "Moderate",
       "phenotypes": {
-        "CYP2C9": "No Result",
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >40mg per day.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
         "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >40mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe ≤40mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If patient is tolerating 40mg per day but higher potency is needed, a higher dose (>40mg) or an alternative statin or combination therapy (i.e. fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391) could be considered. Prescriber should be aware of possible increased risk for myopathy with fluvastatin especially with doses >40mg per day.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal and intermediate metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "0.5",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal and decreased function; Typical myopathy risk with doses less ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency. (see Table 2 and Figure 1 of PMID: 35152405 for recommendations for alternative statins).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.0",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Increased fluvastatin exposure as compared to normal metabolizer which may translate to increased myopathy risk.",
+        "SLCO1B1": "Increased fluvastatin exposure as compared to normal function; Typical myopathy risk with ≤40 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg per day as a starting dose and adjust doses of fluvastatin based on disease-specific guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., fluvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "1.5",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "No Result"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "No Result"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "Based on CYP2C9 status, prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "No Result",
+        "SLCO1B1": "Increased Function"
       },
       "activityscore": {
         "CYP2C9": "No Result"
@@ -1188,9 +1004,193 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2C9": "No Result",
-        "SLCO1B1": "Possible Decreased Function"
+        "SLCO1B1": "Increased Function"
       },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "No Result",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "No Result"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "No Result",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. CYP2C9 phenotype could not be assigned based on genotyping.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "Normal exposure.",
+        "SLCO1B1": "Typical myopathy risk and statin exposure."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of fluvastatin based on disease-specific guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "2.0",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "n/a",
+      "classification": "n/a",
+      "phenotypes": {
+        "CYP2C9": "No Result",
+        "SLCO1B1": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "No Result"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "No Result",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "n/a",
+      "classification": "n/a",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "n/a",
+      "classification": "n/a",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate",
+        "SLCO1B1": "No Result"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C9": "n/a",
+        "SLCO1B1": "No Result"
+      },
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     }
@@ -1200,6 +1200,6 @@
     "SLCO1B1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

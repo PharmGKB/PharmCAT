@@ -77,6 +77,246 @@
   "recommendations": [
     {
       "implications": {
+        "CYP2D6": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2D6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "n/a"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
+      },
+      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "CYP2D6": "Decreased metabolism of hydrocodone to active metabolite, hydromorphone, but there is insufficient evidence to determine if these effects on pharmacokinetics translate into decreased analgesia or side effects."
       },
       "drugrecommendation": "Use hydrocodone label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider non-codeine and non-tramadol opioid.",
@@ -274,252 +514,12 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "4.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥5.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥5.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Minimal evidence for pharmacokinetic or clinical effect."
-      },
-      "drugrecommendation": "No recommendation for hydrocodone therapy because of minimal evidence regarding adverse events or analgesia.",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥6.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥6.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "n/a"
-      },
-      "drugrecommendation": "No recommendation",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2D6": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "n/a"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

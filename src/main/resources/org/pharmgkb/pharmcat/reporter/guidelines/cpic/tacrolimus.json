@@ -60,6 +60,26 @@
       "drugrecommendation": "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3 mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
       "classification": "Strong",
       "phenotypes": {
+        "CYP3A5": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP3A5": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP3A5": "Normal Metabolizer"
+      },
+      "comments": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP3A5": "Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations."
+      },
+      "drugrecommendation": "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3 mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
+      "classification": "Strong",
+      "phenotypes": {
         "CYP3A5": "Intermediate Metabolizer"
       },
       "activityscore": {
@@ -80,16 +100,16 @@
       "drugrecommendation": "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3 mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
       "classification": "Strong",
       "phenotypes": {
-        "CYP3A5": "Normal Metabolizer"
+        "CYP3A5": "Possible Intermediate Metabolizer"
       },
       "activityscore": {
         "CYP3A5": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP3A5": "Normal Metabolizer"
+        "CYP3A5": "Possible Intermediate Metabolizer"
       },
-      "comments": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function). Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose, and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
+      "comments": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function).Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
       "population": "general",
       "genotypes": null
     },
@@ -112,32 +132,12 @@
       "comments": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP3A5": "Lower dose-adjusted trough concentrations of tacrolimus and decreased chance of achieving target tacrolimus concentrations."
-      },
-      "drugrecommendation": "Increase starting dose 1.5 to 2 times recommended starting dose. Total starting dose should not exceed 0.3 mg/kg/day. Use therapeutic drug monitoring to guide dose adjustments.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP3A5": "Possible Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP3A5": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP3A5": "Possible Intermediate Metabolizer"
-      },
-      "comments": "This recommendation includes the use of tacrolimus in kidney, heart, lung and hematopoietic stem cell transplant patients, and liver transplant patients where the donor and recipient genotypes are identical. Further dose adjustments or selection of alternative therapy may be necessary due to other clinical factors (e.g., medication interactions, or hepatic function).Typically with other CYP enzymes, a normal metabolizer would be classified as having normal metabolism, and therefore, the drug dose would not change based on the patient’s genotype. However, in the case of CYP3A5 and tacrolimus, a CYP3A5 expresser (i.e., CYP3A5 normal metabolizer or intermediate metabolizer) would require a higher recommended starting dose and the CYP3A5 non-expresser (i.e., poor metabolizer) would require the standard recommended starting dose.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "CYP3A5"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

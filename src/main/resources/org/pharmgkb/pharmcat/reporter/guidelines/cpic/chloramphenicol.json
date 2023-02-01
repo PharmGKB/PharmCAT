@@ -50,19 +50,19 @@
     },
     {
       "implications": {
-        "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+        "G6PD": "Low-to-no risk of acute hemolytic anemia"
       },
-      "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
-      "classification": "Optional",
+      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+      "classification": "Moderate",
       "phenotypes": {
-        "G6PD": "Deficient with CNSHA"
+        "G6PD": "Variable"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
-        "G6PD": "Deficient with CNSHA"
+        "G6PD": "Variable"
       },
-      "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
       "population": "general",
       "genotypes": null
     },
@@ -86,6 +86,24 @@
     },
     {
       "implications": {
+        "G6PD": "High risk of acute exacerbation of chronic hemolysis"
+      },
+      "drugrecommendation": "Use drug cautiously; if used, close monitoring for acute exacerbation of chronic hemolysis is recommended",
+      "classification": "Optional",
+      "phenotypes": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype, but the risk of using any drug should be weighed carefully against the benefits in these rare patients due to the underlying pathophysiology that confers high risk for acute on chronic hemolysis",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "G6PD": "Low-to-no risk of acute hemolytic anemia"
       },
       "drugrecommendation": "No reason to avoid based on G6PD status",
@@ -101,30 +119,12 @@
       "comments": null,
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low-to-no risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "G6PD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

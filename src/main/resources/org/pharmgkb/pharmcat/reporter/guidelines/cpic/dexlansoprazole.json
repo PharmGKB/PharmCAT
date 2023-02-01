@@ -60,61 +60,21 @@
     },
     {
       "implications": {
-        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
       },
-      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "drugrecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
       "classification": "Optional",
       "phenotypes": {
-        "CYP2C19": "Intermediate Metabolizer"
+        "CYP2C19": "Ultrarapid Metabolizer"
       },
       "activityscore": {
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Intermediate Metabolizer"
+        "CYP2C19": "Ultrarapid Metabolizer"
       },
       "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
-      },
-      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "comments": "The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
-      },
-      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "comments": "The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
       "population": "general",
       "genotypes": null
     },
@@ -140,26 +100,6 @@
     },
     {
       "implications": {
-        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
-      },
-      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
       },
       "drugrecommendation": "Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.",
@@ -180,19 +120,79 @@
     },
     {
       "implications": {
-        "CYP2C19": "Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
       },
-      "drugrecommendation": "Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.",
+      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
       "classification": "Optional",
       "phenotypes": {
-        "CYP2C19": "Ultrarapid Metabolizer"
+        "CYP2C19": "Likely Intermediate Metabolizer"
       },
       "activityscore": {
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Ultrarapid Metabolizer"
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      },
+      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "The strength of recommendation for \"likely\" phenotypes are the same as their respective confirmed phenotypes. \"Likely\" indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding \"likely\" phenotype.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      },
+      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      },
+      "drugrecommendation": "Initiate standard starting daily dose. For chronic therapy (>12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
       },
       "comments": "n/a",
       "population": "general",
@@ -203,6 +203,6 @@
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

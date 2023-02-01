@@ -75,318 +75,6 @@
     {
       "implications": {
         "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "Neither TPMT or NUDT15 phenotype could be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Indeterminate"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Indeterminate"
-      },
-      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Based NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT phenotype could not be assigned based on genotyping. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "TPMT phenotype could not be assigned based on genotyping performed and there is no NUDT15 genotype result available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "No Result"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "No Result"
-      },
-      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Based on NUDT15 status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Based on NUDT15 status, for malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Indeterminate",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Indeterminate"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Indeterminate"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "No Result"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "No Result"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g. start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Intermediate Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "NUDT15 phenotype could not be assigned based on genotyping performed and there is no TPMT genotype result result. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "No Result",
-        "NUDT15": "Indeterminate"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "No Result",
-        "NUDT15": "Indeterminate"
-      },
-      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "n/a",
         "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
       "drugrecommendation": "Based NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT genotype result is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
@@ -411,13 +99,13 @@
     {
       "implications": {
         "TPMT": "n/a",
-        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
-      "drugrecommendation": "Based on NUDT15 status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). TPMT genotype result is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "drugrecommendation": "Based NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT phenotype could not be assigned based on genotyping. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "No Result",
-        "NUDT15": "Normal Metabolizer"
+        "TPMT": "Indeterminate",
+        "NUDT15": "Intermediate Metabolizer"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -425,8 +113,8 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "No Result",
-        "NUDT15": "Normal Metabolizer"
+        "TPMT": "Indeterminate",
+        "NUDT15": "Intermediate Metabolizer"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
       "population": "general",
@@ -459,6 +147,78 @@
     {
       "implications": {
         "TPMT": "n/a",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, for malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). TPMT genotype result is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Based on NUDT15 status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
         "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
       "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT genotype result is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
@@ -482,14 +242,14 @@
     },
     {
       "implications": {
-        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
+        "TPMT": "n/a",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
-      "drugrecommendation": "Based on TPMT status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "drugrecommendation": "Based on NUDT15 status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Indeterminate"
+        "TPMT": "Indeterminate",
+        "NUDT15": "Possible Intermediate Metabolizer"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -497,8 +257,32 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Indeterminate"
+        "TPMT": "Indeterminate",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Based on TPMT status, for malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "No Result"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
@@ -506,14 +290,14 @@
     },
     {
       "implications": {
-        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
       },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "drugrecommendation": "Based on TPMT status, for malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Indeterminate"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -521,8 +305,8 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Indeterminate"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
@@ -555,84 +339,12 @@
     {
       "implications": {
         "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "NUDT15": "n/a"
       },
-      "drugrecommendation": "Start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950).",
+      "drugrecommendation": "Based on TPMT status, start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
         "TPMT": "Normal Metabolizer",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Normal Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Normal Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "Based on TPMT status, for malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Poor Metabolizer",
         "NUDT15": "Indeterminate"
       },
       "activityscore": {
@@ -641,7 +353,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Poor Metabolizer",
+        "TPMT": "Normal Metabolizer",
         "NUDT15": "Indeterminate"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
@@ -650,37 +362,13 @@
     },
     {
       "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
         "NUDT15": "n/a"
       },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
-      },
-      "drugrecommendation": "Based on TPMT status, for malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532). NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer",
         "NUDT15": "No Result"
       },
       "activityscore": {
@@ -689,7 +377,7 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Poor Metabolizer",
+        "TPMT": "Intermediate Metabolizer",
         "NUDT15": "No Result"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
@@ -698,14 +386,14 @@
     },
     {
       "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
       },
-      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Normal Metabolizer"
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "No Result"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -713,8 +401,8 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Normal Metabolizer"
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "No Result"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
@@ -722,14 +410,14 @@
     },
     {
       "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "n/a"
       },
-      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Poor Metabolizer"
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -737,32 +425,8 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Poor Metabolizer"
-      },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
-      },
-      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
-      "classification": "Strong",
-      "phenotypes": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "TPMT": "n/a",
-        "NUDT15": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "TPMT": "Poor Metabolizer",
-        "NUDT15": "Possible Intermediate Metabolizer"
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
@@ -795,13 +459,13 @@
     {
       "implications": {
         "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
-      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
       "classification": "Strong",
       "phenotypes": {
-        "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -809,23 +473,47 @@
       },
       "allelestatus": {},
       "lookupkey": {
-        "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "Intermediate Metabolizer"
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
       },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
         "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "n/a"
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
-      "drugrecommendation": "Based on TPMT status, start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended. NUDT15 genotype result is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
       "classification": "Strong",
       "phenotypes": {
         "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "No Result"
+        "NUDT15": "Poor Metabolizer"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -834,7 +522,199 @@
       "allelestatus": {},
       "lookupkey": {
         "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "No Result"
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease; no MeTIMP metabolites. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "For malignancy, start with drastically reduced doses (reduce daily dose by 10-fold and reduce frequency to thrice weekly instead of daily, e.g., 10 mg/m2/day given just 3 days/week) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "NUDT15 phenotype could not be assigned based on genotyping performed and there is no TPMT genotype result result. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "No Result",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "No Result",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "Neither TPMT or NUDT15 phenotype could be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Indeterminate"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Indeterminate"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with normal starting dose (e.g., 75 mg/m2/day or 1.5 mg/kg/day) and adjust doses of mercaptopurine (and of any other myelosuppressive therapy) without any special emphasis on mercaptopurine compared to other agents. Allow at least 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 16401827, 11302950).",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g. start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
       },
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
       "population": "general",
@@ -867,13 +747,61 @@
     {
       "implications": {
         "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
-        "NUDT15": "Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
       },
-      "drugrecommendation": "For malignancy, initiate dose at 10 mg/m2/day and adjust dose based on myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing mercaptopurine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201, 1960624, 11302950, 16530532).",
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Moderate to high concentrations of TGN metabolites; low concentrations of MeTIMP. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥ 75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201,18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
       "classification": "Strong",
       "phenotypes": {
         "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "Poor Metabolizer"
+        "NUDT15": "Intermediate Metabolizer"
       },
       "activityscore": {
         "TPMT": "n/a",
@@ -882,9 +810,9 @@
       "allelestatus": {},
       "lookupkey": {
         "TPMT": "Possible Intermediate Metabolizer",
-        "NUDT15": "Poor Metabolizer"
+        "NUDT15": "Intermediate Metabolizer"
       },
-      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
       "genotypes": null
     },
@@ -911,6 +839,78 @@
       "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "Lower concentrations of TGN metabolites, higher MeTIMP, this is the ‘normal’ pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.",
+        "NUDT15": "Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      },
+      "drugrecommendation": "Start with reduced starting doses (30%-80% of normal dose) if normal starting dose is ≥75 mg/m2/day or ≥ 1.5 mg/kg/day (e.g., start at 22.5-60 mg/m2/day or 0.45-1.2 mg/kg/day) and adjust doses of mercaptopurine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing mercaptopurine over other agents (PMID 20354201, 18685564, 8857546, 18987654, 20010622, 16401827, 11302950, 16530532, 9634537). If normal starting dose is already < 75 mg/m2/day or < 1.5 mg/kg/day, dose reduction may not be recommended.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "comments": "Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "drugrecommendation": "TPMT phenotype could not be assigned based on genotyping performed and there is no NUDT15 genotype result available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.",
+      "classification": "Strong",
+      "phenotypes": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "No Result"
+      },
+      "activityscore": {
+        "TPMT": "n/a",
+        "NUDT15": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "No Result"
+      },
+      "comments": "Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
@@ -918,6 +918,6 @@
     "TPMT"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

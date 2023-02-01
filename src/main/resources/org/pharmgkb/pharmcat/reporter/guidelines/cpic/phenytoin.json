@@ -53,92 +53,20 @@
         "HLA-B": "n/a",
         "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
       },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Moderate",
       "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
+        "CYP2C9": "Intermediate Metabolizer"
       },
       "activityscore": {
-        "CYP2C9": "0.0"
+        "CYP2C9": "1.0"
       },
       "allelestatus": {
         "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
         "HLA-B": "*15:02 negative",
-        "CYP2C9": "0.0"
-      },
-      "comments": "n/a",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "0.0"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "0.5"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "0.5"
+        "CYP2C9": "1.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -158,34 +86,10 @@
         "CYP2C9": "1.0"
       },
       "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "1.0"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
+        "HLA-B": "No Result",
         "CYP2C9": "1.0"
       },
       "comments": "n/a",
@@ -230,263 +134,23 @@
         "CYP2C9": "1.5"
       },
       "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
-        "HLA-B": "*15:02 negative",
+        "HLA-B": "No Result",
         "CYP2C9": "1.5"
       },
       "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Normal phenytoin metabolism"
-      },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "2.0"
-      },
-      "comments": "n/a",
       "population": "PHT naive",
       "genotypes": null
     },
     {
       "implications": {
         "HLA-B": "n/a",
-        "CYP2C9": "Normal phenytoin metabolism"
-      },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "2.0"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "No recommendation",
-      "classification": "n/a",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "n/a"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "No recommendation",
-      "classification": "n/a",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "n/a"
-      },
-      "comments": "n/a",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "No Result"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "No Result"
-      },
-      "comments": "n/a",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "No Result"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative",
-        "CYP2C9": "No Result"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
         "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
       },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "0.0"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "0.0"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "0.5"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "0.5"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Moderate",
       "phenotypes": {
         "CYP2C9": "Intermediate Metabolizer"
       },
@@ -494,326 +158,14 @@
         "CYP2C9": "1.0"
       },
       "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
+        "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
-        "HLA-B": "*15:02 positive",
+        "HLA-B": "*15:02 negative",
         "CYP2C9": "1.0"
       },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "1.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "1.0"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "1.5"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "1.5"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "1.5"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Normal phenytoin metabolism"
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "2.0"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "Normal phenytoin metabolism"
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "2.0"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "2.0"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "n/a"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2C9": "n/a"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "n/a"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "No Result"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "No Result"
-      },
-      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
-        "CYP2C9": "n/a"
-      },
-      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C9": "No Result"
-      },
-      "activityscore": {
-        "CYP2C9": "No Result"
-      },
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 positive",
-        "CYP2C9": "No Result"
-      },
-      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-B": "No Result",
-        "CYP2C9": "0.0"
-      },
-      "comments": "n/a",
-      "population": "PHT naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.0"
-      },
-      "allelestatus": {
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-B": "No Result",
-        "CYP2C9": "0.0"
-      },
       "comments": "n/a",
       "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-B": "No Result",
-        "CYP2C9": "0.5"
-      },
-      "comments": "n/a",
-      "population": "PHT use >3mos",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "n/a",
-        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
-      },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C9": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C9": "0.5"
-      },
-      "allelestatus": {
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-B": "No Result",
-        "CYP2C9": "0.5"
-      },
-      "comments": "n/a",
-      "population": "PHT naive",
       "genotypes": null
     },
     {
@@ -843,10 +195,106 @@
     {
       "implications": {
         "HLA-B": "n/a",
+        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "1.5"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-B": "No Result",
+        "CYP2C9": "1.5"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
         "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
       },
-      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses, use approximately 25% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
-      "classification": "Moderate",
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "0.0"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "0.5"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
       "phenotypes": {
         "CYP2C9": "Intermediate Metabolizer"
       },
@@ -854,11 +302,131 @@
         "CYP2C9": "1.0"
       },
       "allelestatus": {
-        "HLA-B": "No HLA-B Result"
+        "HLA-B": "HLA-B*15:02 positive"
       },
       "lookupkey": {
-        "HLA-B": "No Result",
+        "HLA-B": "*15:02 positive",
         "CYP2C9": "1.0"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "1.5"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Normal phenytoin metabolism"
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "2.0"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "No Result"
+      },
+      "activityscore": {
+        "CYP2C9": "No Result"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "No Result"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "If the patient has previously used phenytoin continuously for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of phenytoin in the future. The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (4-28 days), and cases usually occur within three months of dosing.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "n/a"
+      },
+      "comments": "Previous tolerance of phenytoin is not indicative of tolerance to other aromatic anticonvulsants.",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -867,22 +435,22 @@
     {
       "implications": {
         "HLA-B": "n/a",
-        "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
       },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Moderate",
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
       "phenotypes": {
-        "CYP2C9": "Intermediate Metabolizer"
+        "CYP2C9": "Poor Metabolizer"
       },
       "activityscore": {
-        "CYP2C9": "1.5"
+        "CYP2C9": "0.0"
       },
       "allelestatus": {
         "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "1.5"
+        "CYP2C9": "0.0"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -891,10 +459,130 @@
     {
       "implications": {
         "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "0.5"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-B": "No Result",
+        "CYP2C9": "0.5"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "0.0"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "0.5"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "1.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "1.0"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
         "CYP2C9": "Slightly reduced phenytoin metabolism; however, this does not appear to translate into increased side effects."
       },
-      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
-      "classification": "Moderate",
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
       "phenotypes": {
         "CYP2C9": "Intermediate Metabolizer"
       },
@@ -902,11 +590,275 @@
         "CYP2C9": "1.5"
       },
       "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "1.5"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "Normal phenytoin metabolism"
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "2.0"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "No Result"
+      },
+      "activityscore": {
+        "CYP2C9": "No Result"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "No Result"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Increased risk of phenytoin-induced SJS/TEN",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "If patient is phenytoin-naive, do not use phenytoin/fosphenytoin. Avoid carbamazepine and oxcarbazepine.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 positive",
+        "CYP2C9": "n/a"
+      },
+      "comments": "Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phenobarbital, have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent.",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Normal phenytoin metabolism"
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "2.0"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Normal phenytoin metabolism"
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {
         "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
         "HLA-B": "No Result",
-        "CYP2C9": "1.5"
+        "CYP2C9": "2.0"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "No Result"
+      },
+      "activityscore": {
+        "CYP2C9": "No Result"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "No Result"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "0.0"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.0"
+      },
+      "allelestatus": {
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-B": "No Result",
+        "CYP2C9": "0.0"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "0.5"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Reduced phenytoin metabolism; Higher plasma concentrations will increase probability of toxicities."
+      },
+      "drugrecommendation": "For first dose, use typical initial or loading dose. For subsequent doses use approximately 50% less than typical maintenance dose. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN, and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "0.5"
+      },
+      "allelestatus": {
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-B": "No Result",
+        "CYP2C9": "0.5"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "Normal phenytoin metabolism"
+      },
+      "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C9": "2.0"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "2.0"
       },
       "comments": "n/a",
       "population": "PHT use >3mos",
@@ -939,22 +891,46 @@
     {
       "implications": {
         "HLA-B": "n/a",
-        "CYP2C9": "Normal phenytoin metabolism"
+        "CYP2C9": "n/a"
       },
       "drugrecommendation": "No adjustments needed from typical dosing strategies. Subsequent doses should be adjusted according to therapeutic drug monitoring, response, and side effects. An HLA-B*15:02 negative test does not eliminate the risk of phenytoin-induced SJS/TEN and patients should be carefully monitored according to a usual standard.",
       "classification": "Strong",
       "phenotypes": {
-        "CYP2C9": "Normal Metabolizer"
+        "CYP2C9": "No Result"
       },
       "activityscore": {
-        "CYP2C9": "2.0"
+        "CYP2C9": "No Result"
       },
       "allelestatus": {
-        "HLA-B": "No HLA-B Result"
+        "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
-        "HLA-B": "No Result",
-        "CYP2C9": "2.0"
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "No Result"
+      },
+      "comments": "n/a",
+      "population": "PHT use >3mos",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "n/a",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
+        "CYP2C9": "n/a"
       },
       "comments": "n/a",
       "population": "PHT naive",
@@ -978,6 +954,30 @@
       },
       "lookupkey": {
         "HLA-B": "No Result",
+        "CYP2C9": "n/a"
+      },
+      "comments": "n/a",
+      "population": "PHT naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "n/a",
+        "CYP2C9": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "n/a",
+      "phenotypes": {
+        "CYP2C9": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2C9": "n/a"
+      },
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative",
         "CYP2C9": "n/a"
       },
       "comments": "n/a",
@@ -1005,7 +1005,7 @@
         "CYP2C9": "n/a"
       },
       "comments": "n/a",
-      "population": "PHT naive",
+      "population": "PHT use >3mos",
       "genotypes": null
     }
   ],
@@ -1014,6 +1014,6 @@
     "HLA-B"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

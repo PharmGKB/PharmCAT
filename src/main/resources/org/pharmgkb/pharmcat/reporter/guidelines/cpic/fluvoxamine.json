@@ -38,26 +38,6 @@
   "recommendations": [
     {
       "implications": {
-        "CYP2D6": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
-      },
-      "drugrecommendation": "Consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "0.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine (PMID 22565785). However, a 30% decrease in dose may not be feasible given the dosage forms; therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "CYP2D6": "Reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
       },
       "drugrecommendation": "Initiate therapy with recommended starting dose.",
@@ -133,326 +113,6 @@
         "CYP2D6": "1.0"
       },
       "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.75"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.75"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.5"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.25"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.5"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "4.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥5.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥5.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
-      },
-      "drugrecommendation": "No recommendation due to lack of evidence",
-      "classification": "No Recommendation",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥6.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥6.0"
-      },
-      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
       "population": "general",
       "genotypes": null
     },
@@ -475,12 +135,352 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "No data available for CYP2D6 ultrarapid metabolizers"
+      },
+      "drugrecommendation": "No recommendation due to lack of evidence",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6.0"
+      },
+      "comments": "Data are lacking describing the effect of CYP2D6 ultrarapid metabolism on fluvoxamine therapy; therefore no dosing recommendations are provided for fluvoxamine use for of CYP2D6 ultrarapid metabolizers. It may be reasonable, though, to select an alternative SSRI not extensively metabolized by CYP2D6 due to the lack of data describing how CYP2D6 ultrarapid metabolizer status influences fluvoxamine therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a 25-50% reduction of recommended starting dose and titrate to response or use an alternative drug not metabolized by CYP2D6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Dose extrapolations based on differences in pharmacokinetic parameters between phenotype groups suggest a 30% dose reduction of fluvoxamine (PMID 22565785). However, a 30% decrease in dose may not be feasible given the dosage forms; therefore, decreasing the starting dose of fluvoxamine by 25-50% should be considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

@@ -52,39 +52,21 @@
   "recommendations": [
     {
       "implications": {
-        "HLA-B": "Normal risk of oxcarbazepine-induced SJS/TEN"
+        "HLA-B": "Greater risk of oxcarbazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "Use oxcarbazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*15:02 negative"
-      },
-      "comments": "n/a",
-      "population": "OXC naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-B": "Normal risk of oxcarbazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "Use oxcarbazepine per standard dosing guidelines.",
-      "classification": "Strong",
+      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
+      "classification": "Optional",
       "phenotypes": {},
       "activityscore": {
         "HLA-B": "n/a"
       },
       "allelestatus": {
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-B": "HLA-B*15:02 positive"
       },
       "lookupkey": {
-        "HLA-B": "*15:02 negative"
+        "HLA-B": "*15:02 positive"
       },
-      "comments": "n/a",
+      "comments": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
       "population": "OXC use >3 mos",
       "genotypes": null
     },
@@ -108,21 +90,39 @@
     },
     {
       "implications": {
-        "HLA-B": "Greater risk of oxcarbazepine-induced SJS/TEN"
+        "HLA-B": "Normal risk of oxcarbazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.",
-      "classification": "Optional",
+      "drugrecommendation": "Use oxcarbazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "n/a",
+      "population": "OXC naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Normal risk of oxcarbazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use oxcarbazepine per standard dosing guidelines.",
+      "classification": "Strong",
       "phenotypes": {},
       "activityscore": {
         "HLA-B": "n/a"
       },
       "allelestatus": {
-        "HLA-B": "HLA-B*15:02 positive"
+        "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
-        "HLA-B": "*15:02 positive"
+        "HLA-B": "*15:02 negative"
       },
-      "comments": "Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+      "comments": "n/a",
       "population": "OXC use >3 mos",
       "genotypes": null
     }
@@ -131,6 +131,6 @@
     "HLA-B"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

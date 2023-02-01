@@ -52,65 +52,44 @@
   "recommendations": [
     {
       "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
         "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
+      "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+      "classification": "Optional",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-A": "HLA-A*31:01 positive",
         "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
-        "HLA-A": "*31:01 negative",
+        "HLA-A": "*31:01 positive",
         "HLA-B": "*15:02 negative"
       },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ-no alternatives",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "*15:02 negative"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
       "population": "CBZ use >3mos ",
       "genotypes": null
     },
     {
       "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "n/a"
       },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
+      "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+      "classification": "Optional",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-A": "HLA-A*31:01 positive",
+        "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "*15:02 negative"
+        "HLA-A": "*31:01 positive",
+        "HLA-B": "No Result"
       },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ naive",
+      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+      "population": "CBZ use >3mos ",
       "genotypes": null
     },
     {
@@ -136,149 +115,44 @@
     },
     {
       "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "*15:02 positive"
-      },
-      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-      "population": "CBZ-no alternatives",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "*15:02 positive"
-      },
-      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-      "population": "CBZ naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "n/a"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "No Result"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ-no alternatives",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "n/a"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "No Result"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "n/a"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 negative",
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 negative",
-        "HLA-B": "No Result"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ use >3mos ",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
+      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
       "classification": "Optional",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
         "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-B": "HLA-B*15:02 positive"
       },
       "lookupkey": {
         "HLA-A": "*31:01 positive",
-        "HLA-B": "*15:02 negative"
+        "HLA-B": "*15:02 positive"
       },
-      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
+      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
       "population": "CBZ use >3mos ",
       "genotypes": null
     },
     {
       "implications": {
-        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+        "HLA-A": "n/a",
+        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "If patient is carbamazepine-naïve and alternative agents are available, do not use carbamazepine.",
-      "classification": "Strong",
+      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
+      "classification": "Optional",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
-        "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "HLA-B*15:02 negative"
+        "HLA-A": "No HLA-A Result",
+        "HLA-B": "HLA-B*15:02 positive"
       },
       "lookupkey": {
-        "HLA-A": "*31:01 positive",
-        "HLA-B": "*15:02 negative"
+        "HLA-A": "No Result",
+        "HLA-B": "*15:02 positive"
       },
-      "comments": "Other aromatic anticonvulsants have very limited evidence, if any, linking SJS/TEN, DRESS, and/or MPE with the HLA-A*31:01 allele, and thus no recommendation can be made with respect to choosing another aromatic anticonvulsant as an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants.",
-      "population": "CBZ naive",
+      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "population": "CBZ use >3mos ",
       "genotypes": null
     },
     {
@@ -305,64 +179,43 @@
     {
       "implications": {
         "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+        "HLA-B": "n/a"
       },
-      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
-      "classification": "Strong",
+      "drugrecommendation": "If patient is carbamazepine-naïve and alternative agents are not available, consider the use of carbamazepine with increased frequency of clinical monitoring. Discontinue therapy at first evidence of a cutaneous adverse reaction.",
+      "classification": "Optional",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
         "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "HLA-B*15:02 positive"
+        "HLA-B": "No HLA-B Result"
       },
       "lookupkey": {
         "HLA-A": "*31:01 positive",
-        "HLA-B": "*15:02 positive"
+        "HLA-B": "No Result"
       },
-      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "comments": "n/a",
       "population": "CBZ-no alternatives",
       "genotypes": null
     },
     {
       "implications": {
         "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+      "drugrecommendation": "If patient is carbamazepine-naïve and alternative agents are available, do not use carbamazepine.",
       "classification": "Strong",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
         "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "HLA-B*15:02 positive"
+        "HLA-B": "HLA-B*15:02 negative"
       },
       "lookupkey": {
         "HLA-A": "*31:01 positive",
-        "HLA-B": "*15:02 positive"
+        "HLA-B": "*15:02 negative"
       },
-      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "comments": "Other aromatic anticonvulsants have very limited evidence, if any, linking SJS/TEN, DRESS, and/or MPE with the HLA-A*31:01 allele, and thus no recommendation can be made with respect to choosing another aromatic anticonvulsant as an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants.",
       "population": "CBZ naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-      "classification": "Optional",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "HLA-B*15:02 positive"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 positive",
-        "HLA-B": "*15:02 positive"
-      },
-      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-      "population": "CBZ use >3mos ",
       "genotypes": null
     },
     {
@@ -388,112 +241,7 @@
     },
     {
       "implications": {
-        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "n/a"
-      },
-      "drugrecommendation": "If patient is carbamazepine-naïve and alternative agents are not available, consider the use of carbamazepine with increased frequency of clinical monitoring. Discontinue therapy at first evidence of a cutaneous adverse reaction.",
-      "classification": "Optional",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 positive",
-        "HLA-B": "No Result"
-      },
-      "comments": "n/a",
-      "population": "CBZ-no alternatives",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
-        "HLA-B": "n/a"
-      },
-      "drugrecommendation": "The latency period for cutaneous adverse drug reactions is variable depending on phenotype; however, all usually occur within three months of regular dosing. Therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine.",
-      "classification": "Optional",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "HLA-A*31:01 positive",
-        "HLA-B": "No HLA-B Result"
-      },
-      "lookupkey": {
-        "HLA-A": "*31:01 positive",
-        "HLA-B": "No Result"
-      },
-      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.",
-      "population": "CBZ use >3mos ",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "n/a",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "No HLA-A Result",
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-A": "No Result",
-        "HLA-B": "*15:02 negative"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ naive",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "n/a",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "No HLA-A Result",
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-A": "No Result",
-        "HLA-B": "*15:02 negative"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ use >3mos ",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "n/a",
-        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
-      },
-      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-A": "No HLA-A Result",
-        "HLA-B": "HLA-B*15:02 negative"
-      },
-      "lookupkey": {
-        "HLA-A": "No Result",
-        "HLA-B": "*15:02 negative"
-      },
-      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
-      "population": "CBZ-no alternatives",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "HLA-A": "n/a",
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
         "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
       },
       "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
@@ -501,15 +249,36 @@
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
-        "HLA-A": "No HLA-A Result",
+        "HLA-A": "HLA-A*31:01 negative",
         "HLA-B": "HLA-B*15:02 positive"
       },
       "lookupkey": {
-        "HLA-A": "No Result",
+        "HLA-A": "*31:01 negative",
         "HLA-B": "*15:02 positive"
       },
       "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-      "population": "CBZ-no alternatives",
+      "population": "CBZ naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 positive",
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 positive",
+        "HLA-B": "*15:02 positive"
+      },
+      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "population": "CBZ naive",
       "genotypes": null
     },
     {
@@ -535,11 +304,179 @@
     },
     {
       "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "n/a"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "No Result"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "n/a",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "No HLA-A Result",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "No Result",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ naive",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ use >3mos ",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "n/a"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "No Result"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ use >3mos ",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "n/a",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "No HLA-A Result",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "No Result",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ use >3mos ",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "*15:02 positive"
+      },
+      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "population": "CBZ-no alternatives",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Greater risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 positive",
+        "HLA-B": "HLA-B*15:02 positive"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 positive",
+        "HLA-B": "*15:02 positive"
+      },
+      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "population": "CBZ-no alternatives",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "HLA-A": "n/a",
         "HLA-B": "Greater risk of carbamazepine-induced SJS/TEN"
       },
-      "drugrecommendation": "The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used carbamazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of carbamazepine in the future.",
-      "classification": "Optional",
+      "drugrecommendation": "If patient is carbamazepine-naïve, do not use carbamazepine.",
+      "classification": "Strong",
       "phenotypes": {},
       "activityscore": {},
       "allelestatus": {
@@ -550,8 +487,71 @@
         "HLA-A": "No Result",
         "HLA-B": "*15:02 positive"
       },
-      "comments": "Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
-      "population": "CBZ use >3mos ",
+      "comments": "Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Previous tolerance of carbamazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital. In addition to HLA-B*15:02, risk for carbamazepine-induced SJS/TEN has been reported in association with the most common B75 serotype alleles in Southeast Asia, HLA-B*15:08, HLA-B*15:11, and HLA-B*15:21. Although not described, the possibility of carbamazepine-induced SJS/TEN in association with less frequently carried B75 serotype alleles, such as HLA-B*15:30 and HLA-B*15:31, should also be considered.",
+      "population": "CBZ-no alternatives",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ-no alternatives",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "Normal risk of carbamazepine-induced SJS/TEN, DRESS, and MPE",
+        "HLA-B": "n/a"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "HLA-A*31:01 negative",
+        "HLA-B": "No HLA-B Result"
+      },
+      "lookupkey": {
+        "HLA-A": "*31:01 negative",
+        "HLA-B": "No Result"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ-no alternatives",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-A": "n/a",
+        "HLA-B": "Normal risk of carbamazepine-induced SJS/TEN"
+      },
+      "drugrecommendation": "Use carbamazepine per standard dosing guidelines.",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-A": "No HLA-A Result",
+        "HLA-B": "HLA-B*15:02 negative"
+      },
+      "lookupkey": {
+        "HLA-A": "No Result",
+        "HLA-B": "*15:02 negative"
+      },
+      "comments": "HLA-B*15:02 has a 100% negative predictive value for carbamazepine-induced SJS/TEN, and its use is currently recommended to guide use of carbamazepine and oxcarbazepine only. Because there is a much weaker association and less than 100% negative predictive value of HLA-B*15:02 for SJS/TEN associated with other aromatic anticonvulsants, using these drugs instead of carbamazepine or oxcarbazepine in the setting of a negative HLA-B*15:02 test in Southeast Asians will not result in prevention of anticonvulsant-associated SJS/TEN (PMID 25355835).",
+      "population": "CBZ-no alternatives",
       "genotypes": null
     }
   ],
@@ -560,6 +560,6 @@
     "HLA-B"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

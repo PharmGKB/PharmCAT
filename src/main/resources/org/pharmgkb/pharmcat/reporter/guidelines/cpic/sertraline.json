@@ -58,46 +58,6 @@
     },
     {
       "implications": {
-        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
       },
       "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
@@ -113,6 +73,106 @@
         "CYP2C19": "Likely Poor Metabolizer"
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     },
@@ -135,72 +195,12 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
-      },
-      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

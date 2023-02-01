@@ -36,26 +36,6 @@
       "implications": {
         "CYP2D6": "Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers."
       },
-      "drugrecommendation": "Recommend alternative hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827) and based on knowledge that CYP2D6 poor metabolizers switched from tamoxifen to anastrozole do not have an increased risk of recurrence (PMID 23213055). Note, higher dose tamoxifen (40 mg/day) increases but does not normalize endoxifen concentrations and can be considered if there are contraindications to aromatase inhibitor therapy (PMID 27226358, 21768473).",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "0.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers."
-      },
       "drugrecommendation": "Consider hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women, given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827). If aromatase inhibitor use is contraindicated, consideration should be given to use a higher but FDA approved tamoxifen dose (40 mg/day)(PMID 27226358). Avoid CYP2D6 strong to weak inhibitors.",
       "classification": "Moderate",
       "phenotypes": {
@@ -107,6 +87,26 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "0.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2D6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "n/a"
       },
       "comments": "n/a",
       "population": "general",
@@ -262,11 +262,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥3.0"
+        "CYP2D6": "3.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥3.0"
+        "CYP2D6": "3.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -282,11 +282,51 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "3.5"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Therapeutic endoxifen concentrations"
+      },
+      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Therapeutic endoxifen concentrations"
+      },
+      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -342,51 +382,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Therapeutic endoxifen concentrations"
-      },
-      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
         "CYP2D6": "≥4.0"
       },
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "≥4.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Therapeutic endoxifen concentrations"
-      },
-      "drugrecommendation": "Avoid moderate and strong CYP2D6 inhibitors. Initiate therapy with recommended standard of care dosing (tamoxifen 20 mg/day).",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "4.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -454,19 +454,19 @@
     },
     {
       "implications": {
-        "CYP2D6": "n/a"
+        "CYP2D6": "Lower endoxifen concentrations compared to normal metabolizers; higher risk of breast cancer recurrence, event-free and recurrence-free survival compared to normal metabolizers."
       },
-      "drugrecommendation": "No recommendation",
-      "classification": "No Recommendation",
+      "drugrecommendation": "Recommend alternative hormonal therapy such as an aromatase inhibitor for postmenopausal women or aromatase inhibitor along with ovarian function suppression in premenopausal women given that these approaches are superior to tamoxifen regardless of CYP2D6 genotype (PMID 26211827) and based on knowledge that CYP2D6 poor metabolizers switched from tamoxifen to anastrozole do not have an increased risk of recurrence (PMID 23213055). Note, higher dose tamoxifen (40 mg/day) increases but does not normalize endoxifen concentrations and can be considered if there are contraindications to aromatase inhibitor therapy (PMID 27226358, 21768473).",
+      "classification": "Strong",
       "phenotypes": {
-        "CYP2D6": "Indeterminate"
+        "CYP2D6": "Poor Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "n/a"
+        "CYP2D6": "0.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "n/a"
+        "CYP2D6": "0.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -477,6 +477,6 @@
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

@@ -32,19 +32,37 @@
   "recommendations": [
     {
       "implications": {
-        "G6PD": "High risk of acute hemolytic anemia with standard (or higher than standard) anti-relapse dosages for Plasmodium vivax or Plasmodium ovale of 0.25-0.5 mg/kg daily for 14 days"
+        "G6PD": "Unknown risk of acute hemolytic anemia"
       },
-      "drugrecommendation": "Avoid primaquine, except in the following cases where established expert consensus guidelines for the treatment of malaria should be followed: (1) Treating Plasmodium vivax or Plasmodium ovale malaria for radical cure of liver-stage infections: 0.75 mg/kg once weekly x8 weeks (WHO) or 45 mg once weekly x8 weeks (CDC) - with close monitoring for hemolysis; (2) Treating Plasmodium falciparum malaria by using primaquine single dose as a gametocytocide at 0.25 mg/kg (WHO) - without need for monitoring for hemolysis.",
-      "classification": "Strong",
+      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
       "phenotypes": {
-        "G6PD": "Deficient"
+        "G6PD": "Indeterminate"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
-        "G6PD": "Deficient"
+        "G6PD": "Indeterminate"
       },
-      "comments": "Dosing recommendations for primaquine in patients with G6PD deficiency are derived from the malaria treatment guidelines issued by the World Health Organization and the U.S. Centers for Disease Control and Prevention.",
+      "comments": null,
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "G6PD": "Variable risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Variable"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Variable"
+      },
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one nondeficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to guide treatment in such cases.",
       "population": "general",
       "genotypes": null
     },
@@ -68,19 +86,19 @@
     },
     {
       "implications": {
-        "G6PD": "Unknown risk of acute hemolytic anemia"
+        "G6PD": "High risk of acute hemolytic anemia with standard (or higher than standard) anti-relapse dosages for Plasmodium vivax or Plasmodium ovale of 0.25-0.5 mg/kg daily for 14 days"
       },
-      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
+      "drugrecommendation": "Avoid primaquine, except in the following cases where established expert consensus guidelines for the treatment of malaria should be followed: (1) Treating Plasmodium vivax or Plasmodium ovale malaria for radical cure of liver-stage infections: 0.75 mg/kg once weekly x8 weeks (WHO) or 45 mg once weekly x8 weeks (CDC) - with close monitoring for hemolysis; (2) Treating Plasmodium falciparum malaria by using primaquine single dose as a gametocytocide at 0.25 mg/kg (WHO) - without need for monitoring for hemolysis.",
+      "classification": "Strong",
       "phenotypes": {
-        "G6PD": "Indeterminate"
+        "G6PD": "Deficient"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
-        "G6PD": "Indeterminate"
+        "G6PD": "Deficient"
       },
-      "comments": null,
+      "comments": "Dosing recommendations for primaquine in patients with G6PD deficiency are derived from the malaria treatment guidelines issued by the World Health Organization and the U.S. Centers for Disease Control and Prevention.",
       "population": "general",
       "genotypes": null
     },
@@ -101,30 +119,12 @@
       "comments": null,
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Variable risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one nondeficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to guide treatment in such cases.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "G6PD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

@@ -47,6 +47,26 @@
   "recommendations": [
     {
       "implications": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "drugrecommendation": "Reduce starting dose based on activity score followed by titration of dose based on toxicityc or therapeutic drug monitoring (if available). Activity score 1.5: Reduce dose by 25% to 50%",
+      "classification": "Moderate",
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "1.5"
+      },
+      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "DPYD": "Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
       },
       "drugrecommendation": "Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens.",
@@ -87,46 +107,6 @@
     },
     {
       "implications": {
-        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
-      },
-      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
-      "classification": "Strong",
-      "phenotypes": {
-        "DPYD": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "DPYD": "1.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "DPYD": "1.0"
-      },
-      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
-      },
-      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "DPYD": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "DPYD": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "DPYD": "1.5"
-      },
-      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "DPYD": "Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity"
       },
       "drugrecommendation": "Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration.",
@@ -144,12 +124,32 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      },
+      "drugrecommendation": "Reduce starting dose based on activity score followed by titration of dose based on toxicityc or therapeutic drug monitoring (if available). Activity score 1: Reduce dose by 50%",
+      "classification": "Strong",
+      "phenotypes": {
+        "DPYD": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "DPYD": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "DPYD": "1.0"
+      },
+      "comments": "Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "DPYD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

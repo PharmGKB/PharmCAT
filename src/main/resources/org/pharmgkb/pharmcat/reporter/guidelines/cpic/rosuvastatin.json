@@ -93,69 +93,6 @@
     {
       "implications": {
         "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific guidelines and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Indeterminate"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
         "SLCO1B1": "n/a"
       },
       "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific guidelines and specific population guidelines. SLCO1B1 genotype result is not available.",
@@ -177,396 +114,18 @@
     {
       "implications": {
         "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Decreased Function",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
         "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "n/a",
-      "classification": "n/a",
-      "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Indeterminate"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines If dose >20mg needed for desired efficacy, consider combination therapy (i.e. rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). ABCG2 genotype result is not available.",
+      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific guidelines and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
       "classification": "Moderate",
       "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "n/a",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "No Result",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
+        "ABCG2": "Decreased Function",
         "SLCO1B1": "Indeterminate"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Indeterminate"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 genotype result is not available.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "No Result"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "No Result"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose > 20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
-      "classification": "Strong",
-      "phenotypes": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Normal Function",
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
-      },
-      "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "ABCG2": "Poor Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Poor Function",
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
-      "phenotypes": {
-        "ABCG2": "Poor Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Poor Function",
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
-        "SLCO1B1": "n/a"
-      },
-      "drugrecommendation": "Based on ABCG2 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "ABCG2": "Poor Function",
-        "SLCO1B1": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "ABCG2": "Poor Function",
+        "ABCG2": "Decreased Function",
         "SLCO1B1": "Indeterminate"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
@@ -597,21 +156,210 @@
     {
       "implications": {
         "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
+        "SLCO1B1": "n/a"
       },
-      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Optional",
+      "drugrecommendation": "Based on ABCG2 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). SLCO1B1 phenotype could not be assigned based on genotyping.",
+      "classification": "Moderate",
       "phenotypes": {
         "ABCG2": "Poor Function",
-        "SLCO1B1": "Normal Function"
+        "SLCO1B1": "Indeterminate"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "ABCG2": "Poor Function",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines If dose >20mg needed for desired efficacy, consider combination therapy (i.e. rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391). ABCG2 genotype result is not available.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Decreased Function",
         "SLCO1B1": "Normal Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose > 20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure as compared to normal function; unknown risk for myopathy; increased lipid lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function and decreased function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Decreased Function",
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
     },
@@ -639,21 +387,273 @@
     {
       "implications": {
         "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
-        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
       },
-      "drugrecommendation": "Prescribe ≤10mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >10mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
       "classification": "Optional",
       "phenotypes": {
         "ABCG2": "Poor Function",
-        "SLCO1B1": "Possible Decreased Function"
+        "SLCO1B1": "Increased Function"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "ABCG2": "Poor Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Increased rosuvastatin exposure compared to normal and decreased function; unknown myopathy risk; increased lipid-lowering effects",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. If dose >20mg needed for desired efficacy, consider an alternative statin or combination therapy (i.e., rosuvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Optional",
+      "phenotypes": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Poor Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "No Result"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "No Result"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "Based on ABCG2 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. SLCO1B1 phenotype could not be assigned based on genotyping.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses based on disease-specific guidelines. ABCG2 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Based on SLCO1B1 status, prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg. ABCG2 genotype result is not available.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
         "SLCO1B1": "Possible Decreased Function"
       },
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating rosuvastatin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "Typical myopathy risk and rosuvastatin exposure",
+        "SLCO1B1": "Increased rosuvastatin exposure as compared to normal function; Typical myopathy risk with doses ≤20 mg."
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses of rosuvastatin based on disease-specific and specific population guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses >20mg.",
+      "classification": "Strong",
+      "phenotypes": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "Normal Function",
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and Asian ancestry should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "ABCG2": "n/a",
+        "SLCO1B1": "n/a"
+      },
+      "drugrecommendation": "n/a",
+      "classification": "n/a",
+      "phenotypes": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "ABCG2": "No Result",
+        "SLCO1B1": "Indeterminate"
+      },
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     }
@@ -663,6 +663,6 @@
     "SLCO1B1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

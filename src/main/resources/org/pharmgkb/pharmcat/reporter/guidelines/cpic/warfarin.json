@@ -60,6 +60,6 @@
     "VKORC1"
   ],
   "notesonusage": "Warfarin recommendation does not follow simple diplotype to phenotype translation. Read the guideline text and follow the recommendation diagram found at http://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png",
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

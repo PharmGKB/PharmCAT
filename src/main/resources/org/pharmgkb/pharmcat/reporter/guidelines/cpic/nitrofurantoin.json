@@ -32,24 +32,6 @@
   "recommendations": [
     {
       "implications": {
-        "G6PD": "Medium risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "Use at standard doses with caution and with close monitoring for anemia",
-      "classification": "Optional",
-      "phenotypes": {
-        "G6PD": "Deficient"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Deficient"
-      },
-      "comments": "Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "G6PD": "High risk of acute of acute exacerbation of chronic hemolysis"
       },
       "drugrecommendation": "Avoid",
@@ -63,6 +45,24 @@
         "G6PD": "Deficient with CNSHA"
       },
       "comments": "There are insufficient data in patients with the G6PD Deficient with CNSHA phenotype to rate as \"strong,\" but all medium risk drugs should be avoided in these rare patients due to the underlying pathophysiology that confers high risk for acute exacerbation of chronic hemolysis.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "G6PD": "Variable risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "If deemed necessary to ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Variable"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Variable"
+      },
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
       "population": "general",
       "genotypes": null
     },
@@ -86,6 +86,24 @@
     },
     {
       "implications": {
+        "G6PD": "Medium risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "Use at standard doses with caution and with close monitoring for anemia",
+      "classification": "Optional",
+      "phenotypes": {
+        "G6PD": "Deficient"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Deficient"
+      },
+      "comments": "Close monitoring may be more important at higher or more chronic dosage schedules, and in the setting of infection or other oxidative stress including concomitant use of multiple medium and low-to-no risk drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "G6PD": "Low risk of acute hemolytic anemia"
       },
       "drugrecommendation": "No reason to avoid based on G6PD status",
@@ -101,30 +119,12 @@
       "comments": null,
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Variable risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "If deemed necessary to ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "G6PD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

@@ -47,24 +47,6 @@
   "recommendations": [
     {
       "implications": {
-        "HLA-B": "Low or reduced risk of allopurinol-induced SCAR"
-      },
-      "drugrecommendation": "Use allopurinol per standard dosing guidelines",
-      "classification": "Strong",
-      "phenotypes": {},
-      "activityscore": {},
-      "allelestatus": {
-        "HLA-B": "HLA-B*58:01 negative"
-      },
-      "lookupkey": {
-        "HLA-B": "*58:01 negative"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "HLA-B": "Significantly increased risk of allopurinol-induced SCAR"
       },
       "drugrecommendation": "Allopurinol is contraindicated",
@@ -80,12 +62,30 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "HLA-B": "Low or reduced risk of allopurinol-induced SCAR"
+      },
+      "drugrecommendation": "Use allopurinol per standard dosing guidelines",
+      "classification": "Strong",
+      "phenotypes": {},
+      "activityscore": {},
+      "allelestatus": {
+        "HLA-B": "HLA-B*58:01 negative"
+      },
+      "lookupkey": {
+        "HLA-B": "*58:01 negative"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "HLA-B"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

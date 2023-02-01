@@ -92,6 +92,24 @@
   "recommendations": [
     {
       "implications": {
+        "SLCO1B1": "Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+      },
+      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose >20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "SLCO1B1": "Poor Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
       },
       "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
@@ -110,19 +128,19 @@
     },
     {
       "implications": {
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
+        "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
       },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
-      "classification": "Strong",
+      "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
+      "classification": "Moderate",
       "phenotypes": {
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "Possible Decreased Function"
       },
       "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
-        "SLCO1B1": "Increased Function"
+        "SLCO1B1": "Possible Decreased Function"
       },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
     },
@@ -151,6 +169,24 @@
       "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
       "classification": "Strong",
       "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
         "SLCO1B1": "Normal Function"
       },
       "activityscore": {},
@@ -161,48 +197,12 @@
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "SLCO1B1": "Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
-      },
-      "drugrecommendation": "Prescribe ≤20mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose >20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "SLCO1B1": "Poor Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "SLCO1B1": "Poor Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "SLCO1B1": "Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
-      },
-      "drugrecommendation": "Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose >40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "SLCO1B1": "Possible Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "SLCO1B1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

@@ -31,6 +31,226 @@
   "recommendations": [
     {
       "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      },
+      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "CYP2D6": "Very limited data available for CYP2D6 poor metabolizers"
       },
       "drugrecommendation": "Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.",
@@ -131,326 +351,6 @@
     },
     {
       "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.25"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.5"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.75"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.75"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Normal metabolism"
-      },
-      "drugrecommendation": "Initiate therapy with recommended starting dose.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.25"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.5"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.25"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.5"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "4.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥5.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥5.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
-      },
-      "drugrecommendation": "Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).",
-      "classification": "Moderate",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥6.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥6.0"
-      },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "CYP2D6": "n/a"
       },
       "drugrecommendation": "No recommendation",
@@ -468,12 +368,112 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.25"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.5"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.75"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.25"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

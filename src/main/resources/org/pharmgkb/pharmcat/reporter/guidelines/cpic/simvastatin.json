@@ -92,42 +92,6 @@
   "recommendations": [
     {
       "implications": {
-        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
-      },
-      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
-      "classification": "Strong",
-      "phenotypes": {
-        "SLCO1B1": "Decreased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "SLCO1B1": "Decreased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "SLCO1B1": "Increased Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "SLCO1B1": "Increased Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "SLCO1B1": "n/a"
       },
       "drugrecommendation": "No recommendation",
@@ -141,24 +105,6 @@
         "SLCO1B1": "Indeterminate"
       },
       "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "SLCO1B1": "Typical myopathy risk and statin exposure"
-      },
-      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
-      "classification": "Strong",
-      "phenotypes": {
-        "SLCO1B1": "Normal Function"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "SLCO1B1": "Normal Function"
-      },
-      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
       "population": "general",
       "genotypes": null
     },
@@ -187,6 +133,24 @@
       "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
       "classification": "Strong",
       "phenotypes": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "SLCO1B1": "Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      },
+      "drugrecommendation": "Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to <20mg/day.",
+      "classification": "Strong",
+      "phenotypes": {
         "SLCO1B1": "Possible Decreased Function"
       },
       "activityscore": {},
@@ -197,12 +161,48 @@
       "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "SLCO1B1": "Increased Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "SLCO1B1": "Typical myopathy risk and statin exposure"
+      },
+      "drugrecommendation": "Prescribe desired starting dose and adjust doses based on disease-specific guidelines.",
+      "classification": "Strong",
+      "phenotypes": {
+        "SLCO1B1": "Normal Function"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "comments": "The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "SLCO1B1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

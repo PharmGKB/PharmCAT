@@ -31,6 +31,24 @@
   "recommendations": [
     {
       "implications": {
+        "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+      },
+      "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+      "classification": "Optional",
+      "phenotypes": {
+        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+      },
+      "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
         "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
       },
       "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
@@ -64,30 +82,12 @@
       "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
-      },
-      "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
-      "classification": "Optional",
-      "phenotypes": {
-        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
-      },
-      "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "MT-RNR1"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

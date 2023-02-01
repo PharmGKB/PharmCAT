@@ -77,26 +77,6 @@
   "recommendations": [
     {
       "implications": {
-        "CYP2D6": "Greatly reduced morphine formation leading to diminished analgesia."
-      },
-      "drugrecommendation": "Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "0.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "0.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "CYP2D6": "Reduced morphine formation"
       },
       "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.",
@@ -170,326 +150,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "1.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Expected morphine formation"
-      },
-      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Expected morphine formation"
-      },
-      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Expected morphine formation"
-      },
-      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "1.75"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "1.75"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Expected morphine formation"
-      },
-      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Expected morphine formation"
-      },
-      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Normal Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "2.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "2.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.25"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.25"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥3.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "4.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "4.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥5.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥5.0"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
-      },
-      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
-      "classification": "Strong",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥6.0"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥6.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -514,12 +174,352 @@
       "comments": "n/a",
       "population": "general",
       "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Greatly reduced morphine formation leading to diminished analgesia."
+      },
+      "drugrecommendation": "Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased formation of morphine leading to higher risk of toxicity"
+      },
+      "drugrecommendation": "Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Expected morphine formation"
+      },
+      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Expected morphine formation"
+      },
+      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Expected morphine formation"
+      },
+      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Expected morphine formation"
+      },
+      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Expected morphine formation"
+      },
+      "drugrecommendation": "Use codeine label recommended age- or weight-specific dosing.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
     }
   ],
   "genes": [
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }

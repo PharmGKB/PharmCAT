@@ -35,6 +35,42 @@
         "G6PD": "Low-to-no risk of acute hemolytic anemia"
       },
       "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Variable"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Variable"
+      },
+      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "G6PD": "Unknown risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "G6PD": "Indeterminate"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "G6PD": "Indeterminate"
+      },
+      "comments": null,
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "G6PD": "Low-to-no risk of acute hemolytic anemia"
+      },
+      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
       "classification": "Optional",
       "phenotypes": {
         "G6PD": "Deficient"
@@ -68,24 +104,6 @@
     },
     {
       "implications": {
-        "G6PD": "Unknown risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Indeterminate"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Indeterminate"
-      },
-      "comments": null,
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
         "G6PD": "Low-to-no risk of acute hemolytic anemia"
       },
       "drugrecommendation": "No reason to avoid based on G6PD status",
@@ -101,30 +119,12 @@
       "comments": null,
       "population": "general",
       "genotypes": null
-    },
-    {
-      "implications": {
-        "G6PD": "Low-to-no risk of acute hemolytic anemia"
-      },
-      "drugrecommendation": "No reason to avoid based on G6PD status at standard doses",
-      "classification": "Moderate",
-      "phenotypes": {
-        "G6PD": "Variable"
-      },
-      "activityscore": {},
-      "allelestatus": {},
-      "lookupkey": {
-        "G6PD": "Variable"
-      },
-      "comments": "Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype.",
-      "population": "general",
-      "genotypes": null
     }
   ],
   "genes": [
     "G6PD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.21.6",
+  "cpicVersion": "v1.22.1",
   "source": "CPIC"
 }
