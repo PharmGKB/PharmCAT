@@ -15,7 +15,8 @@
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^5.0.0",
-    "semantic-release": "^20.0.2"
+    "semantic-release": "^20.0.2",
+    "showdown": "^2.1.0"
   },
   "release": {
     "branches": [

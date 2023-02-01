@@ -29,6 +29,34 @@ then
   exit 1
 fi
 
+# update disclaimer.hbs
+script_dir="$( dirname -- "$BASH_SOURCE"; )";
+"${script_dir}/update_disclaimer.js"
+
+git_config=$(git config --list)
+safe_crlf=""
+if [[ "${git_config}" == *"core.safecrlf"* ]]
+then
+  safe_crlf=$(git config core.safecrlf)
+  if [[ $safe_crlf == 'warn' ]]
+  then
+    git config set core.safecrlf false
+  fi
+fi
+
+diffs=$(git diff | grep -c "${script_dir}/disclaimer.hbs")
+if [[ $diffs -gt 0 ]]
+then
+  git add src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimer.hbs
+  git commit -m "chore: update disclaimer"
+  git push
+fi
+
+if [[ $safe_crlf == 'warn' ]]
+then
+  git config set core.safecrlf warn
+fi
+
 
 # do release
 echo "Creating release..."

@@ -5,7 +5,7 @@ nav_order: 7
 ---
 # Disclaimers and Other Information
 
-__Liability: PhamCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
+__Liability: PharmCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
 or related to any use of PharmCAT, or for any errors or omissions. The user recognizes that PharmCAT is a research tool
 and that they are using PharmCAT at their own risk.__
 
