@@ -1728,7 +1728,7 @@ class PipelineTest {
     diplotype = geneReport.getRecommendationDiplotypes().get(1);
     assertNotNull(diplotype.getAllele2());
     assertEquals("*1x" + TextConstants.GTE + "3", diplotype.getAllele2().getName());
-    assertEquals("One increased function allele and one normal function allele", diplotype.printFunctionPhrase());
+    assertEquals("One Increased function allele and one Normal function allele", diplotype.printFunctionPhrase());
 
     Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
     Document document = Jsoup.parse(reporterOutput.toFile());
