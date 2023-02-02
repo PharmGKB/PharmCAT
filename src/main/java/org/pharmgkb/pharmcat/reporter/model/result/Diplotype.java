@@ -300,9 +300,9 @@ public class Diplotype implements Comparable<Diplotype> {
   public String printFunctionPhrase() {
 
     String f1 = m_allele1 != null && m_allele1.getFunction() != null ?
-        m_allele1.getFunction().toLowerCase() : null;
+        m_allele1.getFunction() : null;
     String f2 = m_allele2 != null && m_allele2.getFunction() != null ?
-        m_allele2.getFunction().toLowerCase() : null;
+        m_allele2.getFunction() : null;
 
     if (!isSinglePloidy() && StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
 
