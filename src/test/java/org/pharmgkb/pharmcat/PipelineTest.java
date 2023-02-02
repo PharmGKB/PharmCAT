@@ -1665,7 +1665,7 @@ class PipelineTest {
     assertNotNull(geneReport);
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
-    assertEquals("One normal function allele and one unassigned function allele", diplotype.printFunctionPhrase());
+    assertEquals("One Normal function allele and one Unassigned function allele", diplotype.printFunctionPhrase());
   }
 
 
@@ -1691,7 +1691,7 @@ class PipelineTest {
 
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertThat(diplotype.getPhenotypes(), contains("Normal Metabolizer"));
-    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+    assertEquals("Two Normal function alleles", diplotype.printFunctionPhrase());
 
     Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
     Document document = Jsoup.parse(reporterOutput.toFile());
@@ -1723,7 +1723,7 @@ class PipelineTest {
 
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().get(0);
     assertThat(diplotype.getPhenotypes(), contains("Normal Metabolizer"));
-    assertEquals("Two normal function alleles", diplotype.printFunctionPhrase());
+    assertEquals("Two Normal function alleles", diplotype.printFunctionPhrase());
 
     diplotype = geneReport.getRecommendationDiplotypes().get(1);
     assertNotNull(diplotype.getAllele2());
