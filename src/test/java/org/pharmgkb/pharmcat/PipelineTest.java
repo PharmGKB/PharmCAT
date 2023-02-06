@@ -715,8 +715,10 @@ class PipelineTest {
   }
 
   /**
-   * Test to make sure AS 1.0 and AS 1.5 have different recommendations for capecitabine. Tests that the recommendation
-   * data is accurate but also that DPYD is using activity scores for matching instead of phenotype.
+   * Test to make sure AS 1.0 and AS 1.5 have the same recommendations for capecitabine. This is due to an update given
+   * to the guideline after publication. See the
+   * <a href="https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/">November 2018 update</a> for
+   * details.
    */
   @Test
   void testDpydDifferenceOnScore(TestInfo testInfo) throws Exception {
@@ -761,7 +763,7 @@ class PipelineTest {
         .toList();
     assertEquals(1, lowRecs.size());
 
-    assertNotEquals(highRecs.get(0), lowRecs.get(0));
+    assertEquals(highRecs.get(0), lowRecs.get(0));
   }
 
   /**
@@ -1811,7 +1813,6 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("CYP3A4", "rs72552799", "T", "T")
-        .variation("CYP3A4", "rs2242480", "T", "T")
     ;
     testWrapper.execute(null);
     testWrapper.testCalledByMatcher("CYP3A4");

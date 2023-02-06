@@ -3,7 +3,7 @@
     "id": "PA166265421",
     "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
     "source": "DPWG",
-    "version": 8,
+    "version": 10,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
     "relatedChemicals": [
       {
@@ -118,14 +118,6 @@
               "term": "No function",
               "termId": "haplotypeTags:1445558515"
             }
-          },
-          {
-            "id": 1451778542,
-            "_label": "*36",
-            "function": {
-              "term": "Normal function",
-              "termId": "haplotypeTags:1445558335"
-            }
           }
         ],
         "gene": {
@@ -232,5 +224,5 @@
     }
   ],
   "citations": [],
-  "version": "2023-01-05-00-25"
+  "version": "2023-02-05-00-25"
 }

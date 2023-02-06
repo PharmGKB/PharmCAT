@@ -50,7 +50,7 @@
     "Crispim": "II/Deficient",
     "Dagua": "Uncertain function",
     "Durham": "I/Deficient with CNSHA",
-    "Farroupilha": "II-III/Deficient",
+    "Farroupilha": "II/Deficient",
     "Figuera da Foz": "I/Deficient with CNSHA",
     "Flores": "II/Deficient",
     "Fukaya": "I/Deficient with CNSHA",
@@ -96,7 +96,7 @@
     "Mahidol": "III/Deficient",
     "Malaga": "III/Deficient",
     "Manhattan": "I/Deficient with CNSHA",
-    "Mediterranean, Dallas, Panama‚ Sassari, Cagliari, Birmingham": "II/Deficient",
+    "Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham": "II/Deficient",
     "Mediterranean Haplotype": "II/Deficient",
     "Metaponto": "III/Deficient",
     "Mexico City": "III/Deficient",
@@ -164,10 +164,10 @@
     "Surabaya": "II/Deficient",
     "Suwalki": "I/Deficient with CNSHA",
     "Swansea": "I/Deficient with CNSHA",
-    "Taipei‚ Chinese-3": "II/Deficient",
+    "Taipei, Chinese-3": "II/Deficient",
     "Telti/Kobe": "I/Deficient with CNSHA",
     "Tenri": "I/Deficient with CNSHA",
-    "Tokyo, Fukushima": "I-II/Deficient with CNSHA-Deficient",
+    "Tokyo, Fukushima": "I/Deficient with CNSHA",
     "Toledo": "II/Deficient",
     "Tomah": "I/Deficient with CNSHA",
     "Tondela": "I/Deficient with CNSHA",
@@ -173722,5 +173722,5 @@
       }
     }
   ],
-  "version": "v1.22.1"
+  "version": "v1.22.2"
 }
