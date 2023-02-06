@@ -1,3 +1,12 @@
+## [2.2.3](https://github.com/PharmGKB/PharmCAT/compare/v2.2.2...v2.2.3) (2023-02-06)
+
+
+### Bug Fixes
+
+* fix permissions on executables ([3385186](https://github.com/PharmGKB/PharmCAT/commit/3385186c3d8e70cf7cd0c34511878e3650b96da0))
+* update to latest CPIC/PharmVar data ([905306f](https://github.com/PharmGKB/PharmCAT/commit/905306ffa2b5c932f8ddedc238dd1593ed65c51f))
+* **reporter:** fix case for allele function names ([90922b5](https://github.com/PharmGKB/PharmCAT/commit/90922b59d444da7257eb3f97f6c0a8ecd1d8bcf8))
+
 ## [2.2.2](https://github.com/PharmGKB/PharmCAT/compare/v2.2.1...v2.2.2) (2023-02-01)
 
 
