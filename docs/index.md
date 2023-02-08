@@ -33,7 +33,7 @@ PharmCAT is under active development.
 
 ## Documentation
 
-See [Genes & Drugs](Genes-and-Drugs) for a list of all genes and drugs supported by PharmCAT.  We have detailed documentation in [Gene Definition Exceptions](methods/Gene-Definition-Exceptions) for genes that require special handling.
+See [Genes & Drugs](Genes-Drugs) for a list of all genes and drugs supported by PharmCAT.  We have detailed documentation in [Gene Definition Exceptions](methods/Gene-Definition-Exceptions) for genes that require special handling.
 
 Read [the Methods](methods) to learn how PharmCAT works, including how it [matches sample data to allele definitions](methods/NamedAlleleMatcher-101) and [matches genotypes to drug recommendations](methods/Matching-Recommendations).
 
