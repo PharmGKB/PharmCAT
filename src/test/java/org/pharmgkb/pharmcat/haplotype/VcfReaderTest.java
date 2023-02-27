@@ -6,6 +6,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.parser.vcf.VcfFormatException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -213,5 +214,16 @@ class VcfReaderTest {
 
     assertFalse(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".txt")));
     assertFalse(VcfFile.isVcfFile(TestUtils.createTempFile(testInfo, ".txt.gz")));
+  }
+
+
+  @Test
+  void testBadAllele() {
+
+    assertThrows(VcfFormatException.class, () -> {
+      VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-badAllele.vcf"));
+      assertNotNull(reader.getWarnings());
+      printWarnings(reader);
+    });
   }
 }

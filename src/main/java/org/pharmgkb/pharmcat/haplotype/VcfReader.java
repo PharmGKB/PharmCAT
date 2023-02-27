@@ -23,6 +23,7 @@ import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.ChromosomePositionComparator;
+import org.pharmgkb.parser.vcf.VcfFormatException;
 import org.pharmgkb.parser.vcf.VcfLineParser;
 import org.pharmgkb.parser.vcf.VcfParser;
 import org.pharmgkb.parser.vcf.model.ContigMetadata;
@@ -363,6 +364,12 @@ public class VcfReader implements VcfLineParser {
       }
     }
 
+    for (int alleleIdx : alleleIdxs) {
+      if (alleleIdx >= alleles.size()) {
+        throw new VcfFormatException("Invalid GT allele value (" + alleleIdx + ") for " + chrPos +
+            " (only " + (alleles.size() - 1) + " ALT allele" + (alleles.size() > 1 ? "s" : "") + " specified)");
+      }
+    }
 
     String a1 = alleles.get(alleleIdxs[0]);
     String a2 = isHaploid ? null : ".";
