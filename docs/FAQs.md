@@ -46,7 +46,15 @@ Second, go to the [PharmCAT repository](https://github.com/PharmGKB/PharmCAT), c
 PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule. For more information see our [Versioning documentation](/methods/Versioning).
 
 
-## What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
+### Can you modify the definitions of alleles and phenotypes in PharmCAT?
+
+PharmCAT is open source and thus, can be modified to satisfy your own needs by oneself. Nonetheless, we don't endorse modifying the allele or phenotype definitions to give different allele matching or phenotype results. A goal of PharmCAT is to create transparent reports about what alleles or genetic positions are used to determine genotype and phenotype, and to promote consistent and robust results. Take allele definitions for example, when a genetic position is removed, PharmCAT will not "see" those positions, which will likely cause the sample/study individual to be inaccurately reported as reference who in fact is not, incorrectly assigned genotypes or, even worse, phenotypes.
+
+If you have no information about some genetic positions in your dataset, and want to ignore them or assume reference at those positions, there is an option in the Pharmcat VCF Preprocessor to set the missing positions to reference.  We suggest using this option for research purposes only. We recommend against using this option for reporting results or implementation.
+
+## Output-related
+
+### What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
 
 Uncertain function and unknown function are standardized CPIC allele function terms. Alleles with uncertain function are alleles that have been reviewed by CPIC experts but there has not been enough evidence to sufficiently draw a conclusion about the allele's clinical functional status to inform prescribing actionability. On the other hand, unknown function suggests that there is no literature describing the function.
 
