@@ -9,7 +9,9 @@ nav_order: 6
 1. TOC
 {:toc}
 
-## Can I use my consumer genetic testing data (23andMe / Ancestry.org / etc.) with PharmCAT?
+## General
+
+### Can I use my consumer genetic testing data (23andMe / Ancestry.org / etc.) with PharmCAT?
 
 [PharmCAT requires input genomic data to be in VCF format](/using/VCF-Requirements). If you can transform your data into valid VCF that meets the requirements outlined in PharmCAT documentation then you can run it. However, if you're not familiar with genomic data tools then this may be an extremely difficult task.
 
@@ -21,18 +23,7 @@ Regarding 23andMe in particular, some things to consider:
 2. As of May 2021, **[23andMe uses the GRCh37 assembly](https://customercare.23andme.com/hc/en-us/articles/212883767-Which-reference-genome-does-23andMe-use-)**. This means you will have to re-align your data to the GRCh38 assembly that PharmCAT uses.
 
 
-## Can PharmCAT treat missing positions as reference?
-
-PharmCAT will not be supporting this.
-
-We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it.  It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/using/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide.  We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
-
-For one thing, we do not know what "reference" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "reference" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
-
-You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
-
-
-## How can I get updates about PharmCAT?
+### How can I get updates about PharmCAT?
 
 The PharmCAT project is managed on GitHub which has many features for people who want to stay aware of changes happening with PharmCAT.
 
@@ -41,10 +32,22 @@ First, [sign up for a free GitHub account](https://github.com/).
 Second, go to the [PharmCAT repository](https://github.com/PharmGKB/PharmCAT), click the watch button, and [configure notifications in a way that works for you](https://docs.github.com/en/enterprise-cloud@latest/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
 
-## When does PharmCAT release new versions?
+### When does PharmCAT release new versions?
 
 PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule. For more information see our [Versioning documentation](/methods/Versioning).
 
+## Running PharmCAT
+
+
+### Can PharmCAT treat missing positions as reference?
+
+PharmCAT will not be supporting this.
+
+We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it.  It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/using/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide.  We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
+
+For one thing, we do not know what "reference" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "reference" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
+
+You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
 
 ### Can you modify the definitions of alleles and phenotypes in PharmCAT?
 
@@ -66,7 +69,7 @@ Indeterminate is a standardized CPIC phenotype term assigned to genotypes contai
 
 Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
 
-## How to render PharmCAT outputs into a tabular-formatted file
+### How to render PharmCAT outputs into a tabular-formatted file
 PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON outputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
 
 ## Gene-specific
