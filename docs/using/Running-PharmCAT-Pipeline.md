@@ -14,7 +14,11 @@ This script tries to keep things as simple as possible.  If you need advanced fe
 
 ## Prerequisites
 
-You must have both the VCF preprocessor and the core PharmCAT tool installed correctly.  All the dependencies (python3, java, bcfools, bgzip) must already be in your PATH. 
+You must have both the VCF preprocessor and the core PharmCAT tool installed correctly.  All the dependencies (python3, java, bcfools, bgzip) must already be in your PATH.  If necessary, you can customize which versions of these dependencies to use using environment variables:
+
+* `JAVA_HOME` - the directory where the version of Java you want to use is installed
+* `BCFTOOLS_PATH` - the full path to the `bcftools` program
+* `BGZIP_PATH` - the full path to the `bgzip` program
 
 The `pharmcat_pipeline` script is in the PharmCAT VCF Preprocessor tar file that's available on our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
 
