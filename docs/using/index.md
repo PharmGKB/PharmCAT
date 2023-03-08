@@ -11,6 +11,7 @@ Running PharmCAT:
 
 * [Running PharmCAT](Running-PharmCAT)
 * [Running the VCF Preprocessor](VCF-Preprocessor)
+* [Running the full PharmCAT Pipeline](Running-PharmCAT-Pipeline)
 * [Running PharmCAT in Docker](PharmCAT-in-Docker)
 * [Multi-Sample Analysis](Multi-Sample-Analysis)
 * [Calling-CYP2D6](Calling-CYP2D6)
