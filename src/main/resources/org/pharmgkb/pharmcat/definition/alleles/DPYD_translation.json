@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.22.2",
-  "modificationDate": "Feb 3, 2023, 10:58:22 AM",
+  "version": "v1.23.0",
+  "modificationDate": "Mar 7, 2023, 10:26:43 AM",
   "gene": "DPYD",
   "orientation": null,
   "chromosome": "chr1",

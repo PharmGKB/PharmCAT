@@ -129,7 +129,7 @@
       "implications": {
         "DPYD": "Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
       },
-      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).",
+      "drugrecommendation": "Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available). Patients with the c.2846A>T/c.2846A>T genotype may require >50% reduction in starting dose.",
       "classification": "Strong",
       "phenotypes": {
         "DPYD": "Intermediate Metabolizer"
@@ -150,6 +150,6 @@
     "DPYD"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.22.2",
+  "cpicVersion": "v1.23.0",
   "source": "CPIC"
 }

@@ -45,9 +45,7 @@
       "phenotypes": {
         "CYP2C19": "Indeterminate"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Indeterminate"
@@ -65,9 +63,7 @@
       "phenotypes": {
         "CYP2C19": "Likely Poor Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Likely Poor Metabolizer"
@@ -85,9 +81,7 @@
       "phenotypes": {
         "CYP2C19": "Poor Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Poor Metabolizer"
@@ -105,9 +99,7 @@
       "phenotypes": {
         "CYP2C19": "Rapid Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Rapid Metabolizer"
@@ -125,9 +117,7 @@
       "phenotypes": {
         "CYP2C19": "Ultrarapid Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Ultrarapid Metabolizer"
@@ -145,9 +135,7 @@
       "phenotypes": {
         "CYP2C19": "Intermediate Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Intermediate Metabolizer"
@@ -165,9 +153,7 @@
       "phenotypes": {
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Likely Intermediate Metabolizer"
@@ -185,9 +171,7 @@
       "phenotypes": {
         "CYP2C19": "Normal Metabolizer"
       },
-      "activityscore": {
-        "CYP2C19": "n/a"
-      },
+      "activityscore": {},
       "allelestatus": {},
       "lookupkey": {
         "CYP2C19": "Normal Metabolizer"
@@ -201,6 +185,6 @@
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.22.2",
+  "cpicVersion": "v1.23.0",
   "source": "CPIC"
 }
