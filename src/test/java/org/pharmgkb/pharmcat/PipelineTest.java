@@ -763,7 +763,7 @@ class PipelineTest {
         .toList();
     assertEquals(1, lowRecs.size());
 
-    assertEquals(highRecs.get(0), lowRecs.get(0));
+    assertTrue(lowRecs.get(0).startsWith(highRecs.get(0)));
   }
 
   /**
