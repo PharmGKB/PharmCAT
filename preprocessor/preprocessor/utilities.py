@@ -1199,3 +1199,16 @@ def check_max_processes(requested_max_processes: Optional[int], validate: bool =
     if verbose and not validate and requested_max_processes and requested_max_processes != max_processes:
         print('Using a maximum of %s concurrent processes' % max_processes)
     return max_processes
+
+
+def check_max_memory(requested_max_memory: Optional[str]) -> Optional[str]:
+    max_memory = requested_max_memory
+    if max_memory is None or max_memory == '':
+        if os.environ.get('JAVA_MAX_HEAP'):
+            max_memory = os.environ['JAVA_MAX_HEAP']
+        else:
+            return None
+
+    if not re.match('^\\d+[GgMm]$', max_memory):
+        raise ReportableException("Max memory value is not in expected format: " + max_memory)
+    return max_memory

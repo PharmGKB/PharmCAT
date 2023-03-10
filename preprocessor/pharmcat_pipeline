@@ -101,10 +101,15 @@ if __name__ == '__main__':
     output_group.add_argument('-del', '--delete-intermediate-pharmcat-files', action='store_true',
                               help='Delete intermediate PharmCAT files (saved by default).')
     # concurrency args
-    concurrency_group = parser.add_argument_group('Concurrency arguments')
+    concurrency_group = parser.add_argument_group('Concurrency/Memory arguments')
     concurrency_group.add_argument('-cp', '--max-concurrent-processes', type=int, metavar='<num processes>',
                                    default=None,
                                    help='The maximum number of processes to use when concurrent mode is enabled.')
+    concurrency_group.add_argument('-cm', '--max-memory', type=str, metavar='<size>',
+                                   default=None,
+                                   help='The maximum memory PharmCAT should use (e.g. "64G"). This is passed on using '
+                                        'Java''s -Xmx.  Alternatively, set using the JAVA_MAX_HEAP environment '
+                                        'variable.')
     # misc args
     parser.add_argument('-v', '--verbose', action='count', default=0,
                         help='Print more verbose messages')
@@ -180,6 +185,7 @@ lead to different results.
 
         # validate concurrent args
         m_max_processes: int = preprocessor.check_max_processes(args.max_concurrent_processes, verbose=args.verbose)
+        m_max_memory: str = preprocessor.check_max_memory(args.max_memory)
 
         # validate output args
         m_output_dir: Optional[Path] = None
@@ -315,7 +321,8 @@ lead to different results.
             if run_reporter:
                 add_reporter_java_args(jargs, args)
             add_output_java_args(jargs, args, m_output_dir)
-            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, max_memory=m_max_memory,
+                                      verbose=args.verbose)
 
     except ReportableException as e:
         print('%s%s%s' % (colorama.Fore.RED, e, colorama.Style.RESET_ALL))

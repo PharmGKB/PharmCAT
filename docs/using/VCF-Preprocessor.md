@@ -146,12 +146,12 @@ as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#
 -bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
 : bcftools must be installed. This argument is optional if bcftools is available in your PATH.
 If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the bcftools
-program.  Alternatively, set the `BCFTOOlS_PATH` environment variable.
+program.  Alternatively, set using the `BCFTOOLS_PATH` environment variable.
 
 -bgzip `</path/to/bgzip>` <span class="altArg"><br />or --path-to-bgzip `</path/to/bgzip>`</span>
 : bgzip must be installed. This argument is optional if bgzip is available in your PATH.
 If not, bgzip is a part of the [htslib](http://www.htslib.org/download/). You can download and compile it and provide
-the path to the bgzip program.  Alternatively, set the `BGZIP_PATH` environment variable.
+the path to the bgzip program.  Alternatively, set using the `BGZIP_PATH` environment variable.
 
 
 

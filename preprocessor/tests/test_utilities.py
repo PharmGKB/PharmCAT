@@ -525,3 +525,18 @@ def test_export_single_sample_concurrent():
 
         helpers.compare_vcf_files(s1_file, tmp_dir, basename, 'Sample_1')
         helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
+
+
+def test_check_max_memory():
+    assert utils.check_max_memory(None) is None
+    assert utils.check_max_memory('') is None
+    assert utils.check_max_memory('4M') == '4M'
+    assert utils.check_max_memory('87G') == '87G'
+    assert utils.check_max_memory('19m') == '19m'
+
+    with pytest.raises(ReportableException):
+        utils.check_max_memory('foo')
+    with pytest.raises(ReportableException):
+        utils.check_max_memory('87gb')
+    with pytest.raises(ReportableException):
+        utils.check_max_memory('9.7G')

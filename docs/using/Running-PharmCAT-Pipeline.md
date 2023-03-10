@@ -91,10 +91,13 @@ Output arguments:
   -del, --delete-intermediate-pharmcat-files
                         Delete intermediate PharmCAT files (saved by default).
 
-Concurrency arguments:
+Concurrency/Memory arguments:
   -cp <num processes>, --max-concurrent-processes <num processes>
                         The maximum number of processes to use when concurrent mode is enabled.
-
+  -cm <size>, --max-memory <size>
+                        The maximum memory PharmCAT should use (e.g. "64G"). This is passed on to Java
+                        using the -Xmx flag.  Alternatively, set using the JAVA_MAX_HEAP environment
+                        variable.
 ```
 
 #### Inputs
