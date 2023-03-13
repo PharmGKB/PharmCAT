@@ -1,9 +1,11 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
@@ -86,13 +88,45 @@ public class ReportHelpers {
     return word;
   }
 
+
+  private static final Pattern sf_4chPattern = Pattern.compile(".{9}|.+$");
+
   public static String variantAlleles(VariantReport variantReport) {
     String cellStyle = variantReport.isNonwildtype() ? "nonwild" : "";
     String mismatch = variantReport.isMismatch() ? "<div class=\"callMessage\">Mismatch: Called allele does not match allele definitions</div>" : "";
     if (variantReport.isMismatch()) {
       cellStyle = StringUtils.strip(cellStyle + " mismatch");
     }
-    return String.format(sf_variantAlleleTemplate, cellStyle, variantReport.getCall(), mismatch);
+    String call = formatCall(variantReport.getCall());
+    return String.format(sf_variantAlleleTemplate, cellStyle, call, mismatch);
+  }
+
+  public static String wildtypeAllele(VariantReport variantReport) {
+    return formatCall(variantReport.getWildtypeAllele());
+  }
+
+  private static String formatCall(String call) {
+    if (call.length() <= 9) {
+      return call;
+    }
+    String[] alleles = call.split("/");
+    StringBuilder builder = new StringBuilder();
+    for (String allele : alleles) {
+      if (builder.length() > 0) {
+        builder.append("/<br />");
+      }
+      if (allele.length() > 8) {
+        Matcher m = sf_4chPattern.matcher(allele);
+        List<String> parts = new ArrayList<>();
+        while (m.find()) {
+          parts.add(m.group());
+        }
+        builder.append(String.join("<br />", parts));
+      } else {
+        builder.append(allele);
+      }
+    }
+    return builder.toString();
   }
 
 
