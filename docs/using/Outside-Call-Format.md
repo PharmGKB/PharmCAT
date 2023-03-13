@@ -58,7 +58,6 @@ Here's an example of an outside call file:
 ```text
 CYP2D6	*1/*3
 CYP2C9			2.0
-G6PD	B (wildtype)/B (wildtype)
 HLA-B		*57:01 positive
 MT-RNR1	1555A>G
 ```
