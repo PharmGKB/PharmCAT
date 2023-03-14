@@ -88,6 +88,7 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | desflurane | :heavy_check_mark: |  |
 | desipramine | :heavy_check_mark: |  |
 | dexlansoprazole | :heavy_check_mark: |  |
+| dibekacin | :heavy_check_mark: |  |
 | dimercaprol | :heavy_check_mark: |  |
 | doxepin | :heavy_check_mark: | :heavy_check_mark: |
 | doxorubicin | :heavy_check_mark: |  |
@@ -126,6 +127,8 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | methylene blue | :heavy_check_mark: |  |
 | metoprolol |  | :heavy_check_mark: |
 | nalidixic acid | :heavy_check_mark: |  |
+| neomycin | :heavy_check_mark: |  |
+| netilmicin | :heavy_check_mark: |  |
 | nitrofurantoin | :heavy_check_mark: |  |
 | norfloxacin | :heavy_check_mark: |  |
 | nortriptyline | :heavy_check_mark: | :heavy_check_mark: |
@@ -152,6 +155,7 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | quetiapine |  | :heavy_check_mark: |
 | quinine | :heavy_check_mark: |  |
 | rasburicase | :heavy_check_mark: |  |
+| ribostamycin | :heavy_check_mark: |  |
 | risperidone |  | :heavy_check_mark: |
 | rosuvastatin | :heavy_check_mark: |  |
 | sertraline | :heavy_check_mark: | :heavy_check_mark: |
