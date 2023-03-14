@@ -1,3 +1,21 @@
+## [2.3.0](https://github.com/PharmGKB/PharmCAT/compare/v2.2.3...v2.3.0) (2023-03-14)
+
+
+### Features
+
+* add link to license on the homepage ([e71e7c1](https://github.com/PharmGKB/PharmCAT/commit/e71e7c1c379e7f618882a4843b7f88f07f3b0115))
+* improve styling for print media ([c94ca95](https://github.com/PharmGKB/PharmCAT/commit/c94ca95e881a8fa936694d30f02bb1ad9e8e3180))
+
+
+### Bug Fixes
+
+* bad link on homepage ([03c788d](https://github.com/PharmGKB/PharmCAT/commit/03c788d9ae9a909fad9e167c956db3bc828f7f0c)), closes [#127](https://github.com/PharmGKB/PharmCAT/issues/127)
+* update data ([c526cfc](https://github.com/PharmGKB/PharmCAT/commit/c526cfcd781c439efc54ef4d61006c551d651b9f))
+* update data ([209032d](https://github.com/PharmGKB/PharmCAT/commit/209032d03b03d57e4cdabc531bd33debb0c26b6d))
+* **namedallelematcher:** improve error message when invalid GT allele value is provided in VCF ([4af5de0](https://github.com/PharmGKB/PharmCAT/commit/4af5de00f926b980999e2ea6181294d122be9f81))
+* **pipeline:** support specifying max java heap size for pipeline ([bdea14f](https://github.com/PharmGKB/PharmCAT/commit/bdea14f5c3d9f1c86fa655e9fd095f0f25ebe30b))
+* **reporter:** wrap long calls nicely ([9bc9cfb](https://github.com/PharmGKB/PharmCAT/commit/9bc9cfbcbadbfc64b1a01e246f485774c96646b9)), closes [#130](https://github.com/PharmGKB/PharmCAT/issues/130)
+
 ## [2.2.3](https://github.com/PharmGKB/PharmCAT/compare/v2.2.2...v2.2.3) (2023-02-06)
 
 
