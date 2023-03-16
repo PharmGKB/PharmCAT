@@ -97,9 +97,9 @@ class BatchPharmCATTest {
 
     checkForOutputFiles(tmpDir, vcfFile);
 
-    Path w1 = tmpDir.resolve("multisample.Sample_1.matcher_warnings.txt");
+    Path w1 = tmpDir.resolve("multisample.Sample_1.match_warnings.txt");
     assertTrue(Files.exists(w1), "Missing " + w1);
-    Path w2 = tmpDir.resolve("multisample.Sample_2.matcher_warnings.txt");
+    Path w2 = tmpDir.resolve("multisample.Sample_2.match_warnings.txt");
     assertTrue(Files.exists(w1), "Missing " + w2);
   }
 
@@ -344,17 +344,18 @@ class BatchPharmCATTest {
           sampleMap.put(baseName, sampleId);
           Path f;
           if (singleSample) {
-            f = dir.resolve(baseName + ".match.json");
+            f = dir.resolve(baseName + BaseConfig.MATCHER_SUFFIX + ".json");
           } else if (baseName.equals(sampleId)) {
-            f = dir.resolve(baseName + ".match.json");
+            f = dir.resolve(baseName + BaseConfig.MATCHER_SUFFIX + ".json");
           } else {
-            f = dir.resolve(baseName + "." + sampleId + ".match.json");
+            f = dir.resolve(baseName + "." + sampleId + BaseConfig.MATCHER_SUFFIX + ".json");
           }
           assertTrue(Files.exists(f), "Missing " + f);
         }
         checked = true;
       }
-      if (extension.endsWith(".vcf") || extension.equals(".match.json") || extension.equals(".outside.tsv")) {
+      if (extension.endsWith(".vcf") || extension.equals(BaseConfig.MATCHER_SUFFIX + ".json") ||
+          extension.equals(BaseConfig.OUTSIDE_SUFFIX + "..tsv")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .phenotype.json");
         }
@@ -363,22 +364,23 @@ class BatchPharmCATTest {
           for (String sampleId : sampleMap.get(baseName)) {
             Path f;
             if (singleSample) {
-              f = dir.resolve(baseName + ".match.json");
+              f = dir.resolve(baseName + BaseConfig.MATCHER_SUFFIX + ".json");
             } else if (baseName.equals(sampleId)) {
-              f = dir.resolve(sampleId + ".phenotype.json");
+              f = dir.resolve(sampleId + BaseConfig.PHENOTYPER_SUFFIX + ".json");
             } else {
-              f = dir.resolve(baseName + "." + sampleId + ".phenotype.json");
+              f = dir.resolve(baseName + "." + sampleId + BaseConfig.PHENOTYPER_SUFFIX + ".json");
             }
             assertTrue(Files.exists(f), "Missing " + f);
           }
         } else {
-          Path f = dir.resolve(baseName + ".phenotype.json");
+          Path f = dir.resolve(baseName + BaseConfig.PHENOTYPER_SUFFIX + ".json");
           assertTrue(Files.exists(f), "Missing " + f);
         }
         checked = true;
       }
-      if (extension.endsWith(".vcf") || extension.equals(".match.json") || extension.equals(".outside.tsv") ||
-          extension.equals(".phenotype.json")) {
+      if (extension.endsWith(".vcf") || extension.equals(BaseConfig.MATCHER_SUFFIX + ".json") ||
+          extension.equals(BaseConfig.OUTSIDE_SUFFIX + ".tsv") ||
+          extension.equals(BaseConfig.PHENOTYPER_SUFFIX + ".json")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .report.html");
         }
@@ -387,16 +389,16 @@ class BatchPharmCATTest {
           for (String sampleId : sampleMap.get(baseName)) {
             Path f;
             if (singleSample) {
-              f = dir.resolve(baseName + ".match.json");
+              f = dir.resolve(baseName + BaseConfig.MATCHER_SUFFIX + ".json");
             } else if (baseName.equals(sampleId)) {
-              f = dir.resolve(baseName + ".report.html");
+              f = dir.resolve(baseName + BaseConfig.REPORTER_SUFFIX + ".html");
             } else {
-              f = dir.resolve(baseName + "." + sampleId + ".report.html");
+              f = dir.resolve(baseName + "." + sampleId + BaseConfig.REPORTER_SUFFIX + ".html");
             }
             assertTrue(Files.exists(f), "Missing " + f);
           }
         } else {
-          Path f = dir.resolve(baseName + ".report.html");
+          Path f = dir.resolve(baseName + BaseConfig.REPORTER_SUFFIX + ".html");
           assertTrue(Files.exists(f), "Missing " + f);
         }
         checked = true;
@@ -458,8 +460,8 @@ class BatchPharmCATTest {
     assertEquals(batchPhenotypeJson, serialPhenotypeJson, "Mismatch in " + sampleId);
 
     System.out.println("Checking reporter results");
-    String batchReportHtml = Files.readString(batchDir.resolve("100samples." + sampleId + ".report.html"));
-    String serialReportHtml = Files.readString(serialDir.resolve("100samples." + sampleId + ".report.html"));
+    String batchReportHtml = Files.readString(batchDir.resolve("100samples." + sampleId + BaseConfig.REPORTER_SUFFIX + ".html"));
+    String serialReportHtml = Files.readString(serialDir.resolve("100samples." + sampleId + BaseConfig.REPORTER_SUFFIX + ".html"));
     assertEquals(batchReportHtml, serialReportHtml, "Mismatch in " + sampleId);
   }
 

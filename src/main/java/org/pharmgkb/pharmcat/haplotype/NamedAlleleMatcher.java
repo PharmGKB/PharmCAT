@@ -20,6 +20,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.pharmcat.BaseConfig;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -129,12 +130,12 @@ public class NamedAlleleMatcher {
               .printWarnings();
       Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
-      Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", ".match.json");
+      Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", BaseConfig.MATCHER_SUFFIX + ".json");
       ResultSerializer resultSerializer = new ResultSerializer();
       resultSerializer.toJson(result, jsonFile);
       System.out.println("Saved JSON results to " + jsonFile);
       if (cliHelper.hasOption("html")) {
-        Path htmlFile = CliUtils.getOutputFile(cliHelper, vcfFile, "html", ".match.html");
+        Path htmlFile = CliUtils.getOutputFile(cliHelper, vcfFile, "html", BaseConfig.MATCHER_SUFFIX + ".html");
         resultSerializer.toHtml(result, htmlFile);
         System.out.println("Saved HTML results to " + htmlFile);
       }

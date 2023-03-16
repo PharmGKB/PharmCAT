@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class DrugCollectionTest {
-  private static final int NUM_DRUGS = 104;
+  private static final int NUM_DRUGS = 108;
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   /**

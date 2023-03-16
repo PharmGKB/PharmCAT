@@ -88,9 +88,7 @@ class PipelineTest {
         .collect(Collectors.toSet())
         .size()
     );
-    // TODO: revert when DPWG HLA's are supported again
-    //assertEquals(125, testWrapper.getContext().getDrugReports().keySet().stream()
-    assertEquals(123, testWrapper.getContext().getDrugReports().keySet().stream()
+    assertEquals(127, testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toSet())
@@ -523,7 +521,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("rosuvastatin", 1);
 
     // no dpyd - should not have DPYD warning
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements capecitabineSection = document.getElementsByClass("capecitabine");
     assertEquals(0, capecitabineSection.size());
@@ -642,7 +640,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("capecitabine", 2);
 
     // should have DPYD warning
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements capecitabineSection = document.getElementsByClass("capecitabine");
     assertEquals(1, capecitabineSection.size());
@@ -1695,7 +1693,7 @@ class PipelineTest {
     assertThat(diplotype.getPhenotypes(), contains("Normal Metabolizer"));
     assertEquals("Two Normal function alleles", diplotype.printFunctionPhrase());
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements clomipramineSection = document.select(".guideline.clomipramine");
     assertEquals(1, clomipramineSection.size());
@@ -1732,7 +1730,7 @@ class PipelineTest {
     assertEquals("*1x" + TextConstants.GTE + "3", diplotype.getAllele2().getName());
     assertEquals("One Increased function allele and one Normal function allele", diplotype.printFunctionPhrase());
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements clomipramineSection = document.select(".guideline.clomipramine");
     assertEquals(1, clomipramineSection.size());
@@ -1800,7 +1798,7 @@ class PipelineTest {
     // the two lookup keys should be the two activity scores that correspond to Intermediate Metabolizer
     assertThat(diplotype.getLookupKeys(), contains("0.25", "0.5", "0.75", "1.0"));
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements clomipramineSection = document.select(".guideline.clomipramine");
     assertEquals(1, clomipramineSection.size());
@@ -1852,7 +1850,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
     testWrapper.testReportable("CYP2C19", "CYP2D6");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     assertNotNull(document.getElementById("CYP2D6"));
     Elements cyp2d6Section = document.select(".gene.CYP2D6");
@@ -1946,7 +1944,7 @@ class PipelineTest {
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     assertNotNull(document.getElementById("CYP2D6"));
     Elements cyp2d6Section = document.select(".gene.CYP2D6");
@@ -2021,7 +2019,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("CYP2C9");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     assertNotNull(document.getElementById("CYP2C9"));
     Element warfarin = document.getElementById("warfarin-cpic-1-1");
@@ -2044,7 +2042,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements g6pdSections = document.select(".gene.G6PD");
     assertEquals(1, g6pdSections.size());
@@ -2065,7 +2063,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements g6pdSections = document.select(".gene.G6PD");
     assertEquals(1, g6pdSections.size());
@@ -2087,7 +2085,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements g6pdSections = document.select(".gene.G6PD");
     assertEquals(1, g6pdSections.size());
@@ -2109,7 +2107,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements g6pdSections = document.select(".gene.G6PD");
     assertEquals(1, g6pdSections.size());
@@ -2131,7 +2129,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
 
-    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + ".report.html");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
     Document document = Jsoup.parse(reporterOutput.toFile());
     Elements g6pdSections = document.select(".gene.G6PD");
     assertEquals(1, g6pdSections.size());

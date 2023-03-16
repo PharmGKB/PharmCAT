@@ -98,12 +98,12 @@ public class Pipeline implements Callable<PipelineResult> {
       m_vcfFile = Objects.requireNonNull(vcfFile);
       m_sampleId = sampleId;
       generateBasename(baseFilename, vcfFile.getFile(), sampleId, singleSample);
-      m_matcherJsonFile = m_baseDir.resolve(m_basename + ".match.json");
+      m_matcherJsonFile = m_baseDir.resolve(m_basename + BaseConfig.MATCHER_SUFFIX + ".json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
       m_findCombinations = findCombinations;
       if (matcherHtml) {
-        m_matcherHtmlFile = m_baseDir.resolve(m_basename + ".match.html");
+        m_matcherHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.MATCHER_SUFFIX + ".html");
       }
     }
 
@@ -121,7 +121,7 @@ public class Pipeline implements Callable<PipelineResult> {
         throw new IllegalStateException("No phenotyper input file");
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
-      m_phenotyperJsonFile = m_baseDir.resolve(m_basename + ".phenotype.json");
+      m_phenotyperJsonFile = m_baseDir.resolve(m_basename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
     }
 
     m_runReporter = runReporter;
@@ -135,9 +135,9 @@ public class Pipeline implements Callable<PipelineResult> {
         throw new IllegalStateException("No reporter input file");
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
-      m_reporterHtmlFile = m_baseDir.resolve(m_basename + ".report.html");
+      m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
       if (reporterJson) {
-        m_reporterJsonFile = m_baseDir.resolve(m_basename + ".report.json");
+        m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
@@ -228,7 +228,7 @@ public class Pipeline implements Callable<PipelineResult> {
         if (matcherResult.getVcfWarnings() != null &&
             matcherResult.getVcfWarnings().size() > 0) {
           Path txtFile = m_matcherJsonFile.getParent()
-              .resolve(m_basename + ".matcher_warnings.txt");
+              .resolve(m_basename + BaseConfig.MATCHER_SUFFIX + "_warnings.txt");
           try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
             Map<String, Collection<String>> warningsMap = matcherResult.getVcfWarnings();
             warningsMap.keySet()

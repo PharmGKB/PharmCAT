@@ -153,15 +153,15 @@ public class BatchPharmCAT {
           }
           m_vcfFilesToProcess.put(basename, new VcfFile(file));
         }
-      } else if (name.endsWith(".match.json")) {
+      } else if (name.endsWith(BaseConfig.MATCHER_SUFFIX + ".json")) {
         if (config.runPhenotyper) {
           m_matchFilesToProcess.put(basename, file);
         }
-      } else if (name.endsWith(".outside.tsv")) {
+      } else if (name.endsWith(BaseConfig.OUTSIDE_SUFFIX + ".tsv")) {
         if (config.runPhenotyper) {
           m_outsideCallFilesToProcess.put(basename, file);
         }
-      } else if (name.endsWith(".phenotype.json")) {
+      } else if (name.endsWith(BaseConfig.PHENOTYPER_SUFFIX + ".json")) {
         if (config.runReporter) {
           m_phenotypeFilesToProcess.put(basename, file);
         }
@@ -196,11 +196,11 @@ public class BatchPharmCAT {
         types.add("*.vcf");
       }
       if (config.runPhenotyper) {
-        types.add("*.match.json");
-        types.add("*.outside.tsv");
+        types.add("*" + BaseConfig.MATCHER_SUFFIX + ".json");
+        types.add("*" + BaseConfig.OUTSIDE_SUFFIX + ".tsv");
       }
       if (config.runReporter) {
-        types.add("*.phenotype.json");
+        types.add("*" + BaseConfig.PHENOTYPER_SUFFIX + ".json");
       }
       throw new ReportableException("No input files (" + String.join(", ", types) + ") found in " + inputDir);
     }
@@ -419,7 +419,7 @@ public class BatchPharmCAT {
 
         if ((m_piFile == null && !m_config.runMatcher) || (m_piFile == null && m_vcfFile == null)) {
           System.out.println("* Warning: lone outside call file (" + m_poFile.getFileName() +
-              ") with no matching .vcf or .match.json");
+              ") with no matching .vcf or " + BaseConfig.MATCHER_SUFFIX + ".json");
         }
       }
       m_runPhenotyper = m_vcfFile != null || m_piFile != null || m_poFile != null;

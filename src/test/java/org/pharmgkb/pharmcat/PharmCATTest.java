@@ -263,9 +263,9 @@ class PharmCATTest {
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
     String baseFilename = TestUtils.getTestName(testInfo);
-    Path matcherOutput = outputDir.resolve(baseFilename + ".match.json");
-    Path phenotyperOutput = outputDir.resolve(baseFilename + ".phenotype.json");
-    Path reporterOutput = outputDir.resolve(baseFilename + ".report.html");
+    Path matcherOutput = outputDir.resolve(baseFilename + BaseConfig.MATCHER_SUFFIX + ".json");
+    Path phenotyperOutput = outputDir.resolve(baseFilename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
+    Path reporterOutput = outputDir.resolve(baseFilename + BaseConfig.REPORTER_SUFFIX + ".html");
 
     // matcher only, expecting 1 CYP2C19 matches
     try {

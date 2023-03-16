@@ -22,9 +22,13 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
  *
  * @author Mark Woon
  */
-class BaseConfig {
+public class BaseConfig {
   public static final String VCF_PREPROCESSED_SUFFIX = ".preprocessed";
   public static final String VCF_MISSING_PGX_VAR_SUFFIX = ".missing_pgx_var";
+  public static final String MATCHER_SUFFIX = ".match";
+  public static final String PHENOTYPER_SUFFIX = ".phenotype";
+  public static final String REPORTER_SUFFIX = ".report";
+  public static final String OUTSIDE_SUFFIX = ".outside";
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   boolean runMatcher = true;
   Path definitionDir;
@@ -147,17 +151,20 @@ class BaseConfig {
       // because .vcf might come in as .vcf.bgz or .vcf.gz
       filename = FilenameUtils.getBaseName(filename);
     }
-    if (filename.endsWith(".preprocessed")) {
-      filename = filename.substring(0, filename.length() - ".preprocessed".length());
+    if (filename.endsWith(VCF_PREPROCESSED_SUFFIX)) {
+      filename = filename.substring(0, filename.length() - VCF_PREPROCESSED_SUFFIX.length());
     }
-    if (filename.endsWith(".match")) {
-      filename = filename.substring(0, filename.length() - ".match".length());
+    if (filename.endsWith(MATCHER_SUFFIX)) {
+      filename = filename.substring(0, filename.length() - MATCHER_SUFFIX.length());
     }
-    if (filename.endsWith(".outside")) {
-      filename = filename.substring(0, filename.length() - ".outside".length());
+    if (filename.endsWith(OUTSIDE_SUFFIX)) {
+      filename = filename.substring(0, filename.length() - OUTSIDE_SUFFIX.length());
     }
-    if (filename.endsWith(".phenotype")) {
-      filename = filename.substring(0, filename.length() - ".phenotype".length());
+    if (filename.endsWith(PHENOTYPER_SUFFIX)) {
+      filename = filename.substring(0, filename.length() - PHENOTYPER_SUFFIX.length());
+    }
+    if (filename.endsWith(REPORTER_SUFFIX)) {
+      filename = filename.substring(0, filename.length() - REPORTER_SUFFIX.length());
     }
     return filename;
   }
