@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class DrugCollectionTest {
-  private static final int NUM_DRUGS = 108;
+  private static final int NUM_DRUGS = 104;
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
   /**
@@ -31,7 +31,7 @@ class DrugCollectionTest {
 
   /**
    * Tests the "reportable" drugs. These are drugs that are NOT associated with any IGNORED_GENES as specified in
-   * {@link GeneReport}. If this count changes and you're not expecting it then there may be a porblem with the
+   * {@link GeneReport}. If this count changes and you're not expecting it then there may be a problem with the
    * {@link DataManager}, CPIC datasource, or with how the {@link DrugCollection#listReportable()} method is working.
    */
   @Test
