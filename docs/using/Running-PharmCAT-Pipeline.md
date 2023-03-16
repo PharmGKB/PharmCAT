@@ -118,10 +118,28 @@ The script will automatically attempt to use concurrent processing if possible.
 
 #### Outside Calls
 
-If you need to provide [outside calls](/using/Outside-Call-Format), you can do so with the following file naming convention: `<sample_id>.outside.tsv`.  For example, if your sample is `Sample_1`, then use `Sample_1.outside.tsv`.
+If you need to provide [outside calls](/using/Outside-Call-Format), you can do so with the following file naming 
+convention: `<sample_id>.outside.tsv`.  For example, if your sample is `Sample_1`, then use `Sample_1.outside.tsv`.
 
-If you have a single sample VCF file, you can also just use the basename of the VCF file.  For example, use `mydata.outside.vcf` if you have a single sample VCF file called `mydata.vcf`.
+If you have a single sample VCF file, you can also just use the basename of the VCF file.  For example, use
+`mydata.outside.vcf` if you have a single sample VCF file called `mydata.vcf`.
 
-If you have a multisample VCF file, (e.g. `multimsample.vcf`) and have outside calls for `Sample_1`, then can use `multisample.Sample_1.outside.tsv` instead.
+If you have a multisample VCF file, (e.g. `multisample.vcf`) and have outside calls for `Sample_1`, then can use
+`multisample.Sample_1.outside.tsv` instead.
 
 
+#### Naming Conventions
+
+PharmCAT uses the following sub-extensions in filenames to indicate which part of the pipeline it comes from:
+
+* `.preprocessed` 
+* `.match`
+* `.phenotype`
+* `.report`
+
+These sub-extensions will be stripped off any filename to derive a base name for the file.
+
+For example: the basename for `mydata.preprocessed.vcf` is `mydata`. 
+
+In addition, outside call files with a `.outside` sub-extension will have the sub-extension stripped to derive the base
+name for the file.
