@@ -97,7 +97,7 @@ Note: this example is not meant to be a comprehensive documentation of solutions
 
 All positions that are used to define alleles in PharmCAT must be present in the VCF file you want to run through PharmCAT, _even if they are `0/0` (reference) or `./.` (missing)_. This is different from a typical VCF file which usually only contains variant sites.
 
-PharmCAT needs this level specificity because reference and missing alleles are interpreted differently by the allele matcher. When positions are missing from the input PharmCAT does make assumptions about whether this is because they are reference or missing.
+PharmCAT needs this level specificity because reference and missing alleles are interpreted differently by the allele matcher. When positions are missing from the input PharmCAT does not make assumptions about whether this is because they are reference or missing.
 
 Missing positions can be added in the following way using GATK to `EMIT_ALL_ACTIVE_SITES`:
 
