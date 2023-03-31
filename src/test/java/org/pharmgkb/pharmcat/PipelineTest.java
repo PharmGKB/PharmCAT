@@ -467,6 +467,25 @@ class PipelineTest {
   }
 
   @Test
+  void testCyp2c19SingleGeneMatch(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs3758581", "A", "G")
+        .missing("CYP2C19", "rs56337013");
+    testWrapper.execute(s_outsideCallFilePath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2D6");
+
+    testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
+    testWrapper.testPrintCpicCalls("CYP2C19", "*1/*38");
+
+    assertTrue(testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6").isOutsideCall());
+  }
+
+
+  @Test
   void testCftrRefRef(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
