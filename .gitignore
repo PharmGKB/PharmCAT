@@ -22,8 +22,12 @@ _trial_temp/
 coverage-python.xml
 /node_modules/
 venv/
-.yarn/
-.yarnrc.yml
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Wiki checkout
 /*.wiki/
