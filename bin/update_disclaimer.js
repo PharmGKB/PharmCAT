@@ -13,7 +13,6 @@ const hbsDir = path.resolve(filename, '../src/main/resources/org/pharmgkb/pharmc
 try {
   let data = fs.readFileSync(path.resolve(docDir, 'Disclaimers.md'), 'utf8');
   data = data.replace(/---.*?---/s, '');
-  data = data.replaceAll(/\s+$/gm, '');
 
   const converter = new showdown.Converter();
   // don't use GitHub flavor because that adds incorrect line breaks (<br />)
