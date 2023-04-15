@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="PharmCAT" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="org.pharmgkb" external.system.module.version="2.2.3-3-g4af5de00" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="PharmCAT" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="org.pharmgkb" external.system.module.version="2.3.0-4-ga4d8d864" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../..">
       <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.yarn" />
       <excludeFolder url="file://$MODULE_DIR$/../../build" />
       <excludeFolder url="file://$MODULE_DIR$/../../out" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/../../docs/.jekyll-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
       <excludeFolder url="file://$MODULE_DIR$/../../docs/_site" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
