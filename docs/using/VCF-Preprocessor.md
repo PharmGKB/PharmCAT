@@ -66,7 +66,9 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
 **Mandatory** argument: `-vcf`.
 
 -vcf
-: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples.  Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank).
+: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples.  Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank). 
+
+VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 
   Example valid list file:
   ```
@@ -85,7 +87,6 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
   ...
   ```
 
-VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 
 
 #### Optional Arguments
@@ -100,7 +101,7 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 : Directory to save preprocessed VCF to.  Default is the parent directory of the input VCF.
 
 -bf `<name>` <span class="altArg"><br />or --base-filename `<name>`</span>
-: Prefix of the output VCF files. Default is sample IDs from the input VCF(s).
+: Prefix of the output VCF files. Default is the input base file name plus sample IDs.
 
 -k <span class="altArg"><br />or --keep-intermediate-files</span>
 : This option will help you save useful intermediate files, for example, a normalized, multiallelic VCF named `<base_input_file_name>.pgx_regions.normalized.multiallelic.vcf.bgz`, which will include all PGx regions from the first position to the last one in each chromosome as listed in the reference PGx VCF.
@@ -139,8 +140,7 @@ look for `pharmcat_positions.vcf.bgz` under the current working directory.  You 
 `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
 
 -refFna `<fna_file>` <span class="altArg"><br />or --reference-genome `<fna_file>`</span>
-: The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file has to be
-decompressed and indexed (.fai). These mandatory files will be automatically downloaded (~0.9 GB) to the same directory
+: The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file can be either decompressed or compressed but has to be indexed (.fai and, in addition, .gzi for the compressed file). We recommended the compressed reference genome FASTA file for the sake of storage. These mandatory files will be automatically downloaded (~0.9 GB) to the same directory
 as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#notes) for details).
 
 -bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
