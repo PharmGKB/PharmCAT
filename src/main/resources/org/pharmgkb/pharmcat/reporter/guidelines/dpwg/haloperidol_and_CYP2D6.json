@@ -481,19 +481,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451838142,
+        "id": 1452057583,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451838143,
-        "html": "<p>Use 60% of the standard.</p>\n"
+        "id": 1452057584,
+        "html": "<p>Use 60% of the normal dose.</p>\n"
       },
       "implications": {
-        "id": 1451838141,
+        "id": 1452057582,
         "html": "<p>There are indications for an increased risk of side effects. The genetic variation leads to decreased conversion of haloperidol, resulting in plasma concentrations that are approximately 1.7-fold higher.</p>\n"
       },
       "activityScore": {
-        "id": 1451838140,
+        "id": 1452057581,
         "html": "<p>0</p>\n"
       }
     },
@@ -518,19 +518,19 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451838162,
+        "id": 1452057602,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451838163,
-        "html": "<p>Use 1.5 times the standard dose or choose an alternative. Antipsychotics that are not metabolised by CYP2D6 - or to a much lesser extent - include, for example, flupentixol, penfluridol, quetiapine, olanzapine or clozapine.</p>\n"
+        "id": 1452057603,
+        "html": "<p>Use 1.5 times the normal dose or choose an alternative. Antipsychotics that are not metabolised by CYP2D6 - or to a much lesser extent - include, for example, flupentixol, penfluridol, quetiapine, olanzapine or clozapine.</p>\n"
       },
       "implications": {
-        "id": 1451838161,
+        "id": 1452057601,
         "html": "<p>There are indications of a risk of reduced effectiveness. The genetic variation leads to an increased conversion of haloperidol, resulting in a plasma concentration that is\napproximately 40% lower.</p>\n"
       },
       "activityScore": {
-        "id": 1451838160,
+        "id": 1452057600,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
     }
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-03-05-00-25"
+  "version": "2023-04-05-11-38"
 }

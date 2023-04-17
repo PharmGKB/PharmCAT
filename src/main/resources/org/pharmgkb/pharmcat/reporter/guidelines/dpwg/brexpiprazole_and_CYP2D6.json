@@ -518,23 +518,23 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451838382,
+        "id": 1452057562,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451838383,
-        "html": "<p>Use half of the standard dose.</p>\n"
+        "id": 1452057563,
+        "html": "<p>Use half of the normal dose.</p>\n"
       },
       "implications": {
-        "id": 1451838381,
+        "id": 1452057561,
         "html": "<p>The risk of side effects is theoretically increased, because the gene variation reduces the metabolism of brexpiprazole.</p>\n"
       },
       "activityScore": {
-        "id": 1451838380,
+        "id": 1452057560,
         "html": "<p>0</p>\n"
       }
     }
   ],
   "citations": [],
-  "version": "2023-03-05-00-25"
+  "version": "2023-04-05-11-38"
 }

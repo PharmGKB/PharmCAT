@@ -88,9 +88,7 @@ class PipelineTest {
         .collect(Collectors.toSet())
         .size()
     );
-    // TODO: revert when DPWG HLA's are supported again
-    //assertEquals(127, testWrapper.getContext().getDrugReports().keySet().stream()
-    assertEquals(123, testWrapper.getContext().getDrugReports().keySet().stream()
+    assertEquals(128, testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toSet())

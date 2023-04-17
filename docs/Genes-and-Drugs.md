@@ -182,10 +182,11 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | tramadol | :heavy_check_mark: | :heavy_check_mark: |
 | trimipramine | :heavy_check_mark: |  |
 | tropisetron | :heavy_check_mark: |  |
-| venlafaxine |  | :heavy_check_mark: |
+| venlafaxine | :heavy_check_mark: | :heavy_check_mark: |
 | vitamin c | :heavy_check_mark: |  |
 | vitamin k | :heavy_check_mark: |  |
 | voriconazole | :heavy_check_mark: | :heavy_check_mark: |
+| vortioxetine | :heavy_check_mark: |  |
 | warfarin | :heavy_check_mark: | :heavy_check_mark: |
 | zuclopenthixol |  | :heavy_check_mark: |
 

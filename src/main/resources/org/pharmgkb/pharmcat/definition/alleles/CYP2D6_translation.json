@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.23.1",
-  "modificationDate": "Mar 9, 2023, 8:21:56 PM",
+  "version": "v1.25.0",
+  "modificationDate": "Apr 16, 2023, 8:57:10 PM",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -724,21 +724,21 @@
     },
     {
       "chromosome": "chr22",
-      "position": 42127530,
-      "cpicPosition": 42127530,
+      "position": 42127532,
+      "cpicPosition": 42127532,
       "rsid": "rs72549346",
-      "chromosomeHgvsName": "g.42127530_42127531insAC",
+      "chromosomeHgvsName": "g.42127532_42127533insAC",
       "cpicAlleles": [
         "del",
         "insAC"
       ],
       "cpicToVcfAlleleMap": {
-        "del": "G",
-        "insAC": "GAC"
+        "del": "A",
+        "insAC": "AAC"
       },
-      "ref": "G",
+      "ref": "A",
       "alts": [
-        "GAC"
+        "AAC"
       ]
     },
     {
@@ -2822,7 +2822,7 @@
         "A",
         "A",
         "C",
-        "G",
+        "A",
         "T",
         "T",
         "C",
@@ -14222,7 +14222,7 @@
         null,
         null,
         null,
-        "GAC",
+        "AAC",
         null,
         null,
         null,

@@ -1,0 +1,483 @@
+{
+  "drugid": "RxNorm:39786",
+  "drugname": "venlafaxine",
+  "guidelinename": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
+  "guidelinepharmgkbids": [],
+  "citations": [
+    {
+      "pmid": "37032427",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
+      "authors": [
+        "Bousman Chad A",
+        "Stevenson James M",
+        "Ramsey Laura B",
+        "Sangkuhl Katrin",
+        "Hicks J Kevin",
+        "Strawn Jeffrey R",
+        "Singh Ajeet B",
+        "Ruaño Gualberto",
+        "Mueller Daniel J",
+        "Tsermpini Evangelia Eirini",
+        "Brown Jacob T",
+        "Bell Gillian C",
+        "Leeder J Steven",
+        "Gaedigk Andrea",
+        "Scott Stuart A",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Bishop Jeffrey R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2023
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "CYP2D6": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Decreased metabolism of venlafaxine to active metabolite O-desmethylvenlafaxine (desvenlafaxine) and decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to normal metabolizers. There is insufficient evidence supporting the clinical impact of the decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 intermediate metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥4.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥4.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥5.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥5.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and increased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal metabolizers. There is insufficient evidence supporting the clinical impact of increased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 ultrarapid metabolizers."
+      },
+      "drugrecommendation": "No action recommended based on genotype for venlafaxine because of minimal evidence regarding the impact on efficacy or side effects.",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥6.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥6.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2D6": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2D6": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "n/a"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Decreased metabolism of venlafaxine to the active metabolite O-desmethylvenlafaxine (desvenlafaxine) and greatly decreased O-desmethylvenlafaxine:venlafaxine ratio as compared to CYP2D6 normal and intermediate metabolizers. The clinical impact of increased venlafaxine and decreased O-desmethylvenlafaxine:venlafaxine ratio in CYP2D6 poor metabolizers is unclear, but CYP2D6 PM genotype has been associated with adverse effects."
+      },
+      "drugrecommendation": "Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "0.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "0.0"
+      },
+      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.5"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.5"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "1.75"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "1.75"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.0"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.0"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2D6": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.25"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.25"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    }
+  ],
+  "genes": [
+    "CYP2D6"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.25.0",
+  "source": "CPIC"
+}

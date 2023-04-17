@@ -165,36 +165,6 @@
       "activityScore": null
     },
     {
-      "id": "PA166267041",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP3A4:Decreased function/Decreased function",
-        "CYP3A4:Decreased function/No function",
-        "CYP3A4:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451901344,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451901345,
-        "html": "<p>Indication DEPRESSION: Choose an alternative. Aripiprazole appears to be less dependent of CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br />\n&nbsp;<br />\nOTHER INDICATIONS: Use 30% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451901343,
-        "html": "<p>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably\nresponsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine\nand an inactive metabolite.</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166267061",
       "name": "Normal Metabolizer",
       "strength": {
@@ -221,8 +191,38 @@
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on quetiapine.</p>\n"
       },
       "activityScore": null
+    },
+    {
+      "id": "PA166267041",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP3A4:Decreased function/Decreased function",
+        "CYP3A4:Decreased function/No function",
+        "CYP3A4:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452057841,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452057842,
+        "html": "<p>Indication DEPRESSION: Choose an alternative. Aripiprazole appears to be less dependent of CYP3A4 for metabolism. Olanzapine is not metabolised by CYP3A4.<br />\n&nbsp;<br />\nOTHER INDICATIONS: Use 30% of the normal dose.</p>\n"
+      },
+      "implications": {
+        "id": 1452057840,
+        "html": "<p>The plasma concentration of quetiapine is 3.2-fold higher in these patients. In addition, the formation of the active metabolite N-desalkylquetiapine, which is probably\nresponsible for the antidepressant effect, should be reduced. The gene variation results in reduced activity of the enzyme CYP3A4, which converts quetiapine to N-desalkylquetiapine\nand an inactive metabolite.</p>\n"
+      },
+      "activityScore": null
     }
   ],
   "citations": [],
-  "version": "2023-03-05-00-25"
+  "version": "2023-04-05-11-38"
 }

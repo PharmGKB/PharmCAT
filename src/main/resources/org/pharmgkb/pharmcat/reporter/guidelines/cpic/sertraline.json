@@ -1,53 +1,752 @@
 {
   "drugid": "RxNorm:36437",
   "drugname": "sertraline",
-  "guidelinename": "CYP2D6, CYP2C19 and Selective Serotonin Reuptake Inhibitors",
-  "url": "https://cpicpgx.org/guidelines/guideline-for-selective-serotonin-reuptake-inhibitors-and-cyp2d6-and-cyp2c19/",
-  "guidelinepharmgkbids": [
-    "PA166127636",
-    "PA166127637",
-    "PA166127638",
-    "PA166127639"
-  ],
+  "guidelinename": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
+  "guidelinepharmgkbids": [],
   "citations": [
     {
-      "pmid": "25974703",
-      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors",
+      "pmid": "37032427",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
       "authors": [
-        "Hicks J Kevin",
-        "Bishop Jeffrey R",
+        "Bousman Chad A",
+        "Stevenson James M",
+        "Ramsey Laura B",
         "Sangkuhl Katrin",
-        "Müller Daniel J",
-        "Ji Yuan",
-        "Leckband Susan G",
+        "Hicks J Kevin",
+        "Strawn Jeffrey R",
+        "Singh Ajeet B",
+        "Ruaño Gualberto",
+        "Mueller Daniel J",
+        "Tsermpini Evangelia Eirini",
+        "Brown Jacob T",
+        "Bell Gillian C",
         "Leeder J Steven",
-        "Graham Rebecca L",
-        "Chiulli Dana L",
-        "LLerena Adrián",
-        "Skaar Todd C",
+        "Gaedigk Andrea",
         "Scott Stuart A",
-        "Stingl Julia C",
         "Klein Teri E",
         "Caudle Kelly E",
-        "Gaedigk Andrea"
+        "Bishop Jeffrey R"
       ],
       "journal": "Clinical pharmacology and therapeutics",
-      "year": 2015
+      "year": 2023
     }
   ],
   "recommendations": [
     {
       "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "comments": "CYPC19 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than CYP2C19 normal metabolizers.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose.",
+      "classification": "Moderate",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
         "CYP2C19": "n/a"
       },
       "drugrecommendation": "No recommendation",
       "classification": "No Recommendation",
       "phenotypes": {
+        "CYP2B6": "No Result",
         "CYP2C19": "Indeterminate"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
         "CYP2C19": "Indeterminate"
       },
       "comments": "n/a",
@@ -56,88 +755,118 @@
     },
     {
       "implications": {
-        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
       },
-      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
-      "classification": "Optional",
+      "drugrecommendation": "No recommendation",
+      "classification": "No Recommendation",
       "phenotypes": {
-        "CYP2C19": "Likely Poor Metabolizer"
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "No Result"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Likely Poor Metabolizer"
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "No Result"
       },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
-        "CYP2C19": "Greatly reduced metabolism when compared to normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "n/a"
       },
-      "drugrecommendation": "Consider a 50% reduction of recommended starting dose and titrate to response or select alternative drug not predominantly metabolized by CYP2C19.",
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6.",
       "classification": "Optional",
       "phenotypes": {
-        "CYP2C19": "Poor Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Indeterminate"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Poor Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Indeterminate"
       },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy. Percent dose adjustments corresponding to percent difference in oral clearances have been calculated/estimated by Stingl et al. (PMID 22565785).",
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
-        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "n/a"
       },
-      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6.",
       "classification": "Optional",
       "phenotypes": {
-        "CYP2C19": "Rapid Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "No Result"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Rapid Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "No Result"
       },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "comments": "CYPC19 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
-        "CYP2C19": "Increased metabolism when compared to normal metabolizers"
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Normal metabolism"
       },
-      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not respond to recommended maintenance dosing, consider alternative drug not predominantly metabolized by CYP2C19.",
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 25% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2B6.",
       "classification": "Optional",
       "phenotypes": {
-        "CYP2C19": "Ultrarapid Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2C19": "Ultrarapid Metabolizer"
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
       },
-      "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.",
+      "comments": "n/a",
       "population": "general",
       "genotypes": null
     },
     {
       "implications": {
-        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
       },
-      "drugrecommendation": "Initiate therapy with recommended starting dose",
-      "classification": "Strong",
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers",
+      "classification": "Optional",
       "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
         "CYP2C19": "Intermediate Metabolizer"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
         "CYP2C19": "Intermediate Metabolizer"
       },
       "comments": "n/a",
@@ -146,16 +875,22 @@
     },
     {
       "implications": {
-        "CYP2C19": "Reduced metabolism when compared to normal metabolizers"
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
       },
-      "drugrecommendation": "Initiate therapy with recommended starting dose",
-      "classification": "Strong",
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2B6 normal metabolizers",
+      "classification": "Optional",
       "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
       "comments": "n/a",
@@ -164,17 +899,623 @@
     },
     {
       "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Consider a lower starting dose, slower titration schedule and 50% reduction of standard maintenance dose as compared to CYP2C19 normal metabolizers or select a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than CYP2B6 normal metabolizers.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "comments": "CYPC19 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Intermediate Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher\nmaintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Select an alternative antidepressant not primarily metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects.",
+        "CYP2C19": "Greatly reduced metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      },
+      "drugrecommendation": "Select an alternative antidepressant not primarily metabolized by CYP2C19 or CYP2B6.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Poor Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
         "CYP2C19": "Normal metabolism"
       },
       "drugrecommendation": "Initiate therapy with recommended starting dose",
       "classification": "Strong",
       "phenotypes": {
+        "CYP2B6": "No Result",
         "CYP2C19": "Normal Metabolizer"
       },
-      "activityscore": {},
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
       "allelestatus": {},
       "lookupkey": {
+        "CYP2B6": "No Result",
         "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "No Result",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "CYP2B6 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "comments": "CYPC19 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2B6 normal metabolizers.",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Rapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "comments": "CYPC19 metabolizer status, drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be also considered.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Indeterminate",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Normal metabolism"
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2B6": "Normal metabolism of sertraline to less active compounds.",
+        "CYP2C19": "Small increase in metabolism of sertraline to less active compounds when compared to CYP2C19 normal metabolizers."
+      },
+      "drugrecommendation": "Initiate therapy with recommended starting dose.",
+      "classification": "Strong",
+      "phenotypes": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2B6": "n/a",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2B6": "Normal Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
       },
       "comments": "n/a",
       "population": "general",
@@ -182,9 +1523,10 @@
     }
   ],
   "genes": [
+    "CYP2B6",
     "CYP2C19"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.23.1",
+  "cpicVersion": "v1.25.0",
   "source": "CPIC"
 }

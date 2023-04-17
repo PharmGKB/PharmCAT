@@ -467,37 +467,6 @@
       }
     },
     {
-      "id": "PA166241146",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451837214,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451837215,
-        "html": "<p>Use 67% of the standard dose. If problematic side effects originating in the central nervous system occur despite this reduced dose, then reduce the dose further to 50% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451837213,
-        "html": "<p>The percentage of patients with therapy failure increased from 16% to 26%. The gene variation increases the plasma concentration of risperidone plus the active metabolite and increases the proportion of risperidone in this ratio, which is more effective at crossing the blood-brain barrier.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451837212,
-        "html": "<p>0</p>\n"
-      }
-    },
-    {
       "id": "PA166241181",
       "name": "Ultrarapid Metabolizer",
       "strength": {
@@ -533,6 +502,37 @@
         "id": 1451837216,
         "html": "<p>Total gene activity score ≥3</p>\n"
       }
+    },
+    {
+      "id": "PA166241146",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452057783,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452057784,
+        "html": "<p>Use 67% of the normal dose. If problematic side effects originating in the central nervous system occur despite this reduced dose, then reduce the dose further to 50% of the normal dose.</p>\n"
+      },
+      "implications": {
+        "id": 1452057782,
+        "html": "<p>The percentage of patients with therapy failure increased from 16% to 26%. The gene variation increases the plasma concentration of risperidone plus the active metabolite and increases the proportion of risperidone in this ratio, which is more effective at crossing the blood-brain barrier.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452057781,
+        "html": "<p>0</p>\n"
+      }
     }
   ],
   "citations": [
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-03-05-00-25"
+  "version": "2023-04-05-11-38"
 }

@@ -1,6 +1,6 @@
 ##fileformat=VCFv4.2
 ##source=PharmCAT allele definitions
-##fileDate=2023-03-09T20:21:54-08:00
+##fileDate=2023-04-16T20:57:09-07:00
 ##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
 ##contig=<ID=chr2,assembly=GRCh38.p13,species="Homo sapiens">
 ##contig=<ID=chr4,assembly=GRCh38.p13,species="Homo sapiens">
@@ -525,7 +525,7 @@ chr22	42127512	rs61745683	C	T	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127514	.	A	G	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127523	rs1555888910	A	G	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127526	rs1058172	C	T	.	PASS	PX=CYP2D6	GT	0/0
-chr22	42127530	rs72549346	G	GAC	.	PASS	PX=CYP2D6	GT	0/0
+chr22	42127532	rs72549346	A	AAC	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127556	rs202102799	T	C	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127565	rs61736517	T	C	.	PASS	PX=CYP2D6	GT	0/0
 chr22	42127589	rs76088846	C	T	.	PASS	PX=CYP2D6	GT	0/0

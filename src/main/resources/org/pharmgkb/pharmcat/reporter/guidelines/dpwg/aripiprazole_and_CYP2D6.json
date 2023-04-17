@@ -518,19 +518,19 @@
         "CYP2D6:No function/No function"
       ],
       "metabolizerStatus": {
-        "id": 1451837188,
+        "id": 1452057443,
         "html": "<p>Poor Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451837189,
-        "html": "<p>Administer no more than 10 mg/day or 300 mg/month (68-75% of the standard maximum dose of aripiprazole).</p>\n"
+        "id": 1452057444,
+        "html": "<p>Administer no more than 10 mg/day or 300 mg/month (68-75% of the normal maximum dose of aripiprazole).</p>\n"
       },
       "implications": {
-        "id": 1451837187,
+        "id": 1452057442,
         "html": "<p>The risk of side effects is increased. The genetic variation leads to an increase in the sum of the plasma concentrations of aripiprazole and the active metabolite.</p>\n"
       },
       "activityScore": {
-        "id": 1451837186,
+        "id": 1452057441,
         "html": "<p>0</p>\n"
       }
     }
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-03-05-00-25"
+  "version": "2023-04-05-11-38"
 }

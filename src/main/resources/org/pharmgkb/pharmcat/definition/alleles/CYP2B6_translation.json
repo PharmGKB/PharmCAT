@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.23.1",
-  "modificationDate": "Mar 9, 2023, 8:21:55 PM",
+  "version": "v1.25.0",
+  "modificationDate": "Apr 16, 2023, 8:57:10 PM",
   "gene": "CYP2B6",
   "orientation": null,
   "chromosome": "chr19",

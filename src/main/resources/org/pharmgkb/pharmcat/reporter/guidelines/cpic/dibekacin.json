@@ -1,0 +1,93 @@
+{
+  "drugid": "RxNorm:3328",
+  "drugname": "dibekacin",
+  "guidelinename": "MT-RNR1 and Aminoglycosides",
+  "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
+  "guidelinepharmgkbids": [
+    "PA166229081"
+  ],
+  "citations": [
+    {
+      "pmid": "34032273",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for the use of aminoglycosides based on MT-RNR1 genotype.",
+      "authors": [
+        "McDermott John Henry",
+        "Wolf Joshua",
+        "Hoshitsuki Keito",
+        "Huddart Rachel",
+        "Caudle Kelly E",
+        "Whirl-Carrillo Michelle",
+        "Steyger Peter S",
+        "Smith Richard J H",
+        "Cody Neal",
+        "Rodriguez-Antona Cristina",
+        "Klein Teri E",
+        "Newman William G"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2021
+    }
+  ],
+  "recommendations": [
+    {
+      "implications": {
+        "MT-RNR1": "Weak or no evidence for an increased risk of MT-RNR1 associated hearing loss if administered an aminoglycoside antibiotic."
+      },
+      "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+      "classification": "Optional",
+      "phenotypes": {
+        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "MT-RNR1": "uncertain risk of aminoglycoside-induced hearing loss"
+      },
+      "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "MT-RNR1": "Very high risk of developing hearing loss if administered an aminoglycoside antibiotic."
+      },
+      "drugrecommendation": "Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.",
+      "classification": "Strong",
+      "phenotypes": {
+        "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "MT-RNR1": "increased risk of aminoglycoside-induced hearing loss"
+      },
+      "comments": "If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "MT-RNR1": "Normal risk of developing hearing loss if administered an aminoglycoside antibiotic."
+      },
+      "drugrecommendation": "Use aminoglycoside antibiotics at standard doses for the shortest feasible course with therapeutic dose monitoring. Evaluate regularly for hearing loss in line with local guidance.",
+      "classification": "Strong",
+      "phenotypes": {
+        "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+      },
+      "activityscore": {},
+      "allelestatus": {},
+      "lookupkey": {
+        "MT-RNR1": "normal risk of aminoglycoside-induced hearing loss"
+      },
+      "comments": "Individuals without MT-RNR1 aminoglycoside-induced hearing loss increased risk variants are still at risk of aminoglycoside-associated hearing loss, especially with high drug levels or prolonged courses.",
+      "population": "general",
+      "genotypes": null
+    }
+  ],
+  "genes": [
+    "MT-RNR1"
+  ],
+  "notesonusage": null,
+  "cpicVersion": "v1.25.0",
+  "source": "CPIC"
+}
