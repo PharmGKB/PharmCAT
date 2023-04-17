@@ -174,6 +174,22 @@ class PipelineTest {
   }
 
   /**
+   * Tests what happens when an unexpected alt allele is specified
+   */
+  @Test
+  void testRyr1UnmatchedAllele(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("RYR1", "rs193922753", "G", "A");
+    try {
+      testWrapper.execute(null);
+      fail("Should throw an exception that an unmatched alt allele was specified");
+    } catch (IllegalStateException ex) {
+      // expected behavior, ignore
+    }
+  }
+
+  /**
    * Tests how PharmCAT handles that state when sample VCF data exists for a gene and an outside call also exists for
    * that gene. Currently, this should execute successfully by ignoring VCF data and using the outside call
    */
@@ -1366,6 +1382,34 @@ class PipelineTest {
     // *15:02 guideline (along with CYP2C9)
     // TODO: revert when DPWG HLA's are supported again
     //testWrapper.testMatchedAnnotations("phenytoin", 4);
+    testWrapper.testMatchedAnnotations("phenytoin", 3);
+    testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
+    testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
+  }
+
+  @Test
+  void testSingleHlabAllele(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("HLA-B\t*15:02");
+    }
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testNotCalledByMatcher("HLA-B");
+    testWrapper.testReportable("HLA-B");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*57:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*15:02 positive");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*57:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*15:02 positive");
+
+    testWrapper.testMatchedAnnotations("abacavir", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("allopurinol", DataSource.CPIC, 1);
     testWrapper.testMatchedAnnotations("phenytoin", 3);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.CPIC);
     testWrapper.testAnyMatchFromSource("phenytoin", DataSource.DPWG);
