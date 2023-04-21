@@ -94,7 +94,7 @@ public class HtmlFormat extends AbstractFormat {
 
     Map<String,Object> result = new HashMap<>();
     if (!f_testMode) {
-      result.put("timestamp", new SimpleDateFormat("MMMMM dd, yyyy").format(reportContext.timestamp()));
+      result.put("timestamp", new SimpleDateFormat("MMMM dd, yyyy").format(reportContext.timestamp()));
       result.put("pharmcatVersion", reportContext.getPharmcatVersion());
       result.put("cpicVersion", reportContext.getCpicVersion());
     }
@@ -153,7 +153,11 @@ public class HtmlFormat extends AbstractFormat {
           hasMessages = hasMessages || hasMessages(geneReport);
           hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
         } else if (m_compact) {
-          compactNoDataGenes.add(symbol);
+          if (allVariantsMissing) {
+            compactNoDataGenes.add(symbol);
+          } else {
+            geneReportMap.put(symbol, geneReport);
+          }
         }
       }
     }
@@ -166,11 +170,16 @@ public class HtmlFormat extends AbstractFormat {
       if (reports.size() > 2) {
         throw new IllegalStateException("More than 2 gene reports for " + symbol);
       }
-      Optional<Map<String, Object>> opt = buildGenotypeSummary(symbol, reports);
-      opt.ifPresent(summaries::add);
-      if (!m_compact || opt.isPresent()) {
-        geneReports.add(reports.first());
+      if (reports.stream().noneMatch(GeneReport::isReportable)) {
+        // add to gene reports to show in Section III
+        // if (a) extended mode or (b) cannot be called but has VCF data
+        if (!m_compact || !reports.first().isNoData()) {
+          geneReports.add(reports.first());
+        }
+        continue;
       }
+      summaries.add(buildGenotypeSummary(symbol, reports));
+      geneReports.add(reports.first());
     }
     result.put("genes", genes);
     result.put("summaries", summaries);
@@ -216,14 +225,7 @@ public class HtmlFormat extends AbstractFormat {
   }
 
 
-  private Optional<Map<String, Object>> buildGenotypeSummary(String symbol, SortedSet<GeneReport> geneReports) {
-
-    List<GeneReport> calledReports = geneReports.stream()
-        .filter(GeneReport::isReportable)
-        .toList();
-    if (calledReports.size() == 0) {
-      return Optional.empty();
-    }
+  private Map<String, Object> buildGenotypeSummary(String symbol, SortedSet<GeneReport> geneReports) {
 
     Map<String, Object> summary = new HashMap<>();
     summary.put("symbol", symbol);
@@ -231,7 +233,10 @@ public class HtmlFormat extends AbstractFormat {
     Set<String> relatedDrugs = new TreeSet<>();
     boolean hasMessages = false;
     // CPIC gets sorted first, this will pick CPIC over DPWG
-    for (GeneReport report : calledReports) {
+    for (GeneReport report : geneReports) {
+      if (!report.isReportable()) {
+        continue;
+      }
       report.getRelatedDrugs().stream()
           .map(DrugLink::getName)
           .forEach(relatedDrugs::add);
@@ -261,7 +266,7 @@ public class HtmlFormat extends AbstractFormat {
 
     summary.put("relatedDrugs", relatedDrugs);
     summary.put("hasMessages", hasMessages);
-    return Optional.of(summary);
+    return summary;
   }
 
   private static boolean showUnphasedNote(GeneReport geneReport) {
