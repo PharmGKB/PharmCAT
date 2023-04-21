@@ -143,11 +143,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "2.75"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "2.75"
       },
       "comments": "n/a",
       "population": "general",
@@ -163,11 +163,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.5"
+        "CYP2D6": "3.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.5"
+        "CYP2D6": "3.0"
       },
       "comments": "n/a",
       "population": "general",
@@ -263,11 +263,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.0"
+        "CYP2D6": "≥3.75"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.0"
+        "CYP2D6": "≥3.75"
       },
       "comments": "n/a",
       "population": "general",
@@ -283,11 +283,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.5"
+        "CYP2D6": "≥4.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.5"
+        "CYP2D6": "≥4.0"
       },
       "comments": "n/a",
       "population": "general",
