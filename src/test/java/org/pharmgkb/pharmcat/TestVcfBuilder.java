@@ -35,6 +35,7 @@ public class TestVcfBuilder {
   private int m_numChrX = 2;
   private int m_numChrY = 1;
   private boolean m_isPhased;
+  private boolean m_allowUnknownAllele = false;
   private boolean m_deleteOnExit = true;
 
 
@@ -51,6 +52,11 @@ public class TestVcfBuilder {
 
   public TestVcfBuilder phased() {
     m_isPhased = true;
+    return this;
+  }
+
+  public TestVcfBuilder allowUnknownAllele() {
+    m_allowUnknownAllele = true;
     return this;
   }
 
@@ -200,6 +206,7 @@ public class TestVcfBuilder {
         }
       }
       String sample;
+      List<String> alts = new ArrayList<>(vl.getAlts());
       if (edit == null) {
         // reference sample
         if (definitionFile.getChromosome().equals("chrX") && m_numChrX != 2) {
@@ -234,12 +241,17 @@ public class TestVcfBuilder {
           }
           String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
           if (vcfAllele == null) {
-            throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele + ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
+            if (m_allowUnknownAllele) {
+              vcfAllele = cpicAllele;
+              alts.add(vcfAllele);
+            } else {
+              throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele + ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
+            }
           }
           if (vcfAllele.equals(vl.getRef())) {
             builder.append("0");
           } else {
-            int idx = vl.getAlts().indexOf(vcfAllele);
+            int idx = alts.indexOf(vcfAllele);
             if (idx == -1) {
               throw new IllegalStateException(edit.id + ":  VCF allele (" + vcfAllele + ") for " + cpicAllele +
                   " is neither ref not alt!");
@@ -251,7 +263,7 @@ public class TestVcfBuilder {
       }
 
       VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-          String.join(",", vl.getAlts()), info, sample);
+          String.join(",", alts), info, sample);
     }
 
     if (editMap != null) {

@@ -180,13 +180,11 @@ class PipelineTest {
   void testRyr1UnmatchedAllele(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
         .variation("RYR1", "rs193922753", "G", "A");
-    try {
-      testWrapper.execute(null);
-      fail("Should throw an exception that an unmatched alt allele was specified");
-    } catch (IllegalStateException ex) {
-      // expected behavior, ignore
-    }
+    testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("RYR1");
   }
 
   /**
