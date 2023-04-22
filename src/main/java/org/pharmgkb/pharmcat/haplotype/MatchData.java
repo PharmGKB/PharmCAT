@@ -49,6 +49,9 @@ public class MatchData {
   @Expose
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
+  @Expose
+  @SerializedName("hasNovelAllele")
+  private boolean m_hasNovelAllele;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
 
@@ -80,6 +83,9 @@ public class MatchData {
       }
       if (m_ignoredPositions.contains(variant)) {
         continue;
+      }
+      if (allele.getNovelAlleles().size() > 0) {
+        m_hasNovelAllele = true;
       }
       positions.add(variant);
       m_sampleMap.put(variant.getPosition(), allele);
@@ -347,6 +353,11 @@ public class MatchData {
       seqMap.put(idx, allele);
     }
     return allele;
+  }
+
+
+  public boolean hasNovelAllele() {
+    return m_hasNovelAllele;
   }
 
 

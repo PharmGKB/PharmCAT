@@ -1,0 +1,47 @@
+##fileformat=VCFv4.3
+##source=PharmCAT allele definitions
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=FT,Number=.,Type=String,Description="Genotype filters.">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled genotype Likelihoods">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block.">
+##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
+##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr2,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr3,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr4,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr5,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr6,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr7,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr8,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr9,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr11,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr12,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr13,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr14,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr15,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr16,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr17,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr18,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr19,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr20,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr21,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr22,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrX,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrY,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrM,assembly=GRCh38.p13,species="Homo sapiens">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=PCATxREF,Description="Reference allele does not match PharmCAT reference alleles">
+##FILTER=<ID=PCATxALT,Description="Alternate alleles do not match PharmCAT alternate alleles">
+##FILTER=<ID=PCATxINDEL,Description="Unexpected format for INDELs">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
+chr19	38444212	rs193922753	G	A	.	.	.	GT	0/1	0/0
+chr19	38444211	rs118192161	C	T	.	PASS	PX=RYR1	GT	0/1	0/0

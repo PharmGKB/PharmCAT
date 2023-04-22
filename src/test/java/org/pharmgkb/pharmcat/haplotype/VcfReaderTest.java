@@ -101,7 +101,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94938828"));
     assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
-    assertEquals("Genotype at this position has novel bases (expected G, found C/T in VCF)",
+    assertEquals("Genotype at this position has novel bases (expected G, found T in VCF)",
         reader.getWarnings().get("chr10:94938828").iterator().next());
 
     assertNotNull(reader.getWarnings().get("chr10:94938683"));

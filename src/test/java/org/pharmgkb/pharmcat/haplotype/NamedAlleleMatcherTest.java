@@ -535,7 +535,7 @@ class NamedAlleleMatcherTest {
     definitionReader.read(definitionFile);
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
-    assertEquals(6, result.getVcfWarnings().size());
+    assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
 
     GeneCall geneCall = result.getGeneCalls().get(0);
@@ -960,6 +960,21 @@ class NamedAlleleMatcherTest {
       Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
       assertEquals(1, result.getGeneCalls().size());
     }
+  }
+
+
+  @Test
+  void testUnknownAltMultisample() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-ryr1.json");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-unknownAltMultisample.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    definitionReader.read(definitionFile);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), "Sample_2");
+    // ignore novel bases
+    printWarnings(result);
+    assertEquals(0, result.getVcfWarnings().size());
   }
 
 

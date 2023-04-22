@@ -1,6 +1,8 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
@@ -21,10 +23,11 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private final boolean m_isPhased;
   private final boolean m_isEffectivelyPhased;
   private final List<String> m_vcfAlleles;
+  private final Set<String> m_novelAlleles = new HashSet<>();
 
 
   public SampleAllele(String chromosome, long position, String a1, @Nullable String a2, boolean isPhased,
-      boolean isEffectivelyPhased, List<String> vcfAlleles) {
+      boolean isEffectivelyPhased, List<String> vcfAlleles, @Nullable Set<String> novelAlleles) {
     m_chromosome = chromosome;
     m_position = (int)position;
     m_allele1 = a1.toUpperCase();
@@ -34,6 +37,9 @@ public class SampleAllele implements Comparable<SampleAllele> {
     m_isPhased = isPhased;
     m_isEffectivelyPhased = isEffectivelyPhased;
     m_vcfAlleles = vcfAlleles;
+    if (novelAlleles != null) {
+      m_novelAlleles.addAll(novelAlleles);
+    }
   }
 
   /**
@@ -41,7 +47,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
    */
   protected SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
       boolean isPhased, List<String> vcfAlleles) {
-    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles);
+    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles, null);
   }
 
   public String getChromosome() {
@@ -81,6 +87,14 @@ public class SampleAllele implements Comparable<SampleAllele> {
   public List<String> getVcfAlleles() {
     return m_vcfAlleles;
   }
+
+  /**
+   * Gets novel alleles for sample at this position.
+   */
+  public Set<String> getNovelAlleles() {
+    return m_novelAlleles;
+  }
+
 
   @Override
   public String toString() {
