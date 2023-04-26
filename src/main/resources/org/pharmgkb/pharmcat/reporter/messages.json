@@ -1171,5 +1171,374 @@
     },
     "exception_type": "note",
     "message": "PharmCAT reports based on VCF file input and some VCF files do not specify hemizygous (one X chromosome) and instead represent samples as homozygous. See PharmCAT FAQs (https://pharmcat.org/faqs/)."
+  },
+  {
+    "rule_name": "CYP3A4 *1/*37 warning",
+    "version": "2",
+    "matches": {
+      "gene": "CYP3A4",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "*1/*37"
+      ],
+      "drugs": [
+        "quetiapine"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*37; however, *3/*22 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP3A4 *1/*38 warning",
+    "version": "2",
+    "matches": {
+      "gene": "CYP3A4",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "*1/*38"
+      ],
+      "drugs": [
+        "quetiapine"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*38; however, *3/*11 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP4F2 *1/*4 warning",
+    "version": "2",
+    "matches": {
+      "gene": "CYP4F2",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "*1/*4"
+      ],
+      "drugs": [
+        "warfarin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*4; however, *2/*3 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD A- 202A_376G/B (reference) warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "A- 202A_376G/B (reference)"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is A- 202A_376G/B (reference); however, A/Asahi cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD B (reference)/Mt Sinai warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "B (reference)/Mt Sinai"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is B (reference)/Mt Sinai; however, A/Guadalajara cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD B (reference)/Santa Maria warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "B (reference)/Santa Maria"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is B (reference)/Santa Maria; however, A/Malaga cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD Ananindeua/B (reference) warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "Ananindeua/B (reference)"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is Ananindeua/B (reference); however, A/Viangchan, Jammu cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD B (reference)/Hechi warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "B (reference)/Hechi"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is B (reference)/Hechi; however, Asahi/Viangchan, Jammu cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "G6PD B (reference)/Hermoupolis warning",
+    "version": "2",
+    "matches": {
+      "gene": "G6PD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "B (reference)/Hermoupolis"
+      ],
+      "drugs": [
+        "aminosalicylic acid",
+        "aspirin",
+        "chloramphenicol",
+        "chloroquine",
+        "ciprofloxacin",
+        "dapsone",
+        "dimercaprol",
+        "doxorubicin",
+        "furazolidone",
+        "glyburide",
+        "hydroxychloroquine",
+        "mafenide",
+        "methylene blue",
+        "nalidixic acid",
+        "nitrofurantoin",
+        "norfloxacin",
+        "ofloxacin",
+        "pegloticase",
+        "phenazopyridine",
+        "primaquine",
+        "quinine",
+        "rasburicase",
+        "sulfadiazine",
+        "sulfadimidine",
+        "sulfamethoxazole",
+        "trimethoprim",
+        "sulfanilamide",
+        "sulfasalazine",
+        "sulfisoxazole",
+        "tafenoquine",
+        "tolbutamide",
+        "toluidine blue",
+        "vitamin c",
+        "vitamin k"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is B (reference)/Hermoupolis; however, Cassano/Union,Maewo, Chinese-2, Kal cannot be ruled out without phased data."
   }
 ]
