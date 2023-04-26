@@ -212,12 +212,8 @@ public class ReportContext {
         .toList();
   }
 
-  public GeneReport getGeneReport(DataSource source, String gene) {
-    GeneReport geneReport = m_geneReports.get(source).get(gene);
-    if (geneReport == null) {
-      throw new IllegalStateException("No gene report for " + gene);
-    }
-    return geneReport;
+  public @Nullable GeneReport getGeneReport(DataSource source, String gene) {
+    return m_geneReports.get(source).get(gene);
   }
 
   /**

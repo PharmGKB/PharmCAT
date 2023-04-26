@@ -197,6 +197,9 @@ public class MessageHelper {
     String rsid = Objects.requireNonNull(msgAnn.getMatches().getVariant());
 
     GeneReport gr = reportContext.getGeneReport(source, geneSymbol);
+    if (gr == null) {
+      return rsid + ":" + Haplotype.UNKNOWN;
+    }
     Optional<String> call = Stream.concat(gr.getVariantReports().stream(), gr.getVariantOfInterestReports().stream())
         .filter(v -> v.getDbSnpId() != null && v.getDbSnpId().matches(rsid) && !v.isMissing())
         .map(VariantReport::getCall)
@@ -229,6 +232,6 @@ public class MessageHelper {
     }
     GeneReport geneReport = reportContext.getGeneReport(source, gene);
     // don't apply message if gene has no data
-    return !geneReport.isNoData() && geneReport.hasMessage(message.getName());
+    return geneReport != null && !geneReport.isNoData() && geneReport.hasMessage(message.getName());
   }
 }
