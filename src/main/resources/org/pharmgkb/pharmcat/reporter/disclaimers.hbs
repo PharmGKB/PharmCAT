@@ -10,33 +10,34 @@ in <a href="https://pharmcat.org/methods/Gene-Definition-Exceptions/">Gene Defin
 definitions and the positions used in PharmCAT, see
 the <a href="https://github.com/PharmGKB/PharmCAT/releases">gene definition tables</a>.</p></li>
 <li><p>Genes with DPWG recommendations that are not included in CPIC are discussed in Section C.   </p></li>
-<li><p>PharmCAT results are dependent on the supplied vcf calls for the queried positions (for technical information about
+<li><p>PharmCAT results are dependent on the supplied VCF calls for the queried positions (for technical information about
 PharmCAT input formatting and requirements, please go to <a href="https://pharmcat.org/">pharmcat.org</a>). PharmCAT does not
-assume any reference calls for positions missing from the submitted vcf file; all missing queried positions are not
-considered in the allele determination process. However, if an allele that includes a missing position is defined by
-an additional position(s) for which calls are provided, the allele will be considered in the matching process based
-on the available information. This might lead to the output of multiple possible genotypes that received the same highest matching score. 
-In addition, alternate calls with a lower score might be also possible, the output of all matching genotypes is a possible option when running 
-PharmCAT, see <a href="https://pharmcat.org/using/Running-PharmCAT/#named-allele-matcher">documentation</a>. See the
-<a href="https://github.com/PharmGKB/PharmCAT/releases">gene definition tables</a> for more information about what positions are
-queried in the vcf file. Missing positions might alter the assigned genotype, subsequent phenotype prediction and
-CPIC recommendation. If the supplied vcf file has missing positions, those positions will be noted in
+assume any reference calls for positions missing from the submitted VCF file; all missing queried positions are not
+considered in the allele determination process. See the
+<a href="https://github.com/PharmGKB/PharmCAT/releases"><em>pharmcat_positions</em> file</a> for which positions are
+queried in the VCF file. Missing positions might alter the assigned genotype and subsequent phenotype prediction and
+CPIC recommendation. If the supplied VCF file has missing positions, those positions will be noted in
 Section III: Allele Matching Details for each gene of this report. For the most reliable allele determination,
-reference calls as well as variant calls in the vcf file for every queried position must be provided by the user.</p></li>
+reference calls as well as variant calls in the VCF file for every queried position must be provided by the user.
+If an allele that includes a missing position is defined by an additional position(s) for which calls are provided,
+the allele will be considered in the matching process based on the available information. This might lead to the output
+of multiple possible genotypes that received the same highest matching score. In addition, alternate calls with a lower
+score is also possible. For instructions on getting PharmCAT to output all possible matching genotypes, consult
+<a href="https://pharmcat.org/using/Running-PharmCAT/#named-allele-matcher">the documentation</a>.</p></li>
 <li><p>For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the *1 allele is defined by the absence of variation
 specified in the gene definition tables. This allele cannot be identified by variants; rather, *1 is assigned by
-default when no variation for the queried positions is reported in the submitted vcf file. The same is true for all
+default when no variation for the queried positions is reported in the submitted VCF file. The same is true for all
 other genes with multiple variant positions in the definition table (CACNA1S, CFTR, DPYD, RYR1): the reference
-sequence is the default result when variants are not reported in the vcf file. It is always possible un-interrogated
+sequence is the default result when variants are not reported in the VCF file. It is always possible un-interrogated
 variation can occur which could potentially affect allele function, but because it is undetected, the assignment
 would be defaulted to a *1 (or reference) allele and normal function.</p></li>
-<li><p>For all genes, variation reported in the vcf file but NOT included in the gene definition table will not be
+<li><p>For all genes, variation reported in the VCF file but NOT included in the gene definition table will not be
 considered during allele assignment. There is a possibility that any such variation results in a reduced or no
 activity allele which could lead to inaccurate phenotype and CPIC recommendation, similar to the situation in point
 3, above.</p></li>
 <li><p>Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further
 information is provided under Gene-specific warnings in Section III: Allele Matching Details.</p></li>
-<li><p>PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the vcf file and
+<li><p>PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the VCF file and
 noted as such, see <a href="https://pharmcat.org/">pharmcat.org</a> for details). The assumption is that defined alleles exist
 in trans configuration, i.e. on opposite chromosomes, with exceptions noted in Section III: Allele Matching Details
 under "Gene-specific warnings." However, in cases where an allele is defined by a combination of two or more
@@ -283,9 +284,9 @@ that define the non-*1 allele in the genotype with the higher score.</p>
 <tr>
 <th>Gene</th>
 <th>Genotype (Higher Score)</th>
-<th>Metabolizer phenotype</th>
+<th>Phenotype</th>
 <th>Genotype (Lower Score)</th>
-<th>Metabolizer phenotype</th>
+<th>Phenotype</th>
 </tr>
 </thead>
 <tbody>
@@ -330,8 +331,8 @@ recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outl
 <a href="https://www.pharmgkb.org/page/dpwgMapping">PharmGKB</a>.</p></li>
 <li><p>CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant
 notations for the included alleles (only *16, *20, and *22 are specified) PharmCAT relies on
-<a href="https://www.pharmvar.org/gene/CYP3A4">PharmVar CYP3A4 allele definitions</a>. However,the CYP3A4*16, *20 and *22 definitions are
-the same in both sources.</p></li>
+<a href="https://www.pharmvar.org/gene/CYP3A4">PharmVar CYP3A4 allele definitions</a>. However, the CYP3A4*16, *20 and *22
+definitions are the same in both sources.</p></li>
 <li><p>The CPIC UGT1A1 allele definition file includes *6, *27, *28, *36, *37, and *80. Since the DPWG UGT1A1 document
 does not include allele definitions besides for the UGT1A1 TA box promoter polymorphism, PharmCAT only includes the
 UGT1A1 positions from the CPIC UGT1A1 allele definition file. Other UGT1A1 alleles can be supplied as
@@ -343,14 +344,14 @@ there have been no publicly accessible updates since February 2022.</p></li>
 </ol>
 <h3 id="d-pharmcat-exceptions-to-the-cpic-guideline-gene-list">D. PharmCAT Exceptions to the CPIC Guideline Gene List</h3>
 <ol>
-<li><p>PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the vcf file, but genotypes for CYP2D6,
+<li><p>PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the VCF file, but genotypes for CYP2D6,
 MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype 
 prescribing recommendations will be included in the generated report. For the required format of the outside calls
 refer to <a href="https://pharmcat.org">PharmCAT documentation</a>.</p></li>
 <li><p>CPIC has assigned function to the following CYP2D6 CNV alleles: *1x2, *1x≥3, *2x2, *2x≥3, *3x2, *4x2, *4x≥3,
-*6x2, *9x2, *10x2, *17x2, *29x2, *35x2, *36x2, *41x2, *41x3, *43x2, *45x2, *146x2. These alleles are part of the
-CPIC diplotype to phenotype translation and can be connected to recommendations. Other CNV notations from outside
-calls need to be mapped accordingly. </p></li>
+*6x2, *9x2, *10x2, *17x2, *29x2, *35x2, *36x2, *41x2, *41x3, *43x2, *45x2, *146x2. These alleles are part
+of the CPIC diplotype to phenotype translation and can be connected to recommendations. Other CNV notations from
+outside calls need to be mapped accordingly. </p></li>
 </ol>
 <h3 id="e-cpic-guideline-disclaimers-and-caveats">E. CPIC Guideline Disclaimers and Caveats</h3>
 <ol>
