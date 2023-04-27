@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Map;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.common.util.ComparisonChain;
 
 
 /**
  * Publication data.
  */
-public class Publication {
+public class Publication implements Comparable<Publication> {
   @Expose
   @SerializedName("pmid")
   private String m_pmid;
@@ -64,5 +65,15 @@ public class Publication {
         }
       }
     }
+  }
+
+
+  @Override
+  public int compareTo(Publication o) {
+    return new ComparisonChain()
+        .compare(m_year, o.getYear())
+        .compare(m_pmid, o.getPmid())
+        .compare(m_title, o.getTitle())
+        .result();
   }
 }

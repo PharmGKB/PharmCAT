@@ -56,7 +56,7 @@ public class DrugReport implements Comparable<DrugReport> {
   private final List<String> m_urls = new ArrayList<>();
   @Expose
   @SerializedName("citations")
-  private final List<Publication> m_citations = new ArrayList<>();
+  private final SortedSet<Publication> m_citations = new TreeSet<>();
   @Expose
   @SerializedName("guidelines")
   private final SortedSet<GuidelineReport> m_guidelines = new TreeSet<>();
@@ -214,7 +214,7 @@ public class DrugReport implements Comparable<DrugReport> {
   /**
    * Gets the literature objects that are used for citation of this Guideline
    */
-  public List<Publication> getCitations() {
+  public SortedSet<Publication> getCitations() {
     return m_citations;
   }
 

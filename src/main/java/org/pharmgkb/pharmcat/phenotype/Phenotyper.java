@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +46,7 @@ public class Phenotyper {
 
   @Expose
   @SerializedName("geneReports")
-  private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports = new HashMap<>();
+  private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports = new TreeMap<>();
 
 
   /**
@@ -123,7 +122,7 @@ public class Phenotyper {
   }
 
 
-  public Map<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+  public SortedMap<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
     return m_geneReports;
   }
 

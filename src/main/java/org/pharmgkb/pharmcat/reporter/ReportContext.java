@@ -41,10 +41,10 @@ public class ReportContext {
   private String m_dpwgVersion;
   @Expose
   @SerializedName("genes")
-  private final Map<DataSource, SortedMap<String, GeneReport>> m_geneReports;
+  private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports;
   @Expose
   @SerializedName("drugs")
-  private final Map<DataSource, SortedMap<String, DrugReport>> m_drugReports = new HashMap<>();
+  private final SortedMap<DataSource, SortedMap<String, DrugReport>> m_drugReports = new TreeMap<>();
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> f_messages = new ArrayList<>();
@@ -55,7 +55,7 @@ public class ReportContext {
    * @param geneReports {@link GeneReport} objects, non-null but can be empty
    * @param title the optional text to show as a user-friendly title or identifier for this report
    */
-  public ReportContext(Env env, Map<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
+  public ReportContext(Env env, SortedMap<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
     f_title = title;
     m_geneReports = geneReports;
 
