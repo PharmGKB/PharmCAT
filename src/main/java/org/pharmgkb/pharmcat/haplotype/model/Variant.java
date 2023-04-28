@@ -99,7 +99,7 @@ public class Variant implements Comparable<Variant>  {
   }
 
   public String toString() {
-    String vcfCall = m_vcfCall == null ? null : m_vcfCall.replaceAll("[|/]", "");
+    String vcfCall = m_vcfCall == null ? "" : m_vcfCall.replaceAll("[|/]", "");
     if (m_rsid != null) {
       return String.format(sf_rsidFormat, getRsid(), vcfCall);
     } else {
