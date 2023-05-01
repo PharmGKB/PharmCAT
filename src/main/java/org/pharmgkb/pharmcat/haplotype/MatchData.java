@@ -49,8 +49,6 @@ public class MatchData {
   @Expose
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
-  @Expose
-  @SerializedName("hasNovelAllele")
   private boolean m_hasNovelAllele;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
