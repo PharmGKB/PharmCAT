@@ -30,6 +30,7 @@ then
 fi
 
 # update disclaimers.hbs
+echo "Updating disclaimer"
 script_dir="$( dirname -- "$BASH_SOURCE"; )";
 "${script_dir}/update_disclaimer.js"
 
@@ -44,9 +45,10 @@ then
   fi
 fi
 
-diffs=$(git diff | grep -c "src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimers.hbs")
+diffs=$(git diff --name-only | wc -l)
 if [[ $diffs -gt 0 ]]
 then
+  echo "Committing disclaimer"
   git add src/main/resources/org/pharmgkb/pharmcat/reporter/disclaimers.hbs
   git commit -m "chore: update disclaimer"
   git push
