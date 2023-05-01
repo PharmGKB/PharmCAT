@@ -31,6 +31,7 @@ import org.pharmgkb.parser.vcf.model.VcfMetadata;
 import org.pharmgkb.parser.vcf.model.VcfPosition;
 import org.pharmgkb.parser.vcf.model.VcfSample;
 import org.pharmgkb.pharmcat.VcfFile;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,7 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final ImmutableMap<String, String> m_locationsByGene;
   private final boolean m_useSpecificSample;
   private String m_sampleId;
   private int m_sampleIdx = -1;
@@ -65,22 +67,19 @@ public class VcfReader implements VcfLineParser {
   /**
    * Constructor.
    * Reads in VCF file and pull the (first) sample's alleles for positions of interest.
-   *
-   * @param locationsOfInterest set of chr:positions to pull alleles for
    */
-  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, Path vcfFile) throws IOException {
-    this(locationsOfInterest, vcfFile, null);
+  public VcfReader(DefinitionReader definitionReader, Path vcfFile) throws IOException {
+    this(definitionReader, vcfFile, null);
   }
 
   /**
    * Constructor.
    * Reads in VCF file and pull the sample's alleles for positions of interest.
-   *
-   * @param locationsOfInterest set of chr:positions to pull alleles for
    */
-  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, Path vcfFile, @Nullable String sampleId)
+  public VcfReader(DefinitionReader definitionReader, Path vcfFile, @Nullable String sampleId)
       throws IOException {
-    m_locationsOfInterest = locationsOfInterest;
+    m_locationsOfInterest = definitionReader.getLocationsOfInterest();
+    m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = sampleId;
     m_useSpecificSample = m_sampleId != null;
     read(vcfFile);
@@ -90,12 +89,11 @@ public class VcfReader implements VcfLineParser {
   /**
    * Constructor.
    * Reads in VCF file and pull the sample's alleles for positions of interest.
-   *
-   * @param locationsOfInterest set of chr:positions to pull alleles for
    */
-  public VcfReader(ImmutableMap<String, VariantLocus> locationsOfInterest, BufferedReader vcfReader,
+  public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader,
       @Nullable String sampleId) throws IOException {
-    m_locationsOfInterest = locationsOfInterest;
+    m_locationsOfInterest = definitionReader.getLocationsOfInterest();
+    m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = sampleId;
     m_useSpecificSample = m_sampleId != null;
     read(vcfReader);
@@ -108,6 +106,7 @@ public class VcfReader implements VcfLineParser {
    */
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
+    m_locationsByGene = null;
     m_sampleId = null;
     m_useSpecificSample = false;
     read(vcfFile);

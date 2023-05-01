@@ -9,9 +9,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
-import com.google.common.collect.ImmutableMap;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.haplotype.VcfReader;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 
@@ -84,10 +83,10 @@ public class VcfFile {
   }
 
 
-  public VcfReader getReader(ImmutableMap<String, VariantLocus> locationsOfInterest, @Nullable String sampleId)
+  public VcfReader getReader(DefinitionReader definitionReader, @Nullable String sampleId)
       throws IOException {
     try (BufferedReader reader = open()) {
-      return new VcfReader(locationsOfInterest, reader, sampleId);
+      return new VcfReader(definitionReader, reader, sampleId);
     }
   }
 

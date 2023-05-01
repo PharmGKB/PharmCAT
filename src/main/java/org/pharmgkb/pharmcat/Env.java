@@ -16,7 +16,6 @@ import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
-import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -38,15 +37,15 @@ public class Env {
   }
 
   public Env(@Nullable Path definitionDir) throws IOException, ReportableException {
-    m_definitionReader = new DefinitionReader();
     if (definitionDir != null) {
-      m_definitionReader.read(definitionDir);
+      m_definitionReader = new DefinitionReader(definitionDir);
       if (m_definitionReader.getGenes().size() == 0) {
         throw new ReportableException("Did not find any allele definitions at " + definitionDir);
       }
     } else {
-      m_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+      m_definitionReader = DefinitionReader.defaultReader();
     }
+
     m_phenotypeMap = new PhenotypeMap();
     m_cpicDrugs = new DrugCollection();
     m_dpwgDrugs = new PgkbGuidelineCollection();

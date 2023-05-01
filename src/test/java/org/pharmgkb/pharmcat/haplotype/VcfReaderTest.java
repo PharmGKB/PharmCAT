@@ -89,12 +89,11 @@ class VcfReaderTest {
   @Test
   void testFilters() throws Exception {
 
-    DefinitionReader definitionReader = new DefinitionReader();
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    definitionReader.read(definitionFile);
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");
-    VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
+    VcfReader reader = new VcfReader(definitionReader, vcfFile);
 
     assertNotNull(reader.getWarnings());
     printWarnings(reader);
@@ -137,12 +136,11 @@ class VcfReaderTest {
   @Test
   void testAdField() throws Exception {
 
-    DefinitionReader definitionReader = new DefinitionReader();
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    definitionReader.read(definitionFile);
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD.vcf");
-    VcfReader reader = new VcfReader(NamedAlleleMatcher.calculateLocationsOfInterest(definitionReader), vcfFile);
+    VcfReader reader = new VcfReader(definitionReader, vcfFile);
 
     assertNotNull(reader.getWarnings());
     printWarnings(reader);

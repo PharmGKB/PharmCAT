@@ -114,9 +114,7 @@ class NamedAlleleMatcherCyp2c9Test {
         .extraPosition("CYP2C9", "rs12777823", "G", "A")
         .generate();
 
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(sf_definitionFile);
-    definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
+    DefinitionReader definitionReader = new DefinitionReader(sf_definitionFile, DataManager.DEFAULT_EXEMPTIONS_FILE);
 
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(definitionReader, false, false, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile, false), null);

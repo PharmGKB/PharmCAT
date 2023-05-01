@@ -3,6 +3,8 @@ package org.pharmgkb.pharmcat.definition;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -12,6 +14,7 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -32,6 +35,48 @@ public class DefinitionReader {
   private final Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
   private String m_genomeBuild;
   private ReferenceAlleleMap m_referenceAlleleMap;
+  /** Map of {@code <chr:position>} Strings to {@link VariantLocus} */
+  private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  /** Map of {@code <chr:position>} Strings to gene */
+  private ImmutableMap<String, String> m_locationsByGene;
+
+
+  public DefinitionReader() throws IOException {
+    this(DataManager.DEFAULT_DEFINITION_DIR);
+  }
+
+  public DefinitionReader(Path dir) throws IOException {
+    Preconditions.checkArgument(Files.isDirectory(dir));
+
+    try (Stream<Path> fileStream = Files.list(dir)) {
+      List<Path> files = fileStream.filter(f -> f.toString().endsWith("_translation.json"))
+          .toList();
+      for (Path file : files) {
+        readFile(file);
+      }
+    }
+    readExemptions(dir);
+    generateMetadata();
+  }
+
+  public DefinitionReader(Path definitionFile, @Nullable Path exemptionsFile) throws IOException {
+    this(List.of(definitionFile), exemptionsFile);
+  }
+
+  public DefinitionReader(List<Path> definitionFiles, @Nullable Path exemptionsFile) throws IOException {
+    Preconditions.checkNotNull(definitionFiles);
+
+    for (Path file : definitionFiles) {
+      if (!Files.isRegularFile(file)) {
+        throw new IllegalArgumentException(file + " is not a file");
+      }
+      readFile(file);
+    }
+    if (exemptionsFile != null) {
+      readExemptions(exemptionsFile);
+    }
+    generateMetadata();
+  }
 
 
   /**
@@ -84,6 +129,15 @@ public class DefinitionReader {
   }
 
 
+  public ImmutableMap<String, VariantLocus> getLocationsOfInterest() {
+    return m_locationsOfInterest;
+  }
+
+  public ImmutableMap<String, String> getLocationsByGene() {
+    return m_locationsByGene;
+  }
+
+
   public SortedSet<NamedAllele> getHaplotypes(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene).getNamedAlleles();
@@ -94,21 +148,42 @@ public class DefinitionReader {
   }
 
 
-
-  public void read(Path path) throws IOException {
-
-    if (Files.isDirectory(path)) {
-      try (Stream<Path> fileStream = Files.list(path)) {
-        List<Path> files = fileStream.filter(f -> f.toString().endsWith("_translation.json"))
-            .toList();
-        for (Path file : files) {
-          readFile(file);
-        }
-        readExemptions(path);
-      }
-    } else {
-      readFile(path);
+  public ReferenceAlleleMap getReferenceAlleleMap() {
+    if (m_referenceAlleleMap == null) {
+      m_referenceAlleleMap = new ReferenceAlleleMap(this);
     }
+    return m_referenceAlleleMap;
+  }
+
+
+  private void generateMetadata() {
+
+    Set<String> data = new HashSet<>();
+    ImmutableMap.Builder<String, VariantLocus> vlMapBuilder = ImmutableMap.builder();
+    ImmutableMap.Builder<String, String> geneMapBuilder = ImmutableMap.builder();
+    for (String gene : m_definitionFiles.keySet()) {
+      Arrays.stream(m_definitionFiles.get(gene).getVariants())
+          .forEach(v -> {
+            String vcp = v.getVcfChrPosition();
+            data.add(vcp);
+            vlMapBuilder.put(vcp, v);
+            geneMapBuilder.put(vcp, gene);
+          });
+      DefinitionExemption exemption = m_exemptions.get(gene.toLowerCase());
+      if (exemption != null) {
+        exemption.getExtraPositions()
+            .forEach(v -> {
+              String vcp = v.getVcfChrPosition();
+              if (!data.contains(vcp)) {
+                data.add(vcp);
+                vlMapBuilder.put(vcp, v);
+                geneMapBuilder.put(vcp, gene);
+              }
+            });
+      }
+    }
+    m_locationsOfInterest = vlMapBuilder.build();
+    m_locationsByGene = geneMapBuilder.build();
   }
 
 
@@ -123,7 +198,7 @@ public class DefinitionReader {
   }
 
 
-  public void readExemptions(Path path) throws IOException {
+  private void readExemptions(Path path) throws IOException {
 
     Preconditions.checkNotNull(path);
     Path file;
@@ -140,10 +215,13 @@ public class DefinitionReader {
     }
   }
 
-  public ReferenceAlleleMap getReferenceAlleleMap() {
-    if (m_referenceAlleleMap == null) {
-      m_referenceAlleleMap = new ReferenceAlleleMap(this);
+
+  private static DefinitionReader s_defaultReader;
+
+  public static DefinitionReader defaultReader() throws IOException {
+    if (s_defaultReader == null) {
+      s_defaultReader = new DefinitionReader();
     }
-    return m_referenceAlleleMap;
+    return s_defaultReader;
   }
 }

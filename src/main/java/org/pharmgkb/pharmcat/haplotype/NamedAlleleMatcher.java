@@ -16,7 +16,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
@@ -43,7 +42,6 @@ import org.pharmgkb.pharmcat.util.DataManager;
 public class NamedAlleleMatcher {
   public static final String VERSION = "2.0.0";
   private final DefinitionReader m_definitionReader;
-  private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private final boolean m_findCombinations;
   private final boolean m_topCandidateOnly;
   private final boolean m_callCyp2d6;
@@ -69,7 +67,6 @@ public class NamedAlleleMatcher {
 
     Preconditions.checkNotNull(definitionReader);
     m_definitionReader = definitionReader;
-    m_locationsOfInterest = calculateLocationsOfInterest(m_definitionReader);
     m_findCombinations = findCombinations;
     m_topCandidateOnly = topCandidateOnly;
     m_callCyp2d6 = callCyp2d6;
@@ -111,8 +108,7 @@ public class NamedAlleleMatcher {
         definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
       }
 
-      DefinitionReader definitionReader = new DefinitionReader();
-      definitionReader.read(definitionDir);
+      DefinitionReader definitionReader = new DefinitionReader(definitionDir);
       if (definitionReader.getGenes().size() == 0) {
         System.out.println("Did not find any allele definitions at " + definitionDir);
         System.exit(1);
@@ -157,38 +153,6 @@ public class NamedAlleleMatcher {
   }
 
 
-  /**
-   * Collects all locations of interest (i.e. positions necessary to make a haplotype call).
-   *
-   * @return a map of {@code <chr:position>} Strings to {@link VariantLocus}
-   */
-  static ImmutableMap<String, VariantLocus> calculateLocationsOfInterest(DefinitionReader definitionReader) {
-
-    Set<String> data = new HashSet<>();
-    ImmutableMap.Builder<String, VariantLocus> mapBuilder = ImmutableMap.builder();
-    for (String gene : definitionReader.getGenes()) {
-      Arrays.stream(definitionReader.getPositions(gene))
-          .forEach(v -> {
-            String vcp = v.getVcfChrPosition();
-            data.add(vcp);
-            mapBuilder.put(vcp, v);
-          });
-      DefinitionExemption exemption = definitionReader.getExemption(gene);
-      if (exemption != null) {
-        exemption.getExtraPositions()
-            .forEach(v -> {
-              String vcp = v.getVcfChrPosition();
-              if (!data.contains(vcp)) {
-                data.add(vcp);
-                mapBuilder.put(vcp, v);
-              }
-            });
-      }
-    }
-    return mapBuilder.build();
-  }
-
-
   private boolean getTopCandidateOnly(String gene) {
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     if (exemption != null && exemption.isAllHits() != null) {
@@ -203,7 +167,7 @@ public class NamedAlleleMatcher {
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
   public Result call(VcfFile vcfFile, @Nullable String sampleId) throws IOException {
-    VcfReader vcfReader = vcfFile.getReader(m_locationsOfInterest, sampleId);
+    VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());

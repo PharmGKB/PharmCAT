@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -37,7 +36,6 @@ import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
-import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
@@ -49,19 +47,17 @@ import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
  */
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
-  private static final Set<String> IGNORED_GENES       = ImmutableSet.of("IFNL4");
+  private static final Set<String> IGNORED_GENES = ImmutableSet.of("IFNL4");
   /**
    * These genes have custom callers that can potentially infer a diplotype eventhough the {@link NamedAlleleMatcher}
    * cannot make a call.
    */
   public static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
-  private static final Set<String> SINGLE_PLOIDY      = ImmutableSet.of("G6PD", "MT-RNR1");
-  private static final Set<String> CHROMO_X           = ImmutableSet.of("G6PD");
-  private static final Set<String> ALLELE_PRESENCE    = ImmutableSet.of("HLA-A", "HLA-B");
-  public static  final String YES = "Yes";
-  public static  final String NO  = "No";
-
-  private static final DefinitionReader sf_definitionReader = new DefinitionReader();
+  private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
+  private static final Set<String> CHROMO_X = ImmutableSet.of("G6PD");
+  private static final Set<String> ALLELE_PRESENCE = ImmutableSet.of("HLA-A", "HLA-B");
+  public static final String YES = "Yes";
+  public static final String NO = "No";
 
 
   @Expose
@@ -291,7 +287,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * The gene symbol for this gene.
    */
-  public String getGene(){
+  public String getGene() {
     return m_gene;
   }
 
@@ -315,7 +311,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * The list of messages that apply to this gene.
    */
-  public SortedSet<MessageAnnotation> getMessages(){
+  public SortedSet<MessageAnnotation> getMessages() {
     return m_messages;
   }
 
@@ -356,6 +352,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Finds the first {@link VariantReport} in this gene report that has the specified RSID. Since RSIDs should be unique
    * to variants this should never silently hide multiple matches.
+   *
    * @param rsid a dbSNP RSID that identifies a variant
    * @return an {@link Optional} {@link VariantReport}
    */
@@ -416,7 +413,6 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * Gets a list of {@link DrugLink} objects that are in the same guidelines as this gene
-   * @return a list of {@link DrugLink} objects
    */
   public SortedSet<DrugLink> getRelatedDrugs() {
     return m_relatedDrugs;
@@ -626,10 +622,10 @@ public class GeneReport implements Comparable<GeneReport> {
       // add reference allele message
       m_sourceDiplotypes.stream()
           .map((d) -> {
-            if (showReferenceMessage(d.getAllele1())) {
+            if (showReferenceMessage(env.getDefinitionReader(), d.getAllele1())) {
               return d.getAllele1();
             }
-            if (d.getAllele2() != null && showReferenceMessage(d.getAllele2())) {
+            if (d.getAllele2() != null && showReferenceMessage(env.getDefinitionReader(), d.getAllele2())) {
               return d.getAllele2();
             }
             return null;
@@ -658,20 +654,12 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Checks if {@link Haplotype} is reference for display purposes (don't call reference if gene only has 1 varint).
    */
-  private boolean showReferenceMessage(Haplotype hap) {
+  private boolean showReferenceMessage(DefinitionReader definitionReader, Haplotype hap) {
     if (!hap.isReference()) {
       return false;
     }
-    try {
-      if (sf_definitionReader.getGenes().size() == 0) {
-        sf_definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
-      }
-      Optional<DefinitionFile> definitionFile = sf_definitionReader.lookupDefinitionFile(hap.getGene());
-      return definitionFile.isPresent() && definitionFile.get().getVariants().length > 1;
-
-    } catch (IOException ex) {
-      throw new RuntimeException("Error checking reference", ex);
-    }
+    Optional<DefinitionFile> definitionFile = definitionReader.lookupDefinitionFile(hap.getGene());
+    return definitionFile.isPresent() && definitionFile.get().getVariants().length > 1;
   }
 
 

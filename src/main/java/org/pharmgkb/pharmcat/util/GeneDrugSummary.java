@@ -57,8 +57,7 @@ public class GeneDrugSummary {
         System.exit(1);
       }
 
-      DefinitionReader definitionReader = new DefinitionReader();
-      definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+      DefinitionReader definitionReader = DefinitionReader.defaultReader();
 
       new GeneDrugSummary(definitionReader, new PhenotypeMap(), new DrugCollection(), new PgkbGuidelineCollection())
           .write(cliHelper.getValidDirectory("o", true));

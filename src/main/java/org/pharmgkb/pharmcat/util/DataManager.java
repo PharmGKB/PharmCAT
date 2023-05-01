@@ -45,6 +45,7 @@ public class DataManager {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
+  public static final Path DEFAULT_EXEMPTIONS_FILE = DEFAULT_DEFINITION_DIR.resolve(EXEMPTIONS_JSON_FILE_NAME);
   private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final String DPWG_ALLELES_FILE_NAME = "dpwg_allele_translations.json";
   private static final String CPIC_ALLELES_FILE_NAME = "allele_definitions.json";
@@ -212,8 +213,7 @@ public class DataManager {
 
         } else {
           // if we're skipping new gene data, then use the default data
-          definitionReader = new DefinitionReader();
-          definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+          definitionReader = DefinitionReader.defaultReader();
         }
 
         List<String> genesUsedInDrugRecommendations = new ArrayList<>(drugs.list().stream()
@@ -378,9 +378,7 @@ public class DataManager {
     exportVcfData(definitionsDir);
 
     deleteObsoleteFiles(definitionsDir, currentFiles);
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(definitionsDir);
-    return definitionReader;
+    return new DefinitionReader(definitionsDir);
   }
 
 
@@ -410,8 +408,7 @@ public class DataManager {
 
   private void exportVcfData(Path definitionsDir) throws IOException {
 
-    DefinitionReader definitionReader = new DefinitionReader();
-    definitionReader.read(definitionsDir);
+    DefinitionReader definitionReader = new DefinitionReader(definitionsDir);
 
     SortedSet<String> genes = new TreeSet<>(definitionReader.getGeneAlleleCount().keySet());
 

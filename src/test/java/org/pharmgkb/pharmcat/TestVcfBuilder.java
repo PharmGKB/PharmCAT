@@ -154,15 +154,12 @@ public class TestVcfBuilder {
 
 
   public Path generate() throws IOException {
-    DefinitionReader definitionReader = new DefinitionReader();
+    DefinitionReader definitionReader;
     if (m_definitionFiles.size() > 0) {
-      for (Path file : m_definitionFiles) {
-        definitionReader.read(file);
-      }
+      definitionReader = new DefinitionReader(m_definitionFiles, DataManager.DEFAULT_EXEMPTIONS_FILE);
     } else {
-      definitionReader.read(DataManager.DEFAULT_DEFINITION_DIR);
+      definitionReader = DefinitionReader.defaultReader();
     }
-    definitionReader.readExemptions(DataManager.DEFAULT_DEFINITION_DIR.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME));
 
     String filename = m_name.replaceAll("\\*", "s")
         .replaceAll("/", "-")
