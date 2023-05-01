@@ -981,7 +981,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used to determine the gene activity score and phenotype type to retrieve prescribing recommendations. "
+    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for uphased data and the lowest activity value per allele are used for phased data to determine the gene activity score and phenotype type to retrieve prescribing recommendations. "
   },
   {
     "rule_name": "pcat-cyp2d6-gene-note",

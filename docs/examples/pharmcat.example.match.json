@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Apr 26, 2023, 5:35:28 PM",
+    "timestamp": "May 1, 2023, 11:56:10 AM",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -98,8 +98,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -205,8 +204,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -756,8 +754,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -1403,8 +1400,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -1894,8 +1890,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -2944,8 +2939,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -3411,8 +3405,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -3554,8 +3547,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -3697,8 +3689,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -4776,8 +4767,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -6911,8 +6901,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": [
@@ -7008,8 +6997,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -7295,8 +7283,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -7906,8 +7893,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -8361,8 +8347,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -8960,8 +8945,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -9091,8 +9075,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -9186,8 +9169,7 @@
         "mismatchedAlleles": [],
         "phased": false,
         "homozygous": true,
-        "effectivelyPhased": true,
-        "hasNovelAllele": false
+        "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
