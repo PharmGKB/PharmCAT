@@ -317,7 +317,7 @@ public class DiplotypeMatcher {
       String a1 = m_dataset.getAllele(sequence1, x);
       String a2 = m_dataset.getAllele(sequence2, x);
       SampleAllele sampleAllele = m_dataset.getSampleAllele(m_dataset.getPositions()[x].getPosition());
-      if (sampleAllele.getAllele1().equals(sampleAllele.getAllele2())) {
+      if (sampleAllele.isHomozygous()) {
         // expecting homozygous
         if (!a1.equals(a2)) {
           return false;

@@ -42,7 +42,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -103,7 +103,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -942,7 +942,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [
@@ -1744,7 +1744,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [
@@ -2447,7 +2447,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -4112,7 +4112,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [
@@ -4843,7 +4843,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -4994,7 +4994,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -5059,7 +5059,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -6673,7 +6673,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -10121,7 +10121,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -10345,7 +10345,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -10760,7 +10760,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [
@@ -11710,7 +11710,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -12365,7 +12365,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -13251,7 +13251,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [
@@ -13640,7 +13640,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [
@@ -13683,7 +13683,7 @@
             ]
           }
         ],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [

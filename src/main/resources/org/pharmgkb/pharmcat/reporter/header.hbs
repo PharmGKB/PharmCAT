@@ -167,8 +167,13 @@
       vertical-align: top;
     }
 
-    .missingVariantsNote {
+    p.tdNote {
       margin-top: 1.2em;
+      margin-bottom: 0;
+      font-size: 0.9em;
+    }
+    p.tdNote + p.tdNote {
+      margin-top: 1em;
       margin-bottom: 0;
       font-size: 0.9em;
     }
@@ -215,6 +220,10 @@
       border-color: #bce8f1;
       color: #3a87ad;
     }
+    .alert-secondary {
+      background-color: #f6f6f6;
+      border-color: rgba(62, 76, 108, 0.1);
+    }
     .alert-warning {
       background-color: #fcf8e3;
       border-color: #faebcc;
@@ -255,9 +264,18 @@
       margin-top: 0;
     }
     .mt-1 {
-      margin-top: 1em;
+      margin-top: 0.5em;
     }
-    
+    .mb-0 {
+      margin-bottom: 0;
+    }
+    .mb-1 {
+      margin-bottom: 0.5em;
+    }
+    .mb-2 {
+      margin-bottom: 1em;
+    }
+
     div.callMessage {
       font-style: italic;
       font-weight: normal;

@@ -93,8 +93,8 @@ public class ReportHelpers {
 
   public static String variantAlleles(VariantReport variantReport) {
     String cellStyle = variantReport.isNonwildtype() ? "nonwild" : "";
-    String mismatch = variantReport.isMismatch() ? "<div class=\"callMessage\">Mismatch: Called allele does not match allele definitions</div>" : "";
-    if (variantReport.isMismatch()) {
+    String mismatch = variantReport.isHasUndocumentedVariations() ? "<div class=\"callMessage\">Undocumented variation</div>" : "";
+    if (variantReport.isHasUndocumentedVariations()) {
       cellStyle = StringUtils.strip(cellStyle + " mismatch");
     }
     String call = formatCall(variantReport.getCall());
@@ -292,7 +292,7 @@ public class ReportHelpers {
     return false;
   }
 
-  public static String amdCompactNoDataMessage(Collection<String> compactNoDataGenes) {
+  public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {
     return "<p class=\"noGeneData\">No data provided for " +
         compactNoDataGenes.stream()
             .map((g) -> "<span class=\"gene " + g.toLowerCase() + "\"><span class=\"no-data\">" + g + "</span></span>")

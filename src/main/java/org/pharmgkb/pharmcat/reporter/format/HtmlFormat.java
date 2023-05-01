@@ -6,7 +6,17 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
@@ -25,7 +35,6 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
@@ -106,15 +115,17 @@ public class HtmlFormat extends AbstractFormat {
 
 
     // Section I: Genotype Summary
-    Set<String> totalGenes = new HashSet<>();
-    Set<String> calledGenes = new HashSet<>();
+    SortedSet<String> totalGenes = new TreeSet<>();
+    SortedSet<String> calledGenes = new TreeSet<>();
+    SortedSet<String> noDataGenes = new TreeSet<>();
+    SortedSet<String> uncallableGenes = new TreeSet<>();
     boolean hasCombo = false;
     boolean hasMessages = false;
     boolean hasMissingVariants = false;
     boolean hasUnphasedNote = false;
+    boolean hasUndocumentedVariationsAsReference = false;
 
     SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
-    SortedSet<String> compactNoDataGenes = new TreeSet<>();
     for (DataSource source : reportContext.getGeneReports().keySet()) {
       if (!m_sources.contains(source)) {
         continue;
@@ -130,20 +141,21 @@ public class HtmlFormat extends AbstractFormat {
           geneReportMap.put(symbol, geneReport);
         }
 
-        // skip any uncalled genes
-        boolean allVariantsMissing = geneReport.getVariantReports().stream().allMatch(VariantReport::isMissing);
-        if ((!geneReport.isCalled() || allVariantsMissing) && (geneReport.getRecommendationDiplotypes().isEmpty())) {
+        if (geneReport.isNoData()) {
+          noDataGenes.add(symbol);
           continue;
         }
+
+        // skip gene reports that aren't related to any drugs
         if (geneReport.getRelatedDrugs().size() == 0) {
           continue;
         }
 
+        if (m_compact) {
+          geneReportMap.put(symbol, geneReport);
+        }
         if (geneReport.isReportable()) {
           calledGenes.add(symbol);
-          if (m_compact) {
-            geneReportMap.put(symbol, geneReport);
-          }
 
           if (geneReport.isMissingVariants()) {
             hasMissingVariants = true;
@@ -152,12 +164,8 @@ public class HtmlFormat extends AbstractFormat {
               .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
           hasMessages = hasMessages || hasMessages(geneReport);
           hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
-        } else if (m_compact) {
-          if (allVariantsMissing) {
-            compactNoDataGenes.add(symbol);
-          } else {
-            geneReportMap.put(symbol, geneReport);
-          }
+        } else {
+          uncallableGenes.add(symbol);
         }
       }
     }
@@ -166,6 +174,9 @@ public class HtmlFormat extends AbstractFormat {
     List<Map<String, Object>> summaries = new ArrayList<>();
     List<GeneReport> geneReports = new ArrayList<>();
     for (String symbol : genes) {
+      if (noDataGenes.contains(symbol)) {
+        continue;
+      }
       SortedSet<GeneReport> reports = geneReportMap.get(symbol);
       if (reports.size() > 2) {
         throw new IllegalStateException("More than 2 gene reports for " + symbol);
@@ -173,28 +184,33 @@ public class HtmlFormat extends AbstractFormat {
       if (reports.stream().noneMatch(GeneReport::isReportable)) {
         // add to gene reports to show in Section III
         // if (a) extended mode or (b) cannot be called but has VCF data
-        if (!m_compact || !reports.first().isNoData()) {
+        if (!m_compact) {
           geneReports.add(reports.first());
         }
         continue;
+      }
+      if (reports.first().isTreatUndocumentedVariationsAsReference()) {
+        hasUndocumentedVariationsAsReference = true;
       }
       summaries.add(buildGenotypeSummary(symbol, reports));
       geneReports.add(reports.first());
     }
     result.put("genes", genes);
+    result.put("noDataGenes", noDataGenes);
+    result.put("uncallableGenes", uncallableGenes);
     result.put("summaries", summaries);
     result.put("totalGenes", totalGenes.size());
     result.put("calledGenes", calledGenes.size());
     result.put("hasCombo", hasCombo);
     result.put("hasMessages", hasMessages);
     result.put("hasMissingVariants", hasMissingVariants);
+    result.put("hasUndocumentedVariationsAsReference", hasUndocumentedVariationsAsReference);
     result.put("hasUnphasedNote", hasUnphasedNote);
     result.put("summaryMessages", reportContext.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
         .toList());
     // Section III
     result.put("geneReports", geneReports);
-    result.put("compactNoDataGenes", compactNoDataGenes);
 
     // Section II: Prescribing Recommendations
     SortedMap<String, Map<DataSource, DrugReport>> drugReports = new TreeMap<>();
@@ -257,6 +273,8 @@ public class HtmlFormat extends AbstractFormat {
         }
         summary.put("hasMissingVariants", report.isMissingVariants());
         summary.put("showUnphasedNote", showUnphasedNote(report));
+        summary.put("hasUndocumentedVariants", report.isHasUndocumentedVariations());
+        summary.put("treatUndocumentedVariationsAsReference", report.isTreatUndocumentedVariationsAsReference());
         summary.put("geneReport", report);
 
       } else {

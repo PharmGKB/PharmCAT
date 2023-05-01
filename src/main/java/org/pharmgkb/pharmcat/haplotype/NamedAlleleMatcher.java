@@ -41,6 +41,14 @@ import org.pharmgkb.pharmcat.util.DataManager;
  */
 public class NamedAlleleMatcher {
   public static final String VERSION = "2.0.0";
+  public static final List<String> TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE = List.of(
+      "CACNA1S",
+      "G6PD",
+      "NUDT15",
+      "RYR1",
+      "TPMT"
+  );
+
   private final DefinitionReader m_definitionReader;
   private final boolean m_findCombinations;
   private final boolean m_topCandidateOnly;
@@ -167,7 +175,7 @@ public class NamedAlleleMatcher {
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
   public Result call(VcfFile vcfFile, @Nullable String sampleId) throws IOException {
-    VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId);
+    VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId, m_findCombinations);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
         .forFile(vcfFile, vcfReader.getWarnings().asMap());
@@ -383,7 +391,6 @@ public class NamedAlleleMatcher {
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
-    data.checkAlleles();
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }

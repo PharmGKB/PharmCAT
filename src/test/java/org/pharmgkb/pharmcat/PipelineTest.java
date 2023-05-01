@@ -173,19 +173,69 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("ivacaftor", 0);
   }
 
-  /**
-   * Tests what happens when an unexpected alt allele is specified
-   */
+
   @Test
-  void testRyr1UnmatchedAllele(TestInfo testInfo) throws Exception {
+  void testOneUndocumentedVariation(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
-        .variation("RYR1", "rs193922753", "G", "A");
-    testWrapper.execute(null);
+        .variation("CYP2C19", "rs3758581", "G", "T");
+    Path vcfFile = testWrapper.execute(null);
 
-    testWrapper.testNotCalledByMatcher("RYR1");
+    testWrapper.testNotCalledByMatcher("CYP2C19");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("s1-uncallable-CYP2C19"));
   }
+
+  @Test
+  void testOneUndocumentedVariationExtended(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+        .extendedReport();
+    testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
+        .variation("CYP2C19", "rs3758581", "G", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CYP2C19");
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("s1-uncallable-CYP2C19"));
+  }
+
+  @Test
+  void testTwoUndocumentedVariationsWithOneTreatAsReference(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
+        .variation("RYR1", "rs193922753", "G", "A")
+        .variation("CYP2C19", "rs3758581", "G", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("RYR1");
+    testWrapper.testNotCalledByMatcher("CYP2C19");
+
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNotNull(document.getElementById("s1-undocVarAsRef-RYR1"));
+    assertNotNull(document.getElementById("s1-uncallable-CYP2C19"));
+  }
+
+  @Test
+  void testTwoUndocumentedVariationsWithCombo(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
+        .variation("RYR1", "rs193922753", "G", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("RYR1");
+
+    Path reporterOutput = vcfFile.getParent().resolve(BaseConfig.getBaseFilename(vcfFile) + BaseConfig.REPORTER_SUFFIX + ".html");
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    assertNull(document.getElementById("s1-undocVarAsRef-RYR1"));
+  }
+
 
   /**
    * Tests how PharmCAT handles that state when sample VCF data exists for a gene and an outside call also exists for

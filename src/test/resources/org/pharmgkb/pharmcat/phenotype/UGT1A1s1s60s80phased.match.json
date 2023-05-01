@@ -41,7 +41,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "Reference",
@@ -492,7 +492,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "ivacaftor non-responsive CFTR sequence",
@@ -936,7 +936,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -1343,7 +1343,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -2137,7 +2137,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*70",
@@ -2314,7 +2314,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -2364,7 +2364,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -3299,7 +3299,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "c.1777G\u003eA",
@@ -3412,7 +3412,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "rs12979860 variant (T)",
@@ -3642,7 +3642,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -4165,7 +4165,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "c.7360C\u003eT",
@@ -4552,7 +4552,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*30",
@@ -5081,7 +5081,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -5196,7 +5196,7 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -5225,7 +5225,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "rs9923231 variant (T)",

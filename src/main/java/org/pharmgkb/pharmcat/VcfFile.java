@@ -83,10 +83,10 @@ public class VcfFile {
   }
 
 
-  public VcfReader getReader(DefinitionReader definitionReader, @Nullable String sampleId)
+  public VcfReader getReader(DefinitionReader definitionReader, @Nullable String sampleId, boolean findCombinations)
       throws IOException {
     try (BufferedReader reader = open()) {
-      return new VcfReader(definitionReader, reader, sampleId);
+      return new VcfReader(definitionReader, reader, sampleId, findCombinations);
     }
   }
 

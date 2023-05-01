@@ -54,8 +54,8 @@ public class VariantReport implements Comparable<VariantReport> {
   @SerializedName("wildtypeAllele")
   private String m_wildtypeAllele;
   @Expose
-  @SerializedName("mismatch")
-  private boolean m_mismatch;
+  @SerializedName("hasUndocumentedVariations")
+  private boolean m_hasUndocumentedVariations;
   @Expose
   @SerializedName("warnings")
   private Set<String> m_warnings = new TreeSet<>();
@@ -151,12 +151,12 @@ public class VariantReport implements Comparable<VariantReport> {
     return StringUtils.isBlank(m_call);
   }
   
-  public boolean isMismatch() {
-    return m_mismatch;
+  public boolean isHasUndocumentedVariations() {
+    return m_hasUndocumentedVariations;
   }
   
-  public void setMismatch(boolean mismatch) {
-    m_mismatch = mismatch;
+  public void setHasUndocumentedVariations(boolean hasUndocumentedVariations) {
+    m_hasUndocumentedVariations = hasUndocumentedVariations;
   }
 
   public Set<String> getWarnings() {

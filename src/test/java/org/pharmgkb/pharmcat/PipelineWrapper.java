@@ -72,8 +72,9 @@ class PipelineWrapper {
     m_topCandidatesOnly = !allMatches;
   }
 
-  void setCompactReport(boolean compactReport) {
-    m_compactReport = compactReport;
+  PipelineWrapper extendedReport() {
+    m_compactReport = false;
+    return this;
   }
 
   ReportContext getContext() {

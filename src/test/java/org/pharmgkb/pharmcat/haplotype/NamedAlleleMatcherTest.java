@@ -185,7 +185,7 @@ class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader(jsonFile, null);
 
     VcfFile vcfFile = new VcfFile(vcfPath, false);
-    VcfReader vcfReader = vcfFile.getReader(definitionReader, sampleId);
+    VcfReader vcfReader = vcfFile.getReader(definitionReader, sampleId, false);
 
     // grab SampleAlleles for all positions related to current gene
     MatchData data = new MatchData(sampleId, gene, vcfReader.getAlleleMap(), definitionReader.getPositions(gene), null, null);

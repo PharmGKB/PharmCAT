@@ -61,9 +61,9 @@ public class CombinationUtil {
         .append(allele.getPosition())
         .append(":");
     if (firstAllele) {
-      sb.append(allele.getAllele1());
+      sb.append(allele.getComputedAllele1());
     } else {
-      sb.append(allele.getAllele2());
+      sb.append(allele.getComputedAllele2());
     }
     sb.append(";");
     return sb.toString();

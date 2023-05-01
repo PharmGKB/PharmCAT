@@ -36,8 +36,11 @@ public class MatchData {
   private final Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
-  @SerializedName("mismatchedAlleles")
-  private final SortedSet<VariantLocus> m_mismatchedAlleles = new TreeSet<>();
+  @SerializedName("positionsWithUndocumentedVariations")
+  private final SortedSet<VariantLocus> m_positionsWithUndocumentedVariations = new TreeSet<>();
+  @Expose
+  @SerializedName("treatUndocumentedVariationsAsReference")
+  private boolean m_treatUndocumentedVariationsAsReference;
   private SortedSet<NamedAllele> m_haplotypes;
   private Set<String> m_permutations;
   @Expose
@@ -49,7 +52,6 @@ public class MatchData {
   @Expose
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
-  private boolean m_hasNovelAllele;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
 
 
@@ -82,8 +84,11 @@ public class MatchData {
       if (m_ignoredPositions.contains(variant)) {
         continue;
       }
-      if (allele.getNovelAlleles().size() > 0) {
-        m_hasNovelAllele = true;
+      if (allele.getUndocumentedVariations().size() > 0) {
+        m_positionsWithUndocumentedVariations.add(variant);
+        if (allele.isTreatUndocumentedVariationsAsReference()) {
+          m_treatUndocumentedVariationsAsReference = true;
+        }
       }
       positions.add(variant);
       m_sampleMap.put(variant.getPosition(), allele);
@@ -102,21 +107,7 @@ public class MatchData {
     m_isHaploid = m_sampleMap.values().stream().allMatch(sa -> sa.getAllele2() == null);
     m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
     m_isHomozygous = m_isHaploid ||
-        m_sampleMap.values().stream().allMatch(sa -> sa.getAllele1().equals(sa.getAllele2()));
-  }
-
-
-  void checkAlleles() {
-
-    for (VariantLocus variantLocus : m_positions) {
-      SampleAllele sampleAllele = m_sampleMap.get(variantLocus.getPosition());
-      if (sampleAllele != null) {
-        if (!variantLocus.hasVcfAllele(sampleAllele.getAllele1()) ||
-            (sampleAllele.getAllele2() != null && !variantLocus.hasVcfAllele(sampleAllele.getAllele2()))) {
-          m_mismatchedAlleles.add(variantLocus);
-        }
-      }
-    }
+        m_sampleMap.values().stream().allMatch(SampleAllele::isHomozygous);
   }
 
 
@@ -305,13 +296,17 @@ public class MatchData {
   }
 
   /**
-   * Gets the positions that are mismatched from any allele defined for the given gene (i.e. at given position, no
-   * alleles in VCF match what we expect to see).
+   * Gets the positions that have variations that are not documented in the allele definition (i.e. any ALT alleles in
+   * VCF that do not match what we expect to see).
    *
-   * @return a Set of {@link VariantLocus} objects with mismatched alleles
+   * @return a Set of {@link VariantLocus} objects with undocumented variations
    */
-  public Set<VariantLocus> getMismatchedPositions() {
-    return m_mismatchedAlleles;
+  public Set<VariantLocus> getPositionsWithUndocumentedVariations() {
+    return m_positionsWithUndocumentedVariations;
+  }
+
+  public boolean isTreatUndocumentedVariationsAsReference() {
+    return m_treatUndocumentedVariationsAsReference;
   }
 
   /**
@@ -351,11 +346,6 @@ public class MatchData {
       seqMap.put(idx, allele);
     }
     return allele;
-  }
-
-
-  public boolean hasNovelAllele() {
-    return m_hasNovelAllele;
   }
 
 

@@ -612,7 +612,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "2789+5G-\u003eA",
@@ -1060,7 +1060,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -1701,7 +1701,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*30",
@@ -1864,7 +1864,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -1913,7 +1913,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -2475,7 +2475,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "c.703C\u003eT",
@@ -2515,7 +2515,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "rs12979860C",
@@ -2854,7 +2854,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*30",
@@ -3256,7 +3256,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "*1",
@@ -3643,7 +3643,7 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": []
@@ -3671,7 +3671,7 @@
             "referenceRepeat": null
           }
         ],
-        "mismatchedAlleles": []
+        "positionsWithUndocumentedVariations": []
       },
       "uncallableHaplotypes": [
         "-1639G",

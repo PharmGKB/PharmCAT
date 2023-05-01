@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--[if lt IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 <header class="pageHeader">
   <div class="title">
@@ -40,7 +40,7 @@
     <div class="alert alert-info">
       <em>Disclaimer:</em> PharmCAT is only able to generate recommendations based on the information provided to the
       software. The gene and variant information for all reported sections are interpreted directly from user-supplied data.
-      The user recognizes they are using PharmCAT at their own risk. For a detailed disclaimer see
+      The user recognizes they are using PharmCAT at their own risk. For a full list of disclaimers and limitations see
       <a href="#disclaimer">Section IV</a>.
     </div>
   </section>
@@ -49,9 +49,20 @@
   <section id="section-i">
     <h2>Section I: Genotype Summary</h2>
 
-    <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
-
+    {{#unless (thereAre summaries)}}
+      <p>
+        No genotypes called.
+      </p>
+      {{#if (thereAre uncallableGenes)}}
+        {{> uncallableGenesNote }}
+      {{/if}}
+      <p>
+        See <a href="#section-iii">Section III</a> for details.  For a full list of disclaimers and limitations see <a href="#disclaimer">Section IV</a>.
+      </p>
+    {{/unless}}
     {{#if (thereAre summaries) }}
+      <p>Genotypes called: {{calledGenes}} / {{totalGenes}} </p>
+
       <table class="genotypeSummary">
         <thead>
         <tr>
@@ -117,8 +128,15 @@
                 </tbody>
               </table>
               {{#if hasMissingVariants}}
-                <p class="missingVariantsNote">
+                <p class="tdNote">
                   Genotype{{#if (moreThanOne diplotypes) }}s{{/if}} based on missing variant input <sup><a href="#genotypes-star">*</a></sup>.
+                </p>
+              {{/if}}
+              {{#if treatUndocumentedVariationsAsReference}}
+                <p class="tdNote" id="s1-undocVarAsRef-{{symbol}}">
+                  There are genetic variations in this gene that do not match what is in the allele definition.
+                  <b>These undocumented variations were replaced with reference.</b>
+                  See <a href="#{{symbol}}">Section III</a> for details.
                 </p>
               {{/if}}
             </td>
@@ -126,6 +144,16 @@
         {{/each}}
         </tbody>
       </table>
+
+      {{#if (thereAre uncallableGenes)}}
+        <div class="alert alert-secondary">
+          {{> uncallableGenesNote }}
+          <p class="mb-1">
+            See <a href="#section-iii">Section III</a> for details.
+          </p>
+        </div>
+      {{/if}}
+
       {{#if hasMissingVariants}}
         <div class="footnote" id="genotypes-star">
           <sup>*</sup> Some alleles were not considered for the genotype calls due to missing variant information.
@@ -145,7 +173,7 @@
         </div>
       {{/if}}
       <div class="footnote">
-        For a full list of disclaimers and limitations see the <a href="#disclaimer">Section IV</a>.
+        For a full list of disclaimers and limitations see <a href="#disclaimer">Section IV</a>.
       </div>
 
       {{#if hasCombo}}
@@ -158,13 +186,6 @@
       {{#each summaryMessages}}
         <div class="alert alert-info {{messageClass this}}">{{message}}</div>
       {{/each}}
-    {{else}}
-      <p>
-        No genotypes called.  See <a href="#section-iii">Section III</a> for details.
-      </p>
-      <p>
-        For a full list of disclaimers and limitations see the <a href="#disclaimer">Section IV</a>.
-      </p>
     {{/if}}
   </section>
 
@@ -172,6 +193,11 @@
   <section id="section-ii">
     <h2>Section II: Prescribing Recommendations</h2>
 
+    {{#unless (thereAre recommendations)}}
+      <p>
+        No recommendations.
+      </p>
+    {{/unless}}
     {{#each recommendations}}
       <section class="guideline {{drug}}">
         <h3 id="{{drug}}">{{drug}}</h3>
@@ -309,13 +335,15 @@
   <section id="section-iii">
     <h2>Section III: Allele Matching Details</h2>
 
-    <ol>
-      {{#each geneReports}}
-        <li><a href="#{{geneDisplay}}">{{geneDisplay}} allele match data</a></li>
-      {{/each}}
-    </ol>
-    {{#if (thereAre compactNoDataGenes) }}
-      {{{amdCompactNoDataMessage compactNoDataGenes}}}
+    {{#if (thereAre geneReports)}}
+      <ol>
+        {{#each geneReports}}
+          <li><a href="#{{geneDisplay}}">{{geneDisplay}} allele match data</a></li>
+        {{/each}}
+      </ol>
+    {{/if}}
+    {{#if (thereAre noDataGenes) }}
+      {{{amdNoDataMessage noDataGenes}}}
     {{/if}}
 
 
@@ -341,6 +369,13 @@
                       <li>{{this}}</li>
                     {{/each}}
                   </ul>
+                {{/if}}
+
+                {{#if treatUndocumentedVariationsAsReference}}
+                  <p class="tdNote">
+                    There are genetic variations in this gene that do not match what is in the allele definition.
+                    <b>These undocumented variations were replaced with reference.</b>  See below for details.
+                  </p>
                 {{/if}}
               </td>
             </tr>

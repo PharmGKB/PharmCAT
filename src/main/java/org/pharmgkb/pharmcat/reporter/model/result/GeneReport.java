@@ -115,6 +115,13 @@ public class GeneReport implements Comparable<GeneReport> {
   @SerializedName("variantsOfInterest")
   private final List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
 
+  @Expose
+  @SerializedName("hasUndocumentedVariations")
+  private final boolean m_hasUndocumentedVariations;
+  @Expose
+  @SerializedName("treatUndocumentedVariationsAsReference")
+  private final boolean m_treatUndocumentedVariationsAsReference;
+
   // used to cache message names
   private transient final List<String> m_messageKeys = new ArrayList<>();
 
@@ -123,6 +130,8 @@ public class GeneReport implements Comparable<GeneReport> {
    * Private constructor for GSON so it doesn't blow away transient properties.
    */
   private GeneReport() {
+    m_hasUndocumentedVariations = false;
+    m_treatUndocumentedVariationsAsReference = false;
   }
 
 
@@ -156,10 +165,12 @@ public class GeneReport implements Comparable<GeneReport> {
         .map(variantReportFactory::make)
         .forEach(m_variantOfInterestReports::add);
 
-    // set the flag in reports for the variants with mismatched alleles
-    call.getMatchData().getMismatchedPositions().stream()
+    // set the flag in reports for the variants with undocumented variations
+    call.getMatchData().getPositionsWithUndocumentedVariations().stream()
         .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
-        .forEach(r -> r.setMismatch(true));
+        .forEach(r -> r.setHasUndocumentedVariations(true));
+    m_hasUndocumentedVariations = call.getMatchData().getPositionsWithUndocumentedVariations().size() > 0;
+    m_treatUndocumentedVariationsAsReference = call.getMatchData().isTreatUndocumentedVariationsAsReference();
 
     if (call.getHaplotypes().stream()
         .anyMatch(Objects::isNull)) {
@@ -208,6 +219,8 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.OUTSIDE;
+    m_hasUndocumentedVariations = false;
+    m_treatUndocumentedVariationsAsReference = false;
 
     addOutsideCall(call, env);
     addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_OUTSIDE_CALL));
@@ -239,6 +252,9 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.NONE;
+    m_hasUndocumentedVariations = false;
+    m_treatUndocumentedVariationsAsReference = false;
+
     Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env, phenotypeSource);
     m_sourceDiplotypes.add(unknownDiplotype);
     m_recommendationDiplotypes.add(unknownDiplotype);
@@ -259,6 +275,8 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = phenotypeVersion;
     m_callSource = CallSource.NONE;
+    m_hasUndocumentedVariations = false;
+    m_treatUndocumentedVariationsAsReference = false;
   }
 
   /**
@@ -377,6 +395,16 @@ public class GeneReport implements Comparable<GeneReport> {
   public List<VariantReport> getVariantOfInterestReports() {
     return m_variantOfInterestReports;
   }
+
+
+  public boolean isHasUndocumentedVariations() {
+    return m_hasUndocumentedVariations;
+  }
+
+  public boolean isTreatUndocumentedVariationsAsReference() {
+    return m_treatUndocumentedVariationsAsReference;
+  }
+
 
   /**
    * Gets the Set of Haplotypes the matcher could not evaluate

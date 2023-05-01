@@ -1,0 +1,9 @@
+<p>
+  The following {{pluralize "gene" uncallableGenes}} could not be called because there were
+  genetic variations that do not match the allele definition:
+</p>
+<ul class="mb-2">
+  {{#each uncallableGenes}}
+    <li><a id="s1-uncallable-{{this}}" href="#{{this}}">{{this}}</a></li>
+  {{/each}}
+</ul>

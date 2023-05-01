@@ -103,7 +103,7 @@ class NamedAlleleMatcherCyp2c9Test {
     System.out.println(call.getDiplotypes());
     assertEquals(0, call.getDiplotypes().size());
     assertEquals(0, call.getMatchData().getMissingPositions().size());
-    assertEquals(0, call.getMatchData().getMismatchedPositions().size());
+    assertEquals(0, call.getMatchData().getPositionsWithUndocumentedVariations().size());
   }
 
 

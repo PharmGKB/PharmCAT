@@ -53,6 +53,7 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeIndel = "PCATxINDEL";
   private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   private final ImmutableMap<String, String> m_locationsByGene;
+  private final boolean m_findCombinations;
   private final boolean m_useSpecificSample;
   private String m_sampleId;
   private int m_sampleIdx = -1;
@@ -66,39 +67,31 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.
-   * Reads in VCF file and pull the (first) sample's alleles for positions of interest.
-   */
-  public VcfReader(DefinitionReader definitionReader, Path vcfFile) throws IOException {
-    this(definitionReader, vcfFile, null);
-  }
-
-  /**
-   * Constructor.
    * Reads in VCF file and pull the sample's alleles for positions of interest.
    */
-  public VcfReader(DefinitionReader definitionReader, Path vcfFile, @Nullable String sampleId)
-      throws IOException {
+  public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader, @Nullable String sampleId,
+      boolean findCombinations) throws IOException {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
     m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = sampleId;
     m_useSpecificSample = m_sampleId != null;
-    read(vcfFile);
-  }
-
-
-  /**
-   * Constructor.
-   * Reads in VCF file and pull the sample's alleles for positions of interest.
-   */
-  public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader,
-      @Nullable String sampleId) throws IOException {
-    m_locationsOfInterest = definitionReader.getLocationsOfInterest();
-    m_locationsByGene = definitionReader.getLocationsByGene();
-    m_sampleId = sampleId;
-    m_useSpecificSample = m_sampleId != null;
+    m_findCombinations = findCombinations;
     read(vcfReader);
   }
 
+
+  /**
+   * Constructor.  Primarily used for testing.
+   * Reads in VCF file and pull the (first) sample's alleles for positions of interest.
+   */
+  public VcfReader(DefinitionReader definitionReader, Path vcfFile) throws IOException {
+    m_locationsOfInterest = definitionReader.getLocationsOfInterest();
+    m_locationsByGene = definitionReader.getLocationsByGene();
+    m_sampleId = null;
+    m_useSpecificSample = false;
+    m_findCombinations = false;
+    read(vcfFile);
+  }
 
   /**
    * Constructor.  Primarily for testing.
@@ -109,6 +102,7 @@ public class VcfReader implements VcfLineParser {
     m_locationsByGene = null;
     m_sampleId = null;
     m_useSpecificSample = false;
+    m_findCombinations = false;
     read(vcfFile);
   }
 
@@ -218,7 +212,7 @@ public class VcfReader implements VcfLineParser {
 
     String gt = sampleData.get(m_sampleIdx).getProperty("GT");
     VariantLocus varLoc;
-    Set<String> novelAlleles = new HashSet<>();
+    Set<String> undocumentedVariations = new HashSet<>();
     if (m_locationsOfInterest != null) {
       varLoc = m_locationsOfInterest.get(chrPos);
       if (varLoc == null) {
@@ -262,14 +256,22 @@ public class VcfReader implements VcfLineParser {
           if (gtCalls.contains(x + 1)) {
             String alt = altBases.get(x);
             if (!varLoc.getAlts().contains(alt)) {
-              novelAlleles.add(alt);
+              undocumentedVariations.add(alt);
             }
           }
         }
-        if (novelAlleles.size() > 0) {
-          addWarning(chrPos, "Genotype at this position has novel bases (expected " +
-              String.join("/", varLoc.getAlts()) + ", found " +
-              String.join("/", novelAlleles) + " in VCF)");
+        if (undocumentedVariations.size() > 0) {
+          StringBuilder msgBuilder = new StringBuilder()
+              .append("The genetic variation at this position does not match what is in the allele definition " +
+                  "(expected ")
+              .append(String.join("/", varLoc.getAlts()))
+              .append(", found ")
+              .append(String.join("/", undocumentedVariations))
+              .append(" in VCF)");
+          if (treatAsReference(chrPos)) {
+            msgBuilder.append(".  Undocumented variations will be replaced with reference.");
+          }
+          addWarning(chrPos, msgBuilder.toString());
         } else if (position.getFilters().contains(sf_filterCodeAlt) && sampleData.size() == 1) {
           addWarning(chrPos, "PharmCAT preprocessor detected ALT mismatch (filter " + sf_filterCodeAlt +
               ") but this does not match current data (expected " + String.join("/", varLoc.getAlts()) +
@@ -286,7 +288,7 @@ public class VcfReader implements VcfLineParser {
         return;
       }
       if (position.getFilters().contains(sf_filterCodeAlt)) {
-        addWarning(chrPos, "Genotype at this position has novel bases");
+        addWarning(chrPos, "The genetic variation at this position does not match what is in the allele definition");
       }
       if (position.getFilters().contains(sf_filterCodeIndel)) {
         addWarning(chrPos, "Genotype at this position uses unexpected format for INDEL");
@@ -421,9 +423,16 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.add(position.getRef());
     vcfAlleles.addAll(position.getAltBases());
 
+    boolean treatUndocumentedAsReference = m_locationsByGene != null && treatAsReference(chrPos);
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
-        isEffectivelyPhased, vcfAlleles, novelAlleles);
+        isEffectivelyPhased, vcfAlleles, undocumentedVariations, treatUndocumentedAsReference);
     m_alleleMap.put(chrPos, sampleAllele);
+  }
+
+
+  private boolean treatAsReference(String chrPos) {
+    return !m_findCombinations &&
+        NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(m_locationsByGene.get(chrPos));
   }
 
 

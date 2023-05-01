@@ -100,7 +100,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94938828"));
     assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
-    assertEquals("Genotype at this position has novel bases (expected G, found T in VCF)",
+    assertEquals("The genetic variation at this position does not match what is in the allele definition (expected G, found T in VCF)",
         reader.getWarnings().get("chr10:94938828").iterator().next());
 
     assertNotNull(reader.getWarnings().get("chr10:94938683"));
@@ -171,7 +171,7 @@ class VcfReaderTest {
     assertNotNull(reader.getWarnings().get("chr10:94938828"));
     assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
     assertTrue(reader.getWarnings().get("chr10:94938828")
-        .contains("Genotype at this position has novel bases"));
+        .contains("The genetic variation at this position does not match what is in the allele definition"));
 
     assertNotNull(reader.getWarnings().get("chr10:94938683"));
     assertEquals(1, reader.getWarnings().get("chr10:94938683").size());
@@ -190,7 +190,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94941915"));
     assertEquals(1, reader.getWarnings().get("chr10:94941915").size());
-    assertEquals("Genotype at this position has novel bases",
+    assertEquals("The genetic variation at this position does not match what is in the allele definition",
         reader.getWarnings().get("chr10:94941915").iterator().next());
 
     assertNotNull(reader.getWarnings().get("chr10:94949281"));
