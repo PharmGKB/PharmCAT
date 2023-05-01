@@ -1,3 +1,34 @@
+## [2.4.0](https://github.com/PharmGKB/PharmCAT/compare/v2.3.0...v2.4.0) (2023-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to yarn 3.5
+
+### Features
+
+* update data for CPIC and PharmVar content ([8fe4173](https://github.com/PharmGKB/PharmCAT/commit/8fe41737457e8f755f844b4adff31baceb1b2b14))
+* update to latest CPIC/PharmVar data for CYP2D6 and SSRI/SNRIs ([ebaea81](https://github.com/PharmGKB/PharmCAT/commit/ebaea81c5d807866219e349f7a005130fdbe1ce5))
+
+
+### Bug Fixes
+
+* improve how DefinitionReader is instantiated ([8596063](https://github.com/PharmGKB/PharmCAT/commit/85960633a6887bb74d3a6d460a57b45f9fb3aee0))
+* standardize output order ([df675c2](https://github.com/PharmGKB/PharmCAT/commit/df675c21b7520ae9d5967010269f41f243129e29))
+* **data:** update messages ([2a371dc](https://github.com/PharmGKB/PharmCAT/commit/2a371dc41322b03fe6886b795caf53e1218e10bd))
+* **data:** update messages ([1b4dd8b](https://github.com/PharmGKB/PharmCAT/commit/1b4dd8bae56c3a977effbc2c1aabdfb0e980e442))
+* **namedallelematcher:** do not expose novelAllele ([cc93ed0](https://github.com/PharmGKB/PharmCAT/commit/cc93ed0b21ef81dafc58310b755d8818676db8cb))
+* **namedallelematcher:** fix null in toString ([cbf827a](https://github.com/PharmGKB/PharmCAT/commit/cbf827a4a4e115bccaf4dc5eb21842fd607a9d99))
+* **namedallelematcher:** track novel alleles for sample and fix erroneous novel allele error when novel allele occurs in different sample ([b079c54](https://github.com/PharmGKB/PharmCAT/commit/b079c542f0a0a394f7293725ec2a8d98cbbf48b8))
+* **report:** remove max-width from print style ([d5909e0](https://github.com/PharmGKB/PharmCAT/commit/d5909e0d5df7b03749d79c481eda816dbe8e9919)), closes [#129](https://github.com/PharmGKB/PharmCAT/issues/129)
+* **reporter:** handle missing gene report ([f9d7dba](https://github.com/PharmGKB/PharmCAT/commit/f9d7dba7892b0c44a8d521fa14b5d732ca6d8a7e))
+* **reporter:** show gene in section 3 if uncallable but has data ([264cb0e](https://github.com/PharmGKB/PharmCAT/commit/264cb0eae53b175a62c7b5207648af27d595c7f8))
+
+
+### Build System
+
+* update to yarn 3.5 ([7d0eeb1](https://github.com/PharmGKB/PharmCAT/commit/7d0eeb1f1400da38fab8b7b0b1560adbf45b4658))
+
 ## [2.3.0](https://github.com/PharmGKB/PharmCAT/compare/v2.2.3...v2.3.0) (2023-03-14)
 
 
