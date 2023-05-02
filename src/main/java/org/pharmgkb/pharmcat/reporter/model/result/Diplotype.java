@@ -85,7 +85,7 @@ public class Diplotype implements Comparable<Diplotype> {
   @SerializedName("label")
   private String m_label;
   @Expose
-  @SerializedName("observed")
+  @SerializedName("inferred")
   private boolean m_inferred = false;
   @Expose
   @SerializedName("combination")
