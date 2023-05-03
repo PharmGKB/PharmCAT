@@ -36,6 +36,12 @@ Second, go to the [PharmCAT repository](https://github.com/PharmGKB/PharmCAT), c
 
 PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule. For more information see our [Versioning documentation](/methods/Versioning).
 
+
+### Does PharmCAT transmit input data over the network or otherwise share input data?
+
+No, PharmCAT does not copy or transmit any user-input data (i.e. input VCFs or outside call data) off of the system that it's being run on.
+
+
 ## Running PharmCAT
 
 
