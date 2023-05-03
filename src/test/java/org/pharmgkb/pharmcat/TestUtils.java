@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 
@@ -71,8 +72,9 @@ public class TestUtils {
 
   private static Path getDefaultTestOutputDir() {
     Path outputDir;
-    if (System.getProperty("PHARMCAT_TEST_DIR") != null) {
-      outputDir = Paths.get(System.getProperty("PHARMCAT_TEST_DIR"));
+    String testDir = StringUtils.stripToNull(System.getenv("PHARMCAT_TEST_DIR"));
+    if (testDir != null) {
+      outputDir = Paths.get(testDir);
     } else {
       outputDir = Paths.get("out");
       if (!outputDir.isAbsolute()) {
