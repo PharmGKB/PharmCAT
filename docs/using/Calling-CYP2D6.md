@@ -10,7 +10,7 @@ PharmCAT supports CYP2D6 data with the following options, which are discussed in
 * use a different tool to determine CYP2D6 diplotypes and use PharmCAT to provide the translation into phenotypes and recommendations
 * run PharmCAT in research mode to call CYP2D6 from VCF files
 
-## CYP2D6 Complications
+## CYP2D6 complications
 ### Problems with calling CYP2D6 from VCF
 
 While PharmCAT supports CYP2D6, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of structural variation (SV) and copy number variation (CNV) on inferring CYP2D6 phenotype, which is beyond the scope of what can be called from SNPs or INDELs in a VCF file.
@@ -40,7 +40,7 @@ There is drastic variation in the calls produced by the three sequencing technol
 
 ## Working with CYP2D6 in PharmCAT
 
-### Using Outside Calls
+### Using outside calls
 
 PharmCAT supports pulling in results from other tools using what we call ["outside calls"](/using/Outside-Call-Format).  This allows you to select your preferred CYP2D6 caller and use PharmCAT for the phenotype translation and to include CYP2D6 results in a PharmCAT report.
 
