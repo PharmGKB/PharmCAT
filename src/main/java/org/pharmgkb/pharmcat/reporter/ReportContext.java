@@ -122,8 +122,10 @@ public class ReportContext {
       if (geneReport.getPhenotypeVersion() != null) {
         cpicVersions.add(geneReport.getPhenotypeVersion());
       }
-      if (geneReport.getAlleleDefinitionVersion() != null) {
-        cpicVersions.add(geneReport.getAlleleDefinitionVersion());
+      if (geneReport.getAlleleDefinitionSource() == DataSource.CPIC) {
+        if (geneReport.getAlleleDefinitionVersion() != null) {
+          cpicVersions.add(geneReport.getAlleleDefinitionVersion());
+        }
       }
     }
 
@@ -154,8 +156,11 @@ public class ReportContext {
       if (geneReport.getPhenotypeVersion() != null) {
         dpwgVersions.add(geneReport.getPhenotypeVersion());
       }
-      if (geneReport.getAlleleDefinitionVersion() != null) {
-        dpwgVersions.add(geneReport.getAlleleDefinitionVersion());
+      if (geneReport.getAlleleDefinitionSource() == DataSource.PHARMGKB ||
+          geneReport.getAlleleDefinitionSource() == DataSource.DPWG) {
+        if (geneReport.getAlleleDefinitionVersion() != null) {
+          dpwgVersions.add(geneReport.getAlleleDefinitionVersion());
+        }
       }
     }
 
