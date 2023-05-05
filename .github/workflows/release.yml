@@ -79,6 +79,25 @@ jobs:
           asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.vcf.bgz.csi
           overwrite: true
 
+      - name: Upload positions.uniallelic.vcf.bgz to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: pharmcat_positions.uniallelic.vcf.bgz
+          asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.uniallelic.vcf.bgz
+          overwrite: true
+
+      - name: Upload positions.uniallelic.vcf.bgz.csi to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: pharmcat_positions.uniallelic.vcf.bgz.csi
+          asset_name: pharmcat_positions_${{steps.appVersion.outputs.substring}}.uniallelic.vcf.bgz.csi
+          overwrite: true
+
+
       - name: Send Slack notification on failure
         if: failure()
         env:

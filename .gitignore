@@ -41,7 +41,6 @@ venv/
 # PharmCAT specific
 /docs/assets/
 /out/
-/pharmcat_positions.uniallelic.vcf.bgz*
 /testVcf/
 /tmp/
 log.txt

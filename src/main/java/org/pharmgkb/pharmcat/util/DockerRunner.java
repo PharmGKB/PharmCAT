@@ -71,9 +71,10 @@ public class DockerRunner {
    */
   public static void indexVcf(Path inFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
-    String toolCmd = "bcftools index data/" + PathUtils.getFilename(inFile);
+    String localPath = "data/" + PathUtils.getFilename(inFile);
 
-    runCmd(dockerCmd, toolCmd, inFile.getParent());
+    runCmd(dockerCmd, "python -c \"import preprocessor; from pathlib import Path; " +
+        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file)\"", inFile.getParent());
   }
 
 
