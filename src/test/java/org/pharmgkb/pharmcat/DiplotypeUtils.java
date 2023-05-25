@@ -8,7 +8,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
@@ -33,8 +33,8 @@ public class DiplotypeUtils {
     int left = 0;
     int right = 1;
 
-    String[] aHaps = a.split(Diplotype.DELIMITER);
-    String[] bHaps = b.split(Diplotype.DELIMITER);
+    String[] aHaps = a.split(TextConstants.GENOTYPE_DELIMITER);
+    String[] bHaps = b.split(TextConstants.GENOTYPE_DELIMITER);
 
     Set<String> finalLeft = new TreeSet<>(HaplotypeNameComparator.getComparator());
     Set<String> finalRight = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -54,7 +54,7 @@ public class DiplotypeUtils {
     String joined0 = String.join("+", finalLeft);
     String joined1 = String.join("+", finalRight);
 
-    return joined0+ Diplotype.DELIMITER +joined1;
+    return joined0+ TextConstants.GENOTYPE_DELIMITER +joined1;
   };
 
   /**
@@ -82,7 +82,7 @@ public class DiplotypeUtils {
     final Set<String> rightBucket = new TreeSet<>(HaplotypeNameComparator.getComparator());
 
     dips.forEach(d -> {
-      String[] haps = d.split(Diplotype.DELIMITER);
+      String[] haps = d.split(TextConstants.GENOTYPE_DELIMITER);
       if (!rightBucket.contains(haps[0])) {
         leftBucket.add(haps[0]);
         rightBucket.add(haps[1]);
@@ -97,6 +97,6 @@ public class DiplotypeUtils {
     Function<String,String> rightMapper = rightBucket.size() > 1 ? hapNameEncloser : Function.identity();
     String right = rightBucket.stream().map(rightMapper).collect(Collectors.joining("+"));
 
-    return left + Diplotype.DELIMITER + right;
+    return left + TextConstants.GENOTYPE_DELIMITER + right;
   }
 }

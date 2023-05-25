@@ -15,8 +15,10 @@ import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
+import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -183,7 +185,7 @@ class PhenotyperTest {
    */
   private void assertDiplotypeDisplay(Phenotyper phenotyper, String gene, String... calls) {
     GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, gene).orElseThrow(unfoundGene);
-    Collection<String> dips = geneReport.printDisplayCalls();
+    Collection<String> dips = ReportHelpers.amdGeneCalls(geneReport);
     assertEquals(calls.length, dips.size(),
         "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" +
             dips.size() + "): " + String.join(", ", dips));
@@ -220,6 +222,6 @@ class PhenotyperTest {
     GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, gene).orElseThrow(unfoundGene);
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
-        .anyMatch(d -> d.computeLookupMap().equals(lookup)));
+        .anyMatch(d -> DiplotypeTest.computeLookupMap(d).equals(lookup)));
   }
 }

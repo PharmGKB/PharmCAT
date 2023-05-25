@@ -12,7 +12,7 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
-import static org.pharmgkb.pharmcat.reporter.model.result.Diplotype.DELIMITER;
+import static org.pharmgkb.pharmcat.reporter.TextConstants.GENOTYPE_DELIMITER;
 
 
 /**
@@ -96,7 +96,7 @@ public class DosingGuideline {
       functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1()).orElse(TextConstants.UNKNOWN_FUNCTION));
       functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2()).orElse(TextConstants.UNKNOWN_FUNCTION));
       functions.sort(Comparator.naturalOrder());
-      functionKeys.add(diplotype.getGene() + ":" + String.join(DELIMITER, functions));
+      functionKeys.add(diplotype.getGene() + ":" + String.join(GENOTYPE_DELIMITER, functions));
     });
     return functionKeys;
   }

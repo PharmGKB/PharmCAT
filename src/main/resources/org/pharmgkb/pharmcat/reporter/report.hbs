@@ -84,12 +84,16 @@
         </thead>
         <tbody>
         {{#each summaries}}
-          <tr class="top-aligned">
+          <tr class="top-aligned gs-{{symbol}}">
             <td>
               {{#each relatedDrugs}}
-                {{#if (gsShowDrug this ../../drugs) }}
-                  <div class="drugName"><a href="#{{this}}">{{this}}</a></div>
-                {{/if}}
+                <div class="drugName">
+                  {{#if (contains ../../drugsWithRecommendations this) }}
+                    <a href="#{{{sanitizeCssSelector this}}}">{{this}}</a>
+                  {{else}}
+                    {{this}}
+                  {{/if}}
+                </div>
               {{/each}}
             </td>
             <td>
@@ -104,13 +108,13 @@
                 <tbody>
                 {{#if showComponents}}
                   {{#with diplotypes}}
-                    <tr class="leastFunctionDiplotype">
-                      <td colspan="3"><b>{{gsCall}}</b></td>
+                    <tr class="leastFunctionDiplotype gs-dip_leastFunction">
+                      <td colspan="3"><b>{{{gsCall}}}</b></td>
                     </tr>
                   {{/with}}
                   {{#each componentDiplotypes}}
-                    <tr class="top-aligned">
-                      <td>{{gsCall}}</td>
+                    <tr class="top-aligned gs-dip_component">
+                      <td>{{{gsCall}}}</td>
                       <td>{{gsFunction}}</td>
                       <td>{{gsPhenotype}}</td>
                     </tr>
@@ -118,8 +122,8 @@
                 {{else}}
                   <!-- standard diplotype -->
                   {{#each diplotypes}}
-                    <tr class="top-aligned">
-                      <td>{{gsCall}}</td>
+                    <tr class="top-aligned gs-dip">
+                      <td>{{{gsCall}}}</td>
                       <td>{{gsFunction}}</td>
                       <td>{{gsPhenotype}}</td>
                     </tr>
@@ -133,7 +137,7 @@
                 </p>
               {{/if}}
               {{#if treatUndocumentedVariationsAsReference}}
-                <p class="tdNote" id="s1-undocVarAsRef-{{symbol}}">
+                <p class="tdNote" id="gs-undocVarAsRef-{{symbol}}">
                   There are genetic variations in this gene that do not match what is in the allele definition.
                   <b>These undocumented variations were replaced with reference.</b>
                   See <a href="#{{symbol}}">Section III</a> for details.
@@ -197,138 +201,153 @@
       <p>
         No recommendations.
       </p>
-    {{/unless}}
-    {{#each recommendations}}
-      <section class="guideline {{drug}}">
-        <h3 id="{{drug}}">{{drug}}</h3>
+    {{else}}
+      {{#each recommendations}}
+        <section class="guideline {{{sanitizeCssSelector drug}}}">
+          <h3 id="{{{sanitizeCssSelector drug}}}">{{drug}}</h3>
 
-        {{#each messages}}
-          <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
-        {{/each}}
-
-        <table>
-          <thead>
-          <tr>
-            <th>Guideline</th>
-            <th>Genes</th>
-            <th>Implications</th>
-            <th>Recommendation</th>
-            <th>Comments</th>
-            <th>Classification</th>
-          </tr>
-          </thead>
-          <tbody>
-          {{#each reports}}
-            {{#if matched}}
-              {{#each guidelines}}
-                {{#each annotations}}
-                  <tr id="#{{../id}}" class="top-aligned {{{rxAnnotationClass source drug}}}">
-                    <td>
-                      <p>
-                        <b>{{source.displayName}}</b>
-                        {{#unless uncallable}}
-                          <sup class="sources">
-                            {{{listSources urls}}}
-                          </sup>
-                        {{/unless}}
-                      </p>
-                      <p>Population:<br />{{capitalizeNA population}}</p>
-                    </td>
-                    <td>
-                      <div class="hint">{{pluralize "Genotype" genotypes}}</div>
-                      <ul class="{{#if (moreThanOne genotypes) }}noPadding{{else}}noBullet{{/if}} mt-0">
-                        {{#each genotypes}}
-                          <li id="{{../localId}}">
-                            <span class="noWrap">
-                              {{{rxGenotype this ../this}}}
-                              {{#if (rxInferred this)}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
-                              {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
-                            </span>
-                          </li>
-                        {{/each}}
-                      </ul>
-                      {{#if (thereAre phenotypes)}}
-                        <div class="hint">{{pluralize "Phenotype" phenotypes}}</div>
-                        {{{printRecMap phenotypes}}}
-                      {{/if}}
-                      {{#if (thereAre activityScores)}}
-                        <div class="hint">{{pluralize "Activity Score" activityScores}}</div>
-                        {{{printRecMap activityScores}}}
-                      {{/if}}
-                    </td>
-                  {{#if (rxIsCpicWarfarin drug source)}}
-                      <td colspan="4">
-                        {{#each (rxAnnotationMessages this) }}
-                          <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
-                        {{/each}}
-                        <div class="warfarinFlowchart">
-                          <img src="https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
-                              alt="Figure 2 from the CPIC guideline for warfarin"/>
-                        </div>
-                      </td>
-                  {{else}}
-                      <td>{{{rxImplications implications}}}</td>
-                      <td class="drugRecommendation">{{{drugRecommendation}}}</td>
-                      <td>{{capitalizeNA comments}}</td>
-                      <td>{{capitalizeNA classification}}</td>
-                  {{/if}}
-                {{/each}}
-              {{/each}}
-            {{else}}
-              <tr>
-                <td class="top-aligned">
-                  <p>
-                    <b>{{source.displayName}}</b>
-                    {{#unless uncallable}}
-                      <sup class="sources">
-                        {{{listSources urls}}}
-                      </sup>
-                    {{/unless}}
-                  </p>
-                </td>
-                <td colspan="5" class="top-aligned">
-                  {{#if uncallable}}
-                    No call data for {{uncalledGenes}}.
-                  {{else}}
-                    No annotation for {{{unmatchedCalls}}}.
-                  {{/if}}
-                </td>
-              </tr>
-            {{/if}}
+          {{#each messages}}
+            <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
           {{/each}}
-          </tbody>
-        </table>
 
-        {{#if hasInferred}}
-          <div class="footnote" id="rx-dagger-{{drug}}">
-            <sup>&dagger;</sup> Inferred genotype used to look up phenotype.  See <a href="#section-iii">Section III</a> for original genotype.
-          </div>
-        {{/if}}
-        {{#if hasDpydInferred}}
-          <div class="footnote" id="rx-ddagger-{{drug}}">
-            <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype is inferred from the two lowest function
-            haplotypes. Consult the
-            {{{externalHref "https://pharmcat.org/methods/gene-definition-exceptions/#dpyd" "PharmCAT documentation"}}}
-            for details.
-          </div>
-        {{/if}}
+          <table>
+            <thead>
+            <tr>
+              <th>Guideline</th>
+              <th>Genes</th>
+              <th>Implications</th>
+              <th>Recommendation</th>
+              <th>Comments</th>
+              <th>Classification</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each reports}}
+              {{#if matched}}
+                {{#each guidelines}}
+                  {{#each annotations}}
+                    <tr class="top-aligned {{{rxAnnotationClass source drug}}}">
+                      <td>
+                        <p>
+                          <b>{{source.displayName}}</b>
+                          {{#unless notCalled}}
+                            <sup class="sources">
+                              {{{listSources urls}}}
+                            </sup>
+                          {{/unless}}
+                        </p>
+                        <p>Population:<br />{{capitalizeNA population}}</p>
+                      </td>
+                      <td>
+                        <div class="hint">{{pluralize "Genotype" genotypes}}</div>
+                        <ul class="{{#if (moreThanOne genotypes) }}noPadding{{else}}noBullet{{/if}} mt-0">
+                          {{#each genotypes}}
+                            <li>
+                              <span class="noWrap">
+                                {{{rxGenotype this ../this ../../this}}}
+                                {{#if (rxInferred this)}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
+                                {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
+                              </span>
+                              {{{rxGenotypeDebug this ../../this}}}
+                            </li>
+                          {{/each}}
+                        </ul>
+                        {{#if (thereAre phenotypes)}}
+                          <div class="hint">{{pluralize "Phenotype" phenotypes}}</div>
+                          {{{printRecMap phenotypes}}}
+                        {{/if}}
+                        {{#if (thereAre activityScores)}}
+                          <div class="hint">{{pluralize "Activity Score" activityScores}}</div>
+                          {{{printRecMap activityScores}}}
+                        {{/if}}
+                      </td>
+                    {{#if (rxIsCpicWarfarin drug source)}}
+                        <td colspan="4">
+                          {{#each (rxAnnotationMessages this) }}
+                            <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
+                          {{/each}}
+                          <div class="warfarinFlowchart">
+                            <img src="https://files.cpicpgx.org/images/warfarin/warfarin_recommendation_diagram.png"
+                                alt="Figure 2 from the CPIC guideline for warfarin"/>
+                          </div>
+                        </td>
+                    {{else}}
+                        <td>{{{rxImplications implications}}}</td>
+                        <td class="drugRecommendation">{{{drugRecommendation}}}</td>
+                        <td>{{capitalizeNA comments}}</td>
+                        <td>{{capitalizeNA classification}}</td>
+                    {{/if}}
+                  {{/each}}
+                {{/each}}
+              {{else}}
+                <tr class="top-aligned {{{rxAnnotationClass source drug}}}">
+                  <td class="top-aligned">
+                    <p>
+                      <b>{{source.displayName}}</b>
+                      {{#unless notCalled}}
+                        <sup class="sources">
+                          {{{listSources urls}}}
+                        </sup>
+                      {{/unless}}
+                    </p>
+                  </td>
+                  <td colspan="5" class="top-aligned">
+                    {{#if notCalled}}
+                      <span class="rx-no-call">No call data for {{uncalledGenes}}</span>.
+                    {{else}}
+                      <div style="display: flex;">
+                        <div style="margin-right: 1em; {{#if (rxUnmatchedDiplotypesInferred this) }}padding-top: .15em;{{/if}}">
+                          <div class="hint">&nbsp;</div>
+                          No annotation for:
+                        </div>
+                        <div>
+                          <div class="hint">{{pluralize "Genotype" unmatchedDiplotypes}}</div>
+                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes}}}
+                          {{#if unmatchedInferred}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
+                          {{#if unmatchedDpydInferred}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
+                        </div>
+                      </div>
+                    {{/if}}
+                  </td>
+                </tr>
+              {{/if}}
+            {{/each}}
+            </tbody>
+          </table>
 
-        {{#each footnotes}}
-          <div class="footnote {{messageClass this}}">{{message}}</div>
-        {{/each}}
+          {{#if hasInferred}}
+            <div class="footnote" id="rx-dagger-{{drug}}">
+              <sup>&dagger;</sup> Inferred genotype used to look up phenotype. Consult the
+              {{{externalHref "https://pharmcat.org/methods/Gene-Definition-Exceptions/" "PharmCAT documentation"}}}
+              for details.
+            </div>
+          {{/if}}
+          {{#if hasDpydInferred}}
+            <div class="footnote" id="rx-ddagger-{{drug}}">
+              <sup>&ddagger;</sup> The DPYD genotype used to look up phenotype is inferred from the two lowest function
+              haplotypes. Consult the
+              {{{externalHref "https://pharmcat.org/methods/Gene-Definition-Exceptions/#dpyd" "PharmCAT documentation"}}}
+              for details.
+            </div>
+          {{/if}}
 
-        {{#if (thereAre citations)}}
-          <div class="citations">
-            <p>Citations:</p>
-            <ul>
-              {{#each citations}}
-                <li>{{{printCitation this}}}</li>
-              {{/each}}
-            </ul>
-          </div>
-        {{/if}}
-      </section>
-    {{/each}}
+          {{#each footnotes}}
+            <div class="footnote {{messageClass this}}">{{message}}</div>
+          {{/each}}
+
+          {{#if (thereAre citations)}}
+            <div class="citations">
+              <p>Citations:</p>
+              <ul>
+                {{#each citations}}
+                  <li>{{{printCitation this}}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/if}}
+        </section>
+      {{/each}}
+    {{/unless}}
   </section>
 
 

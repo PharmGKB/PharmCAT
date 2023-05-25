@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
@@ -19,8 +18,8 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * A class to gather and standardize variant information needed for the final report
- *
+ * A class to gather and standardize variant information needed for the final report.
+ * <p>
  * Variant information can come from a few different sources so this class help give a unified interface for the report
  * to depend on.
  *
@@ -52,7 +51,7 @@ public class VariantReport implements Comparable<VariantReport> {
   private boolean m_phased = false;
   @Expose
   @SerializedName("wildtypeAllele")
-  private String m_wildtypeAllele;
+  private String m_wildTypeAllele;
   @Expose
   @SerializedName("hasUndocumentedVariations")
   private boolean m_hasUndocumentedVariations;
@@ -139,12 +138,12 @@ public class VariantReport implements Comparable<VariantReport> {
     m_dbSnpId = dbSnpId;
   }
 
-  public String getWildtypeAllele() {
-    return m_wildtypeAllele;
+  public String getWildTypeAllele() {
+    return m_wildTypeAllele;
   }
 
-  public void setWildtypeAllele(String wildtypeAllele) {
-    m_wildtypeAllele = wildtypeAllele;
+  public void setWildTypeAllele(String wildTypeAllele) {
+    m_wildTypeAllele = wildTypeAllele;
   }
 
   public boolean isMissing() {
@@ -172,20 +171,11 @@ public class VariantReport implements Comparable<VariantReport> {
     m_warnings.add(warning);
   }
 
-  public boolean isNonwildtype() {
-    return !(isMissing() || m_wildtypeAllele == null)
-        && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildtypeAllele()));
+  public boolean isNonWildType() {
+    return !(isMissing() || m_wildTypeAllele == null)
+        && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildTypeAllele()));
   }
 
-  public String printDisplay() {
-    String[] alleles = getCall().split("[|/]");
-    if (getDbSnpId() != null) {
-      return Arrays.stream(alleles).map(a -> getDbSnpId()+a).collect(Collectors.joining("/"));
-    }
-    else {
-      return Arrays.stream(alleles).map(a -> getPosition()+a).collect(Collectors.joining("/"));
-    }
-  }
 
   @Override
   public String toString() {

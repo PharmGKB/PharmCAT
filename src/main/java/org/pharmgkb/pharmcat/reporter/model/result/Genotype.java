@@ -26,9 +26,13 @@ public class Genotype implements Comparable<Genotype> {
   /**
    * Private constructor for GSON.
    */
+  @SuppressWarnings("unused")
   private Genotype() {
   }
 
+  /**
+   * Private constructor for tests.
+   */
   private Genotype(Collection<Diplotype> diplotypes) {
     diplotypes.forEach(this::addDiplotype);
   }

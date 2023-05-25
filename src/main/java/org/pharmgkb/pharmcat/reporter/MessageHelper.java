@@ -82,8 +82,8 @@ public class MessageHelper {
    * @param report the {@link GeneReport} to possibly add messages to
    */
   public void addMatchingMessagesTo(GeneReport report) {
-    if (!report.isCalled()) {
-      // puposely don't apply any messages if the gene is not called
+    if (!report.isReportable()) {
+      // purposely don't apply any messages if the gene is not called
       return;
     }
     if (report.getCallSource() != CallSource.MATCHER) {
@@ -118,7 +118,8 @@ public class MessageHelper {
             .allMatch((r) -> gene.findVariantReport(r).map(VariantReport::isMissing).orElse(false));
     boolean passDipMatchCriteria = match.getDips().isEmpty() ||
         match.getDips().stream()
-            .allMatch(d -> gene.getSourceDiplotypes().stream().anyMatch(e -> e.printBare().equals(d)));
+            .allMatch(d -> gene.getSourceDiplotypes().stream()
+                .anyMatch(e -> e.getLabel().equals(d)));
 
     boolean passAmbiguityCriteria = true;
     if (message.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY)) {

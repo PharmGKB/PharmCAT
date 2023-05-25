@@ -9,6 +9,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -36,7 +37,8 @@ class DpydCallerTest {
 
   @Test
   void infer_outsideCall_noMatch() {
-    List<Diplotype> dips = DpydCaller.inferFromOutsideCall("*1/*5", s_env, CPIC);
+    OutsideCall call = new OutsideCall("DPYD\t*1/*5", 1);
+    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(call, s_env, CPIC);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -111,7 +113,8 @@ class DpydCallerTest {
   }
 
   private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
-    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(diplotype, s_env, source);
+    OutsideCall call = new OutsideCall("DPYD\t" + diplotype, 1);
+    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(call, s_env, source);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);

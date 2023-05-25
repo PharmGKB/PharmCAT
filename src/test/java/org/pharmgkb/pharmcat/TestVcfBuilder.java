@@ -153,6 +153,11 @@ public class TestVcfBuilder {
   }
 
 
+  public boolean hasData() {
+    return m_edits.size() > 0;
+  }
+
+
   public Path generate() throws IOException {
     DefinitionReader definitionReader;
     if (m_definitionFiles.size() > 0) {

@@ -87,7 +87,7 @@ public class Phenotyper {
           // warn the user of the conflict
           String matcherCall = geneReport.getSourceDiplotypes().stream()
               .sorted()
-              .map(Diplotype::printBare)
+              .map(Diplotype::getLabel)
               .collect(Collectors.joining("; "));
           msgAnnotation = new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "prefer-sample-data",
               "PharmCAT would have called " + matcherCall + " based on the VCF but it has been ignored in " +

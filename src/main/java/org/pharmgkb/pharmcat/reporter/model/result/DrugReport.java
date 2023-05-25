@@ -89,7 +89,7 @@ public class DrugReport implements Comparable<DrugReport> {
         .filter((c) -> c.getName().equals(name))
         .findFirst()
         .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
-            guidelinePackages.first().getGuideline().getId() + " is supposd to be related to " + name + " but is not"))
+            guidelinePackages.first().getGuideline().getId() + " is supposed to be related to " + name + " but is not"))
         .getId();
     m_source = DataSource.DPWG;
     m_version = guidelinePackages.stream().map(GuidelinePackage::getVersion).collect(Collectors.joining(", "));

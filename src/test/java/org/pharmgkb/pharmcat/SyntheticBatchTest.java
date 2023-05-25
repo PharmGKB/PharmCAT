@@ -111,8 +111,8 @@ class SyntheticBatchTest {
     }
     TestUtils.setSaveTestOutput(true);
 
-    SyntheticBatchTest piplelineTest = new SyntheticBatchTest(compact, sources);
-    piplelineTest.execute();
+    SyntheticBatchTest synthBatchTest = new SyntheticBatchTest(compact, sources);
+    synthBatchTest.execute();
 
     if (allTests) {
       PipelineWrapper.setCompact(compact);

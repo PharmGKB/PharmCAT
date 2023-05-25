@@ -43,12 +43,14 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private transient final SortedSet<String> m_genes = new TreeSet<>();
   private transient final SortedSet<GeneReport> m_geneReports = new TreeSet<>();
-  private transient List<Genotype> m_possibleGenotypes;
+  private transient final SortedSet<Diplotype> m_sourceDiplotypes = new TreeSet<>();
+  private transient List<Genotype> m_recommendationGenotypes;
 
 
   /**
    * Private constructor for GSON.
    */
+  @SuppressWarnings("unused")
   private GuidelineReport() {
   }
 
@@ -82,7 +84,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
       m_genes.add(geneSymbol);
       m_geneReports.add(geneReport);
     }
-    m_possibleGenotypes = Genotype.makeGenotypes(m_geneReports);
+    m_geneReports.stream()
+        .flatMap(gr -> gr.getSourceDiplotypes().stream())
+        .forEach(m_sourceDiplotypes::add);
+    m_recommendationGenotypes = Genotype.makeGenotypes(m_geneReports);
   }
 
 
@@ -125,27 +130,27 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_geneReports;
   }
 
-  public List<String> getUncalledGenes() {
+  /**
+   * Checks if any {@link GeneReport} is reportable.
+   */
+  public boolean isReportable() {
     return m_geneReports.stream()
-        .filter(g -> !g.isCalled())
-        .map(GeneReport::getGeneDisplay)
-        .toList();
+        .anyMatch(GeneReport::isReportable);
   }
 
-  public boolean isUncallable() {
-    return m_geneReports.stream()
-        .noneMatch(GeneReport::isCalled);
+  public SortedSet<Diplotype> getSourceDiplotypes() {
+    return m_sourceDiplotypes;
   }
 
 
   private void matchAnnotations(Drug cpicDrug) {
     if (cpicDrug.getDrugName().equals("warfarin")) {
-      AnnotationReport annGroup = AnnotationReport.forWarfarin(m_possibleGenotypes);
+      AnnotationReport annGroup = AnnotationReport.forWarfarin(m_recommendationGenotypes);
       m_annotationReports.add(annGroup);
     } else if (cpicDrug.getRecommendations() != null) {
       int gx = 0;
       Map<Recommendation, AnnotationReport> recommendationMap = new HashMap<>();
-      for (Genotype genotype : m_possibleGenotypes) {
+      for (Genotype genotype : m_recommendationGenotypes) {
         gx += 1;
         for (Recommendation rec : cpicDrug.getRecommendations()) {
           if (rec.matchesGenotype(genotype)) {
@@ -169,7 +174,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   private void matchAnnotations(GuidelinePackage guidelinePackage) {
     HashMultimap<Group, Genotype> matchedGenotypes = HashMultimap.create();
-    for (Genotype genotype : m_possibleGenotypes) {
+    for (Genotype genotype : m_recommendationGenotypes) {
       for (Diplotype diplotype : genotype.getDiplotypes()) {
         if (diplotype.isPhenotypeOnly() || diplotype.isAllelePresenceType()) {
           guidelinePackage.getGroups().stream()

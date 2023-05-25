@@ -1,15 +1,21 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -19,8 +25,9 @@ import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.reporter.TextConstants.UNCALLED;
+import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
 import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
@@ -32,6 +39,20 @@ import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 @SuppressWarnings("unused")
 public class ReportHelpers {
   private static final String sf_variantAlleleTemplate = "<td class=\"%s\">%s%s</td>";
+  private static boolean s_debugMode;
+
+  /**
+   * Private constructor for utility class.
+   */
+  private ReportHelpers() {
+  }
+
+
+  public static void setDebugMode(boolean debugMode) {
+    s_debugMode = debugMode;
+  }
+
+
 
   public static String listGenes(Collection<String> genes) {
     StringBuilder builder = new StringBuilder();
@@ -92,7 +113,7 @@ public class ReportHelpers {
   private static final Pattern sf_4chPattern = Pattern.compile(".{9}|.+$");
 
   public static String variantAlleles(VariantReport variantReport) {
-    String cellStyle = variantReport.isNonwildtype() ? "nonwild" : "";
+    String cellStyle = variantReport.isNonWildType() ? "nonwild" : "";
     String mismatch = variantReport.isHasUndocumentedVariations() ? "<div class=\"callMessage\">Undocumented variation</div>" : "";
     if (variantReport.isHasUndocumentedVariations()) {
       cellStyle = StringUtils.strip(cellStyle + " mismatch");
@@ -102,7 +123,7 @@ public class ReportHelpers {
   }
 
   public static String wildtypeAllele(VariantReport variantReport) {
-    return formatCall(variantReport.getWildtypeAllele());
+    return formatCall(variantReport.getWildTypeAllele());
   }
 
   private static String formatCall(String call) {
@@ -137,21 +158,55 @@ public class ReportHelpers {
 
   public static String gsCall(Diplotype diplotype) {
     if (diplotype.isUnknownAlleles()) {
-      return UNCALLED;
+      return "<span class=\"gs-uncalled-" + HtmlEscapers.htmlEscaper().escape(diplotype.getGene()) + "\">" + UNCALLED + "</span>";
     }
-    return diplotype.printDisplay();
+    if (diplotype.getInferredSourceDiplotypes() != null) {
+      if (diplotype.getInferredSourceDiplotypes().size() > 1) {
+        throw new IllegalStateException("Cannot determine genotype call (inferred from " +
+            diplotype.getInferredSourceDiplotypes().size() + " diplotypes!)");
+      }
+      diplotype = diplotype.getInferredSourceDiplotypes().first();
+    }
+    return HtmlEscapers.htmlEscaper().escape(diplotype.getLabel());
   }
 
   public static String gsFunction(Diplotype diplotype) {
     if (diplotype.isCombination() && isDpyd(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
-    } else {
-      return capitalizeNA(diplotype.printFunctionPhrase());
     }
+
+    String f1 = diplotype.getAllele1() != null && diplotype.getAllele1().getFunction() != null ?
+        diplotype.getAllele1().getFunction() : null;
+    String f2 = diplotype.getAllele2() != null && diplotype.getAllele2().getFunction() != null ?
+        diplotype.getAllele2().getFunction() : null;
+    boolean isSinglePloidy = diplotype.getAllele1() != null && diplotype.getAllele2() == null;
+    if (isSinglePloidy) {
+      if (StringUtils.isNotBlank(f1)) {
+        return f1;
+      }
+    } else {
+      if (StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
+        if (f1.equals(f2)) {
+          return String.format("Two %s alleles", f1);
+        }
+        else {
+          String[] functions = new String[]{f1, f2};
+          Arrays.sort(functions);
+          return String.format("One %s allele and one %s allele", functions[0], functions[1]);
+        }
+      }
+    }
+    return TextConstants.NA.toUpperCase();
   }
 
   public static String gsPhenotype(Diplotype diplotype) {
-    return capitalizeNA(diplotype.printPhenotypes());
+    if (isDpyd(diplotype.getGene())) {
+      return TextConstants.SEE_DRUG;
+    }
+    if (diplotype.getPhenotypes().size() == 0) {
+      return TextConstants.NA.toUpperCase();
+    }
+    return String.join("; ", diplotype.getPhenotypes());
   }
 
 
@@ -162,7 +217,7 @@ public class ReportHelpers {
     } else {
       builder.append("dpwg-");
     }
-    builder.append(drug);
+    builder.append(sanitizeCssSelector(drug));
     return builder.toString();
   }
 
@@ -182,23 +237,86 @@ public class ReportHelpers {
         .noneMatch(g -> g.equals("DPYD"));
   }
 
-  public static String rxGenotype(Genotype genotype, AnnotationReport annotationReport) {
+  public static String rxGenotype(Genotype genotype, AnnotationReport annotationReport,
+      GuidelineReport guidelineReport) {
     if (genotype.getDiplotypes().size() == 0) {
       return TextConstants.UNKNOWN_GENOTYPE;
     }
+    StringBuilder builder = new StringBuilder()
+      .append(renderRxDiplotypes(genotype.getDiplotypes(), false));
+    if (annotationReport.getHighlightedVariants().size() > 0) {
+      for (String var : annotationReport.getHighlightedVariants()) {
+        if (builder.length() > 0) {
+          builder.append(";<br />");
+        }
+        builder.append("<span class=\"rx-hl-var\">")
+            .append(var)
+            .append("</span>");
+      }
+    }
+    return builder.toString();
+  }
+
+  public static String rxGenotypeDebug(Genotype genotype, GuidelineReport guidelineReport) {
+    if (!s_debugMode) {
+      return "";
+    }
+
+    boolean hasInferred = genotype.getDiplotypes().stream()
+        .anyMatch(d -> d.getInferredSourceDiplotypes() != null && d.getInferredSourceDiplotypes().size() > 0);
+    if (hasInferred) {
+      return "<div class=\"alert alert-debug\">" +
+          "<div class=\"hint\">Inferred:</div>" +
+          "<span class=\"nowrap\">" +
+          renderRxDiplotypes(genotype.getDiplotypes(), true) +
+          "</span></div>";
+    }
+    return "";
+  }
+
+  public static String rxUnmatchedDiplotypes(SortedSet<Diplotype> diplotypes) {
+    return renderRxDiplotypes(diplotypes, true, false, "rx-unmatched-dip");
+  }
+
+  public static boolean rxUnmatchedDiplotypesInferred(Report report) {
+    // checking this to add top padding to account for superscript dagger
+    return report.isUnmatchedInferred() || report.isUnmatchedDpydInferred();
+  }
+
+
+  private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean forDebug) {
+    return renderRxDiplotypes(diplotypes, false, forDebug, "rx-dip");
+  }
+
+  private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean noLengthLimit, boolean forDebug,
+      String dipClass) {
+    SortedSet<Diplotype> displayDiplotypes = new TreeSet<>();
+    for (Diplotype diplotype : diplotypes) {
+      if (!forDebug && diplotype.getInferredSourceDiplotypes() != null) {
+        displayDiplotypes.addAll(diplotype.getInferredSourceDiplotypes());
+      } else {
+        displayDiplotypes.add(diplotype);
+      }
+    }
+
     StringBuilder builder = new StringBuilder();
-    for (Diplotype diplotype : genotype.getDiplotypes()) {
+    for (Diplotype diplotype : displayDiplotypes) {
       if (builder.length() > 0) {
         builder.append(";<br />");
       }
-      builder
-          .append("<a href=\"#")
+      builder.append("<span");
+      if (!forDebug) {
+        builder.append(" class=\"")
+            .append(dipClass)
+            .append("\"");
+      }
+      builder.append("><a href=\"#")
           .append(diplotype.getGene())
           .append("\">")
           .append(diplotype.getGene())
           .append("</a>:");
-      String call = diplotype.printBare();
-      if (call.length() <= 15) {
+      String call = diplotype.getLabel();
+      if (noLengthLimit || call.length() <= 15) {
         builder.append(call);
       } else {
         int idx = call.indexOf("/");
@@ -216,23 +334,12 @@ public class ReportHelpers {
               .append(b);
         }
       }
-    }
-    if (annotationReport.getHighlightedVariants().size() > 0) {
-      for (String var : annotationReport.getHighlightedVariants()) {
-        if (builder.length() > 0) {
-          builder.append(";<br />");
-        }
-        builder.append("<span id=\"")
-            .append(annotationReport.getLocalId())
-            .append("-")
-            .append(var, 0, var.indexOf(":"))
-            .append("\">")
-            .append(var)
-            .append("</span>");
-      }
+      builder.append("</span>");
     }
     return builder.toString();
   }
+
+
 
   public static String rxImplications(SortedMap<String, String> implications) {
     if (implications.size() == 0) {
@@ -301,15 +408,29 @@ public class ReportHelpers {
   }
 
   public static boolean amdIsSingleCall(GeneReport report) {
-    return report.printDisplayCalls().size() == 1;
+    return amdGeneCalls(report).size() == 1;
   }
 
-  public static List<String> amdGeneCalls(GeneReport report) {
-    return report.printDisplayCalls();
+  public static List<String> amdGeneCalls(GeneReport geneReport) {
+    if (geneReport.getCallSource() == CallSource.NONE) {
+      return LIST_UNCALLED_NO_DATA;
+    }
+    if (geneReport.getCallSource() == CallSource.MATCHER) {
+      if (geneReport.isNoData()) {
+        return LIST_UNCALLED_NO_DATA;
+      } else if (!geneReport.isReportable()) {
+        return LIST_UNCALLED;
+      }
+    }
+    return geneReport.getRecommendationDiplotypes().stream()
+        .flatMap(d -> d.getInferredSourceDiplotypes() == null ? Stream.of(d)
+            : d.getInferredSourceDiplotypes().stream())
+        .map(Diplotype::getLabel)
+        .toList();
   }
 
   public static String amdGeneCall(GeneReport report) {
-    return report.printDisplayCalls().get(0);
+    return amdGeneCalls(report).get(0);
   }
 
 
@@ -388,12 +509,24 @@ public class ReportHelpers {
     return false;
   }
 
+
+  public static boolean contains(Collection col, Object item) {
+    return col.contains(item);
+  }
+
   public static int add(int x, int y) {
     return x + y;
   }
 
   public static String externalHref(String href, String text) {
     return "<a href=\"" + href + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + text + "</a>";
+  }
+
+  public static String sanitizeCssSelector(String value) {
+    return value.replaceAll("\\W+", "_")
+        .replaceAll("_+", "_")
+        .replaceAll("^_+", "")
+        .replaceAll("_+$", "");
   }
 
   private static final Pattern sf_endsWithPuncuationPattern = Pattern.compile(".*?\\p{Punct}$");

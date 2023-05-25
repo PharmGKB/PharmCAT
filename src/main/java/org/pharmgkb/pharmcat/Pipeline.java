@@ -326,8 +326,12 @@ public class Pipeline implements Callable<PipelineResult> {
 
 
       if (m_deleteIntermediateFiles) {
-        Files.deleteIfExists(m_matcherJsonFile);
-        Files.deleteIfExists(m_phenotyperJsonFile);
+        if (m_matcherJsonFile != null) {
+          Files.deleteIfExists(m_matcherJsonFile);
+        }
+        if (m_phenotyperJsonFile != null) {
+          Files.deleteIfExists(m_phenotyperJsonFile);
+        }
       }
 
       StringBuilder builder = new StringBuilder();

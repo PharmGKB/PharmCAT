@@ -1,11 +1,13 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -43,8 +45,9 @@ class GeneReportTest {
     assertEquals(gene, geneReport.getGene());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
-    assertEquals(1, geneReport.printDisplayCalls().size());
-    assertTrue(geneReport.printDisplayCalls().contains(displayDiplotype));
+    List<String> geneCalls = ReportHelpers.amdGeneCalls(geneReport);
+    assertEquals(1, geneCalls.size());
+    assertTrue(geneCalls.contains(displayDiplotype));
 
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().stream().findFirst().orElse(null);
     assertNotNull(diplotype);
@@ -63,8 +66,9 @@ class GeneReportTest {
     assertEquals(gene, geneReport.getGene());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
-    assertEquals(1, geneReport.printDisplayCalls().size());
-    assertTrue(geneReport.printDisplayCalls().contains(displayDiplotype));
+    List<String> geneCalls = ReportHelpers.amdGeneCalls(geneReport);
+    assertEquals(1, geneCalls.size());
+    assertTrue(geneCalls.contains(displayDiplotype));
   }
 
   @Test
@@ -76,9 +80,10 @@ class GeneReportTest {
     assertEquals("CYP2D6", geneReport.getGene());
     assertTrue(geneReport.isReportable());
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
-    assertEquals(1, geneReport.printDisplayCalls().size());
-    assertTrue(geneReport.printDisplayCalls().contains("*1/*XXX"));
-    assertEquals(1, geneReport.printDisplayPhenotypes().size());
+    List<String> geneCalls = ReportHelpers.amdGeneCalls(geneReport);
+    assertEquals(1, geneCalls.size());
+    assertTrue(geneCalls.contains("*1/*XXX"));
+    assertEquals(1, geneReport.getRecommendationDiplotypes().size());
   }
 
 

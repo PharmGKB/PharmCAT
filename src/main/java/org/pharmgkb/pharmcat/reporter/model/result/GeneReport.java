@@ -9,9 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -38,8 +36,8 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
-import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
 import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
+import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b1;
 
 
 /**
@@ -49,10 +47,9 @@ public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES = ImmutableSet.of("IFNL4");
   /**
-   * These genes have custom callers that can potentially infer a diplotype eventhough the {@link NamedAlleleMatcher}
+   * These genes have custom callers that can potentially infer a diplotype even though the {@link NamedAlleleMatcher}
    * cannot make a call.
    */
-  public static final Set<String> OVERRIDE_DIPLOTYPES = ImmutableSet.of("SLCO1B1");
   private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE = ImmutableSet.of("HLA-A", "HLA-B");
@@ -100,20 +97,20 @@ public class GeneReport implements Comparable<GeneReport> {
 
   @Expose
   @SerializedName("sourceDiplotypes")
-  private final List<Diplotype> m_sourceDiplotypes = new ArrayList<>();
+  private final SortedSet<Diplotype> m_sourceDiplotypes = new TreeSet<>();
   @Expose
   @SerializedName("matcherComponentHaplotypes")
   private final SortedSet<Diplotype> m_matcherComponentHaplotypes = new TreeSet<>();
 
   @Expose
   @SerializedName("recommendationDiplotypes")
-  private final List<Diplotype> m_recommendationDiplotypes = new ArrayList<>();
+  private final SortedSet<Diplotype> m_recommendationDiplotypes = new TreeSet<>();
   @Expose
   @SerializedName("variants")
-  private final List<VariantReport> m_variantReports = new ArrayList<>();
+  private final SortedSet<VariantReport> m_variantReports = new TreeSet<>();
   @Expose
   @SerializedName("variantsOfInterest")
-  private final List<VariantReport> m_variantOfInterestReports = new ArrayList<>();
+  private final SortedSet<VariantReport> m_variantOfInterestReports = new TreeSet<>();
 
   @Expose
   @SerializedName("hasUndocumentedVariations")
@@ -129,6 +126,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Private constructor for GSON so it doesn't blow away transient properties.
    */
+  @SuppressWarnings("unused")
   private GeneReport() {
     m_hasUndocumentedVariations = false;
     m_treatUndocumentedVariationsAsReference = false;
@@ -198,7 +196,7 @@ public class GeneReport implements Comparable<GeneReport> {
       List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource);
       m_sourceDiplotypes.addAll(diplotypes);
 
-      if (Slco1b1CustomCaller.GENE.equals(m_gene)) {
+      if (isSlco1b1(m_gene)) {
         m_recommendationDiplotypes.addAll(Slco1b1CustomCaller.inferDiplotypes(this, env, phenotypeSource));
       } else {
         m_recommendationDiplotypes.addAll(diplotypes);
@@ -235,7 +233,7 @@ public class GeneReport implements Comparable<GeneReport> {
     Diplotype diplotype = new Diplotype(call, env, m_phenotypeSource);
     m_sourceDiplotypes.add(diplotype);
     if (isDpyd(m_gene)) {
-      m_recommendationDiplotypes.addAll(DpydCaller.inferFromOutsideCall(call.getDiplotype(), env, m_phenotypeSource));
+      m_recommendationDiplotypes.addAll(DpydCaller.inferFromOutsideCall(call, env, m_phenotypeSource));
     } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
       m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env, m_phenotypeSource));
     } else {
@@ -375,7 +373,7 @@ public class GeneReport implements Comparable<GeneReport> {
     }
   }
 
-  public List<VariantReport> getVariantReports() {
+  public SortedSet<VariantReport> getVariantReports() {
     return m_variantReports;
   }
 
@@ -392,7 +390,7 @@ public class GeneReport implements Comparable<GeneReport> {
         .findFirst();
   }
 
-  public List<VariantReport> getVariantOfInterestReports() {
+  public SortedSet<VariantReport> getVariantOfInterestReports() {
     return m_variantOfInterestReports;
   }
 
@@ -425,8 +423,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * True if there is a diplotype for this gene that the reporter can use, false otherwise. The reporter may be able to 
-   * use diplotype calls not made by the matcher (e.g. SLCO1B1)
+   * True if there is a diplotype for this gene that the reporter can use, false otherwise.
    */
   public boolean isReportable() {
     return m_recommendationDiplotypes.size() > 0 && m_recommendationDiplotypes.stream().noneMatch(Diplotype::isUnknown);
@@ -490,60 +487,6 @@ public class GeneReport implements Comparable<GeneReport> {
 
 
   /**
-   * Gets the String representations of the genotypes in this report for display.
-   * This should <em>NOT</em> be used for matching!
-   *
-   * @return a Collection of diplotype Strings (e.g. *2/*3, *4 (heterozygote))
-   */
-  public List<String> printDisplayCalls() {
-    if (m_callSource == CallSource.NONE) {
-      return LIST_UNCALLED_NO_DATA;
-
-    } else if (m_callSource == CallSource.MATCHER) {
-      if (isNoData()) {
-        return LIST_UNCALLED_NO_DATA;
-      } else if (!isCalled()) {
-        if (OVERRIDE_DIPLOTYPES.contains(getGeneDisplay()) && isReportable()) {
-          return ImmutableList.of(m_recommendationDiplotypes.get(0).printDisplay());
-        }
-        return LIST_UNCALLED;
-      }
-      return m_sourceDiplotypes.stream()
-          .map(Diplotype::printDisplay)
-          .toList();
-    } else {
-      return m_sourceDiplotypes.stream()
-          .map(Diplotype::printDisplay)
-          .toList();
-    }
-  }
-
-  public List<String> printDisplayInferredCalls() {
-    if (m_callSource == CallSource.NONE) {
-      return LIST_UNCALLED_NO_DATA;
-    } else if (m_callSource == CallSource.MATCHER) {
-      if (isNoData()) {
-        return LIST_UNCALLED_NO_DATA;
-      }
-    }
-    return m_recommendationDiplotypes.stream()
-        .map(Diplotype::printDisplay)
-        .toList();
-  }
-
-
-  /**
-   * Used in the final report template in the Genotype Summary table in the "Phenotype" column
-   * @return a Collection of phenotype Strings (e.g. Poor Metabolizer)
-   */
-  public Collection<String> printDisplayPhenotypes() {
-    if (!isReportable()) {
-      return ImmutableList.of(NA);
-    }
-    return m_recommendationDiplotypes.stream().sorted().map(Diplotype::printPhenotypes).collect(Collectors.toList());
-  }
-
-  /**
    * Whether this gene has been marked as phased by the matcher.
    */
   public boolean isPhased() {
@@ -602,7 +545,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * Gets the list of {@link Diplotype}s based on provided input (e.g. from {@link NamedAlleleMatcher} or outside
    * calls).
    */
-  public List<Diplotype> getSourceDiplotypes() {
+  public SortedSet<Diplotype> getSourceDiplotypes() {
     return m_sourceDiplotypes;
   }
 
@@ -618,7 +561,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Gets the list of {@link Diplotype}s that should be used to look up recommendations.
    */
-  public List<Diplotype> getRecommendationDiplotypes() {
+  public SortedSet<Diplotype> getRecommendationDiplotypes() {
     return m_recommendationDiplotypes;
   }
 

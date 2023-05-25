@@ -24,17 +24,18 @@ public class TextConstants {
    * Displayed when gene has not been called.
    */
   public static final String UNCALLED = "Not called";
-
   public static final List<String> LIST_UNCALLED = ImmutableList.of(UNCALLED);
   public static final List<String> LIST_UNCALLED_NO_DATA = ImmutableList.of(UNCALLED + " - no variant data provided");
 
+  public static final String GENOTYPE_DELIMITER = "/";
+
   /**
-   * Detect an unspecified value
+   * Detects an unspecified value.
+   *
    * @param value the text to test
-   * @return true if the text is either blank or "n/a"
+   * @return true if the text is either blank or {@link #NA}
    */
   public static boolean isUnspecified(String value) {
     return StringUtils.isBlank(value) || StringUtils.stripToEmpty(value).equalsIgnoreCase(NA);
   }
-
 }

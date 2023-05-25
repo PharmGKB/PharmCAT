@@ -3,6 +3,9 @@ package org.pharmgkb.pharmcat.reporter.caller;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -20,15 +23,24 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
  * @author Ryan Whaley
  */
 public class Slco1b1CustomCaller {
-  public static final String GENE = "SLCO1B1";
+  private static final String GENE = "SLCO1B1";
   private static final String sf_callPosition = "rs4149056";
   private static final String sf_vcfCallSplitter = "[|/]";
+
+
+  public static boolean isSlco1b1(String gene) {
+    return GENE.equals(gene);
+  }
+
+  public static boolean isSlco1b1(GeneReport geneReport) {
+    return geneReport.getGene().equals(GENE);
+  }
 
 
   /**
    * Gets the diplotype calls that should be used to look up guideline annotations.
    */
-  public static List<Diplotype> inferDiplotypes(GeneReport report, Env env,
+  public static SortedSet<Diplotype> inferDiplotypes(GeneReport report, Env env,
       DataSource source) {
     Preconditions.checkArgument(report.getGene().equals(GENE), "Can only be used on SLCO1B1");
 
@@ -47,7 +59,7 @@ public class Slco1b1CustomCaller {
     }
 
     VariantReport variant = variants.get(0);
-    String[] haps = makeDiplotype(variant);
+    String[] haps = convertToHaplotypes(variant);
     if (haps == null) {
       return report.getSourceDiplotypes();
     }
@@ -55,23 +67,37 @@ public class Slco1b1CustomCaller {
     Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source);
     diplotype.setVariant(variant);
     diplotype.setInferred(true);
-    
-    return List.of(diplotype);
+
+    String[] alleles = Objects.requireNonNull(splitVariant(variant));
+    diplotype.setInferredSourceDiplotype(new Diplotype(GENE,
+        sf_callPosition + " " + alleles[0], sf_callPosition + " " + alleles[1], env, source));
+
+    SortedSet<Diplotype> dips = new TreeSet<>();
+    dips.add(diplotype);
+
+    // add variant info to source diplotypes
+    report.getSourceDiplotypes().first().setVariant(variant);
+    return dips;
   }
 
-  /**
-   * Make a diplotype string based off of the calls for the given variant.
-   */
-  private static @Nullable String[] makeDiplotype(VariantReport variant) {
-    if (StringUtils.isBlank(variant.getCall())) {
-      return null;
-    }
+  private static @Nullable String[] splitVariant(VariantReport variant) {
     String[] alleles = variant.getCall().split(sf_vcfCallSplitter);
     if (alleles.length != 2) {
       return null;
     }
     // sort descending (T before C so *1 before *5)
     Arrays.sort(alleles, Comparator.reverseOrder());
+    return alleles;
+  }
+
+  /**
+   * Make a diplotype string based off of the calls for the given variant.
+   */
+  private static @Nullable String[] convertToHaplotypes(VariantReport variant) {
+    if (StringUtils.isBlank(variant.getCall())) {
+      return null;
+    }
+    String[] alleles = splitVariant(variant);
     String[] haps = new String[2];
     haps[0] = alleleToHap(alleles[0]);
     if (haps[0] == null) {

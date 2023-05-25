@@ -87,6 +87,6 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
 
 
   public void applyFunctions(Genotype genotype) {
-    getGuideline().applyFunctions(genotype);
+    guideline.applyFunctions(genotype);
   }
 }

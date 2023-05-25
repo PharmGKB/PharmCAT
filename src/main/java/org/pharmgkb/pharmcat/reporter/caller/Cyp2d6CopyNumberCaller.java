@@ -78,6 +78,7 @@ public class Cyp2d6CopyNumberCaller {
     Haplotype hap2 = needsInfer2 ? env.makeHaplotype(GENE, (String)r2[1], source) : diplotype.getAllele2();
     Diplotype inferredDiplotype = new Diplotype(GENE, hap1, hap2, env, source);
     inferredDiplotype.setInferred(true);
+    inferredDiplotype.setInferredSourceDiplotype(diplotype);
     return inferredDiplotype;
   }
 

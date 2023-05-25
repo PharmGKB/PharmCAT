@@ -7,14 +7,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
-import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -29,7 +31,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  * @author Mark Woon
  */
 public class DpydCaller {
-  private static final String GENE = "DPYD";
+  public static final String GENE = "DPYD";
 
 
   public static boolean isDpyd(String gene) {
@@ -45,20 +47,25 @@ public class DpydCaller {
    * Infer diplotypes from matcher results (based on true diplotypes).
    */
   public static List<Diplotype> inferFromDiplotypes(Collection<DiplotypeMatch> matches, Env env, DataSource source) {
-    if (matches.size() == 0) {
-      return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
-    }
     List<Diplotype> diplotypes = new ArrayList<>();
-    for (DiplotypeMatch dm : matches) {
-      List<String> hapNames1 = new ArrayList<>(dm.getHaplotype1().getHaplotypeNames());
-      List<String> hapNames2;
-      if (dm.getHaplotype2() == null) {
-        hapNames2 = Collections.emptyList();
-      } else {
-        hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
+    if (matches.size() == 0) {
+      diplotypes.add(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
+    } else {
+      for (DiplotypeMatch dm : matches) {
+        List<String> hapNames1 = new ArrayList<>(dm.getHaplotype1().getHaplotypeNames());
+        List<String> hapNames2;
+        if (dm.getHaplotype2() == null) {
+          hapNames2 = Collections.emptyList();
+        } else {
+          hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
+        }
+        diplotypes.add(inferPhasedDiplotype(hapNames1, hapNames2, env, source));
       }
-      diplotypes.add(inferPhasedDiplotype(hapNames1, hapNames2, env, source));
     }
+
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(GENE, env);
+    SortedSet<Diplotype> srcDiplotypes = new TreeSet<>(diplotypeFactory.makeDiplotypes(matches, source));
+    diplotypes.forEach(d -> d.setInferredSourceDiplotypes(srcDiplotypes));
     return diplotypes;
   }
 
@@ -67,36 +74,44 @@ public class DpydCaller {
    */
   public static List<Diplotype> inferFromHaplotypeMatches(Collection<HaplotypeMatch> matches, Env env, DataSource source) {
 
-    if (matches.size() == 0) {
-      return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
-    }
-    List<String> hapNames = new ArrayList<>();
-    for (HaplotypeMatch hm : matches) {
-      hapNames.addAll(hm.getHaplotypeNames());
-    }
     List<Diplotype> diplotypes = new ArrayList<>();
-    diplotypes.add(inferUnphasedDiplotype(hapNames, env, source));
+    if (matches.size() == 0) {
+      diplotypes.add(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
+    } else {
+      List<String> hapNames = new ArrayList<>();
+      for (HaplotypeMatch hm : matches) {
+        hapNames.addAll(hm.getHaplotypeNames());
+      }
+      diplotypes.add(inferUnphasedDiplotype(hapNames, env, source));
+    }
+
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory(GENE, env);
+    SortedSet<Diplotype> srcDiplotypes = new TreeSet<>(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(matches, source));
+    diplotypes.forEach(d -> d.setInferredSourceDiplotypes(srcDiplotypes));
     return diplotypes;
   }
 
   /**
    * Infer diplotypes from outside call.
    */
-  public static List<Diplotype> inferFromOutsideCall(String diplotype, Env env, DataSource source) {
+  public static List<Diplotype> inferFromOutsideCall(OutsideCall outsideCall, Env env, DataSource source) {
+    String diplotype = outsideCall.getDiplotype();
+    Diplotype inferredDiplotype;
     if (diplotype == null) {
-      return ImmutableList.of(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
+      inferredDiplotype = DiplotypeFactory.makeUnknownDiplotype(GENE, env, source);
+    } else {
+      String[] haplotypes = DiplotypeFactory.splitDiplotype(GENE, diplotype);
+      Arrays.sort(haplotypes, HaplotypeNameComparator.getComparator());
+      List<String> hapNames1 = new ArrayList<>(DiplotypeFactory.splitHaplotype(haplotypes[0]));
+      List<String> hapNames2 = new ArrayList<>();
+      if (haplotypes.length == 2) {
+        hapNames2.addAll(DiplotypeFactory.splitHaplotype(haplotypes[1]));
+      }
+      inferredDiplotype = inferPhasedDiplotype(hapNames1, hapNames2, env, source);
     }
 
-    String[] haplotypes = DiplotypeFactory.splitDiplotype(GENE, diplotype);
-    Arrays.sort(haplotypes, HaplotypeNameComparator.getComparator());
-    List<String> hapNames1 = new ArrayList<>(DiplotypeFactory.splitHaplotype(haplotypes[0]));
-    List<String> hapNames2 = new ArrayList<>();
-    if (haplotypes.length == 2) {
-      hapNames2.addAll(DiplotypeFactory.splitHaplotype(haplotypes[1]));
-    }
-    List<Diplotype> diplotypes = new ArrayList<>();
-    diplotypes.add(inferPhasedDiplotype(hapNames1, hapNames2, env, source));
-    return diplotypes;
+    inferredDiplotype.setInferredSourceDiplotype(new Diplotype(outsideCall, env, source));
+    return List.of(inferredDiplotype);
   }
 
   private static Diplotype inferUnphasedDiplotype(List<String> hapNames, Env env, DataSource source) {

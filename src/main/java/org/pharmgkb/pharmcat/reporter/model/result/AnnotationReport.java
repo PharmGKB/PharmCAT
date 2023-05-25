@@ -213,17 +213,17 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
       return 0;
     }
     return new ComparisonChain()
-        .compare(m_localId, o.getLocalId())
         .compare(m_genotypes, o.getGenotypes())
-        .compare(m_drugRecommendation, o.getDrugRecommendation())
-        .compare(m_classification, o.getClassification())
         .compare(m_population, o.getPopulation())
-        .compare(m_comments, o.getComments())
         .compare(m_highlightedVariants, o.getHighlightedVariants())
-        .compare(m_messages, o.getMessages())
-        .compare(m_implications, o.getImplications())
-        .compare(m_phenotypes, o.getPhenotypes())
         .compare(m_activityScore, o.getActivityScores())
+        .compare(m_phenotypes, o.getPhenotypes())
+        .compare(m_classification, o.getClassification())
+        .compare(m_drugRecommendation, o.getDrugRecommendation())
+        .compare(m_implications, o.getImplications())
+        .compare(m_comments, o.getComments())
+        .compare(m_messages, o.getMessages())
+        .compare(m_localId, o.getLocalId())
         .result();
   }
 }

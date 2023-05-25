@@ -87,7 +87,7 @@ public class VariantReportFactory {
   private VariantReport initializeReport(VariantReport variantReport) {
     assignNamedAlleles(variantReport);
     variantReport.setChr(m_chr);
-    variantReport.setWildtypeAllele(m_wildAlleleMap.get(variantReport.getPosition()));
+    variantReport.setWildTypeAllele(m_wildAlleleMap.get(variantReport.getPosition()));
     return variantReport;
   }
 

@@ -1,6 +1,8 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.ImmutableList;
@@ -12,6 +14,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -23,13 +26,40 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Ryan Whaley
  */
-class DiplotypeTest {
+public class DiplotypeTest {
   private static Env s_env;
 
   @BeforeAll
   static void prepare() throws Exception {
     s_env = new Env();
   }
+
+
+  /**
+   * Makes a {@link Stream} of zygosity descriptors for a {@link Diplotype}, e.g. *60 (heterozygous). This is a stream
+   * since a single Diplotype can be described in 0, 1, or 2 Strings, depending on the particular allele.
+   *
+   * @return a Stream of 0 or more zygosity Strings
+   */
+  private Stream<String> streamAllelesByZygosity(Diplotype diplotype) {
+    if (diplotype.getAllele1().equals(diplotype.getAllele2())) {
+      if (diplotype.getAllele1().isReference()) {
+        return Stream.empty();
+      }
+      return Stream.of(diplotype.getAllele1().getName() + " (homozygous)");
+    }
+    else {
+      Set<String> alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
+      if (!diplotype.getAllele1().isReference()) {
+        alleles.add(diplotype.getAllele1().getName() + " (heterozygous)");
+      }
+      if (diplotype.getAllele2() != null && !diplotype.getAllele2().isReference()) {
+        alleles.add(diplotype.getAllele2().getName() + " (heterozygous)");
+      }
+      return alleles.stream();
+    }
+  }
+
 
 
   @Test
@@ -43,12 +73,11 @@ class DiplotypeTest {
     Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
 
     assertEquals("CFTR:D110H (heterozygous)", diplotype.toString());
-    assertEquals("D110H (heterozygous)", diplotype.printBare());
-    assertEquals("D110H (heterozygous)", diplotype.printDisplay());
+    assertEquals("D110H (heterozygous)", diplotype.getLabel());
     assertEquals(ImmutableMap.of("D110H", 1, "ivacaftor non-responsive CFTR sequence", 1),
-        diplotype.computeLookupMap());
+        computeLookupMap(diplotype));
 
-    Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
+    Set<String> alleles = streamAllelesByZygosity(diplotype).collect(Collectors.toSet());
     assertEquals(1, alleles.size());
     assertEquals("D110H (heterozygous)", alleles.iterator().next());
 
@@ -67,11 +96,10 @@ class DiplotypeTest {
     Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
 
     assertEquals("CYP2D6:*1/*3", diplotype.toString());
-    assertEquals("*1/*3", diplotype.printBare());
-    assertEquals("*1/*3", diplotype.printDisplay());
-    assertEquals(ImmutableMap.of("*1", 1, "*3", 1), diplotype.computeLookupMap());
+    assertEquals("*1/*3", diplotype.getLabel());
+    assertEquals(ImmutableMap.of("*1", 1, "*3", 1), computeLookupMap(diplotype));
 
-    Set<String> alleles = diplotype.streamAllelesByZygosity().collect(Collectors.toSet());
+    Set<String> alleles = streamAllelesByZygosity(diplotype).collect(Collectors.toSet());
     assertEquals(1, alleles.size());
     assertEquals("*3 (heterozygous)", alleles.iterator().next());
 
@@ -204,5 +232,14 @@ class DiplotypeTest {
     System.out.println("pheno: " + dip.getPhenotypes());
     System.out.println("pheno mismatch: " + dip.getOutsidePhenotypeMismatch());
     System.out.println("lookup keys: " + dip.getLookupKeys());
+  }
+
+
+  /**
+   * Computes lookup map for this {@link Diplotype}.
+   * Meant to be used internally.  This is only public for tests.
+   */
+  public static Map<String, Integer> computeLookupMap(Diplotype diplotype) {
+    return diplotype.computeLookupMap();
   }
 }

@@ -7,16 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
@@ -29,8 +26,6 @@ import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.ActivityUtils;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
-import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
-
 
 /**
  * Model class to represent a diplotype and all derived information
@@ -38,15 +33,13 @@ import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
-  public static final String DELIMITER = "/";
-
-  private static final String sf_toStringPattern = "%s:%s";
+  public static final String HETEROZYGOUS_SUFFIX = " (heterozygous)";
+  private static final List<String> USE_CPIC_STYLE_DIPLOTYPE_NAMES = List.of(
+      "CACNA1S",
+      "CFTR",
+      "RYR1"
+  );
   private static final String sf_phenoScoreFormat = "%s (%s)";
-  private static final String sf_termDelimiter = "; ";
-  private static final String sf_homTemplate = "Two %s alleles";
-  private static final String sf_hetTemplate = "One %s allele and one %s allele";
-  private static final String sf_hetSuffix = " (heterozygous)";
-  private static final String sf_homSuffix = " (homozygous)";
 
   @Expose
   @SerializedName("allele1")
@@ -87,6 +80,7 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("inferred")
   private boolean m_inferred = false;
+  private SortedSet<Diplotype> m_inferredSourceDiplotypes;
   @Expose
   @SerializedName("combination")
   private boolean m_combination = false;
@@ -95,9 +89,9 @@ public class Diplotype implements Comparable<Diplotype> {
   /**
    * Private constructor for GSON.
    */
+  @SuppressWarnings("unused")
   private Diplotype() {
   }
-
 
   /**
    * Public constructor.
@@ -106,16 +100,16 @@ public class Diplotype implements Comparable<Diplotype> {
     m_gene = gene;
     m_allele1 = h1;
     m_allele2 = h2;
-    m_label = printBare();
     annotateDiplotype(env.getPhenotype(m_gene, source));
+    m_label = buildLabel();
   }
 
   public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source) {
     m_gene = gene;
     m_allele1 = env.makeHaplotype(gene, hap1, source);
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
-    m_label = printBare();
     annotateDiplotype(env.getPhenotype(m_gene, source));
+    m_label = buildLabel();
   }
 
   /**
@@ -125,9 +119,9 @@ public class Diplotype implements Comparable<Diplotype> {
     m_gene = gene;
     m_allele1 = null;
     m_allele2 = null;
-    m_label = phenotype;
     m_phenotypes.add(phenotype);
     m_lookupKeys.add(phenotype);
+    m_label = buildLabel();
   }
 
   /**
@@ -144,17 +138,6 @@ public class Diplotype implements Comparable<Diplotype> {
       String[] alleles = DiplotypeFactory.splitDiplotype(m_gene, outsideCall.getDiplotype());
       m_allele1 = env.makeHaplotype(m_gene, alleles[0], source);
       m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1], source) : null;
-      m_label = printBare();
-    } else if (gp != null && gp.isMatchedByActivityScore()) {
-      if (outsideCall.getActivityScore() != null) {
-        m_label = outsideCall.getActivityScore();
-      } else {
-        m_label = outsideCall.getPhenotype();
-      }
-    } else if (outsideCall.getPhenotype() != null) {
-      m_label = outsideCall.getPhenotype();
-    } else {
-      m_label = outsideCall.getActivityScore();
     }
 
     // must set activity score before phenotype because phenotype calculation may depend on activity score
@@ -175,6 +158,7 @@ public class Diplotype implements Comparable<Diplotype> {
       }
     }
     annotateDiplotype(gp);
+    m_label = buildLabel();
   }
 
 
@@ -190,10 +174,11 @@ public class Diplotype implements Comparable<Diplotype> {
     return m_label;
   }
 
+
   /**
    * Gets the first {@link Haplotype} listed in this diplotype
    */
-  public Haplotype getAllele1() {
+  public @Nullable Haplotype getAllele1() {
     return m_allele1;
   }
 
@@ -225,10 +210,6 @@ public class Diplotype implements Comparable<Diplotype> {
         || (m_allele2 != null && m_allele2.getName().equals(alleleName));
   }
 
-  public boolean isUnknownPhenotype() {
-    return m_phenotypes.size() == 0 || m_phenotypes.contains(TextConstants.NO_RESULT);
-  }
-
   private boolean isUnknownAllele1() {
     return m_allele1 == null || m_allele1.isUnknown();
   }
@@ -241,107 +222,9 @@ public class Diplotype implements Comparable<Diplotype> {
     return isUnknownAllele1() && isUnknownAllele2();
   }
 
-  public boolean isUnknown() {
-    return isUnknownPhenotype() && isUnknownAlleles();
-  }
-
-  /**
-   * Gets a Sting representation of this haplotype with no gene prefix (e.g. *1/*10)
-   */
-  public String printBare() {
-    return printOverride().orElseGet(() -> {
-      if (m_allele1 == null && m_allele2 == null) {
-        if (!TextConstants.isUnspecified(m_activityScore)) {
-          if (isUnknownPhenotype()) {
-            return m_activityScore;
-          } else {
-            return String.format(sf_phenoScoreFormat, String.join(DELIMITER, m_phenotypes), getActivityScore());
-          }
-        }
-        else if (m_phenotypes.size() > 0 && !m_phenotypes.contains(TextConstants.NO_RESULT)) {
-          return String.join(DELIMITER, m_phenotypes);
-        }
-        else return TextConstants.NA;
-      }
-      else {
-        if (m_allele1 != null && m_allele2 != null) {
-          String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
-          Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
-          return String.join(DELIMITER, alleles);
-        } else if (m_allele1 != null) {
-          return m_allele1.getName();
-        } else {
-          return TextConstants.NA;
-        }
-      }
-    });
-  }
-
-  /**
-   * Gets a String representation of this Diplotype that can be used to display in output. This should <em>NOT</em> be
-   * used for matching to {@link AnnotationReport}s.
-   *
-   * @return a String display for this diplotype, without Gene symbol
-   */
-  public String printDisplay() {
-    if (getVariant() != null) {
-      return getVariant().printDisplay();
-    }
-    else {
-      return printBare();
-    }
-  }
-
-  /**
-   * Gets a String phrase describing the individual haplotype functions, e.g. "Two low function alleles"
-   * <p>
-   * Will print a default N/A String if no functions exist
-   */
-  public String printFunctionPhrase() {
-
-    String f1 = m_allele1 != null && m_allele1.getFunction() != null ?
-        m_allele1.getFunction() : null;
-    String f2 = m_allele2 != null && m_allele2.getFunction() != null ?
-        m_allele2.getFunction() : null;
-
-    if (!isSinglePloidy() && StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
-
-      if (f1.equals(f2)) {
-        return String.format(sf_homTemplate, f1);
-      }
-      else {
-        String[] functions = new String[]{f1, f2};
-        Arrays.sort(functions);
-        return String.format(sf_hetTemplate, functions[0], functions[1]);
-      }
-
-    } else if (isSinglePloidy() && StringUtils.isNotBlank(f1)) {
-      return f1;
-    }
-    return TextConstants.NA;
-  }
-
-  /**
-   * Gets a String representation of this diplotype with the gene as prefix, e.g. GENEX:*1/*2
-   */
-  public String toString() {
-    return String.format(sf_toStringPattern, m_gene, printBare());
-  }
-
 
   public List<String> getPhenotypes() {
     return m_phenotypes;
-  }
-
-  public String printPhenotypes() {
-    if (isDpyd(m_gene)) {
-      return TextConstants.SEE_DRUG;
-    }
-    if (m_phenotypes.size() == 0) {
-      return TextConstants.NA;
-    } else {
-      return String.join(sf_termDelimiter, m_phenotypes);
-    }
   }
 
   /**
@@ -358,55 +241,19 @@ public class Diplotype implements Comparable<Diplotype> {
     return m_outsidePhenotypeMismatch;
   }
 
+  public boolean isUnknownPhenotype() {
+    return m_phenotypes.size() == 0 || m_phenotypes.contains(TextConstants.NO_RESULT);
+  }
+
+
+  public boolean isUnknown() {
+    return isUnknownPhenotype() && isUnknownAlleles();
+  }
+
 
   /**
-   * Print the overriding diplotype string if it exists.  Only applicable for CFTR.
+   * Gets a variant used to make this diplotype call.
    *
-   * @return Optional diplotype string to override whatever the actual string would be
-   */
-  private Optional<String> printOverride() {
-    if (m_gene.equals("CFTR")) {
-      boolean refAllele1 = m_allele1.isReference();
-      boolean refAllele2 = m_allele2 != null && m_allele2.isReference();
-      if (refAllele1 && refAllele2 || m_allele2 == null) {
-        // homozygous reference
-        return Optional.of("No CPIC variants found");
-      }
-      if (refAllele1 || refAllele2) {
-        // heterozygous
-        String allele = refAllele1 ? m_allele2.getName() : m_allele1.getName();
-        return Optional.of(allele + sf_hetSuffix);
-      }
-    }
-    return Optional.empty();
-  }
-
-  /**
-   * Makes a {@link Stream} of zygosity descriptors for this diplotype, e.g. *60 (heterozygous). This is a stream since
-   * a single Diplotype can be described in 0, 1, or 2 Strings, depending on the particular allele.
-   * @return a Stream of 0 or more zygosity Strings
-   */
-  public Stream<String> streamAllelesByZygosity() {
-    if (m_allele1.equals(m_allele2)) {
-      if (m_allele1.isReference()) {
-        return Stream.empty();
-      }
-      return Stream.of(m_allele1.getName() + sf_homSuffix);
-    }
-    else {
-      Set<String> alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
-      if (!m_allele1.isReference()) {
-        alleles.add(m_allele1.getName() + sf_hetSuffix);
-      }
-      if (m_allele2 != null && !m_allele2.isReference()) {
-        alleles.add(m_allele2.getName() + sf_hetSuffix);
-      }
-      return alleles.stream();
-    }
-  }
-
-  /**
-   * Gets a variant used to make this diplotype call
    * @return a Variant used in this call
    */
   public VariantReport getVariant() {
@@ -417,6 +264,144 @@ public class Diplotype implements Comparable<Diplotype> {
     m_variant = variant;
   }
 
+
+  /**
+   * True if this diplotype only has the phenotype available, not the individual allele(s)
+   * @return true if this diplotype only has phenotype and not individual allele(s)
+   */
+  public boolean isPhenotypeOnly() {
+    return !isUnknownPhenotype() && isUnknownAlleles();
+  }
+
+
+  public String getActivityScore() {
+    return m_activityScore;
+  }
+
+  public boolean hasActivityScore() {
+    return !TextConstants.isUnspecified(m_activityScore);
+  }
+
+  /**
+   * Gets whether the activity score is from an outside call.
+   */
+  public boolean isOutsideActivityScore() {
+    return m_outsideActivityScore;
+  }
+
+  /**
+   * Gets expected activity score if outside activity score (based on diplotype) does not match.
+   */
+  public String getOutsideActivityScoreMismatch() {
+    return m_outsideActivityScoreMismatch;
+  }
+
+
+  public boolean isInferred() {
+    return m_inferred;
+  }
+
+  public void setInferred(boolean inferred) {
+    m_inferred = inferred;
+  }
+
+
+  public SortedSet<Diplotype> getInferredSourceDiplotypes() {
+    return m_inferredSourceDiplotypes;
+  }
+
+  public void setInferredSourceDiplotypes(SortedSet<Diplotype> diplotypes) {
+    m_inferredSourceDiplotypes = diplotypes;
+  }
+
+  public void setInferredSourceDiplotype(Diplotype diplotype) {
+    m_inferredSourceDiplotypes = new TreeSet<>();
+    m_inferredSourceDiplotypes.add(diplotype);
+  }
+
+
+
+  public boolean isCombination() {
+    return m_combination;
+  }
+
+  public void setCombination(boolean combination) {
+    m_combination = combination;
+  }
+
+
+  public List<String> getLookupKeys() {
+    return m_lookupKeys;
+  }
+
+
+  /**
+   * True if this diplotype does not use allele function to assign phenotype but instead relies on the presence or
+   * absense of alleles for its phenotypes (e.g. HLA's).
+   *
+   * @return true if this diplotype assigns phenotype based on allele presence
+   */
+  public boolean isAllelePresenceType() {
+    return GeneReport.isAllelePresenceType(getGene());
+  }
+
+
+  /**
+   * Builds a String representation of this haplotype with no gene prefix (e.g. *1/*10) that can be used for lookups.
+   */
+  private String buildLabel() {
+
+    if (USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene)) {
+      boolean isAllele1Ref = m_allele1.isReference();
+      boolean isAllele2Ref = m_allele2 != null && m_allele2.isReference();
+      if (isAllele1Ref && isAllele2Ref || m_allele2 == null) {
+        // homozygous reference
+        return "No CPIC variants found";
+      }
+      if (isAllele1Ref || isAllele2Ref) {
+        // heterozygous
+        String allele = isAllele1Ref ? m_allele2.getName() : m_allele1.getName();
+        return allele + HETEROZYGOUS_SUFFIX;
+      }
+      // fall through, use normal diplotype name
+    }
+
+    if (m_allele1 == null && m_allele2 == null) {
+      if (!TextConstants.isUnspecified(m_activityScore)) {
+        if (isUnknownPhenotype()) {
+          return m_activityScore;
+        } else {
+          return String.format(sf_phenoScoreFormat,
+              String.join(TextConstants.GENOTYPE_DELIMITER, m_phenotypes), getActivityScore());
+        }
+      }
+      else if (m_phenotypes.size() > 0 && !m_phenotypes.contains(TextConstants.NO_RESULT)) {
+        return String.join(TextConstants.GENOTYPE_DELIMITER, m_phenotypes);
+      }
+      else return TextConstants.NA;
+    }
+    else {
+      if (m_allele1 != null && m_allele2 != null) {
+        String[] alleles = new String[]{ m_allele1.getName(), m_allele2.getName() };
+        Arrays.sort(alleles, HaplotypeNameComparator.getComparator());
+        return String.join(TextConstants.GENOTYPE_DELIMITER, alleles);
+      } else if (m_allele1 != null) {
+        return m_allele1.getName();
+      } else {
+        return TextConstants.NA;
+      }
+    }
+  }
+
+
+  /**
+   * Gets a String representation of this diplotype with the gene as prefix, e.g. GENEX:*1/*2
+   */
+  public String toString() {
+    return m_gene + ":" + buildLabel();
+  }
+
+
   @Override
   public int compareTo(Diplotype o) {
     int rez = ObjectUtils.compare(getGene(), o.getGene());
@@ -424,21 +409,31 @@ public class Diplotype implements Comparable<Diplotype> {
       return rez;
     }
 
-    rez = ObjectUtils.compare(m_allele1, o.getAllele1());
+    rez = compareAllele(m_allele1, o.getAllele1());
     if (rez != 0) {
       return rez;
     }
 
-    return ObjectUtils.compare(m_allele2, o.getAllele2());
+    rez = compareAllele(m_allele2, o.getAllele2());
+    if (rez != 0) {
+      return rez;
+    }
+
+    return ObjectUtils.compare(m_label, o.getLabel());
   }
 
-  public List<String> getLookupKeys() {
-    return m_lookupKeys;
+  private int compareAllele(@Nullable Haplotype a, @Nullable Haplotype b) {
+
+    if (a == b) {
+      return 0;
+    } else if (a == null) {
+      return -1;
+    } else if (b == null) {
+      return 1;
+    }
+    return HaplotypeNameComparator.getComparator().compare(a.getName(), b.getName());
   }
 
-  public String printLookupKeys() {
-    return String.join(sf_termDelimiter, m_lookupKeys);
-  }
 
   private static Map<String, Integer> computeLookupMap(Haplotype hap1, Haplotype hap2, String phenotype) {
     Map<String, Integer> lookupMap = new HashMap<>();
@@ -467,77 +462,15 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Computes lookup map for this {@link Diplotype}.
-   * Meant to be used internally.  This is only public for tests.
+   * <p>
+   * Using default scope to allow for use in tests.
    */
-  public Map<String, Integer> computeLookupMap() {
+  Map<String, Integer> computeLookupMap() {
     String phenotype = null;
     if (m_phenotypes.size() == 1) {
       phenotype = m_phenotypes.get(0);
     }
     return computeLookupMap(m_allele1, m_allele2, phenotype);
-  }
-
-  /**
-   * True if this diplotype does not use allele function to assign phenotype but instead relies on the presence or absense of
-   * alleles for its phenotypes (e.g. HLA's)
-   * @return true if this diplotype assigns phenotype based on allele presence
-   */
-  public boolean isAllelePresenceType() {
-    return GeneReport.isAllelePresenceType(getGene());
-  }
-
-  /**
-   * True if this diplotype only has the phenotype available, not the individual allele(s)
-   * @return true if this diplotype only has phenotype and not individual allele(s)
-   */
-  public boolean isPhenotypeOnly() {
-    return !isUnknownPhenotype() && isUnknownAlleles();
-  }
-
-
-  public String getActivityScore() {
-    return m_activityScore;
-  }
-
-  public void setActivityScore(String activityScore) {
-    m_activityScore = activityScore;
-  }
-
-  public boolean hasActivityScore() {
-    return !TextConstants.isUnspecified(m_activityScore);
-  }
-
-
-  /**
-   * Gets whether the activity score is from an outside call.
-   */
-  public boolean isOutsideActivityScore() {
-    return m_outsideActivityScore;
-  }
-
-  /**
-   * Gets expected activity score if outside activity score (based on diplotype) does not match.
-   */
-  public String getOutsideActivityScoreMismatch() {
-    return m_outsideActivityScoreMismatch;
-  }
-
-
-  public boolean isInferred() {
-    return m_inferred;
-  }
-
-  public void setInferred(boolean inferred) {
-    m_inferred = inferred;
-  }
-
-
-  public boolean isCombination() {
-    return m_combination;
-  }
-
-  public void setCombination(boolean combination) {
-    m_combination = combination;
   }
 
 
@@ -568,7 +501,7 @@ public class Diplotype implements Comparable<Diplotype> {
           m_activityScore = Objects.requireNonNull(
               ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap)));
         } else {
-          // leave activity score as NA but generate 1 lookupKey per activty score that matches phenotype below
+          // leave activity score as NA but generate 1 lookupKey per activity score that matches phenotype below
           // reporter will handle displaying correct activity score
           m_activityScore = TextConstants.NA;
         }
@@ -688,7 +621,6 @@ public class Diplotype implements Comparable<Diplotype> {
       }
     }
   }
-
 
 
   /**

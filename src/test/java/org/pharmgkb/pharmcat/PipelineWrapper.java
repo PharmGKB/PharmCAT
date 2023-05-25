@@ -13,11 +13,14 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
+import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -85,10 +88,17 @@ class PipelineWrapper {
     return m_vcfBuilder;
   }
 
-  Path execute(Path outsideCallPath) throws Exception {
-    Path vcfFile = m_vcfBuilder.generate();
+  @Nullable Path execute(Path outsideCallPath) throws Exception {
+    Path vcfFile = null;
+    VcfFile vcfFileObj = null;
+    boolean runMatcher = false;
+    if (m_vcfBuilder.hasData()) {
+      runMatcher = true;
+      vcfFile = m_vcfBuilder.generate();
+      vcfFileObj = new VcfFile(vcfFile, false);
+    }
     Pipeline pcat = new Pipeline(new Env(),
-        true, new VcfFile(vcfFile, false), null, true,
+        runMatcher, vcfFileObj, null, true,
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compactReport, true,
@@ -101,10 +111,11 @@ class PipelineWrapper {
   }
 
 
-  void testMatcher(String gene, String... diplotypes) {
+  void testCpicMatcher(String gene, String... diplotypes) {
     GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+    assertNotNull(geneReport);
     List<String> dips = geneReport.getSourceDiplotypes().stream()
-        .map(Diplotype::printBare)
+        .map(Diplotype::getLabel)
         .sorted()
         .toList();
     try {
@@ -114,6 +125,21 @@ class PipelineWrapper {
       throw ex;
     }
   }
+
+  void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes) {
+    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
+    List<String> dips = geneReport.getSourceDiplotypes().stream()
+        .map(Diplotype::getLabel)
+        .toList();
+    try {
+      assertEquals(diplotypes, dips);
+    } catch (AssertionError ex) {
+      System.out.println(printDiagnostic(geneReport));
+      throw ex;
+    }
+  }
+
 
   /**
    * Test the "print" calls for a gene that will display in the final report or in the phenotyper. This will check
@@ -127,19 +153,24 @@ class PipelineWrapper {
   }
 
   void testPrintCalls(DataSource source, String gene, String... calls) {
+    testPrintCalls(source, gene, Arrays.asList(calls));
+  }
+
+  void testPrintCalls(DataSource source, String gene, List<String> calls) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
-    SortedSet<String> dips = new TreeSet<>(geneReport.printDisplayCalls());
-    Arrays.sort(calls);
+    assertNotNull(geneReport);
+    List<String> dips = ReportHelpers.amdGeneCalls(geneReport);
     try {
-      assertThat(dips, contains(calls));
+      assertEquals(dips, calls);
     } catch (AssertionError ex) {
       System.out.println(printDiagnostic(geneReport));
       throw ex;
     }
   }
 
+
   /**
-   * Test to make sure the given phenotype is in the collection of phenotyps that come from the source diplotype
+   * Test to make sure the given phenotype is in the collection of phenotypes that come from the source diplotype
    * collection.
    *
    * @param source The source for the diplotype
@@ -148,22 +179,25 @@ class PipelineWrapper {
    */
   void testSourcePhenotype(DataSource source, String gene, String phenotype) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
     Set<String> sourcePhenotypes = geneReport.getSourceDiplotypes().stream()
         .flatMap(d -> d.getPhenotypes().stream())
         .collect(Collectors.toSet());
     assertTrue(sourcePhenotypes.contains(phenotype), sourcePhenotypes + " does not contain " + phenotype);
   }
 
-  void testInferredCalls(String gene, String... calls) {
-    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
-    SortedSet<String> dips = new TreeSet<>(geneReport.printDisplayInferredCalls());
-    Arrays.sort(calls);
-    try {
-      assertThat(dips, contains(calls));
-    } catch (AssertionError ex) {
-      System.out.println(printDiagnostic(geneReport));
-      throw ex;
-    }
+  void testRecommendedPhenotype(DataSource source, String gene, String phenotype) {
+    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
+    SortedSet<String> recPhenotypes = geneReport.getRecommendationDiplotypes().stream()
+        .flatMap(d -> d.getPhenotypes().stream())
+        .collect(Collectors.toCollection(TreeSet::new));
+    assertEquals(1, recPhenotypes.size());
+    assertEquals(phenotype, recPhenotypes.first());
+  }
+
+  void testRecommendedDiplotypes(String gene, String... haplotypes) {
+    testRecommendedDiplotypes(DataSource.CPIC, gene, Arrays.asList(haplotypes));
   }
 
   /**
@@ -174,40 +208,54 @@ class PipelineWrapper {
    * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous,
    * otherwise specify two haplotype names
    */
-  void testLookup(String gene, String... haplotypes) {
-    Preconditions.checkArgument(haplotypes.length >= 1 && haplotypes.length <= 2,
-        "Can only test on 1 or 2 haplotypes");
+  void testRecommendedDiplotypes(DataSource source, String gene, List<String> haplotypes) {
+    Preconditions.checkArgument(haplotypes.size() >= 1 && haplotypes.size() <= 2,
+        "Can only test on 1 or 2 haplotypes, got " + haplotypes.size());
 
     Map<String, Integer> lookup = new HashMap<>();
-    if (haplotypes.length == 2) {
-      if (haplotypes[0].equals(haplotypes[1])) {
-        lookup.put(haplotypes[0], 2);
+    if (haplotypes.size() == 2) {
+      if (haplotypes.get(0).equals(haplotypes.get(1))) {
+        lookup.put(haplotypes.get(0), 2);
       } else {
-        lookup.put(haplotypes[0], 1);
-        lookup.put(haplotypes[1], 1);
+        lookup.put(haplotypes.get(0), 1);
+        lookup.put(haplotypes.get(1), 1);
       }
     } else {
-      lookup.put(haplotypes[0], 1);
+      lookup.put(haplotypes.get(0), 1);
     }
 
-
-    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
     assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
-            .anyMatch(d -> d.computeLookupMap().equals(lookup)),
+            .anyMatch(d -> DiplotypeTest.computeLookupMap(d).equals(lookup)),
         "Lookup key " + lookup + " not found in lookup " +
-            geneReport.getRecommendationDiplotypes().stream().map(Diplotype::computeLookupMap).toList());
+            geneReport.getRecommendationDiplotypes().stream().map(DiplotypeTest::computeLookupMap).toList());
   }
 
-  void testLookupByActivity(String gene, String activityScore) {
-    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
+  void testDpydLookup(List<String> haplotypes) {
+
+    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertNotNull(geneReport);
+    assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
+
+    System.out.println(geneReport.getRecommendationDiplotypes());
+    geneReport.getRecommendationDiplotypes()
+        .forEach(d -> System.out.println(d + " -- " + DiplotypeTest.computeLookupMap(d)));
+
+  }
+
+  void testLookupByActivity(DataSource source, String gene, String activityScore) {
+    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
     assertTrue(geneReport.isReportable());
     String foundScores = geneReport.getRecommendationDiplotypes().stream()
         .map(Diplotype::getActivityScore)
         .collect(Collectors.joining("; "));
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
-        .allMatch(d -> d.printLookupKeys().equals(activityScore)), "Activity score mismatch, expected " + activityScore + " but got " + foundScores);
+            .allMatch(d -> printLookupKeys(d).equals(activityScore)),
+        "Activity score mismatch, expected " + activityScore + " but got " + foundScores);
   }
 
   /**
@@ -262,6 +310,10 @@ class PipelineWrapper {
 
   void testMatchedAnnotations(String drugName, DataSource source, int expectedCount) {
     DrugReport drugReport = getContext().getDrugReport(source, drugName);
+    if (expectedCount == 0) {
+      assertNull(drugReport);
+      return;
+    }
     assertNotNull(drugReport);
     assertEquals(expectedCount, drugReport.getMatchedAnnotationCount(),
         drugName + " has " + drugReport.getMatchedAnnotationCount() + " matching " + source +
@@ -315,7 +367,11 @@ class PipelineWrapper {
     return String.format("\nMatcher: %s\nReporter: %s\nPrint (displayCalls): %s",
         geneReport.getSourceDiplotypes().toString(),
         geneReport.getRecommendationDiplotypes().toString(),
-        geneReport.printDisplayCalls()
+        ReportHelpers.amdGeneCalls(geneReport)
     );
+  }
+
+  public String printLookupKeys(Diplotype diplotype) {
+    return String.join(";", diplotype.getLookupKeys());
   }
 }
