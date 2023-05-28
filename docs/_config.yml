@@ -24,7 +24,7 @@ kramdown:
     mdash: "---"
     ndash: "--"
 mermaid:
-  version: "9.1.7"
+  version: "10.2.0"
 
 # Just-the-Docs settings
 color_scheme: pharmcat
