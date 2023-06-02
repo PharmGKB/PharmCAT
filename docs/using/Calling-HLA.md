@@ -124,7 +124,10 @@ PharmCAT supports incorporating results from your favorite HLA programs for phen
 To incorporate the outside calls, you would run PharmCAT as you normally would, and add the -po flag which signals the program to look for an external call file. Please note that PharmCAT requires that your HLA call have only two fields for phenotype translations. Therefore, if your external calls have more than two fields, you should truncate your output to only two fields. For more information on HLA nomenclature and what the each field means in HLA, please visit the page for [Nomenclature for Factors of the HLA System page](https://hla.alleles.org/nomenclature/naming.html). For example:
 
 ```console
-java -jar pharmcat.jar -vcf test.vcf -po test_sample_hla.txt
+# run the HLA calls with a VCF
+java -jar pharmcat.jar -vcf test.vcf -po /path/to/test_sample_hla.txt
+# only generate a report for the HLA calls
+java -jar pharmcat.jar -phenotyper -reporter -po /path/to/test_sample_hla.txt
 ```
 
 `test_sample_hla.txt` should be a tab-delimited file where the first column is the gene name and the second column the HLA diplotype:
