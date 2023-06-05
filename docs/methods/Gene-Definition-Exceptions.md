@@ -9,7 +9,7 @@ nav_order: 7
 Genotype determination is based on [CPIC gene definition tables](https://www.pharmgkb.org/page/pgxGeneRef), with 
 modifications for the following genes:
 
-* [SLC01B1](#slco1b1)
+* [SLCO1B1](#slco1b1)
 * [DPYD](#dpyd)
 * [CYP3A4](#cyp3a4)
 
@@ -105,4 +105,4 @@ in the DPWG data, DPWG guidance for `c.1905+1G>A (*2A)/Reference` will be includ
 
 PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
-CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*20` and `*22` definitions are the same in the DPWG CYP3A4 gene document and PharmVar, while the `*16` allele definition includes besides rs12721627 an additional SNP rs2242480 in PharmVar. Besides `*16`, c.1026+12G>A (rs2242480) is part of several star alleles including CYP3A4 `*36` (formerly `*1G`). See PharmVar's CYP3A4 documentation for further details.
+CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*16`, `*20` and `*22` definitions are the same in the DPWG CYP3A4 gene document and PharmVar.
