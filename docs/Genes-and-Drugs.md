@@ -40,8 +40,8 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 
 These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you can use an outside caller like
 [Stargazer](https://stargazer.gs.washington.edu/stargazerweb/index.html) or
-[StellarPGx](https://github.com/SBIMB/StellarPGx) to get diplotype calls and then supply that to PharmCAT for use in
-matching recommendation data.  See [Outside Call Format](/using/Outside-Call-Format) for details.
+[StellarPGx](https://github.com/SBIMB/StellarPGx) to get _CYP2D6_ diplotype calls, or [Optitype](https://github.com/FRED-2/OptiType) to get _HLA_ calls, and then supply that to PharmCAT for use in
+matching recommendation data.  See [Outside Call Format](/using/Outside-Call-Format) for formatting details and [Calling-CYP2D6.md](/using/Calling-CYP2D6.md) or [Calling-HLA.md](/using/Calling-HLA.md) for how to obtain _CYP2D6_ or _HLA_ calls, respectively, using sequencing data.
 
 | Gene | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
