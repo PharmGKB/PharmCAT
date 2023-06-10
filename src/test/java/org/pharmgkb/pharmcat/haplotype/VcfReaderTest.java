@@ -161,6 +161,68 @@ class VcfReaderTest {
   }
 
   @Test
+  void testAdFieldUnknown() throws Exception {
+
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-unknown.vcf");
+    VcfReader reader = new VcfReader(definitionReader, vcfFile);
+
+    assertNotNull(reader.getWarnings());
+    printWarnings(reader);
+    assertEquals(0, reader.getWarnings().size());
+  }
+
+  @Test
+  void testAdFieldInvalid() throws Exception {
+
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-invalid.vcf");
+    VcfReader reader = new VcfReader(definitionReader, vcfFile);
+
+    assertNotNull(reader.getWarnings());
+    printWarnings(reader);
+    assertEquals(1, reader.getWarnings().size());
+    assertEquals(1, reader.getWarnings().get("VCF").size());
+    assertEquals("Unexpected AD format number: 'f'. Treating number as '.' and ignoring AD field.",
+        reader.getWarnings().get("VCF").first());
+  }
+
+  @Test
+  void testAdFieldMissing() throws Exception {
+
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-missing.vcf");
+    VcfReader reader = new VcfReader(definitionReader, vcfFile);
+
+    assertNotNull(reader.getWarnings());
+    printWarnings(reader);
+
+    String pos = "chr10:94942254";
+    assertNotNull(reader.getWarnings().get(pos));
+    assertEquals(1, reader.getWarnings().get(pos).size());
+    assertEquals("Discarding genotype at this position because GT field indicates heterozygous (0/1) but AD field indicates homozygous (91,0)",
+        reader.getWarnings().get(pos).iterator().next());
+
+    pos = "chr10:94942255";
+    assertNotNull(reader.getWarnings().get(pos));
+    assertEquals(1, reader.getWarnings().get(pos).size());
+    assertEquals("Discarding genotype at this position because GT field indicates heterozygous (0/1) but AD field indicates homozygous (0,91)",
+        reader.getWarnings().get(pos).iterator().next());
+
+    assertEquals(3, reader.getWarnings().size());
+    assertEquals(1, reader.getWarnings().get("VCF").size());
+    assertEquals(VcfReader.MSG_AD_FORMAT_MISSING, reader.getWarnings().get("VCF").first());
+  }
+
+
+
+  @Test
   void testFiltersNoDefinition() throws Exception {
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");

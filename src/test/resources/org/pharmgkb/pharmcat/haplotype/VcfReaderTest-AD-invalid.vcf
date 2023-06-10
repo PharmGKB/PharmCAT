@@ -1,0 +1,26 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##fileDate=20211216
+##fileEncoding=windows-1252
+##fileOrigin=testsample
+##source=CLC Genomics Workbench 21.0.5 build 20210816012301
+##reference=/CLC_References/homo_sapiens/sequence/hg38_no_alt_analysis_set/Homo_sapiens_sequence_hg38_no_alt_analysis_set
+##refOverlap=true
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Total number of filtered reads used to call variants at this position in this sample.">
+##FORMAT=<ID=AD,Number=f,Type=Integer,Description="Allele depth, number of filtered reads supporting the alleles, ordered as listed in REF and ALT.">
+##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##FILTER=<ID=PCATxREF,Description="Reference allele does not match PharmCAT reference alleles">
+##FILTER=<ID=PCATxALT,Description="Alternate alleles do not match PharmCAT alternate alleles">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	testsample
+chr10	94942230	rs767576260	C	T	.	.	PX=pass;AC=1;AN=2	GT:AD:DP	0/1:42,44:86
+chr10	94942231	rs12414460	G	A	.	.	PX=pass;AC=1;AN=2	GT:AD:DP	0/0:91,0:91
+chr10	94942233	rs375805362	C	T	.	.	PX=pass;AC=1;AN=2	GT:AD:DP	1/1:0,91:91
+chr10	94942234	rs72558189	G	A,T	.	.	PX=pass;AC=1;AN=2	GT:AD:DP	2/2:0,0,91:91
+chr10	94942249	rs200965026	C	G,T	.	.	PX=AD_mismatch_ignored;AC=1;AN=2	GT:AD:DP	1/1:91,0:91
+chr10	94942254	rs199523631	C	T	.	.	PX=fail;AC=1;AN=2	GT:AD:DP	0/1:91,0:91
+chr10	94942255	rs200183364	G	A	.	.	PX=fail;AC=1;AN=2	GT:AD:DP	0/1:0,91:91
