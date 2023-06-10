@@ -439,10 +439,14 @@ public class DataManager {
 
   private void deleteObsoleteFiles(Path dir, Set<String> obsoleteFilenames) {
 
-    for (String filename : obsoleteFilenames) {
-      Path file = dir.resolve(filename);
-      System.out.println("Deleting obsolete file: " + file);
-      FileUtils.deleteQuietly(file.toFile());
+    if (obsoleteFilenames.size() > 0) {
+      System.out.println();
+      for (String filename : obsoleteFilenames) {
+        Path file = dir.resolve(filename);
+        System.out.println("*** Deleting obsolete file: " + file);
+        FileUtils.deleteQuietly(file.toFile());
+      }
+      System.out.println();
     }
   }
 
