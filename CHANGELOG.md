@@ -1,3 +1,21 @@
+## [2.5.0](https://github.com/PharmGKB/PharmCAT/compare/v2.4.0...v2.5.0) (2023-06-12)
+
+
+### Features
+
+* **namedallelematcher:** support treating undocumented variation as reference ([f5a5baa](https://github.com/PharmGKB/PharmCAT/commit/f5a5baa5b984f580e1763c2028649148bd268e00))
+
+
+### Bug Fixes
+
+* fix loading of path for test file writing ([beb03c3](https://github.com/PharmGKB/PharmCAT/commit/beb03c337944458fe86dee7e3d11d68a39a48943))
+* **data:** update CPIC data ([ab0fb0f](https://github.com/PharmGKB/PharmCAT/commit/ab0fb0f2e56c2d4133058ea9360bea5366e91890))
+* **namedallelematcher:** adhere to AD format rules ([561012a](https://github.com/PharmGKB/PharmCAT/commit/561012acec6722c47414e04e6f93f5d87adf8726)), closes [#139](https://github.com/PharmGKB/PharmCAT/issues/139)
+* **reporter:** display consistent genotype in report, fix SLCO1B1 bug ([08f65ea](https://github.com/PharmGKB/PharmCAT/commit/08f65ea2c345331c1167cf9625227be2850b449d))
+* **reporter:** fix DPWG version check ([6c2d828](https://github.com/PharmGKB/PharmCAT/commit/6c2d8288bdad8eeab6842e204c060589bbcd362d))
+* **reporter:** fix JSON property name ([e7036c8](https://github.com/PharmGKB/PharmCAT/commit/e7036c848eaab8035b39a9681b3c3932ca9803aa))
+* **reporter:** improve styling when there are multiple drug recommendations ([20b20f4](https://github.com/PharmGKB/PharmCAT/commit/20b20f435528e012c97c7ff0dd98210a85f7b05e))
+
 ## [2.4.0](https://github.com/PharmGKB/PharmCAT/compare/v2.3.0...v2.4.0) (2023-05-01)
 
 
