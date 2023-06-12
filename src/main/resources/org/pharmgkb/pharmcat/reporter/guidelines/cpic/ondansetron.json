@@ -59,11 +59,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "2.75"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.0"
+        "CYP2D6": "2.75"
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
@@ -79,11 +79,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.5"
+        "CYP2D6": "3.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.5"
+        "CYP2D6": "3.0"
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
@@ -179,11 +179,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.0"
+        "CYP2D6": "≥3.75"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.0"
+        "CYP2D6": "≥3.75"
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
@@ -199,11 +199,11 @@
         "CYP2D6": "Ultrarapid Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.5"
+        "CYP2D6": "≥4.0"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.5"
+        "CYP2D6": "≥4.0"
       },
       "comments": "Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.",
       "population": "general",
@@ -474,6 +474,6 @@
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.25.0",
+  "cpicVersion": "v1.26.0",
   "source": "CPIC"
 }

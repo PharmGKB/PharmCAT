@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "May 1, 2023, 11:56:10 AM",
+    "timestamp": "Jun 12, 2023, 2:45:36 AM",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -11,7 +11,7 @@
   "results": [
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -95,7 +95,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -105,7 +106,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -201,7 +202,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -211,7 +213,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -751,7 +753,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -761,7 +764,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1397,7 +1400,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -1407,7 +1411,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1887,7 +1891,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -1897,7 +1902,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -2936,7 +2941,8 @@
       ],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -3402,7 +3408,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -3412,7 +3419,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3544,7 +3551,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -3554,7 +3562,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3569,6 +3577,14 @@
                 "G",
                 "C",
                 "C",
+                "G",
+                "C",
+                "C",
+                "C",
+                "G",
+                "G",
+                "C",
+                "G",
                 "C",
                 "A"
               ],
@@ -3576,6 +3592,14 @@
                 "G",
                 "C",
                 "C",
+                "G",
+                "C",
+                "C",
+                "C",
+                "G",
+                "G",
+                "C",
+                "G",
                 "C",
                 "A"
               ],
@@ -3585,7 +3609,7 @@
               "numPartials": 0
             },
             "sequences": [
-              "15878779:G;15879621:C;15890405:C;15897566:C;15897578:A;"
+              "15878779:G;15879412:C;15879621:C;15886018:G;15889671:C;15890405:C;15892541:C;15895527:G;15895560:G;15897466:C;15897473:G;15897566:C;15897578:A;"
             ]
           },
           "haplotype2": {
@@ -3597,6 +3621,14 @@
                 "G",
                 "C",
                 "C",
+                "G",
+                "C",
+                "C",
+                "C",
+                "G",
+                "G",
+                "C",
+                "G",
                 "C",
                 "A"
               ],
@@ -3604,6 +3636,14 @@
                 "G",
                 "C",
                 "C",
+                "G",
+                "C",
+                "C",
+                "C",
+                "G",
+                "G",
+                "C",
+                "G",
                 "C",
                 "A"
               ],
@@ -3613,10 +3653,10 @@
               "numPartials": 0
             },
             "sequences": [
-              "15878779:G;15879621:C;15890405:C;15897566:C;15897578:A;"
+              "15878779:G;15879412:C;15879621:C;15886018:G;15889671:C;15890405:C;15892541:C;15895527:G;15895560:G;15897466:C;15897473:G;15897566:C;15897578:A;"
             ]
           },
-          "score": 10
+          "score": 26
         }
       ],
       "haplotypes": [
@@ -3629,6 +3669,14 @@
               "G",
               "C",
               "C",
+              "G",
+              "C",
+              "C",
+              "C",
+              "G",
+              "G",
+              "C",
+              "G",
               "C",
               "A"
             ],
@@ -3636,6 +3684,14 @@
               "G",
               "C",
               "C",
+              "G",
+              "C",
+              "C",
+              "C",
+              "G",
+              "G",
+              "C",
+              "G",
               "C",
               "A"
             ],
@@ -3645,7 +3701,7 @@
             "numPartials": 0
           },
           "sequences": [
-            "15878779:G;15879621:C;15890405:C;15897566:C;15897578:A;"
+            "15878779:G;15879412:C;15879621:C;15886018:G;15889671:C;15890405:C;15892541:C;15895527:G;15895560:G;15897466:C;15897473:G;15897566:C;15897578:A;"
           ]
         }
       ],
@@ -3659,8 +3715,26 @@
           "phased": false
         },
         {
+          "position": 15879412,
+          "rsid": "rs138971789",
+          "vcfCall": "C/C",
+          "phased": false
+        },
+        {
           "position": 15879621,
           "rsid": "rs2108622",
+          "vcfCall": "C/C",
+          "phased": false
+        },
+        {
+          "position": 15886018,
+          "rsid": "rs145174239",
+          "vcfCall": "G/G",
+          "phased": false
+        },
+        {
+          "position": 15889671,
+          "rsid": "rs144233412",
           "vcfCall": "C/C",
           "phased": false
         },
@@ -3668,6 +3742,36 @@
           "position": 15890405,
           "rsid": "rs3093153",
           "vcfCall": "C/C",
+          "phased": false
+        },
+        {
+          "position": 15892541,
+          "rsid": "rs145875499",
+          "vcfCall": "C/C",
+          "phased": false
+        },
+        {
+          "position": 15895527,
+          "rsid": "rs114396708",
+          "vcfCall": "G/G",
+          "phased": false
+        },
+        {
+          "position": 15895560,
+          "rsid": "rs144455532",
+          "vcfCall": "G/G",
+          "phased": false
+        },
+        {
+          "position": 15897466,
+          "rsid": "rs201380574",
+          "vcfCall": "C/C",
+          "phased": false
+        },
+        {
+          "position": 15897473,
+          "rsid": "rs115517770",
+          "vcfCall": "G/G",
           "phased": false
         },
         {
@@ -3686,7 +3790,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -3696,7 +3801,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4764,7 +4869,103 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
+        "phased": false,
+        "homozygous": true,
+        "effectivelyPhased": true
+      },
+      "uncallableHaplotypes": [],
+      "ignoredHaplotypes": []
+    },
+    {
+      "source": "PHARMGKB",
+      "version": "2023-04-05-11-38",
+      "chromosome": "chr1",
+      "gene": "F5",
+      "diplotypes": [
+        {
+          "name": "rs6025 C/rs6025 C",
+          "haplotype1": {
+            "name": "rs6025 C",
+            "haplotype": {
+              "name": "rs6025 C",
+              "id": "PA166300382",
+              "alleles": [
+                "C"
+              ],
+              "cpicAlleles": [
+                "C"
+              ],
+              "populationFrequency": null,
+              "reference": true,
+              "numCombinations": 0,
+              "numPartials": 0
+            },
+            "sequences": [
+              "169549811:C;"
+            ]
+          },
+          "haplotype2": {
+            "name": "rs6025 C",
+            "haplotype": {
+              "name": "rs6025 C",
+              "id": "PA166300382",
+              "alleles": [
+                "C"
+              ],
+              "cpicAlleles": [
+                "C"
+              ],
+              "populationFrequency": null,
+              "reference": true,
+              "numCombinations": 0,
+              "numPartials": 0
+            },
+            "sequences": [
+              "169549811:C;"
+            ]
+          },
+          "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "rs6025 C",
+          "haplotype": {
+            "name": "rs6025 C",
+            "id": "PA166300382",
+            "alleles": [
+              "C"
+            ],
+            "cpicAlleles": [
+              "C"
+            ],
+            "populationFrequency": null,
+            "reference": true,
+            "numCombinations": 0,
+            "numPartials": 0
+          },
+          "sequences": [
+            "169549811:C;"
+          ]
+        }
+      ],
+      "haplotypeMatches": [],
+      "phased": false,
+      "variants": [
+        {
+          "position": 169549811,
+          "rsid": "rs6025",
+          "vcfCall": "C/C",
+          "phased": false
+        }
+      ],
+      "variantsOfInterest": [],
+      "matchData": {
+        "missingPositions": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -4774,7 +4975,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -6898,7 +7099,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -6910,7 +7112,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -6994,7 +7196,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -7004,7 +7207,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7280,7 +7483,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -7290,7 +7494,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -7890,7 +8094,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -7900,7 +8105,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -8344,7 +8549,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -8354,7 +8560,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -8942,7 +9148,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -8952,7 +9159,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -9072,7 +9279,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true
@@ -9082,7 +9290,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.25.0",
+      "version": "v1.26.0",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
@@ -9166,7 +9374,8 @@
       "variantsOfInterest": [],
       "matchData": {
         "missingPositions": [],
-        "mismatchedAlleles": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
         "phased": false,
         "homozygous": true,
         "effectivelyPhased": true

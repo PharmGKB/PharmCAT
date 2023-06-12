@@ -403,12 +403,12 @@
         "CYP2C19": "Normal Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.0",
+        "CYP2D6": "2.75",
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.0",
+        "CYP2D6": "2.75",
         "CYP2C19": "Normal Metabolizer"
       },
       "comments": "n/a",
@@ -427,12 +427,12 @@
         "CYP2C19": "Normal Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "3.5",
+        "CYP2D6": "3.0",
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "3.5",
+        "CYP2D6": "3.0",
         "CYP2C19": "Normal Metabolizer"
       },
       "comments": "n/a",
@@ -547,12 +547,12 @@
         "CYP2C19": "Normal Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.0",
+        "CYP2D6": "≥3.75",
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.0",
+        "CYP2D6": "≥3.75",
         "CYP2C19": "Normal Metabolizer"
       },
       "comments": "n/a",
@@ -571,12 +571,12 @@
         "CYP2C19": "Normal Metabolizer"
       },
       "activityscore": {
-        "CYP2D6": "≥4.5",
+        "CYP2D6": "≥4.0",
         "CYP2C19": "n/a"
       },
       "allelestatus": {},
       "lookupkey": {
-        "CYP2D6": "≥4.5",
+        "CYP2D6": "≥4.0",
         "CYP2C19": "Normal Metabolizer"
       },
       "comments": "n/a",
@@ -883,6 +883,54 @@
         "CYP2C19": "Rapid Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "3.0",
         "CYP2C19": "n/a"
       },
@@ -913,54 +961,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.0",
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
         "CYP2C19": "Ultrarapid Metabolizer"
       },
       "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
@@ -1171,6 +1171,54 @@
         "CYP2C19": "Rapid Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "≥4.0",
         "CYP2C19": "n/a"
       },
@@ -1201,54 +1249,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "≥4.0",
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "Rapid Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Increased metabolism of tertiary amines compared to normal metabolizers; Greater conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Ultrarapid Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
         "CYP2C19": "Ultrarapid Metabolizer"
       },
       "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations\nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate, or poor metabolism in combination with CYP2C19 ultrarapid, intermediate, or poor metabolism is strongly recommended",
@@ -1459,6 +1459,54 @@
         "CYP2C19": "Likely Poor Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "3.0",
         "CYP2C19": "n/a"
       },
@@ -1489,54 +1537,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.0",
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
         "CYP2C19": "Poor Metabolizer"
       },
       "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
@@ -1747,6 +1747,54 @@
         "CYP2C19": "Likely Poor Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "≥4.0",
         "CYP2C19": "n/a"
       },
@@ -1777,54 +1825,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "≥4.0",
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "Likely Poor Metabolizer"
-      },
-      "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Greatly reduced metabolism of tertiary amines compared to normal metabolizers; Decreased conversion of tertiary amines to secondary amines may affect response or side effects"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Poor Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
         "CYP2C19": "Poor Metabolizer"
       },
       "comments": "Dosing recommendations only apply to higher initial doses of TCAs for treatment of conditions such as depression. See other considerations for dosing recommendations \nfor conditions where lower initial doses are used, such as neuropathic pain. Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
@@ -2035,6 +2035,54 @@
         "CYP2C19": "Intermediate Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "3.0",
         "CYP2C19": "n/a"
       },
@@ -2065,54 +2113,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.0",
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
       "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
@@ -2323,6 +2323,54 @@
         "CYP2C19": "Intermediate Metabolizer"
       },
       "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
+      },
+      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "activityscore": {
         "CYP2D6": "≥4.0",
         "CYP2C19": "n/a"
       },
@@ -2353,54 +2401,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "≥4.0",
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "Intermediate Metabolizer"
-      },
-      "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "Reduced metabolism of tertiary amines compared to normal metabolizers"
-      },
-      "drugrecommendation": "Avoid clomipramine use; If clomipramine is warranted, utilize therapeutic drug monitoring to guide dose adjustment. Utilizing therapeutic drug monitoring to guide dose adjustments is strongly recommended.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Likely Intermediate Metabolizer"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
         "CYP2C19": "Likely Intermediate Metabolizer"
       },
       "comments": "Utilizing therapeutic drug monitoring if a tricyclic is prescribed to a patient with CYP2D6 ultrarapid, intermediate or poor metabolism in combination with CYP2C19 ultrarapid, intermediate or poor metabolism is strongly recommended.",
@@ -2803,6 +2803,54 @@
         "CYP2C19": "Indeterminate"
       },
       "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "2.75",
+        "CYP2C19": "No Result"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
         "CYP2D6": "3.0",
         "CYP2C19": "n/a"
       },
@@ -2833,54 +2881,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "3.0",
-        "CYP2C19": "No Result"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "n/a"
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "Indeterminate"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "n/a"
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "No Result"
-      },
-      "activityscore": {
-        "CYP2D6": "3.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "3.5",
         "CYP2C19": "No Result"
       },
       "comments": "n/a",
@@ -3091,6 +3091,54 @@
         "CYP2C19": "Indeterminate"
       },
       "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "Indeterminate"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "No Result"
+      },
+      "activityscore": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "n/a"
+      },
+      "allelestatus": {},
+      "lookupkey": {
+        "CYP2D6": "≥3.75",
+        "CYP2C19": "No Result"
+      },
+      "comments": "n/a",
+      "population": "general",
+      "genotypes": null
+    },
+    {
+      "implications": {
+        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
+        "CYP2C19": "n/a"
+      },
+      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
+      "classification": "Optional",
+      "phenotypes": {
+        "CYP2D6": "Ultrarapid Metabolizer",
+        "CYP2C19": "Indeterminate"
+      },
+      "activityscore": {
         "CYP2D6": "≥4.0",
         "CYP2C19": "n/a"
       },
@@ -3121,54 +3169,6 @@
       "allelestatus": {},
       "lookupkey": {
         "CYP2D6": "≥4.0",
-        "CYP2C19": "No Result"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "n/a"
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "Indeterminate"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "Indeterminate"
-      },
-      "comments": "n/a",
-      "population": "general",
-      "genotypes": null
-    },
-    {
-      "implications": {
-        "CYP2D6": "Increased metabolism of TCAs to less active compounds compared to normal metabolizers; Lower plasma concentrations of active drug will increase probability of pharmacotherapy failure",
-        "CYP2C19": "n/a"
-      },
-      "drugrecommendation": "Avoid tricyclic use due to potential lack of efficacy. Consider alternative drug not metabolized by CYP2D6. If a TCA is warranted, consider titrating to a higher target dose (compared to normal metabolizers). Utilize therapeutic drug monitoring to guide dose adjustments. Titrate dose to observed clinical response with symptom improvement and minimal (if any) side effects.",
-      "classification": "Optional",
-      "phenotypes": {
-        "CYP2D6": "Ultrarapid Metabolizer",
-        "CYP2C19": "No Result"
-      },
-      "activityscore": {
-        "CYP2D6": "≥4.5",
-        "CYP2C19": "n/a"
-      },
-      "allelestatus": {},
-      "lookupkey": {
-        "CYP2D6": "≥4.5",
         "CYP2C19": "No Result"
       },
       "comments": "n/a",
@@ -5005,6 +5005,6 @@
     "CYP2D6"
   ],
   "notesonusage": null,
-  "cpicVersion": "v1.25.0",
+  "cpicVersion": "v1.26.0",
   "source": "CPIC"
 }

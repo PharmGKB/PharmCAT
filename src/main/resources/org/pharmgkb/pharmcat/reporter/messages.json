@@ -488,29 +488,6 @@
     "message": ""
   },
   {
-    "rule_name": "Show rs4149056 for SLCO1B1",
-    "version": "1",
-    "matches": {
-      "gene": "SLCO1B1",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs4149056",
-      "dips": [],
-      "drugs": [
-        "simvastatin",
-        "rosuvastatin",
-        "pravastatin",
-        "pitavastatin",
-        "lovastatin",
-        "fluvastatin",
-        "atorvastatin"
-      ]
-    },
-    "exception_type": "report-as-genotype",
-    "message": ""
-  },
-  {
     "rule_name": "SLCO1B1 *1/*46 warning",
     "version": "1",
     "matches": {
@@ -981,7 +958,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for uphased data and the lowest activity value per allele are used for phased data to determine the gene activity score and phenotype type to retrieve prescribing recommendations. "
+    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for uphased data and the lowest activity value per allele are used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
   },
   {
     "rule_name": "pcat-cyp2d6-gene-note",
@@ -1540,5 +1517,28 @@
     },
     "exception_type": "ambiguity",
     "message": "The assigned genotype is B (reference)/Hermoupolis; however, Cassano/Union,Maewo, Chinese-2, Kal cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "Malignant Hyperthermia Susceptibility warning",
+    "version": "2",
+    "matches": {
+      "gene": null,
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": [
+        "desflurane",
+        "enflurane",
+        "halothane",
+        "isoflurane",
+        "methoxyflurane",
+        "sevoflurane",
+        "succinylcholine"
+      ]
+    },
+    "exception_type": "note",
+    "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
   }
 ]

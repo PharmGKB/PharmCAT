@@ -1,20 +1,20 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.26.0",
-  "modificationDate": "Jun 5, 2023, 8:48:39 PM",
-  "gene": "IFNL3",
+  "source": "PHARMGKB",
+  "version": "2023-04-05-11-38",
+  "modificationDate": "May 3, 2023, 5:06:53 PM",
+  "gene": "F5",
   "orientation": null,
-  "chromosome": "chr19",
+  "chromosome": "chr1",
   "genomeBuild": "GRCh38.p13",
-  "refSeqChromosomeId": "NC_000019.10",
+  "refSeqChromosomeId": "NC_000001.11",
   "variants": [
     {
-      "chromosome": "chr19",
-      "position": 39248147,
-      "cpicPosition": 39248147,
-      "rsid": "rs12979860",
-      "chromosomeHgvsName": "g.39248147C>T",
+      "chromosome": "chr1",
+      "position": 169549811,
+      "cpicPosition": 169549811,
+      "rsid": "rs6025",
+      "chromosomeHgvsName": "g.169549811C>T",
       "cpicAlleles": [
         "C",
         "T"
@@ -31,8 +31,8 @@
   ],
   "namedAlleles": [
     {
-      "name": "rs12979860 reference (C)",
-      "id": "779041",
+      "name": "rs6025 C",
+      "id": "PA166300382",
       "alleles": [
         "C"
       ],
@@ -45,8 +45,8 @@
       "numPartials": 0
     },
     {
-      "name": "rs12979860 variant (T)",
-      "id": "779043",
+      "name": "rs6025 T (Factor V Leiden)",
+      "id": "PA166300383",
       "alleles": [
         "T"
       ],
