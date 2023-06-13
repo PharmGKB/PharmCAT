@@ -119,13 +119,13 @@ will get the highest score. As such, scoring is biased towards grouping combinat
 
 ## Undocumented Variations
 
-Under normal circumstances, samples with genetic variations that are not defined in the allele definitions cannot
-be called.
+By default, only genetic variations that are defined in the allele definitions can be mapped to genotypes by the 
+`Named Allele Matcher`. If the sample includes a variant call that is not included in the allele definitions at a
+position that is part of the allele definitions, the `Named Allele Matcher` produces a "Not called" for the affected
+gene since the sample matches neither the reference nor any defined variant.
 
-However, for certain genes, especially those whose alleles are all defined by a single SNP, a different approach is
-taken.  When these "undocumented" variations are encountered, they will be treated as reference.
-
-This special case applies to:
+A different approach is taken for genes for which the defined variants affect drug toxicity . When these "undefined"
+variant calls are encountered, they will be treated as reference.  This applies to:
 
 * CACNA1S
 * G6PD
