@@ -18,7 +18,7 @@ The HLA region is highly polymorphic and complex region filled with genes, retro
 
 We tested imputation accuracy using 258 in house samples for which we had targeted HLA sequencing and low-pass whole genomes (~2.54X). To impute, we used the Michigan Imputation Server Four-digit Multi-ethnic HLA v1 (2021) panel, which uses the SNP2HLA program as part of the [HLA-TAPAS](https://github.com/immunogenomics/HLA-TAPAS) software to call HLA. The reference panel used contains [36,586 HLA haplotypes belonging to a multi-ethnic cohort](https://imputationserver.readthedocs.io/en/latest/reference-panels/#four-digit-multi-ethnic-hla-v1-2021). For our testing purposes, we looked at 4 important PGx HLA alleles (`HLA-A*31:01`, `HLA-B*15:02`, `HLA-B*57:01`, `HLA-B*58:01`). All 4 alleles passed QC as described in [Luo et al. 2021](https://doi.org/10.1038/s41588-021-00935-7). A summary of our results are as follows:
 
-![hla_imputation_accuracy.png](images/hla_imputation_accuracy.png)
+![hla_imputation_accuracy.png](/images/hla_imputation_accuracy.png)
 
 | HLA Allele   | Sequence | Imputed |
 |--------------|----------|---------|
