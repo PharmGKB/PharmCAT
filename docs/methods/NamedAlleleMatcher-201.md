@@ -115,3 +115,20 @@ Because PharmCAT scores on the number of matched positions in the definitions, t
 will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6 
 `*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`,
 `*23/[*5 + *9]` are also possible.
+
+
+## Undocumented Variations
+
+Under normal circumstances, samples with genetic variations that are not defined in the allele definitions cannot
+be called.
+
+However, for certain genes, especially those whose alleles are all defined by a single SNP, a different approach is
+taken.  When these "undocumented" variations are encountered, they will be treated as reference.
+
+This special case applies to:
+
+* CACNA1S
+* G6PD
+* NUDT15
+* RYR1
+* TPMT

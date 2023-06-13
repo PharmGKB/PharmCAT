@@ -41,6 +41,7 @@ import org.pharmgkb.pharmcat.util.DataManager;
  */
 public class NamedAlleleMatcher {
   public static final String VERSION = "2.0.0";
+  // CHANGES TO THIS LIST OF GENES SHOULD ALSO BE REFLECTED IN DOCUMENTATION IN NamedAlleleMatcher-201.md
   public static final List<String> TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE = List.of(
       "CACNA1S",
       "G6PD",
