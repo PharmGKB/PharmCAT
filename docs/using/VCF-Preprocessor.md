@@ -255,6 +255,39 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 <...truncated...>
 ```
 
+### Case 3 - multi-sample VCF input and single-sample VCF ouputs
+Given the same *"test_2.vcf.bgz"* as in the case 2, to obtain single-sample VCF files for each sample, run the following command:
+```console
+$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz -ss
+```
+
+The VCF Preprocessor will return three (3) files in this test case:
+1. *"test_2.Sample_1.preprocessed.vcf"*
+2. *"test_2.Sample_2.preprocessed.vcf"*
+3. *"test_2.missing_pgx_var.vcf"*
+
+Note that the PharmCAT-ready VCFs will use the sample names from the input VCF.
+
+```console
+$ cat test_2.Sample_1.preprocessed.vcf
+<...header truncated...>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
+chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
+chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      3/2
+chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    PX=CYP2C9     GT      1/0
+chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
+chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
+
+$ cat test_2.Sample_2.preprocessed.vcf
+<...header truncated...>
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
+chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
+chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      2/1
+chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    PX=CYP2C9     GT      0/1
+chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      0/1
+chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      0/1
+```
+
 ## Explanation of INFO
 
 The PharmCAT VCF Preprocessor updates the INFO on genetic variants that warrant further inspection. Please check positions with these INFO flags:
