@@ -9,7 +9,7 @@ render_with_liquid: false
 
 The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT.
 
-Input VCF files must comply with [Variant Call Format (VCF) Version >= 4.1](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
+Input VCF files must comply with [Variant Call Format (VCF) Version >= 4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
 This tool will:
 
@@ -157,9 +157,9 @@ the path to the bgzip program.  Alternatively, set using the `BGZIP_PATH` enviro
 
 ### Output
 
-All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument.  For example, if the input file is "study.vcf", then the base filename is "study".  If the input file is "biobank_files.txt" then the base filename is "biobank_files".
+By default, the preprocessor will produce a (multi-sample) VCF named `<base_filename>.preprocessed.vcf.bgz`, which is ready to be used by PharmCAT.
 
-By default, the preprocessor will produce a VCF named `<base_filename>.preprocessed.vcf`.
+All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument.  For example, if the input file is "study.vcf", then the base filename is "study". If the input file is "biobank_files.txt" then the base filename is "biobank_files".
 
 If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample.  The output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
 
@@ -183,7 +183,7 @@ $ cat test_1.vcf
 
 Command to run the PharmCAT VCF Preprocessor:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz -ss
+$ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz
 ```
 
 The VCF Preprocessor will return two files in this test case.
@@ -227,35 +227,24 @@ M	1555	.	G	A	PASS	.	GT	1/0	0/1
 
 Command to run the PharmCAT VCF Preprocessor:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz -ss
+$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
 ```
 
 The VCF Preprocessor will return three (3) files in this test case:
-1. *"test_2.Sample_1.preprocessed.vcf"*
-2. *"test_2.Sample_2.preprocessed.vcf"*
-3. *"test_2.missing_pgx_var.vcf"*
+1. *"test_2.preprocessed.vcf"*
+2. *"test_2.missing_pgx_var.vcf"*
 
 Note that the PharmCAT-ready VCFs will use the sample names from the input VCF.
 
 ```console
-$ cat test_2.Sample_1.preprocessed.vcf
+$ cat test_2.preprocessed.vcf
 <...header truncated...>
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
-chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0
-chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      3/2
-chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    PX=CYP2C9     GT      1/0
-chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0
-chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0
-
-$ cat test_2.Sample_2.preprocessed.vcf
-<...header truncated...>
-#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  Sample_2
-chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      0/1
-chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      2/1
-chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    PX=CYP2C9     GT      0/1
-chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      0/1
-chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      0/1
-
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
+chr1    97740410        rs72549309      GATGA   G       .       PASS    PX=DPYD       GT      1/0	0/1
+chr2    233760233       rs3064744       CAT     C,CATATAT,CATAT .       PASS    PX=UGT1A1 GT      3/2	2/1
+chr10   94942205        rs1304490498    CAATGGAAAGA     C       .       PASS    PX=CYP2C9     GT      1/0	0/1
+chr13   48037825        rs777311140     C       CGCGG   .       PASS    PX=NUDT15     GT      1/0	0/1
+chr19   38499644        rs121918596     TGGA    T       .       PASS    PX=RYR1       GT      1/0	0/1
 
 $ cat test_2.missing_pgx_var.vcf
 <...header truncated...>
