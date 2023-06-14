@@ -299,8 +299,8 @@ public class TestVcfBuilder {
       this.cpicAlleles = cpicAlleles;
     }
 
-    private VcfEdit(String chrom, long posiiton, @Nullable String[] cpicAlleles) {
-      this.id = chrom + ":" + posiiton;
+    private VcfEdit(String chrom, long vcfPosition, @Nullable String[] cpicAlleles) {
+      this.id = chrom + ":" + vcfPosition;
       this.cpicAlleles = cpicAlleles;
     }
   }

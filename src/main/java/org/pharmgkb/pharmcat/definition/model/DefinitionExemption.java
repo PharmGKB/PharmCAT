@@ -68,7 +68,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   }
 
   /**
-   * Checks if should ignore the given position.
+   * Checks if given position should be ignored.
    * <p>
    * <b>Currently only checks based on RSID!</b>
    */
