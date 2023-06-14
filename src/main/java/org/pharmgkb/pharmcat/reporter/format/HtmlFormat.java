@@ -178,7 +178,8 @@ public class HtmlFormat extends AbstractFormat {
       if (reports.stream().noneMatch(GeneReport::isReportable)) {
         // add to gene reports to show in Section III
         // if (a) extended mode or (b) cannot be called but has VCF data
-        if (!m_compact || reports.stream().anyMatch(GeneReport::isHasUndocumentedVariations)) {
+        if (!m_compact || uncallableGenes.contains(symbol) ||
+            reports.stream().anyMatch(GeneReport::isHasUndocumentedVariations)) {
           geneReports.add(reports.first());
         }
         continue;
