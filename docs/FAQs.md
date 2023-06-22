@@ -78,6 +78,14 @@ Please review the latest [CPIC SOP for assigning allele function](https://cpicpg
 ### How to render PharmCAT outputs into a tabular-formatted file
 PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON outputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
 
+### Create one's own PDF report based on the PharmCAT .JSON file
+
+You can create your own pdf report based on PharmCAT's .JSON file. If you do so, please refer to the PharmCAT website at [https://pharmcat.org/](https://pharmcat.org/) and cite our methods paper: _K Sangkuhl & M Whirl-Carrillo, et al. Pharmacogenomics Clinical Annotation Tool (PharmCAT). Clinical Pharmacology & Therapeutics (2020) 107(1):203-210_.
+
+Please note that PharmCAT is a research tool and note our disclaimers: [https://pharmcat.org/Disclaimers/](https://pharmcat.org/Disclaimers/).
+
+Note that PharmCAT is being actively developed, so there will be ongoing content updates and bug fixes. Additionally, in order for PharmCAT to stay current with alleles defined by [PharmVar](https://www.pharmvar.org) and recommendations from CPIC and DPWG, PharmCAT is continually being released with updates. If the most current version of PharmCAT is not being used at any given time, it may not be the most accurate or complete version.
+
 ## Gene-specific
 
 ### Can PharmCAT call _CYP2D6_?
