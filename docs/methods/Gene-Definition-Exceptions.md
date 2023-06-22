@@ -12,6 +12,7 @@ modifications for the following genes:
 * [SLCO1B1](#slco1b1)
 * [DPYD](#dpyd)
 * [CYP3A4](#cyp3a4)
+* [G6PD](#g6pd)
 
 ---    
 
@@ -106,3 +107,18 @@ in the DPWG data, DPWG guidance for `c.1905+1G>A (*2A)/Reference` will be includ
 PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
 CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*16`, `*20` and `*22` definitions are the same in the DPWG CYP3A4 gene document and PharmVar.
+
+
+## G6PD
+
+As of June 2023, PharmCAT does not call the following two _G6PD_ alleles:
+- Mediterranean Haplotype (different from the Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham)
+- Villeurbanne
+
+`Mediterranean Haplotype` is defined by rs5030868 (shared with `Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham` allele) and rs2230037 G>A (exclusive to `Mediterranean Haplotype`). PharmCAT excluded rs2230037 as the reference genotype in the Mediterranean Haplotype (G) does not align with the GRCh38 reference base (A). As a result, Mediterranean Haplotype is currently not called in PharmCAT.
+
+Instead, individuals with the `Mediterranean Haplotype` will be recognized as having `Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham`. Both alleles have the same function (deficient); therefore, the phenotype assignment and subsequent drug prescribing recommendations are not affected.
+
+It remains challenging to properly represent SNPs and INDELs that share the same genetic positions in a VCF file. This affects NC_000023.11:g.154532991_154532993delGGT and rs5030869 in the _G6PD_ allele definitions. Left-aligned, normalized NC_000023.11:g.154532991_154532993delGGT is located at the same genomic position as rs5030869. This poses nontrivial challenges to properly format variant representations for both SNP and INDEL in a VCF file and for PharmCAT to accurately recognize any genetic variants of this kind at any allele-defining position. Due to this challenge, NC_000023.11:g.154532991_154532993delGGT, which defines `Villeurbanne`, is currently excluded from the _G6PD_ allele definitions in PharmCAT.
+
+
