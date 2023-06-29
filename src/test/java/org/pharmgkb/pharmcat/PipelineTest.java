@@ -1547,6 +1547,30 @@ class PipelineTest {
   }
 
   @Test
+  void testDpydHapB3_hom_alt(TestInfo testInfo) throws Exception {
+    // effectively phased, homozygous alternative
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "T", "T") // g.97573863C>T
+        .variation("DPYD", "rs75017182", "C", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)");
+    List<String> expectedComponents = List.of("c.1129-5923C>G, c.1236G>A (HapB3)");
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, false, hasDpwgAnnotations);
+  }
+  @Test
   void testDpydHapB3_rs75017182_missing(TestInfo testInfo) throws Exception {
     // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
