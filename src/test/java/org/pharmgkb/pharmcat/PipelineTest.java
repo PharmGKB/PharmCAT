@@ -1084,16 +1084,18 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .phased()
         .variation("DPYD", "rs3918290", "C", "T")
-        .variation("DPYD", "rs1801159", "C", "T");
+        .variation("DPYD", "rs1801159", "C", "T")
+    ;
     Path vcfFile = testWrapper.execute(null);
 
+    String gene = "DPYD";
     List<String> expectedCalls = List.of("c.1627A>G (*5)/c.1905+1G>A (*2A)");
     List<String> expectedComponents = List.of("c.1627A>G (*5)", "c.1905+1G>A (*2A)");
 
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedComponents);
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedComponents);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     dpydHasReports(testWrapper, true);
 
@@ -1507,6 +1509,82 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.2933A>G", "c.2933A>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_both(TestInfo testInfo) throws Exception {
+    // effectively phased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
+        .variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Reference", "c.1129-5923C>G, c.1236G>A (HapB3)");
+    List<String> expectedComponents = null;
+    boolean hasDpwgAnnotations = true;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_rs56038477(TestInfo testInfo) throws Exception {
+    // effectively phased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Reference");
+    List<String> expectedComponents = null;
+    boolean hasDpwgAnnotations = true;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("Reference", "Reference"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_rs75017182(TestInfo testInfo) throws Exception {
+    // effectively phased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+        .variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Reference");
+    List<String> expectedComponents = null;
+    boolean hasDpwgAnnotations = true;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("Reference", "Reference"));
     testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
@@ -2807,6 +2885,135 @@ class PipelineTest {
     Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
     assertEquals(1, g6pdCallElems.size());
     assertEquals("B (reference)/B (reference)", g6pdCallElems.text());
+  }
+
+  @Test
+  void testG6pd_MDPSCB_male(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .male()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030868", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+  }
+
+  @Test
+  void testG6pd_MDPSCB_female_homo(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030868", "A", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+  }
+
+  @Test
+  void testG6pd_MDPSCB_female_het(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030868", "G", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("B (reference)/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+  }
+
+
+  @Test
+  void testG6pd_chatham_male(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .male()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030869", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("Chatham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+  }
+
+  @Test
+  void testG6pd_chatham_female_homo(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030869", "T", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("Chatham/Chatham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+  }
+
+  @Test
+  void testG6pd_chatham_female_het(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("G6PD")
+        .variation("G6PD", "rs5030869", "C", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    String gene = "G6PD";
+    List<String> expectedCalls = List.of("B (reference)/Chatham");
+
+    testWrapper.testCalledByMatcher(gene);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testReportable(gene);
+    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
   }
 
   @Test
