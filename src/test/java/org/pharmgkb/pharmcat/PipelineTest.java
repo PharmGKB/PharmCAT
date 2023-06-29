@@ -1454,7 +1454,6 @@ class PipelineTest {
     // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
         .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
     Path vcfFile = testWrapper.execute(null);
@@ -1479,7 +1478,6 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .phased()
-        .reference("DPYD")
         .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
         .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
     Path vcfFile = testWrapper.execute(null);
@@ -1501,10 +1499,8 @@ class PipelineTest {
 
   @Test
   void testDpydHomNoFunctionUnphased(TestInfo testInfo) throws Exception {
-    // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs72547601", "C", "C") // c.2933A>G - no function
         .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T - decreased
         .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G - normal
@@ -1528,10 +1524,8 @@ class PipelineTest {
 
   @Test
   void testDpydHapB3_both(TestInfo testInfo) throws Exception {
-    // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
         .variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
     ;
@@ -1557,7 +1551,6 @@ class PipelineTest {
     // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
         .missing("DPYD", "rs75017182")
     ;
@@ -1583,7 +1576,6 @@ class PipelineTest {
     // effectively phased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
         .variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
         .missing("DPYD", "rs56038477")
     ;
