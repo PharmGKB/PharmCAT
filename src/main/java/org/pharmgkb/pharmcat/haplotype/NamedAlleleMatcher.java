@@ -294,6 +294,19 @@ public class NamedAlleleMatcher {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
+    // Reference/Reference matches would have been handled above
+    // if we get to this point, it's combination that might include Reference
+    // if there's only 1 match and it's Reference match, it should be a no call
+    // if there are more than 2, strip out Reference because we prioritize non-Reference if possible
+    if (hapMatches.size() != 2) {
+      hapMatches = hapMatches.stream()
+          .filter(m -> !m.getName().equals("Reference"))
+          .collect(Collectors.toCollection(TreeSet::new));
+    }
+    if (hapMatches.size() == 0) {
+      resultBuilder.haplotypes(gene, refData, new ArrayList<>(hapMatches));
+      return;
+    }
 
     List<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
         .compute(true, getTopCandidateOnly(gene));
@@ -313,13 +326,6 @@ public class NamedAlleleMatcher {
           homozygous.add(k);
         }
       }
-    }
-
-    if (hapMatches.size() > 2) {
-      // cannot have reference if there is more than 1 variant
-      hapMatches = hapMatches.stream()
-          .filter(m -> !m.getName().equals("Reference"))
-          .collect(Collectors.toCollection(TreeSet::new));
     }
 
     List<HaplotypeMatch> finalHaps = new ArrayList<>();

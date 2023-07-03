@@ -161,7 +161,7 @@ class PipelineWrapper {
     assertNotNull(geneReport);
     List<String> dips = ReportHelpers.amdGeneCalls(geneReport);
     try {
-      assertEquals(dips, calls);
+      assertEquals(calls, dips);
     } catch (AssertionError ex) {
       System.out.println(printDiagnostic(geneReport));
       throw ex;
@@ -212,6 +212,14 @@ class PipelineWrapper {
     Preconditions.checkArgument(haplotypes.size() >= 1 && haplotypes.size() <= 2,
         "Can only test on 1 or 2 haplotypes, got " + haplotypes.size());
 
+    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    assertNotNull(geneReport);
+    if (haplotypes.size() == 1 && haplotypes.get(0).equals("Unknown/Unknown")) {
+      assertFalse(geneReport.isReportable());
+      return;
+    }
+    assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
+
     Map<String, Integer> lookup = new HashMap<>();
     if (haplotypes.size() == 2) {
       if (haplotypes.get(0).equals(haplotypes.get(1))) {
@@ -223,10 +231,6 @@ class PipelineWrapper {
     } else {
       lookup.put(haplotypes.get(0), 1);
     }
-
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
-    assertNotNull(geneReport);
-    assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
             .anyMatch(d -> DiplotypeTest.computeLookupMap(d).equals(lookup)),

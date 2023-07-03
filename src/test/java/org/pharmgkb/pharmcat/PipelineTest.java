@@ -1127,7 +1127,12 @@ class PipelineTest {
     dpydHtmlChecks(document, expectedCalls, expectedComponents, false, hasDpwgAnnotations);
   }
 
+
   private void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasDpwgReport) {
+    dpydHasReports(testWrapper, RecPresence.YES, hasDpwgReport);
+  }
+
+  private void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasCpicReport, RecPresence hasDpwgReport) {
     GeneReport cpicDpydGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertNotNull(cpicDpydGeneReport);
     assertEquals(1, cpicDpydGeneReport.getRecommendationDiplotypes().size());
@@ -1136,21 +1141,31 @@ class PipelineTest {
     assertNotNull(dpwgDpydGeneReport);
     assertEquals(1, dpwgDpydGeneReport.getRecommendationDiplotypes().size());
 
-    testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+    int numAnnotations = 0;
+
+    if (hasCpicReport == RecPresence.YES) {
+      testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.CPIC);
+      testWrapper.testAnyMatchFromSource("capecitabine", DataSource.CPIC);
+      numAnnotations += 1;
+
+    } else {
+      testWrapper.testNoMatchFromSource("fluorouracil", DataSource.CPIC);
+      testWrapper.testNoMatchFromSource("capecitabine", DataSource.CPIC);
+    }
+
     if (hasDpwgReport == RecPresence.YES) {
       testWrapper.testAnyMatchFromSource("fluorouracil", DataSource.DPWG);
       testWrapper.testAnyMatchFromSource("capecitabine", DataSource.DPWG);
-
-      testWrapper.testMatchedAnnotations("fluorouracil", 2);
-      testWrapper.testMatchedAnnotations("capecitabine", 2);
+      numAnnotations += 1;
 
     } else {
       testWrapper.testNoMatchFromSource("fluorouracil", DataSource.DPWG);
       testWrapper.testNoMatchFromSource("capecitabine", DataSource.DPWG);
+    }
 
-      testWrapper.testMatchedAnnotations("fluorouracil", 1);
-      testWrapper.testMatchedAnnotations("capecitabine", 1);
+    if (numAnnotations > 0) {
+      testWrapper.testMatchedAnnotations("fluorouracil", numAnnotations);
+      testWrapper.testMatchedAnnotations("capecitabine", numAnnotations);
     }
   }
 
@@ -1159,6 +1174,9 @@ class PipelineTest {
    */
   private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls,
       @Nullable List<String> expectedComponents, boolean hasMissingPositions, RecPresence hasDpwgAnnotation) {
+
+    boolean noCall = expectedCalls != null && expectedCalls.size() == 1 &&
+        expectedCalls.get(0).equals("Unknown/Unknown");
 
     if (expectedComponents != null) {
       if (expectedCalls != null) {
@@ -1177,50 +1195,63 @@ class PipelineTest {
       assertEquals(components, expectedComponents);
 
     } else {
-      Preconditions.checkNotNull(expectedCalls);
       Elements gsDips = document.select(".gs-DPYD .gs-dip");
-      assertEquals(expectedCalls.size(), gsDips.size());
-      assertEquals(expectedCalls,
-          gsDips.stream()
-              .map(e -> e.child(0).text())
-              .toList());
+      if (noCall) {
+        assertEquals(0, gsDips.size());
+      } else {
+        Preconditions.checkNotNull(expectedCalls);
+        assertEquals(expectedCalls.size(), gsDips.size());
+        assertEquals(expectedCalls,
+            gsDips.stream()
+                .map(e -> e.child(0).text())
+                .toList());
+      }
     }
 
     Elements capecitabineSection = document.getElementsByClass("capecitabine");
-    assertEquals(1, capecitabineSection.size());
-    // should have DPYD warning
-    Elements capecitabineMsgs = capecitabineSection.get(0).getElementsByClass("alert-info");
-    assertEquals(hasMissingPositions ? 2 : 1, capecitabineMsgs.size());
-    assertTrue(capecitabineMsgs.get(0).text().contains("lowest activity"));
+    if (noCall) {
+      assertEquals(0, capecitabineSection.size());
+    } else {
+      assertEquals(1, capecitabineSection.size());
+      // should have DPYD warning
+      Elements capecitabineMsgs = capecitabineSection.get(0).getElementsByClass("alert-info");
+      assertEquals(hasMissingPositions ? 2 : 1, capecitabineMsgs.size());
+      assertTrue(capecitabineMsgs.get(0).text().contains("lowest activity"));
 
-    if (expectedCalls != null) {
-      List<String> expectedRxCalls = expectedCalls.stream()
-          .map(c -> "DPYD:" + c)
-          .toList();
-      Elements cpicCapecitabineDips = capecitabineSection.select(".cpic-capecitabine .rx-dip");
-      assertEquals(expectedRxCalls,
-          cpicCapecitabineDips.stream()
-              .map(e -> cleanupRxDip(e, List.of("DPYD")))
-              .toList());
-
-      Elements dpwgCapecitabineDips = capecitabineSection.select(".dpwg-capecitabine .rx-dip");
-      if (hasDpwgAnnotation == RecPresence.YES) {
+      if (expectedCalls != null) {
+        List<String> expectedRxCalls = expectedCalls.stream()
+            .map(c -> "DPYD:" + c)
+            .toList();
+        Elements cpicCapecitabineDips = capecitabineSection.select(".cpic-capecitabine .rx-dip");
         assertEquals(expectedRxCalls,
-            dpwgCapecitabineDips.stream()
+            cpicCapecitabineDips.stream()
                 .map(e -> cleanupRxDip(e, List.of("DPYD")))
                 .toList());
-      } else {
-        assertEquals(0, dpwgCapecitabineDips.size());
-        Elements unmatchedDips = capecitabineSection.select(".dpwg-capecitabine .rx-unmatched-dip");
-        assertEquals(expectedRxCalls, unmatchedDips.stream()
-            .map(e -> cleanupRxDip(e, List.of("DPYD")))
-            .toList());
+
+        Elements dpwgCapecitabineDips = capecitabineSection.select(".dpwg-capecitabine .rx-dip");
+        if (hasDpwgAnnotation == RecPresence.YES) {
+          assertEquals(expectedRxCalls,
+              dpwgCapecitabineDips.stream()
+                  .map(e -> cleanupRxDip(e, List.of("DPYD")))
+                  .toList());
+        } else {
+          assertEquals(0, dpwgCapecitabineDips.size());
+          Elements unmatchedDips = capecitabineSection.select(".dpwg-capecitabine .rx-unmatched-dip");
+          assertEquals(expectedRxCalls, unmatchedDips.stream()
+              .map(e -> cleanupRxDip(e, List.of("DPYD")))
+              .toList());
+        }
       }
     }
 
     Elements dpydSection = document.select(".gene.dpyd");
     assertEquals(1, dpydSection.size());
     assertEquals(0, dpydSection.get(0).getElementsByClass("no-data").size());
+    Elements gsResult = dpydSection.select(".genotype-result");
+    assertEquals(1, gsResult.size());
+    if (noCall) {
+      assertEquals(TextConstants.UNCALLED, gsResult.get(0).text());
+    }
   }
 
 
@@ -1523,7 +1554,7 @@ class PipelineTest {
   }
 
   @Test
-  void testDpydHapB3_both(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_het_alt(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
@@ -1570,6 +1601,55 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     dpydHtmlChecks(document, expectedCalls, expectedComponents, false, hasDpwgAnnotations);
   }
+
+  @Test
+  void testDpydHapB3_hom_ref(TestInfo testInfo) throws Exception {
+    // effectively phased, homozygous reference
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("DPYD")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Reference/Reference");
+    List<String> expectedComponents = List.of("Reference");
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, false, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_noCall(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
+        //.variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Unknown/Unknown");
+    List<String> expectedComponents = null;
+    RecPresence hasDpwgAnnotations = RecPresence.NO;
+
+    testWrapper.testNotCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", List.of(TextConstants.UNCALLED));
+
+    dpydHasReports(testWrapper, RecPresence.NO, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, expectedComponents, false, hasDpwgAnnotations);
+  }
+
   @Test
   void testDpydHapB3_rs75017182_missing(TestInfo testInfo) throws Exception {
     // effectively phased
