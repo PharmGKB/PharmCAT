@@ -55,11 +55,31 @@ For one thing, we do not know what "reference" is because it can vary based on y
 
 You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
 
-### Can you modify the definitions of alleles and phenotypes in PharmCAT?
 
-PharmCAT is open source and thus, can be modified to satisfy your own needs by oneself. Nonetheless, we don't endorse modifying the allele or phenotype definitions to give different allele matching or phenotype results. A goal of PharmCAT is to create transparent reports about what alleles or genetic positions are used to determine genotype and phenotype, and to promote consistent and robust results. Take allele definitions for example, when a genetic position is removed, PharmCAT will not "see" those positions, which will likely cause the sample/study individual to be inaccurately reported as reference who in fact is not, incorrectly assigned genotypes or, even worse, phenotypes.
+### Can I modify the definitions of alleles and phenotypes in PharmCAT?
 
-If you have no information about some genetic positions in your dataset, and want to ignore them or assume reference at those positions, there is an option in the Pharmcat VCF Preprocessor to set the missing positions to reference.  We suggest using this option for research purposes only. We recommend against using this option for reporting results or implementation.
+PharmCAT is open source and can be modified to satisfy your own needs.
+
+We do not, however, endorse modifying the allele or phenotype definitions to give different allele matching or phenotype 
+results for genes already covered by PharmCAT. A goal of PharmCAT is to create transparent reports about what alleles or
+genetic positions are used to determine genotype and phenotype, and to _promote consistent and robust results_.
+
+In general, we frequently get this question when there is a problem with the genotyping data.  For example, if not all
+positions PharmCAT requires is available. The instinct is to remove those positions from PharmCAT's named allele
+definitions.  But when a genetic position is removed, PharmCAT will not "see" those positions, which will likely cause
+the sample/study individual to be inaccurately reported as reference who in fact is not, incorrectly assigned genotypes
+or, even worse, phenotypes.
+
+If you have no information about some genetic positions in your dataset, and want to ignore them or assume reference at
+those positions, there is an option in the Pharmcat VCF Preprocessor to set the missing positions to reference.  We
+suggest using this option for research purposes only. We recommend against using this option for reporting results or
+implementation.
+
+If instead you are interested in customizing PharmCAT to add support for additional genes and PGx recommendations, this
+is possible, but currently undocumented.  Just adding the required JSON files to PharmCAT will only get you part of the
+way there.  We are currently unable to support anyone looking to do this at this time because we are focused on
+providing actionable prescribing recommendations from authorities like CPIC and DPWG.
+
 
 ## Output-related
 
