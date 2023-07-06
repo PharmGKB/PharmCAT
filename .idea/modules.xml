@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.test.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprocessor/Preprocessor.iml" filepath="$PROJECT_DIR$/preprocessor/Preprocessor.iml" />

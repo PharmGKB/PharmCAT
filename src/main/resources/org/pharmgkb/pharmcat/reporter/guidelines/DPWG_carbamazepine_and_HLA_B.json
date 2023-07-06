@@ -1,0 +1,115 @@
+{
+  "guideline": {
+    "id": "PA166265162",
+    "name": "Annotation of DPWG Guideline for carbamazepine and HLA-B",
+    "source": "DPWG",
+    "version": 7,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265162",
+    "relatedChemicals": [
+      {
+        "id": "PA448785",
+        "name": "carbamazepine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA35056",
+        "name": "major histocompatibility complex, class I, B",
+        "symbol": "HLA-B"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299115",
+      "name": "Recommendation PA166299115",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448785",
+          "name": "carbamazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061478,
+        "html": "<ul>\n<li>Choose an alternative if possible. Phenytoin, lamotrigine and oxcarbazepine also pose an increased risk of SJS/TEN in these patients, but the final risk is 10-fold lower for these medicines than for carbamazepine. Furthermore, in the case of oxcarbazepine, the most severe forms (SJS/TEN overlap and TEN) have not been observed.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Patients with this genetic variation have a severely increased risk of experiencing the life-threatening cutaneous adverse event Stevens-Johnson syndrome/toxic epidermal necrolysis (SJS/TEN). The risk of carbamazepine-induced SJS/TEN in these patients is 1.8-3.4%."
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:02 positive"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299113",
+      "name": "Recommendation PA166299113",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448785",
+          "name": "carbamazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061476,
+        "html": "<ul>\n<li>\n<p>Carefully weigh the risk of SJS/TEN against the benefits</p>\n</li>\n<li>\n<p>If an alternative is an option, choose an alternative</p>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "Patients with this genetic variation have an increased risk of experiencing the life-threatening cutaneous adverse event Stevens-Johnson syndrome/toxic epidermal necrolysis\n(SJS/TEN). The risk of carbamazepine-induced SJS/TEN in patients with the HLA-B*1502 allele, which carries a 4.6-6.6 times higher risk than the HLA-B*1511 allele, is 1.8- 3.4%. This would equate to a risk of carbamazepine-induced SJS/TEN in these patients of 0.27-0.73%."
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:11 positive"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299116",
+      "name": "Recommendation PA166299116",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448785",
+          "name": "carbamazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061479,
+        "html": "<p>The guideline does not provide a recommendation for carbamazepine in patients with both HLA-B*15:02 and HLA-B*15:11 alleles or positive for both HLA-B*15:02 and HLA-B*15:11 tests.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of the presence of both HLA-B*15:02 and HLA-B*15:11 alleles on carbamazepine."
+      ],
+      "lookupKey": {
+        "HLA-B": "1511 and 1502"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

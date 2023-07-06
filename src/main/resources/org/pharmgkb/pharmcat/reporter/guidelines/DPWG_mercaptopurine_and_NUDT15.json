@@ -1,0 +1,115 @@
+{
+  "guideline": {
+    "id": "PA166184613",
+    "name": "Annotation of DPWG Guideline for mercaptopurine and NUDT15",
+    "source": "DPWG",
+    "version": 10,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184613",
+    "relatedChemicals": [
+      {
+        "id": "PA450379",
+        "name": "mercaptopurine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134963132",
+        "name": "nudix hydrolase 15",
+        "symbol": "NUDT15"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299092",
+      "name": "Recommendation PA166299092",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450379",
+          "name": "mercaptopurine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061455,
+        "html": "<p>The guideline does not provide a recommendation for mercaptopurine in normal metabolizers</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on mercaptopurine."
+      ],
+      "lookupKey": {
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299091",
+      "name": "Recommendation PA166299091",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450379",
+          "name": "mercaptopurine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061454,
+        "html": "<ul>\n<li>IMMUNOSUPPRESSION:start with 50% of the standard dose. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy.\nNote: The percentage of 50% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. A percentage of &lt; 70% was calculated for NUDT15, but there were insufficient data available to calculate the exact percentage.\nNote: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</li>\n<li>LEUKAEMIA: start at 50% of the standard mercaptopurine dose, or start with the standard dose and reduce to 50% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. Adjustment of the initial dose should be performed based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.</li>\n</ul>\n<p>Note: The percentage of 50% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. A percentage of &lt; 70% was calculated for NUDT15, but there were insufficient data available to calculate the exact percentage.\nNote: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.\nNote: more stringent dose reductions are necessary if the patient is also TPMT IM or TPMT PM.</p>\n"
+      },
+      "implications": [
+        "Grade 2 leukopaenia occurs in 42% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of azathioprine and mercaptopurine."
+      ],
+      "lookupKey": {
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299090",
+      "name": "Recommendation PA166299090",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450379",
+          "name": "mercaptopurine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061453,
+        "html": "<p>Avoid azathioprine and mercaptopurine.</p>\n<p>If it is not possible to avoid azathioprine and mercaptopurine: use 10% of the standard dose and advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur. Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy.</p>\n<p>Note: The percentage of 10% is based on the analogy with TPMT, for which the gene variants have a comparable effect on toxicity to those of NUDT15. A percentage of &lt; 20% was calculated for NUDT15 PM, but there were insufficient data available to calculate the exact percentage.\nNote: Dose adjustment based on the total of 6-TGN metabolites is not possible for these patients, as they develop toxicity within the therapeutic range that applies for patients without gene variants.</p>\n"
+      },
+      "implications": [
+        "Grade &ge;2 leukopaenia occurs in 96% of these patients with standard therapy. The genetic variation increases the concentration of the fully activated metabolite of azathioprine and mercaptopurine."
+      ],
+      "lookupKey": {
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

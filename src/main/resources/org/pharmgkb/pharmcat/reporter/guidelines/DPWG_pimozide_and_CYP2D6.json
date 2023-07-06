@@ -1,0 +1,574 @@
+{
+  "guideline": {
+    "id": "PA166182819",
+    "name": "Annotation of DPWG Guideline for pimozide and CYP2D6",
+    "source": "DPWG",
+    "version": 17,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
+    "relatedChemicals": [
+      {
+        "id": "PA450965",
+        "name": "pimozide",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302643",
+      "name": "Recommendation Annotation PA166302643",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104242,
+        "html": "<p>Use no more than the following doses (80% of the normal maximum dose):</p>\n<ul>\n<li>12 years and older: 16 mg/day</li>\n<li>younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302621",
+      "name": "Recommendation Annotation PA166302621",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104220,
+        "html": "<p>Use no more than the following doses (50% of the normal maximum dose):</p>\n<ul>\n<li>12 years and older: 10 mg/day</li>\n<li>younger than 12 years: 0.05 mg/kg per day to a maximum of 2 mg/day</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasmaconcentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the doserecommendations provided below."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302647",
+      "name": "Recommendation Annotation PA166302647",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104246,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302682",
+      "name": "Recommendation Annotation PA166302682",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104281,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302686",
+      "name": "Recommendation Annotation PA166302686",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104285,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302642",
+      "name": "Recommendation Annotation PA166302642",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104241,
+        "html": "<p>Use no more than the following doses (80% of the normal maximum dose):</p>\n<ul>\n<li>12 years and older: 16 mg/day</li>\n<li>younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302685",
+      "name": "Recommendation Annotation PA166302685",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104284,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302646",
+      "name": "Recommendation Annotation PA166302646",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104245,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302681",
+      "name": "Recommendation Annotation PA166302681",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104280,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302689",
+      "name": "Recommendation Annotation PA166302689",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104288,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302641",
+      "name": "Recommendation Annotation PA166302641",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104240,
+        "html": "<p>Use no more than the following doses (80% of the normal maximum dose):</p>\n<ul>\n<li>12 years and older: 16 mg/day</li>\n<li>younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302645",
+      "name": "Recommendation Annotation PA166302645",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104244,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302684",
+      "name": "Recommendation Annotation PA166302684",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104283,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302688",
+      "name": "Recommendation Annotation PA166302688",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104287,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302644",
+      "name": "Recommendation Annotation PA166302644",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104243,
+        "html": "<p>Use no more than the following doses (80% of the normal maximum dose):</p>\n<ul>\n<li>12 years and older: 16 mg/day</li>\n<li>younger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302683",
+      "name": "Recommendation Annotation PA166302683",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104282,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302661",
+      "name": "Recommendation Annotation PA166302661",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104260,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302687",
+      "name": "Recommendation Annotation PA166302687",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450965",
+          "name": "pimozide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104286,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This gene variation can result in lower pimozide concentrations. However, there is no evidence of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

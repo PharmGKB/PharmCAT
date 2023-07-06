@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 /**
- * Model that represents a diplotype data in the CPIC database
+ * Model that represents a diplotype data in the PharmGKB database
  *
  * @author Ryan Whaley
  */
@@ -28,6 +28,12 @@ public class DiplotypeRecord {
   @SerializedName("diplotypekey")
   @Expose
   private Map<String,Integer> m_diplotypeKey;
+  @SerializedName("activityScore")
+  @Expose
+  private String activityScore;
+  @SerializedName("phenotype")
+  @Expose
+  private String phenotype;
 
 
   public String getGeneResult() {
@@ -59,6 +65,14 @@ public class DiplotypeRecord {
     return m_diplotypeKey;
   }
 
+  public String getActivityScore() {
+    return this.activityScore;
+  }
+
+  public String getPhenotype() {
+    return this.phenotype;
+  }
+
 
   @Override
   public boolean equals(Object obj) {
@@ -77,6 +91,16 @@ public class DiplotypeRecord {
         Objects.equal(m_description, other.getDescription()) &&
         Objects.equal(m_lookupKey, other.getLookupKey()) &&
         Objects.equal(m_diplotypeKey, other.getDiplotypeKey());
+  }
+
+  public boolean matchesKey(Map<String,Integer> otherKey) {
+    if (otherKey == null || otherKey.size() == 0) {
+      return false;
+    }
+    if (m_diplotypeKey == null || m_diplotypeKey.size() == 0) {
+      return false;
+    }
+    return otherKey.keySet().size() == m_diplotypeKey.keySet().size() && otherKey.entrySet().containsAll(m_diplotypeKey.entrySet());
   }
 
   @Override

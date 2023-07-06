@@ -1,0 +1,138 @@
+{
+  "guideline": {
+    "id": "PA166104934",
+    "name": "Annotation of DPWG Guideline for azathioprine and TPMT",
+    "source": "DPWG",
+    "version": 33,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104934",
+    "relatedChemicals": [
+      {
+        "id": "PA448515",
+        "name": "azathioprine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA356",
+        "name": "thiopurine S-methyltransferase",
+        "symbol": "TPMT"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299167",
+      "name": "Recommendation PA166299167",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448515",
+          "name": "azathioprine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061530,
+        "html": "<p>The guideline does not provide a recommendation for azathioprine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on azathioprine."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299166",
+      "name": "Recommendation PA166299166",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448515",
+          "name": "azathioprine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061529,
+        "html": "<p>Choose an alternative or start with 10% of the standard dose.\nAny adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness.\nIf the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur.</p>\n"
+      },
+      "implications": [
+        "Grade ≥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166299165",
+      "name": "Recommendation PA166299165",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448515",
+          "name": "azathioprine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061528,
+        "html": "<p>IMMUNOSUPPRESSION\nStart with 50% of the standard dose\nAdjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness.\nDose adjustment is not required for doses lower than 1.5 mg/kg per day for azathioprine or 0.75 mg/kg per day for mercaptopurine.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM or NUDT15 PM.</p>\n"
+      },
+      "implications": [
+        "Grade ≥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine."
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

@@ -1,0 +1,190 @@
+{
+  "guideline": {
+    "id": "PA166104975",
+    "name": "Annotation of DPWG Guideline for escitalopram and CYP2C19",
+    "source": "DPWG",
+    "version": 33,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
+    "relatedChemicals": [
+      {
+        "id": "PA10074",
+        "name": "escitalopram",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299133",
+      "name": "Recommendation PA166299133",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061496,
+        "html": "<p>Avoid escitalopram. Antidepressants that are not metabolised or that are metabolised to a lesser extent by CYP2C19 are, for example, paroxetine or fluvoxamine.</p>\n"
+      },
+      "implications": [
+        "The risk of switching to another antidepressant is increased as the gene variation leads to a reduction in the escitalopram plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299136",
+      "name": "Recommendation PA166299136",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061499,
+        "html": "<p>Do not exceed the following doses (75% of the standard maximum dose): adults &lt; 65 years 15 mg/day, =65 years 7.5 mg/day</p>\n"
+      },
+      "implications": [
+        "The risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased escitalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration and the theoretically increased risk of QT prolongation will be offset."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299135",
+      "name": "Recommendation PA166299135",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061498,
+        "html": "<p>The guideline does not provide a recommendation for escitalopram in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on escitalopram."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299134",
+      "name": "Recommendation PA166299134",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061497,
+        "html": "<p>Do not exceed the following doses (50% of the standard maximum dose): adults &lt; 65 years 10 mg/day, =65 years 5 mg/day</p>\n"
+      },
+      "implications": [
+        "The risk of switching to another antidepressant is increased. In addition, the risk of QT prolongation and torsades de pointes is theoretically increased because the gene variation leads to an increased escitalopram plasma concentration. If you follow the dose recommendation below, the increased plasma concentration, the theoretically increased risk of QT prolongation and the increased risk of switching to another antidepressant will be offset."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "34782755",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
+      "authors": [
+        "Brouwer Jurriaan M J L",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "Guchelaar Henk-Jan",
+        "Swen Jesse J",
+        "van Schaik Ron H N",
+        "Weide Jan van der",
+        "Rongen Gerard A P J M",
+        "Buunk Anne-Marie",
+        "de Boer-Veger Nienke J",
+        "Houwink Elisa J F",
+        "van Westrhenen Roos",
+        "Wilffert Bob",
+        "Deneer Vera H M",
+        "Mulder Hans"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

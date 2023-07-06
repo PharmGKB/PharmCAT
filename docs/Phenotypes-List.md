@@ -17,9 +17,11 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
+<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs2231142 reference (G)</li><li>rs2231142 variant (T)</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li><li>Normal Function</li><li>Poor Function</li></ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li><li>Normal Function</li><li>Poor Function</li></ul></td>
 </tr>
 </table>
@@ -99,12 +101,14 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
 <th style="text-align: left">DPWG Phenotypes</th>
+<th style="text-align: left">DPWG Activity Scores</th>
 </tr>
 <tr>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li><li>*1x2</li><li>*1x≥3</li><li>*2</li><li>*2x2</li><li>*2x≥3</li><li>*3</li><li>*3x2</li><li>*4</li><li>*4x2</li><li>*4x≥3</li><li>*5</li><li>*6</li><li>*6x2</li><li>*7</li><li>*8</li><li>*9</li><li>*9x2</li><li>*10</li><li>*10x2</li><li>*11</li><li>*12</li><li>*13</li><li>*14</li><li>*15</li><li>*17</li><li>*17x2</li><li>*18</li><li>*19</li><li>*20</li><li>*21</li><li>*22</li><li>*23</li><li>*24</li><li>*25</li><li>*26</li><li>*27</li><li>*28</li><li>*29</li><li>*29x2</li><li>*30</li><li>*31</li><li>*32</li><li>*33</li><li>*34</li><li>*35</li><li>*35x2</li><li>*36</li><li>*36x2</li><li>*37</li><li>*38</li><li>*39</li><li>*40</li><li>*41</li><li>*41x2</li><li>*41x3</li><li>*42</li><li>*43</li><li>*43x2</li><li>*44</li><li>*45</li><li>*45x2</li><li>*46</li><li>*47</li><li>*48</li><li>*49</li><li>*50</li><li>*51</li><li>*52</li><li>*53</li><li>*54</li><li>*55</li><li>*56</li><li>*57</li><li>*58</li><li>*59</li><li>*60</li><li>*61</li><li>*62</li><li>*63</li><li>*64</li><li>*65</li><li>*68</li><li>*69</li><li>*70</li><li>*71</li><li>*72</li><li>*73</li><li>*74</li><li>*75</li><li>*81</li><li>*82</li><li>*83</li><li>*84</li><li>*85</li><li>*86</li><li>*87</li><li>*88</li><li>*89</li><li>*90</li><li>*91</li><li>*92</li><li>*93</li><li>*94</li><li>*95</li><li>*96</li><li>*97</li><li>*98</li><li>*99</li><li>*100</li><li>*101</li><li>*102</li><li>*103</li><li>*104</li><li>*105</li><li>*106</li><li>*107</li><li>*108</li><li>*109</li><li>*110</li><li>*111</li><li>*112</li><li>*113</li><li>*114</li><li>*115</li><li>*116</li><li>*117</li><li>*118</li><li>*119</li><li>*120</li><li>*121</li><li>*122</li><li>*123</li><li>*124</li><li>*125</li><li>*126</li><li>*127</li><li>*128</li><li>*129</li><li>*130</li><li>*131</li><li>*132</li><li>*133</li><li>*134</li><li>*135</li><li>*136</li><li>*137</li><li>*138</li><li>*139</li><li>*140</li><li>*141</li><li>*142</li><li>*143</li><li>*144</li><li>*145</li><li>*146</li><li>*146x2</li><li>*147</li><li>*148</li><li>*149</li><li>*152</li><li>*153</li><li>*154</li><li>*155</li><li>*156</li><li>*157</li><li>*158</li><li>*159</li><li>*160</li><li>*161</li><li>*162</li><li>*163</li></ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li><li>Ultrarapid Metabolizer</li></ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0</li><li>0.25</li><li>0.5</li><li>0.75</li><li>1.0</li><li>1.25</li><li>1.5</li><li>1.75</li><li>2.0</li><li>2.25</li><li>2.5</li><li>2.75</li><li>3.0</li><li>4.0</li><li>≥3.0</li><li>≥3.25</li><li>≥3.5</li><li>≥3.75</li><li>≥4.0</li><li>≥5.0</li><li>≥6.0</li></ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li><li>*1x2</li><li>*1xN</li><li>*1x≥3</li><li>*2</li><li>*2x2</li><li>*2xN</li><li>*2x≥3</li><li>*3</li><li>*3x2</li><li>*3xN</li><li>*4</li><li>*4x2</li><li>*4xN</li><li>*4x≥3</li><li>*5</li><li>*6</li><li>*6x2</li><li>*6xN</li><li>*7</li><li>*8</li><li>*9</li><li>*9x2</li><li>*10</li><li>*10x2</li><li>*11</li><li>*12</li><li>*13</li><li>*14</li><li>*15</li><li>*17</li><li>*17x2</li><li>*18</li><li>*19</li><li>*20</li><li>*21</li><li>*22</li><li>*23</li><li>*24</li><li>*25</li><li>*26</li><li>*27</li><li>*28</li><li>*29</li><li>*29x2</li><li>*30</li><li>*31</li><li>*32</li><li>*33</li><li>*34</li><li>*35</li><li>*35x2</li><li>*35xN</li><li>*36</li><li>*36x2</li><li>*36xN</li><li>*37</li><li>*38</li><li>*39</li><li>*40</li><li>*41</li><li>*41x2</li><li>*41x3</li><li>*42</li><li>*43</li><li>*43x2</li><li>*44</li><li>*45</li><li>*45x2</li><li>*45xN</li><li>*46</li><li>*47</li><li>*48</li><li>*49</li><li>*50</li><li>*51</li><li>*52</li><li>*53</li><li>*54</li><li>*55</li><li>*56</li><li>*57</li><li>*58</li><li>*59</li><li>*60</li><li>*61</li><li>*62</li><li>*63</li><li>*64</li><li>*65</li><li>*68</li><li>*69</li><li>*70</li><li>*71</li><li>*72</li><li>*73</li><li>*74</li><li>*75</li><li>*81</li><li>*82</li><li>*83</li><li>*84</li><li>*85</li><li>*86</li><li>*87</li><li>*88</li><li>*89</li><li>*90</li><li>*91</li><li>*92</li><li>*93</li><li>*94</li><li>*95</li><li>*96</li><li>*97</li><li>*98</li><li>*99</li><li>*100</li><li>*101</li><li>*102</li><li>*103</li><li>*104</li><li>*105</li><li>*106</li><li>*107</li><li>*108</li><li>*109</li><li>*110</li><li>*111</li><li>*112</li><li>*113</li><li>*114</li><li>*115</li><li>*116</li><li>*117</li><li>*118</li><li>*119</li><li>*120</li><li>*121</li><li>*122</li><li>*123</li><li>*124</li><li>*125</li><li>*126</li><li>*127</li><li>*128</li><li>*129</li><li>*130</li><li>*131</li><li>*132</li><li>*133</li><li>*134</li><li>*135</li><li>*136</li><li>*137</li><li>*138</li><li>*139</li><li>*140</li><li>*141</li><li>*142</li><li>*143</li><li>*144</li><li>*145</li><li>*146</li><li>*146x2</li><li>*147</li><li>*148</li><li>*149</li><li>*152</li><li>*153</li><li>*154</li><li>*155</li><li>*156</li><li>*157</li><li>*158</li><li>*159</li><li>*160</li><li>*161</li><li>*162</li><li>*163</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li><li>Ultrarapid Metabolizer</li><li>xN combinations</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0</li><li>0.25</li><li>0.5</li><li>0.75</li><li>1.0</li><li>1.25</li><li>1.5</li><li>1.75</li><li>2.0</li><li>2.25</li><li>2.5</li><li>2.75</li><li>3.0</li><li>4.0</li><li>≥3.0</li><li>≥3.25</li><li>≥3.5</li><li>≥4.0</li><li>≥5.0</li><li>≥6.0</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li><li>Ultrarapid Metabolizer</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0</li><li>0.25</li><li>0.5</li><li>0.75</li><li>1.0</li><li>1.25</li><li>1.5</li><li>2.0</li><li>2.25</li><li>2.5</li><li>3.0</li><li>4.0</li><li>≥3.0</li><li>≥3.25</li><li>≥3.5</li><li>≥4.0</li><li>≥5.0</li><li>≥6.0</li></ul></td>
 </tr>
 </table>
 
@@ -125,10 +129,12 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
+<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li><li>*3</li><li>*6</li><li>*7</li><li>*8</li><li>*9</li></ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li><li>Possible Intermediate Metabolizer</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li></ul></td>
 </tr>
 </table>
 
@@ -148,11 +154,13 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <th style="text-align: left">Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
+<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Reference</li><li>c.46C>G</li><li>c.61C>T</li><li>c.62G>A</li><li>c.85T>C (*9A)</li><li>c.295_298delTCAT (*7)</li><li>c.313G>A</li><li>c.343A>G</li><li>c.451A>G</li><li>c.496A>G</li><li>c.498G>A</li><li>c.525G>A</li><li>c.557A>G</li><li>c.601A>C</li><li>c.632A>G</li><li>c.703C>T (*8)</li><li>c.775A>G</li><li>c.868A>G</li><li>c.929T>C</li><li>c.934C>T</li><li>c.967G>A</li><li>c.1003G>T (*11)</li><li>c.1024G>A</li><li>c.1057C>T</li><li>c.1108A>G</li><li>c.1129-5923C>G, c.1236G>A (HapB3)</li><li>c.1156G>T (*12)</li><li>c.1180C>T</li><li>c.1181G>T</li><li>c.1218G>A</li><li>c.1260T>A</li><li>c.1278G>T</li><li>c.1294G>A</li><li>c.1314T>G</li><li>c.1349C>T</li><li>c.1358C>G</li><li>c.1371C>T</li><li>c.1403C>A</li><li>c.1475C>T</li><li>c.1484A>G</li><li>c.1519G>A</li><li>c.1543G>A</li><li>c.1577C>G</li><li>c.1601G>A (*4)</li><li>c.1615G>A</li><li>c.1627A>G (*5)</li><li>c.1679T>G (*13)</li><li>c.1682G>T</li><li>c.1774C>T</li><li>c.1775G>A</li><li>c.1777G>A</li><li>c.1796T>C</li><li>c.1896T>C</li><li>c.1898delC (*3)</li><li>c.1905+1G>A (*2A)</li><li>c.1905C>G</li><li>c.1906A>C</li><li>c.1990G>T</li><li>c.2021G>A</li><li>c.2161G>A</li><li>c.2186C>T</li><li>c.2194G>A (*6)</li><li>c.2195T>G</li><li>c.2279C>T</li><li>c.2303C>A</li><li>c.2336C>A</li><li>c.2482G>A</li><li>c.2582A>G</li><li>c.2623A>C</li><li>c.2639G>T</li><li>c.2656C>T</li><li>c.2657G>A (*9B)</li><li>c.2846A>T</li><li>c.2872A>G</li><li>c.2915A>G</li><li>c.2921A>T</li><li>c.2933A>G</li><li>c.2977C>T</li><li>c.2978T>G</li><li>c.2983G>T (*10)</li><li>c.3049G>A</li><li>c.3061G>C</li><li>c.3067C>A</li></ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li><li>Normal Metabolizer</li><li>Poor Metabolizer</li></ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0</li><li>0.5</li><li>1.0</li><li>1.5</li><li>2.0</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0 (Poor Metabolizer)</li><li>0.5 (Phenotyping)</li><li>1.0 (Intermediate Metabolizer)</li><li>1.0 (Phenotyping)</li><li>1.5 (Intermediate Metabolizer)</li><li>2.0 (Normal Metabolizer)</li></ul></td>
 </tr>
 </table>
 
@@ -233,10 +241,12 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
+<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li><li>*2</li><li>*3</li><li>*4</li><li>*5</li><li>*6</li><li>*7</li><li>*8</li><li>*9</li><li>*10</li><li>*11</li><li>*12</li><li>*13</li><li>*14</li><li>*15</li><li>*16</li><li>*19</li><li>*20</li><li>*23</li><li>*24</li><li>*25</li><li>*26</li><li>*27</li><li>*28</li><li>*29</li><li>*30</li><li>*31</li><li>*32</li><li>*33</li><li>*34</li><li>*36</li><li>*37</li><li>*38</li><li>*39</li><li>*40</li><li>*41</li><li>*42</li><li>*43</li><li>*44</li><li>*45</li><li>*46</li><li>*47</li></ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li><li>Increased Function</li><li>Indeterminate</li><li>Normal Function</li><li>Poor Function</li><li>Possible Decreased Function</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li><li>Normal Function</li><li>Poor Function</li></ul></td>
 </tr>
 </table>
 
@@ -272,9 +282,11 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <table>
 <tr>
 <th style="text-align: left">Variants</th>
+<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs9923231 reference (C)</li><li>rs9923231 variant (T)</li></ul></td>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>-1639 AA</li><li>-1639 AG</li><li>-1639 GG</li></ul></td>
 </tr>
 </table>
 

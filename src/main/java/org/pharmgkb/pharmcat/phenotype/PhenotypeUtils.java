@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.phenotype;
 import java.util.Map;
 import java.util.TreeMap;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
 /**
@@ -18,7 +19,6 @@ public class PhenotypeUtils {
     ABBREVIATIONS.put("em", "Normal Metabolizer"); // not a typo, extensives are now normals
     ABBREVIATIONS.put("um", "Ultrarapid Metabolizer");
   }
-  private static final String INDETERMINATE = "Indeterminate";
 
   /**
    * Normalize some common phenotype name strings into ones that PharmCAT understands
@@ -41,8 +41,8 @@ public class PhenotypeUtils {
       return ABBREVIATIONS.get(lowered);
     }
 
-    if (lowered.contains("indeterminate")) {
-      return INDETERMINATE;
+    if (lowered.contains(TextConstants.INDETERMINATE.toLowerCase())) {
+      return TextConstants.INDETERMINATE;
     }
 
     // if any common pheno name is in the string, use that

@@ -1,0 +1,37 @@
+{
+  "guideline": {
+    "id": "PA166104949",
+    "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
+    "source": "CPIC",
+    "version": 42,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104949",
+    "relatedChemicals": [
+      {
+        "id": "PA451906",
+        "name": "warfarin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA126",
+        "name": "cytochrome P450 family 2 subfamily C member 9",
+        "symbol": "CYP2C9"
+      },
+      {
+        "id": "PA27121",
+        "name": "cytochrome P450 family 4 subfamily F member 2",
+        "symbol": "CYP4F2"
+      },
+      {
+        "id": "PA133787052",
+        "name": "vitamin K epoxide reductase complex subunit 1",
+        "symbol": "VKORC1"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

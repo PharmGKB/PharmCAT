@@ -52,8 +52,8 @@ HLA calls, respectively, using sequencing data.
 | :--- | :---: | :---: |
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
 | [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
-| [HLA-A](/Phenotypes-List#hla-a) | :heavy_check_mark: |  |
-| [HLA-B](/Phenotypes-List#hla-b) | :heavy_check_mark: |  |
+| [HLA-A](/Phenotypes-List#hla-a) | :heavy_check_mark: | :heavy_check_mark: |
+| [HLA-B](/Phenotypes-List#hla-b) | :heavy_check_mark: | :heavy_check_mark: |
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
 
 
@@ -66,25 +66,20 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 
 | Drug | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
-| abacavir | :heavy_check_mark: |  |
+| abacavir | :heavy_check_mark: | :heavy_check_mark: |
 | acenocoumarol |  | :heavy_check_mark: |
 | allopurinol | :heavy_check_mark: | :heavy_check_mark: |
 | amikacin | :heavy_check_mark: |  |
-| aminosalicylic acid | :heavy_check_mark: |  |
 | amitriptyline | :heavy_check_mark: | :heavy_check_mark: |
 | aripiprazole |  | :heavy_check_mark: |
-| aspirin | :heavy_check_mark: |  |
 | atazanavir | :heavy_check_mark: |  |
 | atomoxetine | :heavy_check_mark: | :heavy_check_mark: |
 | atorvastatin | :heavy_check_mark: | :heavy_check_mark: |
 | azathioprine | :heavy_check_mark: | :heavy_check_mark: |
 | brexpiprazole |  | :heavy_check_mark: |
 | capecitabine | :heavy_check_mark: | :heavy_check_mark: |
-| carbamazepine | :heavy_check_mark: |  |
+| carbamazepine | :heavy_check_mark: | :heavy_check_mark: |
 | celecoxib | :heavy_check_mark: |  |
-| chloramphenicol | :heavy_check_mark: |  |
-| chloroquine | :heavy_check_mark: |  |
-| ciprofloxacin | :heavy_check_mark: |  |
 | citalopram | :heavy_check_mark: | :heavy_check_mark: |
 | clomipramine | :heavy_check_mark: | :heavy_check_mark: |
 | clopidogrel | :heavy_check_mark: | :heavy_check_mark: |
@@ -93,61 +88,50 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | desflurane | :heavy_check_mark: |  |
 | desipramine | :heavy_check_mark: |  |
 | dexlansoprazole | :heavy_check_mark: |  |
-| dibekacin | :heavy_check_mark: |  |
-| dimercaprol | :heavy_check_mark: |  |
 | doxepin | :heavy_check_mark: | :heavy_check_mark: |
-| doxorubicin | :heavy_check_mark: |  |
 | efavirenz | :heavy_check_mark: | :heavy_check_mark: |
 | eliglustat |  | :heavy_check_mark: |
 | enflurane | :heavy_check_mark: |  |
 | escitalopram | :heavy_check_mark: | :heavy_check_mark: |
 | flecainide |  | :heavy_check_mark: |
+| flucloxacillin |  | :heavy_check_mark: |
 | flucytosine |  | :heavy_check_mark: |
 | fluorouracil | :heavy_check_mark: | :heavy_check_mark: |
 | flurbiprofen | :heavy_check_mark: |  |
 | fluvastatin | :heavy_check_mark: |  |
 | fluvoxamine | :heavy_check_mark: |  |
 | fosphenytoin | :heavy_check_mark: |  |
-| furazolidone | :heavy_check_mark: |  |
 | gentamicin | :heavy_check_mark: |  |
-| glyburide | :heavy_check_mark: |  |
 | haloperidol |  | :heavy_check_mark: |
 | halothane | :heavy_check_mark: |  |
 | hormonal contraceptives for systemic use |  | :heavy_check_mark: |
 | hydrocodone | :heavy_check_mark: |  |
-| hydroxychloroquine | :heavy_check_mark: |  |
 | ibuprofen | :heavy_check_mark: |  |
 | imipramine | :heavy_check_mark: | :heavy_check_mark: |
 | irinotecan |  | :heavy_check_mark: |
 | isoflurane | :heavy_check_mark: |  |
 | ivacaftor | :heavy_check_mark: |  |
 | kanamycin | :heavy_check_mark: |  |
+| lamotrigine |  | :heavy_check_mark: |
 | lansoprazole | :heavy_check_mark: | :heavy_check_mark: |
 | lornoxicam | :heavy_check_mark: |  |
 | lovastatin | :heavy_check_mark: |  |
-| mafenide | :heavy_check_mark: |  |
 | meloxicam | :heavy_check_mark: |  |
 | mercaptopurine | :heavy_check_mark: | :heavy_check_mark: |
 | methoxyflurane | :heavy_check_mark: |  |
 | methylene blue | :heavy_check_mark: |  |
 | metoprolol |  | :heavy_check_mark: |
-| nalidixic acid | :heavy_check_mark: |  |
-| neomycin | :heavy_check_mark: |  |
-| netilmicin | :heavy_check_mark: |  |
 | nitrofurantoin | :heavy_check_mark: |  |
-| norfloxacin | :heavy_check_mark: |  |
 | nortriptyline | :heavy_check_mark: | :heavy_check_mark: |
-| ofloxacin | :heavy_check_mark: |  |
 | omeprazole | :heavy_check_mark: | :heavy_check_mark: |
 | ondansetron | :heavy_check_mark: |  |
-| oxcarbazepine | :heavy_check_mark: |  |
+| oxcarbazepine | :heavy_check_mark: | :heavy_check_mark: |
 | pantoprazole | :heavy_check_mark: | :heavy_check_mark: |
 | paromomycin | :heavy_check_mark: |  |
 | paroxetine | :heavy_check_mark: | :heavy_check_mark: |
 | peginterferon alfa-2a | :heavy_check_mark: |  |
 | peginterferon alfa-2b | :heavy_check_mark: |  |
 | pegloticase | :heavy_check_mark: |  |
-| phenazopyridine | :heavy_check_mark: |  |
 | phenprocoumon |  | :heavy_check_mark: |
 | phenytoin | :heavy_check_mark: | :heavy_check_mark: |
 | pimozide |  | :heavy_check_mark: |
@@ -158,9 +142,8 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | primaquine | :heavy_check_mark: |  |
 | propafenone |  | :heavy_check_mark: |
 | quetiapine |  | :heavy_check_mark: |
-| quinine | :heavy_check_mark: |  |
 | rasburicase | :heavy_check_mark: |  |
-| ribostamycin | :heavy_check_mark: |  |
+| ribavirin | :heavy_check_mark: |  |
 | risperidone |  | :heavy_check_mark: |
 | rosuvastatin | :heavy_check_mark: |  |
 | sertraline | :heavy_check_mark: | :heavy_check_mark: |
@@ -169,12 +152,6 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | siponimod |  | :heavy_check_mark: |
 | streptomycin | :heavy_check_mark: |  |
 | succinylcholine | :heavy_check_mark: |  |
-| sulfadiazine | :heavy_check_mark: |  |
-| sulfadimidine | :heavy_check_mark: |  |
-| sulfamethoxazole / trimethoprim | :heavy_check_mark: |  |
-| sulfanilamide | :heavy_check_mark: |  |
-| sulfasalazine | :heavy_check_mark: |  |
-| sulfisoxazole | :heavy_check_mark: |  |
 | tacrolimus | :heavy_check_mark: | :heavy_check_mark: |
 | tafenoquine | :heavy_check_mark: |  |
 | tamoxifen | :heavy_check_mark: | :heavy_check_mark: |
@@ -182,14 +159,11 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | tenoxicam | :heavy_check_mark: |  |
 | thioguanine | :heavy_check_mark: | :heavy_check_mark: |
 | tobramycin | :heavy_check_mark: |  |
-| tolbutamide | :heavy_check_mark: |  |
 | toluidine blue | :heavy_check_mark: |  |
 | tramadol | :heavy_check_mark: | :heavy_check_mark: |
 | trimipramine | :heavy_check_mark: |  |
 | tropisetron | :heavy_check_mark: |  |
 | venlafaxine | :heavy_check_mark: | :heavy_check_mark: |
-| vitamin c | :heavy_check_mark: |  |
-| vitamin k | :heavy_check_mark: |  |
 | voriconazole | :heavy_check_mark: | :heavy_check_mark: |
 | vortioxetine | :heavy_check_mark: |  |
 | warfarin | :heavy_check_mark: | :heavy_check_mark: |

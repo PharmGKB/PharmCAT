@@ -1,0 +1,173 @@
+{
+  "guideline": {
+    "id": "PA166122686",
+    "name": "Annotation of CPIC Guideline for fluorouracil and DPYD",
+    "source": "CPIC",
+    "version": 47,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166122686",
+    "relatedChemicals": [
+      {
+        "id": "PA128406956",
+        "name": "fluorouracil",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA145",
+        "name": "dihydropyrimidine dehydrogenase",
+        "symbol": "DPYD"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297896",
+      "name": "Recommendation PA166297896",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA128406956",
+          "name": "fluorouracil",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060498,
+        "html": "<p>Based on genotype, there is no indication to change dose or therapy. Use label-recommended dosage and administration.</p>\n"
+      },
+      "implications": [
+        "DPYD: Normal DPD activity and \"normal\" risk for fluoropyrimidine toxicity"
+      ],
+      "lookupKey": {
+        "DPYD": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297897",
+      "name": "Recommendation PA166297897",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA128406956",
+          "name": "fluorouracil",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060499,
+        "html": "<p>Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.</p>\n"
+      },
+      "implications": [
+        "DPYD: Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      ],
+      "lookupKey": {
+        "DPYD": "1.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297898",
+      "name": "Recommendation PA166297898",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA128406956",
+          "name": "fluorouracil",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060500,
+        "html": "<p>Reduce starting dose by 50% followed by titration of dose based on toxicity or therapeutic drug monitoring (if available). Patients with the c.2846A&gt;T/c.2846A&gt;T genotype may require &gt;50% reduction in starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Increase the dose in patients experiencing no or clinically tolerable toxicity in the first two cycles to maintain efficacy; decrease the dose in patients who do not tolerate the starting dose to minimize toxicities.</p>\n"
+      },
+      "implications": [
+        "DPYD: Decreased DPD activity (leukocyte DPD activity at 30% to 70% that of the normal population) and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs"
+      ],
+      "lookupKey": {
+        "DPYD": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297900",
+      "name": "Recommendation PA166297900",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA128406956",
+          "name": "fluorouracil",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060502,
+        "html": "<p>Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens.</p>\n"
+      },
+      "implications": [
+        "DPYD: Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      ],
+      "lookupKey": {
+        "DPYD": "0.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297899",
+      "name": "Recommendation PA166297899",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA128406956",
+          "name": "fluorouracil",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060501,
+        "html": "<p>Avoid use of 5-fluorouracil or 5-fluorouracil prodrug-based regimens. In the event, based on clinical advice, alternative agents are not considered a suitable therapeutic option, 5-fluorouracil should be administered at a strongly reduced dose with early therapeutic drug monitoring.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>If available, a phenotyping test (see main text for further details) should be considered to estimate the starting dose. In absence of phenotyping data, a dose of &lt;25% of the normal starting dose is estimated assuming additive effects of alleles on 5-FU clearance. Therapeutic drug monitoring should be done at the earliest time point possible (e.g., minimum time point in steady state) in order to immediately discontinue therapy if the drug level is too high.</p>\n"
+      },
+      "implications": [
+        "DPYD: Complete DPD deficiency and increased risk for severe or even fatal drug toxicity when treated with fluoropyrimidine drugs."
+      ],
+      "lookupKey": {
+        "DPYD": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

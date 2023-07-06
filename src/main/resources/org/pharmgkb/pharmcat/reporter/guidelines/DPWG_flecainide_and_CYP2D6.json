@@ -1,0 +1,573 @@
+{
+  "guideline": {
+    "id": "PA166104969",
+    "name": "Annotation of DPWG Guideline for flecainide and CYP2D6",
+    "source": "DPWG",
+    "version": 32,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104969",
+    "relatedChemicals": [
+      {
+        "id": "PA449646",
+        "name": "flecainide",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302392",
+      "name": "Recommendation Annotation PA166302392",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103971,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302383",
+      "name": "Recommendation Annotation PA166302383",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103962,
+        "html": "<p>Indications other than diagnosis of Brugada syndrome:</p>\n<ul>\n<li>Reduce the dose to 75% of the standard dose and record an ECG and monitor the plasma concentration.</li>\n</ul>\n<p>Provocation test for diagnosis of Brugada syndrome:</p>\n<ul>\n<li>No action required. At a dose of 2.0 mg/kg body weight to a maximum of 150 mg, the response is better for patients with alleles that result in reduced activity. All 5 patients with these alleles and 20% of the patients with two fully active alleles exhibited a response within 30 minutes.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The genetic variation reduces conversion of flecainide to inactive metabolites. This may increase the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302396",
+      "name": "Recommendation Annotation PA166302396",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103975,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302387",
+      "name": "Recommendation Annotation PA166302387",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103966,
+        "html": "<p>The guideline does not provide a recommendation for flecainide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on flecainide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302391",
+      "name": "Recommendation Annotation PA166302391",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103970,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302395",
+      "name": "Recommendation Annotation PA166302395",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103974,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302382",
+      "name": "Recommendation Annotation PA166302382",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103961,
+        "html": "<p>Indications other than diagnosis of Brugada syndrome:</p>\n<ul>\n<li>Reduce the dose to 75% of the standard dose and record an ECG and monitor the plasma concentration.</li>\n</ul>\n<p>Provocation test for diagnosis of Brugada syndrome:</p>\n<ul>\n<li>No action required. At a dose of 2.0 mg/kg body weight to a maximum of 150 mg, the response is better for patients with alleles that result in reduced activity. All 5 patients with these alleles and 20% of the patients with two fully active alleles exhibited a response within 30 minutes.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The genetic variation reduces conversion of flecainide to inactive metabolites. This may increase the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302386",
+      "name": "Recommendation Annotation PA166302386",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103965,
+        "html": "<p>The guideline does not provide a recommendation for flecainide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on flecainide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302390",
+      "name": "Recommendation Annotation PA166302390",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103969,
+        "html": "<p>The guideline does not provide a recommendation for flecainide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on flecainide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302394",
+      "name": "Recommendation Annotation PA166302394",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103973,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302381",
+      "name": "Recommendation Annotation PA166302381",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103960,
+        "html": "<p>Reduce the dose to 50% of the standard dose and record an ECG and monitor the plasma concentration.</p>\n"
+      },
+      "implications": [
+        "The genetic variation reduces conversion of flecainide to inactive metabolites. This increases the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302385",
+      "name": "Recommendation Annotation PA166302385",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103964,
+        "html": "<p>Indications other than diagnosis of Brugada syndrome:</p>\n<ul>\n<li>Reduce the dose to 75% of the standard dose and record an ECG and monitor the plasma concentration.</li>\n</ul>\n<p>Provocation test for diagnosis of Brugada syndrome:</p>\n<ul>\n<li>No action required. At a dose of 2.0 mg/kg body weight to a maximum of 150 mg, the response is better for patients with alleles that result in reduced activity. All 5 patients with these alleles and 20% of the patients with two fully active alleles exhibited a response within 30 minutes.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The genetic variation reduces conversion of flecainide to inactive metabolites. This may increase the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302398",
+      "name": "Recommendation Annotation PA166302398",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103977,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302389",
+      "name": "Recommendation Annotation PA166302389",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103968,
+        "html": "<p>The guideline does not provide a recommendation for flecainide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on flecainide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302393",
+      "name": "Recommendation Annotation PA166302393",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103972,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302384",
+      "name": "Recommendation Annotation PA166302384",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103963,
+        "html": "<p>Indications other than diagnosis of Brugada syndrome:</p>\n<ul>\n<li>Reduce the dose to 75% of the standard dose and record an ECG and monitor the plasma concentration.</li>\n</ul>\n<p>Provocation test for diagnosis of Brugada syndrome:</p>\n<ul>\n<li>No action required. At a dose of 2.0 mg/kg body weight to a maximum of 150 mg, the response is better for patients with alleles that result in reduced activity. All 5 patients with these alleles and 20% of the patients with two fully active alleles exhibited a response within 30 minutes.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The genetic variation reduces conversion of flecainide to inactive metabolites. This may increase the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302397",
+      "name": "Recommendation Annotation PA166302397",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103976,
+        "html": "<p>There are no data about the pharmacokinetics and/or the effects of flecainide in UM. Monitor the plasma concentration as a precaution and record an ECG or select an alternative. Examples of anti-arrhythmic drugs that are not metabolized via CYP2D6 (or to a lesser extent) include sotalol, disopyramide, quinidine and amiodarone.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases conversion of flecainide to inactive metabolites. A higher dose is possibly required as a result."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302388",
+      "name": "Recommendation Annotation PA166302388",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449646",
+          "name": "flecainide",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103967,
+        "html": "<p>The guideline does not provide a recommendation for flecainide in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on flecainide."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

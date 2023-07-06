@@ -1,0 +1,202 @@
+{
+  "guideline": {
+    "id": "PA166262261",
+    "name": "Annotation of CPIC Guideline for pitavastatin and SLCO1B1",
+    "source": "CPIC",
+    "version": 6,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262261",
+    "relatedChemicals": [
+      {
+        "id": "PA142650384",
+        "name": "pitavastatin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134865839",
+        "name": "solute carrier organic anion transporter family member 1B1",
+        "symbol": "SLCO1B1"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298453",
+      "name": "Recommendation PA166298453",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061055,
+        "html": "<p>Prescribe ≤1mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. If dose &gt;1mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy)(PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased pitavastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298454",
+      "name": "Recommendation PA166298454",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061056,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: n/a"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298449",
+      "name": "Recommendation PA166298449",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061051,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298450",
+      "name": "Recommendation PA166298450",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061052,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298452",
+      "name": "Recommendation PA166298452",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061054,
+        "html": "<p>Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses &gt;1mg. If dose &gt;2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298451",
+      "name": "Recommendation PA166298451",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA142650384",
+          "name": "pitavastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061053,
+        "html": "<p>Prescribe ≤ 2mg as a starting dose and adjust doses of pitavastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for doses &gt;1mg. If dose &gt;2mg needed for desired efficacy, consider an alternative statin (see Figure 1 of PMID: 35152405 for recommendations for alternative statins) or combination therapy (i.e. pitavastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased pitavastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

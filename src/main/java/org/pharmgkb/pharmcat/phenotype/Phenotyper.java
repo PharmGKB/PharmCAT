@@ -110,15 +110,14 @@ public class Phenotyper {
       reportMap.put(geneReport.getGene(), geneReport);
     }
 
+    Set<String> unspecifiedGenes = listUnspecifiedGenes(env, source);
     // all other genes
-    for (String geneSymbol : listUnspecifiedGenes(env, source)) {
+    for (String geneSymbol : unspecifiedGenes) {
       reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
     }
 
     // add VCF warnings
-    reportMap.values().forEach(geneReport -> {
-      geneReport.addVariantWarningMessages(variantWarnings);
-    });
+    reportMap.values().forEach(geneReport -> geneReport.addVariantWarningMessages(variantWarnings));
   }
 
 
@@ -166,12 +165,7 @@ public class Phenotyper {
     if (source == DataSource.UNKNOWN) {
       return Collections.emptySet();
     }
-    Set<String> unspecifiedGenes = new HashSet<>();
-    if (source == DataSource.CPIC) {
-      unspecifiedGenes.addAll(env.getCpicGenes());
-    } else {
-      unspecifiedGenes.addAll(env.getDpwgGenes());
-    }
+    Set<String> unspecifiedGenes = new HashSet<>(env.getDrugs().getGenesUsedInSource(source));
     m_geneReports.get(source).values().stream()
         .map(GeneReport::getGene)
         .forEach(unspecifiedGenes::remove);

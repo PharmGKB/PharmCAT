@@ -1,0 +1,690 @@
+{
+  "guideline": {
+    "id": "PA166104996",
+    "name": "Annotation of CPIC Guideline for codeine and CYP2D6",
+    "source": "CPIC",
+    "version": 64,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104996",
+    "relatedChemicals": [
+      {
+        "id": "PA449088",
+        "name": "codeine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297557",
+      "name": "Recommendation PA166297557",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060159,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297592",
+      "name": "Recommendation PA166297592",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060194,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2D6: n/a"
+      ],
+      "lookupKey": {
+        "CYP2D6": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301321",
+      "name": "Recommendation Annotation PA166301321",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452095640,
+        "html": "<p>xN is not a valid input for CYP2D6 copy number alleles. Please select a copy number representation as outlined below.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>xN Allele</th>\n<th>Possible selection</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>*1xN</td>\n<td>*1x2 or *1x≥3</td>\n</tr>\n<tr>\n<td>*2xN</td>\n<td>*2x2 or *2x≥3</td>\n</tr>\n<tr>\n<td>*3xN</td>\n<td>*3x2</td>\n</tr>\n<tr>\n<td>*4xN</td>\n<td>*4x2 or *4x≥3</td>\n</tr>\n<tr>\n<td>*6xN</td>\n<td>*6x2</td>\n</tr>\n<tr>\n<td>*35xN</td>\n<td>*35x2</td>\n</tr>\n<tr>\n<td>*36xN</td>\n<td>*36x2</td>\n</tr>\n<tr>\n<td>*43xN</td>\n<td>*43x2</td>\n</tr>\n<tr>\n<td>*45xN</td>\n<td>*45x2</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>For normal function alleles (*1 and *2) selecting <strong>*1x2 versus *1x≥3</strong> or <strong>*2x2 versus *2x≥3</strong> will affect the resulting CYP2D6 phenotype.</li>\n<li>CPIC CYP2D6 ultrarapid metabolizer phenotype is assigned an activity score (AS) of &gt;2.25.</li>\n<li>DPWG CYP2D6 ultrarapid metabolizer phenotype is assigned an AS of &gt;2.5.</li>\n</ul>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Guideline</th>\n<th>CNV Allele</th>\n<th>Function</th>\n<th>Activity<br/>value</th>\n<th>Other Allele<br/>Function</th>\n<th>Activity<br/>value</th>\n<th>CYP2D6 AS</th>\n<th>Phenotype</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>No function</td>\n<td>0</td>\n<td>2</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.25</td>\n<td>2.25</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Normal function</td>\n<td>1.0</td>\n<td>3.0</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x≥3</td>\n<td>Increased</td>\n<td>≥3</td>\n<td></td>\n<td></td>\n<td>≥3</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n</tbody>\n</table>\n"
+      },
+      "implications": [],
+      "lookupKey": {
+        "CYP2D6": "xN combinations"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297602",
+      "name": "Recommendation PA166297602",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060204,
+        "html": "<p>Avoid codeine use because of possibility of diminished analgesia. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Greatly reduced morphine formation leading to diminished analgesia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297593",
+      "name": "Recommendation PA166297593",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060195,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297606",
+      "name": "Recommendation PA166297606",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060208,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297597",
+      "name": "Recommendation PA166297597",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060199,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Expected morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297607",
+      "name": "Recommendation PA166297607",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060209,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297558",
+      "name": "Recommendation PA166297558",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060160,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297594",
+      "name": "Recommendation PA166297594",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060196,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297603",
+      "name": "Recommendation PA166297603",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060205,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297598",
+      "name": "Recommendation PA166297598",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060200,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Expected morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297568",
+      "name": "Recommendation PA166297568",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060170,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297608",
+      "name": "Recommendation PA166297608",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060210,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297600",
+      "name": "Recommendation PA166297600",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060202,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Expected morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297595",
+      "name": "Recommendation PA166297595",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060197,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297599",
+      "name": "Recommendation PA166297599",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060201,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Expected morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297604",
+      "name": "Recommendation PA166297604",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060206,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297609",
+      "name": "Recommendation PA166297609",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060211,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297601",
+      "name": "Recommendation PA166297601",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060203,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Expected morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297596",
+      "name": "Recommendation PA166297596",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060198,
+        "html": "<p>Use codeine label recommended age- or weight-specific dosing. If no response and opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced morphine formation"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297610",
+      "name": "Recommendation PA166297610",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060212,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297605",
+      "name": "Recommendation PA166297605",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449088",
+          "name": "codeine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060207,
+        "html": "<p>Avoid codeine use because of potential for serious toxicity. If opioid use is warranted, consider a non-tramadol opioid.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased formation of morphine leading to higher risk of toxicity"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

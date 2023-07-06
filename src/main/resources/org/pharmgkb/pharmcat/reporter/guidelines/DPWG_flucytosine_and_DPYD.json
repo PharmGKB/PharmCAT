@@ -1,0 +1,199 @@
+{
+  "guideline": {
+    "id": "PA166222801",
+    "name": "Annotation of DPWG Guideline for flucytosine and DPYD",
+    "source": "DPWG",
+    "version": 10,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166222801",
+    "relatedChemicals": [
+      {
+        "id": "PA449654",
+        "name": "flucytosine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA145",
+        "name": "dihydropyrimidine dehydrogenase",
+        "symbol": "DPYD"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299164",
+      "name": "Recommendation PA166299164",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061527,
+        "html": "<ul>\n<li>Be alert to the occurrence of severe side effects, such as leukopaenia, neutropaenia, thrombocytopaenia and diarrhoea\n<ul>\n<li>In the majority of cases, side effects of flucytosine occur in the first two to three weeks of the treatment. Flucytosine should be stopped if severe side effects occur</li>\n</ul>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "A very low risk of severe toxicity is increased by gene variation. A small proportion of flucytosine is converted to fluorouracil. Patients with this gene variation are more likely to react to fluorouracil, but generally tolerate low doses (approximately 50% of the standard fluorouracil dose)."
+      ],
+      "lookupKey": {
+        "DPYD": "1.0 (Intermediate Metabolizer)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166301782",
+      "name": "Recommendation Annotation PA166301782",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452102461,
+        "html": "<ul>\n<li>Be alert to the occurrence of severe side effects, such as leukopaenia, neutropaenia, thrombocytopaenia and diarrhoea.\n<ul>\n<li>In the majority of cases, side effects of flucytosine occur in the first two to three weeks of the treatment. Flucytosine should be stopped if severe side effects occur.</li>\n</ul>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "A very low risk of severe toxicity is increased by gene variation. A small proportion of flucytosine is converted to fluorouracil. Patients with this gene variation are more likely to have a reaction to fluorouracil, but generally tolerate low doses (15-50% of the standard fluorouracil dose)."
+      ],
+      "lookupKey": {
+        "DPYD": "1.0 (Phenotyping)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166299163",
+      "name": "Recommendation PA166299163",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061526,
+        "html": "<ul>\n<li>Be alert to the occurrence of severe side effects, such as leukopaenia, neutropaenia, thrombocytopaenia and diarrhoea\n<ul>\n<li>In the majority of cases, side effects of flucytosine occur in the first two to three weeks of the treatment. Flucytosine should be stopped if severe side effects occur.</li>\n</ul>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "A very low risk of severe toxicity is increased by gene variation. A small proportion of flucytosine is converted to fluorouracil. Patients with this gene variation are more likely to have a reaction to fluorouracil, but generally tolerate low doses (50-75% of the standard fluorouracil dose)."
+      ],
+      "lookupKey": {
+        "DPYD": "1.5 (Intermediate Metabolizer)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166299162",
+      "name": "Recommendation PA166299162",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061525,
+        "html": "<p>The guideline does not provide a recommendation for flucytosine in patients with a DPYD activity score of 2.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a DPYD activity score of 2 on flucytosine."
+      ],
+      "lookupKey": {
+        "DPYD": "2.0 (Normal Metabolizer)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299160",
+      "name": "Recommendation PA166299160",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061523,
+        "html": "<p>Avoid flucytosine</p>\n"
+      },
+      "implications": [
+        "A risk of life-threatening toxicity is increased by gene variation. A small proportion of flucytosine is converted to fluorouracil and patients with this gene variation are intolerant even to small quantities of fluorouracil."
+      ],
+      "lookupKey": {
+        "DPYD": "0.0 (Poor Metabolizer)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299161",
+      "name": "Recommendation PA166299161",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449654",
+          "name": "flucytosine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061524,
+        "html": "<ul>\n<li>Be alert to the occurrence of severe side effects, such as leukopaenia, neutropaenia, thrombocytopaenia and diarrhoea.\n<ul>\n<li>In the majority of cases, side effects of flucytosine occur in the first two to three weeks of the treatment. Flucytosine should be stopped if severe side effects occur.</li>\n</ul>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "A very low risk of severe toxicity is increased by gene variation. A small proportion of flucytosine is converted to fluorouracil. Patients with this gene variation are more likely to have a reaction to fluorouracil, but generally tolerate low doses (15-50% of the standard fluorouracil dose)."
+      ],
+      "lookupKey": {
+        "DPYD": "0.5 (Phenotyping)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

@@ -1,0 +1,115 @@
+{
+  "guideline": {
+    "id": "PA166182846",
+    "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
+    "source": "DPWG",
+    "version": 14,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
+    "relatedChemicals": [
+      {
+        "id": "PA449441",
+        "name": "efavirenz",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA123",
+        "name": "cytochrome P450 family 2 subfamily B member 6",
+        "symbol": "CYP2B6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299102",
+      "name": "Recommendation PA166299102",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449441",
+          "name": "efavirenz",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061465,
+        "html": "<p>Efavirenz in MONOpreparation, adults and children FROM 40 KG: Body mass index LESS THAN or EQUAL to 25: 1. The recommended initial dose is 400 mg/day and this dose should be titrated to plasma concentration if needed (further reduction to 200 mg/day or in rare cases an increase to 600 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml. Body mass index GREATER than 25: 1. The recommended initial dose is 600 mg/day and this dose should be titrated to plasma concentration if needed (reduction to 400 or 200 mg/day). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in MONOpreparation, children LIGHTER THAN 40 KG: 1. Start with the standard dose and titrate this dose to plasma concentration if needed. In adults, therapeutic plasma concentrations were achieved at either 2/3rd of the standard dose (1/3rd of the patients) or 1/3rd of the standard dose (2/3rd of the patients). In children younger than 3 years, therapeutic plasma concentrations were achieved at doses of approximately 10 mg/kg per day (as capsules) (100 mg/day for 7-14 kg and 150 mg/day for 14-17 kg; 50-75% of the standard dose). The therapeutic range established for efavirenz is 1000-4000 ng/ml.\n*Efavirenz in COMBINATION preparation: 1. Initiate the combination preparation and titrate the efavirenz dose to plasma concentration if needed (reduction to 400 or 200 mg/day) The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n"
+      },
+      "implications": [
+        "Genetic variations increase the risk of side effects. The standard dose leads to an efavirenz concentration in the toxic range in the majority of patients with this genotype."
+      ],
+      "lookupKey": {
+        "CYP2B6": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299101",
+      "name": "Recommendation PA166299101",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449441",
+          "name": "efavirenz",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061464,
+        "html": "<p>Determine the efavirenz plasma concentration if side effects occur and reduce the dose if needed. In 14 IM adults, a dose reduction to 400 mg/day (2/3rd of the standard dose) was sufficient to achieve therapeutic plasma concentrations and to reduce or resolve side effects. The therapeutic range established for efavirenz is 1000-4000 ng/ml.</p>\n"
+      },
+      "implications": [
+        "Genetic variations increase the efavirenz plasma concentration and therefore the risk of side effects. However, the efavirenz plasma concentration remains within the therapeutic range for the majority of patients."
+      ],
+      "lookupKey": {
+        "CYP2B6": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299103",
+      "name": "Recommendation PA166299103",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449441",
+          "name": "efavirenz",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061466,
+        "html": "<p>The guideline does not provide a recommendation for efavirenz in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on efavirenz."
+      ],
+      "lookupKey": {
+        "CYP2B6": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

@@ -7,33 +7,53 @@
   "activityValues": {},
   "diplotypes": [
     {
-      "generesult": null,
+      "generesult": "-1639 GG",
       "diplotype": "rs9923231 reference (C)/rs9923231 reference (C)",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "-1639 GG",
       "diplotypekey": {
         "rs9923231 reference (C)": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "-1639 GG"
     },
     {
-      "generesult": null,
+      "generesult": "-1639 AG",
       "diplotype": "rs9923231 reference (C)/rs9923231 variant (T)",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "-1639 AG",
       "diplotypekey": {
         "rs9923231 reference (C)": 1,
         "rs9923231 variant (T)": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "-1639 AG"
     },
     {
-      "generesult": null,
+      "generesult": "-1639 AA",
       "diplotype": "rs9923231 variant (T)/rs9923231 variant (T)",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "-1639 AA",
       "diplotypekey": {
         "rs9923231 variant (T)": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "-1639 AA"
     }
   ],
-  "version": "2023-06-05-00-25"
+  "namedAlleles": [
+    {
+      "name": "rs9923231 reference (C)",
+      "activityValue": null,
+      "functionValue": "Normal coumarin sensitivity",
+      "lookupKey": "Normal coumarin sensitivity"
+    },
+    {
+      "name": "rs9923231 variant (T)",
+      "activityValue": null,
+      "functionValue": "Higher coumarin sensitivity",
+      "lookupKey": "Higher coumarin sensitivity"
+    }
+  ],
+  "version": "2023-08-17-20-07"
 }

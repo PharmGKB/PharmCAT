@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.util.TextUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
@@ -180,28 +181,24 @@ public class ReportHelpers {
       return TextConstants.SEE_DRUG;
     }
 
-    String f1 = diplotype.getAllele1() != null && diplotype.getAllele1().getFunction() != null ?
-        diplotype.getAllele1().getFunction() : null;
-    String f2 = diplotype.getAllele2() != null && diplotype.getAllele2().getFunction() != null ?
-        diplotype.getAllele2().getFunction() : null;
-    boolean isSinglePloidy = diplotype.getAllele1() != null && diplotype.getAllele2() == null;
-    if (isSinglePloidy) {
-      if (StringUtils.isNotBlank(f1)) {
-        return f1;
-      }
+    String f1 = diplotype.getAllele1() != null && diplotype.getAllele1().toFormattedFunction() != null ?
+        diplotype.getAllele1().toFormattedFunction() : null;
+    String f2 = diplotype.getAllele2() != null && diplotype.getAllele2().toFormattedFunction() != null ?
+        diplotype.getAllele2().toFormattedFunction() : null;
+
+    if (f1 == null && f2 == null) {
+      return TextConstants.NA.toUpperCase();
+    } else if (f2 == null) {
+      return f1;
     } else {
-      if (StringUtils.isNotBlank(f1) && StringUtils.isNotBlank(f2)) {
-        if (f1.equals(f2)) {
-          return String.format("Two %s alleles", f1);
-        }
-        else {
-          String[] functions = new String[]{f1, f2};
-          Arrays.sort(functions);
-          return String.format("One %s allele and one %s allele", functions[0], functions[1]);
-        }
+      if (f2.equals(f1)) {
+        return String.format("Two %s alleles", f1);
+      } else {
+        String[] functions = new String[]{f1, f2};
+        Arrays.sort(functions);
+        return String.format("One %s allele and one %s allele", functions[0], functions[1]);
       }
     }
-    return TextConstants.NA.toUpperCase();
   }
 
   public static String gsPhenotype(Diplotype diplotype) {
@@ -361,22 +358,17 @@ public class ReportHelpers {
 
 
 
-  public static String rxImplications(SortedMap<String, String> implications) {
-    if (implications.isEmpty()) {
+  public static String rxImplications(List<String> implications) {
+    if (implications.size() == 0) {
       return "";
     }
     if (implications.size() == 1) {
-      Map.Entry<String, String> entry = implications.entrySet().iterator().next();
-      return entry.getKey() + ": " + capitalizeNA(entry.getValue());
+      return implications.get(0);
     }
     StringBuilder builder = new StringBuilder()
         .append("<ul class=\"noPadding mt-0\">");
-    for (Map.Entry<String, String> entry : implications.entrySet()) {
-      builder.append("<li>")
-          .append(entry.getKey())
-          .append(": ")
-          .append(capitalizeNA(entry.getValue()))
-          .append("</li>");
+    for (String entry : implications) {
+      builder.append("<li>").append(capitalizeNA(entry)).append("</li>");
     }
     builder.append("</ul>");
     return builder.toString();
@@ -386,6 +378,24 @@ public class ReportHelpers {
     return annotationReport.getMessages().stream()
         .filter(MessageAnnotation.isMessage)
         .toList();
+  }
+
+  public static String annotationTags(AnnotationReport annotationReport) {
+    List<String> tags = new ArrayList<>();
+    if (annotationReport.isAlternateDrugAvailable()) {
+      tags.add("<div class=\"tag\">Alternate Drug</div>");
+    }
+    if (annotationReport.isDosingInformation()) {
+      tags.add("<div class=\"tag\">Dosing Info</div>");
+    }
+    if (annotationReport.isOtherPrescribingGuidance()) {
+      tags.add("<div class=\"tag\">Other Guidance</div>");
+    }
+    if (tags.size() > 0) {
+      return String.join("\n", tags);
+    } else {
+      return "<div class=\"tag noAction\">No Action</div>";
+    }
   }
 
 
@@ -585,8 +595,11 @@ public class ReportHelpers {
   }
 
   public static String capitalizeNA(String text) {
-    if (TextConstants.NA.equalsIgnoreCase(text)) {
-      return "N/A";
+    if (TextUtils.isBlank(text)) {
+      return UNSPECIFIED;
+    }
+    else if (TextConstants.NA.equalsIgnoreCase(text)) {
+      return TextConstants.NA.toUpperCase();
     }
     return text;
   }

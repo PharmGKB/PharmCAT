@@ -1,0 +1,227 @@
+{
+  "gene": "DPYD",
+  "haplotypes": {
+    "Reference": "1.0",
+    "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
+    "c.1679T>G (*13)": "0.0",
+    "c.1905+1G>A (*2A)": "0.0",
+    "c.2846A>T": "0.5"
+  },
+  "activityValues": {
+    "Reference": "1.0",
+    "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
+    "c.1679T>G (*13)": "0.0",
+    "c.1905+1G>A (*2A)": "0.0",
+    "c.2846A>T": "0.5"
+  },
+  "diplotypes": [
+    {
+      "generesult": "2.0 (Normal Metabolizer)",
+      "diplotype": "Reference/Reference",
+      "description": null,
+      "lookupkey": "2.0 (Normal Metabolizer)",
+      "diplotypekey": {
+        "Reference": 2
+      },
+      "activityScore": null,
+      "phenotype": "2.0 (Normal Metabolizer)"
+    },
+    {
+      "generesult": "1.5 (Intermediate Metabolizer)",
+      "diplotype": "Reference/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": "1.5 (Intermediate Metabolizer)",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.5 (Intermediate Metabolizer)"
+    },
+    {
+      "generesult": "1.0 (Intermediate Metabolizer)",
+      "diplotype": "Reference/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": "1.0 (Intermediate Metabolizer)",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1679T>G (*13)": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Intermediate Metabolizer)"
+    },
+    {
+      "generesult": "1.0 (Intermediate Metabolizer)",
+      "diplotype": "Reference/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "1.0 (Intermediate Metabolizer)",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1905+1G>A (*2A)": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Intermediate Metabolizer)"
+    },
+    {
+      "generesult": "1.5 (Intermediate Metabolizer)",
+      "diplotype": "Reference/c.2846A>T",
+      "description": null,
+      "lookupkey": "1.5 (Intermediate Metabolizer)",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.5 (Intermediate Metabolizer)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 2
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.1679T>G (*13)": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.1905+1G>A (*2A)": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1679T>G (*13)/c.2846A>T",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1679T>G (*13)": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "0.0 (Poor Metabolizer)",
+      "diplotype": "c.1679T>G (*13)/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": "0.0 (Poor Metabolizer)",
+      "diplotypekey": {
+        "c.1679T>G (*13)": 2
+      },
+      "activityScore": null,
+      "phenotype": "0.0 (Poor Metabolizer)"
+    },
+    {
+      "generesult": "0.0 (Poor Metabolizer)",
+      "diplotype": "c.1679T>G (*13)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "0.0 (Poor Metabolizer)",
+      "diplotypekey": {
+        "c.1679T>G (*13)": 1,
+        "c.1905+1G>A (*2A)": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.0 (Poor Metabolizer)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1905+1G>A (*2A)/c.2846A>T",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1905+1G>A (*2A)": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "0.0 (Poor Metabolizer)",
+      "diplotype": "c.1905+1G>A (*2A)/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "0.0 (Poor Metabolizer)",
+      "diplotypekey": {
+        "c.1905+1G>A (*2A)": 2
+      },
+      "activityScore": null,
+      "phenotype": "0.0 (Poor Metabolizer)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.2846A>T/c.2846A>T",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.2846A>T": 2
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "Reference",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.1129-5923C>G, c.1236G>A (HapB3)",
+      "activityValue": "0.5",
+      "functionValue": "Decreased function",
+      "lookupKey": "0.5"
+    },
+    {
+      "name": "c.1679T>G (*13)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.1905+1G>A (*2A)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.2846A>T",
+      "activityValue": "0.5",
+      "functionValue": "Decreased function",
+      "lookupKey": "0.5"
+    }
+  ],
+  "version": "2023-07-12-10-39"
+}

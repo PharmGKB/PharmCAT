@@ -1,0 +1,273 @@
+{
+  "guideline": {
+    "id": "PA166211021",
+    "name": "Annotation of DPWG Guideline for siponimod and CYP2C9",
+    "source": "DPWG",
+    "version": 9,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166211021",
+    "relatedChemicals": [
+      {
+        "id": "PA166182736",
+        "name": "siponimod",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA126",
+        "name": "cytochrome P450 family 2 subfamily C member 9",
+        "symbol": "CYP2C9"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299159",
+      "name": "Recommendation PA166299159",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061522,
+        "html": "<p>Avoid siponimod.</p>\n"
+      },
+      "implications": [
+        "Siponimod is contraindicated in patients with this genetic variation. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": {
+          "*3": 2.0
+        }
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299155",
+      "name": "Recommendation PA166299155",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061518,
+        "html": "<p>Avoid siponimod.</p>\n"
+      },
+      "implications": [
+        "Siponimod is contraindicated in patients with the comparable genetic variation *3/*3. Theoretically, the risk of adverse effects is greatly increased, as the genetic variation results in much higher plasma concentrations of siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": "Poor Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299158",
+      "name": "Recommendation PA166299158",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061521,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": [
+        "Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": {
+          "*2": 1.0,
+          "*3": 1.0
+        }
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299153",
+      "name": "Recommendation PA166299153",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061516,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For the comparable genetic variation *1/*3, the moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": [
+        "Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299156",
+      "name": "Recommendation PA166299156",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061519,
+        "html": "<p>Use 50% of the normal maintenance dose. Reconsider the choice and the potential benefit of siponimod if the patient is also using a moderate CYP3A4 inducer, such as modafinil. For this genetic variation, a moderate CYP3A4 inducer results in a reduction in the exposure of siponimod by 49%, according to a pharmacokinetic model.</p>\n"
+      },
+      "implications": [
+        "Theoretically, the risk of adverse effects in increased, as the genetic variation results in higher plasma concentrations of siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": {
+          "*1": 1.0,
+          "*3": 1.0
+        }
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299152",
+      "name": "Recommendation PA166299152",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061515,
+        "html": "<p>The guideline does not provide a recommendation for siponimod in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on siponimod."
+      ],
+      "lookupKey": {
+        "CYP2C9": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299157",
+      "name": "Recommendation PA166299157",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061520,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects."
+      ],
+      "lookupKey": {
+        "CYP2C9": {
+          "*2": 2.0
+        }
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299154",
+      "name": "Recommendation PA166299154",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166182736",
+          "name": "siponimod",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061517,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation can slightly increase the exposure to siponimod. However, the effect is too small to expect any impact on efficacy or adverse effects."
+      ],
+      "lookupKey": {
+        "CYP2C9": {
+          "*1": 1.0,
+          "*2": 1.0
+        }
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

@@ -1,0 +1,596 @@
+{
+  "guideline": {
+    "id": "PA166104937",
+    "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
+    "source": "DPWG",
+    "version": 41,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
+    "relatedChemicals": [
+      {
+        "id": "PA10026",
+        "name": "aripiprazole",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166301981",
+      "name": "Recommendation Annotation PA166301981",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103500,
+        "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301980",
+      "name": "Recommendation Annotation PA166301980",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103499,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301976",
+      "name": "Recommendation Annotation PA166301976",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103495,
+        "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301972",
+      "name": "Recommendation Annotation PA166301972",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103491,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302003",
+      "name": "Recommendation Annotation PA166302003",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103522,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301975",
+      "name": "Recommendation Annotation PA166301975",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103494,
+        "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301971",
+      "name": "Recommendation Annotation PA166301971",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103490,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301970",
+      "name": "Recommendation Annotation PA166301970",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103489,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301979",
+      "name": "Recommendation Annotation PA166301979",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103498,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302002",
+      "name": "Recommendation Annotation PA166302002",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103521,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301978",
+      "name": "Recommendation Annotation PA166301978",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103497,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301974",
+      "name": "Recommendation Annotation PA166301974",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103493,
+        "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301983",
+      "name": "Recommendation Annotation PA166301983",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103502,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301982",
+      "name": "Recommendation Annotation PA166301982",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103501,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301969",
+      "name": "Recommendation Annotation PA166301969",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103488,
+        "html": "<p>Administer no more than 10 mg/day or 300 mg/month (68-75% of the normal maximum dose of aripiprazole).</p>\n"
+      },
+      "implications": [
+        "The risk of side effects is increased. The genetic variation leads to an increase in the sum of the plasma concentrations of aripiprazole and the active metabolite."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302001",
+      "name": "Recommendation Annotation PA166302001",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103520,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301977",
+      "name": "Recommendation Annotation PA166301977",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103496,
+        "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301973",
+      "name": "Recommendation Annotation PA166301973",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10026",
+          "name": "aripiprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103492,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

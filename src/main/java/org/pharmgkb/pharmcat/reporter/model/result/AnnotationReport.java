@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
@@ -14,23 +15,19 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Recommendation;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.Group;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.RecommendationAnnotation;
 
 
 public class AnnotationReport implements Comparable<AnnotationReport> {
   @Expose
   @SerializedName("implications")
-  private final SortedMap<String, String> m_implications = new TreeMap<>();
+  private final List<String> m_implications = new ArrayList<>();
   @Expose
   @SerializedName("drugRecommendation")
   private String m_drugRecommendation;
   @Expose
   @SerializedName("classification")
   private String m_classification;
-  @Expose
-  @SerializedName("phenotypes")
-  private final SortedMap<String, String> m_phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("activityScore")
   private final SortedMap<String, String> m_activityScore = new TreeMap<>();
@@ -41,14 +38,20 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   @SerializedName("genotypes")
   private final SortedSet<Genotype> m_genotypes = new TreeSet<>();
   @Expose
-  @SerializedName("comments")
-  private String m_comments = TextConstants.NA;
-  @Expose
   @SerializedName("messages")
   private final SortedSet<MessageAnnotation> m_messages = new TreeSet<>();
   @Expose
   @SerializedName("highlightedVariants")
   private final SortedSet<String> m_highlightedVariants = new TreeSet<>();
+  @Expose
+  @SerializedName("dosingInformation")
+  private boolean m_dosingInformation = false;
+  @Expose
+  @SerializedName("alternateDrugAvailable")
+  private boolean m_alternateDrugAvailable = false;
+  @Expose
+  @SerializedName("otherPrescribingGuidance")
+  private boolean m_otherPrescribingGuidance = false;
 
 
   /**
@@ -67,55 +70,24 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
 
   /**
-   * Create a new {@link AnnotationReport} from a CPIC {@link Recommendation}.
+   * Create a new {@link AnnotationReport} from a {@link RecommendationAnnotation}.
    *
    * @param recommendation a CPIC recommendation
    */
-  public AnnotationReport(Recommendation recommendation, String localId) {
+  public AnnotationReport(RecommendationAnnotation recommendation, String localId) {
     if (recommendation.getImplications() != null) {
-      m_implications.putAll(recommendation.getImplications());
+      m_implications.addAll(recommendation.getImplications());
     }
-    m_drugRecommendation = recommendation.getDrugRecommendation();
-    m_classification = recommendation.getClassification();
-    m_comments = recommendation.getComments();
-    if (recommendation.getPhenotypes() != null) {
-      m_phenotypes.putAll(recommendation.getPhenotypes());
-    }
+    m_drugRecommendation = recommendation.getText().getHtmlStripped();
+    m_classification = recommendation.getClassification() != null ? recommendation.getClassification().getTerm() : null;
 
-    if (recommendation.getActivityScore() != null) {
-      m_activityScore.putAll(recommendation.getActivityScore());
-    }
     m_population = recommendation.getPopulation();
 
     m_localId = localId;
-  }
 
-  /**
-   * Create a new {@link AnnotationReport} from a DPWG/PharmGKB {@link Group}.
-   *
-   * @param group a group of DPWG annotations
-   * @param gene the single gene this annotation applies to, fix for mapping certain annotations
-   */
-  public AnnotationReport(Group group, String gene, String localId) {
-    if (group.getImplications() != null) {
-      m_implications.put(gene, group.getImplications().getHtmlStripped());
-    }
-    if (group.getRecommendation() != null) {
-      m_drugRecommendation = group.getRecommendation().getHtmlStripped();
-    }
-    if (group.getStrength() != null) {
-      m_classification = group.getStrength().getTerm();
-    }
-    if (group.getActivityScore() != null) {
-      m_activityScore.put(gene, group.getActivityScore().getHtmlStripped());
-    }
-    if (group.getMetabolizerStatus() != null) {
-      m_phenotypes.put(gene, group.getMetabolizerStatus().getHtmlStripped());
-    }
-    m_population = TextConstants.NA;
-    m_comments = TextConstants.NA;
-
-    m_localId = localId;
+    m_dosingInformation = recommendation.isDosingInformation();
+    m_alternateDrugAvailable = recommendation.isAlternateDrugAvailable();
+    m_otherPrescribingGuidance = recommendation.isOtherPrescribingGuidance();
   }
 
   private AnnotationReport(String localId) {
@@ -152,20 +124,12 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     return m_population;
   }
 
-  public Map<String, String> getImplications() {
+  public List<String> getImplications() {
     return m_implications;
-  }
-
-  public Map<String, String> getPhenotypes() {
-    return m_phenotypes;
   }
 
   public Map<String, String> getActivityScores() {
     return m_activityScore;
-  }
-
-  public String getComments() {
-    return m_comments;
   }
 
 
@@ -186,6 +150,22 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     m_highlightedVariants.add(var);
   }
 
+  public boolean isDosingInformation() {
+    return m_dosingInformation;
+  }
+
+  public boolean isOtherPrescribingGuidance() {
+    return m_otherPrescribingGuidance;
+  }
+
+  public boolean isAlternateDrugAvailable() {
+    return m_alternateDrugAvailable;
+  }
+
+  public boolean hasTags() {
+    return m_dosingInformation || m_alternateDrugAvailable || m_otherPrescribingGuidance;
+  }
+
 
   /**
    * Checks diplotypes for overriding phenotype from outside call.
@@ -201,9 +181,6 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         }
       }
     }
-    for (String gene : mismatches.keySet()) {
-      m_phenotypes.put(gene, String.join("/", mismatches.values()));
-    }
   }
 
 
@@ -217,11 +194,9 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         .compare(m_population, o.getPopulation())
         .compare(m_highlightedVariants, o.getHighlightedVariants())
         .compare(m_activityScore, o.getActivityScores())
-        .compare(m_phenotypes, o.getPhenotypes())
         .compare(m_classification, o.getClassification())
         .compare(m_drugRecommendation, o.getDrugRecommendation())
         .compare(m_implications, o.getImplications())
-        .compare(m_comments, o.getComments())
         .compare(m_messages, o.getMessages())
         .compare(m_localId, o.getLocalId())
         .result();

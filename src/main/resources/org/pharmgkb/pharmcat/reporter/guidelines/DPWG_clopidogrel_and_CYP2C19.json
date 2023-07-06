@@ -1,0 +1,167 @@
+{
+  "guideline": {
+    "id": "PA166104956",
+    "name": "Annotation of DPWG Guideline for clopidogrel and CYP2C19",
+    "source": "DPWG",
+    "version": 32,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104956",
+    "relatedChemicals": [
+      {
+        "id": "PA449053",
+        "name": "clopidogrel",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299208",
+      "name": "Recommendation PA166299208",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449053",
+          "name": "clopidogrel",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061571,
+        "html": "<p>PERCUTANEOUS CORONARY INTERVENTION, STROKE or TIA: choose an alternative or double the dose to 150 mg/day (600 mg loading dose). Prasugrel, ticagrelor and acetylsalicylic acid/dipyridamole are not metabolised by CYP2C19 (or to a lesser extent).\nOTHER INDICATIONS: no action required</p>\n"
+      },
+      "implications": [
+        "The risk of serious cardiovascular and cerebrovascular events is increased in patients undergoing balloon angioplasty or stent placement (percutaneous coronary intervention) and in patients with a stroke or TIA, as the genetic variation reduces the activation of clopidogrel. No negative clinical consequences have been observed in other patients."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299211",
+      "name": "Recommendation PA166299211",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449053",
+          "name": "clopidogrel",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061574,
+        "html": "<p>PERCUTANEOUS CORONARY INTERVENTION, STROKE or TIA: avoid clopidogrel. Prasugrel, ticagrelor and acetylsalicylic acid/dipyridamole are not metabolised by CYP2C19 (or to a lesser extent).\nOTHER INDICATIONS: determine the level of inhibition of platelet aggregation by clopidogrel. Consider an alternative in poor responders. Prasugrel and ticagrelor are not metabolised by CYP2C19 (or to a lesser extent).</p>\n"
+      },
+      "implications": [
+        "The risk of serious cardiovascular and cerebrovascular events is increased in patients undergoing balloon angioplasty or stent placement (percutaneous coronary intervention) and in patients with a stroke or TIA, because the genetic variation reduces the activation of clopidogrel. No negative clinical consequences have been proved in other patients."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299210",
+      "name": "Recommendation PA166299210",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449053",
+          "name": "clopidogrel",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061573,
+        "html": "<p>The guideline does not provide a recommendation for clopidogrel in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on clopidogrel."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299209",
+      "name": "Recommendation PA166299209",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449053",
+          "name": "clopidogrel",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061572,
+        "html": "<p>NO action is required for this gene-drug interaction</p>\n"
+      },
+      "implications": [
+        "The genetic variation results in increased conversion of clopidogrel to the active metabolite. However, this can result in both positive effects (reduction in the risk of serious cardiovascular and cerebrovascular events) and negative effects (increase in the risk of bleeding)."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

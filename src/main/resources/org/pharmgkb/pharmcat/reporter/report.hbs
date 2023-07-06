@@ -219,7 +219,6 @@
               <th>Genes</th>
               <th>Implications</th>
               <th>Recommendation</th>
-              <th>Comments</th>
               <th>Classification</th>
             </tr>
             </thead>
@@ -239,6 +238,7 @@
                           {{/unless}}
                         </p>
                         <p>Population:<br />{{capitalizeNA population}}</p>
+                        {{{annotationTags this}}}
                       </td>
                       <td>
                         <div class="hint">{{pluralize "Genotype" genotypes}}</div>
@@ -276,7 +276,6 @@
                     {{else}}
                         <td>{{{rxImplications implications}}}</td>
                         <td class="drugRecommendation">{{{drugRecommendation}}}</td>
-                        <td>{{capitalizeNA comments}}</td>
                         <td>{{capitalizeNA classification}}</td>
                     {{/if}}
                   {{/each}}
@@ -293,24 +292,22 @@
                       {{/unless}}
                     </p>
                   </td>
-                  <td colspan="5" class="top-aligned">
-                    {{#if notCalled}}
+                  {{#if notCalled}}
+                    <td colspan="5" class="top-aligned">
                       <span class="rx-no-call">No call data for {{uncalledGenes}}</span>.
-                    {{else}}
-                      <div style="display: flex;">
-                        <div style="margin-right: 1em; {{#if (rxUnmatchedDiplotypesInferred this) }}padding-top: .15em;{{/if}}">
-                          <div class="hint">&nbsp;</div>
-                          No annotation for:
-                        </div>
-                        <div>
-                          <div class="hint">{{pluralize "Genotype" unmatchedDiplotypes}}</div>
-                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes guidelines noDataGenes}}}
-                          {{#if unmatchedInferred}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
-                          {{#if unmatchedDpydInferred}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
-                        </div>
-                      </div>
-                    {{/if}}
-                  </td>
+                    </td>
+                  {{else}}
+                    <td class="top-aligned">
+                      <div class="hint">{{pluralize "Genotype" unmatchedDiplotypes}}</div>
+                      {{{rxUnmatchedDiplotypes unmatchedDiplotypes guidelines noDataGenes}}}
+                      {{#if unmatchedInferred}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
+                      {{#if unmatchedDpydInferred}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      {{source.displayName}} provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
+                  {{/if}}
                 </tr>
               {{/if}}
             {{/each}}

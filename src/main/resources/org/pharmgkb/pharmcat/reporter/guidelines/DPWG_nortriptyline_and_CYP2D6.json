@@ -1,0 +1,573 @@
+{
+  "guideline": {
+    "id": "PA166104961",
+    "name": "Annotation of DPWG Guideline for nortriptyline and CYP2D6",
+    "source": "DPWG",
+    "version": 34,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104961",
+    "relatedChemicals": [
+      {
+        "id": "PA450657",
+        "name": "nortriptyline",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302555",
+      "name": "Recommendation Annotation PA166302555",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104134,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302546",
+      "name": "Recommendation Annotation PA166302546",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104125,
+        "html": "<p>The guideline does not provide a recommendation for nortriptyline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302550",
+      "name": "Recommendation Annotation PA166302550",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104129,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302541",
+      "name": "Recommendation Annotation PA166302541",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104120,
+        "html": "<p>Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302554",
+      "name": "Recommendation Annotation PA166302554",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104133,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302545",
+      "name": "Recommendation Annotation PA166302545",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104124,
+        "html": "<p>The guideline does not provide a recommendation for nortriptyline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302549",
+      "name": "Recommendation Annotation PA166302549",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104128,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302540",
+      "name": "Recommendation Annotation PA166302540",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104119,
+        "html": "<p>Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302553",
+      "name": "Recommendation Annotation PA166302553",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104132,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302544",
+      "name": "Recommendation Annotation PA166302544",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104123,
+        "html": "<p>The guideline does not provide a recommendation for nortriptyline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302548",
+      "name": "Recommendation Annotation PA166302548",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104127,
+        "html": "<p>The guideline does not provide a recommendation for nortriptyline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302539",
+      "name": "Recommendation Annotation PA166302539",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104118,
+        "html": "<p>Use 40% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302552",
+      "name": "Recommendation Annotation PA166302552",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104131,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302543",
+      "name": "Recommendation Annotation PA166302543",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104122,
+        "html": "<p>Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302556",
+      "name": "Recommendation Annotation PA166302556",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104135,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302547",
+      "name": "Recommendation Annotation PA166302547",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104126,
+        "html": "<p>The guideline does not provide a recommendation for nortriptyline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302551",
+      "name": "Recommendation Annotation PA166302551",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104130,
+        "html": "<p>Use 1.7 times the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline and be alert to an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline. Plasma concentrations of Z-hydroxynortriptyline exceeding 40 ng/mL are considered toxic.</p>\n<p>If a dose increase is not wanted due to the cardiotoxic hydroxy metabolite: avoid nortriptyline. Antidepressants that are not metabolised via CYP2D6 - or to a lesser extent - include, for example, citalopram and sertraline.</p>\n"
+      },
+      "implications": [
+        "The risk of ineffectiveness and cardiotoxic effects may be increased. The gene variation leads to a decrease in the plasma concentration of nortriptyline and an increase in the plasma concentration of the cardiotoxic metabolite Z-10-hydroxynortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302542",
+      "name": "Recommendation Annotation PA166302542",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450657",
+          "name": "nortriptyline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104121,
+        "html": "<p>Use 60% of the standard dose and monitor the effect and side effects or the plasma concentration of nortriptyline in order to set the maintenance dose. The therapeutic range of nortriptyline is 50-150 ng/mL. Values exceeding 250 ng/mL are considered toxic.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects may be increased, because the gene variation leads to an increased plasma concentration of nortriptyline."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

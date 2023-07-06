@@ -4,7 +4,7 @@
       "ABCG2": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -45,7 +45,8 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -81,7 +82,8 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -107,7 +109,7 @@
       "CACNA1S": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -156,7 +158,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -192,7 +195,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -232,7 +236,7 @@
       "CFTR": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -273,7 +277,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -309,7 +314,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -867,7 +873,7 @@
       "CYP2B6": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -916,7 +922,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -952,7 +959,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -1662,7 +1670,7 @@
       "CYP2C19": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -1711,7 +1719,8 @@
             ],
             "label": "*38/*38",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -1747,7 +1756,8 @@
             ],
             "label": "*38/*38",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -2303,7 +2313,7 @@
       "CYP2C9": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -2352,7 +2362,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -2388,7 +2399,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -3542,7 +3554,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3599,7 +3611,8 @@
             ],
             "label": "*1/*3",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -3635,7 +3648,8 @@
             ],
             "label": "*1/*3",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [],
@@ -3646,7 +3660,7 @@
       "CYP3A5": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -3695,7 +3709,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -3731,7 +3746,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -3858,7 +3874,8 @@
             "lookupKey": [],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -3890,7 +3907,8 @@
             "lookupKey": [],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -4086,7 +4104,7 @@
       "DPYD": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -4135,7 +4153,8 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [
@@ -4163,7 +4182,8 @@
             ],
             "label": "Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherHomozygousComponentHaplotypes": [],
@@ -4198,7 +4218,8 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -5372,7 +5393,7 @@
       "G6PD": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -5421,7 +5442,8 @@
             ],
             "label": "B (reference)/B (reference)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -5457,7 +5479,8 @@
             ],
             "label": "B (reference)/B (reference)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -7930,10 +7953,13 @@
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
-            "lookupKey": [],
+            "lookupKey": [
+              "No Result"
+            ],
             "label": "Unknown/Unknown",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -7962,10 +7988,13 @@
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
-            "lookupKey": [],
+            "lookupKey": [
+              "No Result"
+            ],
             "label": "Unknown/Unknown",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [],
@@ -8037,7 +8066,8 @@
             ],
             "label": "*15:02/*57:01",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -8077,7 +8107,8 @@
             ],
             "label": "*15:02/*57:01",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [],
@@ -8088,7 +8119,7 @@
       "IFNL3": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": null,
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8103,29 +8134,34 @@
             "allele1": {
               "gene": "IFNL3",
               "name": "rs12979860 reference (C)",
-              "function": null,
+              "function": "Favorable response allele",
               "reference": true,
-              "activityValue": null
+              "activityValue": "n/a"
             },
             "allele2": {
               "gene": "IFNL3",
               "name": "rs12979860 reference (C)",
-              "function": null,
+              "function": "Favorable response allele",
               "reference": true,
-              "activityValue": null
+              "activityValue": "n/a"
             },
             "gene": "IFNL3",
-            "phenotypes": [],
+            "phenotypes": [
+              "n/a"
+            ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
-            "lookupKey": [],
+            "lookupKey": [
+              "n/a"
+            ],
             "label": "rs12979860 reference (C)/rs12979860 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -8135,29 +8171,34 @@
             "allele1": {
               "gene": "IFNL3",
               "name": "rs12979860 reference (C)",
-              "function": null,
+              "function": "Favorable response allele",
               "reference": true,
-              "activityValue": null
+              "activityValue": "n/a"
             },
             "allele2": {
               "gene": "IFNL3",
               "name": "rs12979860 reference (C)",
-              "function": null,
+              "function": "Favorable response allele",
               "reference": true,
-              "activityValue": null
+              "activityValue": "n/a"
             },
             "gene": "IFNL3",
-            "phenotypes": [],
+            "phenotypes": [
+              "n/a"
+            ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
-            "lookupKey": [],
+            "lookupKey": [
+              "n/a"
+            ],
             "label": "rs12979860 reference (C)/rs12979860 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -8183,7 +8224,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8214,7 +8255,7 @@
             "allele1": {
               "gene": "MT-RNR1",
               "name": "1555A>G",
-              "function": "increased risk of aminoglycoside-induced hearing loss",
+              "function": "Increased risk of aminoglycoside-induced hearing loss",
               "reference": false,
               "activityValue": "n/a"
             },
@@ -8234,7 +8275,8 @@
             ],
             "label": "1555A>G",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -8244,7 +8286,7 @@
             "allele1": {
               "gene": "MT-RNR1",
               "name": "1555A>G",
-              "function": "increased risk of aminoglycoside-induced hearing loss",
+              "function": "Increased risk of aminoglycoside-induced hearing loss",
               "reference": false,
               "activityValue": "n/a"
             },
@@ -8264,7 +8306,8 @@
             ],
             "label": "1555A>G",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [],
@@ -8275,7 +8318,7 @@
       "NUDT15": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -8324,7 +8367,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -8360,7 +8404,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -8613,7 +8658,7 @@
       "RYR1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -8662,7 +8707,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -8698,7 +8744,8 @@
             ],
             "label": "No CPIC variants found",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -9330,7 +9377,7 @@
       "SLCO1B1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -9379,7 +9426,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -9415,7 +9463,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -9905,7 +9954,7 @@
       "TPMT": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -9954,7 +10003,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -9990,7 +10040,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -10608,7 +10659,7 @@
       "UGT1A1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.30.0",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -10657,7 +10708,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -10693,7 +10745,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -10804,7 +10857,8 @@
             "lookupKey": [],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -10836,7 +10890,8 @@
             "lookupKey": [],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
           }
         ],
         "variants": [
@@ -10864,7 +10919,7 @@
       "ABCG2": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -10892,7 +10947,7 @@
             },
             "gene": "ABCG2",
             "phenotypes": [
-              "n/a"
+              "Normal Function"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -10901,11 +10956,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Function"
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -10928,7 +10984,7 @@
             },
             "gene": "ABCG2",
             "phenotypes": [
-              "n/a"
+              "Normal Function"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -10937,11 +10993,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Function"
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -10967,7 +11024,7 @@
       "CYP2B6": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -11016,7 +11073,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -11052,7 +11110,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -11762,7 +11821,7 @@
       "CYP2C19": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -11811,7 +11870,8 @@
             ],
             "label": "*38/*38",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -11847,7 +11907,8 @@
             ],
             "label": "*38/*38",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -12403,7 +12464,7 @@
       "CYP2C9": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -12426,14 +12487,14 @@
             "allele1": {
               "gene": "CYP2C9",
               "name": "*1",
-              "function": "Normal function (CYP2C9*1)",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "CYP2C9",
               "name": "*1",
-              "function": "Normal function (CYP2C9*1)",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -12452,7 +12513,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -12462,14 +12524,14 @@
             "allele1": {
               "gene": "CYP2C9",
               "name": "*1",
-              "function": "Normal function (CYP2C9*1)",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "CYP2C9",
               "name": "*1",
-              "function": "Normal function (CYP2C9*1)",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
@@ -12488,7 +12550,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -13642,7 +13705,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -13675,14 +13738,14 @@
               "name": "*1",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "allele2": {
               "gene": "CYP2D6",
               "name": "*3",
               "function": "No function",
               "reference": false,
-              "activityValue": "n/a"
+              "activityValue": "0.0"
             },
             "gene": "CYP2D6",
             "phenotypes": [
@@ -13690,16 +13753,17 @@
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
-            "activityScore": null,
+            "activityScore": "1.0",
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "Intermediate Metabolizer"
+              "1.0"
             ],
             "label": "*1/*3",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -13711,14 +13775,14 @@
               "name": "*1",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "allele2": {
               "gene": "CYP2D6",
               "name": "*3",
               "function": "No function",
               "reference": false,
-              "activityValue": "n/a"
+              "activityValue": "0.0"
             },
             "gene": "CYP2D6",
             "phenotypes": [
@@ -13726,16 +13790,17 @@
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
-            "activityScore": null,
+            "activityScore": "1.0",
             "outsideActivityScore": false,
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "Intermediate Metabolizer"
+              "1.0"
             ],
             "label": "*1/*3",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [],
@@ -13744,9 +13809,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2023-06-05-00-25",
+        "alleleDefinitionVersion": "2023-08-17-20-07",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -13795,7 +13860,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -13831,7 +13897,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -14295,7 +14362,7 @@
       "CYP3A5": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -14331,7 +14398,7 @@
             },
             "gene": "CYP3A5",
             "phenotypes": [
-              "n/a"
+              "Normal Metabolizer"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -14340,11 +14407,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Metabolizer"
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -14367,7 +14435,7 @@
             },
             "gene": "CYP3A5",
             "phenotypes": [
-              "n/a"
+              "Normal Metabolizer"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -14376,11 +14444,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Metabolizer"
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -14462,7 +14531,7 @@
       "DPYD": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -14487,18 +14556,18 @@
               "name": "Reference",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "allele2": {
               "gene": "DPYD",
               "name": "Reference",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "gene": "DPYD",
             "phenotypes": [
-              "n/a"
+              "2.0 (Normal Metabolizer)"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -14507,11 +14576,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "2.0 (Normal Metabolizer)"
             ],
             "label": "Reference/Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [
@@ -14521,7 +14591,7 @@
               "name": "Reference",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "allele2": null,
             "gene": "DPYD",
@@ -14539,7 +14609,8 @@
             ],
             "label": "Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherHomozygousComponentHaplotypes": [],
@@ -14550,18 +14621,18 @@
               "name": "Reference",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "allele2": {
               "gene": "DPYD",
               "name": "Reference",
               "function": "Normal function",
               "reference": true,
-              "activityValue": "n/a"
+              "activityValue": "1.0"
             },
             "gene": "DPYD",
             "phenotypes": [
-              "n/a"
+              "2.0 (Normal Metabolizer)"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -14570,11 +14641,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "2.0 (Normal Metabolizer)"
             ],
             "label": "Reference/Reference",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -15746,9 +15818,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "F5": {
-        "alleleDefinitionVersion": "2023-06-05-00-25",
+        "alleleDefinitionVersion": "2023-08-17-20-07",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "F5",
         "chr": "chr1",
@@ -15789,7 +15861,8 @@
             ],
             "label": "rs6025 C/rs6025 C",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -15825,7 +15898,8 @@
             ],
             "label": "rs6025 C/rs6025 C",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -15844,6 +15918,92 @@
             "warnings": []
           }
         ],
+        "variantsOfInterest": [],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      },
+      "HLA-A": {
+        "alleleDefinitionVersion": null,
+        "alleleDefinitionSource": "UNKNOWN",
+        "phenotypeVersion": null,
+        "phenotypeSource": "DPWG",
+        "geneSymbol": "HLA-A",
+        "chr": null,
+        "phased": false,
+        "effectivelyPhased": false,
+        "callSource": "NONE",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "No Result"
+            ],
+            "label": "Unknown/Unknown",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "No Result"
+            ],
+            "label": "Unknown/Unknown",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "variants": [],
         "variantsOfInterest": [],
         "hasUndocumentedVariations": false,
         "treatUndocumentedVariationsAsReference": false
@@ -15912,7 +16072,8 @@
             ],
             "label": "*15:02/*57:01",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -15952,7 +16113,8 @@
             ],
             "label": "*15:02/*57:01",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [],
@@ -16010,7 +16172,8 @@
             "lookupKey": [],
             "label": "1555A>G",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -16036,7 +16199,8 @@
             "lookupKey": [],
             "label": "1555A>G",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [],
@@ -16047,7 +16211,7 @@
       "NUDT15": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -16096,7 +16260,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -16132,7 +16297,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -16385,7 +16551,7 @@
       "SLCO1B1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -16408,20 +16574,20 @@
             "allele1": {
               "gene": "SLCO1B1",
               "name": "*1",
-              "function": "Unassigned function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "SLCO1B1",
               "name": "*1",
-              "function": "Unassigned function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "gene": "SLCO1B1",
             "phenotypes": [
-              "n/a"
+              "Normal Function"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -16430,11 +16596,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Function"
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -16444,20 +16611,20 @@
             "allele1": {
               "gene": "SLCO1B1",
               "name": "*1",
-              "function": "Unassigned function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "allele2": {
               "gene": "SLCO1B1",
               "name": "*1",
-              "function": "Unassigned function",
+              "function": "Normal function",
               "reference": true,
               "activityValue": "n/a"
             },
             "gene": "SLCO1B1",
             "phenotypes": [
-              "n/a"
+              "Normal Function"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -16466,11 +16633,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "Normal Function"
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -16960,7 +17128,7 @@
       "TPMT": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -17009,7 +17177,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -17045,7 +17214,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -17663,7 +17833,7 @@
       "UGT1A1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -17712,7 +17882,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -17748,7 +17919,8 @@
             ],
             "label": "*1/*1",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [
@@ -17822,7 +17994,7 @@
       "VKORC1": {
         "alleleDefinitionVersion": "v1.30.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-06-05-00-25",
+        "phenotypeVersion": "2023-08-17-20-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
@@ -17850,7 +18022,7 @@
             },
             "gene": "VKORC1",
             "phenotypes": [
-              "n/a"
+              "-1639 GG"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -17859,11 +18031,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "-1639 GG"
             ],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "matcherComponentHaplotypes": [],
@@ -17886,7 +18059,7 @@
             },
             "gene": "VKORC1",
             "phenotypes": [
-              "n/a"
+              "-1639 GG"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -17895,11 +18068,12 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "n/a"
+              "-1639 GG"
             ],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
-            "combination": false
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
           }
         ],
         "variants": [

@@ -1,0 +1,690 @@
+{
+  "guideline": {
+    "id": "PA166161955",
+    "name": "Annotation of CPIC Guideline for tropisetron and CYP2D6",
+    "source": "CPIC",
+    "version": 33,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166161955",
+    "relatedChemicals": [
+      {
+        "id": "PA161925594",
+        "name": "tropisetron",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298325",
+      "name": "Recommendation PA166298325",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060927,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298321",
+      "name": "Recommendation PA166298321",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060923,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298334",
+      "name": "Recommendation PA166298334",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060936,
+        "html": "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Very limited data available for CYP2D6 intermediate metabolizers"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298316",
+      "name": "Recommendation PA166298316",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060918,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298329",
+      "name": "Recommendation PA166298329",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060931,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298335",
+      "name": "Recommendation PA166298335",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060937,
+        "html": "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Very limited data available for CYP2D6 poor metabolizers"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298326",
+      "name": "Recommendation PA166298326",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060928,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298331",
+      "name": "Recommendation PA166298331",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060933,
+        "html": "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Very limited data available for CYP2D6 intermediate metabolizers"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298322",
+      "name": "Recommendation PA166298322",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060924,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298330",
+      "name": "Recommendation PA166298330",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060932,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298317",
+      "name": "Recommendation PA166298317",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060919,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298323",
+      "name": "Recommendation PA166298323",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060925,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298336",
+      "name": "Recommendation PA166298336",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060938,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2D6: n/a"
+      ],
+      "lookupKey": {
+        "CYP2D6": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298327",
+      "name": "Recommendation PA166298327",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060929,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298332",
+      "name": "Recommendation PA166298332",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060934,
+        "html": "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Very limited data available for CYP2D6 intermediate metabolizers"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298318",
+      "name": "Recommendation PA166298318",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060920,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298320",
+      "name": "Recommendation PA166298320",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060922,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298324",
+      "name": "Recommendation PA166298324",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060926,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298333",
+      "name": "Recommendation PA166298333",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060935,
+        "html": "<p>Insufficient evidence demonstrating clinical impact based on CYP2D6 genotype. Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Very limited data available for CYP2D6 intermediate metabolizers"
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301330",
+      "name": "Recommendation Annotation PA166301330",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452095649,
+        "html": "<p>xN is not a valid input for CYP2D6 copy number alleles. Please select a copy number representation as outlined below.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>xN Allele</th>\n<th>Possible selection</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>*1xN</td>\n<td>*1x2 or *1x≥3</td>\n</tr>\n<tr>\n<td>*2xN</td>\n<td>*2x2 or *2x≥3</td>\n</tr>\n<tr>\n<td>*3xN</td>\n<td>*3x2</td>\n</tr>\n<tr>\n<td>*4xN</td>\n<td>*4x2 or *4x≥3</td>\n</tr>\n<tr>\n<td>*6xN</td>\n<td>*6x2</td>\n</tr>\n<tr>\n<td>*35xN</td>\n<td>*35x2</td>\n</tr>\n<tr>\n<td>*36xN</td>\n<td>*36x2</td>\n</tr>\n<tr>\n<td>*43xN</td>\n<td>*43x2</td>\n</tr>\n<tr>\n<td>*45xN</td>\n<td>*45x2</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>For normal function alleles (*1 and *2) selecting <strong>*1x2 versus *1x≥3</strong> or <strong>*2x2 versus *2x≥3</strong> will affect the resulting CYP2D6 phenotype.</li>\n<li>CPIC CYP2D6 ultrarapid metabolizer phenotype is assigned an activity score (AS) of &gt;2.25.</li>\n<li>DPWG CYP2D6 ultrarapid metabolizer phenotype is assigned an AS of &gt;2.5.</li>\n</ul>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Guideline</th>\n<th>CNV Allele</th>\n<th>Function</th>\n<th>Activity<br/>value</th>\n<th>Other Allele<br/>Function</th>\n<th>Activity<br/>value</th>\n<th>CYP2D6 AS</th>\n<th>Phenotype</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>No function</td>\n<td>0</td>\n<td>2</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.25</td>\n<td>2.25</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Normal function</td>\n<td>1.0</td>\n<td>3.0</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x≥3</td>\n<td>Increased</td>\n<td>≥3</td>\n<td></td>\n<td></td>\n<td>≥3</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n</tbody>\n</table>\n"
+      },
+      "implications": [],
+      "lookupKey": {
+        "CYP2D6": "xN combinations"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298315",
+      "name": "Recommendation PA166298315",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060917,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298328",
+      "name": "Recommendation PA166298328",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060930,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298319",
+      "name": "Recommendation PA166298319",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA161925594",
+          "name": "tropisetron",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060921,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6 (i.e., granisetron).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, and liver function) should be considered when selecting alternative therapy. Dolasetron, palonosetron, and ramosetron are also metabolized by CYP2D6. Limited evidence is available regarding the utilization of CYP2D6 genetic variation to guide use of these drugs.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism to less active compounds when compared to normal metabolizers and is associated with decreased response to ondansetron and tropisetron (i.e. vomiting)."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

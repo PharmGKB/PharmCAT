@@ -1,0 +1,86 @@
+{
+  "guideline": {
+    "id": "PA166104997",
+    "name": "Annotation of CPIC Guideline for abacavir and HLA-B",
+    "source": "CPIC",
+    "version": 48,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104997",
+    "relatedChemicals": [
+      {
+        "id": "PA448004",
+        "name": "abacavir",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA35056",
+        "name": "major histocompatibility complex, class I, B",
+        "symbol": "HLA-B"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166296758",
+      "name": "Recommendation PA166296758",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448004",
+          "name": "abacavir",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059560,
+        "html": "<p>Use abacavir per standard dosing guidelines</p>\n"
+      },
+      "implications": [
+        "HLA-B: Low or reduced risk of abacavir hypersensitivity"
+      ],
+      "lookupKey": {
+        "HLA-B": "*57:01 negative"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166296759",
+      "name": "Recommendation PA166296759",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448004",
+          "name": "abacavir",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059561,
+        "html": "<p>Abacavir is not recommended</p>\n"
+      },
+      "implications": [
+        "HLA-B: Significantly increased risk of abacavir hypersensitivity"
+      ],
+      "lookupKey": {
+        "HLA-B": "*57:01 positive"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

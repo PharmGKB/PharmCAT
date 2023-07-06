@@ -9,7 +9,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
-import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
@@ -26,8 +25,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 public class Env {
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
-  private final DrugCollection m_cpicDrugs;
-  private final PgkbGuidelineCollection m_dpwgDrugs;
+  private final PgkbGuidelineCollection m_drugs;
   private MessageHelper m_messageHelper;
   private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
 
@@ -47,8 +45,7 @@ public class Env {
     }
 
     m_phenotypeMap = new PhenotypeMap();
-    m_cpicDrugs = new DrugCollection();
-    m_dpwgDrugs = new PgkbGuidelineCollection();
+    m_drugs = new PgkbGuidelineCollection();
 
     // initialize dependent classes
     Cyp2d6CopyNumberCaller.initialize(this);
@@ -73,36 +70,24 @@ public class Env {
   }
 
 
-  public DrugCollection getCpicDrugs() {
-    return m_cpicDrugs;
-  }
-
-  public PgkbGuidelineCollection getDpwgDrugs() {
-    return m_dpwgDrugs;
+  public PgkbGuidelineCollection getDrugs() {
+    return m_drugs;
   }
 
 
-  public SortedSet<String> getCpicGenes() {
-    return m_cpicDrugs.getAllReportableGenes();
-  }
-
-  public SortedSet<String> getDpwgGenes() {
-    return m_dpwgDrugs.getGenes();
+  public SortedSet<String> getGenes() {
+    return m_drugs.getGenes();
   }
 
   public boolean hasGene(DataSource source, String gene) {
-    if (source == DataSource.CPIC) {
-      return getCpicGenes().contains(gene);
-    } else {
-      return getDpwgGenes().contains(gene);
-    }
+    return m_drugs.getGenesUsedInSource(source).contains(gene);
   }
 
   /**
    * Checks if gene is used in any drug recommendation from any source.
    */
   public boolean hasGene(String gene) {
-    return getCpicGenes().contains(gene) || getDpwgGenes().contains(gene);
+    return getGenes().contains(gene);
   }
 
   /**

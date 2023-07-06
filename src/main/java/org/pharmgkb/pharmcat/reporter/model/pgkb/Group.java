@@ -12,6 +12,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 /**
  * PharmGKB Guideline Annotation Group Model
  */
+@Deprecated
 public class Group implements Comparable<Group> {
 
   @Expose

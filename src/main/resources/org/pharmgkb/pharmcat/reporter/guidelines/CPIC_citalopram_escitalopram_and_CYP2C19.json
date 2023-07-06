@@ -1,0 +1,524 @@
+{
+  "guideline": {
+    "id": "PA166127638",
+    "name": "Annotation of CPIC Guideline for citalopram, escitalopram and CYP2C19",
+    "source": "CPIC",
+    "version": 48,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127638",
+    "relatedChemicals": [
+      {
+        "id": "PA449015",
+        "name": "citalopram",
+        "symbol": null
+      },
+      {
+        "id": "PA10074",
+        "name": "escitalopram",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297337",
+      "name": "Recommendation PA166297337",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093801,
+        "html": "<p>Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297350",
+      "name": "Recommendation PA166297350",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093816,
+        "html": "<p>Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297342",
+      "name": "Recommendation PA166297342",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093806,
+        "html": "<p>Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297351",
+      "name": "Recommendation PA166297351",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093809,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C19: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297346",
+      "name": "Recommendation PA166297346",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093812,
+        "html": "<p>Initiate therapy with recommended starting dose</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297338",
+      "name": "Recommendation PA166297338",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093802,
+        "html": "<p>Initiate therapy with recommended starting dose</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297347",
+      "name": "Recommendation PA166297347",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093813,
+        "html": "<p>Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297343",
+      "name": "Recommendation PA166297343",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093807,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C19: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297339",
+      "name": "Recommendation PA166297339",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093803,
+        "html": "<p>Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297348",
+      "name": "Recommendation PA166297348",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093814,
+        "html": "<p>Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297340",
+      "name": "Recommendation PA166297340",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093804,
+        "html": "<p>Initiate therapy with recommended starting dose. Consider a slower titration schedule and lower maintenance dose than normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism when compared to CYP2C19 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297344",
+      "name": "Recommendation PA166297344",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093810,
+        "html": "<p>Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297336",
+      "name": "Recommendation PA166297336",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093800,
+        "html": "<p>Consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, and adequate efficacy is not achieved at standard maintenance dosing, consider titrating to a higher maintenance dose.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increased metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 rapid and normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297349",
+      "name": "Recommendation PA166297349",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093815,
+        "html": "<p>Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297341",
+      "name": "Recommendation PA166297341",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449015",
+          "name": "citalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093805,
+        "html": "<p>Consider a clinically appropriate antidepressant not predominantly metabolized by CYP2C19. If citalopram or escitalopram are clinically appropriate, consider a lower starting dose, slower titration schedule and 50% reduction of the standard maintenance dose as compared to normal metabolizers.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP2C19 poor metabolizers due to the risk of QT prolongation. FDA product labeling additionally cautions that citalopram dose should be limited to 20 mg/day in patients with hepatic impairment, those taking a CYP2C19 inhibitor, and patients greater than 60 years of age.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Reduced metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal and intermediate metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297345",
+      "name": "Recommendation PA166297345",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10074",
+          "name": "escitalopram",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093811,
+        "html": "<p>Initiate therapy with recommended starting dose. If patient does not adequately respond to recommended maintenance dosing, consider titrating to a higher maintenance dose or switching to a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2C19.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increase in metabolism of citalopram and escitalopram to less active compounds when compared to CYP2C19 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "37032427",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
+      "authors": [
+        "Bousman Chad A",
+        "Stevenson James M",
+        "Ramsey Laura B",
+        "Sangkuhl Katrin",
+        "Hicks J Kevin",
+        "Strawn Jeffrey R",
+        "Singh Ajeet B",
+        "Ruaño Gualberto",
+        "Mueller Daniel J",
+        "Tsermpini Evangelia Eirini",
+        "Brown Jacob T",
+        "Bell Gillian C",
+        "Leeder J Steven",
+        "Gaedigk Andrea",
+        "Scott Stuart A",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Bishop Jeffrey R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2023
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

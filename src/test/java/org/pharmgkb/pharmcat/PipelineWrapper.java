@@ -323,10 +323,6 @@ class PipelineWrapper {
 
   void testMatchedAnnotations(String drugName, DataSource source, int expectedCount) {
     DrugReport drugReport = getContext().getDrugReport(source, drugName);
-    if (expectedCount == 0) {
-      assertNull(drugReport);
-      return;
-    }
     assertNotNull(drugReport);
     assertEquals(expectedCount, drugReport.getMatchedAnnotationCount(),
         drugName + " has " + drugReport.getMatchedAnnotationCount() + " matching " + source +

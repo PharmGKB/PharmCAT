@@ -1,0 +1,1118 @@
+{
+  "guideline": {
+    "id": "PA166104965",
+    "name": "Annotation of CPIC Guideline for thioguanine and NUDT15, TPMT",
+    "source": "CPIC",
+    "version": 45,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104965",
+    "relatedChemicals": [
+      {
+        "id": "PA451663",
+        "name": "thioguanine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134963132",
+        "name": "nudix hydrolase 15",
+        "symbol": "NUDT15"
+      },
+      {
+        "id": "PA356",
+        "name": "thiopurine S-methyltransferase",
+        "symbol": "TPMT"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298563",
+      "name": "Recommendation PA166298563",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061165,
+        "html": "<p>Based on TPMT status, start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 203542+J1301, 11037857). NUDT15 status could not be determined based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298550",
+      "name": "Recommendation PA166298550",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061152,
+        "html": "<p>Based on NUDT15, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "No Result",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298567",
+      "name": "Recommendation PA166298567",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061169,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298554",
+      "name": "Recommendation PA166298554",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061156,
+        "html": "<p>Reduce starting doses to 25% of normal dose and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298541",
+      "name": "Recommendation PA166298541",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061143,
+        "html": "<p>Based on NUDT15, start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11037857). However, TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298549",
+      "name": "Recommendation PA166298549",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061151,
+        "html": "<p>Based on NUDT15, reduce starting doses to 25% of normal dose and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201). TPMT genotype is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "No Result",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298558",
+      "name": "Recommendation PA166298558",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061160,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298545",
+      "name": "Recommendation PA166298545",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061147,
+        "html": "<p>TPMT phenotype could not be assigned based on genotyping performed and NUDT15 genotype is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298571",
+      "name": "Recommendation PA166298571",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061173,
+        "html": "<p>Start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298564",
+      "name": "Recommendation PA166298564",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061166,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298551",
+      "name": "Recommendation PA166298551",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061153,
+        "html": "<p>Based on TPMT status, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298573",
+      "name": "Recommendation PA166298573",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061175,
+        "html": "<p>Start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298568",
+      "name": "Recommendation PA166298568",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061170,
+        "html": "<p>Based on TPMT status, start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 203542+J1301, 11037857). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298555",
+      "name": "Recommendation PA166298555",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061157,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298542",
+      "name": "Recommendation PA166298542",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061144,
+        "html": "<p>Based on NUDT15, reduce starting doses to 25% of normal dose and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298559",
+      "name": "Recommendation PA166298559",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061161,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298546",
+      "name": "Recommendation PA166298546",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061148,
+        "html": "<p>NUDT15 phenotype could not be assigned based on genotyping performed and there is no TPMT genotype available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "No Result",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298572",
+      "name": "Recommendation PA166298572",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061174,
+        "html": "<p>Start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298552",
+      "name": "Recommendation PA166298552",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061154,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298574",
+      "name": "Recommendation PA166298574",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061176,
+        "html": "<p>Start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298561",
+      "name": "Recommendation PA166298561",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061163,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. For patients who are intermediate metabolizers for both TPMT and NUDT15, further dose reduction might be needed compared with those who are only intermediate metabolizers with respect to one gene (TPMT or NUDT15).</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298556",
+      "name": "Recommendation PA166298556",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061158,
+        "html": "<p>Based on TPMT status, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). NUDT15 genotype is not available. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298565",
+      "name": "Recommendation PA166298565",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061167,
+        "html": "<p>Start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298547",
+      "name": "Recommendation PA166298547",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061149,
+        "html": "<p>Based on NUDT15, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). TPMT genotype is not available. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "No Result",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298560",
+      "name": "Recommendation PA166298560",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061162,
+        "html": "<p>Reduce starting doses to 25% of normal dose and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298540",
+      "name": "Recommendation PA166298540",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061142,
+        "html": "<p>Based on NUDT15, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298575",
+      "name": "Recommendation PA166298575",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061177,
+        "html": "<p>Based on TPMT status, start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298562",
+      "name": "Recommendation PA166298562",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061164,
+        "html": "<p>Based on TPMT status, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). NUDT15 genotype is not available. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "No Result"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298544",
+      "name": "Recommendation PA166298544",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061146,
+        "html": "<p>Based on NUDT15, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). TPMT phenotype could not be assigned based on genotyping performed. Consider evaluating erythrocyte TPMT activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Possible Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298566",
+      "name": "Recommendation PA166298566",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061168,
+        "html": "<p>Reduce starting doses to 25% of normal dose and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. In setting of myelosuppression, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Lower concentrations of TGN metabolites, but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Normal Metabolizer",
+        "NUDT15": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298553",
+      "name": "Recommendation PA166298553",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061155,
+        "html": "<p>Start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Possible Intermediate Metabolizer",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298548",
+      "name": "Recommendation PA166298548",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061150,
+        "html": "<p>Based on NUDT15, start with normal starting dose (e.g., 40-60 mg/m2/day) and adjust doses of thioguanine and of other myelosuppressive therapy without any special emphasis on thioguanine. Allow 2 weeks to reach steady-state after each dose adjustment (PMID 20354201, 11037857). However, TPMT genotype is not available. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and TPMT status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers. Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "No Result",
+        "NUDT15": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298539",
+      "name": "Recommendation PA166298539",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061141,
+        "html": "<p>Neither TPMT or NUDT15 phenotype could be assigned based on genotyping performed. Consider evaluating TPMT erythrocyte activity to assess TPMT phenotype. If thiopurines are required and either TPMT or NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Erythrocyte TPMT activity test results can be falsely low at diagnosis of leukemia and is unreliable in the case of recent red blood cell transfusions.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: n/a"
+      ],
+      "lookupKey": {
+        "TPMT": "Indeterminate",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298557",
+      "name": "Recommendation PA166298557",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061159,
+        "html": "<p>Based on TPMT status, start with reduced doses (50% to 80% of normal dose) if normal starting dose is ≥ 40-60 mg/m2/day (e.g., 20-48 mg/m2/day) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 2-4 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, and depending on other therapy, emphasis should be on reducing thioguanine over other agents (PMID 20354201, 11037857). NUDT15 phenotype could not be assigned based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Moderate to high concentrations of TGN metabolites; but note that TGN after thioguanine are 5-10X higher than TGN after mercaptopurine or azathioprine. Increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression"
+      ],
+      "lookupKey": {
+        "TPMT": "Intermediate Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298570",
+      "name": "Recommendation PA166298570",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451663",
+          "name": "thioguanine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061172,
+        "html": "<p>Based on TPMT status, start with drastically reduced doses (PMID 11037857) (reduce daily dose by 10-fold and dose thrice weekly instead of daily) and adjust doses of thioguanine based on degree of myelosuppression and disease-specific guidelines. Allow 4-6 weeks to reach steady-state after each dose adjustment. If myelosuppression occurs, emphasis should be on reducing thioguanine over other agents. For non-malignant conditions, consider alternative non-thiopurine immunosuppressant therapy (PMID 20354201). NUDT15 status could not be determined based on genotyping. If thiopurines are required and NUDT15 status is unknown, monitor closely for toxicity.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Normal starting doses vary by race/ethnicity and treatment regimens. If standard dose is below normal recommended dose, dose reduction might not be recommended for intermediate metabolizers.</p>\n"
+      },
+      "implications": [
+        "NUDT15: n/a",
+        "TPMT: Extremely high concentrations of TGN metabolites; fatal toxicity possible without dose decrease. Greatly increased risk of thiopurine-related leukopenia, neutropenia, myelosuppression."
+      ],
+      "lookupKey": {
+        "TPMT": "Poor Metabolizer",
+        "NUDT15": "Indeterminate"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

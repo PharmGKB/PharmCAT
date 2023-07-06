@@ -43,9 +43,6 @@ public class DosingGuideline {
   @Expose
   @SerializedName("recommendation")
   private boolean m_recommendation;
-  @Expose
-  @SerializedName("guidelineGenes")
-  private List<GuidelineGene> m_guidelineGenes;
 
 
   public String getId() {
@@ -78,43 +75,5 @@ public class DosingGuideline {
 
   public boolean isRecommendation() {
     return m_recommendation;
-  }
-
-  public List<GuidelineGene> getGuidelineGenes() {
-    return m_guidelineGenes;
-  }
-
-  public Optional<GuidelineGene> findGuidelineGeneFor(String geneSymbol) {
-    return m_guidelineGenes.stream().filter(g -> g.getGene().getSymbol().equals(geneSymbol)).findFirst();
-  }
-
-
-  public Set<String> getFunctionKeysForDiplotype(Diplotype diplotype) {
-    Set<String> functionKeys = new TreeSet<>();
-    findGuidelineGeneFor(diplotype.getGene()).ifPresent(guidelineGene -> {
-      List<String> functions = new ArrayList<>();
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele1()).orElse(TextConstants.UNKNOWN_FUNCTION));
-      functions.add(guidelineGene.findFunctionForAllele(diplotype.getAllele2()).orElse(TextConstants.UNKNOWN_FUNCTION));
-      functions.sort(Comparator.naturalOrder());
-      functionKeys.add(diplotype.getGene() + ":" + String.join(GENOTYPE_DELIMITER, functions));
-    });
-    return functionKeys;
-  }
-
-  protected void applyFunctions(Genotype genotype) {
-    for (Diplotype diplotype : genotype.getDiplotypes()) {
-      findGuidelineGeneFor(diplotype.getGene()).ifPresent((guidelineGene) -> {
-        if (diplotype.getAllele1() != null) {
-          guidelineGene.findFunctionForAllele(diplotype.getAllele1()).ifPresent((fnName) -> {
-            diplotype.getAllele1().setFunction(fnName);
-          });
-        }
-        if (diplotype.getAllele2() != null) {
-          guidelineGene.findFunctionForAllele(diplotype.getAllele2()).ifPresent((fnName) -> {
-            diplotype.getAllele2().setFunction(fnName);
-          });
-        }
-      });
-    }
   }
 }

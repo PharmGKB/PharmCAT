@@ -1,0 +1,190 @@
+{
+  "guideline": {
+    "id": "PA166104980",
+    "name": "Annotation of DPWG Guideline for sertraline and CYP2C19",
+    "source": "DPWG",
+    "version": 32,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104980",
+    "relatedChemicals": [
+      {
+        "id": "PA451333",
+        "name": "sertraline",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299243",
+      "name": "Recommendation PA166299243",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451333",
+          "name": "sertraline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061606,
+        "html": "<p>Do not give doses exceeding 75 mg/day. Guide the dose by response and side effects and/or sertraline plasma concentration.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects is increased. The gene variation leads to increased plasma concentrations of sertraline."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299242",
+      "name": "Recommendation PA166299242",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451333",
+          "name": "sertraline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061605,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The gene variation has a minor effect on the sertraline plasma concentration. No effect on side effects was found."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299241",
+      "name": "Recommendation PA166299241",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451333",
+          "name": "sertraline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061604,
+        "html": "<p>The guideline does not provide a recommendation for sertraline in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on sertraline."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299240",
+      "name": "Recommendation PA166299240",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451333",
+          "name": "sertraline",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061603,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The gene variation has a negligible effect on the plasma concentration of sertraline. Moreover, no significant effect on response and side effects has been found."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "34782755",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
+      "authors": [
+        "Brouwer Jurriaan M J L",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "Guchelaar Henk-Jan",
+        "Swen Jesse J",
+        "van Schaik Ron H N",
+        "Weide Jan van der",
+        "Rongen Gerard A P J M",
+        "Buunk Anne-Marie",
+        "de Boer-Veger Nienke J",
+        "Houwink Elisa J F",
+        "van Westrhenen Roos",
+        "Wilffert Bob",
+        "Deneer Vera H M",
+        "Mulder Hans"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

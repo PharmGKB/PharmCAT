@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.definition;
 
+import java.util.Objects;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
@@ -33,13 +34,13 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(16, phenotypeMap.getCpicGenes().size());
+    assertEquals(17, phenotypeMap.getCpicGenes().size());
 
     // HLA's are not part of the Phenotype map, they use allele status instead
     assertTrue(phenotypeMap.getCpicGenes().stream().noneMatch((gene) -> gene.getGene().startsWith("HLA")));
 
     assertEquals(
-        "No function",
+        "0.0",
         phenotypeMap.lookupCpic("CYP2C9").orElseThrow(Exception::new).getHaplotypes().get("*6"));
 
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("DPYD").orElseThrow(Exception::new);
@@ -58,6 +59,21 @@ class PhenotypeMapTest {
 
     assertEquals(1, diplotype.getLookupKeys().size());
     assertEquals("Normal Metabolizer", diplotype.getLookupKeys().get(0));
+  }
+
+  @Test
+  void testLookupActivity() {
+    PhenotypeMap phenotypeMap = new PhenotypeMap();
+    Diplotype diplotype = new Diplotype("CYP2D6", "*1", "*3", s_env, DataSource.CPIC);
+
+    GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2D6")
+        .orElseThrow(() -> new RuntimeException("No CYP2D6 phenotype map found"));
+    assertNotNull(genePhenotype.getDiplotypes());
+
+    assertTrue(genePhenotype.getDiplotypes().stream()
+        .anyMatch((d) -> Objects.nonNull(d.getActivityScore())));
+
+    assertEquals("1.0", diplotype.getActivityScore());
   }
 
   @Test

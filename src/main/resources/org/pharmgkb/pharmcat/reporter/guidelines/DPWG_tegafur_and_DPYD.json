@@ -1,0 +1,245 @@
+{
+  "guideline": {
+    "id": "PA166104944",
+    "name": "Annotation of DPWG Guideline for tegafur and DPYD",
+    "source": "DPWG",
+    "version": 32,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104944",
+    "relatedChemicals": [
+      {
+        "id": "PA452620",
+        "name": "tegafur",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA145",
+        "name": "dihydropyrimidine dehydrogenase",
+        "symbol": "DPYD"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299181",
+      "name": "Recommendation PA166299181",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061544,
+        "html": "<p>The guideline does not provide a recommendation for tegafur in patients with a DPYD activity score of 2.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a DPYD activity score of 2 on tegafur."
+      ],
+      "lookupKey": {
+        "DPYD": "2.0 (Normal Metabolizer)"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299180",
+      "name": "Recommendation PA166299180",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061543,
+        "html": "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy.\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, it is recommended to determine the residual DPD activity in mononuclear cells from peripheral blood and adjust the initial dose based on phenotype and genotype.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose."
+      ],
+      "lookupKey": {
+        "DPYD": "0.5 (Phenotyping)"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299183",
+      "name": "Recommendation PA166299183",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061546,
+        "html": "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, starting with 50 % of the standard dose is recommended and the dose should then be adjusted based on toxicity and effectiveness.\nIn one study, the average dose of fluorouracil/capecitabine after titration was 64% of the standard dose for 17 patients with genotype *1/2846T and 74% of the standard dose for 51 patients with genotype *1/1236A</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose."
+      ],
+      "lookupKey": {
+        "DPYD": "1.5 (Intermediate Metabolizer)"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299179",
+      "name": "Recommendation PA166299179",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061542,
+        "html": "<ul>\n<li>avoid tegafur\n<ul>\n<li>Fluorouracil and capecitabine are not suitable alternatives, as these are also metabolised by DPD.</li>\n</ul>\n</li>\n<li>If it is not possible to avoid tegafur: start with a very low dose and adjust the initial dose based on toxicity and efficacy. A substantiated recommendation for dose reduction cannot be made based on the literature.\n<ul>\n<li>The recommendation for fluorouracil and capecitabine is to determine the residual DPD activity in mononuclear cells from peripheral blood and to adjust the initial dose accordingly. A patient with 0.5% of the normal DPD activity tolerated 0.8% of the standard capecitabine dose (150 mg every 5 days). A patient with undetectable DPD activity tolerated 0.43% of the standard capecitabine dose (150 mg every 5 days with every third dose skipped)</li>\n</ul>\n</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose."
+      ],
+      "lookupKey": {
+        "DPYD": "0.0 (Poor Metabolizer)"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299182",
+      "name": "Recommendation PA166299182",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061545,
+        "html": "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, starting with 50 % of the standard dose is recommended.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur into inactive metabolites means that the normal dose is an overdose."
+      ],
+      "lookupKey": {
+        "DPYD": "1.0 (Intermediate Metabolizer)"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301784",
+      "name": "Recommendation Annotation PA166301784",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA452620",
+          "name": "tegafur",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452102463,
+        "html": "<p>Avoid tegafur or start with a low dose and adjust the initial dose based on toxicity and efficacy.\nFluorouracil and capecitabine are not alternatives, as these are also metabolised by DPD.\nIt is not possible to offer substantiated advice for dose reduction based on the literature.\nFor fluorouracil and capecitabine, it is recommended to determine the residual DPD activity in mononuclear cells from peripheral blood and adjust the initial dose based on phenotype and genotype.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of severe, possibly fatal toxicity. A reduced conversion of tegafur to inactive metabolites means that the normal dose is an overdose."
+      ],
+      "lookupKey": {
+        "DPYD": "1.0 (Phenotyping)"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "31745289",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.",
+      "authors": [
+        "Lunenburg Carin A T C",
+        "van der Wouden Cathelijne H",
+        "Nijenhuis Marga",
+        "Crommentuijn-van Rhenen Mandy H",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne Marie",
+        "Houwink Elisa J F",
+        "Mulder Hans",
+        "Rongen Gerard A",
+        "van Schaik Ron H N",
+        "van der Weide Jan",
+        "Wilffert Bob",
+        "Deneer Vera H M",
+        "Swen Jesse J",
+        "Guchelaar Henk-Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2019
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

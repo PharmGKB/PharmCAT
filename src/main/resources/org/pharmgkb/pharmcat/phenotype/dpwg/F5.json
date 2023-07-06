@@ -13,7 +13,9 @@
       "lookupkey": "Factor V Leiden absent",
       "diplotypekey": {
         "rs6025 C": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Factor V Leiden absent"
     },
     {
       "generesult": "Factor V Leiden heterozygous",
@@ -23,7 +25,9 @@
       "diplotypekey": {
         "rs6025 C": 1,
         "rs6025 T (Factor V Leiden)": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Factor V Leiden heterozygous"
     },
     {
       "generesult": "Factor V Leiden homozygous",
@@ -32,8 +36,24 @@
       "lookupkey": "Factor V Leiden homozygous",
       "diplotypekey": {
         "rs6025 T (Factor V Leiden)": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Factor V Leiden homozygous"
     }
   ],
-  "version": "2023-06-05-00-25"
+  "namedAlleles": [
+    {
+      "name": "rs6025 C",
+      "activityValue": null,
+      "functionValue": "Factor V Leiden negative",
+      "lookupKey": "Factor V Leiden negative"
+    },
+    {
+      "name": "rs6025 T (Factor V Leiden)",
+      "activityValue": null,
+      "functionValue": "Factor V Leiden positive",
+      "lookupKey": "Factor V Leiden positive"
+    }
+  ],
+  "version": "2023-08-17-20-07"
 }

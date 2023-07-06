@@ -1,0 +1,945 @@
+{
+  "guideline": {
+    "id": "PA166119846",
+    "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
+    "source": "CPIC",
+    "version": 45,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
+    "relatedChemicals": [
+      {
+        "id": "PA449211",
+        "name": "dapsone",
+        "symbol": null
+      },
+      {
+        "id": "PA450457",
+        "name": "methylene blue",
+        "symbol": null
+      },
+      {
+        "id": "PA165963961",
+        "name": "pegloticase",
+        "symbol": null
+      },
+      {
+        "id": "PA10176",
+        "name": "rasburicase",
+        "symbol": null
+      },
+      {
+        "id": "PA166115580",
+        "name": "tafenoquine",
+        "symbol": null
+      },
+      {
+        "id": "PA166268821",
+        "name": "toluidine blue",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA28469",
+        "name": "glucose-6-phosphate dehydrogenase",
+        "symbol": "G6PD"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298576",
+      "name": "Recommendation PA166298576",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166268821",
+          "name": "toluidine blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061178,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Toluidine blue classification strength is based on extrapolation from methylene blue data</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297619",
+      "name": "Recommendation PA166297619",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10176",
+          "name": "rasburicase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060221,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297579",
+      "name": "Recommendation PA166297579",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449211",
+          "name": "dapsone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060181,
+        "html": "<p>Avoid use</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298519",
+      "name": "Recommendation PA166298519",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166115580",
+          "name": "tafenoquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061121,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297611",
+      "name": "Recommendation PA166297611",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449211",
+          "name": "dapsone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060213,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297615",
+      "name": "Recommendation PA166297615",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165963961",
+          "name": "pegloticase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060217,
+        "html": "<p>Avoid use</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298241",
+      "name": "Recommendation PA166298241",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450457",
+          "name": "methylene blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060843,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute exacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297620",
+      "name": "Recommendation PA166297620",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10176",
+          "name": "rasburicase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060222,
+        "html": "<p>Avoid use</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297580",
+      "name": "Recommendation PA166297580",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449211",
+          "name": "dapsone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060182,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute eacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298242",
+      "name": "Recommendation PA166298242",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450457",
+          "name": "methylene blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060844,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298515",
+      "name": "Recommendation PA166298515",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166115580",
+          "name": "tafenoquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061117,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of normal. (Inclusion criteria for clinical trials involving tafenoquine included G6PD activity ≥70%.)</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297612",
+      "name": "Recommendation PA166297612",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449211",
+          "name": "dapsone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060214,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297616",
+      "name": "Recommendation PA166297616",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165963961",
+          "name": "pegloticase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060218,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute eacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298239",
+      "name": "Recommendation PA166298239",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450457",
+          "name": "methylene blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060841,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298569",
+      "name": "Recommendation PA166298569",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166268821",
+          "name": "toluidine blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061171,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases. Toluidine blue classification strength is based on extrapolation from methylene blue data</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297621",
+      "name": "Recommendation PA166297621",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10176",
+          "name": "rasburicase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060223,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute eacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298543",
+      "name": "Recommendation PA166298543",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166268821",
+          "name": "toluidine blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061145,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Toluidine blue classification strength is based on extrapolation from methylene blue data</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297613",
+      "name": "Recommendation PA166297613",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449211",
+          "name": "dapsone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060215,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298243",
+      "name": "Recommendation PA166298243",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450457",
+          "name": "methylene blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060845,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166297622",
+      "name": "Recommendation PA166297622",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10176",
+          "name": "rasburicase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060224,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298516",
+      "name": "Recommendation PA166298516",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166115580",
+          "name": "tafenoquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061118,
+        "html": "<p>Avoid use</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297617",
+      "name": "Recommendation PA166297617",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165963961",
+          "name": "pegloticase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060219,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases.</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298534",
+      "name": "Recommendation PA166298534",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166268821",
+          "name": "toluidine blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061136,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals. Toluidine blue classification strength is based on extrapolation from methylene blue data</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute exacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298518",
+      "name": "Recommendation PA166298518",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166115580",
+          "name": "tafenoquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061120,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one non-deficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to assign G6PD phenotype in such cases. Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of normal. (Inclusion criteria for clinical trials involving tafenoquine included G6PD activity ≥70%.)</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298509",
+      "name": "Recommendation PA166298509",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166268821",
+          "name": "toluidine blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061111,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Toluidine blue classification strength is based on extrapolation from methylene blue data</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297614",
+      "name": "Recommendation PA166297614",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165963961",
+          "name": "pegloticase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060216,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297623",
+      "name": "Recommendation PA166297623",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10176",
+          "name": "rasburicase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060225,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298517",
+      "name": "Recommendation PA166298517",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166115580",
+          "name": "tafenoquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061119,
+        "html": "<p>Avoid use</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Although there are not published data in individuals with the G6PD Deficient with CNSHA phenotype, there is a strong rationale to avoid these drugs based on evidence in G6PD Deficient individuals.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute exacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297618",
+      "name": "Recommendation PA166297618",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165963961",
+          "name": "pegloticase",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060220,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298240",
+      "name": "Recommendation PA166298240",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450457",
+          "name": "methylene blue",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060842,
+        "html": "<p>Avoid use</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "36049896",
+      "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
+      "authors": [
+        "Gammal Roseann S",
+        "Pirmohamed Munir",
+        "Somogyi Andrew A",
+        "Morris Sarah A",
+        "Formea Christine M",
+        "Elchynski Amanda L",
+        "Oshikoya Kazeem A",
+        "McLeod Howard L",
+        "Haidar Cyrine E",
+        "Whirl-Carrillo Michelle",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Relling Mary V"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

@@ -1,0 +1,260 @@
+{
+  "guideline": {
+    "id": "PA166219301",
+    "name": "Annotation of CPIC Guideline for dexlansoprazole and CYP2C19",
+    "source": "CPIC",
+    "version": 6,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219301",
+    "relatedChemicals": [
+      {
+        "id": "PA166110257",
+        "name": "dexlansoprazole",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297667",
+      "name": "Recommendation PA166297667",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060269,
+        "html": "<p>Increase starting daily dose by 100%. Daily dose may be given in divided doses. Monitor for efficacy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297672",
+      "name": "Recommendation PA166297672",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060274,
+        "html": "<p>Initiate standard starting daily dose. For chronic therapy (&gt;12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297668",
+      "name": "Recommendation PA166297668",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060270,
+        "html": "<p>Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Decreased plasma concentrations of PPIs compared to CYP2C19 NMs; increased risk of therapeutic failure"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Rapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297673",
+      "name": "Recommendation PA166297673",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060275,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C19: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297669",
+      "name": "Recommendation PA166297669",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060271,
+        "html": "<p>Initiate standard starting daily dose. Consider increasing dose by 50-100% for the treatment of H. pylori infection and erosive esophagitis. Daily dose may be given in divided doses.\nMonitor for efficacy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Normal PPI metabolism; may be at increased risk of therapeutic failure compared to CYP2C19 IMs and PMs"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297670",
+      "name": "Recommendation PA166297670",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060272,
+        "html": "<p>Initiate standard starting daily dose. For chronic therapy (&gt;12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297644",
+      "name": "Recommendation PA166297644",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060246,
+        "html": "<p>Initiate standard starting daily dose. For chronic therapy (&gt;12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Increased plasma concentration of PPI compared to CYP2C19 NMs; increased chance of efficacy and potentially toxicity"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297671",
+      "name": "Recommendation PA166297671",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166110257",
+          "name": "dexlansoprazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060273,
+        "html": "<p>Initiate standard starting daily dose. For chronic therapy (&gt;12 weeks) and efficacy achieved, consider 50% reduction in daily dose and monitor for continued efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
+      },
+      "implications": [
+        "CYP2C19: Likely increased plasma concentration of PPI compared to CYP2C19 NMs; likely increased chance of efficacy and potentially toxicity"
+      ],
+      "lookupKey": {
+        "CYP2C19": "Likely Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

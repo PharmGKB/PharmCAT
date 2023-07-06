@@ -2,288 +2,154 @@
   "gene": "CYP3A5",
   "haplotypes": {
     "*1": "Normal function",
-    "*2": "Decreased function",
     "*3": "No function",
-    "*4": "Decreased function",
-    "*5": "Decreased function",
     "*6": "No function",
     "*7": "No function"
   },
   "activityValues": {},
   "diplotypes": [
     {
-      "generesult": null,
+      "generesult": "Normal Metabolizer",
       "diplotype": "*1/*1",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Normal Metabolizer",
       "diplotypekey": {
         "*1": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Normal Metabolizer"
     },
     {
-      "generesult": null,
-      "diplotype": "*1/*2",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*1": 1,
-        "*2": 1
-      }
-    },
-    {
-      "generesult": null,
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*1/*3",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Intermediate Metabolizer",
       "diplotypekey": {
         "*1": 1,
         "*3": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
-      "generesult": null,
-      "diplotype": "*1/*4",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*1": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*1/*5",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*1": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": null,
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*1/*6",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Intermediate Metabolizer",
       "diplotypekey": {
         "*1": 1,
         "*6": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
-      "generesult": null,
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "*1/*7",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Intermediate Metabolizer",
       "diplotypekey": {
         "*1": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
-      "generesult": null,
-      "diplotype": "*2/*2",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 2
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*2/*3",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 1,
-        "*3": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*2/*4",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*2/*5",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*2/*6",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*2/*7",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*2": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*3/*3",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*3": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
-      "generesult": null,
-      "diplotype": "*3/*4",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*3": 1,
-        "*4": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*3/*5",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*3": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*3/*6",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*3": 1,
         "*6": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*3/*7",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*3": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
-      "generesult": null,
-      "diplotype": "*4/*4",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*4": 2
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*4/*5",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*4": 1,
-        "*5": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*4/*6",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*4": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*4/*7",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*4": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*5/*5",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*5": 2
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*5/*6",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*5": 1,
-        "*6": 1
-      }
-    },
-    {
-      "generesult": null,
-      "diplotype": "*5/*7",
-      "description": null,
-      "lookupkey": null,
-      "diplotypekey": {
-        "*5": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*6/*6",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*6": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*6/*7",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*6": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
-      "generesult": null,
+      "generesult": "Poor Metabolizer",
       "diplotype": "*7/*7",
       "description": null,
-      "lookupkey": null,
+      "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*7": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     }
   ],
-  "version": "2023-06-05-00-25"
+  "namedAlleles": [
+    {
+      "name": "*1",
+      "activityValue": null,
+      "functionValue": "Normal function",
+      "lookupKey": "Normal function"
+    },
+    {
+      "name": "*3",
+      "activityValue": null,
+      "functionValue": "No function",
+      "lookupKey": "No function"
+    },
+    {
+      "name": "*6",
+      "activityValue": null,
+      "functionValue": "No function",
+      "lookupKey": "No function"
+    },
+    {
+      "name": "*7",
+      "activityValue": null,
+      "functionValue": "No function",
+      "lookupKey": "No function"
+    }
+  ],
+  "version": "2023-08-17-20-07"
 }

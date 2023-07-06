@@ -7,6 +7,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
+import static org.pharmgkb.pharmcat.reporter.TextConstants.isUnspecified;
+
 
 /**
  * Model to represent a haplotype and all derived information
@@ -106,6 +108,14 @@ public class Haplotype implements Comparable<Haplotype> {
 
   public void setActivityValue(String activityValue) {
     m_activityValue = activityValue;
+  }
+
+  public String toFormattedFunction() {
+    if (isUnspecified(m_activityValue)) {
+      return m_function;
+    } else {
+      return String.format("%s (%s)", m_activityValue, m_function);
+    }
   }
 
   /**

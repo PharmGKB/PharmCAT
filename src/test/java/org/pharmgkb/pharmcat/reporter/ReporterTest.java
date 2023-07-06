@@ -41,16 +41,17 @@ class ReporterTest {
     // test that messages were applied for a drug
     DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).get("warfarin");
     assertNotNull(warfarinReport, "Missing warfarin drug report");
-    assertEquals(0, warfarinReport.getMessages().size());
+    assertEquals(2, warfarinReport.getMessages().size());
     assertEquals(1, warfarinReport.getGuidelines().size());
     GuidelineReport guidelineReport = warfarinReport.getGuidelines().first();
     assertEquals(1, guidelineReport.getAnnotations().size());
-    assertEquals(2, guidelineReport.getAnnotations().first().getMessages().size());
+    assertEquals(0, guidelineReport.getAnnotations().first().getMessages().size());
 
     // test that recommendations were matched
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(d -> d.getName().equals("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
-    assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
+    // desflurane has been split in two, one for each gene
+    assertEquals(2, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }
 }

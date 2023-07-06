@@ -1,0 +1,167 @@
+{
+  "guideline": {
+    "id": "PA166104954",
+    "name": "Annotation of DPWG Guideline for imipramine and CYP2C19",
+    "source": "DPWG",
+    "version": 31,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104954",
+    "relatedChemicals": [
+      {
+        "id": "PA449969",
+        "name": "imipramine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299204",
+      "name": "Recommendation PA166299204",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449969",
+          "name": "imipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061567,
+        "html": "<p>The guideline does not provide a recommendation for imipramine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on imipramine."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299203",
+      "name": "Recommendation PA166299203",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449969",
+          "name": "imipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061566,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The genetic variation increases imipramine plasma concentrations, but not imipramine+desipramine plasma concentrations, which govern effectiveness and side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299201",
+      "name": "Recommendation PA166299201",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449969",
+          "name": "imipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061564,
+        "html": "<p>Use 70% of the standard dose and monitor the effect and side effects or the imipramine and desipramine plasma concentrations to determine the maintenance dose, or, avoid imipramine. Antidepressants that are not or to a lesser extent metabolised by CYP2C19 include, for example, nortriptyline, fluvoxamine and mirtazapine.</p>\n"
+      },
+      "implications": [
+        "The risk of side effects is increased. The gene variation results in an increase in the plasma concentration of imipramine+desipramine."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299202",
+      "name": "Recommendation PA166299202",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449969",
+          "name": "imipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061565,
+        "html": "<p>NO action is required for this gene-drug interaction</p>\n"
+      },
+      "implications": [
+        "The genetic variation decreases imipramine plasma concentrations, but not imipramine+desipramine plasma concentrations, which govern effectiveness and side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

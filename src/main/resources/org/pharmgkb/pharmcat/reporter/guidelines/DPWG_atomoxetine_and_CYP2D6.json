@@ -1,0 +1,596 @@
+{
+  "guideline": {
+    "id": "PA166104989",
+    "name": "Annotation of DPWG Guideline for atomoxetine and CYP2D6",
+    "source": "DPWG",
+    "version": 33,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104989",
+    "relatedChemicals": [
+      {
+        "id": "PA134688071",
+        "name": "atomoxetine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302044",
+      "name": "Recommendation Annotation PA166302044",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103583,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302022",
+      "name": "Recommendation Annotation PA166302022",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103561,
+        "html": "<p>In the event of side effects occurring and/or a response later than 9 weeks: reduce the dose and check whether the effect is conserved. The plasma concentration of atomoxetine is a factor of 2-3 times higher for IM than for EM at the same dose.</p>\n"
+      },
+      "implications": [
+        "The dose requirement can be reduced, because the genetic variation results in a higher atomoxetine plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302026",
+      "name": "Recommendation Annotation PA166302026",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103565,
+        "html": "<p>The guideline does not provide a recommendation for atomoxetine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on atomoxetine."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302101",
+      "name": "Recommendation Annotation PA166302101",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103640,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302061",
+      "name": "Recommendation Annotation PA166302061",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103600,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302043",
+      "name": "Recommendation Annotation PA166302043",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103582,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302030",
+      "name": "Recommendation Annotation PA166302030",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103569,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302021",
+      "name": "Recommendation Annotation PA166302021",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103560,
+        "html": "<ul>\n<li>Start with the normal initial dose, bearing in mind that an increase in this dose probably will not be required.</li>\n<li>Advise the patient to report side effects (such as decreased appetite, vomiting, abdominal pain, constipation, insomnia, early waking, drowsiness, irritability, pupil dilation and itching).</li>\n<li>If the medicine is effective, but side effects occur: reduce the dose and check whether the effect is conserved. The plasma concentration of atomoxetine is a factor of 8-11 times higher for PM than for NM at the same dose.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The risk of side effects is increased, because the genetic variation results in a higher atomoxetine plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302025",
+      "name": "Recommendation Annotation PA166302025",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103564,
+        "html": "<p>In the event of side effects occurring and/or a response later than 9 weeks: reduce the dose and check whether the effect is conserved The plasma concentration of atomoxetine is a factor of 2-3 times higher for IM than for NM at the same dose.</p>\n"
+      },
+      "implications": [
+        "The dose requirement can be reduced, because the genetic variation results in a higher atomoxetine plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302029",
+      "name": "Recommendation Annotation PA166302029",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103568,
+        "html": "<p>The guideline does not provide a recommendation for atomoxetine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on atomoxetine."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302042",
+      "name": "Recommendation Annotation PA166302042",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103581,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302024",
+      "name": "Recommendation Annotation PA166302024",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103563,
+        "html": "<p>In the event of side effects occurring and/or a response later than 9 weeks: reduce the dose and check whether the effect is conserved The plasma concentration of atomoxetine is a factor of 2-3 times higher for IM than for NM at the same dose.</p>\n"
+      },
+      "implications": [
+        "The dose requirement can be reduced, because the genetic variation results in a higher atomoxetine plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302081",
+      "name": "Recommendation Annotation PA166302081",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103620,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166302028",
+      "name": "Recommendation Annotation PA166302028",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103567,
+        "html": "<p>The guideline does not provide a recommendation for atomoxetine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on atomoxetine."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302041",
+      "name": "Recommendation Annotation PA166302041",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103580,
+        "html": "<p>The guideline does not provide a recommendation for atomoxetine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on atomoxetine."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302023",
+      "name": "Recommendation Annotation PA166302023",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103562,
+        "html": "<p>In the event of side effects occurring and/or a response later than 9 weeks: reduce the dose and check whether the effect is conserved. The plasma concentration of atomoxetine is a factor of 2-3 times higher for IM than for EM at the same dose.</p>\n"
+      },
+      "implications": [
+        "The dose requirement can be reduced, because the genetic variation results in a higher atomoxetine plasma concentration."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302027",
+      "name": "Recommendation Annotation PA166302027",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103566,
+        "html": "<p>The guideline does not provide a recommendation for atomoxetine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on atomoxetine."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302102",
+      "name": "Recommendation Annotation PA166302102",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA134688071",
+          "name": "atomoxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452103641,
+        "html": "<ul>\n<li>Be extra alert to reduced efficacy of the treatment.</li>\n<li>Advise the patient to report an inadequate effect.</li>\n<li>An alternative can be selected as a precaution. Clonidine is not metabolised by CYP2D6.</li>\n</ul>\n"
+      },
+      "implications": [
+        "Efficacy can be reduced due to the gene variation. The gene variation results in an increased conversion of atomoxetine to the active metabolite 4-hydroxyatomoxetine, which has a much lower plasma concentration. As a result, the plasma concentration of the active ingredients decreases."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "36509836",
+      "title": "Dutch pharmacogenetics working group (DPWG) guideline for the gene-drug interaction of CYP2D6 and COMT with atomoxetine and methylphenidate.",
+      "authors": [
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "Jama Wafa O M",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne Marie",
+        "Guchelaar Henk-Jan",
+        "Houwink Elisa J F",
+        "Rongen Gerard A",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van der Weide Jan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "Risselada Arne"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

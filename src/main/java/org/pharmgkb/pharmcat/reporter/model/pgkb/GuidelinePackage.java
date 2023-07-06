@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
-import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
 
 /**
@@ -20,8 +19,8 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   @SerializedName("guideline")
   private DosingGuideline guideline;
   @Expose
-  @SerializedName("annotationGroups")
-  private List<Group> groups = new ArrayList<>();
+  @SerializedName("recommendations")
+  private List<RecommendationAnnotation> recommendations = new ArrayList<>();
   @Expose
   @SerializedName("citations")
   private List<Publication> citations = new ArrayList<>();
@@ -42,8 +41,12 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
 
-  public List<Group> getGroups() {
-    return groups;
+  public List<RecommendationAnnotation> getRecommendations() {
+    return recommendations;
+  }
+
+  public boolean hasRecommendations() {
+    return guideline.isRecommendation() && recommendations != null && recommendations.size() > 0;
   }
 
 
@@ -53,8 +56,8 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
 
   
   public Set<String> getGenes() {
-    return guideline.getGuidelineGenes().stream()
-        .map(g -> g.getGene().getSymbol())
+    return guideline.getRelatedGenes().stream()
+        .map(AccessionObject::getSymbol)
         .collect(Collectors.toSet());
   }
 
@@ -83,10 +86,5 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   @Override
   public int compareTo(GuidelinePackage o) {
     return toString().compareToIgnoreCase(o.toString());
-  }
-
-
-  public void applyFunctions(Genotype genotype) {
-    guideline.applyFunctions(genotype);
   }
 }

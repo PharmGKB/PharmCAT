@@ -1,0 +1,739 @@
+{
+  "guideline": {
+    "id": "PA166191841",
+    "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
+    "source": "CPIC",
+    "version": 10,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166191841",
+    "relatedChemicals": [
+      {
+        "id": "PA448871",
+        "name": "celecoxib",
+        "symbol": null
+      },
+      {
+        "id": "PA449683",
+        "name": "flurbiprofen",
+        "symbol": null
+      },
+      {
+        "id": "PA449957",
+        "name": "ibuprofen",
+        "symbol": null
+      },
+      {
+        "id": "PA165958395",
+        "name": "lornoxicam",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA126",
+        "name": "cytochrome P450 family 2 subfamily C member 9",
+        "symbol": "CYP2C9"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297315",
+      "name": "Recommendation PA166297315",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059917,
+        "html": "<p>Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297324",
+      "name": "Recommendation PA166297324",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059926,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C9: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C9": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297319",
+      "name": "Recommendation PA166297319",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059921,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297328",
+      "name": "Recommendation PA166297328",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059930,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297333",
+      "name": "Recommendation PA166297333",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059935,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297320",
+      "name": "Recommendation PA166297320",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059922,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Mildly reduced metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297285",
+      "name": "Recommendation PA166297285",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059887,
+        "html": "<p>Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297325",
+      "name": "Recommendation PA166297325",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059927,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297329",
+      "name": "Recommendation PA166297329",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059931,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C9: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C9": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297316",
+      "name": "Recommendation PA166297316",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059918,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297330",
+      "name": "Recommendation PA166297330",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059932,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297334",
+      "name": "Recommendation PA166297334",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059936,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297321",
+      "name": "Recommendation PA166297321",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059923,
+        "html": "<p>Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297313",
+      "name": "Recommendation PA166297313",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059915,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Normal metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297326",
+      "name": "Recommendation PA166297326",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059928,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Mildly reduced metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297335",
+      "name": "Recommendation PA166297335",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059937,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C9: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C9": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297317",
+      "name": "Recommendation PA166297317",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059919,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297322",
+      "name": "Recommendation PA166297322",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059924,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297331",
+      "name": "Recommendation PA166297331",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059933,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Mildly reduced metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297314",
+      "name": "Recommendation PA166297314",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059916,
+        "html": "<p>Initiate therapy with recommended starting dose. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Mildly reduced metabolism"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297327",
+      "name": "Recommendation PA166297327",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449957",
+          "name": "ibuprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059929,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297323",
+      "name": "Recommendation PA166297323",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449683",
+          "name": "flurbiprofen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059925,
+        "html": "<p>Initiate therapy with 25-50% of the lowest recommended starting dose. Titrate dose upward to clinical effect or 25-50% of the maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Upward dose titration should not occur until after steady state is reached (at least 8 days for celecoxib after first dose in PMs). Carefully monitor adverse events such as blood pressure and kidney function during course of therapy. Alternatively, consider an alternate therapy not metabolized by CYP2C9 or not significantly impacted by CYP2C9 genetic variants in vivo.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Alternative therapies not primarily metabolized by CYP2C9 include aspirin, ketorolac, naproxen and sulindac. Selection of therapy will depend on individual patient treatment goals and risks for toxicity.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Significantly reduced metabolism and prolonged half-life; higher plasma concentrations may increase probability and/or severity of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297318",
+      "name": "Recommendation PA166297318",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448871",
+          "name": "celecoxib",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059920,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2C9: n/a"
+      ],
+      "lookupKey": {
+        "CYP2C9": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297332",
+      "name": "Recommendation PA166297332",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA165958395",
+          "name": "lornoxicam",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059934,
+        "html": "<p>Initiate therapy with lowest recommended starting dose. Titrate dose upward to clinical effect or maximum recommended dose with caution. In accordance with the prescribing information, use the lowest effective dosage for shortest duration consistent with individual patient treatment goals. Carefully monitor adverse events such as blood pressure and kidney function during course of therapy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>IMs might have a higher than normal risk of adverse events especially in individuals with other factors affecting clearance of these drugs such as hepatic impairment or advanced age. Further caution should be taken with ibuprofen use in individuals carrying the CYP2C9*2 allele as it is in linkage disequilibrium with CYP2C8*3 and ibuprofen is also metabolized by CYP2C8.</p>\n"
+      },
+      "implications": [
+        "CYP2C9: Moderately reduced metabolism; higher plasma concentrations may increase probability of toxicities"
+      ],
+      "lookupKey": {
+        "CYP2C9": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

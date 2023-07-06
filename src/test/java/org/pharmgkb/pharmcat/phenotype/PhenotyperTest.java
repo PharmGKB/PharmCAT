@@ -69,6 +69,19 @@ class PhenotyperTest {
 
     assertReportable(phenotyper, "CYP2D6");
 
+    // CYP2D6 is present and has an activity score
+    assertTrue(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").isPresent());
+    phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").ifPresentOrElse(
+        (geneReport) -> {
+          assertTrue(geneReport.isCalled(), "CYP2D6 report should be present and called");
+          assertEquals(CallSource.OUTSIDE, geneReport.getCallSource());
+          assertEquals("1.0", geneReport.getRecommendationDiplotypes().first().getActivityScore());
+        },
+        () -> fail("CYP2D6 report should be present")
+    );
+    assertDiplotypeDisplay(phenotyper, "CYP2D6", "*1/*3");
+
+    // CYP2C9 has a report but is not called and has no source
     assertTrue(phenotyper.findGeneReport(DataSource.CPIC, "CYP2C9").isPresent());
     phenotyper.findGeneReport(DataSource.CPIC, "CYP2C9").ifPresentOrElse(
         (geneReport) -> {
@@ -77,8 +90,6 @@ class PhenotyperTest {
         },
         () -> fail("CYP2C9 report should be present")
     );
-
-    assertDiplotypeDisplay(phenotyper, "CYP2D6", "*1/*3");
   }
 
   @Test

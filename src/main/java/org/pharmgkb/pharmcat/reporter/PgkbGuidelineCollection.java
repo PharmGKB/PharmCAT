@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.collect.SortedSetMultimap;
@@ -17,25 +18,16 @@ import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.DosingGuideline;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 public class PgkbGuidelineCollection {
-  public static final Path GUIDELINES_DIR =
-      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines/dpwg");
-
-  public static final Predicate<GuidelinePackage> ONLY_EXTENDED_GUIDELINES = guidelinePackage -> {
-    DosingGuideline guideline = guidelinePackage.getGuideline();
-    return guideline.getSource().equals(DataSource.DPWG.name())
-        && guideline.isRecommendation()
-        && guidelinePackage.getGroups().size() > 0;
-  };
+  private static final Path GUIDELINES_DIR =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
 
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
-  private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create();
+  private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create(String::compareToIgnoreCase, Comparator.naturalOrder());
   private SortedSet<String> m_genes;
 
 
@@ -56,17 +48,9 @@ public class PgkbGuidelineCollection {
     for (Path guidelineFile : annotationFiles) {
       try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
         GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(br, GuidelinePackage.class);
-        if (ONLY_EXTENDED_GUIDELINES.test(guidelinePackage)) {
-          if (guidelinePackage.getGuideline().getGuidelineGenes().size() > 1) {
-            throw new RuntimeException("DPWG Guidelines with more than one gene are not yet supported");
-          }
-          if (guidelinePackage.getGroups().size() == 0) {
-            throw new RuntimeException("DPWG Guideline is missing annotation groups: " + guidelinePackage);
-          }
-          f_guidelinePackages.add(guidelinePackage);
-          for (AccessionObject chemical : guidelinePackage.getGuideline().getRelatedChemicals()) {
-            f_guidelineMap.put(chemical.getName(), guidelinePackage);
-          }
+        f_guidelinePackages.add(guidelinePackage);
+        for (AccessionObject chemical : guidelinePackage.getGuideline().getRelatedChemicals()) {
+          f_guidelineMap.put(chemical.getName(), guidelinePackage);
         }
       }
     }
@@ -76,41 +60,47 @@ public class PgkbGuidelineCollection {
     return f_guidelinePackages;
   }
 
-  /**
-   * This will return the phenotype Strings that match a given {@link Diplotype}
-   */
-  public Set<String> getPhenotypesForDiplotype(Diplotype diplotype) {
-    Set<String> phenotypes = new TreeSet<>();
-    for (GuidelinePackage guidelinePackage : getGuidelinePackages()) {
-      Set<String> functionKeys = guidelinePackage.getGuideline().getFunctionKeysForDiplotype(diplotype);
-      for (String functionKey : functionKeys) {
-        guidelinePackage.getGroups().stream()
-            .filter(group -> group.matchesKey(functionKey) && group.getMetabolizerStatus() != null)
-            .map(group -> group.getMetabolizerStatus().getHtmlStripped())
-            .forEach(phenotypes::add);
-      }
-    }
-    return phenotypes;
+  public List<GuidelinePackage> findGuidelinePackages(String chemicalName, DataSource source) {
+    return f_guidelineMap.get(chemicalName).stream()
+        .filter(p -> p.getGuideline().getSource().equalsIgnoreCase(source.getPharmgkbName()))
+        .collect(Collectors.toList());
   }
 
-  public SortedSet<GuidelinePackage> findGuidelinePackages(String chemicalName) {
-    return f_guidelineMap.get(chemicalName);
+  public SortedSetMultimap<String,GuidelinePackage> getGuidelineMap() {
+    return f_guidelineMap;
   }
 
-  /**
-   * Get the collection of Chemicals that have DPWG guidelines
-   * @return a Set of chemical name Strings
-   */
-  public Set<String> getChemicals() {
-    return f_guidelineMap.keySet();
+  public Set<GuidelinePackage> getGuidelinesFromSource(DataSource dataSource) {
+    return f_guidelineMap.values().stream()
+        .filter(g -> g.getGuideline().getSource().equalsIgnoreCase(dataSource.getPharmgkbName()))
+        .collect(Collectors.toSet());
+  }
+
+  public Set<String> getChemicalsUsedInSource(DataSource source) {
+    return f_guidelineMap.values().stream()
+        .map(GuidelinePackage::getGuideline)
+        .filter(g -> g.getSource().equalsIgnoreCase(source.getPharmgkbName()))
+        .flatMap(g -> g.getRelatedChemicals().stream())
+        .map(AccessionObject::getName)
+        .collect(Collectors.toSet());
   }
 
   public SortedSet<String> getGenes() {
     if (m_genes == null) {
       m_genes = f_guidelinePackages.stream()
-          .flatMap(p -> p.getGenes().stream())
+          .flatMap(p -> p.getRecommendations().stream())
+          .filter(Objects::nonNull)
+          .flatMap(r -> r.getLookupKey().keySet().stream())
           .collect(Collectors.toCollection(TreeSet::new));
     }
     return m_genes;
+  }
+
+  public SortedSet<String> getGenesUsedInSource(DataSource source) {
+    return f_guidelinePackages.stream()
+        .filter(p -> p.getGuideline().getSource().equalsIgnoreCase(source.getPharmgkbName()))
+        .flatMap(p -> p.getGenes().stream())
+        .filter(Objects::nonNull)
+        .collect(Collectors.toCollection(TreeSet::new));
   }
 }

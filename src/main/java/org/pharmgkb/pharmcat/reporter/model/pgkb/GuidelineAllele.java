@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * PharmGKB Guideline Annotation Allele Model
  */
+@Deprecated
 public class GuidelineAllele {
   @SerializedName("id")
   @Expose

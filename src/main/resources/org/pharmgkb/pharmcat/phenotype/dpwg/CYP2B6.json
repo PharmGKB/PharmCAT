@@ -2,10 +2,10 @@
   "gene": "CYP2B6",
   "haplotypes": {
     "*1": "Normal function",
-    "*18": "No function",
-    "*5": "Substrate dependent",
+    "*5": "Normal function",
     "*6": "Decreased function",
-    "*7": "Decreased function (*7)"
+    "*7": "Decreased function",
+    "*18": "No function"
   },
   "activityValues": {},
   "diplotypes": [
@@ -16,7 +16,9 @@
       "lookupkey": "Normal Metabolizer",
       "diplotypekey": {
         "*1": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Normal Metabolizer"
     },
     {
       "generesult": "Normal Metabolizer",
@@ -26,7 +28,9 @@
       "diplotypekey": {
         "*1": 1,
         "*5": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Normal Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -36,7 +40,9 @@
       "diplotypekey": {
         "*1": 1,
         "*6": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -46,7 +52,9 @@
       "diplotypekey": {
         "*1": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -56,7 +64,20 @@
       "diplotypekey": {
         "*1": 1,
         "*18": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*18/*18",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*18": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
       "generesult": "Normal Metabolizer",
@@ -65,7 +86,9 @@
       "lookupkey": "Normal Metabolizer",
       "diplotypekey": {
         "*5": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Normal Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -75,7 +98,9 @@
       "diplotypekey": {
         "*5": 1,
         "*6": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -85,7 +110,9 @@
       "diplotypekey": {
         "*5": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -93,9 +120,11 @@
       "description": null,
       "lookupkey": "Intermediate Metabolizer",
       "diplotypekey": {
-        "*18": 1,
-        "*5": 1
-      }
+        "*5": 1,
+        "*18": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Poor Metabolizer",
@@ -104,7 +133,9 @@
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*6": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
       "generesult": "Poor Metabolizer",
@@ -114,7 +145,9 @@
       "diplotypekey": {
         "*6": 1,
         "*7": 1
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
       "generesult": "Poor Metabolizer",
@@ -122,9 +155,11 @@
       "description": null,
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
-        "*18": 1,
-        "*6": 1
-      }
+        "*6": 1,
+        "*18": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
       "generesult": "Poor Metabolizer",
@@ -133,7 +168,9 @@
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*7": 2
-      }
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     },
     {
       "generesult": "Poor Metabolizer",
@@ -141,19 +178,44 @@
       "description": null,
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
-        "*18": 1,
-        "*7": 1
-      }
-    },
-    {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*18/*18",
-      "description": null,
-      "lookupkey": "Poor Metabolizer",
-      "diplotypekey": {
-        "*18": 2
-      }
+        "*7": 1,
+        "*18": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     }
   ],
-  "version": "2023-06-05-00-25"
+  "namedAlleles": [
+    {
+      "name": "*1",
+      "activityValue": null,
+      "functionValue": "Normal function",
+      "lookupKey": "Normal function"
+    },
+    {
+      "name": "*5",
+      "activityValue": null,
+      "functionValue": "Normal function",
+      "lookupKey": "Normal function"
+    },
+    {
+      "name": "*6",
+      "activityValue": null,
+      "functionValue": "Decreased function",
+      "lookupKey": "Decreased function"
+    },
+    {
+      "name": "*7",
+      "activityValue": null,
+      "functionValue": "Decreased function",
+      "lookupKey": "Decreased function"
+    },
+    {
+      "name": "*18",
+      "activityValue": null,
+      "functionValue": "No function",
+      "lookupKey": "No function"
+    }
+  ],
+  "version": "2023-08-17-20-07"
 }

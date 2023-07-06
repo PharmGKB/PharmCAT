@@ -1,0 +1,144 @@
+{
+  "guideline": {
+    "id": "PA166184528",
+    "name": "Annotation of DPWG Guideline for clomipramine and CYP2C19",
+    "source": "DPWG",
+    "version": 9,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184528",
+    "relatedChemicals": [
+      {
+        "id": "PA449048",
+        "name": "clomipramine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299129",
+      "name": "Recommendation PA166299129",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449048",
+          "name": "clomipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061492,
+        "html": "<p>Indication OBSESSIVE COMPULSIVE DISORDER or ANXIETY DISORDERS: avoid clomipramine. Antidepressants that are not metabolised by CYP2C19 - or to a lesser extent - include, for example, fluoxetine, fluvoxamine and paroxetine. If it is not possible to avoid clomipramine: monitor the effect and side effects or the plasma concentrations of clomipramine and desmethylclomipramine. For obsessive compulsive disorder, the therapeutic plasma concentration of clomipramine is greater than 200 ng/mL in combination with a plasma concentration of desmethylclomipramine that is as low as possible. For anxiety disorders, the therapeutic plasma concentration of clomipramine is approximately 100 ng/mL in combination with a plasma concentration of desmethylclomipramine lower than 200 ng/mL. A sum of the plasma concentrations of clomipramine and desmethylclomipramine exceeding 600 ng/mL is considered toxic. Add a low dose of fluvoxamine if necessary, to inhibit CYP2C19 and CYP1A2 and thereby inhibit the conversion of clomipramine to desmethylclomipramine. Indication DEPRESSION: no action required</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the risk of ineffectiveness for obsessive compulsive disorder and anxiety disorders by reducing the plasma concentration of clomipramine. The gene variation has little to no effect on the plasma concentration of clomipramine+desmethylclomipramine, which determines the efficacy for depression and side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299132",
+      "name": "Recommendation PA166299132",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449048",
+          "name": "clomipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061495,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the plasma concentration of clomipramine. However, there is insufficient evidence to substantiate an increase of the plasma concentration of clomipramine+desmethylclomipramine to such an extent that it increases the risk of side effects. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299131",
+      "name": "Recommendation PA166299131",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449048",
+          "name": "clomipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061494,
+        "html": "<p>The guideline does not provide a recommendation for clomipramine in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on clomipramine."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299130",
+      "name": "Recommendation PA166299130",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449048",
+          "name": "clomipramine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061493,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "The gene variation does increase clomipramine plasma concentrations, but not clomipramine+desmethylclomipramine plasma concentrations, which determines side effects and efficacy in depression. The increase in the plasma concentration of clomipramine is favourable for the efficacy in anxiety and obsessive compulsive disorder."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

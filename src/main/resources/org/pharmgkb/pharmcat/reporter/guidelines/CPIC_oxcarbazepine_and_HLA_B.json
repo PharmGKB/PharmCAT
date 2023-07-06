@@ -1,0 +1,144 @@
+{
+  "guideline": {
+    "id": "PA166176623",
+    "name": "Annotation of CPIC Guideline for oxcarbazepine and HLA-B",
+    "source": "CPIC",
+    "version": 18,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166176623",
+    "relatedChemicals": [
+      {
+        "id": "PA450732",
+        "name": "oxcarbazepine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA35056",
+        "name": "major histocompatibility complex, class I, B",
+        "symbol": "HLA-B"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298338",
+      "name": "Recommendation PA166298338",
+      "population": "OXC naive",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450732",
+          "name": "oxcarbazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060940,
+        "html": "<p>If patient is oxcarbazepine-naïve, do not use oxcarbazepine.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA-B*15:02 allele; however, caution should still be used in choosing an alternative agent. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</p>\n"
+      },
+      "implications": [
+        "HLA-B: Greater risk of oxcarbazepine-induced SJS/TEN"
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:02 positive"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298339",
+      "name": "Recommendation PA166298339",
+      "population": "OXC use >3 mos",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450732",
+          "name": "oxcarbazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060941,
+        "html": "<p>Use oxcarbazepine per standard dosing guidelines.</p>\n"
+      },
+      "implications": [
+        "HLA-B: Normal risk of oxcarbazepine-induced SJS/TEN"
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:02 negative"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298340",
+      "name": "Recommendation PA166298340",
+      "population": "OXC use >3 mos",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450732",
+          "name": "oxcarbazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060942,
+        "html": "<p>The latency period for drug-induced SJS/TEN is short with continuous dosing and adherence to therapy (~4-28 days), and cases usually occur within three months of dosing; therefore, if the patient has previously used oxcarbazepine consistently for longer than three months without incidence of cutaneous adverse reactions, cautiously consider use of oxcarbazepine in the future.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Previous tolerance of oxcarbazepine is not indicative of tolerance to other aromatic anticonvulsants. Aromatic anticonvulsants include carbamazepine, oxcarbazepine, eslicarbazepine, lamotrigine, phenytoin, fosphenytoin, and phenobarbital.</p>\n"
+      },
+      "implications": [
+        "HLA-B: Greater risk of oxcarbazepine-induced SJS/TEN"
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:02 positive"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298337",
+      "name": "Recommendation PA166298337",
+      "population": "OXC naive",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450732",
+          "name": "oxcarbazepine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452060939,
+        "html": "<p>Use oxcarbazepine per standard dosing guidelines.</p>\n"
+      },
+      "implications": [
+        "HLA-B: Normal risk of oxcarbazepine-induced SJS/TEN"
+      ],
+      "lookupKey": {
+        "HLA-B": "*15:02 negative"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

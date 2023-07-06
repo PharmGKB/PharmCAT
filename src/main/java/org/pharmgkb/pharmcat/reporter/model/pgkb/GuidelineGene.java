@@ -11,6 +11,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 /**
  * PharmGKB Guideline Annotation Gene Model. These genes are the ones that are involved in annotation group matching.
  */
+@Deprecated
 public class GuidelineGene {
 
   @SerializedName("alleles")

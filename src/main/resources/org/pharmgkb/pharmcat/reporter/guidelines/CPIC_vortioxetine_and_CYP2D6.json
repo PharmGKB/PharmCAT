@@ -1,0 +1,717 @@
+{
+  "guideline": {
+    "id": "PA166288221",
+    "name": "Annotation of CPIC Guideline for vortioxetine and CYP2D6",
+    "source": "CPIC",
+    "version": 1,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166288221",
+    "relatedChemicals": [
+      {
+        "id": "PA166122595",
+        "name": "vortioxetine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166300980",
+      "name": "Recommendation PA166300980",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093961,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300971",
+      "name": "Recommendation PA166300971",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093952,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300988",
+      "name": "Recommendation PA166300988",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093969,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300979",
+      "name": "Recommendation PA166300979",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093960,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300984",
+      "name": "Recommendation PA166300984",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093965,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300975",
+      "name": "Recommendation PA166300975",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093956,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300981",
+      "name": "Recommendation PA166300981",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093962,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300990",
+      "name": "Recommendation PA166300990",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093971,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "CYP2D6: n/a"
+      ],
+      "lookupKey": {
+        "CYP2D6": "n/a"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166301332",
+      "name": "Recommendation Annotation PA166301332",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452095651,
+        "html": "<p>xN is not a valid input for CYP2D6 copy number alleles. Please select a copy number representation as outlined below.</p>\n<table class=\"table\">\n<thead>\n<tr>\n<th>xN Allele</th>\n<th>Possible selection</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>*1xN</td>\n<td>*1x2 or *1x≥3</td>\n</tr>\n<tr>\n<td>*2xN</td>\n<td>*2x2 or *2x≥3</td>\n</tr>\n<tr>\n<td>*3xN</td>\n<td>*3x2</td>\n</tr>\n<tr>\n<td>*4xN</td>\n<td>*4x2 or *4x≥3</td>\n</tr>\n<tr>\n<td>*6xN</td>\n<td>*6x2</td>\n</tr>\n<tr>\n<td>*35xN</td>\n<td>*35x2</td>\n</tr>\n<tr>\n<td>*36xN</td>\n<td>*36x2</td>\n</tr>\n<tr>\n<td>*43xN</td>\n<td>*43x2</td>\n</tr>\n<tr>\n<td>*45xN</td>\n<td>*45x2</td>\n</tr>\n</tbody>\n</table>\n<ul>\n<li>For normal function alleles (*1 and *2) selecting <strong>*1x2 versus *1x≥3</strong> or <strong>*2x2 versus *2x≥3</strong> will affect the resulting CYP2D6 phenotype.</li>\n<li>CPIC CYP2D6 ultrarapid metabolizer phenotype is assigned an activity score (AS) of &gt;2.25.</li>\n<li>DPWG CYP2D6 ultrarapid metabolizer phenotype is assigned an AS of &gt;2.5.</li>\n</ul>\n<table class=\"table\">\n<thead>\n<tr>\n<th>Guideline</th>\n<th>CNV Allele</th>\n<th>Function</th>\n<th>Activity<br/>value</th>\n<th>Other Allele<br/>Function</th>\n<th>Activity<br/>value</th>\n<th>CYP2D6 AS</th>\n<th>Phenotype</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>No function</td>\n<td>0</td>\n<td>2</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.25</td>\n<td>2.25</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Decreased function</td>\n<td>0.5</td>\n<td>2.5</td>\n<td>Normal metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x2</td>\n<td>Increased</td>\n<td>2</td>\n<td>Normal function</td>\n<td>1.0</td>\n<td>3.0</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n<tr>\n<td>CPIC or DPWG</td>\n<td>*1x≥3</td>\n<td>Increased</td>\n<td>≥3</td>\n<td></td>\n<td></td>\n<td>≥3</td>\n<td>Ultrarapid metabolizer</td>\n</tr>\n</tbody>\n</table>\n"
+      },
+      "implications": [],
+      "lookupKey": {
+        "CYP2D6": "xN combinations"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300989",
+      "name": "Recommendation PA166300989",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093970,
+        "html": "<p>Initiate 50% of starting dose (e.g., 5 mg) and titrate to the maximum recommended dose of 10 mg or consider a clinically appropriate alternative antidepressant not predominantly metabolized by CYP2D6.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions, indication and other patient characteristics (e.g., age, renal function, liver function) should be considered when adjusting dose or selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Greatly reduced metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300976",
+      "name": "Recommendation PA166300976",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093957,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300985",
+      "name": "Recommendation PA166300985",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093966,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300972",
+      "name": "Recommendation PA166300972",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093953,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300982",
+      "name": "Recommendation PA166300982",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093963,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300969",
+      "name": "Recommendation PA166300969",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093950,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300977",
+      "name": "Recommendation PA166300977",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093958,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300973",
+      "name": "Recommendation PA166300973",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093954,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300986",
+      "name": "Recommendation PA166300986",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093967,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300983",
+      "name": "Recommendation PA166300983",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093964,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300970",
+      "name": "Recommendation PA166300970",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093951,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Normal metabolism."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300978",
+      "name": "Recommendation PA166300978",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093959,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300987",
+      "name": "Recommendation PA166300987",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093968,
+        "html": "<p>Initiate therapy with recommended starting dose.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Reduced metabolism of vortioxetine to less active compounds when compared to CYP2D6 normal metabolizers. Higher plasma concentrations may increase the probability of side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166300974",
+      "name": "Recommendation PA166300974",
+      "population": "general",
+      "classification": {
+        "term": "Optional",
+        "termId": "guidelineStrength:981565059"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA166122595",
+          "name": "vortioxetine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452093955,
+        "html": "<p>Select alternative drug not predominantly metabolized by CYP2D6. If vortioxetine use is warranted, initiate therapy at standard starting dose and titrate to maintenance dose based on efficacy and side effects. Increasing the target maintenance dose by 50% or more may be needed for efficacy.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Drug-drug interactions and other patient characteristics (e.g., age, renal function, liver function) should be considered when selecting an alternative therapy.</p>\n"
+      },
+      "implications": [
+        "CYP2D6: Increased metabolism of vortioxetine to inactive compounds when compared to CYP2D6 normal metabolizers. Lower plasma concentrations decrease the probability of clinical benefit."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "37032427",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
+      "authors": [
+        "Bousman Chad A",
+        "Stevenson James M",
+        "Ramsey Laura B",
+        "Sangkuhl Katrin",
+        "Hicks J Kevin",
+        "Strawn Jeffrey R",
+        "Singh Ajeet B",
+        "Ruaño Gualberto",
+        "Mueller Daniel J",
+        "Tsermpini Evangelia Eirini",
+        "Brown Jacob T",
+        "Bell Gillian C",
+        "Leeder J Steven",
+        "Gaedigk Andrea",
+        "Scott Stuart A",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Bishop Jeffrey R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2023
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

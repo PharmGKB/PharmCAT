@@ -1,0 +1,573 @@
+{
+  "guideline": {
+    "id": "PA166104995",
+    "name": "Annotation of DPWG Guideline for metoprolol and CYP2D6",
+    "source": "DPWG",
+    "version": 34,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104995",
+    "relatedChemicals": [
+      {
+        "id": "PA450480",
+        "name": "metoprolol",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302533",
+      "name": "Recommendation Annotation PA166302533",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104112,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302524",
+      "name": "Recommendation Annotation PA166302524",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104103,
+        "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA:</p>\n<ul>\n<li>Use smaller steps in dose titration and/or prescribe no more than 50% of the standard dose.</li>\n</ul>\n<p>OTHER CASES:</p>\n<ul>\n<li>No action required.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302537",
+      "name": "Recommendation Annotation PA166302537",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104116,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302528",
+      "name": "Recommendation Annotation PA166302528",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104107,
+        "html": "<p>The guideline does not provide a recommendation for metoprolol in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on metoprolol."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302532",
+      "name": "Recommendation Annotation PA166302532",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104111,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302523",
+      "name": "Recommendation Annotation PA166302523",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104102,
+        "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA:</p>\n<ul>\n<li>Use smaller steps in dose titration and/or prescribe no more than 50% of the standard dose.</li>\n</ul>\n<p>OTHER CASES:</p>\n<ul>\n<li>No action required.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302536",
+      "name": "Recommendation Annotation PA166302536",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104115,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302527",
+      "name": "Recommendation Annotation PA166302527",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104106,
+        "html": "<p>The guideline does not provide a recommendation for metoprolol in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on metoprolol."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302531",
+      "name": "Recommendation Annotation PA166302531",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104110,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302522",
+      "name": "Recommendation Annotation PA166302522",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104101,
+        "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA:</p>\n<ul>\n<li>Use smaller steps in dose titration and/or prescribe no more than 50% of the standard dose.</li>\n</ul>\n<p>OTHER CASES:</p>\n<ul>\n<li>No action required.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302535",
+      "name": "Recommendation Annotation PA166302535",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104114,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302526",
+      "name": "Recommendation Annotation PA166302526",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104105,
+        "html": "<p>The guideline does not provide a recommendation for metoprolol in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on metoprolol."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302530",
+      "name": "Recommendation Annotation PA166302530",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104109,
+        "html": "<p>The guideline does not provide a recommendation for metoprolol in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on metoprolol."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302521",
+      "name": "Recommendation Annotation PA166302521",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104100,
+        "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA:</p>\n<ul>\n<li>Use smaller steps in dose titration and/or prescribe no more than 25% of the standard dose.</li>\n</ul>\n<p>OTHER CASES:</p>\n<ul>\n<li>No action required.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302534",
+      "name": "Recommendation Annotation PA166302534",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104113,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302525",
+      "name": "Recommendation Annotation PA166302525",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104104,
+        "html": "<p>If a GRADUAL REDUCTION in HEART RATE is desired, or in the event of SYMPTOMATIC BRADYCARDIA:</p>\n<ul>\n<li>Use smaller steps in dose titration and/or prescribe no more than 50% of the standard dose.</li>\n</ul>\n<p>OTHER CASES:</p>\n<ul>\n<li>No action required.</li>\n</ul>\n"
+      },
+      "implications": [
+        "The gene variation reduces the conversion of metoprolol to inactive metabolites. However, the clinical consequences are limited mainly to the occurrence of asymptomatic bradycardia."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302538",
+      "name": "Recommendation Annotation PA166302538",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104117,
+        "html": "<p>Use the maximum dose for the relevant indication as a target dose.</p>\n<p>If the effectiveness is still insufficient: increase the dose based on effectiveness and side effects to 2.5 times the standard dose or select an alternative.</p>\n<p>Possible alternatives include: HEART FAILURE: bisoprolol or carvedilol. Bisoprolol: advantage: not metabolised by CYP2D6; disadvantage: elimination depends on the kidney function. Carvedilol: advantage: elimination does not depend on the kidney function; disadvantage: is metabolised (to a lesser extent than metoprolol) by CYP2D6. OTHER INDICATIONS: atenolol or bisoprolol. Neither is metabolised by CYP2D6.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of metoprolol to inactive metabolites. This can increase the dose requirement. However, with a target dose of 200 mg/day, there was no effect on the blood pressure and hardly any effect on the reduction of the heart rate."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302529",
+      "name": "Recommendation Annotation PA166302529",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450480",
+          "name": "metoprolol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104108,
+        "html": "<p>The guideline does not provide a recommendation for metoprolol in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on metoprolol."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

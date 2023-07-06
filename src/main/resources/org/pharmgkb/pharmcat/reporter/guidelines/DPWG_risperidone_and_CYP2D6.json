@@ -1,0 +1,596 @@
+{
+  "guideline": {
+    "id": "PA166104943",
+    "name": "Annotation of DPWG Guideline for risperidone and CYP2D6",
+    "source": "DPWG",
+    "version": 38,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104943",
+    "relatedChemicals": [
+      {
+        "id": "PA451257",
+        "name": "risperidone",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302718",
+      "name": "Recommendation Annotation PA166302718",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104317,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302709",
+      "name": "Recommendation Annotation PA166302709",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104308,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302722",
+      "name": "Recommendation Annotation PA166302722",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104321,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302713",
+      "name": "Recommendation Annotation PA166302713",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104312,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302717",
+      "name": "Recommendation Annotation PA166302717",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104316,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302708",
+      "name": "Recommendation Annotation PA166302708",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104307,
+        "html": "<p>Use 67% of the normal dose. If problematic side effects originating in the central nervous system occur despite this reduced dose, then reduce the dose further to 50% of the normal dose.</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increased from 16% to 26%. The gene variation increases the plasma concentration of risperidone plus the active metabolite and increases the proportion of risperidone in this ratio, which is more effective at crossing the blood-brain barrier."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302721",
+      "name": "Recommendation Annotation PA166302721",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104320,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302712",
+      "name": "Recommendation Annotation PA166302712",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104311,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302725",
+      "name": "Recommendation Annotation PA166302725",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104324,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302716",
+      "name": "Recommendation Annotation PA166302716",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104315,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302720",
+      "name": "Recommendation Annotation PA166302720",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104319,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302711",
+      "name": "Recommendation Annotation PA166302711",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104310,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302724",
+      "name": "Recommendation Annotation PA166302724",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104323,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302715",
+      "name": "Recommendation Annotation PA166302715",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104314,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302719",
+      "name": "Recommendation Annotation PA166302719",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104318,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302710",
+      "name": "Recommendation Annotation PA166302710",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104309,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302723",
+      "name": "Recommendation Annotation PA166302723",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104322,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": [
+        "The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302714",
+      "name": "Recommendation Annotation PA166302714",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451257",
+          "name": "risperidone",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104313,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

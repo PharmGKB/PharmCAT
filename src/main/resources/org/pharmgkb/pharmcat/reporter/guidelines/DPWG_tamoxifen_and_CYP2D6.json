@@ -1,0 +1,573 @@
+{
+  "guideline": {
+    "id": "PA166104966",
+    "name": "Annotation of DPWG Guideline for tamoxifen and CYP2D6",
+    "source": "DPWG",
+    "version": 30,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104966",
+    "relatedChemicals": [
+      {
+        "id": "PA451581",
+        "name": "tamoxifen",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA128",
+        "name": "cytochrome P450 family 2 subfamily D member 6",
+        "symbol": "CYP2D6"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166302762",
+      "name": "Recommendation Annotation PA166302762",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104361,
+        "html": "<p>The guideline does not provide a recommendation for tamoxifen in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on tamoxifen."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302766",
+      "name": "Recommendation Annotation PA166302766",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104365,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302842",
+      "name": "Recommendation Annotation PA166302842",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104441,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥5.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302744",
+      "name": "Recommendation Annotation PA166302744",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104343,
+        "html": "<ul>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary, by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine.</li>\n</ul>\n"
+      },
+      "implications": [
+        "This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302726",
+      "name": "Recommendation Annotation PA166302726",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104325,
+        "html": "<p>Select an alternative or increase the dose to 40 mg/day and monitor the endoxifen concentration. Studies have demonstrated that PM can achieve an adequate endoxifen concentration when the dose is increased to 40-60 mg/day. Aromatase inhibitors are a possible alternative for post-menopausal women.</p>\n"
+      },
+      "implications": [
+        "This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.0"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302761",
+      "name": "Recommendation Annotation PA166302761",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104360,
+        "html": "<p>The guideline does not provide a recommendation for tamoxifen in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on tamoxifen."
+      ],
+      "lookupKey": {
+        "CYP2D6": "1.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302821",
+      "name": "Recommendation Annotation PA166302821",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104420,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302765",
+      "name": "Recommendation Annotation PA166302765",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104364,
+        "html": "<p>The guideline does not provide a recommendation for tamoxifen in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on tamoxifen."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.5"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302843",
+      "name": "Recommendation Annotation PA166302843",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104442,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥6.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302743",
+      "name": "Recommendation Annotation PA166302743",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104342,
+        "html": "<ul>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary, by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine.</li>\n</ul>\n"
+      },
+      "implications": [
+        "This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.75"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302764",
+      "name": "Recommendation Annotation PA166302764",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104363,
+        "html": "<p>The guideline does not provide a recommendation for tamoxifen in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on tamoxifen."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302742",
+      "name": "Recommendation Annotation PA166302742",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104341,
+        "html": "<ul>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary, by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine.</li>\n</ul>\n"
+      },
+      "implications": [
+        "This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.5"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302781",
+      "name": "Recommendation Annotation PA166302781",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104380,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302801",
+      "name": "Recommendation Annotation PA166302801",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104400,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥3.25"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302763",
+      "name": "Recommendation Annotation PA166302763",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104362,
+        "html": "<p>The guideline does not provide a recommendation for tamoxifen in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on tamoxifen."
+      ],
+      "lookupKey": {
+        "CYP2D6": "2.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302741",
+      "name": "Recommendation Annotation PA166302741",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104340,
+        "html": "<ul>\n<li>Select an alternative or measure the endoxifen concentration and increase the dose if necessary, by a factor of 1.5-2. Aromatase inhibitors are a possible alternative for post-menopausal women.</li>\n<li>If TAMOXIFEN is selected: avoid co-medication with CYP2D6 inhibitors such as paroxetine and fluoxetine.</li>\n</ul>\n"
+      },
+      "implications": [
+        "This gene variation reduces the conversion of tamoxifen to the active metabolite endoxifen. This can result in reduced effectiveness."
+      ],
+      "lookupKey": {
+        "CYP2D6": "0.25"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302767",
+      "name": "Recommendation Annotation PA166302767",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104366,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166302841",
+      "name": "Recommendation Annotation PA166302841",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451581",
+          "name": "tamoxifen",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452104440,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "As a result of the genetic variation, the plasma concentration of the active metabolites 4-hydroxytamoxifen and endoxifen can increase. However, there is no evidence that this results in an increase in the side effects."
+      ],
+      "lookupKey": {
+        "CYP2D6": "≥4.0"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

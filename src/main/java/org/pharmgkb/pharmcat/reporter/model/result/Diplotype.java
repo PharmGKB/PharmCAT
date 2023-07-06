@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -33,7 +34,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
-  public static final String HETEROZYGOUS_SUFFIX = " (heterozygous)";
+  private static final String HETEROZYGOUS_SUFFIX = " (heterozygous)";
   private static final List<String> USE_CPIC_STYLE_DIPLOTYPE_NAMES = List.of(
       "CACNA1S",
       "CFTR",
@@ -84,6 +85,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("combination")
   private boolean m_combination = false;
+  @Expose
+  @SerializedName("phenotypeDataSource")
+  private DataSource m_phenotypeDataSource;
 
 
   /**
@@ -100,6 +104,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_gene = gene;
     m_allele1 = h1;
     m_allele2 = h2;
+    m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel();
   }
@@ -108,6 +113,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_gene = gene;
     m_allele1 = env.makeHaplotype(gene, hap1, source);
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
+    m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel();
   }
@@ -132,6 +138,7 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public Diplotype(OutsideCall outsideCall, Env env, DataSource source) {
     m_gene = outsideCall.getGene();
+    m_phenotypeDataSource = source;
     GenePhenotype gp = env.getPhenotype(m_gene, source);
 
     if (outsideCall.getDiplotype() != null) {
@@ -375,7 +382,7 @@ public class Diplotype implements Comparable<Diplotype> {
               String.join(TextConstants.GENOTYPE_DELIMITER, m_phenotypes), getActivityScore());
         }
       }
-      else if (m_phenotypes.size() > 0 && !m_phenotypes.contains(TextConstants.NO_RESULT)) {
+      else if (!m_phenotypes.isEmpty() && !m_phenotypes.contains(TextConstants.NO_RESULT)) {
         return String.join(TextConstants.GENOTYPE_DELIMITER, m_phenotypes);
       }
       else return TextConstants.NA;
@@ -473,9 +480,13 @@ public class Diplotype implements Comparable<Diplotype> {
     return computeLookupMap(m_allele1, m_allele2, phenotype);
   }
 
+  private Map<String,Integer> computeDiplotypeKey() {
+    return computeLookupMap(m_allele1, m_allele2, null);
+  }
+
 
   /**
-   * Fill in the phenotype and activity score depending on what information is already in the diplotype.
+   * Fill in the phenotype, activity score, and lookup key depending on what information is already in the diplotype.
    */
   private void annotateDiplotype(@Nullable GenePhenotype gp) {
     if (m_gene.startsWith("HLA")) {
@@ -483,8 +494,12 @@ public class Diplotype implements Comparable<Diplotype> {
         m_phenotypes = DiplotypeFactory.makeHlaPhenotype(this);
         m_lookupKeys = m_phenotypes;
       }
-      else if (isUnknownAlleles() && !isUnknownPhenotype()) {
-        m_lookupKeys = m_phenotypes;
+      else if (isUnknownAlleles()) {
+        if (isUnknownPhenotype()) {
+          m_lookupKeys.add(TextConstants.NO_RESULT);
+        } else {
+          m_lookupKeys = m_phenotypes;
+        }
       }
       return;
     }
@@ -493,26 +508,35 @@ public class Diplotype implements Comparable<Diplotype> {
       return;
     }
 
-    Map<String, Integer> lookupMap = computeLookupMap();
-    if (gp.isMatchedByActivityScore()) {
+    Map<String, Integer> lookupMap = computeDiplotypeKey();
+    Optional<DiplotypeRecord> diplotype = gp.findDiplotype(lookupMap);
+
+    if (
+        gp.isMatchedByActivityScore()
+            // TODO(whaleyr): temporary fix until allele activity score / function can be fixed for DPYD
+            && !(getGene().equals("DPYD") && m_phenotypeDataSource == DataSource.DPWG)
+    ) {
       if (m_activityScore == null) {
-        if (m_phenotypes.size() == 0) {
+        if (m_phenotypes.isEmpty()) {
           // diplotype -> activity score
-          m_activityScore = Objects.requireNonNull(
-              ActivityUtils.normalize(lookupKeys("activity score", gp, lookupMap)));
+          diplotype.ifPresentOrElse(
+              (d) -> m_activityScore = d.getActivityScore(),
+              () -> m_activityScore = ActivityUtils.normalize(lookupActivityByDiplotype(gp, lookupMap)));
         } else {
           // leave activity score as NA but generate 1 lookupKey per activity score that matches phenotype below
           // reporter will handle displaying correct activity score
           m_activityScore = TextConstants.NA;
         }
       }
-      if (m_phenotypes.size() == 0) {
+      if (m_phenotypes.isEmpty()) {
         if (m_outsideActivityScore) {
           // activity score -> phenotypes
           m_phenotypes.addAll(lookupPhenotypeByActivityScore(gp, m_activityScore));
         } else {
           // diplotype -> phenotype
-          m_phenotypes.add(lookupPhenotypesByDiplotype(gp, lookupMap));
+          diplotype.ifPresentOrElse(
+              (d) -> m_phenotypes.add(d.getPhenotype()),
+              () -> m_phenotypes.add(lookupPhenotypesByDiplotype(gp, lookupMap)));
         }
       }
       if (!TextConstants.NA.equals(m_activityScore)) {
@@ -528,7 +552,7 @@ public class Diplotype implements Comparable<Diplotype> {
     }
     // non-activity score genes
     else {
-      if (m_phenotypes.size() == 0) {
+      if (m_phenotypes.isEmpty()) {
         // phenotype based on diplotype
         m_phenotypes = List.of(lookupPhenotypesByDiplotype(gp, lookupMap));
       }
@@ -552,7 +576,7 @@ public class Diplotype implements Comparable<Diplotype> {
     if (keys.size() > 1) {
       throw new IllegalStateException("More than one " + keyType + " matched for " + this + ": " +
           String.join("; ", keys));
-    } else if (keys.size() == 0) {
+    } else if (keys.isEmpty()) {
       return TextConstants.NA;
     } else {
       return keys.iterator().next();
@@ -572,7 +596,26 @@ public class Diplotype implements Comparable<Diplotype> {
     if (keys.size() > 1) {
       throw new IllegalStateException("More than one phenotype matched for " + this + ": " +
           String.join("; ", keys));
-    } else if (keys.size() == 0) {
+    } else if (keys.isEmpty()) {
+      return TextConstants.NA;
+    } else {
+      return keys.iterator().next();
+    }
+  }
+
+  private String lookupActivityByDiplotype(GenePhenotype gp, Map<String, Integer> lookupMap) {
+    if (isUnknownAlleles()) {
+      return TextConstants.NO_RESULT;
+    }
+    SortedSet<String> keys = gp.getDiplotypes().stream()
+        .filter(d -> d.getDiplotypeKey().equals(lookupMap))
+        .map(DiplotypeRecord::getActivityScore)
+        .filter(Objects::nonNull)
+        .collect(Collectors.toCollection(TreeSet::new));
+    if (keys.size() > 1) {
+      throw new IllegalStateException("More than one activity score matched for " + this + ": " +
+          String.join("; ", keys));
+    } else if (keys.isEmpty()) {
       return TextConstants.NA;
     } else {
       return keys.iterator().next();
@@ -584,7 +627,7 @@ public class Diplotype implements Comparable<Diplotype> {
         .filter(d -> d.getLookupKey().equals(activityScore) && d.getGeneResult() != null)
         .map(DiplotypeRecord::getGeneResult)
         .collect(Collectors.toCollection(TreeSet::new));
-    if (rez.size() == 0) {
+    if (rez.isEmpty()) {
       rez.add(TextConstants.NA);
     }
     return rez;
@@ -593,9 +636,10 @@ public class Diplotype implements Comparable<Diplotype> {
   private static SortedSet<String> lookupActivityScoresByPhenotype(GenePhenotype gp, Collection<String> phenotypes) {
     SortedSet<String> rez = gp.getDiplotypes().stream()
         .filter(d -> phenotypes.contains(d.getGeneResult()))
-        .map(DiplotypeRecord::getLookupKey)
+        .map(DiplotypeRecord::getActivityScore)
+        .filter(Objects::nonNull)
         .collect(Collectors.toCollection(TreeSet::new));
-    if (rez.size() == 0) {
+    if (rez.isEmpty()) {
       rez.add(TextConstants.NA);
     }
     return rez;

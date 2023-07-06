@@ -1,17 +1,23 @@
 package org.pharmgkb.pharmcat.reporter;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
-import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -24,6 +30,8 @@ import org.pharmgkb.pharmcat.util.CliUtils;
  * @author Ryan Whaley
  */
 public class ReportContext {
+  private static final List<DataSource> DRUG_REPORT_SOURCES = ImmutableList.of(DataSource.CPIC, DataSource.DPWG);
+
   @Expose
   @SerializedName("title")
   private final String f_title;
@@ -59,20 +67,18 @@ public class ReportContext {
     f_title = title;
     m_geneReports = geneReports;
 
-    // get CPIC drug data
-    m_cpicVersion = validateCpicVersions(env.getCpicDrugs());
-    Map<String, DrugReport> cpicReports = m_drugReports.computeIfAbsent(DataSource.CPIC, (s) -> new TreeMap<>());
-    for (Drug drug : env.getCpicDrugs().listReportable()) {
-      cpicReports.put(drug.getDrugName().toLowerCase(), new DrugReport(drug, this));
-    }
+    m_dpwgVersion = validateDpwgVersions(env.getDrugs());
 
-    // get DPWG/PharmGKB drug data
-    m_dpwgVersion = validateDpwgVersions(env.getDpwgDrugs());
-    Map<String, DrugReport> dpwgReports = m_drugReports.computeIfAbsent(DataSource.DPWG, (s) -> new TreeMap<>());
-    // go through all DPWG-PharmGKB drugs, we iterate this way because one guideline may have multiple chemicals/drugs
-    for (String drugName : env.getDpwgDrugs().getChemicals()) {
-      dpwgReports.put(drugName.toLowerCase(),
-          new DrugReport(drugName, env.getDpwgDrugs().findGuidelinePackages(drugName), this));
+    for (DataSource dataSource : DRUG_REPORT_SOURCES) {
+      Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSource, (s) -> new TreeMap<>());
+      // go through all drugs, we iterate this way because one guideline may have multiple chemicals/drugs
+      for (String drugName : env.getDrugs().getGuidelineMap().keys()) {
+        List<GuidelinePackage> guidelinePackages = env.getDrugs().findGuidelinePackages(drugName, dataSource);
+        if (guidelinePackages != null && guidelinePackages.size() > 0) {
+          DrugReport newDrugReport = new DrugReport(drugName, guidelinePackages, this);
+          drugReports.put(drugName.toLowerCase(), newDrugReport);
+        }
+      }
     }
 
     // now that all reports are generated, apply applicable messages
@@ -97,55 +103,6 @@ public class ReportContext {
                     gr.getGeneDisplay() + "\">" + gr.getGeneDisplay() +
                     "</a> in Section III for for more information.")));
       }
-    }
-
-    // deal with warfarin messages
-    DrugReport cpicWarfarinReport = getDrugReport(DataSource.CPIC, "warfarin");
-    if (cpicWarfarinReport != null) {
-      // move message from DrugReport level to AnnotationReport level
-      AnnotationReport cpicAnnotation = cpicWarfarinReport.getGuidelines().first().getAnnotations().first();
-      SortedSet<MessageAnnotation> cpicMsgs = cpicWarfarinReport.getMessages().stream()
-          .filter((msg) -> msg.getName().startsWith("pcat-"))
-          .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(MessageAnnotation::getName))));
-      // remove them from drug reports and add to annotation
-      cpicMsgs.forEach((msg) -> {
-        cpicAnnotation.addMessage(msg);
-        cpicWarfarinReport.removeMessage(msg);
-      });
-    }
-  }
-
-  private String validateCpicVersions(DrugCollection drugCollection) {
-    Set<String> cpicVersions = new HashSet<>();
-    // check GeneReports from the Phenotyper
-    for (GeneReport geneReport : m_geneReports.get(DataSource.CPIC).values()) {
-      if (geneReport.getPhenotypeVersion() != null) {
-        cpicVersions.add(geneReport.getPhenotypeVersion());
-      }
-      if (geneReport.getAlleleDefinitionSource() == DataSource.CPIC) {
-        if (geneReport.getAlleleDefinitionVersion() != null) {
-          cpicVersions.add(geneReport.getAlleleDefinitionVersion());
-        }
-      }
-    }
-
-    // check CPIC drug data
-    for (Drug drug : drugCollection.list()) {
-      if (drug.getCpicVersion() == null || drug.getCpicVersion().equals("n/a")) {
-        continue;
-      }
-      cpicVersions.add(drug.getCpicVersion());
-    }
-
-    if (cpicVersions.size() == 0) {
-      return TextConstants.NA;
-    } else {
-      if (cpicVersions.size() > 1) {
-        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-cpic-versions",
-            "Multiple CPIC versions used to generate gene and drug reports: " + cpicVersions + "."
-        ));
-      }
-      return String.join(", ", cpicVersions);
     }
   }
 

@@ -1,0 +1,139 @@
+{
+  "guideline": {
+    "id": "PA166264961",
+    "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
+    "source": "DPWG",
+    "version": 13,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
+    "relatedChemicals": [
+      {
+        "id": "PA448320",
+        "name": "allopurinol",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA390",
+        "name": "ATP binding cassette subfamily G member 2 (Junior blood group)",
+        "symbol": "ABCG2"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299107",
+      "name": "Recommendation PA166299107",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448320",
+          "name": "allopurinol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061470,
+        "html": "<p>Use 1.25 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 200, 400 and 500 mg/day instead of the usual schedule of 100, 200, 300 and 400 mg/day.</p>\n"
+      },
+      "implications": [
+        "The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration."
+      ],
+      "lookupKey": {
+        "ABCG2": "Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299106",
+      "name": "Recommendation PA166299106",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448320",
+          "name": "allopurinol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061469,
+        "html": "<p>Use 1.4 times the standard dose.<br />\nThis equates to a dose titration schedule of 100, 300, 400, 600 and 700 mg/day instead of the usual schedule of 100, 200, 300, 400 and 500 mg/day.</p>\n"
+      },
+      "implications": [
+        "The effectiveness of allopurinol is reduced, meaning that a higher dose is required. The gene variation reduces the excretion of uric acid by kidneys and intestines, meaning that a stronger inhibition of the uric acid production by allopurinol is required to achieve the desired uric acid concentration."
+      ],
+      "lookupKey": {
+        "ABCG2": "Poor Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299108",
+      "name": "Recommendation PA166299108",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448320",
+          "name": "allopurinol",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061471,
+        "html": "<p>The guideline does not provide a recommendation for allopurinol in patients with the the ABCG2 rs2231142 GG genotype (c.421CC; p.141QQ)</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of the ABCG2 rs2231142 GG genotype (c.421CC; p.141QQ) on allopurinol."
+      ],
+      "lookupKey": {
+        "ABCG2": "Normal Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "36056234",
+      "title": "Dutch pharmacogenetics working group guideline for the gene-drug interaction of ABCG2, HLA-B and Allopurinol, and MTHFR, folic acid and methotrexate.",
+      "authors": [
+        "van der Pol Karel H",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne Marie",
+        "Guchelaar Henk-Jan",
+        "Risselada Arne",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van der Weide Jan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "Houwink Elisa J F",
+        "Rongen Gerard A"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2022
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

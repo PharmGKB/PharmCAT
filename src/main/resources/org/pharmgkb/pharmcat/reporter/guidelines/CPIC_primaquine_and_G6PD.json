@@ -1,0 +1,195 @@
+{
+  "guideline": {
+    "id": "PA166279621",
+    "name": "Annotation of CPIC Guideline for primaquine and G6PD",
+    "source": "CPIC",
+    "version": 0,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166279621",
+    "relatedChemicals": [
+      {
+        "id": "PA451103",
+        "name": "primaquine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA28469",
+        "name": "glucose-6-phosphate dehydrogenase",
+        "symbol": "G6PD"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298461",
+      "name": "Recommendation PA166298461",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451103",
+          "name": "primaquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061063,
+        "html": "<p>No reason to avoid based on G6PD status</p>\n"
+      },
+      "implications": [
+        "G6PD: Low risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Normal"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298462",
+      "name": "Recommendation PA166298462",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451103",
+          "name": "primaquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061064,
+        "html": "<p>Avoid primaquine, except in the following cases where established expert consensus guidelines for the treatment of malaria should be followed: (1) Treating Plasmodium vivax or Plasmodium ovale malaria for radical cure of liver-stage infections: 0.75 mg/kg once weekly x8 weeks (WHO) or 45 mg once weekly x8 weeks (CDC) - with close monitoring for hemolysis; (2) Treating Plasmodium falciparum malaria by using primaquine single dose as a gametocytocide at 0.25 mg/kg (WHO) - without need for monitoring for hemolysis.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Dosing recommendations for primaquine in patients with G6PD deficiency are derived from the malaria treatment guidelines issued by the World Health Organization and the U.S. Centers for Disease Control and Prevention.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute hemolytic anemia with standard (or higher than standard) anti-relapse dosages for Plasmodium vivax or Plasmodium ovale of 0.25-0.5 mg/kg daily for 14 days"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298463",
+      "name": "Recommendation PA166298463",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451103",
+          "name": "primaquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061065,
+        "html": "<p>Avoid primaquine</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The strength of evidence among patients with the G6PD Deficient phenotype provides strong rationale to also avoid primaquine in the setting of the more severe G6PD Deficient with CNSHA phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: High risk of acute of acute exacerbation of chronic hemolysis"
+      ],
+      "lookupKey": {
+        "G6PD": "Deficient with CNSHA"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298415",
+      "name": "Recommendation PA166298415",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451103",
+          "name": "primaquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061017,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>Due to X-linked mosaicism, individuals with more than one X chromosome (e.g., females, individuals with Klinefelter syndrome) and heterozygous for one nondeficient (class IV) and one deficient (class I–III) allele may display a normal or a deficient phenotype; an enzyme activity test is needed to guide treatment in such cases.</p>\n"
+      },
+      "implications": [
+        "G6PD: Variable risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Variable"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166298428",
+      "name": "Recommendation PA166298428",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451103",
+          "name": "primaquine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061030,
+        "html": "<p>To ascertain G6PD status, enzyme activity must be measured. Drug use should be guided per the recommendations based on the activity-based phenotype.</p>\n"
+      },
+      "implications": [
+        "G6PD: Unknown risk of acute hemolytic anemia"
+      ],
+      "lookupKey": {
+        "G6PD": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "36049896",
+      "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
+      "authors": [
+        "Gammal Roseann S",
+        "Pirmohamed Munir",
+        "Somogyi Andrew A",
+        "Morris Sarah A",
+        "Formea Christine M",
+        "Elchynski Amanda L",
+        "Oshikoya Kazeem A",
+        "McLeod Howard L",
+        "Haidar Cyrine E",
+        "Whirl-Carrillo Michelle",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "Relling Mary V"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

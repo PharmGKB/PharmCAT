@@ -1,0 +1,37 @@
+{
+  "guideline": {
+    "id": "PA166110235",
+    "name": "Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3",
+    "source": "CPIC",
+    "version": 47,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166110235",
+    "relatedChemicals": [
+      {
+        "id": "PA164749390",
+        "name": "peginterferon alfa-2a",
+        "symbol": null
+      },
+      {
+        "id": "PA164784024",
+        "name": "peginterferon alfa-2b",
+        "symbol": null
+      },
+      {
+        "id": "PA451241",
+        "name": "ribavirin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134952671",
+        "name": "interferon lambda 3",
+        "symbol": "IFNL3"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

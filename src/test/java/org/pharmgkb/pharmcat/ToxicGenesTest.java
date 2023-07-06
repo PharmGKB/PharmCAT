@@ -82,14 +82,14 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "Reference"));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
             .put("CACNA1S", expectedCalls)
-            .put("RYR1", NO_DATA)
             .build(),
-        "desflurane", RecPresence.YES_NO_MATCH, RecPresence.NO);
+        "desflurane", RecPresence.YES, RecPresence.NO);
   }
 
   @Test
@@ -106,7 +106,8 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "c.3257G>A"));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
@@ -127,7 +128,8 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
@@ -192,7 +194,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
   @Test
@@ -213,7 +215,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
   @Test
@@ -234,7 +236,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
 
@@ -257,7 +259,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
   @Test
@@ -278,7 +280,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
   @Test
@@ -299,7 +301,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
   }
 
   @Test
@@ -436,7 +438,8 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
@@ -456,7 +459,8 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "c.103T>C"));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
@@ -477,7 +481,8 @@ class ToxicGenesTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 0);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
@@ -502,7 +507,10 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", 1);
+    // each gene has its own annotation so 2 CPIC annotations match, one for each gene
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 2);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()

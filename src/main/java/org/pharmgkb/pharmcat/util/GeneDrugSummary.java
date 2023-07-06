@@ -22,7 +22,6 @@ import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
-import org.pharmgkb.pharmcat.reporter.DrugCollection;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -45,8 +44,7 @@ public class GeneDrugSummary {
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "HLA-A", "HLA-B", "MT-RNR1");
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
-  private final DrugCollection m_cpicDrugs;
-  private final PgkbGuidelineCollection m_dpwgDrugs;
+  private final PgkbGuidelineCollection m_guidelineCollection;
 
 
   public static void main(String[] args) {
@@ -59,7 +57,7 @@ public class GeneDrugSummary {
 
       DefinitionReader definitionReader = DefinitionReader.defaultReader();
 
-      new GeneDrugSummary(definitionReader, new PhenotypeMap(), new DrugCollection(), new PgkbGuidelineCollection())
+      new GeneDrugSummary(definitionReader, new PhenotypeMap(), new PgkbGuidelineCollection())
           .write(cliHelper.getValidDirectory("o", true));
     } catch (Exception e) {
       sf_logger.error("Error writing drug data", e);
@@ -67,12 +65,11 @@ public class GeneDrugSummary {
   }
 
 
-  public GeneDrugSummary(DefinitionReader definitionReader, PhenotypeMap phenotypeMap, DrugCollection drugCollection,
+  public GeneDrugSummary(DefinitionReader definitionReader, PhenotypeMap phenotypeMap,
       PgkbGuidelineCollection pgkbGuidelineCollection) {
     m_definitionReader = definitionReader;
     m_phenotypeMap = phenotypeMap;
-    m_cpicDrugs = drugCollection;
-    m_dpwgDrugs = pgkbGuidelineCollection;
+    m_guidelineCollection = pgkbGuidelineCollection;
   }
 
 
@@ -80,15 +77,13 @@ public class GeneDrugSummary {
 
     Multimap<String, DataSource> geneSourceMap = TreeMultimap.create();
     Multimap<String, DataSource> drugSourceMap = TreeMultimap.create();
-    m_cpicDrugs.forEach((drug) -> {
-      drugSourceMap.put(drug.getDrugName(), DataSource.CPIC);
-      for (String gene : drug.getGenes()) {
-        geneSourceMap.put(gene, DataSource.CPIC);
-      }
-    });
-    m_dpwgDrugs.getGenes()
+    m_guidelineCollection.getGenesUsedInSource(DataSource.DPWG)
         .forEach(g -> geneSourceMap.put(g, DataSource.DPWG));
-    m_dpwgDrugs.getChemicals()
+    m_guidelineCollection.getGenesUsedInSource(DataSource.CPIC)
+        .forEach(g -> geneSourceMap.put(g, DataSource.CPIC));
+    m_guidelineCollection.getChemicalsUsedInSource(DataSource.CPIC)
+        .forEach(d -> drugSourceMap.put(d, DataSource.CPIC));
+    m_guidelineCollection.getChemicalsUsedInSource(DataSource.DPWG)
         .forEach(d -> drugSourceMap.put(d, DataSource.DPWG));
 
     // get matcher gene list
@@ -168,14 +163,15 @@ public class GeneDrugSummary {
         SortedSet<String> cpicPhenotypes = new TreeSet<>();
         SortedSet<String> cpicScores = new TreeSet<>();
         SortedSet<String> dpwgPhenotypes = new TreeSet<>();
+        SortedSet<String> dpwgScores = new TreeSet<>();
         if (cpicGp != null) {
           cpicGp.getDiplotypes().forEach(d -> {
             if (d.getGeneResult() != null) {
               cpicPhenotypes.add(d.getGeneResult());
             }
-            String score = d.getLookupKey();
-            if (score != null && !score.equals(TextConstants.NA) && !score.equals(d.getGeneResult())) {
-              cpicScores.add(d.getLookupKey());
+            String score = d.getActivityScore();
+            if (score != null && !score.equals(TextConstants.NA)) {
+              cpicScores.add(d.getActivityScore());
             }
           });
         }
@@ -183,6 +179,10 @@ public class GeneDrugSummary {
           dpwgGp.getDiplotypes().forEach(d -> {
             if (d.getGeneResult() != null) {
               dpwgPhenotypes.add(d.getGeneResult());
+            }
+            String score = d.getActivityScore();
+            if (score != null && !score.equals(TextConstants.NA)) {
+              dpwgScores.add(d.getActivityScore());
             }
           });
         }
@@ -233,6 +233,9 @@ public class GeneDrugSummary {
         if (dpwgPhenotypes.size() > 0) {
           mdWriter.println("<th style=\"text-align: left\">DPWG Phenotypes</th>");
         }
+        if (dpwgScores.size() > 0) {
+          mdWriter.println("<th style=\"text-align: left\">DPWG Activity Scores</th>");
+        }
         mdWriter.println("</tr>");
         mdWriter.println("<tr>");
         mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
@@ -252,6 +255,11 @@ public class GeneDrugSummary {
         if (dpwgPhenotypes.size() > 0) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
           mdWriter.print(dpwgPhenotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+          mdWriter.println("</ul></td>");
+        }
+        if (dpwgScores.size() > 0) {
+          mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
+          mdWriter.print(dpwgScores.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
           mdWriter.println("</ul></td>");
         }
         mdWriter.println("</tr>");
@@ -291,13 +299,11 @@ public class GeneDrugSummary {
         .append("](/Phenotypes-List#")
         .append(gene.toLowerCase())
         .append(") | ");
-    if (m_phenotypeMap.getPhenotype(gene, DataSource.CPIC) != null ||
-        m_cpicDrugs.getAllReportableGenes().contains(gene)) {
+    if (m_guidelineCollection.getGenesUsedInSource(DataSource.CPIC).contains(gene)) {
       builder.append(":heavy_check_mark:");
     }
     builder.append(" | ");
-    if (m_phenotypeMap.getPhenotype(gene, DataSource.DPWG) != null ||
-        m_dpwgDrugs.getGenes().contains(gene)) {
+    if (m_guidelineCollection.getGenesUsedInSource(DataSource.DPWG).contains(gene)) {
       builder.append(":heavy_check_mark:");
     }
     builder.append(" |\n");

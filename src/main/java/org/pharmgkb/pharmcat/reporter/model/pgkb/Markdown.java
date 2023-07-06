@@ -38,14 +38,4 @@ public class Markdown {
     Matcher m = PTAG_PATTERN.matcher(StringUtils.strip(m_html));
     return m.replaceAll("");
   }
-
-
-  /**
-   * Used by DataManager to clean up activity score text.
-   */
-  public void cleanupActivityScore() {
-    if (m_html.contains("Total gene activity score = ")) {
-      m_html = m_html.replace("Total gene activity score = ", "");
-    }
-  }
 }

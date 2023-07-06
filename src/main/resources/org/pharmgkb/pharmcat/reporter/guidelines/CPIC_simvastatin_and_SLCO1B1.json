@@ -1,0 +1,202 @@
+{
+  "guideline": {
+    "id": "PA166105005",
+    "name": "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
+    "source": "CPIC",
+    "version": 52,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105005",
+    "relatedChemicals": [
+      {
+        "id": "PA451363",
+        "name": "simvastatin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134865839",
+        "name": "solute carrier organic anion transporter family member 1B1",
+        "symbol": "SLCO1B1"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166298506",
+      "name": "Recommendation PA166298506",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061108,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: n/a"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298501",
+      "name": "Recommendation PA166298501",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061103,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298505",
+      "name": "Recommendation PA166298505",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061107,
+        "html": "<p>Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased simvastatin acid exposure compared to normal and decreased function; highly increased myopathy risk"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298502",
+      "name": "Recommendation PA166298502",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061104,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298503",
+      "name": "Recommendation PA166298503",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061105,
+        "html": "<p>Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to &lt;20mg/day.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166298504",
+      "name": "Recommendation PA166298504",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451363",
+          "name": "simvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061106,
+        "html": "<p>Prescribe an alternative statin depending on the desired potency (see Figure 1 of PMID: 35152405 for recommendations for alternative statins). If simvastatin therapy is warranted, limit dose to &lt;20mg/day.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased simvastatin acid exposure as compared to normal function; increased risk of myopathy"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

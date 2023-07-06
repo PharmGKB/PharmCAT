@@ -1,0 +1,202 @@
+{
+  "guideline": {
+    "id": "PA166262221",
+    "name": "Annotation of CPIC Guideline for atorvastatin and SLCO1B1",
+    "source": "CPIC",
+    "version": 5,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262221",
+    "relatedChemicals": [
+      {
+        "id": "PA448500",
+        "name": "atorvastatin",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA134865839",
+        "name": "solute carrier organic anion transporter family member 1B1",
+        "symbol": "SLCO1B1"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166297245",
+      "name": "Recommendation PA166297245",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059847,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Increased Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297249",
+      "name": "Recommendation PA166297249",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059851,
+        "html": "<p>Prescribe ≤20mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. If dose &gt;20mg is needed for desired efficacy, consider rosuvastatin or combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased atorvastatin exposure as compared to normal and decreased function which may translate to increased myopathy risk."
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Poor Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297250",
+      "name": "Recommendation PA166297250",
+      "population": "general",
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059852,
+        "html": "<p>No recommendation</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: n/a"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Indeterminate"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297246",
+      "name": "Recommendation PA166297246",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059848,
+        "html": "<p>Prescribe desired starting dose and adjust doses based on disease-specific guidelines.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function and ancestry should be evaluated prior to initiating a statin.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Typical myopathy risk and statin exposure"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Normal Function"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297247",
+      "name": "Recommendation PA166297247",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059849,
+        "html": "<p>Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose &gt;40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Possible Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166297248",
+      "name": "Recommendation PA166297248",
+      "population": "general",
+      "classification": {
+        "term": "Moderate",
+        "termId": "guidelineStrength:981501931"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA448500",
+          "name": "atorvastatin",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452059850,
+        "html": "<p>Prescribe ≤40mg as a starting dose and adjust doses of atorvastatin based on disease-specific guidelines. Prescriber should be aware of possible increased risk for myopathy especially for 40mg dose. If dose &gt;40mg needed for desired efficacy, consider combination therapy (i.e., atorvastatin plus non-statin guideline directed medical therapy) (PMID: 30423391).</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>The potential for drug-drug interactions and dose limits based on renal and hepatic function should be evaluated prior to initiating a statin. The effects of drug-drug interactions may be more pronounced resulting in a higher risk of myopathy.</p>\n"
+      },
+      "implications": [
+        "SLCO1B1: Increased atorvastatin exposure as compared to normal function which may translate to increased myopathy risk"
+      ],
+      "lookupKey": {
+        "SLCO1B1": "Decreased Function"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    }
+  ],
+  "citations": [],
+  "version": "2023-08-17-20-07"
+}

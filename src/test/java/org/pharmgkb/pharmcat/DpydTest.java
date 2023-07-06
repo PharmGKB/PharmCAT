@@ -421,7 +421,10 @@ class DpydTest {
     assertEquals(1, lowRecs.size());
 
     // this is the point of this test:
-    assertTrue(lowRecs.get(0).startsWith(highRecs.get(0)));
+    String lowRec = lowRecs.get(0);
+    String highRec = highRecs.get(0);
+    // we're doing this split because there is "other consideration" text in this field that IS different between them
+    assertEquals(lowRec.split("\\(if available\\)")[0], highRec.split("\\(if available\\)")[0]);
   }
 
   /**

@@ -1,0 +1,167 @@
+{
+  "guideline": {
+    "id": "PA166104990",
+    "name": "Annotation of DPWG Guideline for voriconazole and CYP2C19",
+    "source": "DPWG",
+    "version": 27,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104990",
+    "relatedChemicals": [
+      {
+        "id": "PA10233",
+        "name": "voriconazole",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA124",
+        "name": "cytochrome P450 family 2 subfamily C member 19",
+        "symbol": "CYP2C19"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166299274",
+      "name": "Recommendation PA166299274",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10233",
+          "name": "voriconazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061637,
+        "html": "<p>Use an initial dose that is 1.5x higher and monitor the plasma concentration.</p>\n"
+      },
+      "implications": [
+        "The gene variation increases the conversion of voriconazole, which increases the risk of ineffectiveness."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Ultrarapid Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299273",
+      "name": "Recommendation PA166299273",
+      "population": null,
+      "classification": {
+        "term": "No recommendation",
+        "termId": "guidelineStrength:1448526251"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10233",
+          "name": "voriconazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061636,
+        "html": "<p>The guideline does not provide a recommendation for voriconazole in normal metabolizers.</p>\n"
+      },
+      "implications": [
+        "The guideline does not provide a description of the impact of a normal metabolizer phenotype on voriconazole."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Normal Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299276",
+      "name": "Recommendation PA166299276",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10233",
+          "name": "voriconazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061639,
+        "html": "<p>Use 50% of the standard dose and monitor the plasma concentration.</p>\n"
+      },
+      "implications": [
+        "The gene variation can reduce the conversion of voriconazole and consequently increase the plasma concentration. This could result in improved efficacy or an increase in the risk of side effects. Initially, the risk of side effects is of particular interest."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Poor Metabolizer"
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166299275",
+      "name": "Recommendation PA166299275",
+      "population": null,
+      "classification": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA10233",
+          "name": "voriconazole",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452061638,
+        "html": "<p>Monitor the plasma concentration.</p>\n"
+      },
+      "implications": [
+        "The gene variation can reduce the conversion of voriconazole and consequently increase the plasma concentration. This could result in improved efficacy or an increase in the risk of side effects."
+      ],
+      "lookupKey": {
+        "CYP2C19": "Intermediate Metabolizer"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "21412232",
+      "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
+      "authors": [
+        "Swen J J",
+        "Nijenhuis M",
+        "de Boer A",
+        "Grandia L",
+        "Maitland-van der Zee A H",
+        "Mulder H",
+        "Rongen G A P J M",
+        "van Schaik R H N",
+        "Schalekamp T",
+        "Touw D J",
+        "van der Weide J",
+        "Wilffert B",
+        "Deneer V H M",
+        "Guchelaar H-J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-17-20-07"
+}

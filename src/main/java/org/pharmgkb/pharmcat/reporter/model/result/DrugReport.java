@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -17,14 +16,12 @@ import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Drug;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
 /**
- * This class is a wrapper around the {@link Drug} class that also handles the matching of genotype
- * functions to recommendations.
+ * This class represents a drug and handles the matching of genotype functions to recommendations.
  *
  * @author Ryan Whaley
  */
@@ -62,49 +59,29 @@ public class DrugReport implements Comparable<DrugReport> {
   private final SortedSet<GuidelineReport> m_guidelines = new TreeSet<>();
 
 
-  public DrugReport(Drug drug, ReportContext reportContext) {
-    m_drugName = drug.getDrugName();
-    m_id = drug.getDrugId();
-    m_source = DataSource.CPIC;
-    m_version = drug.getCpicVersion();
-    m_urls.add(drug.getUrl());
-    if (drug.getCitations() != null) {
-      // cpic data can have array with null value in it
-      drug.getCitations().stream()
-          .filter(Objects::nonNull)
-          .forEach(m_citations::add);
-    }
-
-    // 1 guideline report per CPIC drug
-    GuidelineReport guidelineReport = new GuidelineReport(drug, reportContext);
-    // link gene report back to drug report
-    guidelineReport.getGeneReports().forEach((gr) -> gr.addRelatedDrug(this));
-    m_guidelines.add(guidelineReport);
-  }
-
-  public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
-    Preconditions.checkArgument(guidelinePackages != null && !guidelinePackages.isEmpty());
+  public DrugReport(String name, List<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
+    Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
     m_drugName = name;
-    m_id = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
+    m_id = guidelinePackages.get(0).getGuideline().getRelatedChemicals().stream()
         .filter((c) -> c.getName().equals(name))
         .findFirst()
         .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
-            guidelinePackages.first().getGuideline().getId() + " is supposed to be related to " + name + " but is not"))
+            guidelinePackages.get(0).getGuideline().getId() + " is supposed to be related to " + name + " but is not"))
         .getId();
-    m_source = DataSource.DPWG;
     m_version = guidelinePackages.stream().map(GuidelinePackage::getVersion).collect(Collectors.joining(", "));
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
+      m_source = DataSource.valueOf(guidelinePackage.getGuideline().getSource());
       m_urls.add(guidelinePackage.getGuideline().getUrl());
       if (guidelinePackage.getCitations() != null) {
         m_citations.addAll(guidelinePackage.getCitations());
       }
 
-      GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage, reportContext);
+      GuidelineReport guidelineReport = new GuidelineReport(guidelinePackage, reportContext, name);
       // link gene report back to drug report
       guidelineReport.getGeneReports().forEach((gr) -> gr.addRelatedDrug(this));
-      m_guidelines.add(guidelineReport);
+      addGuideline(guidelineReport);
     }
   }
 
@@ -220,6 +197,13 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public SortedSet<GuidelineReport> getGuidelines() {
     return m_guidelines;
+  }
+
+  public void addGuideline(GuidelineReport guidelineReport) {
+    if (guidelineReport != null) {
+      Preconditions.checkArgument(guidelineReport.getSource() == m_source, "Sources do not match");
+      m_guidelines.add(guidelineReport);
+    }
   }
 
   public int getMatchedAnnotationCount() {

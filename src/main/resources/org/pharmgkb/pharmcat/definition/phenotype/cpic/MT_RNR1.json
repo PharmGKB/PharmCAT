@@ -1,0 +1,461 @@
+{
+  "gene": "MT-RNR1",
+  "haplotypes": {
+    "663A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "669T>C": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "747A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "786G>A": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "807A>C": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "807A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "827A>G": "Normal risk of aminoglycoside-induced hearing loss",
+    "839A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "896A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "930A>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "951G>A": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "960C>del": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "961T>G": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "961T>del": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "961T>del+Cn": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "988G>A": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "1095T>C": "Increased risk of aminoglycoside-induced hearing loss",
+    "1189T>C": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "1243T>C": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "1494C>T": "Increased risk of aminoglycoside-induced hearing loss",
+    "1520T>C": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "1537C>T": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "1555A>G": "Increased risk of aminoglycoside-induced hearing loss",
+    "1556C>T": "Uncertain risk of aminoglycoside-induced hearing loss",
+    "Reference": "Normal risk of aminoglycoside-induced hearing loss"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "663A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "663A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "669T>C",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "669T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "747A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "747A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "786G>A",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "786G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "807A>C",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "807A>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "807A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "807A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "normal risk of aminoglycoside-induced hearing loss",
+      "diplotype": "827A>G",
+      "description": null,
+      "lookupkey": "normal risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "827A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "normal risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "839A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "839A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "896A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "896A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "930A>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "930A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "951G>A",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "951G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "960C>del",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "960C>del": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "961T>G",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "961T>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "961T>del",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "961T>del": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "961T>del+Cn",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "961T>del+Cn": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "988G>A",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "988G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1095T>C",
+      "description": null,
+      "lookupkey": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1095T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1189T>C",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1189T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1243T>C",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1243T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1494C>T",
+      "description": null,
+      "lookupkey": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1494C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1520T>C",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1520T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1537C>T",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1537C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1555A>G",
+      "description": null,
+      "lookupkey": "increased risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1555A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotype": "1556C>T",
+      "description": null,
+      "lookupkey": "uncertain risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "1556C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "generesult": "normal risk of aminoglycoside-induced hearing loss",
+      "diplotype": "Reference",
+      "description": null,
+      "lookupkey": "normal risk of aminoglycoside-induced hearing loss",
+      "diplotypekey": {
+        "Reference": 1
+      },
+      "activityScore": null,
+      "phenotype": "normal risk of aminoglycoside-induced hearing loss"
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "663A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "669T>C",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "747A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "786G>A",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "807A>C",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "807A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "827A>G",
+      "activityValue": null,
+      "functionValue": "Normal risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Normal risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "839A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "896A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "930A>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "951G>A",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "960C>del",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "961T>G",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "961T>del",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "961T>del+Cn",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "988G>A",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1095T>C",
+      "activityValue": null,
+      "functionValue": "Increased risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1189T>C",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1243T>C",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1494C>T",
+      "activityValue": null,
+      "functionValue": "Increased risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1520T>C",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1537C>T",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1555A>G",
+      "activityValue": null,
+      "functionValue": "Increased risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Increased risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "1556C>T",
+      "activityValue": null,
+      "functionValue": "Uncertain risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Uncertain risk of aminoglycoside-induced hearing loss"
+    },
+    {
+      "name": "Reference",
+      "activityValue": null,
+      "functionValue": "Normal risk of aminoglycoside-induced hearing loss",
+      "lookupKey": "Normal risk of aminoglycoside-induced hearing loss"
+    }
+  ],
+  "version": "2023-07-12-10-39"
+}

@@ -20,7 +20,7 @@ public class Genotype implements Comparable<Genotype> {
   @SerializedName("diplotypes")
   private final SortedSet<Diplotype> m_diplotypes = new TreeSet<>();
 
-  private transient List<Map<String, String>> m_lookupKeys;
+  private transient List<Map<String, Object>> m_lookupKeys;
 
 
   /**
@@ -55,16 +55,16 @@ public class Genotype implements Comparable<Genotype> {
     if (m_lookupKeys == null) {
       m_lookupKeys = diplotype.getLookupKeys().stream()
           .map((k) -> {
-            Map<String, String> lookupMap = new HashMap<>();
+            Map<String, Object> lookupMap = new HashMap<>();
             lookupMap.put(diplotype.getGene(), k);
             return lookupMap;
           })
           .toList();
     } else {
-      List<Map<String,String>> newKeys = new ArrayList<>();
+      List<Map<String,Object>> newKeys = new ArrayList<>();
       for (String lookupKey : diplotype.getLookupKeys()) {
-        for (Map<String, String> originalKey : m_lookupKeys) {
-          Map<String,String> lookupMap = new HashMap<>(originalKey);
+        for (Map<String, Object> originalKey : m_lookupKeys) {
+          Map<String,Object> lookupMap = new HashMap<>(originalKey);
           lookupMap.put(diplotype.getGene(), lookupKey);
           newKeys.add(lookupMap);
         }
@@ -97,7 +97,7 @@ public class Genotype implements Comparable<Genotype> {
     }
   }
 
-  public List<Map<String, String>> getLookupKeys() {
+  public List<Map<String, Object>> getLookupKeys() {
     return m_lookupKeys;
   }
 
