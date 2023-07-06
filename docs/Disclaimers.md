@@ -134,7 +134,8 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
 3. The CPIC UGT1A1 allele definition file includes \*6, \*27, \*28, \*36, \*37, and \*80. Since the DPWG UGT1A1 document
    does not include allele definitions besides for the UGT1A1 TA box promoter polymorphism, PharmCAT only includes the
    UGT1A1 positions from the CPIC UGT1A1 allele definition file. Other UGT1A1 alleles can be supplied as
-   [outside calls](https://pharmcat.org/examples/) but not be determined from the VCF file by the Named Allele Matcher.
+   [outside calls](https://pharmcat.org/using/Outside-Call-Format/) but not be determined from the VCF file by the
+   Named Allele Matcher.
 
 4. IMPORTANT: As of March 2022, gene information documents from the DPWG are no longer publicly available from the KNMP
    website. PharmGKB is currently providing PDF versions of these documents to users. These files were downloaded in
@@ -147,7 +148,7 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
 1. PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the VCF file, but genotypes for CYP2D6,
    MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype 
    prescribing recommendations will be included in the generated report. For the required format of the outside calls
-   refer to [PharmCAT documentation](https://pharmcat.org).
+   refer to the PharmCAT [outside calls documentation](https://pharmcat.org/using/Outside-Call-Format/).
 
 2. CPIC has assigned function to the following CYP2D6 CNV alleles: \*1x2, \*1x≥3, \*2x2, \*2x≥3, \*3x2, \*4x2, \*4x≥3,
    \*6x2, \*9x2, \*10x2, \*17x2, \*29x2, \*35x2, \*36x2, \*41x2, \*41x3, \*43x2, \*45x2, *146x2. These alleles are part
