@@ -44,6 +44,7 @@ public class NamedAlleleMatcher {
   // CHANGES TO THIS LIST OF GENES SHOULD ALSO BE REFLECTED IN DOCUMENTATION IN NamedAlleleMatcher-201.md
   public static final List<String> TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE = List.of(
       "CACNA1S",
+      "DPYD",
       "G6PD",
       "NUDT15",
       "RYR1",
@@ -294,31 +295,29 @@ public class NamedAlleleMatcher {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
-    // Reference/Reference matches would have been handled above
-    // if we get to this point, it's combination that might include Reference
-    // if there's only 1 match and it's Reference match, it should be a no call
-    // if there are more than 2, strip out Reference because we prioritize non-Reference if possible
-    if (hapMatches.size() != 2) {
-      hapMatches = hapMatches.stream()
-          .filter(m -> !m.getName().equals("Reference"))
-          .collect(Collectors.toCollection(TreeSet::new));
-    }
-    if (hapMatches.size() == 0) {
-      resultBuilder.haplotypes(gene, refData, new ArrayList<>(hapMatches));
-      return;
-    }
 
+    // have to compute diplotypes so that we can check for homozygous and partials
     List<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
         .compute(true, getTopCandidateOnly(gene));
     Set<String> homozygous = new HashSet<>();
+    int numPartials = 0;
     for (DiplotypeMatch dm : matches) {
+      if (dm.getHaplotype1().getHaplotype().isPartial() ||
+          (dm.getHaplotype2() != null && dm.getHaplotype2().getHaplotype().isPartial())) {
+        numPartials += 1;
+      }
+
       Map<String, Integer> haps = new HashMap<>();
       for (String h : dm.getHaplotype1().getHaplotypeNames()) {
-        haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+        if (!dm.getHaplotype1().getHaplotype().isPartial() || !h.equals("Reference")) {
+          haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+        }
       }
       if (dm.getHaplotype2() != null) {
         for (String h : dm.getHaplotype2().getHaplotypeNames()) {
-          haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+          if (!dm.getHaplotype2().getHaplotype().isPartial() || !h.equals("Reference")) {
+            haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
+          }
         }
       }
       for (String k : haps.keySet()) {
@@ -326,6 +325,16 @@ public class NamedAlleleMatcher {
           homozygous.add(k);
         }
       }
+    }
+
+    // Reference/Reference matches would have been handled in effectively phased section
+    // if we get to this point, it's combination that might include Reference
+    // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
+    // with 2 or fewer haplotype matches, cannot have reference if there's a partial
+    if (hapMatches.size() > 2 || numPartials > 0) {
+      hapMatches = hapMatches.stream()
+          .filter(m -> !m.getName().equals("Reference"))
+          .collect(Collectors.toCollection(TreeSet::new));
     }
 
     List<HaplotypeMatch> finalHaps = new ArrayList<>();

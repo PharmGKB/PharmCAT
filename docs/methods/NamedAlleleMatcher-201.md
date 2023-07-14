@@ -128,6 +128,7 @@ A different approach is taken for genes for which the defined variants affect dr
 variant calls are encountered, they will be treated as reference.  This applies to:
 
 * CACNA1S
+* DPYD
 * G6PD
 * NUDT15
 * RYR1
