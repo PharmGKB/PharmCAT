@@ -34,7 +34,7 @@ class DpydTest {
 
   @BeforeAll
   static void prepare() {
-    TestUtils.setSaveTestOutput(true);
+    //TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach

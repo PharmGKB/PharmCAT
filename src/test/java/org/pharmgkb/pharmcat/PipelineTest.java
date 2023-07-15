@@ -78,7 +78,7 @@ class PipelineTest {
           G6PD\tB (wildtype)/B (wildtype)
           """);
     }
-    TestUtils.setSaveTestOutput(true);
+    //TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach

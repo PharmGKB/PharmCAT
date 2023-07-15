@@ -399,6 +399,17 @@ public class ReportHelpers {
     return false;
   }
 
+  public static String amdAlleleFunction(Map<String, Map<String, String>> functionMap, String gene, String allele) {
+    Map<String, String> functions = functionMap.get(gene);
+    if (functions != null) {
+      String function = functions.get(allele);
+      if (function != null) {
+        return allele + " - " + function;
+      }
+    }
+    return allele;
+  }
+
   public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {
     return "<p class=\"noGeneData\">No data provided for " +
         compactNoDataGenes.stream()

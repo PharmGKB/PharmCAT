@@ -452,7 +452,7 @@
               </thead>
               <tbody>
               {{#each variantReports}}
-                <tr>
+                <tr style="vertical-align: initial;">
                   <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
                   <td id="{{dbSnpId}}">{{dbSnpId}}</td>
                   {{#if missing}}
@@ -465,12 +465,20 @@
                     {{{wildtypeAllele this}}}
                   </td>
                   <td>
-                    {{#each alleles}}{{this}} {{/each}}
+                    {{#if (thereAre alleles) }}
+                      <ul class="noBullet mt-0 mb-0">
+                        {{#each alleles}}
+                          <li>{{amdAlleleFunction functionMap geneDisplay this}}</li>
+                        {{/each}}
+                      </ul>
+                    {{/if}}
                   </td>
                   <td>
-                    <ul class="warningList">
-                      {{#each warnings}}<li>{{this}}</li>{{/each}}
-                    </ul>
+                    {{#if (thereAre warnings) }}
+                      <ul class="warningList">
+                        {{#each warnings}}<li>{{this}}</li>{{/each}}
+                      </ul>
+                    {{/if}}
                   </td>
                 </tr>
               {{/each}}

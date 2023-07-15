@@ -25,6 +25,7 @@ import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.html.Recommendation;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
@@ -167,6 +168,7 @@ public class HtmlFormat extends AbstractFormat {
     List<Map<String, Object>> summaries = new ArrayList<>();
     List<GeneReport> geneReports = new ArrayList<>();
     Multimap<String, Map<String, Object>> geneSummariesByDrug = HashMultimap.create();
+    Map<String, Map<String, String>> functionMap = new HashMap<>();
     for (String symbol : genes) {
       if (noDataGenes.contains(symbol)) {
         continue;
@@ -193,6 +195,16 @@ public class HtmlFormat extends AbstractFormat {
       ((Set<String>)geneSummary.get("relatedDrugs"))
           .forEach(d -> geneSummariesByDrug.put(d, geneSummary));
       geneReports.add(reports.first());
+
+      // CPIC gets sorted first, this will pick CPIC over DPWG
+      for (GeneReport gr : reports) {
+        GenePhenotype genePhenotype = getEnv().getPhenotype(symbol, gr.getPhenotypeSource());
+        if (genePhenotype == null) {
+          continue;
+        }
+        functionMap.put(symbol, genePhenotype.getHaplotypes());
+        break;
+      }
     }
     result.put("genes", genes);
     result.put("noDataGenes", noDataGenes);
@@ -210,6 +222,7 @@ public class HtmlFormat extends AbstractFormat {
         .toList());
     // Section III
     result.put("geneReports", geneReports);
+    result.put("functionMap", functionMap);
 
     // Section II: Prescribing Recommendations
     SortedMap<String, Map<DataSource, DrugReport>> drugReports = new TreeMap<>();
