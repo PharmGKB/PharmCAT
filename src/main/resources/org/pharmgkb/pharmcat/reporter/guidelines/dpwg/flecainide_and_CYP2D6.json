@@ -3,7 +3,7 @@
     "id": "PA166104969",
     "name": "Annotation of DPWG Guideline for flecainide and CYP2D6",
     "source": "DPWG",
-    "version": 27,
+    "version": 29,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104969",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451418715,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451418716,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451418717,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451418718,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451418721,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

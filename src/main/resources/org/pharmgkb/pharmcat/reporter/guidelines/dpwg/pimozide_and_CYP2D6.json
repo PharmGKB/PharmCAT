@@ -3,7 +3,7 @@
     "id": "PA166182819",
     "name": "Annotation of DPWG Guideline for pimozide and CYP2D6",
     "source": "DPWG",
-    "version": 11,
+    "version": 14,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451420799,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420800,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451420801,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420802,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451420805,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -437,40 +437,6 @@
       }
     },
     {
-      "id": "PA166241122",
-      "name": "Normal Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV 2)",
-        "CYP2D6:Decreased function/Normal function",
-        "CYP2D6:Increased function (AV 2)/No function",
-        "CYP2D6:Normal function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420846,
-        "html": "<p>Normal Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420847,
-        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
-      },
-      "implications": {
-        "id": 1451420845,
-        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420844,
-        "html": "<p>1.5-2.5</p>\n"
-      }
-    },
-    {
       "id": "PA166241101",
       "name": "Poor Metabolizer",
       "strength": {
@@ -518,23 +484,81 @@
         "CYP2D6:No function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1452057766,
+        "id": 1452063490,
         "html": "<p>Intermediate Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1452057767,
+        "id": 1452063491,
         "html": "<p>Use no more than the following doses (80% of the normal maximum dose):\n12 years and older: 16 mg/day\nyounger than 12 years: 0.08 mg/kg per day to a maximum of 3 mg/day</p>\n"
       },
       "implications": {
-        "id": 1452057765,
+        "id": 1452063489,
         "html": "<p>The risk of QT-prolongation – and thereby also the risk of torsade de points – is theoretically increased, because the genetic variation results in an increase in the plasma concentration of pimozide. The elevated plasma concentration and associated theoretical increased risk of QT elongation can be negated by following the dose recommendations provided below.</p>\n"
       },
       "activityScore": {
-        "id": 1452057764,
-        "html": "<p>0.5-1</p>\n"
+        "id": 1452063488,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166241122",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV 2)",
+        "CYP2D6:Decreased function/Normal function",
+        "CYP2D6:Increased function (AV 2)/No function",
+        "CYP2D6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063486,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063487,
+        "html": "<p>The guideline does not provide a recommendation for pimozide in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1452063485,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on pimozide.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063484,
+        "html": "<p>1.25-2.5</p>\n"
       }
     }
   ],
-  "citations": [],
-  "version": "2023-04-05-11-38"
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    }
+  ],
+  "version": "2023-06-05-00-25"
 }

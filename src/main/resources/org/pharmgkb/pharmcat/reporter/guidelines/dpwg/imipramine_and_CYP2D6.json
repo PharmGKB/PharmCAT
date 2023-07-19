@@ -3,7 +3,7 @@
     "id": "PA166104972",
     "name": "Annotation of DPWG Guideline for imipramine and CYP2D6",
     "source": "DPWG",
-    "version": 28,
+    "version": 30,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104972",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451420234,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420235,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451420236,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420237,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451420240,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -559,5 +559,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

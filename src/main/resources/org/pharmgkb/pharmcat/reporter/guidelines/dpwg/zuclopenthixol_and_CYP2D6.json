@@ -3,7 +3,7 @@
     "id": "PA166104992",
     "name": "Annotation of DPWG Guideline for zuclopenthixol and CYP2D6",
     "source": "DPWG",
-    "version": 28,
+    "version": 31,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104992",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451421354,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451421355,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451421356,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451421357,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451421360,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -400,6 +400,70 @@
   },
   "annotationGroups": [
     {
+      "id": "PA166241321",
+      "name": "Poor Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:No function/No function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452057802,
+        "html": "<p>Poor Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452057803,
+        "html": "<p>Use 50% of the normal dose.</p>\n"
+      },
+      "implications": {
+        "id": 1452057801,
+        "html": "<p>The risk of side effects may be elevated. The genetic variation results in a decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.6-fold higher.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452057800,
+        "html": "<p>0</p>\n"
+      }
+    },
+    {
+      "id": "PA166241341",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063526,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063527,
+        "html": "<p>Use 75% of the normal dose.</p>\n"
+      },
+      "implications": {
+        "id": 1452063525,
+        "html": "<p>The risk of side effects may be elevated. The genetic variation leads to decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.35-fold higher.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063524,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
       "id": "PA166241342",
       "name": "Normal Metabolizer",
       "strength": {
@@ -417,20 +481,20 @@
         "CYP2D6:Normal function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451421406,
+        "id": 1452063542,
         "html": "<p>Normal Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451421407,
+        "id": 1452063543,
         "html": "<p>The guideline does not provide a recommendation for zuclopenthixol in normal metabolizers.</p>\n"
       },
       "implications": {
-        "id": 1451421405,
+        "id": 1452063541,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on zuclopenthixol.</p>\n"
       },
       "activityScore": {
-        "id": 1451421404,
-        "html": "<p>1.5-2.5</p>\n"
+        "id": 1452063540,
+        "html": "<p>1.25-2.5</p>\n"
       }
     },
     {
@@ -454,88 +518,47 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451723427,
+        "id": 1452063522,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451723428,
-        "html": "<p>There is insufficient information available to make a dosage recommendation. - if the effectiveness is insufficient: try a dose increase Do not exceed 1.5 times the standard dose.</p>\n"
+        "id": 1452063523,
+        "html": "<p>There is insufficient information available to make a dosage recommendation. - if the effectiveness is insufficient: try a dose increase Do not exceed 1.5 times the normal dose.</p>\n"
       },
       "implications": {
-        "id": 1451723426,
+        "id": 1452063521,
         "html": "<p>The risk of ineffectiveness may be elevated. genetic variation leads to an increased conversion of zuclopentixol, which can result in a reduction of the plasma concentration.</p>\n"
       },
       "activityScore": {
-        "id": 1451723425,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166241321",
-      "name": "Poor Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:No function/No function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451838282,
-        "html": "<p>Poor Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451838283,
-        "html": "<p>Use 50% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451838281,
-        "html": "<p>The risk of side effects may be elevated. The genetic variation results in a decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.6-fold higher.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451838280,
-        "html": "<p>0</p>\n"
-      }
-    },
-    {
-      "id": "PA166241341",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451838286,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451838287,
-        "html": "<p>Use 75% of the standard dose.</p>\n"
-      },
-      "implications": {
-        "id": 1451838285,
-        "html": "<p>The risk of side effects may be elevated. The genetic variation leads to decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.35-fold higher.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451838284,
-        "html": "<p>0.5-1</p>\n"
+        "id": 1452063520,
+        "html": "<p>Total gene activity score ≥2.75</p>\n"
       }
     }
   ],
   "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
     {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
@@ -559,5 +582,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

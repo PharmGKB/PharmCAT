@@ -3,7 +3,7 @@
     "id": "PA166104988",
     "name": "Annotation of DPWG Guideline for haloperidol and CYP2D6",
     "source": "DPWG",
-    "version": 27,
+    "version": 30,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104988",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451420160,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420161,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451420162,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420163,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451420166,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -400,73 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240882",
-      "name": "Normal Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV 2)",
-        "CYP2D6:Decreased function/Normal function",
-        "CYP2D6:Increased function (AV 2)/No function",
-        "CYP2D6:Normal function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420115,
-        "html": "<p>Normal Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420116,
-        "html": "<p>The guideline does not provide a recommendation for haloperidol in normal metabolizers.</p>\n"
-      },
-      "implications": {
-        "id": 1451420114,
-        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on haloperidol.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420113,
-        "html": "<p>1.5-2.5</p>\n"
-      }
-    },
-    {
-      "id": "PA166240901",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451698386,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451698387,
-        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
-      },
-      "implications": {
-        "id": 1451698385,
-        "html": "<p>The genetic variation results in a higher plasma concentration, but the effect is small and no clinically significant effects were found.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451698384,
-        "html": "<p>0.5-1</p>\n"
-      }
-    },
-    {
       "id": "PA166240881",
       "name": "Poor Metabolizer",
       "strength": {
@@ -498,6 +431,73 @@
       }
     },
     {
+      "id": "PA166240882",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV 2)",
+        "CYP2D6:Decreased function/Normal function",
+        "CYP2D6:Increased function (AV 2)/No function",
+        "CYP2D6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063466,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063467,
+        "html": "<p>The guideline does not provide a recommendation for haloperidol in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1452063465,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on haloperidol.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063464,
+        "html": "<p>1.25-2.5</p>\n"
+      }
+    },
+    {
+      "id": "PA166240901",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063482,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063483,
+        "html": "<p>NO action is required for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1452063481,
+        "html": "<p>The genetic variation results in a higher plasma concentration, but the effect is small and no clinically significant effects were found.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063480,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
       "id": "PA166240902",
       "name": "Ultrarapid Metabolizer",
       "strength": {
@@ -518,24 +518,47 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1452057602,
+        "id": 1452063470,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1452057603,
+        "id": 1452063471,
         "html": "<p>Use 1.5 times the normal dose or choose an alternative. Antipsychotics that are not metabolised by CYP2D6 - or to a much lesser extent - include, for example, flupentixol, penfluridol, quetiapine, olanzapine or clozapine.</p>\n"
       },
       "implications": {
-        "id": 1452057601,
+        "id": 1452063469,
         "html": "<p>There are indications of a risk of reduced effectiveness. The genetic variation leads to an increased conversion of haloperidol, resulting in a plasma concentration that is\napproximately 40% lower.</p>\n"
       },
       "activityScore": {
-        "id": 1452057600,
-        "html": "<p>Total gene activity score ≥3</p>\n"
+        "id": 1452063468,
+        "html": "<p>Total gene activity score ≥2.75</p>\n"
       }
     }
   ],
   "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
     {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
@@ -559,5 +582,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

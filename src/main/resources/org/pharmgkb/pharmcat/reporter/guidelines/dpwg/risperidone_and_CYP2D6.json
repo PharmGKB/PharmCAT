@@ -3,7 +3,7 @@
     "id": "PA166104943",
     "name": "Annotation of DPWG Guideline for risperidone and CYP2D6",
     "source": "DPWG",
-    "version": 32,
+    "version": 35,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104943",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451420977,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420978,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451420979,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451420980,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451420983,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -400,110 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166241161",
-      "name": "Normal Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV 2)",
-        "CYP2D6:Decreased function/Normal function",
-        "CYP2D6:Increased function (AV 2)/No function",
-        "CYP2D6:Normal function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451421003,
-        "html": "<p>Normal Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451421004,
-        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
-      },
-      "implications": {
-        "id": 1451421002,
-        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451421001,
-        "html": "<p>1.5-2.5</p>\n"
-      }
-    },
-    {
-      "id": "PA166241147",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451420952,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451420953,
-        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
-      },
-      "implications": {
-        "id": 1451420951,
-        "html": "<p>There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451420950,
-        "html": "<p>0.5-1</p>\n"
-      }
-    },
-    {
-      "id": "PA166241181",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "Yes",
-        "termId": "rxChange:1448602497"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451837218,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451837219,
-        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
-      },
-      "implications": {
-        "id": 1451837217,
-        "html": "<p>The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451837216,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166241146",
       "name": "Poor Metabolizer",
       "strength": {
@@ -533,9 +429,136 @@
         "id": 1452057781,
         "html": "<p>0</p>\n"
       }
+    },
+    {
+      "id": "PA166241147",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063474,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063475,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": {
+        "id": 1452063473,
+        "html": "<p>There is little evidence to support an increase in side effects caused by the gene variation. The gene variation may lead to a decrease in the required maintenance dose. However, as the effect on the dose is smaller than that of the normal biological variation, action is not useful.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063472,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166241161",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV 2)",
+        "CYP2D6:Decreased function/Normal function",
+        "CYP2D6:Increased function (AV 2)/No function",
+        "CYP2D6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063478,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063479,
+        "html": "<p>The guideline does not provide a recommendation for risperidone in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1452063477,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on risperidone.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063476,
+        "html": "<p>1.25-2.5</p>\n"
+      }
+    },
+    {
+      "id": "PA166241181",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "Yes",
+        "termId": "rxChange:1448602497"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063502,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063503,
+        "html": "<p>Choose an alternative or titrate the dose according to the maximum dose for the active metabolite (paliperidone) (oral 12 mg/day for adults and children from 15 years of age weighing at least 51 kg and 6 mg/day for children from 15 years of age weighing less than 51 kg; intramuscular 75 mg per 2 weeks).</p>\n"
+      },
+      "implications": {
+        "id": 1452063501,
+        "html": "<p>The percentage of patients with therapy failure increases from 16% to 37%. The gene variation leads to a high ratio of the active metabolite (9-hydroxyrisperidone (paliperidone)) compared to risperidone, which crosses the blood-brain barrier more effectively.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063500,
+        "html": "<p>Total gene activity score ≥2.75</p>\n"
+      }
     }
   ],
   "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
     {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
@@ -559,5 +582,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

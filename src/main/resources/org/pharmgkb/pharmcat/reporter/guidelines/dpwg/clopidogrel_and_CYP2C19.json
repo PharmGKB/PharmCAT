@@ -3,7 +3,7 @@
     "id": "PA166104956",
     "name": "Annotation of DPWG Guideline for clopidogrel and CYP2C19",
     "source": "DPWG",
-    "version": 29,
+    "version": 30,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104956",
     "relatedChemicals": [
       {
@@ -189,34 +189,6 @@
       "activityScore": null
     },
     {
-      "id": "PA166240383",
-      "name": "UM",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2C19:Increased function/Increased function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417320,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417321,
-        "html": "<p>The genetic variation results in increased conversion of clopidogrel to the active metabolite. However, this can result in both positive effects (reduction in the risk of serious cardiovascular and cerebrovascular events) and negative effects (increase in the risk of bleeding).</p>\n"
-      },
-      "implications": {
-        "id": 1451417299,
-        "html": "<p>NO action is required for this gene-drug interaction</p>\n"
-      },
-      "activityScore": null
-    },
-    {
       "id": "PA166240384",
       "name": "NM",
       "strength": {
@@ -242,6 +214,34 @@
       "implications": {
         "id": 1451417324,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on clopidogrel.</p>\n"
+      },
+      "activityScore": null
+    },
+    {
+      "id": "PA166240383",
+      "name": "UM",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2C19:Increased function/Increased function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452091661,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452091662,
+        "html": "<p>NO action is required for this gene-drug interaction</p>\n"
+      },
+      "implications": {
+        "id": 1452091660,
+        "html": "<p>The genetic variation results in increased conversion of clopidogrel to the active metabolite. However, this can result in both positive effects (reduction in the risk of serious cardiovascular and cerebrovascular events) and negative effects (increase in the risk of bleeding).</p>\n"
       },
       "activityScore": null
     }
@@ -270,5 +270,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

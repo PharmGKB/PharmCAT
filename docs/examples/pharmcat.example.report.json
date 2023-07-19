@@ -1,15 +1,15 @@
 {
   "title": "pharmcat.example",
-  "timestamp": "Jun 12, 2023, 2:45:36 AM",
-  "pharmcatVersion": "v2.4.0-22-g4daeec06",
-  "cpicVersion": "v1.26.0",
-  "dpwgVersion": "2023-04-05-11-38",
+  "timestamp": "Jul 19, 2023, 3:36:55 PM",
+  "pharmcatVersion": "v2.5.0-20-g57b2bd81",
+  "cpicVersion": "v1.28.0",
+  "dpwgVersion": "2023-06-05-00-25",
   "genes": {
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -114,9 +114,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -267,9 +267,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CFTR": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -906,9 +906,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1709,9 +1709,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2406,9 +2406,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3691,7 +3691,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3865,9 +3865,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -4051,7 +4051,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -4328,9 +4328,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -5657,9 +5657,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "G6PD": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -8583,7 +8583,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -8704,7 +8704,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8838,9 +8838,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -9188,9 +9188,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "RYR1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -9933,9 +9933,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -10559,9 +10559,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -11289,9 +11289,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "v1.26.0",
+        "phenotypeVersion": "v1.28.0",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -11467,7 +11467,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -11584,9 +11584,9 @@
     },
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -11691,9 +11691,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -12490,9 +12490,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -13171,9 +13171,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -14424,7 +14424,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -14610,9 +14610,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2023-04-05-11-38",
+        "alleleDefinitionVersion": "2023-06-05-00-25",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -15180,9 +15180,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -15366,9 +15366,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -16703,15 +16703,15 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "F5": {
-        "alleleDefinitionVersion": "2023-04-05-11-38",
-        "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "alleleDefinitionVersion": null,
+        "alleleDefinitionSource": "UNKNOWN",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "F5",
-        "chr": "chr1",
+        "chr": null,
         "phased": false,
-        "effectivelyPhased": true,
-        "callSource": "MATCHER",
+        "effectivelyPhased": false,
+        "callSource": "NONE",
         "uncalledHaplotypes": [],
         "messages": [],
         "relatedDrugs": [
@@ -16724,21 +16724,21 @@
           {
             "allele1": {
               "gene": "F5",
-              "name": "rs6025 C",
-              "function": "Factor V Leiden negative",
-              "reference": true,
-              "activityValue": "n/a"
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
             },
             "allele2": {
               "gene": "F5",
-              "name": "rs6025 C",
-              "function": "Factor V Leiden negative",
-              "reference": true,
-              "activityValue": "n/a"
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
             },
             "gene": "F5",
             "phenotypes": [
-              "Factor V Leiden absent"
+              "No Result"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -16747,9 +16747,9 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "Factor V Leiden absent"
+              "No Result"
             ],
-            "label": "rs6025 C/rs6025 C",
+            "label": "Unknown/Unknown",
             "inferred": false,
             "combination": false
           }
@@ -16759,21 +16759,21 @@
           {
             "allele1": {
               "gene": "F5",
-              "name": "rs6025 C",
-              "function": "Factor V Leiden negative",
-              "reference": true,
-              "activityValue": "n/a"
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
             },
             "allele2": {
               "gene": "F5",
-              "name": "rs6025 C",
-              "function": "Factor V Leiden negative",
-              "reference": true,
-              "activityValue": "n/a"
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
             },
             "gene": "F5",
             "phenotypes": [
-              "Factor V Leiden absent"
+              "No Result"
             ],
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
@@ -16782,29 +16782,14 @@
             "outsideActivityScoreMismatch": null,
             "variant": null,
             "lookupKey": [
-              "Factor V Leiden absent"
+              "No Result"
             ],
-            "label": "rs6025 C/rs6025 C",
+            "label": "Unknown/Unknown",
             "inferred": false,
             "combination": false
           }
         ],
-        "variants": [
-          {
-            "gene": "F5",
-            "chromosome": "chr1",
-            "position": 169549811,
-            "dbSnpId": "rs6025",
-            "call": "C/C",
-            "alleles": [
-              "rs6025 T (Factor V Leiden)"
-            ],
-            "phased": false,
-            "wildtypeAllele": "C",
-            "hasUndocumentedVariations": false,
-            "warnings": []
-          }
-        ],
+        "variants": [],
         "variantsOfInterest": [],
         "hasUndocumentedVariations": false,
         "treatUndocumentedVariationsAsReference": false
@@ -17004,9 +16989,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -17354,9 +17339,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -17960,9 +17945,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -18690,9 +18675,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -18868,9 +18853,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.26.0",
+        "alleleDefinitionVersion": "v1.28.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-04-05-11-38",
+        "phenotypeVersion": "2023-06-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
@@ -19006,7 +18991,7 @@
         "name": "abacavir",
         "id": "RxNorm:190521",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19051,7 +19036,7 @@
             "id": "RxNorm:190521",
             "name": "HLA-B and Abacavir",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-abacavir-and-hla-b/",
             "annotations": [
               {
@@ -19117,7 +19102,7 @@
         "name": "allopurinol",
         "id": "RxNorm:519",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19166,7 +19151,7 @@
             "id": "RxNorm:519",
             "name": "HLA-B and Allopurinol",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-allopurinol-and-hla-b/",
             "annotations": [
               {
@@ -19232,7 +19217,7 @@
         "name": "amikacin",
         "id": "RxNorm:641",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19265,7 +19250,7 @@
             "id": "RxNorm:641",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -19323,7 +19308,7 @@
         "name": "aminosalicylic acid",
         "id": "RxNorm:7833",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -19408,7 +19393,7 @@
             "id": "RxNorm:7833",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -19472,7 +19457,7 @@
         "name": "amitriptyline",
         "id": "RxNorm:704",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19525,7 +19510,7 @@
             "id": "RxNorm:704",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -19626,7 +19611,7 @@
         "name": "aspirin",
         "id": "RxNorm:1191",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -19711,7 +19696,7 @@
             "id": "RxNorm:1191",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -19775,7 +19760,7 @@
         "name": "atazanavir",
         "id": "RxNorm:343047",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19811,7 +19796,7 @@
             "id": "RxNorm:343047",
             "name": "UGT1A1 and Atazanavir",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-atazanavir-and-ugt1a1/",
             "annotations": [
               {
@@ -19877,7 +19862,7 @@
         "name": "atomoxetine",
         "id": "RxNorm:38400",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19910,7 +19895,7 @@
             "id": "RxNorm:38400",
             "name": "CYP2D6 and Atomoxetine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-atomoxetine-based-on-cyp2d6-genotype/",
             "annotations": [
               {
@@ -20031,7 +20016,7 @@
         "name": "atorvastatin",
         "id": "RxNorm:83367",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -20143,7 +20128,7 @@
             "id": "RxNorm:83367",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -20207,7 +20192,7 @@
         "name": "azathioprine",
         "id": "RxNorm:1256",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20281,7 +20266,7 @@
             "id": "RxNorm:1256",
             "name": "TPMT, NUDT15 and Thiopurines",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/",
             "annotations": [
               {
@@ -20382,7 +20367,7 @@
         "name": "capecitabine",
         "id": "RxNorm:194000",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -20450,7 +20435,7 @@
             "id": "RxNorm:194000",
             "name": "DPYD and Fluoropyrimidines",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/",
             "annotations": [
               {
@@ -20516,7 +20501,7 @@
         "name": "carbamazepine",
         "id": "RxNorm:2002",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20569,7 +20554,7 @@
             "id": "RxNorm:2002",
             "name": "HLA-A, HLA-B and Carbamazepine and Oxcarbazepine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/",
             "annotations": []
           }
@@ -20579,7 +20564,7 @@
         "name": "celecoxib",
         "id": "RxNorm:140587",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20609,7 +20594,7 @@
             "id": "RxNorm:140587",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -20675,7 +20660,7 @@
         "name": "chloramphenicol",
         "id": "RxNorm:2348",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -20760,7 +20745,7 @@
             "id": "RxNorm:2348",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -20824,7 +20809,7 @@
         "name": "chloroquine",
         "id": "RxNorm:2393",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -20909,7 +20894,7 @@
             "id": "RxNorm:2393",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -20973,7 +20958,7 @@
         "name": "ciprofloxacin",
         "id": "RxNorm:2551",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -21058,7 +21043,7 @@
             "id": "RxNorm:2551",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -21122,7 +21107,7 @@
         "name": "citalopram",
         "id": "RxNorm:2556",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21161,7 +21146,7 @@
             "id": "RxNorm:2556",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -21227,7 +21212,7 @@
         "name": "clomipramine",
         "id": "RxNorm:2597",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21280,7 +21265,7 @@
             "id": "RxNorm:2597",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -21381,7 +21366,7 @@
         "name": "clopidogrel",
         "id": "RxNorm:32968",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21454,7 +21439,7 @@
             "id": "RxNorm:32968",
             "name": "CYP2C19 and Clopidogrel",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-clopidogrel-and-cyp2c19/",
             "annotations": [
               {
@@ -21624,7 +21609,7 @@
         "name": "codeine",
         "id": "RxNorm:2670",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21703,7 +21688,7 @@
             "id": "RxNorm:2670",
             "name": "CYP2D6, OPRM1, COMT, and Opioids",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
             "annotations": [
               {
@@ -21769,7 +21754,7 @@
         "name": "dapsone",
         "id": "RxNorm:3108",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -21854,7 +21839,7 @@
             "id": "RxNorm:3108",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -21918,7 +21903,7 @@
         "name": "desflurane",
         "id": "RxNorm:27340",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -21978,7 +21963,7 @@
             "id": "RxNorm:27340",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -22079,7 +22064,7 @@
         "name": "desipramine",
         "id": "RxNorm:3247",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22132,7 +22117,7 @@
             "id": "RxNorm:3247",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -22198,7 +22183,7 @@
         "name": "dexlansoprazole",
         "id": "RxNorm:816346",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22239,7 +22224,7 @@
             "id": "RxNorm:816346",
             "name": "CYP2C19 and Proton Pump Inhibitors",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-proton-pump-inhibitors-and-cyp2c19/",
             "annotations": [
               {
@@ -22305,7 +22290,7 @@
         "name": "dibekacin",
         "id": "RxNorm:3328",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22338,7 +22323,7 @@
             "id": "RxNorm:3328",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -22396,7 +22381,7 @@
         "name": "dimercaprol",
         "id": "RxNorm:3445",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -22481,7 +22466,7 @@
             "id": "RxNorm:3445",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -22545,7 +22530,7 @@
         "name": "doxepin",
         "id": "RxNorm:3638",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22598,7 +22583,7 @@
             "id": "RxNorm:3638",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -22699,7 +22684,7 @@
         "name": "doxorubicin",
         "id": "RxNorm:3639",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -22784,7 +22769,7 @@
             "id": "RxNorm:3639",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -22848,7 +22833,7 @@
         "name": "efavirenz",
         "id": "RxNorm:195085",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22886,7 +22871,7 @@
             "id": "RxNorm:195085",
             "name": "CYP2B6 and efavirenz",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-efavirenz-based-on-cyp2b6-genotype/",
             "annotations": [
               {
@@ -22952,7 +22937,7 @@
         "name": "enflurane",
         "id": "RxNorm:3920",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -23012,7 +22997,7 @@
             "id": "RxNorm:3920",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -23113,7 +23098,7 @@
         "name": "escitalopram",
         "id": "RxNorm:321988",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23152,7 +23137,7 @@
             "id": "RxNorm:321988",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -23218,7 +23203,7 @@
         "name": "fluorouracil",
         "id": "RxNorm:4492",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -23286,7 +23271,7 @@
             "id": "RxNorm:4492",
             "name": "DPYD and Fluoropyrimidines",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-fluoropyrimidines-and-dpyd/",
             "annotations": [
               {
@@ -23352,7 +23337,7 @@
         "name": "flurbiprofen",
         "id": "RxNorm:4502",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23382,7 +23367,7 @@
             "id": "RxNorm:4502",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -23448,7 +23433,7 @@
         "name": "fluvastatin",
         "id": "RxNorm:41127",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -23560,7 +23545,7 @@
             "id": "RxNorm:41127",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -23660,7 +23645,7 @@
         "name": "fluvoxamine",
         "id": "RxNorm:42355",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23699,7 +23684,7 @@
             "id": "RxNorm:42355",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -23765,7 +23750,7 @@
         "name": "fosphenytoin",
         "id": "RxNorm:72236",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -23836,7 +23821,7 @@
             "id": "RxNorm:72236",
             "name": "CYP2C9, HLA-B and Phenytoin",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/",
             "annotations": [
               {
@@ -24031,7 +24016,7 @@
         "name": "furazolidone",
         "id": "RxNorm:4601",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -24116,7 +24101,7 @@
             "id": "RxNorm:4601",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -24180,7 +24165,7 @@
         "name": "gentamicin",
         "id": "ATC:D06AX07",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24213,7 +24198,7 @@
             "id": "ATC:D06AX07",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -24271,7 +24256,7 @@
         "name": "glyburide",
         "id": "RxNorm:4815",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -24356,7 +24341,7 @@
             "id": "RxNorm:4815",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -24420,7 +24405,7 @@
         "name": "halothane",
         "id": "RxNorm:5095",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -24480,7 +24465,7 @@
             "id": "RxNorm:5095",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -24581,7 +24566,7 @@
         "name": "hydrocodone",
         "id": "RxNorm:5489",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24660,7 +24645,7 @@
             "id": "RxNorm:5489",
             "name": "CYP2D6, OPRM1, COMT, and Opioids",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
             "annotations": [
               {
@@ -24726,7 +24711,7 @@
         "name": "hydroxychloroquine",
         "id": "RxNorm:5521",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -24811,7 +24796,7 @@
             "id": "RxNorm:5521",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -24875,7 +24860,7 @@
         "name": "ibuprofen",
         "id": "RxNorm:5640",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24905,7 +24890,7 @@
             "id": "RxNorm:5640",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -24971,7 +24956,7 @@
         "name": "imipramine",
         "id": "RxNorm:5691",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25024,7 +25009,7 @@
             "id": "RxNorm:5691",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -25125,7 +25110,7 @@
         "name": "isoflurane",
         "id": "RxNorm:6026",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -25185,7 +25170,7 @@
             "id": "RxNorm:6026",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -25286,7 +25271,7 @@
         "name": "ivacaftor",
         "id": "RxNorm:1243041",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25315,7 +25300,7 @@
             "id": "RxNorm:1243041",
             "name": "CFTR and Ivacaftor",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-ivacaftor-and-cftr/",
             "annotations": [
               {
@@ -25381,7 +25366,7 @@
         "name": "kanamycin",
         "id": "RxNorm:6099",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25414,7 +25399,7 @@
             "id": "RxNorm:6099",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -25472,7 +25457,7 @@
         "name": "lansoprazole",
         "id": "RxNorm:17128",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25513,7 +25498,7 @@
             "id": "RxNorm:17128",
             "name": "CYP2C19 and Proton Pump Inhibitors",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-proton-pump-inhibitors-and-cyp2c19/",
             "annotations": [
               {
@@ -25579,7 +25564,7 @@
         "name": "lornoxicam",
         "id": "RxNorm:20890",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25609,7 +25594,7 @@
             "id": "RxNorm:20890",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -25675,7 +25660,7 @@
         "name": "lovastatin",
         "id": "RxNorm:6472",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -25787,7 +25772,7 @@
             "id": "RxNorm:6472",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -25851,7 +25836,7 @@
         "name": "mafenide",
         "id": "RxNorm:6572",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -25936,7 +25921,7 @@
             "id": "RxNorm:6572",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -26000,7 +25985,7 @@
         "name": "meloxicam",
         "id": "RxNorm:41493",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26030,7 +26015,7 @@
             "id": "RxNorm:41493",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -26096,7 +26081,7 @@
         "name": "mercaptopurine",
         "id": "RxNorm:103",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26170,7 +26155,7 @@
             "id": "RxNorm:103",
             "name": "TPMT, NUDT15 and Thiopurines",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/",
             "annotations": [
               {
@@ -26271,7 +26256,7 @@
         "name": "methoxyflurane",
         "id": "RxNorm:6857",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -26331,7 +26316,7 @@
             "id": "RxNorm:6857",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -26432,7 +26417,7 @@
         "name": "methylene blue",
         "id": "RxNorm:6878",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -26517,7 +26502,7 @@
             "id": "RxNorm:6878",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -26581,7 +26566,7 @@
         "name": "nalidixic acid",
         "id": "RxNorm:7240",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -26666,7 +26651,7 @@
             "id": "RxNorm:7240",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -26730,7 +26715,7 @@
         "name": "neomycin",
         "id": "RxNorm:7299",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26763,7 +26748,7 @@
             "id": "RxNorm:7299",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -26821,7 +26806,7 @@
         "name": "netilmicin",
         "id": "RxNorm:7337",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26854,7 +26839,7 @@
             "id": "RxNorm:7337",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -26912,7 +26897,7 @@
         "name": "nitrofurantoin",
         "id": "RxNorm:7454",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -26997,7 +26982,7 @@
             "id": "RxNorm:7454",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -27061,7 +27046,7 @@
         "name": "norfloxacin",
         "id": "RxNorm:7517",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -27146,7 +27131,7 @@
             "id": "RxNorm:7517",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -27210,7 +27195,7 @@
         "name": "nortriptyline",
         "id": "RxNorm:7531",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27263,7 +27248,7 @@
             "id": "RxNorm:7531",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -27329,7 +27314,7 @@
         "name": "ofloxacin",
         "id": "RxNorm:7623",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -27414,7 +27399,7 @@
             "id": "RxNorm:7623",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -27478,7 +27463,7 @@
         "name": "omeprazole",
         "id": "RxNorm:7646",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27519,7 +27504,7 @@
             "id": "RxNorm:7646",
             "name": "CYP2C19 and Proton Pump Inhibitors",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-proton-pump-inhibitors-and-cyp2c19/",
             "annotations": [
               {
@@ -27585,7 +27570,7 @@
         "name": "ondansetron",
         "id": "RxNorm:26225",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27617,7 +27602,7 @@
             "id": "RxNorm:26225",
             "name": "CYP2D6 and Ondansetron and Tropisetron",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
             "annotations": [
               {
@@ -27683,7 +27668,7 @@
         "name": "oxcarbazepine",
         "id": "RxNorm:32624",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27736,7 +27721,7 @@
             "id": "RxNorm:32624",
             "name": "HLA-A, HLA-B and Carbamazepine and Oxcarbazepine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-carbamazepine-and-hla-b/",
             "annotations": [
               {
@@ -27859,7 +27844,7 @@
         "name": "pantoprazole",
         "id": "RxNorm:40790",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27900,7 +27885,7 @@
             "id": "RxNorm:40790",
             "name": "CYP2C19 and Proton Pump Inhibitors",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-proton-pump-inhibitors-and-cyp2c19/",
             "annotations": [
               {
@@ -27966,7 +27951,7 @@
         "name": "paromomycin",
         "id": "RxNorm:7934",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27999,7 +27984,7 @@
             "id": "RxNorm:7934",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -28057,7 +28042,7 @@
         "name": "paroxetine",
         "id": "RxNorm:32937",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28096,7 +28081,7 @@
             "id": "RxNorm:32937",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -28162,7 +28147,7 @@
         "name": "peginterferon alfa-2a",
         "id": "RxNorm:120608",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28191,7 +28176,7 @@
             "id": "RxNorm:120608",
             "name": "IFNL3 and Peginterferon-alpha-based Regimens",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-peg-interferon-alpha-based-regimens-and-ifnl3/",
             "annotations": []
           }
@@ -28201,7 +28186,7 @@
         "name": "peginterferon alfa-2b",
         "id": "RxNorm:253453",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28230,7 +28215,7 @@
             "id": "RxNorm:253453",
             "name": "IFNL3 and Peginterferon-alpha-based Regimens",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-peg-interferon-alpha-based-regimens-and-ifnl3/",
             "annotations": []
           }
@@ -28240,7 +28225,7 @@
         "name": "pegloticase",
         "id": "RxNorm:1011650",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -28325,7 +28310,7 @@
             "id": "RxNorm:1011650",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -28389,7 +28374,7 @@
         "name": "phenazopyridine",
         "id": "RxNorm:8120",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -28474,7 +28459,7 @@
             "id": "RxNorm:8120",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -28538,7 +28523,7 @@
         "name": "phenytoin",
         "id": "RxNorm:8183",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -28609,7 +28594,7 @@
             "id": "RxNorm:8183",
             "name": "CYP2C9, HLA-B and Phenytoin",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-phenytoin-and-cyp2c9-and-hla-b/",
             "annotations": [
               {
@@ -28804,7 +28789,7 @@
         "name": "piroxicam",
         "id": "RxNorm:8356",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28834,7 +28819,7 @@
             "id": "RxNorm:8356",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -28900,7 +28885,7 @@
         "name": "pitavastatin",
         "id": "RxNorm:861634",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -29012,7 +28997,7 @@
             "id": "RxNorm:861634",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -29076,7 +29061,7 @@
         "name": "plazomicin",
         "id": "RxNorm:2049549",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29109,7 +29094,7 @@
             "id": "RxNorm:2049549",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -29167,7 +29152,7 @@
         "name": "pravastatin",
         "id": "RxNorm:42463",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -29279,7 +29264,7 @@
             "id": "RxNorm:42463",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -29343,7 +29328,7 @@
         "name": "primaquine",
         "id": "RxNorm:8687",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -29428,7 +29413,7 @@
             "id": "RxNorm:8687",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -29492,7 +29477,7 @@
         "name": "quinine",
         "id": "RxNorm:9071",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -29577,7 +29562,7 @@
             "id": "RxNorm:9071",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -29641,7 +29626,7 @@
         "name": "rasburicase",
         "id": "RxNorm:283821",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -29726,7 +29711,7 @@
             "id": "RxNorm:283821",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -29790,7 +29775,7 @@
         "name": "ribostamycin",
         "id": "RxNorm:NA",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29823,7 +29808,7 @@
             "id": "RxNorm:NA",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -29881,7 +29866,7 @@
         "name": "rosuvastatin",
         "id": "RxNorm:301542",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -29993,7 +29978,7 @@
             "id": "RxNorm:301542",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -30091,7 +30076,7 @@
         "name": "sertraline",
         "id": "RxNorm:36437",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30130,7 +30115,7 @@
             "id": "RxNorm:36437",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -30231,7 +30216,7 @@
         "name": "sevoflurane",
         "id": "RxNorm:36453",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -30291,7 +30276,7 @@
             "id": "RxNorm:36453",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -30392,7 +30377,7 @@
         "name": "simvastatin",
         "id": "RxNorm:36567",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -30504,7 +30489,7 @@
             "id": "RxNorm:36567",
             "name": "SLCO1B1, ABCG2, CYP2C9, and Statins",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-statins/",
             "annotations": [
               {
@@ -30568,7 +30553,7 @@
         "name": "streptomycin",
         "id": "RxNorm:10109",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30601,7 +30586,7 @@
             "id": "RxNorm:10109",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -30659,7 +30644,7 @@
         "name": "succinylcholine",
         "id": "RxNorm:10154",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -30719,7 +30704,7 @@
             "id": "RxNorm:10154",
             "name": "RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/",
             "annotations": [
               {
@@ -30820,7 +30805,7 @@
         "name": "sulfadiazine",
         "id": "RxNorm:10171",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -30905,7 +30890,7 @@
             "id": "RxNorm:10171",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -30969,7 +30954,7 @@
         "name": "sulfadimidine",
         "id": "RxNorm:10178",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -31054,7 +31039,7 @@
             "id": "RxNorm:10178",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31118,7 +31103,7 @@
         "name": "sulfamethoxazole / trimethoprim",
         "id": "RxNorm:10831",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31152,7 +31137,7 @@
             "id": "RxNorm:10831",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31216,7 +31201,7 @@
         "name": "sulfanilamide",
         "id": "RxNorm:10184",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -31301,7 +31286,7 @@
             "id": "RxNorm:10184",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31365,7 +31350,7 @@
         "name": "sulfasalazine",
         "id": "RxNorm:9524",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -31450,7 +31435,7 @@
             "id": "RxNorm:9524",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31514,7 +31499,7 @@
         "name": "sulfisoxazole",
         "id": "RxNorm:10207",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -31599,7 +31584,7 @@
             "id": "RxNorm:10207",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31663,7 +31648,7 @@
         "name": "tacrolimus",
         "id": "RxNorm:42316",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31700,7 +31685,7 @@
             "id": "RxNorm:42316",
             "name": "CYP3A5 and Tacrolimus",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tacrolimus-and-cyp3a5/",
             "annotations": [
               {
@@ -31766,7 +31751,7 @@
         "name": "tafenoquine",
         "id": "RxNorm:2054023",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -31851,7 +31836,7 @@
             "id": "RxNorm:2054023",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -31915,7 +31900,7 @@
         "name": "tamoxifen",
         "id": "RxNorm:10324",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31951,7 +31936,7 @@
             "id": "RxNorm:10324",
             "name": "CYP2D6 and Tamoxifen",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-tamoxifen-based-on-cyp2d6-genotype/",
             "annotations": [
               {
@@ -32017,7 +32002,7 @@
         "name": "tenoxicam",
         "id": "RxNorm:37790",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32047,7 +32032,7 @@
             "id": "RxNorm:37790",
             "name": "CYP2C9 and NSAIDs",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-nsaids-based-on-cyp2c9-genotype/",
             "annotations": [
               {
@@ -32113,7 +32098,7 @@
         "name": "thioguanine",
         "id": "RxNorm:10485",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32187,7 +32172,7 @@
             "id": "RxNorm:10485",
             "name": "TPMT, NUDT15 and Thiopurines",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-thiopurines-and-tpmt/",
             "annotations": [
               {
@@ -32288,7 +32273,7 @@
         "name": "tobramycin",
         "id": "RxNorm:10627",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32321,7 +32306,7 @@
             "id": "RxNorm:10627",
             "name": "MT-RNR1 and Aminoglycosides",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-aminoglycosides-and-mt-rnr1/",
             "annotations": [
               {
@@ -32379,7 +32364,7 @@
         "name": "tolbutamide",
         "id": "RxNorm:10635",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -32464,7 +32449,7 @@
             "id": "RxNorm:10635",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -32528,7 +32513,7 @@
         "name": "toluidine blue",
         "id": "RxNorm:10638",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -32613,7 +32598,7 @@
             "id": "RxNorm:10638",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -32677,7 +32662,7 @@
         "name": "tramadol",
         "id": "RxNorm:10689",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32756,7 +32741,7 @@
             "id": "RxNorm:10689",
             "name": "CYP2D6, OPRM1, COMT, and Opioids",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-codeine-and-cyp2d6/",
             "annotations": [
               {
@@ -32822,7 +32807,7 @@
         "name": "trimipramine",
         "id": "RxNorm:10834",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32875,7 +32860,7 @@
             "id": "RxNorm:10834",
             "name": "CYP2D6, CYP2C19 and Tricyclic Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-tricyclic-antidepressants-and-cyp2d6-and-cyp2c19/",
             "annotations": [
               {
@@ -32976,7 +32961,7 @@
         "name": "tropisetron",
         "id": "RxNorm:27392",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33008,7 +32993,7 @@
             "id": "RxNorm:27392",
             "name": "CYP2D6 and Ondansetron and Tropisetron",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-ondansetron-and-tropisetron-and-cyp2d6-genotype/",
             "annotations": [
               {
@@ -33074,7 +33059,7 @@
         "name": "venlafaxine",
         "id": "RxNorm:39786",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33113,7 +33098,7 @@
             "id": "RxNorm:39786",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -33179,7 +33164,7 @@
         "name": "vitamin c",
         "id": "RxNorm:1151",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -33264,7 +33249,7 @@
             "id": "RxNorm:1151",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -33328,7 +33313,7 @@
         "name": "vitamin k",
         "id": "RxNorm:11258",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -33413,7 +33398,7 @@
             "id": "RxNorm:11258",
             "name": "G6PD",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-g6pd/",
             "annotations": [
               {
@@ -33477,7 +33462,7 @@
         "name": "voriconazole",
         "id": "RxNorm:121243",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33511,7 +33496,7 @@
             "id": "RxNorm:121243",
             "name": "CYP2C19 and Voriconazole",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-voriconazole-and-cyp2c19/",
             "annotations": [
               {
@@ -33628,7 +33613,7 @@
         "name": "vortioxetine",
         "id": "RxNorm:1455099",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33667,7 +33652,7 @@
             "id": "RxNorm:1455099",
             "name": "CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/cpic-guideline-for-ssri-and-snri-antidepressants/",
             "annotations": [
               {
@@ -33733,7 +33718,7 @@
         "name": "warfarin",
         "id": "RxNorm:11289",
         "source": "CPIC",
-        "version": "v1.26.0",
+        "version": "v1.28.0",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33791,7 +33776,7 @@
             "id": "RxNorm:11289",
             "name": "CYP2C9, VKORC1, CYP4F2 and Warfarin",
             "source": "CPIC",
-            "version": "v1.26.0",
+            "version": "v1.28.0",
             "url": "https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/",
             "annotations": [
               {
@@ -33946,7 +33931,7 @@
         "name": "acenocoumarol",
         "id": "PA452632",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33981,7 +33966,7 @@
             "id": "PA166104938",
             "name": "Annotation of DPWG Guideline for acenocoumarol and VKORC1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104938",
             "annotations": [
               {
@@ -34043,7 +34028,7 @@
         "name": "allopurinol",
         "id": "PA448320",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34079,7 +34064,7 @@
             "id": "PA166264961",
             "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
             "annotations": [
               {
@@ -34141,7 +34126,7 @@
         "name": "amitriptyline",
         "id": "PA448385",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34176,7 +34161,7 @@
             "id": "PA166104982",
             "name": "Annotation of DPWG Guideline for amitriptyline and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104982",
             "annotations": [
               {
@@ -34242,7 +34227,7 @@
         "name": "aripiprazole",
         "id": "PA10026",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34270,6 +34255,29 @@
             ],
             "journal": "Clinical pharmacology and therapeutics",
             "year": 2011
+          },
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
           }
         ],
         "guidelines": [
@@ -34277,7 +34285,7 @@
             "id": "PA166104937",
             "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
             "annotations": [
               {
@@ -34290,7 +34298,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -34343,7 +34351,7 @@
         "name": "atomoxetine",
         "id": "PA134688071",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34401,7 +34409,7 @@
             "id": "PA166104989",
             "name": "Annotation of DPWG Guideline for atomoxetine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104989",
             "annotations": [
               {
@@ -34467,7 +34475,7 @@
         "name": "atorvastatin",
         "id": "PA448500",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -34503,7 +34511,7 @@
             "id": "PA166182843",
             "name": "Annotation of DPWG Guideline for atorvastatin and SLCO1B1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182843",
             "annotations": []
           }
@@ -34513,7 +34521,7 @@
         "name": "azathioprine",
         "id": "PA448515",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34549,7 +34557,7 @@
             "id": "PA166184614",
             "name": "Annotation of DPWG Guideline for azathioprine and NUDT15",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184614",
             "annotations": [
               {
@@ -34611,7 +34619,7 @@
             "id": "PA166104934",
             "name": "Annotation of DPWG Guideline for azathioprine and TPMT",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104934",
             "annotations": [
               {
@@ -34675,19 +34683,43 @@
         "name": "brexpiprazole",
         "id": "PA166160053",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
           "https://www.pharmgkb.org/guidelineAnnotation/PA166184527"
         ],
-        "citations": [],
+        "citations": [
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
+          }
+        ],
         "guidelines": [
           {
             "id": "PA166184527",
             "name": "Annotation of DPWG Guideline for brexpiprazole and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
             "annotations": [
               {
@@ -34700,7 +34732,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -34753,7 +34785,7 @@
         "name": "capecitabine",
         "id": "PA448771",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -34832,7 +34864,7 @@
             "id": "PA166104963",
             "name": "Annotation of DPWG Guideline for capecitabine and DPYD",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104963",
             "annotations": [
               {
@@ -34896,7 +34928,7 @@
         "name": "citalopram",
         "id": "PA449015",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34954,7 +34986,7 @@
             "id": "PA166104977",
             "name": "Annotation of DPWG Guideline for citalopram and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104977",
             "annotations": []
           }
@@ -34964,7 +34996,7 @@
         "name": "clomipramine",
         "id": "PA449048",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35000,7 +35032,7 @@
             "id": "PA166184528",
             "name": "Annotation of DPWG Guideline for clomipramine and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184528",
             "annotations": []
           },
@@ -35008,7 +35040,7 @@
             "id": "PA166104964",
             "name": "Annotation of DPWG Guideline for clomipramine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104964",
             "annotations": [
               {
@@ -35074,7 +35106,7 @@
         "name": "clopidogrel",
         "id": "PA449053",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35109,7 +35141,7 @@
             "id": "PA166104956",
             "name": "Annotation of DPWG Guideline for clopidogrel and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104956",
             "annotations": []
           }
@@ -35119,7 +35151,7 @@
         "name": "codeine",
         "id": "PA449088",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35176,7 +35208,7 @@
             "id": "PA166104970",
             "name": "Annotation of DPWG Guideline for codeine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104970",
             "annotations": [
               {
@@ -35242,7 +35274,7 @@
         "name": "doxepin",
         "id": "PA449409",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35277,7 +35309,7 @@
             "id": "PA166104994",
             "name": "Annotation of DPWG Guideline for doxepin and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104994",
             "annotations": [
               {
@@ -35343,7 +35375,7 @@
         "name": "efavirenz",
         "id": "PA449441",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35355,7 +35387,7 @@
             "id": "PA166182846",
             "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
             "annotations": [
               {
@@ -35419,7 +35451,7 @@
         "name": "eliglustat",
         "id": "PA166123486",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35431,7 +35463,7 @@
             "id": "PA166182823",
             "name": "Annotation of DPWG Guideline for eliglustat and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182823",
             "annotations": [
               {
@@ -35497,7 +35529,7 @@
         "name": "escitalopram",
         "id": "PA10074",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35555,7 +35587,7 @@
             "id": "PA166104975",
             "name": "Annotation of DPWG Guideline for escitalopram and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
             "annotations": []
           }
@@ -35565,7 +35597,7 @@
         "name": "flecainide",
         "id": "PA449646",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35600,7 +35632,7 @@
             "id": "PA166104969",
             "name": "Annotation of DPWG Guideline for flecainide and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104969",
             "annotations": [
               {
@@ -35666,7 +35698,7 @@
         "name": "flucytosine",
         "id": "PA449654",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -35699,7 +35731,7 @@
             "id": "PA166222801",
             "name": "Annotation of DPWG Guideline for flucytosine and DPYD",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166222801",
             "annotations": [
               {
@@ -35763,7 +35795,7 @@
         "name": "fluorouracil",
         "id": "PA128406956",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -35842,7 +35874,7 @@
             "id": "PA166104939",
             "name": "Annotation of DPWG Guideline for fluorouracil and DPYD",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104939",
             "annotations": [
               {
@@ -35906,7 +35938,7 @@
         "name": "haloperidol",
         "id": "PA449841",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35934,6 +35966,29 @@
             ],
             "journal": "Clinical pharmacology and therapeutics",
             "year": 2011
+          },
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
           }
         ],
         "guidelines": [
@@ -35941,7 +35996,7 @@
             "id": "PA166104988",
             "name": "Annotation of DPWG Guideline for haloperidol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104988",
             "annotations": [
               {
@@ -35954,7 +36009,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -36007,7 +36062,7 @@
         "name": "hormonal contraceptives for systemic use",
         "id": "PA452637",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36042,61 +36097,9 @@
             "id": "PA166104955",
             "name": "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104955",
-            "annotations": [
-              {
-                "implications": {
-                  "F5": "The guideline does not provide a description of the impact of the absence of Factor V Leiden on estrogen-containing contraceptives."
-                },
-                "drugRecommendation": "The guideline does not provide a recommendation for estrogen-containing contraceptives in patients who do not have the Factor V Leiden variant.",
-                "classification": "N/A",
-                "phenotypes": {},
-                "activityScore": {},
-                "population": "n/a",
-                "genotypes": [
-                  {
-                    "diplotypes": [
-                      {
-                        "allele1": {
-                          "gene": "F5",
-                          "name": "rs6025 C",
-                          "function": "Factor V Leiden negative",
-                          "reference": true,
-                          "activityValue": "n/a"
-                        },
-                        "allele2": {
-                          "gene": "F5",
-                          "name": "rs6025 C",
-                          "function": "Factor V Leiden negative",
-                          "reference": true,
-                          "activityValue": "n/a"
-                        },
-                        "gene": "F5",
-                        "phenotypes": [
-                          "Factor V Leiden absent"
-                        ],
-                        "outsidePhenotype": false,
-                        "outsidePhenotypeMismatch": null,
-                        "activityScore": null,
-                        "outsideActivityScore": false,
-                        "outsideActivityScoreMismatch": null,
-                        "variant": null,
-                        "lookupKey": [
-                          "Factor V Leiden absent"
-                        ],
-                        "label": "rs6025 C/rs6025 C",
-                        "inferred": false,
-                        "combination": false
-                      }
-                    ]
-                  }
-                ],
-                "comments": "n/a",
-                "messages": [],
-                "highlightedVariants": []
-              }
-            ]
+            "annotations": []
           }
         ]
       },
@@ -36104,7 +36107,7 @@
         "name": "imipramine",
         "id": "PA449969",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36140,7 +36143,7 @@
             "id": "PA166104954",
             "name": "Annotation of DPWG Guideline for imipramine and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104954",
             "annotations": []
           },
@@ -36148,7 +36151,7 @@
             "id": "PA166104972",
             "name": "Annotation of DPWG Guideline for imipramine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104972",
             "annotations": [
               {
@@ -36214,7 +36217,7 @@
         "name": "irinotecan",
         "id": "PA450085",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "irinotecan-DPWG",
@@ -36291,7 +36294,7 @@
             "id": "PA166104951",
             "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
             "annotations": [
               {
@@ -36355,7 +36358,7 @@
         "name": "lansoprazole",
         "id": "PA450180",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36390,7 +36393,7 @@
             "id": "PA166104987",
             "name": "Annotation of DPWG Guideline for lansoprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104987",
             "annotations": []
           }
@@ -36400,7 +36403,7 @@
         "name": "mercaptopurine",
         "id": "PA450379",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36436,7 +36439,7 @@
             "id": "PA166184613",
             "name": "Annotation of DPWG Guideline for mercaptopurine and NUDT15",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184613",
             "annotations": [
               {
@@ -36498,7 +36501,7 @@
             "id": "PA166104952",
             "name": "Annotation of DPWG Guideline for mercaptopurine and TPMT",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104952",
             "annotations": [
               {
@@ -36562,7 +36565,7 @@
         "name": "metoprolol",
         "id": "PA450480",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36597,7 +36600,7 @@
             "id": "PA166104995",
             "name": "Annotation of DPWG Guideline for metoprolol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104995",
             "annotations": [
               {
@@ -36663,7 +36666,7 @@
         "name": "nortriptyline",
         "id": "PA450657",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36698,7 +36701,7 @@
             "id": "PA166104961",
             "name": "Annotation of DPWG Guideline for nortriptyline and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104961",
             "annotations": [
               {
@@ -36764,7 +36767,7 @@
         "name": "omeprazole",
         "id": "PA450704",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36799,7 +36802,7 @@
             "id": "PA166104957",
             "name": "Annotation of DPWG Guideline for omeprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104957",
             "annotations": []
           }
@@ -36809,7 +36812,7 @@
         "name": "pantoprazole",
         "id": "PA450774",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36844,7 +36847,7 @@
             "id": "PA166104958",
             "name": "Annotation of DPWG Guideline for pantoprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104958",
             "annotations": []
           }
@@ -36854,7 +36857,7 @@
         "name": "paroxetine",
         "id": "PA450801",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -36912,7 +36915,7 @@
             "id": "PA166104976",
             "name": "Annotation of DPWG Guideline for paroxetine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104976",
             "annotations": [
               {
@@ -36978,7 +36981,7 @@
         "name": "phenprocoumon",
         "id": "PA450921",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37013,7 +37016,7 @@
             "id": "PA166104940",
             "name": "Annotation of DPWG Guideline for phenprocoumon and VKORC1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104940",
             "annotations": [
               {
@@ -37075,7 +37078,7 @@
         "name": "phenytoin",
         "id": "PA450947",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -37129,7 +37132,7 @@
             "id": "PA166104984",
             "name": "Annotation of DPWG Guideline for phenytoin and CYP2C9",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104984",
             "annotations": [
               {
@@ -37193,19 +37196,43 @@
         "name": "pimozide",
         "id": "PA450965",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
           "https://www.pharmgkb.org/guidelineAnnotation/PA166182819"
         ],
-        "citations": [],
+        "citations": [
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
+          }
+        ],
         "guidelines": [
           {
             "id": "PA166182819",
             "name": "Annotation of DPWG Guideline for pimozide and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
             "annotations": [
               {
@@ -37218,7 +37245,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -37271,7 +37298,7 @@
         "name": "propafenone",
         "id": "PA451131",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37306,7 +37333,7 @@
             "id": "PA166104962",
             "name": "Annotation of DPWG Guideline for propafenone and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104962",
             "annotations": [
               {
@@ -37372,7 +37399,7 @@
         "name": "quetiapine",
         "id": "PA451201",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "CYP3A4",
@@ -37396,13 +37423,37 @@
         "urls": [
           "https://www.pharmgkb.org/guidelineAnnotation/PA166265421"
         ],
-        "citations": [],
+        "citations": [
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
+          }
+        ],
         "guidelines": [
           {
             "id": "PA166265421",
             "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
             "annotations": [
               {
@@ -37466,7 +37517,7 @@
         "name": "risperidone",
         "id": "PA451257",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37494,6 +37545,29 @@
             ],
             "journal": "Clinical pharmacology and therapeutics",
             "year": 2011
+          },
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
           }
         ],
         "guidelines": [
@@ -37501,7 +37575,7 @@
             "id": "PA166104943",
             "name": "Annotation of DPWG Guideline for risperidone and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104943",
             "annotations": [
               {
@@ -37514,7 +37588,7 @@
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [
@@ -37567,7 +37641,7 @@
         "name": "sertraline",
         "id": "PA451333",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37625,7 +37699,7 @@
             "id": "PA166104980",
             "name": "Annotation of DPWG Guideline for sertraline and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104980",
             "annotations": []
           }
@@ -37635,7 +37709,7 @@
         "name": "simvastatin",
         "id": "PA451363",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -37671,7 +37745,7 @@
             "id": "PA166182844",
             "name": "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182844",
             "annotations": []
           }
@@ -37681,7 +37755,7 @@
         "name": "siponimod",
         "id": "PA166182736",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37693,7 +37767,7 @@
             "id": "PA166211021",
             "name": "Annotation of DPWG Guideline for siponimod and CYP2C9",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166211021",
             "annotations": [
               {
@@ -37757,7 +37831,7 @@
         "name": "tacrolimus",
         "id": "PA451578",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37792,7 +37866,7 @@
             "id": "PA166104983",
             "name": "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104983",
             "annotations": [
               {
@@ -37854,7 +37928,7 @@
         "name": "tamoxifen",
         "id": "PA451581",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -37889,7 +37963,7 @@
             "id": "PA166104966",
             "name": "Annotation of DPWG Guideline for tamoxifen and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104966",
             "annotations": [
               {
@@ -37955,7 +38029,7 @@
         "name": "tegafur",
         "id": "PA452620",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -38034,7 +38108,7 @@
             "id": "PA166104944",
             "name": "Annotation of DPWG Guideline for tegafur and DPYD",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104944",
             "annotations": [
               {
@@ -38098,7 +38172,7 @@
         "name": "thioguanine",
         "id": "PA451663",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38134,7 +38208,7 @@
             "id": "PA166184612",
             "name": "Annotation of DPWG Guideline for thioguanine and NUDT15",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184612",
             "annotations": [
               {
@@ -38196,7 +38270,7 @@
             "id": "PA166104960",
             "name": "Annotation of DPWG Guideline for thioguanine and TPMT",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104960",
             "annotations": [
               {
@@ -38260,7 +38334,7 @@
         "name": "tramadol",
         "id": "PA451735",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38317,7 +38391,7 @@
             "id": "PA166104959",
             "name": "Annotation of DPWG Guideline for tramadol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104959",
             "annotations": [
               {
@@ -38383,7 +38457,7 @@
         "name": "venlafaxine",
         "id": "PA451866",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38418,7 +38492,7 @@
             "id": "PA166104968",
             "name": "Annotation of DPWG Guideline for venlafaxine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104968",
             "annotations": [
               {
@@ -38484,7 +38558,7 @@
         "name": "voriconazole",
         "id": "PA10233",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38519,7 +38593,7 @@
             "id": "PA166104990",
             "name": "Annotation of DPWG Guideline for voriconazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104990",
             "annotations": []
           }
@@ -38529,7 +38603,7 @@
         "name": "warfarin",
         "id": "PA451906",
         "source": "DPWG",
-        "version": "2023-04-05-11-38, 2023-04-05-11-38",
+        "version": "2023-06-05-00-25, 2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38542,7 +38616,7 @@
             "id": "PA166182842",
             "name": "Annotation of DPWG Guideline for warfarin and CYP2C9",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182842",
             "annotations": [
               {
@@ -38604,7 +38678,7 @@
             "id": "PA166182841",
             "name": "Annotation of DPWG Guideline for warfarin and VKORC1",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182841",
             "annotations": [
               {
@@ -38666,7 +38740,7 @@
         "name": "zuclopenthixol",
         "id": "PA452629",
         "source": "DPWG",
-        "version": "2023-04-05-11-38",
+        "version": "2023-06-05-00-25",
         "messages": [],
         "variants": [],
         "urls": [
@@ -38694,6 +38768,29 @@
             ],
             "journal": "Clinical pharmacology and therapeutics",
             "year": 2011
+          },
+          {
+            "pmid": "37002327",
+            "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+            "authors": [
+              "Beunk Lianne",
+              "Nijenhuis Marga",
+              "Soree Bianca",
+              "de Boer-Veger Nienke J",
+              "Buunk Anne-Marie",
+              "Guchelaar Henk Jan",
+              "Houwink Elisa J F",
+              "Risselada Arne",
+              "Rongen Gerard A P J M",
+              "van Schaik Ron H N",
+              "Swen Jesse J",
+              "Touw Daan",
+              "van Westrhenen Roos",
+              "Deneer Vera H M",
+              "van der Weide Jan"
+            ],
+            "journal": "European journal of human genetics : EJHG",
+            "year": 2023
           }
         ],
         "guidelines": [
@@ -38701,20 +38798,20 @@
             "id": "PA166104992",
             "name": "Annotation of DPWG Guideline for zuclopenthixol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-04-05-11-38",
+            "version": "2023-06-05-00-25",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104992",
             "annotations": [
               {
                 "implications": {
                   "CYP2D6": "The risk of side effects may be elevated. The genetic variation leads to decreased conversion of zuclopentixol, which causes the plasma concentration to be approximately 1.35-fold higher."
                 },
-                "drugRecommendation": "Use 75% of the standard dose.",
+                "drugRecommendation": "Use 75% of the normal dose.",
                 "classification": "N/A",
                 "phenotypes": {
                   "CYP2D6": "Intermediate Metabolizer"
                 },
                 "activityScore": {
-                  "CYP2D6": "0.5-1"
+                  "CYP2D6": "0.25-1"
                 },
                 "population": "n/a",
                 "genotypes": [

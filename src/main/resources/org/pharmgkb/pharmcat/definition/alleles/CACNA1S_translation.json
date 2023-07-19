@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.26.0",
-  "modificationDate": "Jun 5, 2023, 8:48:37 PM",
+  "version": "v1.28.0",
+  "modificationDate": "Jul 14, 2023, 8:08:44 AM",
   "gene": "CACNA1S",
   "orientation": null,
   "chromosome": "chr1",

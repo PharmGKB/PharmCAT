@@ -3,7 +3,7 @@
     "id": "PA166104937",
     "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
     "source": "DPWG",
-    "version": 34,
+    "version": 37,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451695740,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451695741,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451695742,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451695743,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451695744,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -400,6 +400,39 @@
   },
   "annotationGroups": [
     {
+      "id": "PA166240602",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063442,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063443,
+        "html": "<p>NO action is needed for this gene-drug interaction.The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects.</p>\n"
+      },
+      "implications": {
+        "id": 1452063441,
+        "html": "<p>The guideline does not provide a description of the impact of an intermediate metabolizer phenotype on aripiprazole.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063440,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
       "id": "PA166240603",
       "name": "Normal Metabolizer",
       "strength": {
@@ -417,20 +450,20 @@
         "CYP2D6:Normal function/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451417855,
+        "id": 1452063446,
         "html": "<p>Normal Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451417856,
+        "id": 1452063447,
         "html": "<p>The guideline does not provide a recommendation for aripiprazole in normal metabolizers.</p>\n"
       },
       "implications": {
-        "id": 1451417854,
+        "id": 1452063445,
         "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on aripiprazole.</p>\n"
       },
       "activityScore": {
-        "id": 1451417853,
-        "html": "<p>1.5-2.5</p>\n"
+        "id": 1452063444,
+        "html": "<p>1.25-2.5</p>\n"
       }
     },
     {
@@ -454,53 +487,20 @@
         "CYP2D6:Increased function (AV ≥3)/Normal function"
       ],
       "metabolizerStatus": {
-        "id": 1451417860,
+        "id": 1452063450,
         "html": "<p>Ultrarapid Metabolizer</p>\n"
       },
       "recommendation": {
-        "id": 1451417861,
+        "id": 1452063451,
         "html": "<p>NO action is needed for this gene-drug interaction. The genetic variation decreases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is no evidence that this increases the risk of reduced effectiveness.</p>\n"
       },
       "implications": {
-        "id": 1451417859,
+        "id": 1452063449,
         "html": "<p>The guideline does not provide a description of the impact of an ultrarapid metabolizer phenotype on aripiprazole.</p>\n"
       },
       "activityScore": {
-        "id": 1451417858,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
-      "id": "PA166240602",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451417846,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451417847,
-        "html": "<p>NO action is needed for this gene-drug interaction.The genetic variation increases the plasma concentration of the sum of aripiprazole and the active metabolite dehydroaripiprazole to a limited degree. There is insufficient evidence that this increases the risk of side effects.</p>\n"
-      },
-      "implications": {
-        "id": 1451417845,
-        "html": "<p>The guideline does not provide a description of the impact of an intermediate metabolizer phenotype on aripiprazole.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451417844,
-        "html": "<p>0.5-1</p>\n"
+        "id": 1452063448,
+        "html": "<p>Total gene activity score ≥2.75</p>\n"
       }
     },
     {
@@ -537,6 +537,29 @@
   ],
   "citations": [
     {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    },
+    {
       "pmid": "21412232",
       "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
       "authors": [
@@ -559,5 +582,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-04-05-11-38"
+  "version": "2023-06-05-00-25"
 }

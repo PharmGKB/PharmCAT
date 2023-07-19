@@ -3,7 +3,7 @@
     "id": "PA166184527",
     "name": "Annotation of DPWG Guideline for brexpiprazole and CYP2D6",
     "source": "DPWG",
-    "version": 5,
+    "version": 8,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
     "relatedChemicals": [
       {
@@ -35,16 +35,16 @@
             "id": 1451418150,
             "_label": "*1x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451418151,
             "_label": "*1x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -59,16 +59,16 @@
             "id": 1451418152,
             "_label": "*2x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
             "id": 1451418153,
             "_label": "*2x≥3",
             "function": {
-              "term": "Increased function (AV ≥3)",
-              "termId": "alleleFunction:1451309780"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -307,8 +307,8 @@
             "id": 1451418156,
             "_label": "*35x2",
             "function": {
-              "term": "Increased function (AV 2)",
-              "termId": "alleleFunction:1451309754"
+              "term": "Increased function",
+              "termId": "haplotypeTags:1445558332"
             }
           },
           {
@@ -400,110 +400,6 @@
   },
   "annotationGroups": [
     {
-      "id": "PA166240682",
-      "name": "Intermediate Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Decreased function",
-        "CYP2D6:Decreased function/No function",
-        "CYP2D6:No function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418109,
-        "html": "<p>Intermediate Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418110,
-        "html": "<p>NO action is required for this gene-drug interaction. There are indications supporting an increase in the exposure to brexpiprazole, but no indications supporting an increase in side effects in patients with this gene variation.</p>\n"
-      },
-      "implications": {
-        "id": 1451418108,
-        "html": "<p>The guideline does not provide a description of the impact of an intermediate metabolizer phenotype on brexpiprazole.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418107,
-        "html": "<p>0.5-1</p>\n"
-      }
-    },
-    {
-      "id": "PA166240701",
-      "name": "Normal Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV 2)",
-        "CYP2D6:Decreased function/Normal function",
-        "CYP2D6:Increased function (AV 2)/No function",
-        "CYP2D6:Normal function/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418161,
-        "html": "<p>Normal Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418162,
-        "html": "<p>The guideline does not provide a recommendation for brexpiprazole in normal metabolizers.</p>\n"
-      },
-      "implications": {
-        "id": 1451418160,
-        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on brexpiprazole.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418159,
-        "html": "<p>1.5-2.5</p>\n"
-      }
-    },
-    {
-      "id": "PA166240683",
-      "name": "Ultrarapid Metabolizer",
-      "strength": {
-        "term": "N/A",
-        "termId": "guidelineStrength:981501929"
-      },
-      "rxChangeStatus": {
-        "term": "No",
-        "termId": "rxChange:1448602495"
-      },
-      "genePhenotypes": [
-        "CYP2D6:Decreased function/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
-        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV 2)/Normal function",
-        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
-        "CYP2D6:Increased function (AV ≥3)/No function",
-        "CYP2D6:Increased function (AV ≥3)/Normal function"
-      ],
-      "metabolizerStatus": {
-        "id": 1451418113,
-        "html": "<p>Ultrarapid Metabolizer</p>\n"
-      },
-      "recommendation": {
-        "id": 1451418114,
-        "html": "<p>NO action is required for this gene-drug interaction. The gene variation results in a reduction of the exposure to brexpiprazole, but there are no indications supporting a decrease in efficacy.</p>\n"
-      },
-      "implications": {
-        "id": 1451418112,
-        "html": "<p>The guideline does not provide a description of the impact of an ultrarapid metabolizer phenotype on codeine.</p>\n"
-      },
-      "activityScore": {
-        "id": 1451418111,
-        "html": "<p>Total gene activity score ≥3</p>\n"
-      }
-    },
-    {
       "id": "PA166240681",
       "name": "Poor Metabolizer",
       "strength": {
@@ -533,8 +429,136 @@
         "id": 1452057560,
         "html": "<p>0</p>\n"
       }
+    },
+    {
+      "id": "PA166240682",
+      "name": "Intermediate Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Decreased function",
+        "CYP2D6:Decreased function/No function",
+        "CYP2D6:No function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063454,
+        "html": "<p>Intermediate Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063455,
+        "html": "<p>NO action is required for this gene-drug interaction. There are indications supporting an increase in the exposure to brexpiprazole, but no indications supporting an increase in side effects in patients with this gene variation.</p>\n"
+      },
+      "implications": {
+        "id": 1452063453,
+        "html": "<p>The guideline does not provide a description of the impact of an intermediate metabolizer phenotype on brexpiprazole.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063452,
+        "html": "<p>0.25-1</p>\n"
+      }
+    },
+    {
+      "id": "PA166240683",
+      "name": "Ultrarapid Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV 2)",
+        "CYP2D6:Increased function (AV 2)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV 2)/Normal function",
+        "CYP2D6:Increased function (AV ≥3)/Increased function (AV ≥3)",
+        "CYP2D6:Increased function (AV ≥3)/No function",
+        "CYP2D6:Increased function (AV ≥3)/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063462,
+        "html": "<p>Ultrarapid Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063463,
+        "html": "<p>NO action is required for this gene-drug interaction. The gene variation results in a reduction of the exposure to brexpiprazole, but there are no indications supporting a decrease in efficacy.</p>\n"
+      },
+      "implications": {
+        "id": 1452063461,
+        "html": "<p>The guideline does not provide a description of the impact of an ultrarapid metabolizer phenotype on codeine.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063460,
+        "html": "<p>Total gene activity score ≥2.75</p>\n"
+      }
+    },
+    {
+      "id": "PA166240701",
+      "name": "Normal Metabolizer",
+      "strength": {
+        "term": "N/A",
+        "termId": "guidelineStrength:981501929"
+      },
+      "rxChangeStatus": {
+        "term": "No",
+        "termId": "rxChange:1448602495"
+      },
+      "genePhenotypes": [
+        "CYP2D6:Decreased function/Increased function (AV 2)",
+        "CYP2D6:Decreased function/Normal function",
+        "CYP2D6:Increased function (AV 2)/No function",
+        "CYP2D6:Normal function/Normal function"
+      ],
+      "metabolizerStatus": {
+        "id": 1452063458,
+        "html": "<p>Normal Metabolizer</p>\n"
+      },
+      "recommendation": {
+        "id": 1452063459,
+        "html": "<p>The guideline does not provide a recommendation for brexpiprazole in normal metabolizers.</p>\n"
+      },
+      "implications": {
+        "id": 1452063457,
+        "html": "<p>The guideline does not provide a description of the impact of a normal metabolizer phenotype on brexpiprazole.</p>\n"
+      },
+      "activityScore": {
+        "id": 1452063456,
+        "html": "<p>1.25-2.5</p>\n"
+      }
     }
   ],
-  "citations": [],
-  "version": "2023-04-05-11-38"
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    }
+  ],
+  "version": "2023-06-05-00-25"
 }

@@ -13,10 +13,10 @@
     "c.14497C>T": "Malignant Hyperthermia associated",
     "c.14512C>G": "Malignant Hyperthermia associated",
     "c.14545G>A": "Malignant Hyperthermia associated",
-    "c.14582G>A": "Malignant Hyperthermia associated",
+    "c.14582G>A": "Uncertain function",
     "c.14693T>C": "Malignant Hyperthermia associated",
     "c.1565A>C": "Malignant Hyperthermia associated",
-    "c.1589G>A": "Uncertain function",
+    "c.1589G>A": "Malignant Hyperthermia associated",
     "c.1597C>T": "Malignant Hyperthermia associated",
     "c.1598G>A": "Uncertain function",
     "c.1654C>T": "Malignant Hyperthermia associated",
@@ -12255,5 +12255,5 @@
       }
     }
   ],
-  "version": "v1.26.0"
+  "version": "v1.28.0"
 }

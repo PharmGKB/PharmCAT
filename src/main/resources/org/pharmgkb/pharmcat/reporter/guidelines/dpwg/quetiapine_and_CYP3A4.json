@@ -3,7 +3,7 @@
     "id": "PA166265421",
     "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
     "source": "DPWG",
-    "version": 10,
+    "version": 12,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
     "relatedChemicals": [
       {
@@ -223,6 +223,30 @@
       "activityScore": null
     }
   ],
-  "citations": [],
-  "version": "2023-04-05-11-38"
+  "citations": [
+    {
+      "pmid": "37002327",
+      "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
+      "authors": [
+        "Beunk Lianne",
+        "Nijenhuis Marga",
+        "Soree Bianca",
+        "de Boer-Veger Nienke J",
+        "Buunk Anne-Marie",
+        "Guchelaar Henk Jan",
+        "Houwink Elisa J F",
+        "Risselada Arne",
+        "Rongen Gerard A P J M",
+        "van Schaik Ron H N",
+        "Swen Jesse J",
+        "Touw Daan",
+        "van Westrhenen Roos",
+        "Deneer Vera H M",
+        "van der Weide Jan"
+      ],
+      "journal": "European journal of human genetics : EJHG",
+      "year": 2023
+    }
+  ],
+  "version": "2023-06-05-00-25"
 }
