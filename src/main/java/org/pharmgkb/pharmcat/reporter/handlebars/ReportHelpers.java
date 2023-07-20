@@ -407,7 +407,7 @@ public class ReportHelpers {
         return allele + " - " + function;
       }
     }
-    return allele;
+    return allele + " - Unassigned function";
   }
 
   public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {
