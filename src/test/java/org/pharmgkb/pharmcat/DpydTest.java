@@ -43,8 +43,14 @@ class DpydTest {
   }
 
 
-  private List<String> callsToComponents(List<String> expectedCalls) {
-    Preconditions.checkArgument(expectedCalls.size() == 1);
+  private @Nullable List<String> callsToComponents(List<String> expectedCalls) {
+    if (expectedCalls == null || expectedCalls.size() != 1) {
+      return null;
+    }
+    if (expectedCalls.get(0).equals("Unknown/Unknown") ||
+        !expectedCalls.get(0).contains(TextConstants.GENOTYPE_DELIMITER)) {
+      return null;
+    }
     return expectedCalls.stream()
         .flatMap(s -> Arrays.stream(s.split(TextConstants.GENOTYPE_DELIMITER)))
         .flatMap(s -> {
@@ -125,7 +131,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
 
@@ -148,7 +154,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
 
@@ -172,24 +178,24 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
 
-  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls,
-      @Nullable List<String> expectedComponents, boolean hasMissingPositions, RecPresence hasDpwgAnnotation) {
-    dpydHtmlChecks(document, expectedCalls, expectedComponents, hasMissingPositions, RecPresence.YES, hasDpwgAnnotation);
+  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
+      RecPresence hasDpwgAnnotation) {
+    dpydHtmlChecks(document, expectedCalls, hasMissingPositions, RecPresence.YES, hasDpwgAnnotation);
   }
 
   /**
    * Checks for expected HTML output for DPYD.  Only drug checked is capecitabine.
    */
-  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls,
-      @Nullable List<String> expectedComponents, boolean hasMissingPositions,
+  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
       RecPresence hasCpicAnnotation, RecPresence hasDpwgAnnotation) {
 
     boolean noCall = expectedCalls != null && expectedCalls.size() == 1 &&
         expectedCalls.get(0).equals("Unknown/Unknown");
+    List<String> expectedComponents = callsToComponents(expectedCalls);
 
     if (expectedComponents != null) {
       if (expectedCalls != null) {
@@ -305,7 +311,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -336,7 +342,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -358,7 +364,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   /**
@@ -443,7 +449,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   /**
@@ -472,7 +478,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -494,7 +500,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -517,7 +523,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -540,7 +546,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
@@ -564,11 +570,11 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
-  void testDpydHapB3_het_alt(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_het_wobble_het(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
@@ -587,11 +593,35 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
-  void testDpydHapB3_hom_alt(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_het_wobble_C_hom(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "C", "C") // g.97573863C>T
+        .variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Reference/c.1129-5923C>G, c.1236G>A (HapB3)");
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+
+  @Test
+  void testDpydHapB3_hom_wobble_T_hom(TestInfo testInfo) throws Exception {
     // effectively phased, homozygous alternative
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -611,15 +641,63 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
-  void testDpydHapB3_hom_ref(TestInfo testInfo) throws Exception {
-    // effectively phased, homozygous reference
+  void testDpydHapB3_hom_wobble_C_hom(TestInfo testInfo) throws Exception {
+    // effectively phased, homozygous alternative
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("DPYD")
+        .variation("DPYD", "rs56038477", "C", "C") // g.97573863C>T
+        .variation("DPYD", "rs75017182", "C", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)");
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_hom_wobble_het(TestInfo testInfo) throws Exception {
+    // effectively phased, homozygous alternative
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
+        .variation("DPYD", "rs75017182", "C", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)");
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_only_wobble_C_hom_gets_reference(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "C", "C") // g.97573863C>T
+    //.variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
     ;
     Path vcfFile = testWrapper.execute(null);
 
@@ -634,11 +712,34 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
-  void testDpydHapB3_noCall(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_noCall_only_wobble_T_hom(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs56038477", "T", "T") // g.97573863C>T
+    //.variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("Unknown/Unknown");
+    RecPresence hasDpwgAnnotations = RecPresence.NO;
+
+    testWrapper.testNotCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", List.of(TextConstants.UNCALLED));
+
+    dpydHasReports(testWrapper, RecPresence.NO, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, RecPresence.NO, hasDpwgAnnotations);
+  }
+
+  @Test
+  void testDpydHapB3_noCall_only_wobble_het(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("DPYD", "rs56038477", "C", "T") // g.97573863C>T
@@ -657,12 +758,12 @@ class DpydTest {
     dpydHasReports(testWrapper, RecPresence.NO, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false, RecPresence.NO,
-        hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, RecPresence.NO, hasDpwgAnnotations);
   }
 
+
   @Test
-  void testDpydHapB3_noCall_nonRef_homo(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_wobble_het_nonRef_hom(TestInfo testInfo) throws Exception {
     TestUtils.setSaveTestOutput(true);
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -685,11 +786,11 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
   @Test
-  void testDpydHapB3_noCall_nonRef(TestInfo testInfo) throws Exception {
+  void testDpydHapB3_wobble_het_nonRef(TestInfo testInfo) throws Exception {
     TestUtils.setSaveTestOutput(true);
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -711,8 +812,7 @@ class DpydTest {
     dpydHasReports(testWrapper, hasCpicAnnotations, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, null, false,
-        hasCpicAnnotations, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, false, hasCpicAnnotations, hasDpwgAnnotations);
   }
 
   @Test
@@ -725,18 +825,18 @@ class DpydTest {
     ;
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("Reference/c.1129-5923C>G, c.1236G>A (HapB3)");
+    List<String> expectedCalls = List.of("Reference", "c.1129-5923C>G, c.1236G>A (HapB3)");
     RecPresence hasDpwgAnnotations = RecPresence.YES;
 
     testWrapper.testCalledByMatcher("DPYD");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
     testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), true, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, true, hasDpwgAnnotations);
   }
 
   @Test
@@ -760,6 +860,6 @@ class DpydTest {
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, callsToComponents(expectedCalls), true, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, true, hasDpwgAnnotations);
   }
 }

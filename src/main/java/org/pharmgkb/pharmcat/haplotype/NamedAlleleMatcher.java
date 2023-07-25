@@ -283,11 +283,19 @@ public class NamedAlleleMatcher {
           }
         }
         if (finalMatches.size() > 1) {
-          // this should never happen
-          throw new IllegalStateException("Least function gene cannot have more than 1 diplotype");
+          // potentially possible with HapB3 if rs56038477 is missing
+          if (finalMatches.get(0).getName().contains("HapB3")) {
+            finalMatches = Collections.emptyList();
+          } else {
+            // should never happen
+            throw new IllegalStateException("Least function gene cannot have more than 1 diplotype: " +
+                finalMatches.stream().map(DiplotypeMatch::toString).collect(Collectors.joining("; ")));
+          }
         }
-        resultBuilder.diplotypes(gene, comboData, finalMatches);
-        return;
+        if (finalMatches.size() != 0) {
+          resultBuilder.diplotypes(gene, comboData, finalMatches);
+          return;
+        }
       }
     }
 

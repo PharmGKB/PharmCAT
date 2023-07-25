@@ -10,9 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.pharmgkb.common.util.CliHelper;
@@ -21,6 +23,7 @@ import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.DrugCollection;
@@ -353,6 +356,7 @@ public class DataManager {
     }
 
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
+    fixDpyd(definitionFileMap.get("DPYD"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = new HashSet<>();
@@ -406,6 +410,45 @@ public class DataManager {
   }
 
 
+  // expected HapB3 variations
+  private static final ImmutableMap<String, String> sf_dpydHapB3Rsids = ImmutableMap.of(
+      "rs75017182", "C",
+      "rs56038477", "T"
+  );
+
+  /**
+   * Modifies HapB3 haplotype definition to use wobble @ rs56038477.
+   */
+  private void fixDpyd(DefinitionFile definitionFile) {
+    NamedAllele hapB3 = definitionFile.getNamedAlleles().stream()
+        .filter(na -> na.getName().equals("c.1129-5923C>G, c.1236G>A (HapB3)"))
+        .findFirst()
+        .orElseThrow(() -> new RuntimeException("Cannot find DPYD HapB3!"));
+    List<VariantLocus> hapB3Variants = new ArrayList<>();
+    for (int x = 0; x < definitionFile.getVariants().length; x += 1) {
+      VariantLocus vl = definitionFile.getVariants()[x];
+      String allele = sf_dpydHapB3Rsids.get(vl.getRsid());
+      if (allele != null) {
+        hapB3Variants.add(vl);
+        if (!hapB3.getAlleles()[x].equals(allele)) {
+          throw new RuntimeException("Expecting " + vl.getRsid() + " on HapB3 to be " + hapB3.getAlleles()[x] +
+              " but got " + allele);
+        }
+        if (vl.getRsid().equals("rs56038477")) {
+          hapB3.getAlleles()[x] = "Y";
+        }
+      }
+    }
+    if (hapB3Variants.size() != sf_dpydHapB3Rsids.size()) {
+      throw new RuntimeException("Cannot find all HapB3 variants.  Expected (" +
+          String.join(", ", sf_dpydHapB3Rsids.keySet()) + ", but found " +
+          hapB3Variants.stream()
+              .map(VariantLocus::getRsid)
+              .collect(Collectors.joining(", ")));
+    }
+  }
+
+
   private void exportVcfData(Path definitionsDir) throws IOException {
 
     DefinitionReader definitionReader = new DefinitionReader(definitionsDir);
@@ -443,6 +486,9 @@ public class DataManager {
       System.out.println();
       for (String filename : obsoleteFilenames) {
         Path file = dir.resolve(filename);
+        if (file.endsWith("F5_translation.json")) {
+          continue;
+        }
         System.out.println("*** Deleting obsolete file: " + file);
         FileUtils.deleteQuietly(file.toFile());
       }

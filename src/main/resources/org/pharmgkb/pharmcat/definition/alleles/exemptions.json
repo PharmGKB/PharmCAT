@@ -28,14 +28,6 @@
     "allHits": null
   },
   {
-    "gene": "DPYD",
-    "ignoredPositions": [],
-    "extraPositions": [],
-    "ignoredAlleles": [],
-    "ignoredAllelesLc": [],
-    "allHits": true
-  },
-  {
     "gene": "G6PD",
     "ignoredPositions": [
       {

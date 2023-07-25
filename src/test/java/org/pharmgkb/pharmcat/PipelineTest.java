@@ -317,27 +317,6 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2D6", "HLA-A", "HLA-B");
   }
 
-  /**
-   * This test illustrates when one gene in a two-gene guideline (amitriptyline) is not called that it should still be
-   * able to come up with a matched annotation.
-   */
-  @Test
-  void testCyp2c19(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_otherOutsideCallFilePath);
-
-    testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*1");
-
-    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.CPIC, 1);
-    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.DPWG, 1);
-    testWrapper.testMatchedAnnotations("citalopram", DataSource.CPIC, 1);
-    testWrapper.testMatchedAnnotations("citalopram", DataSource.DPWG, 1);
-    testWrapper.testMatchedAnnotations("ivacaftor", 0);
-  }
-
 
   @Test
   void testUndocumentedVariation(TestInfo testInfo) throws Exception {
@@ -410,6 +389,27 @@ class PipelineTest {
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
   }
 
+
+  /**
+   * This test illustrates when one gene in a two-gene guideline (amitriptyline) is not called that it should still be
+   * able to come up with a matched annotation.
+   */
+  @Test
+  void testCyp2c19(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("CYP2C19", "rs3758581", "G", "G");
+    testWrapper.execute(s_otherOutsideCallFilePath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*1");
+
+    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.CPIC, 1);
+    testWrapper.testMatchedAnnotations("citalopram", DataSource.DPWG, 1);
+    testWrapper.testMatchedAnnotations("ivacaftor", 0);
+  }
 
   /**
    * This test case demos that an "ambiguity" {@link MessageAnnotation} which specifies a variant and a diplotype call
