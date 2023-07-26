@@ -244,11 +244,11 @@
                           {{#each genotypes}}
                             <li>
                               <span class="noWrap">
-                                {{{rxGenotype this ../this ../../this}}}
+                                {{{rxGenotype this ../this ../../this noDataGenes}}}
                                 {{#if (rxInferred this)}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
                                 {{#if (rxDpydInferred this)}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
                               </span>
-                              {{{rxGenotypeDebug this ../../this}}}
+                              {{{rxGenotypeDebug this ../../this noDataGenes}}}
                             </li>
                           {{/each}}
                         </ul>
@@ -302,7 +302,7 @@
                         </div>
                         <div>
                           <div class="hint">{{pluralize "Genotype" unmatchedDiplotypes}}</div>
-                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes}}}
+                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes noDataGenes}}}
                           {{#if unmatchedInferred}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
                           {{#if unmatchedDpydInferred}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
                         </div>
