@@ -120,7 +120,8 @@ public class HtmlFormat extends AbstractFormat {
     boolean hasUndocumentedVariationsAsReference = false;
 
     SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
-    for (DataSource source : reportContext.getGeneReports().keySet()) {
+    Map<String, Map<String, String>> functionMap = new HashMap<>();
+    for (DataSource source : new TreeSet<>(reportContext.getGeneReports().keySet())) {
       if (!m_sources.contains(source)) {
         continue;
       }
@@ -129,10 +130,19 @@ public class HtmlFormat extends AbstractFormat {
         if (geneReport.isIgnored()) {
           continue;
         }
+
         String symbol = geneReport.getGeneDisplay();
         totalGenes.add(symbol);
         if (!m_compact) {
           geneReportMap.put(symbol, geneReport);
+        }
+
+        // CPIC gets sorted first, this will pick CPIC over DPWG
+        if (!functionMap.containsKey(symbol)) {
+          GenePhenotype genePhenotype = getEnv().getPhenotype(symbol, source);
+          if (genePhenotype != null) {
+            functionMap.put(symbol, genePhenotype.getHaplotypes());
+          }
         }
 
         if (geneReport.isNoData()) {
@@ -168,7 +178,6 @@ public class HtmlFormat extends AbstractFormat {
     List<Map<String, Object>> summaries = new ArrayList<>();
     List<GeneReport> geneReports = new ArrayList<>();
     Multimap<String, Map<String, Object>> geneSummariesByDrug = HashMultimap.create();
-    Map<String, Map<String, String>> functionMap = new HashMap<>();
     for (String symbol : genes) {
       if (noDataGenes.contains(symbol)) {
         continue;
@@ -195,16 +204,6 @@ public class HtmlFormat extends AbstractFormat {
       ((Set<String>)geneSummary.get("relatedDrugs"))
           .forEach(d -> geneSummariesByDrug.put(d, geneSummary));
       geneReports.add(reports.first());
-
-      // CPIC gets sorted first, this will pick CPIC over DPWG
-      for (GeneReport gr : reports) {
-        GenePhenotype genePhenotype = getEnv().getPhenotype(symbol, gr.getPhenotypeSource());
-        if (genePhenotype == null) {
-          continue;
-        }
-        functionMap.put(symbol, genePhenotype.getHaplotypes());
-        break;
-      }
     }
     result.put("genes", genes);
     result.put("noDataGenes", noDataGenes);

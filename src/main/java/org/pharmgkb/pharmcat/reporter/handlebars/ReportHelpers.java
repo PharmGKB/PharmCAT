@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -407,7 +408,7 @@ public class ReportHelpers {
         return allele + " - " + function;
       }
     }
-    return allele + " - Unassigned function";
+    return allele + " - " + GenePhenotype.UNASSIGNED_FUNCTION;
   }
 
   public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {

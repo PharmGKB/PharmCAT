@@ -195,7 +195,7 @@ public class ReportContext {
   /**
    * Gets the set of all {@link GeneReport} objects that are reported in this context
    */
-  public Map<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+  public SortedMap<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
     return m_geneReports;
   }
 
