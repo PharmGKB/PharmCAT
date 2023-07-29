@@ -520,13 +520,16 @@ public class ReportHelpers {
     }
     //noinspection rawtypes
     if (obj instanceof Collection col) {
-      return col.size() > 0;
+      return !col.isEmpty();
     }
     //noinspection rawtypes
     if (obj instanceof Map map) {
-      return map.size() > 0;
+      return !map.isEmpty();
     }
-    return false;
+    if (obj instanceof String str) {
+      return !str.isEmpty();
+    }
+    return true;
   }
 
 
