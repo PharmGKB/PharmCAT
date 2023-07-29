@@ -187,10 +187,9 @@ class PharmCATTest {
       Element geneTitle = document.getElementById("CYP2D6");
       assertNotNull(geneTitle);
       assertNotNull(geneTitle.parent());
-      Elements diplotypes = geneTitle.parent().getElementsByTag("li");
-      for (String diplotype : diplotypes.eachText()) {
-        assertEquals("*1/*1", diplotype);
-      }
+      Elements diplotypes = geneTitle.parent().getElementsByClass("genotype-result");
+      assertEquals(1, diplotypes.size());
+      assertEquals("*1/*1", diplotypes.get(0).text());
       assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
