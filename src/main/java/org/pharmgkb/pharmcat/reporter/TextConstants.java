@@ -24,8 +24,9 @@ public class TextConstants {
    * Displayed when gene has not been called.
    */
   public static final String UNCALLED = "Not called";
+  public static final String NO_DATA = UNCALLED + " - no variant data provided";
   public static final List<String> LIST_UNCALLED = ImmutableList.of(UNCALLED);
-  public static final List<String> LIST_UNCALLED_NO_DATA = ImmutableList.of(UNCALLED + " - no variant data provided");
+  public static final List<String> LIST_UNCALLED_NO_DATA = ImmutableList.of(NO_DATA);
 
   public static final String GENOTYPE_DELIMITER = "/";
 

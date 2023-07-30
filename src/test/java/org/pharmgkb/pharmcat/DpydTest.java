@@ -43,7 +43,7 @@ class DpydTest {
   }
 
 
-  private @Nullable List<String> callsToComponents(List<String> expectedCalls) {
+  private static @Nullable List<String> callsToComponents(List<String> expectedCalls) {
     if (expectedCalls == null || expectedCalls.size() != 1) {
       return null;
     }
@@ -66,11 +66,11 @@ class DpydTest {
   }
 
 
-  private void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasDpwgReport) {
+  private static void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasDpwgReport) {
     dpydHasReports(testWrapper, RecPresence.YES, hasDpwgReport);
   }
 
-  private void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasCpicReport, RecPresence hasDpwgReport) {
+  public static void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasCpicReport, RecPresence hasDpwgReport) {
     GeneReport cpicDpydGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertNotNull(cpicDpydGeneReport);
     assertEquals(1, cpicDpydGeneReport.getRecommendationDiplotypes().size());
@@ -182,7 +182,7 @@ class DpydTest {
   }
 
 
-  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
+  private static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
       RecPresence hasDpwgAnnotation) {
     dpydHtmlChecks(document, expectedCalls, hasMissingPositions, RecPresence.YES, hasDpwgAnnotation);
   }
@@ -190,7 +190,7 @@ class DpydTest {
   /**
    * Checks for expected HTML output for DPYD.  Only drug checked is capecitabine.
    */
-  private void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
+  static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
       RecPresence hasCpicAnnotation, RecPresence hasDpwgAnnotation) {
 
     boolean noCall = expectedCalls != null && expectedCalls.size() == 1 &&

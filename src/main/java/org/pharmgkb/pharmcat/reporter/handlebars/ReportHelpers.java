@@ -315,32 +315,34 @@ public class ReportHelpers {
       }
       builder.append(">");
       if (noDataGenes != null && noDataGenes.contains(diplotype.getGene())) {
-        builder.append(diplotype.getGene());
+        builder.append(diplotype.getGene())
+            .append(":")
+            .append(TextConstants.NO_DATA);
       } else {
         builder.append("<a href=\"#")
             .append(diplotype.getGene())
             .append("\">")
             .append(diplotype.getGene())
             .append("</a>");
-      }
-      builder.append(":");
-      String call = diplotype.getLabel();
-      if (noLengthLimit || call.length() <= 15) {
-        builder.append(call);
-      } else {
-        int idx = call.indexOf("/");
-        if (idx == -1) {
-          builder.append("<br />")
-              .append(call);
+        builder.append(":");
+        String call = diplotype.getLabel();
+        if (noLengthLimit || call.length() <= 15) {
+          builder.append(call);
         } else {
-          String a = call.substring(0, idx + 1);
-          String b = call.substring(idx + 1);
-          if (a.length() > 15) {
-            builder.append("<br />");
+          int idx = call.indexOf("/");
+          if (idx == -1) {
+            builder.append("<br />")
+                .append(call);
+          } else {
+            String a = call.substring(0, idx + 1);
+            String b = call.substring(idx + 1);
+            if (a.length() > 15) {
+              builder.append("<br />");
+            }
+            builder.append(a)
+                .append("<br />")
+                .append(b);
           }
-          builder.append(a)
-              .append("<br />")
-              .append(b);
         }
       }
       builder.append("</span>");

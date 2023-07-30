@@ -8,7 +8,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableMap;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -36,13 +34,14 @@ import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.pharmgkb.pharmcat.DpydTest.dpydHasReports;
+import static org.pharmgkb.pharmcat.DpydTest.dpydHtmlChecks;
 
 
 /**
@@ -53,7 +52,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PipelineTest {
   private static final String sf_unknownDiplotype = Haplotype.UNKNOWN + TextConstants.GENOTYPE_DELIMITER + Haplotype.UNKNOWN;
-  private static final List<String> sf_unknownCall = List.of(sf_unknownDiplotype);
+  public static final List<String> UNKNOWN_CALL = List.of(sf_unknownDiplotype);
+  public static final List<String> NO_DATA = List.of(sf_unknownDiplotype);
   private static final List<String> sf_notCalled = List.of(TextConstants.UNCALLED);
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
@@ -98,10 +98,12 @@ class PipelineTest {
   /**
    * Checks for expected HTML output.
    *
-   * @param expectedCalls - null if no data is provided, empty array if no call is expected
+   * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
    */
-  private void htmlChecks(Document document, String gene, @Nullable List<String> expectedCalls,
+  public static void htmlChecks(Document document, String gene, List<String> expectedCalls,
       @Nullable String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
+    Preconditions.checkNotNull(expectedCalls);
+
     Map<String, List<String>> geneCallMap = new HashMap<>();
     geneCallMap.put(gene, expectedCalls);
     htmlChecks(document, geneCallMap, drug, cpicAnnPresence, dpwgAnnPresence);
@@ -110,9 +112,9 @@ class PipelineTest {
   /**
    * Checks for expected HTML output.
    *
-   * @param expectedCalls - null if no data is provided, empty array if no call is expected
+   * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
    */
-  private void htmlChecks(Document document, Map<String, List<String>> expectedCalls,
+  public static void htmlChecks(Document document, Map<String, List<String>> expectedCalls,
       @Nullable String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
 
     for (String gene : expectedCalls.keySet()) {
@@ -124,15 +126,16 @@ class PipelineTest {
     }
   }
 
-  private void htmlCheckGene(Document document, String gene, List<String> expectedCalls) {
-    if (expectedCalls == sf_unknownCall) {
+  private static void htmlCheckGene(Document document, String gene, List<String> expectedCalls) {
+    Preconditions.checkNotNull(expectedCalls);
+    if (expectedCalls == NO_DATA) {
       expectedCalls = null;
     }
-    if (expectedCalls == null || expectedCalls.size() == 0) {
+    if (expectedCalls == null || expectedCalls == UNKNOWN_CALL) {
       // check section i
       assertEquals(0, document.select(".gs-" + gene + " .gs-dip").size());
-      if (expectedCalls != null) {
-        assertNotNull(document.getElementById("gs-uncallable-" + gene));
+      if (expectedCalls == UNKNOWN_CALL) {
+        assertNotNull(document.getElementById("gs-uncallable-" + gene), gene + " should be uncallable");
       }
 
       // check section iii
@@ -167,7 +170,7 @@ class PipelineTest {
     htmlCheckDrug(document, geneCallMap, drug, cpicAnnPresence, dpwgAnnPresence);
   }
 
-  private void htmlCheckDrug(Document document, Map<String, List<String>> expectedCalls, String drug,
+  private static void htmlCheckDrug(Document document, Map<String, List<String>> expectedCalls, String drug,
       RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
 
     String sanitizedDrug = ReportHelpers.sanitizeCssSelector(drug);
@@ -192,8 +195,12 @@ class PipelineTest {
           continue;
         }
 
-        for (String call : calls) {
-          expectedRxCalls.add(gene + ":" + call);
+        if (calls == NO_DATA) {
+          expectedRxCalls.add(gene + ":" + TextConstants.NO_DATA);
+        } else {
+          for (String call : calls) {
+            expectedRxCalls.add(gene + ":" + call);
+          }
         }
       }
 
@@ -204,7 +211,7 @@ class PipelineTest {
     }
   }
 
-  private void htmlCheckDrugAnnotation(Elements drugSections, String src, String drug, RecPresence annPresence,
+  private static void htmlCheckDrugAnnotation(Elements drugSections, String src, String drug, RecPresence annPresence,
       Collection<String> genes, List<String> expectedRxCalls) {
 
     String baseSelector = "." + src + "-" + ReportHelpers.sanitizeCssSelector(drug);
@@ -329,7 +336,7 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CYP2C19", Collections.emptyList(), null, RecPresence.YES, RecPresence.YES);
+    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.YES);
   }
 
   @Test
@@ -344,7 +351,7 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CYP2C19", Collections.emptyList(), null, RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.NO);
   }
 
   @Test
@@ -365,7 +372,7 @@ class PipelineTest {
 
     Document document = readHtmlReport(vcfFile);
     assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
-    htmlChecks(document, "CYP2C19", Collections.emptyList(), null, RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.NO);
     htmlChecks(document, "RYR1", expectedRyr1Calls, null, RecPresence.YES, RecPresence.NO);
   }
 
@@ -387,6 +394,49 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-RYR1"));
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
+  }
+
+
+  @Test
+  void testUncallable(TestInfo testInfo) throws Exception {
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("F5")
+        .allowUnknownAllele()
+        .variation("CYP2C19", "rs3758581", "G", "T")
+        .variation("DPYD", "rs56038477", "T", "T") // g.97573863C>T
+        .variation("TPMT", "rs1256618794", "A", "A") // C -> A
+        .variation("TPMT", "rs753545734", "C", "C") // C -> T
+    //.variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = UNKNOWN_CALL;
+
+    testWrapper.testNotCalledByMatcher("DPYD", "CYP2C19", "TPMT");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
+
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
+
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", List.of(TextConstants.UNCALLED));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", List.of(TextConstants.UNCALLED));
+    testWrapper.testPrintCalls(DataSource.CPIC, "TPMT", List.of(TextConstants.UNCALLED));
+
+    dpydHasReports(testWrapper, RecPresence.NO, RecPresence.NO);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, RecPresence.NO, RecPresence.NO);
+
+    Map<String, List<String>> expectedCallsMap = new HashMap<>();
+    expectedCallsMap.put("CYP2C19", UNKNOWN_CALL);
+    expectedCallsMap.put("TPMT", UNKNOWN_CALL);
+    htmlChecks(document, expectedCallsMap, null, RecPresence.NO, RecPresence.NO);
   }
 
 
@@ -749,163 +799,6 @@ class PipelineTest {
 
 
   @Test
-  void testRyr1HomoRef(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("No CPIC variants found");
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testRyr1HomoVar(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("RYR1", "rs193922747", "T", "C");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.103T>C (heterozygous)");
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "c.103T>C"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testRyr1Het(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("RYR1", "rs193922747", "T", "C")
-        .variation("RYR1", "rs193922748", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.103T>C/c.130C>T");
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-
-  @Test
-  void testRyr1HomoRefCacna1sRef(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("CACNA1S")
-        .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("No CPIC variants found");
-
-    testWrapper.testCalledByMatcher("CACNA1S", "RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "Reference"));
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 1);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
-            .put("CACNA1S", expectedCalls)
-            .put("RYR1", expectedCalls)
-            .build(),
-        "desflurane", RecPresence.YES, RecPresence.NO);
-  }
-
-
-  @Test
-  void testCacna1sHomoRef(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("CACNA1S");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("No CPIC variants found");
-
-    testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "Reference"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
-            .put("CACNA1S", expectedCalls)
-            .put("RYR1", sf_unknownCall)
-            .build(),
-        "desflurane", RecPresence.YES_NO_MATCH, RecPresence.NO);
-  }
-
-  @Test
-  void testCacna1sHomoVar(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("CACNA1S", "rs1800559", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.3257G>A (heterozygous)");
-
-    testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "c.3257G>A"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testCacna1sHet(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("CACNA1S", "rs1800559", "C", "T")
-        .variation("CACNA1S", "rs772226819", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.520C>T/c.3257G>A");
-
-    testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", 0);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-
-  @Test
   void testRosuvastatin(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -1068,7 +961,7 @@ class PipelineTest {
     List<String> expectedCalls = List.of("rs4149056 C/rs4149056 T");
 
     testWrapper.testNotCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", sf_unknownCall);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", UNKNOWN_CALL);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", List.of("*1", "*5"));
     testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
 
@@ -1650,23 +1543,6 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("carbamazepine", 3);
   }
 
-  @Test
-  void testTpmtStar1s(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("TPMT", "rs1800460", "C", "T")
-        .variation("TPMT", "rs1142345", "T", "C");
-    testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("TPMT");
-    testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");
-    testWrapper.testRecommendedDiplotypes("TPMT", "*1", "*3A");
-
-    GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
-    assertNotNull(tpmtReport);
-    assertEquals(43, tpmtReport.getVariantReports().size());
-  }
-
 
   @Test
   void testCyp2c9star61(TestInfo testInfo) throws Exception {
@@ -1740,66 +1616,6 @@ class PipelineTest {
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*1", "*34");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*33", "*36");
     testWrapper.testMatchedAnnotations("efavirenz", 2);
-  }
-
-
-  /* NUDT15 */
-  @Test
-  void testNudt15Ref(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("NUDT15");
-    testWrapper.execute(null);
-
-    testWrapper.testPrintCpicCalls("NUDT15", "*1/*1");
-    testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*1");
-
-    testWrapper.testMatchedAnnotations("azathioprine", 2);
-    testWrapper.testMatchedAnnotations("mercaptopurine", 2);
-    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
-    testWrapper.testMatchedAnnotations("thioguanine", 2);
-    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.DPWG);
-  }
-
-  @Test
-  void testNudt15S2(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
-        .variation("NUDT15", "rs116855232", "C", "T")
-    ;
-    testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("NUDT15");
-    testWrapper.testPrintCpicCalls("NUDT15", "*1/*2");
-    testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*2");
-
-    DrugReport azaReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "azathioprine");
-    assertNotNull(azaReport);
-    GuidelineReport azaCpicGuideline = azaReport.getGuidelines().iterator().next();
-    List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getGeneReports());
-    assertEquals(1, genotypes.size());
-
-    testWrapper.testMatchedAnnotations("azathioprine", 2);
-  }
-
-  @Test
-  void testNudt15S3(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("NUDT15", "rs116855232", "C", "T")
-    ;
-    testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("NUDT15");
-    testWrapper.testPrintCpicCalls("NUDT15", "*1/*3");
-    testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*3");
-
-    testWrapper.testMatchedAnnotations("azathioprine", 2);
-    testWrapper.testMatchedAnnotations("mercaptopurine", 2);
-    testWrapper.testMatchedAnnotations("thioguanine", 2);
   }
 
 
@@ -2333,234 +2149,6 @@ class PipelineTest {
     assertEquals("rs12777823:Unknown", cpicWarfarinHighlightedVars.get(0).text());
   }
 
-
-  @Test
-  void testG6pdRef_male(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .male()
-        .reference("G6PD");
-    Path vcfFile = testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("G6PD");
-    testWrapper.testReportable("G6PD");
-
-    Document document = readHtmlReport(vcfFile);
-    Elements g6pdSections = document.select(".gene.G6PD");
-    assertEquals(1, g6pdSections.size());
-    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
-    assertEquals(1, g6pdCallElems.size());
-    assertEquals("B (reference)", g6pdCallElems.text());
-  }
-
-  @Test
-  void testG6pd_Ref_female(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .female()
-        .reference("G6PD");
-    Path vcfFile = testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("G6PD");
-    testWrapper.testReportable("G6PD");
-
-    Document document = readHtmlReport(vcfFile);
-    Elements g6pdSections = document.select(".gene.G6PD");
-    assertEquals(1, g6pdSections.size());
-    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
-    assertEquals(1, g6pdCallElems.size());
-    assertEquals("B (reference)/B (reference)", g6pdCallElems.text());
-  }
-
-  @Test
-  void testG6pd_MDPSCB_male(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .male()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030868", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testG6pd_MDPSCB_female_homo(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030868", "A", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testG6pd_MDPSCB_female_het(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030868", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("B (reference)/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-
-  @Test
-  void testG6pd_chatham_male(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .male()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030869", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("Chatham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testG6pd_chatham_female_homo(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030869", "T", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("Chatham/Chatham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testG6pd_chatham_female_het(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("G6PD")
-        .variation("G6PD", "rs5030869", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    String gene = "G6PD";
-    List<String> expectedCalls = List.of("B (reference)/Chatham");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testG6pd_Arakawa_male(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .male()
-        .reference("G6PD")
-        .variation("G6PD", "chrX", 154532082, "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("G6PD");
-    testWrapper.testReportable("G6PD");
-
-    Document document = readHtmlReport(vcfFile);
-    Elements g6pdSections = document.select(".gene.G6PD");
-    assertEquals(1, g6pdSections.size());
-    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
-    assertEquals(1, g6pdCallElems.size());
-    assertEquals("Arakawa", g6pdCallElems.text());
-  }
-
-  @Test
-  void testG6pd_Arakawa_female_het(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .female()
-        .reference("G6PD")
-        .variation("G6PD", "chrX", 154532082, "G", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("G6PD");
-    testWrapper.testReportable("G6PD");
-
-    Document document = readHtmlReport(vcfFile);
-    Elements g6pdSections = document.select(".gene.G6PD");
-    assertEquals(1, g6pdSections.size());
-    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
-    assertEquals(1, g6pdCallElems.size());
-    assertEquals("Arakawa/B (reference)", g6pdCallElems.text());
-  }
-
-  @Test
-  void testG6pd_Arakawa_female_homo(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .female()
-        .reference("G6PD")
-        .variation("G6PD", "chrX", 154532082, "A", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    testWrapper.testCalledByMatcher("G6PD");
-    testWrapper.testReportable("G6PD");
-
-    Document document = readHtmlReport(vcfFile);
-    Elements g6pdSections = document.select(".gene.G6PD");
-    assertEquals(1, g6pdSections.size());
-    Elements g6pdCallElems = g6pdSections.get(0).getElementsByClass("genotype-result");
-    assertEquals(1, g6pdCallElems.size());
-    assertEquals("Arakawa/Arakawa", g6pdCallElems.text());
-  }
-  
   public static Document readHtmlReport(@Nullable Path file) throws IOException {
     if (file == null) {
       throw new IOException("No such file: " + file);
