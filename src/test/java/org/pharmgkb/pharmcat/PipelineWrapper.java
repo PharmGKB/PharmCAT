@@ -89,10 +89,14 @@ class PipelineWrapper {
   }
 
   @Nullable Path execute(Path outsideCallPath) throws Exception {
+    return execute(outsideCallPath, false);
+  }
+
+  @Nullable Path execute(Path outsideCallPath, boolean allowNoData) throws Exception {
     Path vcfFile = null;
     VcfFile vcfFileObj = null;
     boolean runMatcher = false;
-    if (m_vcfBuilder.hasData()) {
+    if (m_vcfBuilder.hasData() || allowNoData) {
       runMatcher = true;
       vcfFile = m_vcfBuilder.generate();
       vcfFileObj = new VcfFile(vcfFile, false);

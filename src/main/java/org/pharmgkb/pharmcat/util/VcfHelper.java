@@ -296,11 +296,13 @@ public class VcfHelper implements AutoCloseable {
       if (assemblies.size() > 1) {
         throw new IllegalStateException("Multiple assemblies found: " + assemblies);
       }
-      String assembly = assemblies.iterator().next();
-      SortedSet<String> sortedChr = new TreeSet<>(new ChrNameComparator());
-      sortedChr.addAll(contigs.keySet());
-      for (String chr : sortedChr) {
-        writer.println("##contig=<ID=" + chr + ",assembly=" + assembly + ",species=\"Homo sapiens\">");
+      if (!assemblies.isEmpty()) {
+        String assembly = assemblies.iterator().next();
+        SortedSet<String> sortedChr = new TreeSet<>(new ChrNameComparator());
+        sortedChr.addAll(contigs.keySet());
+        for (String chr : sortedChr) {
+          writer.println("##contig=<ID=" + chr + ",assembly=" + assembly + ",species=\"Homo sapiens\">");
+        }
       }
     }
 

@@ -326,6 +326,13 @@ class PipelineTest {
 
 
   @Test
+  void testNoData(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.execute(null, true);
+  }
+
+
+  @Test
   void testUndocumentedVariation(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()

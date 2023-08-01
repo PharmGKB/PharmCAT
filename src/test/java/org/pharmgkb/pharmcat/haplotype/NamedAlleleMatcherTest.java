@@ -350,7 +350,7 @@ class NamedAlleleMatcherTest {
   }
 
   @Test
-  void testCombinationUphased() throws Exception {
+  void testCombinationUnphased() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationUnphased.vcf");
 

@@ -50,14 +50,19 @@
     <h2>Section I: Genotype Summary</h2>
 
     {{#unless (thereAre summaries)}}
-      <p>
-        No genotypes called.
-      </p>
       {{#if (thereAre uncallableGenes)}}
+        <p>
+          No genotypes called.
+        </p>
         {{> uncallableGenesNote }}
       {{/if}}
+      {{#unless (thereAre uncallableGenes)}}
+        <p>
+          No data provided.
+        </p>
+      {{/unless}}
       <p>
-        See <a href="#section-iii">Section III</a> for details.  For a full list of disclaimers and limitations see <a href="#disclaimer">Section IV</a>.
+        For a full list of disclaimers and limitations see <a href="#disclaimer">Section IV</a>.
       </p>
     {{/unless}}
     {{#if (thereAre summaries) }}
@@ -150,11 +155,8 @@
       </table>
 
       {{#if (thereAre uncallableGenes)}}
-        <div class="alert alert-secondary">
+        <div class="alert alert-warning">
           {{> uncallableGenesNote }}
-          <p class="mb-1">
-            See <a href="#section-iii">Section III</a> for details.
-          </p>
         </div>
       {{/if}}
 
