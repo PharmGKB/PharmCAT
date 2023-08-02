@@ -228,14 +228,14 @@ public class Pipeline implements Callable<PipelineResult> {
       org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = null;
       if (m_runMatcher) {
         NamedAlleleMatcher namedAlleleMatcher =
-            new NamedAlleleMatcher(m_env, m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+            new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }
         matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
 
         if (matcherResult.getVcfWarnings() != null &&
-            matcherResult.getVcfWarnings().size() > 0) {
+            !matcherResult.getVcfWarnings().isEmpty()) {
           Path txtFile = m_matcherJsonFile.getParent()
               .resolve(m_basename + BaseConfig.MATCHER_SUFFIX + "_warnings.txt");
           try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
@@ -368,8 +368,9 @@ public class Pipeline implements Callable<PipelineResult> {
 
     } catch (Exception ex) {
       if (!m_singleSample) {
-        Path txtFile = m_baseDir.resolve(m_basename + ".ERROR.txt");
+        //noinspection CallToPrintStackTrace
         ex.printStackTrace();
+        Path txtFile = m_baseDir.resolve(m_basename + ".ERROR.txt");
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
           ex.printStackTrace(writer);
         }
@@ -391,19 +392,19 @@ public class Pipeline implements Callable<PipelineResult> {
       builder.append(m_vcfFile.getFile().getFileName());
     }
     if (m_phenotyperInputFile != null) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(", ");
       }
       builder.append(m_phenotyperInputFile.getFileName());
     }
     if (m_phenotyperOutsideCallsFile != null) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(", ");
       }
       builder.append(m_phenotyperOutsideCallsFile.getFileName());
     }
     if (m_reporterInputFile != null) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(", ");
       }
       builder.append(m_reporterInputFile.getFileName());
