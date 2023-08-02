@@ -98,6 +98,9 @@ public class Pipeline implements Callable<PipelineResult> {
       m_vcfFile = Objects.requireNonNull(vcfFile);
       m_sampleId = sampleId;
       generateBasename(baseFilename, vcfFile.getFile(), sampleId, singleSample);
+      if (m_baseDir == null) {
+        m_baseDir = m_vcfFile.getFile().getParent();
+      }
       m_matcherJsonFile = m_baseDir.resolve(m_basename + BaseConfig.MATCHER_SUFFIX + ".json");
       m_topCandidateOnly = topCandidateOnly;
       m_callCyp2d6 = callCyp2d6;
@@ -121,6 +124,9 @@ public class Pipeline implements Callable<PipelineResult> {
         throw new IllegalStateException("No phenotyper input file");
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
+      if (m_baseDir == null) {
+        m_baseDir = inputFile.getParent();
+      }
       m_phenotyperJsonFile = m_baseDir.resolve(m_basename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
     }
 
@@ -135,6 +141,9 @@ public class Pipeline implements Callable<PipelineResult> {
         throw new IllegalStateException("No reporter input file");
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
+      if (m_baseDir == null) {
+        m_baseDir = inputFile.getParent();
+      }
       m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
       if (reporterJson) {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
@@ -219,7 +228,7 @@ public class Pipeline implements Callable<PipelineResult> {
       org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = null;
       if (m_runMatcher) {
         NamedAlleleMatcher namedAlleleMatcher =
-            new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+            new NamedAlleleMatcher(m_env, m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }
