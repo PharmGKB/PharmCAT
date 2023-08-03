@@ -410,15 +410,24 @@ public class ReportHelpers {
     return false;
   }
 
-  public static String amdAlleleFunction(Map<String, Map<String, String>> functionMap, String gene, String allele) {
+  public static String amdAlleleFunction(Map<String, Map<String, String>> functionMap, String gene, String dbSnpId,
+      String allele) {
+    if (gene.equals("CYP2C19")) {
+      // special case to deal with CYP2C19 *1/*38
+      if (allele.equalsIgnoreCase("*1")) {
+        if (!"rs3758581".equalsIgnoreCase(dbSnpId)) {
+          return "";
+        }
+      }
+    }
     Map<String, String> functions = functionMap.get(gene);
     if (functions != null) {
       String function = functions.get(allele);
       if (function != null) {
-        return allele + " - " + function;
+        return "<li>" + allele + " - " + function + "</li>";
       }
     }
-    return allele + " - " + GenePhenotype.UNASSIGNED_FUNCTION;
+    return "<li>" + allele + " - " + GenePhenotype.UNASSIGNED_FUNCTION + "</li>";
   }
 
   public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {

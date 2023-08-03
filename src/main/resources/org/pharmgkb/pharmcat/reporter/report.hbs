@@ -470,7 +470,7 @@
                     {{#if (thereAre alleles) }}
                       <ul class="noBullet mt-0 mb-0">
                         {{#each alleles}}
-                          <li>{{amdAlleleFunction functionMap geneDisplay this}}</li>
+                          {{{amdAlleleFunction functionMap geneDisplay dbSnpId this}}}
                         {{/each}}
                       </ul>
                     {{/if}}
