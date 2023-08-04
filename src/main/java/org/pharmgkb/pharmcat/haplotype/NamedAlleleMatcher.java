@@ -3,23 +3,14 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.BaseConfig;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
@@ -30,8 +21,12 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
+
+import static org.pharmgkb.pharmcat.util.DataManager.DPYD_HAPB3_WOBBLE_RSID;
 
 
 /**
@@ -51,6 +46,7 @@ public class NamedAlleleMatcher {
       "TPMT"
   );
 
+  private final Env m_env;
   private final DefinitionReader m_definitionReader;
   private final boolean m_findCombinations;
   private final boolean m_topCandidateOnly;
@@ -62,8 +58,8 @@ public class NamedAlleleMatcher {
    * Default constructor.
    * This will only call the top candidate(s).  Will not find combinations or call CYP2D6.
    */
-  public NamedAlleleMatcher(DefinitionReader definitionReader) {
-    this(definitionReader, false, false, false);
+  public NamedAlleleMatcher(Env env, DefinitionReader definitionReader) {
+    this(env, definitionReader, false, false, false);
   }
 
   /**
@@ -72,10 +68,11 @@ public class NamedAlleleMatcher {
    * @param topCandidateOnly true if only top candidate(s) should be called, false to call all possible candidates
    * @param callCyp2d6 true if CYP2D6 should be called
    */
-  public NamedAlleleMatcher(DefinitionReader definitionReader, boolean findCombinations, boolean topCandidateOnly,
-      boolean callCyp2d6) {
-
+  public NamedAlleleMatcher(Env env, DefinitionReader definitionReader, boolean findCombinations,
+      boolean topCandidateOnly, boolean callCyp2d6) {
+    Preconditions.checkNotNull(env);
     Preconditions.checkNotNull(definitionReader);
+    m_env = env;
     m_definitionReader = definitionReader;
     m_findCombinations = findCombinations;
     m_topCandidateOnly = topCandidateOnly;
@@ -119,7 +116,7 @@ public class NamedAlleleMatcher {
       }
 
       DefinitionReader definitionReader = new DefinitionReader(definitionDir);
-      if (definitionReader.getGenes().size() == 0) {
+      if (definitionReader.getGenes().isEmpty()) {
         System.out.println("Did not find any allele definitions at " + definitionDir);
         System.exit(1);
       }
@@ -132,7 +129,7 @@ public class NamedAlleleMatcher {
         findCombinations = cliHelper.hasOption("combinations");
       }
       NamedAlleleMatcher namedAlleleMatcher =
-          new NamedAlleleMatcher(definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
+          new NamedAlleleMatcher(new Env(), definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
               .printWarnings();
       Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
@@ -147,6 +144,7 @@ public class NamedAlleleMatcher {
       }
 
     } catch (Exception ex) {
+      //noinspection CallToPrintStackTrace
       ex.printStackTrace();
     }
   }
@@ -254,6 +252,19 @@ public class NamedAlleleMatcher {
       return;
     }
 
+    boolean hasHapB3Wobble = false;
+    VariantLocus hapB3WobbleLocus = m_definitionReader.getLocationsOfInterest().values().stream()
+        .filter(vl -> DPYD_HAPB3_WOBBLE_RSID.equals(vl.getRsid()))
+        .findAny()
+        .orElse(null);
+    if (hapB3WobbleLocus != null) {
+      SampleAllele sa = alleleMap.get(hapB3WobbleLocus.getVcfChrPosition());
+      if (sa != null) {
+        hasHapB3Wobble = !sa.getAllele1().equals(hapB3WobbleLocus.getRef()) ||
+            (sa.getAllele2() != null && !sa.getAllele2().equals(hapB3WobbleLocus.getRef()));
+      }
+    }
+
     MatchData comboData = null;
     // try for diplotypes if effectively phased
     if (refData.isEffectivelyPhased()) {
@@ -292,7 +303,22 @@ public class NamedAlleleMatcher {
                 finalMatches.stream().map(DiplotypeMatch::toString).collect(Collectors.joining("; ")));
           }
         }
-        if (finalMatches.size() != 0) {
+
+        // partial match, ignore normal functions
+        if (finalMatches.size() == 1 && hasHapB3Wobble) {
+          GenePhenotype cpicPhenotypes = Objects.requireNonNull(m_env.getPhenotype("DPYD", DataSource.CPIC));
+          finalMatches = finalMatches.stream()
+              .filter(m -> {
+                if ("normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getHaplotype1().getName()))) {
+                  return false;
+                }
+                return m.getHaplotype2() == null ||
+                    !"normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getHaplotype2().getName()));
+              })
+              .collect(Collectors.toList());
+        }
+
+        if (!finalMatches.isEmpty()) {
           resultBuilder.diplotypes(gene, comboData, finalMatches);
           return;
         }
@@ -335,14 +361,23 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // Reference/Reference matches would have been handled in effectively phased section
-    // if we get to this point, it's combination that might include Reference
-    // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
-    // with 2 or fewer haplotype matches, cannot have reference if there's a partial
+    // diplotype matches would have been handled in effectively phased section
+    // if we get to this point, it's combination that might include Reference and normal function alleles
     if (hapMatches.size() > 2 || numPartials > 0) {
-      hapMatches = hapMatches.stream()
-          .filter(m -> !m.getName().equals("Reference"))
-          .collect(Collectors.toCollection(TreeSet::new));
+      if (hasHapB3Wobble) {
+        // if there are more than 2 haplotype matches, strip out normal function alleles
+        // with 2 or fewer haplotype matches, cannot have normal function allele if there's a partial
+        GenePhenotype cpicPhenotypes = Objects.requireNonNull(m_env.getPhenotype("DPYD", DataSource.CPIC));
+        hapMatches = hapMatches.stream()
+            .filter(m -> !"normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getName())))
+            .collect(Collectors.toCollection(TreeSet::new));
+      } else {
+        // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
+        // with 2 or fewer haplotype matches, cannot have reference if there's a partial
+        hapMatches = hapMatches.stream()
+            .filter(m -> !m.getName().equals("Reference"))
+            .collect(Collectors.toCollection(TreeSet::new));
+      }
     }
 
     List<HaplotypeMatch> finalHaps = new ArrayList<>();
@@ -353,7 +388,7 @@ public class NamedAlleleMatcher {
         homozygous.remove(hm.getName());
       }
     }
-    if (homozygous.size() > 0) {
+    if (!homozygous.isEmpty() && !hasHapB3Wobble) {
       throw new IllegalStateException("Combination matching found " + homozygous + " but haplotype matching didn't");
     }
     resultBuilder.haplotypes(gene, refData, finalHaps);
@@ -474,7 +509,7 @@ public class NamedAlleleMatcher {
   }
 
   /**
-   * Find positions that are used by ignored alleles (and are therefore potentially ignoreable).
+   * Find positions that are used by ignored alleles (and are therefore potentially ignorable).
    */
   private Set<VariantLocus> findIgnorablePositions(VariantLocus[] allPositions, NamedAllele namedAllele)  {
     Set<VariantLocus> ignorablePositions = new HashSet<>();

@@ -15,6 +15,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
+import org.opentest4j.AssertionFailedError;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -293,12 +294,18 @@ class PipelineWrapper {
    */
   void testNotCalledByMatcher(String... genes) {
     Preconditions.checkArgument(genes != null && genes.length > 0);
-    Arrays.stream(genes)
-        .forEach(g -> {
-          assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isOutsideCall) ||
-                  getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
-              g + " is called");
-        });
+    for (String g : genes) {
+      try {
+        assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isOutsideCall) ||
+                getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
+            g + " is called");
+      } catch (AssertionFailedError ex) {
+        for (GeneReport gr : getContext().getGeneReports(g)) {
+          System.out.println(printDiagnostic(gr));
+        }
+        throw ex;
+      }
+    }
   }
 
   /**

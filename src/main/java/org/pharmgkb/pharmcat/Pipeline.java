@@ -227,8 +227,8 @@ public class Pipeline implements Callable<PipelineResult> {
       List<String> output = new ArrayList<>();
       org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = null;
       if (m_runMatcher) {
-        NamedAlleleMatcher namedAlleleMatcher =
-            new NamedAlleleMatcher(m_env.getDefinitionReader(), m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
+        NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(m_env, m_env.getDefinitionReader(),
+            m_findCombinations, m_topCandidateOnly, m_callCyp2d6);
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }

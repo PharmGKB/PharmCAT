@@ -411,9 +411,10 @@ public class DataManager {
 
 
   // expected HapB3 variations
+  public static final String DPYD_HAPB3_WOBBLE_RSID = "rs56038477";
   private static final ImmutableMap<String, String> sf_dpydHapB3Rsids = ImmutableMap.of(
       "rs75017182", "C",
-      "rs56038477", "T"
+      DPYD_HAPB3_WOBBLE_RSID, "T"
   );
 
   /**
@@ -434,7 +435,7 @@ public class DataManager {
           throw new RuntimeException("Expecting " + vl.getRsid() + " on HapB3 to be " + hapB3.getAlleles()[x] +
               " but got " + allele);
         }
-        if (vl.getRsid().equals("rs56038477")) {
+        if (vl.getRsid().equals(DPYD_HAPB3_WOBBLE_RSID)) {
           hapB3.getAlleles()[x] = "Y";
         }
       }
