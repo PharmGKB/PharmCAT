@@ -52,7 +52,9 @@ def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> P
 
 def run(command: List[str]):
     try:
-        subprocess.run(command, check=True, stderr=subprocess.PIPE, universal_newlines=True)
+        # 'check=True' raises a 'CalledProcessError' if the subprocess does not complete
+        # 'stdout=subprocess.PIPE' print out the output/stdout from the subprocess
+        subprocess.run(command, check=True, stdout=subprocess.PIPE, universal_newlines=True)
     except FileNotFoundError:
         raise ReportableException('Error: %s not found' % command[0])
     except subprocess.TimeoutExpired:
