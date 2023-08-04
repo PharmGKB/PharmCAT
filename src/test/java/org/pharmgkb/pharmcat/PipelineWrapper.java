@@ -25,8 +25,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -116,29 +114,27 @@ class PipelineWrapper {
   }
 
 
-  void testCpicMatcher(String gene, String... diplotypes) {
-    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, gene);
-    assertNotNull(geneReport);
-    List<String> dips = geneReport.getSourceDiplotypes().stream()
-        .map(Diplotype::getLabel)
-        .sorted()
+  private List<String> stripHomozygousNotes(List<String> calls) {
+    return calls.stream()
+        .map(d -> {
+          if (d.endsWith(" (homozygous)")) {
+            return d.substring(0, d.length() - 13);
+          }
+          return d;
+        })
         .toList();
-    try {
-      assertThat(dips, contains(diplotypes));
-    } catch (AssertionError ex) {
-      System.out.println(printDiagnostic(geneReport));
-      throw ex;
-    }
   }
+
 
   void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
     assertNotNull(geneReport);
-    List<String> dips = geneReport.getSourceDiplotypes().stream()
+    List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
         .map(Diplotype::getLabel)
         .toList();
+    List<String> expectedDiplotypes = stripHomozygousNotes(diplotypes);
     try {
-      assertEquals(diplotypes, dips);
+      assertEquals(expectedDiplotypes, actualDiplotypes);
     } catch (AssertionError ex) {
       System.out.println(printDiagnostic(geneReport));
       throw ex;
@@ -164,9 +160,10 @@ class PipelineWrapper {
   void testPrintCalls(DataSource source, String gene, List<String> calls) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
     assertNotNull(geneReport);
-    List<String> dips = ReportHelpers.amdGeneCalls(geneReport);
+    List<String> actualCalls = ReportHelpers.amdGeneCalls(geneReport);
+    List<String> expectedCalls = stripHomozygousNotes(calls);
     try {
-      assertEquals(calls, dips);
+      assertEquals(expectedCalls, actualCalls);
     } catch (AssertionError ex) {
       System.out.println(printDiagnostic(geneReport));
       throw ex;
@@ -226,6 +223,7 @@ class PipelineWrapper {
     assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
     Map<String, Integer> lookup = new HashMap<>();
+    haplotypes = stripHomozygousNotes(haplotypes);
     if (haplotypes.size() == 2) {
       if (haplotypes.get(0).equals(haplotypes.get(1))) {
         lookup.put(haplotypes.get(0), 2);

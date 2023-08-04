@@ -37,10 +37,9 @@ public class Report {
     m_source = source;
     m_matched = drugReport.isMatched();
     m_urls = drugReport.getUrls();
+    m_guidelines = drugReport.getGuidelines();
 
-    if (m_matched) {
-      m_guidelines = drugReport.getGuidelines();
-    } else {
+    if (!m_matched) {
       m_notCalled = drugReport.getGuidelines().stream().noneMatch(GuidelineReport::isReportable);
       if (m_notCalled) {
         m_uncalledGenes = drugReport.getGuidelines().stream()

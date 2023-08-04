@@ -75,7 +75,7 @@ public class DpydCaller {
   public static List<Diplotype> inferFromHaplotypeMatches(Collection<HaplotypeMatch> matches, Env env, DataSource source) {
 
     List<Diplotype> diplotypes = new ArrayList<>();
-    if (matches.size() == 0) {
+    if (matches.isEmpty()) {
       diplotypes.add(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
     } else {
       List<String> hapNames = new ArrayList<>();

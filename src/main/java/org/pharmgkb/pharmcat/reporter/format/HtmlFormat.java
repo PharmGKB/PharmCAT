@@ -289,7 +289,7 @@ public class HtmlFormat extends AbstractFormat {
         if (report.getCallSource() == CallSource.MATCHER) {
           if (isSlco1b1(symbol)) {
             summary.put("diplotypes", report.getRecommendationDiplotypes());
-          } else if (isDpyd(symbol) && report.getMatcherComponentHaplotypes().size() > 0) {
+          } else if (isDpyd(symbol) && !report.getMatcherComponentHaplotypes().isEmpty()) {
             summary.put("showComponents", true);
             summary.put("diplotypes", report.getSourceDiplotypes().first());
             summary.put("componentDiplotypes", report.getMatcherComponentHaplotypes());
@@ -299,6 +299,7 @@ public class HtmlFormat extends AbstractFormat {
         } else {
           summary.put("diplotypes", report.getRecommendationDiplotypes());
         }
+        summary.put("homozygousComponentHaplotypes", report.getMatcherHomozygousComponentHaplotypes());
         summary.put("hasMissingVariants", report.isMissingVariants());
         summary.put("showUnphasedNote", showUnphasedNote(report));
         summary.put("hasUndocumentedVariants", report.isHasUndocumentedVariations());
@@ -306,7 +307,7 @@ public class HtmlFormat extends AbstractFormat {
         summary.put("geneReport", report);
 
       } else {
-        // TODO(markwoon): check if functionality is different?
+        // TODO(markwoon): do we need to do anything special when there are GeneReports from more than 1 source?
       }
     }
 

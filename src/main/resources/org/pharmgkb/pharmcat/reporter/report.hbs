@@ -114,12 +114,12 @@
                 {{#if showComponents}}
                   {{#with diplotypes}}
                     <tr class="leastFunctionDiplotype gs-dip_leastFunction">
-                      <td colspan="3"><b>{{{gsCall}}}</b></td>
+                      <td colspan="3"><b>{{{gsCall this ../homozygousComponentHaplotypes}}}</b></td>
                     </tr>
                   {{/with}}
                   {{#each componentDiplotypes}}
                     <tr class="top-aligned gs-dip_component">
-                      <td>{{{gsCall}}}</td>
+                      <td>{{{gsCall this ../homozygousComponentHaplotypes}}}</td>
                       <td>{{gsFunction}}</td>
                       <td>{{gsPhenotype}}</td>
                     </tr>
@@ -128,7 +128,7 @@
                   <!-- standard diplotype -->
                   {{#each diplotypes}}
                     <tr class="top-aligned gs-dip">
-                      <td>{{{gsCall}}}</td>
+                      <td>{{{gsCall this ../homozygousComponentHaplotypes}}}</td>
                       <td>{{gsFunction}}</td>
                       <td>{{gsPhenotype}}</td>
                     </tr>
@@ -304,7 +304,7 @@
                         </div>
                         <div>
                           <div class="hint">{{pluralize "Genotype" unmatchedDiplotypes}}</div>
-                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes noDataGenes}}}
+                          {{{rxUnmatchedDiplotypes unmatchedDiplotypes guidelines noDataGenes}}}
                           {{#if unmatchedInferred}}<sup><a href="#rx-dagger-{{../../../drug}}" title="Inferred">&dagger;</a></sup>{{/if}}
                           {{#if unmatchedDpydInferred}}<sup><a href="#rx-ddagger-{{../../../drug}}" title="Inferred">&ddagger;</a></sup>{{/if}}
                         </div>

@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model.result;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -101,6 +102,9 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("matcherComponentHaplotypes")
   private final SortedSet<Diplotype> m_matcherComponentHaplotypes = new TreeSet<>();
+  @Expose
+  @SerializedName("matcherHomozygousComponentHaplotypes")
+  private final SortedSet<String> m_matcherHomozygousComponentHaplotypes = new TreeSet<>();
 
   @Expose
   @SerializedName("recommendationDiplotypes")
@@ -167,7 +171,7 @@ public class GeneReport implements Comparable<GeneReport> {
     call.getMatchData().getPositionsWithUndocumentedVariations().stream()
         .flatMap(a -> m_variantReports.stream().filter(v -> v.getPosition() == a.getPosition()))
         .forEach(r -> r.setHasUndocumentedVariations(true));
-    m_hasUndocumentedVariations = call.getMatchData().getPositionsWithUndocumentedVariations().size() > 0;
+    m_hasUndocumentedVariations = !call.getMatchData().getPositionsWithUndocumentedVariations().isEmpty();
     m_treatUndocumentedVariationsAsReference = call.getMatchData().isTreatUndocumentedVariationsAsReference();
 
     if (call.getHaplotypes().stream()
@@ -182,14 +186,25 @@ public class GeneReport implements Comparable<GeneReport> {
         m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
         m_recommendationDiplotypes.addAll(DpydCaller.inferFromDiplotypes(call.getDiplotypes(), env, phenotypeSource));
       } else {
-        List<HaplotypeMatch> matches = new ArrayList<>();
+        List<HaplotypeMatch> uniqueMatches = new ArrayList<>();
+        Map<String, Integer> counts = new HashMap<>();
         call.getHaplotypeMatches().forEach((hm) -> {
-          if (matches.stream().noneMatch((m) -> m.getName().equals(hm.getName()))) {
-            matches.add(hm);
+          if (uniqueMatches.stream().noneMatch((m) -> m.getName().equals(hm.getName()))) {
+            uniqueMatches.add(hm);
+          }
+          for (String h : hm.getHaplotypeNames()) {
+            counts.compute(h, (k, v) -> v == null ? 1 : v + 1);
           }
         });
-        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(matches, m_phenotypeSource));
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(uniqueMatches, m_phenotypeSource));
         m_recommendationDiplotypes.addAll(DpydCaller.inferFromHaplotypeMatches(call.getHaplotypeMatches(), env, phenotypeSource));
+        if (isDpyd(m_gene)) {
+          for (String h : counts.keySet()) {
+            if (counts.get(h) > 1) {
+              m_matcherHomozygousComponentHaplotypes.add(h);
+            }
+          }
+        }
       }
 
     } else {
@@ -363,10 +378,10 @@ public class GeneReport implements Comparable<GeneReport> {
    * @param variantWarnings a Map of all variant warnings by "chr:position" strings
    */
   public void addVariantWarningMessages(Map<String, Collection<String>> variantWarnings) {
-    if (variantWarnings != null && variantWarnings.size() > 0) {
+    if (variantWarnings != null && !variantWarnings.isEmpty()) {
       for (VariantReport variantReport : m_variantReports) {
         Collection<String> warnings = variantWarnings.get(variantReport.toChrPosition());
-        if (warnings != null && warnings.size() > 0) {
+        if (warnings != null && !warnings.isEmpty()) {
           variantReport.setWarnings(warnings);
         }
       }
@@ -419,14 +434,14 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if there is at least one call for this gene, false otherwise.
    */
   public boolean isCalled() {
-    return m_sourceDiplotypes.size() > 0 && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return !m_sourceDiplotypes.isEmpty() && m_sourceDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
    * True if there is a diplotype for this gene that the reporter can use, false otherwise.
    */
   public boolean isReportable() {
-    return m_recommendationDiplotypes.size() > 0 && m_recommendationDiplotypes.stream().noneMatch(Diplotype::isUnknown);
+    return !m_recommendationDiplotypes.isEmpty() && m_recommendationDiplotypes.stream().noneMatch(Diplotype::isUnknown);
   }
 
   /**
@@ -555,6 +570,14 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public SortedSet<Diplotype> getMatcherComponentHaplotypes() {
     return m_matcherComponentHaplotypes;
+  }
+
+  /**
+   * Gets the list of haplotypes that are homozygous.
+   * This is currently only used by DPYD.
+   */
+  public SortedSet<String> getMatcherHomozygousComponentHaplotypes() {
+    return m_matcherHomozygousComponentHaplotypes;
   }
 
 

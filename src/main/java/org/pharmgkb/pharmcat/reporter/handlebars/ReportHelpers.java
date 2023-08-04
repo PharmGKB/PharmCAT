@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
@@ -157,7 +158,7 @@ public class ReportHelpers {
   }
 
 
-  public static String gsCall(Diplotype diplotype) {
+  public static String gsCall(Diplotype diplotype, Collection<String> homozygousComponentHaplotypes) {
     if (diplotype.isUnknownAlleles()) {
       return "<span class=\"gs-uncalled-" + HtmlEscapers.htmlEscaper().escape(diplotype.getGene()) + "\">" + UNCALLED + "</span>";
     }
@@ -167,6 +168,9 @@ public class ReportHelpers {
             diplotype.getInferredSourceDiplotypes().size() + " diplotypes!)");
       }
       diplotype = diplotype.getInferredSourceDiplotypes().first();
+    }
+    if (homozygousComponentHaplotypes.contains(diplotype.getLabel())) {
+      return HtmlEscapers.htmlEscaper().escape(diplotype.getLabel() + " (homozygous)");
     }
     return HtmlEscapers.htmlEscaper().escape(diplotype.getLabel());
   }
@@ -240,14 +244,14 @@ public class ReportHelpers {
 
   public static String rxGenotype(Genotype genotype, AnnotationReport annotationReport, GuidelineReport guidelineReport,
       SortedSet<String> noDataGenes) {
-    if (genotype.getDiplotypes().size() == 0) {
+    if (genotype.getDiplotypes().isEmpty()) {
       return TextConstants.UNKNOWN_GENOTYPE;
     }
     StringBuilder builder = new StringBuilder()
-      .append(renderRxDiplotypes(genotype.getDiplotypes(), false, noDataGenes));
-    if (annotationReport.getHighlightedVariants().size() > 0) {
+      .append(renderRxDiplotypes(genotype.getDiplotypes(), false, noDataGenes, guidelineReport));
+    if (!annotationReport.getHighlightedVariants().isEmpty()) {
       for (String var : annotationReport.getHighlightedVariants()) {
-        if (builder.length() > 0) {
+        if (!builder.isEmpty()) {
           builder.append(";<br />");
         }
         builder.append("<span class=\"rx-hl-var\">")
@@ -265,19 +269,21 @@ public class ReportHelpers {
     }
 
     boolean hasInferred = genotype.getDiplotypes().stream()
-        .anyMatch(d -> d.getInferredSourceDiplotypes() != null && d.getInferredSourceDiplotypes().size() > 0);
+        .anyMatch(d -> d.getInferredSourceDiplotypes() != null && !d.getInferredSourceDiplotypes().isEmpty());
     if (hasInferred) {
       return "<div class=\"alert alert-debug\">" +
           "<div class=\"hint\">Inferred:</div>" +
           "<span class=\"nowrap\">" +
-          renderRxDiplotypes(genotype.getDiplotypes(), true, noDataGenes) +
+          renderRxDiplotypes(genotype.getDiplotypes(), true, noDataGenes, guidelineReport) +
           "</span></div>";
     }
     return "";
   }
 
-  public static String rxUnmatchedDiplotypes(SortedSet<Diplotype> diplotypes, SortedSet<String> noDataGenes) {
-    return renderRxDiplotypes(diplotypes, true, false, "rx-unmatched-dip", noDataGenes);
+  public static String rxUnmatchedDiplotypes(SortedSet<Diplotype> diplotypes, SortedSet<GuidelineReport> guidelines,
+      SortedSet<String> noDataGenes) {
+    return renderRxDiplotypes(diplotypes, true, false, "rx-unmatched-dip", noDataGenes,
+        guidelines.first());
   }
 
   public static boolean rxUnmatchedDiplotypesInferred(Report report) {
@@ -287,12 +293,12 @@ public class ReportHelpers {
 
 
   private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean forDebug,
-      SortedSet<String> noDataGenes) {
-    return renderRxDiplotypes(diplotypes, false, forDebug, "rx-dip", noDataGenes);
+      SortedSet<String> noDataGenes, GuidelineReport guidelineReport) {
+    return renderRxDiplotypes(diplotypes, false, forDebug, "rx-dip", noDataGenes, guidelineReport);
   }
 
   private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean noLengthLimit, boolean forDebug,
-      String dipClass, SortedSet<String> noDataGenes) {
+      String dipClass, SortedSet<String> noDataGenes, @Nullable GuidelineReport guidelineReport) {
     SortedSet<Diplotype> displayDiplotypes = new TreeSet<>();
     for (Diplotype diplotype : diplotypes) {
       if (!forDebug && diplotype.getInferredSourceDiplotypes() != null) {
@@ -304,7 +310,7 @@ public class ReportHelpers {
 
     StringBuilder builder = new StringBuilder();
     for (Diplotype diplotype : displayDiplotypes) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(";<br />");
       }
       builder.append("<span");
@@ -344,6 +350,9 @@ public class ReportHelpers {
                 .append(b);
           }
         }
+        if (guidelineReport != null && guidelineReport.getHomozygousComponentHaplotypes().contains(call)) {
+          builder.append(" (homozygous)");
+        }
       }
       builder.append("</span>");
     }
@@ -353,7 +362,7 @@ public class ReportHelpers {
 
 
   public static String rxImplications(SortedMap<String, String> implications) {
-    if (implications.size() == 0) {
+    if (implications.isEmpty()) {
       return "";
     }
     if (implications.size() == 1) {

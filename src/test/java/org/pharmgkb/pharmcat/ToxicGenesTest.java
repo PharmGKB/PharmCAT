@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -33,7 +34,8 @@ class ToxicGenesTest {
 
   @BeforeAll
   static void prepare() {
-    //TestUtils.setSaveTestOutput(true);
+    ReportHelpers.setDebugMode(true);
+    TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach

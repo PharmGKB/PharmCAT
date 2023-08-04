@@ -83,7 +83,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public DrugReport(String name, SortedSet<GuidelinePackage> guidelinePackages, ReportContext reportContext) {
-    Preconditions.checkArgument(guidelinePackages != null && guidelinePackages.size() > 0);
+    Preconditions.checkArgument(guidelinePackages != null && !guidelinePackages.isEmpty());
     m_drugName = name;
     m_id = guidelinePackages.first().getGuideline().getRelatedChemicals().stream()
         .filter((c) -> c.getName().equals(name))

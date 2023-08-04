@@ -45,6 +45,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private transient final SortedSet<GeneReport> m_geneReports = new TreeSet<>();
   private transient final SortedSet<Diplotype> m_sourceDiplotypes = new TreeSet<>();
   private transient List<Genotype> m_recommendationGenotypes;
+  private transient final SortedSet<String> m_homozygousComponentHaplotypes = new TreeSet<>();
 
 
   /**
@@ -88,6 +89,9 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
         .flatMap(gr -> gr.getSourceDiplotypes().stream())
         .forEach(m_sourceDiplotypes::add);
     m_recommendationGenotypes = Genotype.makeGenotypes(m_geneReports);
+    m_geneReports.forEach(gr -> {
+      m_homozygousComponentHaplotypes.addAll(gr.getMatcherHomozygousComponentHaplotypes());
+    });
   }
 
 
@@ -118,7 +122,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   public boolean isMatched() {
-    return m_annotationReports.size() > 0;
+    return !m_annotationReports.isEmpty();
   }
 
 
@@ -140,6 +144,11 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   public SortedSet<Diplotype> getSourceDiplotypes() {
     return m_sourceDiplotypes;
+  }
+
+
+  public SortedSet<String> getHomozygousComponentHaplotypes() {
+    return m_homozygousComponentHaplotypes;
   }
 
 

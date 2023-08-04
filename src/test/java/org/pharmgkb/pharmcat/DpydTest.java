@@ -484,6 +484,31 @@ class DpydTest {
   }
 
   @Test
+  void testDpydUnphasedMultiTrans_infer_homo(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("DPYD", "rs67376798", "A", "T") // decreased - c.2846A>T
+        .variation("DPYD", "rs72547601", "C", "C") // no function - c.2933A>G
+        .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
+        .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
+    RecPresence hasDpwgAnnotations = RecPresence.NO;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.2933A>G", "c.2933A>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+  @Test
   void testDpydS12het(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -561,7 +586,7 @@ class DpydTest {
     ;
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("c.2582A>G", "c.2846A>T", "c.2933A>G");
+    List<String> expectedCalls = List.of("c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
 
     testWrapper.testCalledByMatcher("DPYD");
@@ -1064,7 +1089,7 @@ class DpydTest {
     ;
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("c.61C>T", "c.1129-5923C>G, c.1236G>A (HapB3)");
+    List<String> expectedCalls = List.of("c.61C>T", "c.1129-5923C>G, c.1236G>A (HapB3) (homozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
 
     testWrapper.testCalledByMatcher("DPYD");
