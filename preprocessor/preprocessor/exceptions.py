@@ -20,8 +20,7 @@ class ReportableException(Exception):
 class InappropriateVCFSuffix(ReportableException):
     """Inappropriate VCF suffix (not ending with .vcf.gz)"""
     def __init__(self, msg: Union[Path, str]):
-        super(InappropriateVCFSuffix, self).\
-            __init__('Inappropriate VCF suffix (not ending with .vcf, .vcf.gz, or .vcf.bgz): %s' % str(msg))
+        super().__init__('Inappropriate VCF suffix (not ending with .vcf, .vcf.gz, or .vcf.bgz): %s' % str(msg))
 
 
 class InvalidURL(ReportableException):
