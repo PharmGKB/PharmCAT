@@ -48,8 +48,12 @@ and that they are using PharmCAT at their own risk.__
 
 6. Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further
    information is provided under Gene-specific warnings in Section III: Allele Matching Details.
+   
+7. Structural variation star alleles that cannot be detected using VCF file data:
+   - CYP2B7-CYP2B6 hybrids: CYP2B6\*29, CYP2B6\*30
+   - Partial and whole gene deletions: CYP2C19\*36, CYP2C19\*37, CYP4F2\*16, SLCO1B1\*48, SLCO1B1\*49  
 
-7. PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the VCF file and
+8. PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the VCF file and
    noted as such, see [pharmcat.org](https://pharmcat.org/) for details). The assumption is that defined alleles exist
    in trans configuration, i.e. on opposite chromosomes, with exceptions noted in Section III: Allele Matching Details
    under "Gene-specific warnings." However, in cases where an allele is defined by a combination of two or more
