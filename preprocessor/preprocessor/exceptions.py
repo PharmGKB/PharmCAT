@@ -27,4 +27,4 @@ class InappropriateVCFSuffix(ReportableException):
 class InvalidURL(ReportableException):
     """Inappropriate URL. No downloadable content found."""
     def __init__(self, url: str):
-        super(InvalidURL, self).__init__('Invalid URL: %s' % url)
+        super().__init__('Invalid URL: %s' % url)
