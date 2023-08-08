@@ -37,6 +37,10 @@ activity allele which could lead to inaccurate phenotype and CPIC recommendation
 3, above.</p></li>
 <li><p>Nucleotide base calls are displayed on the positive chromosomal strand regardless of the gene strand; further
 information is provided under Gene-specific warnings in Section III: Allele Matching Details.</p></li>
+<li><p>Structural variation star alleles that cannot be detected using VCF file data:</p>
+<ul>
+<li>CYP2B7-CYP2B6 hybrids: CYP2B6*29, CYP2B6*30</li>
+<li>Partial and whole gene deletions: CYP2C19*36, CYP2C19*37, CYP4F2*16, SLCO1B1*48, SLCO1B1*49  </li></ul></li>
 <li><p>PharmCAT matches variants to genotypes assuming unphased data (unless phased data is provided in the VCF file and
 noted as such, see <a href="https://pharmcat.org/">pharmcat.org</a> for details). The assumption is that defined alleles exist
 in trans configuration, i.e. on opposite chromosomes, with exceptions noted in Section III: Allele Matching Details
@@ -336,7 +340,8 @@ definitions are the same in both sources.</p></li>
 <li><p>The CPIC UGT1A1 allele definition file includes *6, *27, *28, *36, *37, and *80. Since the DPWG UGT1A1 document
 does not include allele definitions besides for the UGT1A1 TA box promoter polymorphism, PharmCAT only includes the
 UGT1A1 positions from the CPIC UGT1A1 allele definition file. Other UGT1A1 alleles can be supplied as
-<a href="https://pharmcat.org/examples/">outside calls</a> but not be determined from the VCF file by the Named Allele Matcher.</p></li>
+<a href="https://pharmcat.org/using/Outside-Call-Format/">outside calls</a> but not be determined from the VCF file by the
+Named Allele Matcher.</p></li>
 <li><p>IMPORTANT: As of March 2022, gene information documents from the DPWG are no longer publicly available from the KNMP
 website. PharmGKB is currently providing PDF versions of these documents to users. These files were downloaded in
 February 2022. As such, it cannot be guaranteed that these documents match the mappings DPWG may use internally as
@@ -347,7 +352,7 @@ there have been no publicly accessible updates since February 2022.</p></li>
 <li><p>PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the VCF file, but genotypes for CYP2D6,
 MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype 
 prescribing recommendations will be included in the generated report. For the required format of the outside calls
-refer to <a href="https://pharmcat.org">PharmCAT documentation</a>.</p></li>
+refer to the PharmCAT <a href="https://pharmcat.org/using/Outside-Call-Format/">outside calls documentation</a>.</p></li>
 <li><p>CPIC has assigned function to the following CYP2D6 CNV alleles: *1x2, *1x≥3, *2x2, *2x≥3, *3x2, *4x2, *4x≥3,
 *6x2, *9x2, *10x2, *17x2, *29x2, *35x2, *36x2, *41x2, *41x3, *43x2, *45x2, *146x2. These alleles are part
 of the CPIC diplotype to phenotype translation and can be connected to recommendations. Other CNV notations from
