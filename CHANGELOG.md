@@ -1,3 +1,34 @@
+## [2.6.0](https://github.com/PharmGKB/PharmCAT/compare/v2.5.0...v2.6.0) (2023-08-08)
+
+
+### Features
+
+* **data:** update data to sync with CPIC 1.28 and latest PharmGKB ([4cdfc34](https://github.com/PharmGKB/PharmCAT/commit/4cdfc34d990ebb320a9824831a90d136acfabd7b))
+
+
+### Bug Fixes
+
+* **data:** update data ([76bfe08](https://github.com/PharmGKB/PharmCAT/commit/76bfe08c85fc1b63d014445e3d7dd883cf7088cf))
+* **data:** update F5 version ([43b6637](https://github.com/PharmGKB/PharmCAT/commit/43b6637904c11d2f396c48494ae5089a3ffb36ec))
+* **namedallelematcher:** fix DPYD call with ref and partial ([fa09226](https://github.com/PharmGKB/PharmCAT/commit/fa09226f9494d8af680b5cad442d174dfbef9b5e))
+* **namedallelematcher:** improve DPYD calling ([57b2bd8](https://github.com/PharmGKB/PharmCAT/commit/57b2bd81d38f6ac871ad9a4e410df700c4b11def))
+* **namedallelematcher:** improve DPYD calling with HapB3 wobble ([3528815](https://github.com/PharmGKB/PharmCAT/commit/3528815318faf9d49370cae97c96c50db62e90d6))
+* **namedallelematcher:** support wobble in DPYD HapB3 ([65a1309](https://github.com/PharmGKB/PharmCAT/commit/65a13098f46a43d422058a34d48a2667bed184c3))
+* **namedallelematcher:** update HTML output to use Bootstrap 5 ([3774cca](https://github.com/PharmGKB/PharmCAT/commit/3774cca4108268e71d4c811546db3b46fedabd82))
+* **pharmcat:** fix NPE when called without -o flag ([a8d5f51](https://github.com/PharmGKB/PharmCAT/commit/a8d5f5100faa5560a8ffefbf56c67e9a27f1029f))
+* **preprocessor:** pipe stdout to a user's running interface to show warning messages from a subprocess ([36c151b](https://github.com/PharmGKB/PharmCAT/commit/36c151b568392942065d8b41d3be966df399c503))
+* **reporter:** display allele function in section 3 ([5f48358](https://github.com/PharmGKB/PharmCAT/commit/5f48358447780ae24cb920fd2698655aff6a2b0f))
+* **reporter:** don't emit empty ids ([c7f3d48](https://github.com/PharmGKB/PharmCAT/commit/c7f3d480c3125fb344569ec151b3888f49166aa0))
+* **reporter:** fix browser upgrade CSS ([6ba5bf1](https://github.com/PharmGKB/PharmCAT/commit/6ba5bf1d5341d64250fe6d1212e39f5fec1f6dca))
+* **reporter:** fix links to uncallable genes in section 3 ([f1d4da2](https://github.com/PharmGKB/PharmCAT/commit/f1d4da2c46fcb0aa6a87643e3a0d976f215992e3))
+* **reporter:** identify homozygous DPYD haplotypes ([0f10fe3](https://github.com/PharmGKB/PharmCAT/commit/0f10fe386ae2cccc6bd64b770dcb896a9c3f9c24))
+* **reporter:** improve allele match data for CYP2C19 *1 ([2bc80cd](https://github.com/PharmGKB/PharmCAT/commit/2bc80cdd31d0bd8818c542037a578769a71e2583))
+* **reporter:** improve message for uncalled because of no data ([8211015](https://github.com/PharmGKB/PharmCAT/commit/82110153b980b2eb25b6b3bdc9131fdc99f19a35))
+* **reporter:** improve text for uncallable genes ([7e794b3](https://github.com/PharmGKB/PharmCAT/commit/7e794b380bfb9c77b67d289abeb204526cd31698))
+* **reporter:** list function in section 3 ([e51483c](https://github.com/PharmGKB/PharmCAT/commit/e51483ca14dfabdfa7257faa0292c199699f00c3))
+* **reporter:** show function in section 3 even when there is a no call ([4e2ea20](https://github.com/PharmGKB/PharmCAT/commit/4e2ea20fd4165918a538707407a2f0f7a44abaf8))
+* **reporter:** show genes in section III if uncallable ([7da2075](https://github.com/PharmGKB/PharmCAT/commit/7da2075732beecb856430dc06ac45356cbc47e1b))
+
 ## [2.5.0](https://github.com/PharmGKB/PharmCAT/compare/v2.4.0...v2.5.0) (2023-06-12)
 
 
