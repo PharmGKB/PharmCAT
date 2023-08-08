@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "Jul 19, 2023, 3:36:54 PM",
+    "timestamp": "Aug 8, 2023, 11:08:27 AM",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -11,7 +11,7 @@
   "results": [
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -106,7 +106,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -213,7 +213,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -764,7 +764,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1411,7 +1411,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1902,7 +1902,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -3419,7 +3419,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3562,7 +3562,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3801,7 +3801,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4879,8 +4879,103 @@
       "ignoredHaplotypes": []
     },
     {
+      "source": "PHARMGKB",
+      "version": "2023-06-05-00-25",
+      "chromosome": "chr1",
+      "gene": "F5",
+      "diplotypes": [
+        {
+          "name": "rs6025 C/rs6025 C",
+          "haplotype1": {
+            "name": "rs6025 C",
+            "haplotype": {
+              "name": "rs6025 C",
+              "id": "PA166300382",
+              "alleles": [
+                "C"
+              ],
+              "cpicAlleles": [
+                "C"
+              ],
+              "populationFrequency": null,
+              "reference": true,
+              "numCombinations": 0,
+              "numPartials": 0
+            },
+            "sequences": [
+              "169549811:C;"
+            ]
+          },
+          "haplotype2": {
+            "name": "rs6025 C",
+            "haplotype": {
+              "name": "rs6025 C",
+              "id": "PA166300382",
+              "alleles": [
+                "C"
+              ],
+              "cpicAlleles": [
+                "C"
+              ],
+              "populationFrequency": null,
+              "reference": true,
+              "numCombinations": 0,
+              "numPartials": 0
+            },
+            "sequences": [
+              "169549811:C;"
+            ]
+          },
+          "score": 2
+        }
+      ],
+      "haplotypes": [
+        {
+          "name": "rs6025 C",
+          "haplotype": {
+            "name": "rs6025 C",
+            "id": "PA166300382",
+            "alleles": [
+              "C"
+            ],
+            "cpicAlleles": [
+              "C"
+            ],
+            "populationFrequency": null,
+            "reference": true,
+            "numCombinations": 0,
+            "numPartials": 0
+          },
+          "sequences": [
+            "169549811:C;"
+          ]
+        }
+      ],
+      "haplotypeMatches": [],
+      "phased": false,
+      "variants": [
+        {
+          "position": 169549811,
+          "rsid": "rs6025",
+          "vcfCall": "C/C",
+          "phased": false
+        }
+      ],
+      "variantsOfInterest": [],
+      "matchData": {
+        "missingPositions": [],
+        "positionsWithUndocumentedVariations": [],
+        "treatUndocumentedVariationsAsReference": false,
+        "phased": false,
+        "homozygous": true,
+        "effectivelyPhased": true
+      },
+      "uncallableHaplotypes": [],
+      "ignoredHaplotypes": []
+    },
+    {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -7017,7 +7112,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -7112,7 +7207,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7399,7 +7494,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -8010,7 +8105,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -8465,7 +8560,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -9064,7 +9159,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -9195,7 +9290,7 @@
     },
     {
       "source": "CPIC",
-      "version": "v1.28.0",
+      "version": "v1.30.0",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
