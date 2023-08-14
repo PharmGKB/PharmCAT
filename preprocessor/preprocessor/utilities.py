@@ -54,7 +54,7 @@ def run(command: List[str]):
     try:
         # 'check=True' raises a 'CalledProcessError' if the subprocess does not complete
         # 'stdout=subprocess.PIPE' print out the output/stdout from the subprocess
-        subprocess.run(command, check=True, stdout=subprocess.PIPE, universal_newlines=True)
+        subprocess.run(command, check=True, capture_output=True, universal_newlines=True)
     except FileNotFoundError:
         raise ReportableException('Error: %s not found' % command[0])
     except subprocess.TimeoutExpired:
