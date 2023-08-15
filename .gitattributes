@@ -23,6 +23,7 @@ gradlew          text eol=lf
 *.dtd            text
 *.gpml           text
 *.hbs            text
+*.hl7            text eol=crlf
 *.htm            text diff=html
 *.html           text diff=html
 *.iml            text
