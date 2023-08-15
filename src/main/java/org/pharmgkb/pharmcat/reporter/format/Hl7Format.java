@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedSet;
 import java.util.StringJoiner;
 import java.lang.StringBuilder;
 import java.util.TreeSet;
@@ -25,6 +26,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -235,8 +237,12 @@ public class Hl7Format extends AbstractFormat {
 
       // TODO: you are assuming that there is only 1 diplotype, which is not correct
       // TODO: you will also need to distinguish between source and recommendation diplotypes
-      String diplo = report.getRecommendationDiplotypes().first().toString();
-      String pheno = String.join(", ", report.getRecommendationDiplotypes().first().getPhenotypes());
+      SortedSet<Diplotype> diplotypes = report.getRecommendationDiplotypes();
+      if (diplotypes.size() > 1) {
+        throw new RuntimeException("More than one diplotype reported for " + gene + ", cannot generate HL-7 report");
+      }
+      String diplo = diplotypes.first().toString();
+      String pheno = String.join(", ", diplotypes.first().getPhenotypes());
 
       String interactionType = sf_geneToInteractionType.get(gene);
       String code = sf_interactionTypeToCPICCode.get(interactionType);
