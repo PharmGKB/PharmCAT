@@ -43,6 +43,7 @@ public class BaseConfig {
   List<DataSource> reporterSources;
   boolean reporterJson;
   boolean reporterHl7;
+  Path reporterHl7Order;
   Path outputDir;
   String baseFilename;
   boolean deleteIntermediateFiles;
@@ -128,6 +129,9 @@ public class BaseConfig {
             throw new ReportableException("Unknown source: " + src);
           }
         }
+      }
+      if (cliHelper.hasOption("ro")) {
+        reporterHl7Order = cliHelper.getPath("ro");
       }
     }
 

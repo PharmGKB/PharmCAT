@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.format;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,12 +29,15 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugLink;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * An HL7/FHIR formatted version of {@link ReportContext} data.
  */
 public class Hl7Format extends AbstractFormat {
+  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final ImmutableMap<String, String> sf_geneToInteractionType =
       new ImmutableMap.Builder<String, String>()
           .put("CYP2B6", "Metabolizer")
@@ -80,9 +84,13 @@ public class Hl7Format extends AbstractFormat {
       .build();
 
   private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+  private final String f_order;
 
 
-  public Hl7Format(Path outputPath, Env env, String hl7InputMessage) { super(outputPath, env); }
+  public Hl7Format(Path outputPath, Env env, Path orderPath) throws IOException {
+    super(outputPath, env);
+    f_order = Files.readString(orderPath);
+  }
 
 
   public void write(ReportContext reportContext) throws IOException {
@@ -93,17 +101,9 @@ public class Hl7Format extends AbstractFormat {
   }
 
   private String generateHL7(ReportContext reportContext) {
-
-    // TODO: this looks like it has penn specific codes?  Should this be coming in from an external file?
-    //HL7 input message will need to be passed in the HL7Format. Using the following string as a placeholder
-    String inputHL7Message = "MSH|^~\\&|PENNCHART|UPHS||PharmCAT|20220315141017|BLEZNUCJ|ORM^O01|624|T|2.3\r" +
-        "PID|1|8643070857^^^UID^UID|8643070857^^^UID^UID||ZZZTST^GENEONE^^^||20000915|M|\r" +
-        "ORC|NW|620941^EPC||200091116|||^^^20220315^^RI^^||20220315141010|BLEZNUCJ^BLEZNUCK^JOSEPH^P^||1841226024^NATHANSON^KATHERINE^LEAH^^MD^^^NPI^^^^NPI|^^^ENT^^^^^MEDICAL GENETICS PERELMAN|(800)789-7366^^^^^800^7897366||||PC0T2HU0^PC0T2HU0^^1^INITIAL DEPARTMENT|||||||||||O|Protocol\r" +
-        "OBR|1|620941^EPC||PCAT^PharmCAT Generic Order^PharmCAT^^PharmCAT Generic Order||20220315|||||||||^^^SALIVA&SALIVA|1841226024^NATHANSON^KATHERINE^LEAH^^MD^^^NPI^^^^NPI|(800)789-7366^^^^^800^7897366|||||||Lab|||^^^20220315^^RI^^|1144657396^ASHER^STEPHANIE^^^^^^NPI^^^^NPI||||||||20220315";
-
     try (HapiContext context = new DefaultHapiContext()) {
       Parser parser = context.getGenericParser();
-      Message message = parser.parse(inputHL7Message);
+      Message message = parser.parse(f_order);
       Terser terser = new Terser(message);
 
       String sep = terser.get("MSH-1");
@@ -116,8 +116,7 @@ public class Hl7Format extends AbstractFormat {
 
       return msh + pid + obr + obx;
     } catch (HL7Exception | IOException ex) {
-      ex.printStackTrace();
-      System.exit(1);
+      sf_logger.error("Error generating HL-7 report", ex);
     }
     return "";
   }
@@ -236,8 +235,8 @@ public class Hl7Format extends AbstractFormat {
 
       // TODO: you are assuming that there is only 1 diplotype, which is not correct
       // TODO: you will also need to distinguish between source and recommendation diplotypes
-      String diplo = report.getSourceDiplotypes().get(0).printDisplay();
-      String pheno = report.getRecommendationDiplotypes().get(0).printPhenotypes();
+      String diplo = report.getRecommendationDiplotypes().first().toString();
+      String pheno = String.join(", ", report.getRecommendationDiplotypes().first().getPhenotypes());
 
       String interactionType = sf_geneToInteractionType.get(gene);
       String code = sf_interactionTypeToCPICCode.get(interactionType);

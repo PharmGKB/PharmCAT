@@ -335,6 +335,7 @@ public class BatchPharmCAT {
     private boolean m_runReporter;
     private Path m_riFile;
     private boolean m_singleSample;
+    private Path m_hoFile;
 
 
     public Builder fromMatcher(String baseFilename, VcfFile file, @Nullable String sampleId, boolean singleSample) {
@@ -393,7 +394,7 @@ public class BatchPharmCAT {
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
           m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson, m_config.reporterHl7,
-          m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
+          null, m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
           mode, (index + "/" + totalTasks), m_verbose);
     }
 

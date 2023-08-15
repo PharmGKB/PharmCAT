@@ -72,7 +72,8 @@ public class Pipeline implements Callable<PipelineResult> {
   private List<DataSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
-  private Path m_reporterHl7File;
+  private Path m_reporterHl7ReportFile;
+  private Path m_reporterHl7OrderFile;
   private ReportContext m_reportContext;
 
   private final boolean m_deleteIntermediateFiles;
@@ -90,8 +91,9 @@ public class Pipeline implements Callable<PipelineResult> {
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHl7,
-      @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
-      Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
+      @Nullable Path reporterHl7OrderFile, @Nullable Path outputDir, @Nullable String baseFilename,
+      boolean deleteIntermediateFiles, Mode mode, @Nullable String displayCount, boolean verbose
+  ) throws ReportableException {
     m_env = env;
 
     m_runMatcher = runMatcher;
@@ -151,7 +153,11 @@ public class Pipeline implements Callable<PipelineResult> {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
       }
       if (reporterHl7) {
-        m_reporterHl7File = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".hl7.txt");
+        if (reporterHl7OrderFile == null) {
+          throw new IllegalStateException("No HL-7 order file");
+        }
+        m_reporterHl7OrderFile = reporterHl7OrderFile;
+        m_reporterHl7ReportFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".hl7.txt");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
@@ -335,13 +341,12 @@ public class Pipeline implements Callable<PipelineResult> {
           new JsonFormat(m_reporterJsonFile, m_env)
               .write(m_reportContext);
         }
-        if (m_reporterHl7File != null) {
+        if (m_reporterHl7ReportFile != null) {
           if (!batchDisplayMode) {
-            output.add("Saving reporter HL7 results to " + m_reporterHl7File);
+            output.add("Saving reporter HL7 results to " + m_reporterHl7ReportFile);
           }
 
-          //TODO 6/29/23 - NK: Pass in the string read in from the HL7 input file
-          new Hl7Format(m_reporterHl7File, m_env, "")
+          new Hl7Format(m_reporterHl7ReportFile, m_env, m_reporterHl7OrderFile)
               .write(m_reportContext);
         }
         didSomething = true;

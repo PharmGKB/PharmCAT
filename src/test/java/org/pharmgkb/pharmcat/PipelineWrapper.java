@@ -105,7 +105,7 @@ class PipelineWrapper {
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
         true, null, null, m_sources, m_compactReport, true, false,
-        m_outputPath, null, m_compactReport,
+        null, m_outputPath, null, m_compactReport,
         Pipeline.Mode.TEST, null, false
     );
     pcat.call();
