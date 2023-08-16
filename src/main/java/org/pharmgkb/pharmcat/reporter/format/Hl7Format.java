@@ -24,6 +24,7 @@ import ca.uhn.hl7v2.util.Terser;
 import com.google.common.collect.ImmutableMap;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.format.hl7.InteractionType;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -40,40 +41,26 @@ import org.slf4j.LoggerFactory;
  */
 public class Hl7Format extends AbstractFormat {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final ImmutableMap<String, String> sf_geneToInteractionType =
-      new ImmutableMap.Builder<String, String>()
-          .put("CYP2B6", "Metabolizer")
-          .put("CYP2C9", "Metabolizer")
-          .put("CYP2C19", "Metabolizer")
-          .put("CYP2D6", "Metabolizer")
-          .put("CYP3A5", "Metabolizer")
-          .put("DPYD", "Metabolizer")
-          .put("NUDT15", "Metabolizer")
-          .put("TPMT", "Metabolizer")
-          .put("UGT1A1", "Metabolizer")
-          .put("ABCG2", "Transport")
-          .put("SLCO1B1", "Transport")
-          .put("CACNA1S", "Risk")
-          .put("G6PD", "Risk")
-          .put("HLA-A", "Risk")
-          .put("HLA-B", "Risk")
-          .put("MT-RNR1", "Risk")
-          .put("RYR1", "Risk")
-          .put("CFTR", "Efficacy")
-          .build();
-  private static final ImmutableMap<String, String> sf_interactionTypeToCPICCode =
-      new ImmutableMap.Builder<String, String>()
-          .put("Metabolizer", "53040-2")
-          .put("Transport", "51961-1")
-          .put("Risk", "83009-1")
-          .put("Efficacy", "51961-1")
-          .build();
-  private static final ImmutableMap<String, String> sf_interactionTypeToCPICHeader =
-      new ImmutableMap.Builder<String, String>()
-          .put("Metabolizer", "Genetic Variation's Effect on Drug Metabolism")
-          .put("Transport", "Genetic Variation's Effect on Drug Transport")
-          .put("Risk", "Genetic Variation's Effect on High-Risk")
-          .put("Efficacy", "Genetic Variation's Effect on Drug Efficacy")
+  private static final ImmutableMap<String, InteractionType> sf_geneToInteractionType =
+      new ImmutableMap.Builder<String, InteractionType>()
+          .put("CYP2B6", InteractionType.METABOLIZER)
+          .put("CYP2C9", InteractionType.METABOLIZER)
+          .put("CYP2C19", InteractionType.METABOLIZER)
+          .put("CYP2D6", InteractionType.METABOLIZER)
+          .put("CYP3A5", InteractionType.METABOLIZER)
+          .put("DPYD", InteractionType.METABOLIZER)
+          .put("NUDT15", InteractionType.METABOLIZER)
+          .put("TPMT", InteractionType.METABOLIZER)
+          .put("UGT1A1", InteractionType.METABOLIZER)
+          .put("ABCG2", InteractionType.TRANSPORT)
+          .put("SLCO1B1", InteractionType.TRANSPORT)
+          .put("CACNA1S", InteractionType.RISK)
+          .put("G6PD", InteractionType.RISK)
+          .put("HLA-A", InteractionType.RISK)
+          .put("HLA-B", InteractionType.RISK)
+          .put("MT-RNR1", InteractionType.RISK)
+          .put("RYR1", InteractionType.RISK)
+          .put("CFTR", InteractionType.EFFICACY)
           .build();
   private static final ImmutableMap<String, String> sf_susceptibilityToRiskLevel =
       new ImmutableMap.Builder<String, String>()
@@ -125,33 +112,32 @@ public class Hl7Format extends AbstractFormat {
 
   private String getCPICRiskMessage(String gene, String pheno) {
 
-    if (gene.equals("CACNA1S") || gene.equals("RYR1")) {
-      return sf_susceptibilityToRiskLevel.get(pheno);
-    }
-    else if (gene.equals("MT-RNR1")) {
-      if (pheno.contains("increased risk")) {
-        return "High Risk";
+    switch (gene) {
+      case "CACNA1S", "RYR1" -> {
+        return sf_susceptibilityToRiskLevel.get(pheno);
       }
-      else {
-        return "Normal Risk";
+      case "MT-RNR1" -> {
+        if (pheno.contains("increased risk")) {
+          return "High Risk";
+        } else {
+          return "Normal Risk";
+        }
       }
-    }
-    else if (gene.equals("G6PD")) {
-      if (pheno.contains("Deficient") || pheno.equals("Variable")) {
-        return "High Risk";
+      case "G6PD" -> {
+        if (pheno.contains("Deficient") || pheno.equals("Variable")) {
+          return "High Risk";
+        } else {
+          return "Normal Risk";
+        }
       }
-      else {
-        return "Normal Risk";
-      }
-    }
-    else if (gene.equals("HLA-A") || gene.equals("HLA-B")) {
-      // mapping provided for these terms was less concrete and based on whether the term contains the words positive
-      // or negative
-      if (pheno.contains("positive")) {
-        return "High Risk";
-      }
-      else {
-        return "Normal Risk";
+      case "HLA-A", "HLA-B" -> {
+        // mapping provided for these terms was less concrete and based on whether the term contains the words positive
+        // or negative
+        if (pheno.contains("positive")) {
+          return "High Risk";
+        } else {
+          return "Normal Risk";
+        }
       }
     }
     return "";
@@ -215,7 +201,7 @@ public class Hl7Format extends AbstractFormat {
     Map<String, String> drugToRecommendation = new HashMap<>();
     // only consider CPIC results
     for (DrugReport drugReport : new TreeSet<>(reportContext.getDrugReports().get(DataSource.CPIC).values())) {
-      if (drugReport.getGuidelines().size() == 0) {
+      if (drugReport.getGuidelines().isEmpty()) {
         continue;
       }
       for (GuidelineReport guidelineReport : drugReport.getGuidelines()) {
@@ -226,7 +212,7 @@ public class Hl7Format extends AbstractFormat {
     }
 
     StringBuilder obx = new StringBuilder();
-    String postfix = (new StringBuilder()).append(sep.repeat(5)).append("F\r\n").toString();
+    String postfix = sep.repeat(5) + "F\r\n";
     String subId = "";
 
     int currentOBXSegment = 1;
@@ -244,15 +230,20 @@ public class Hl7Format extends AbstractFormat {
       String diplo = diplotypes.first().toString();
       String pheno = String.join(", ", diplotypes.first().getPhenotypes());
 
-      String interactionType = sf_geneToInteractionType.get(gene);
-      String code = sf_interactionTypeToCPICCode.get(interactionType);
-      String header = sf_interactionTypeToCPICHeader.get(interactionType);
+      InteractionType interactionType = sf_geneToInteractionType.get(gene);
+      String code = "";
+      String header = "";
+
+      if (interactionType != null) {
+        code = interactionType.getCode();
+        header = interactionType.getHeader();
+      }
 
       String interactionMessage;
-      if ("Risk".equals(interactionType)) {
+      if (interactionType == InteractionType.RISK) {
         interactionMessage = getCPICRiskMessage(gene, pheno);
       }
-      else if ("Efficacy".equals(interactionType)){
+      else if (interactionType == InteractionType.EFFICACY){
         interactionMessage = sf_cftrGeneToEfficacy.get(pheno);
       }
       else {
