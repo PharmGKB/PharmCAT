@@ -242,40 +242,9 @@ Saving reporter HTML results to /tmp/results/outside_calls.report.html
 ```
 
 
-### Research-Only Options
+### Research Mode Options
 
-PharmCAT has two options that enables functionality meant for **research use only**!
-
-#### Calling combination and partial alleles
-
-To call combinations and partial alleles, use the `--research combinations` flag.
-
-For details on combinations and partial alleles, please see [NamedAlleleMatcher 201](/methods/NamedAlleleMatcher-201#combinations-and-partial-alleles).
-
-Remember that this is intended for **research use only**.
-
----
-
-If given the `--research combinations` flag, PharmCAT will try to call combination and partial alleles.  These are only called if an exact match to any single defined allele cannot be found.  Without this research flag these samples will yield a "not called" result from the `Named Allele Matcher`.
-
-This option addresses variant combinations not catalogued by PharmVar or other nomenclature sites. It does not consider novel variants; it only considers variants included in existing allele definitions found in novel combinations.
-
-A combination allele is when a sample matches a combination of 2 or more defined alleles.  For example, `[*6 + *14]` in the CYP2B6 `[*6 + *14]/*13` diplotype output.
-
-PharmCAT’s syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
-distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
-
-A partial allele is when a sample matches all the (core) variants of a defined allele but also has additional variants.  For example, CYP2C19 `*2/[*17 + g.94781859G>A]`.  In the case where a partial call occurs off the reference allele, only the positions are listed (e.g. `*2/g.94781859G>A`).  A partial off the reference allele will only be called if the data is phased, or the unphased data only has 2 possible sequence combinations.
-
-Note that PharmCAT only provides the match(es) with the highest score by default. Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually *1) will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6 `*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`, `*23/[*5 + *9]` are also valid.
-
-
-#### Calling CYP2D6
-
-For details on calling CYP2D6 in PharmCAT, see [Calling CYP2D6](/using/Calling-CYP2D6).
-
-This option is not listed here because we do **NOT** recommend calling CYP2D6 from VCF, and [Calling CYP2D6](/using/Calling-CYP2D6) explains why and what your options are.
-
+PharmCAT has functionality meant for **research use only**. You can read about these features on the [Research Mode](/using/Research-Mode) page.
 
 
 ### Custom Definition Files

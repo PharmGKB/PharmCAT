@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.Optional;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -144,6 +142,10 @@ class PharmCATTest {
   }
 
 
+  /**
+   * An example run with CYP2D6 research mode enabled.
+   * <p>NOTE: since research mode is enabled you will not get output from the reporter.</p>
+   */
   @Test
   void callCyp2d6(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
@@ -163,7 +165,7 @@ class PharmCATTest {
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(refMatcherOutput));
       assertTrue(Files.exists(refPhenotyperOutput));
-      assertTrue(Files.exists(refReporterOutput));
+      assertTrue(Files.notExists(refReporterOutput));
 
       ResultSerializer resultSerializer = new ResultSerializer();
       Result result = resultSerializer.fromJson(refMatcherOutput);
@@ -182,15 +184,6 @@ class PharmCATTest {
       assertTrue(grOpt.isPresent());
       assertTrue(grOpt.get().isCalled());
       assertFalse(grOpt.get().isOutsideCall());
-
-      Document document = Jsoup.parse(refReporterOutput.toFile());
-      Element geneTitle = document.getElementById("CYP2D6");
-      assertNotNull(geneTitle);
-      assertNotNull(geneTitle.parent());
-      Elements diplotypes = geneTitle.parent().getElementsByClass("genotype-result");
-      assertEquals(1, diplotypes.size());
-      assertEquals("*1/*1", diplotypes.get(0).text());
-      assertNotNull(document.getElementById("aripiprazole"));
 
     } finally {
       TestUtils.deleteTestFiles(outputDir);

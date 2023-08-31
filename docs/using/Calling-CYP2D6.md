@@ -133,10 +133,4 @@ We urge you to manually verify that the calls in the PharmCAT-ready files corres
 
 As stated above, we **do NOT recommend calling CYP2D6 from VCF** due to the large influence of SV and CNV on phenotype prediction.
 
-PharmCAT can, however, call CYP2D6 star alleles that are defined based on SNPs and/or INDELs. If you are willing to accept all these caveats, this functionality is gated behind the `-research` flag.
-
-To get PharmCAT to call CYP2D6, use `-research cyp2d6`
-
-```console
-# java -jar pharmcat.jar -vcf patient_001.vcf -research cyp2d6
-```
+PharmCAT can, however, call CYP2D6 star alleles that are defined based on SNPs and/or INDELs. For more information, read the [Research Mode](/using/Research-Mode) page.

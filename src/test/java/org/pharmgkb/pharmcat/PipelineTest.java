@@ -1908,6 +1908,29 @@ class PipelineTest {
     testWrapper.testReportable("CYP2C19");
   }
 
+  /**
+   * Added to check the output of a partial match for CYP2C19 with a call for 2D6 to see how a two-gene recommendation
+   * works with one gene being a partial call.
+   */
+  @Test
+  void testPartialCallInTwoGene(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, true, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .variation("CYP2C19", "rs367543002", "C", "T")
+        .variation("CYP2C19", "rs3758581", "G", "G")
+        .missing("CYP2C19", "rs367543003");
+    testWrapper.execute(s_outsideCallFilePath); //CYP2D6 *1/*4
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2C19");
+    testWrapper.testReportable("CYP2D6");
+
+    // We don't expect to get a match since 2C19 is a partial call even when 2D6 has a call.
+    // Currently, partials will not be visible past the phenotyper so recommendation matches are not visible.
+    testWrapper.testMatchedAnnotations("amitriptyline", DataSource.CPIC, 0);
+  }
+
 
   /**
    * Added to have an example of running in CYP2D6-matching mode and make sure messages are applied

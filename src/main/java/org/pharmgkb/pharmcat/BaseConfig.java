@@ -113,6 +113,11 @@ public class BaseConfig {
       matcherHtml = cliHelper.hasOption("matcherHtml");
     }
 
+    if ((callCyp2d6 || findCombinations) && runReporter) {
+      runReporter = false;
+      System.out.println("WARNING: REPORTER MODULE NOT AVAILABLE IN RESEARCH MODE");
+    }
+
     if (runReporter) {
       reporterTitle = cliHelper.getValue("rt");
       reporterCompact = !cliHelper.hasOption("re");
