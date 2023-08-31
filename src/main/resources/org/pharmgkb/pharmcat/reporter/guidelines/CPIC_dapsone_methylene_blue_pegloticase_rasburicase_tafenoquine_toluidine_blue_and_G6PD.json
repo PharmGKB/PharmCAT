@@ -939,7 +939,24 @@
       ],
       "journal": "Clinical pharmacology and therapeutics",
       "year": 2022
+    },
+    {
+      "pmid": "24787449",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
+      "authors": [
+        "Relling M V",
+        "McDonagh E M",
+        "Chang T",
+        "Caudle K E",
+        "McLeod H L",
+        "Haidar C E",
+        "Klein T",
+        "Luzzatto L",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
     }
   ],
-  "version": "2023-08-17-20-07"
+  "version": "2023-08-31-09-09"
 }

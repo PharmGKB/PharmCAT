@@ -81,6 +81,44 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "26094938",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update.",
+      "authors": [
+        "Saito Y",
+        "Stamp L K",
+        "Caudle K E",
+        "Hershfield M S",
+        "McDonagh E M",
+        "Callaghan J T",
+        "Tassaneeyakul W",
+        "Mushiroda T",
+        "Kamatani N",
+        "Goldspiel B R",
+        "Phillips E J",
+        "Klein T E",
+        "Lee M T M",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2016
+    },
+    {
+      "pmid": "23232549",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for human leukocyte antigen-B genotype and allopurinol dosing.",
+      "authors": [
+        "Hershfield M S",
+        "Callaghan J T",
+        "Tassaneeyakul W",
+        "Mushiroda T",
+        "Thorn C F",
+        "Klein T E",
+        "Lee M T M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

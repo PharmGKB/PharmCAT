@@ -197,6 +197,83 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "35152405",
+      "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
+      "authors": [
+        "Cooper-DeHoff Rhonda M",
+        "Niemi Mikko",
+        "Ramsey Laura B",
+        "Luzum Jasmine A",
+        "Tarkiainen E Katriina",
+        "Straka Robert J",
+        "Gong Li",
+        "Tuteja Sony",
+        "Wilke Russell A",
+        "Wadelius Mia",
+        "Larson Eric A",
+        "Roden Dan M",
+        "Klein Teri E",
+        "Yee Sook Wah",
+        "Krauss Ronald M",
+        "Turner Richard M",
+        "Palaniappan Latha",
+        "Gaedigk Andrea",
+        "Giacomini Kathleen M",
+        "Caudle Kelly E",
+        "Voora Deepak"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    },
+    {
+      "pmid": "24918167",
+      "title": "The clinical pharmacogenetics implementation consortium guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update.",
+      "authors": [
+        "Ramsey L B",
+        "Johnson S G",
+        "Caudle K E",
+        "Haidar C E",
+        "Voora D",
+        "Wilke R A",
+        "Maxwell W D",
+        "McLeod H L",
+        "Krauss R M",
+        "Roden D M",
+        "Feng Q",
+        "Cooper-DeHoff R M",
+        "Gong L",
+        "Klein T E",
+        "Wadelius M",
+        "Niemi M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    },
+    {
+      "pmid": "22617227",
+      "title": "The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.",
+      "authors": [
+        "Wilke R A",
+        "Ramsey L B",
+        "Johnson S G",
+        "Maxwell W D",
+        "McLeod H L",
+        "Voora D",
+        "Krauss R M",
+        "Roden D M",
+        "Feng Q",
+        "Cooper-Dehoff R M",
+        "Gong L",
+        "Klein T E",
+        "Wadelius M",
+        "Niemi M",
+        "Clinical Pharmacogenomics Implementation Consortium (CPIC)"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2012
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

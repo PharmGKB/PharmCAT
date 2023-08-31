@@ -685,6 +685,26 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "28002639",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for CYP2D6 genotype and use of ondansetron and tropisetron.",
+      "authors": [
+        "Bell G C",
+        "Caudle K E",
+        "Whirl-Carrillo M",
+        "Gordon R J",
+        "Hikino K",
+        "Prows C A",
+        "Gaedigk A",
+        "Agundez Jag",
+        "Sadhasivam S",
+        "Klein T E",
+        "Schwab M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2017
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

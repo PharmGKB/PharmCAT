@@ -662,6 +662,27 @@
       "otherPrescribingGuidance": true
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "34032273",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
+      "authors": [
+        "McDermott John Henry",
+        "Wolf Joshua",
+        "Hoshitsuki Keito",
+        "Huddart Rachel",
+        "Caudle Kelly E",
+        "Whirl-Carrillo Michelle",
+        "Steyger Peter S",
+        "Smith Richard J H",
+        "Cody Neal",
+        "Rodriguez-Antona Cristina",
+        "Klein Teri E",
+        "Newman William G"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

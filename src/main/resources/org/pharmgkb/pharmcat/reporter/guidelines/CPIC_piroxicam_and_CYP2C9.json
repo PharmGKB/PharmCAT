@@ -197,6 +197,24 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "32189324",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
+      "authors": [
+        "Theken Katherine N",
+        "Lee Craig R",
+        "Gong Li",
+        "Caudle Kelly E",
+        "Formea Christine M",
+        "Gaedigk Andrea",
+        "Klein Teri E",
+        "Agúndez José A G",
+        "Grosser Tilo"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2020
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

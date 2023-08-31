@@ -32,6 +32,24 @@
     "recommendation": true
   },
   "recommendations": [],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "24096968",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and PEG interferon-alpha-based regimens.",
+      "authors": [
+        "Muir A J",
+        "Gong L",
+        "Johnson S G",
+        "Lee M T M",
+        "Williams M S",
+        "Klein T E",
+        "Caudle K E",
+        "Nelson D R",
+        "Clinical Pharmacogenetics Implementation Consortium (CPIC)"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

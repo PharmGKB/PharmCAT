@@ -719,6 +719,69 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "35034351",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update.",
+      "authors": [
+        "Lee Craig R",
+        "Luzum Jasmine A",
+        "Sangkuhl Katrin",
+        "Gammal Roseann S",
+        "Sabatine Marc S",
+        "Stein Charles Michael",
+        "Kisor David F",
+        "Limdi Nita A",
+        "Lee Yee Ming",
+        "Scott Stuart A",
+        "Hulot Jean-Sébastien",
+        "Roden Dan M",
+        "Gaedigk Andrea",
+        "Caudle Kelly E",
+        "Klein Teri E",
+        "Johnson Julie A",
+        "Shuldiner Alan R"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    },
+    {
+      "pmid": "23698643",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for CYP2C19 genotype and clopidogrel therapy: 2013 update.",
+      "authors": [
+        "Scott S A",
+        "Sangkuhl K",
+        "Stein C M",
+        "Hulot J-S",
+        "Mega J L",
+        "Roden D M",
+        "Klein T E",
+        "Sabatine M S",
+        "Johnson J A",
+        "Shuldiner A R",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    },
+    {
+      "pmid": "21716271",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy.",
+      "authors": [
+        "Scott S A",
+        "Sangkuhl K",
+        "Gardner E E",
+        "Stein C M",
+        "Hulot J-S",
+        "Johnson J A",
+        "Roden D M",
+        "Klein T E",
+        "Shuldiner A R",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

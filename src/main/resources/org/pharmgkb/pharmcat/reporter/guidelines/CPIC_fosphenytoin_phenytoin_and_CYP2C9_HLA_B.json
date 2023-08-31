@@ -2513,6 +2513,47 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "32779747",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.",
+      "authors": [
+        "Karnes Jason H",
+        "Rettie Allan E",
+        "Somogyi Andrew A",
+        "Huddart Rachel",
+        "Fohner Alison E",
+        "Formea Christine M",
+        "Ta Michael Lee Ming",
+        "Llerena Adrian",
+        "Whirl-Carrillo Michelle",
+        "Klein Teri E",
+        "Phillips Elizabeth J",
+        "Mintzer Scott",
+        "Gaedigk Andrea",
+        "Caudle Kelly E",
+        "Callaghan John T"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2021
+    },
+    {
+      "pmid": "25099164",
+      "title": "Clinical pharmacogenetics implementation consortium guidelines for CYP2C9 and HLA-B genotypes and phenytoin dosing.",
+      "authors": [
+        "Caudle K E",
+        "Rettie A E",
+        "Whirl-Carrillo M",
+        "Smith L H",
+        "Mintzer S",
+        "Lee M T M",
+        "Klein T E",
+        "Callaghan J T",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

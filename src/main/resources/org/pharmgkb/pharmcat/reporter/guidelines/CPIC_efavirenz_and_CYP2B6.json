@@ -197,6 +197,32 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "31006110",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2B6 and Efavirenz-Containing Antiretroviral Therapy.",
+      "authors": [
+        "Desta Zeruesenay",
+        "Gammal Roseann S",
+        "Gong Li",
+        "Whirl-Carrillo Michelle",
+        "Gaur Aditya H",
+        "Sukasem Chonlaphat",
+        "Hockings Jennifer",
+        "Myers Alan",
+        "Swart Marelize",
+        "Tyndale Rachel F",
+        "Masimirembwa Collen",
+        "Iwuchukwu Otito F",
+        "Chirwa Sanika",
+        "Lennox Jeffrey",
+        "Gaedigk Andrea",
+        "Klein Teri E",
+        "Haas David W"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

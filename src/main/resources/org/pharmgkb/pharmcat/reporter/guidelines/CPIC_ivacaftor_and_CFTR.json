@@ -81,6 +81,24 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "24598717",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for ivacaftor therapy in the context of CFTR genotype.",
+      "authors": [
+        "Clancy J P",
+        "Johnson S G",
+        "Yee S W",
+        "McDonagh E M",
+        "Caudle K E",
+        "Klein T E",
+        "Cannavo M",
+        "Giacomini K M",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

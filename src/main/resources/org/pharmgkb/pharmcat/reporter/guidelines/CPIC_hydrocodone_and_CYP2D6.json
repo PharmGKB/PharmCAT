@@ -685,6 +685,36 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "33387367",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6, OPRM1, and COMT Genotypes and Select Opioid Therapy.",
+      "authors": [
+        "Crews Kristine R",
+        "Monte Andrew A",
+        "Huddart Rachel",
+        "Caudle Kelly E",
+        "Kharasch Evan D",
+        "Gaedigk Andrea",
+        "Dunnenberger Henry M",
+        "Leeder J Steven",
+        "Callaghan John T",
+        "Samer Caroline Flora",
+        "Klein Teri E",
+        "Haidar Cyrine E",
+        "Van Driest Sara L",
+        "Ruano Gualberto",
+        "Sangkuhl Katrin",
+        "Cavallari Larisa H",
+        "Müller Daniel J",
+        "Prows Cynthia A",
+        "Nagy Mohamed",
+        "Somogyi Andrew A",
+        "Skaar Todd C"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2021
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

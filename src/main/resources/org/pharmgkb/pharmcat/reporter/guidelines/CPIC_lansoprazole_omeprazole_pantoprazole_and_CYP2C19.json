@@ -729,6 +729,35 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "32770672",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Proton Pump Inhibitor Dosing.",
+      "authors": [
+        "Lima John J",
+        "Thomas Cameron D",
+        "Barbarino Julia",
+        "Desta Zeruesenay",
+        "Van Driest Sara L",
+        "El Rouby Nihal",
+        "Johnson Julie A",
+        "Cavallari Larisa H",
+        "Shakhnovich Valentina",
+        "Thacker David L",
+        "Scott Stuart A",
+        "Schwab Matthias",
+        "Uppugunduri Chakradhara Rao S",
+        "Formea Christine M",
+        "Franciosi James P",
+        "Sangkuhl Katrin",
+        "Gaedigk Andrea",
+        "Klein Teri E",
+        "Gammal Roseann S",
+        "Furuta Takahisa"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2021
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

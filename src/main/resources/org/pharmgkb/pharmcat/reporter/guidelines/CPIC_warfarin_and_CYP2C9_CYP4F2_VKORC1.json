@@ -32,6 +32,53 @@
     "recommendation": true
   },
   "recommendations": [],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "28198005",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Pharmacogenetics-Guided Warfarin Dosing: 2017 Update.",
+      "authors": [
+        "Johnson J A",
+        "Caudle K E",
+        "Gong L",
+        "Whirl-Carrillo M",
+        "Stein C M",
+        "Scott S A",
+        "Lee M T",
+        "Gage B F",
+        "Kimmel S E",
+        "Perera M A",
+        "Anderson J L",
+        "Pirmohamed M",
+        "Klein T E",
+        "Limdi N A",
+        "Cavallari L H",
+        "Wadelius M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2017
+    },
+    {
+      "pmid": "21900891",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for CYP2C9 and VKORC1 genotypes and warfarin dosing.",
+      "authors": [
+        "Johnson J A",
+        "Gong L",
+        "Whirl-Carrillo M",
+        "Gage B F",
+        "Scott S A",
+        "Stein C M",
+        "Anderson J L",
+        "Kimmel S E",
+        "Lee M T M",
+        "Pirmohamed M",
+        "Wadelius M",
+        "Klein T E",
+        "Altman R B",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

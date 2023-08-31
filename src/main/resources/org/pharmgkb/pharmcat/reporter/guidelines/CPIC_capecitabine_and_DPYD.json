@@ -168,6 +168,41 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "29152729",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update.",
+      "authors": [
+        "Amstutz Ursula",
+        "Henricks Linda M",
+        "Offer Steven M",
+        "Barbarino Julia",
+        "Schellens Jan H M",
+        "Swen Jesse J",
+        "Klein Teri E",
+        "McLeod Howard L",
+        "Caudle Kelly E",
+        "Diasio Robert B",
+        "Schwab Matthias"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2018
+    },
+    {
+      "pmid": "23988873",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for dihydropyrimidine dehydrogenase genotype and fluoropyrimidine dosing.",
+      "authors": [
+        "Caudle K E",
+        "Thorn C F",
+        "Klein T E",
+        "Swen J J",
+        "McLeod H L",
+        "Diasio R B",
+        "Schwab M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

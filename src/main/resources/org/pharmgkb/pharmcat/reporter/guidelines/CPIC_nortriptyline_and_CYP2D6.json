@@ -685,6 +685,48 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "27997040",
+      "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
+      "authors": [
+        "Hicks J K",
+        "Sangkuhl K",
+        "Swen J J",
+        "Ellingrod V L",
+        "Müller D J",
+        "Shimoda K",
+        "Bishop J R",
+        "Kharasch E D",
+        "Skaar T C",
+        "Gaedigk A",
+        "Dunnenberger H M",
+        "Klein T E",
+        "Caudle K E",
+        "Stingl J C"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2017
+    },
+    {
+      "pmid": "23486447",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
+      "authors": [
+        "Hicks J K",
+        "Swen J J",
+        "Thorn C F",
+        "Sangkuhl K",
+        "Kharasch E D",
+        "Ellingrod V L",
+        "Skaar T C",
+        "Müller D J",
+        "Gaedigk A",
+        "Stingl J C",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

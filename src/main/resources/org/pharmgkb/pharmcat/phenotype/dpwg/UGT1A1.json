@@ -6,7 +6,9 @@
     "*27": "Decreased function",
     "*28": "Decreased function",
     "*36": "Increased function",
-    "*37": "Decreased function"
+    "*37": "Decreased function",
+    "*80+*28": "Decreased function",
+    "*80+*37": "Decreased function"
   },
   "activityValues": {},
   "diplotypes": [
@@ -82,6 +84,30 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*80+*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*1/*80+*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*1": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
       "generesult": "Poor Metabolizer",
       "diplotype": "*27/*27",
       "description": null,
@@ -130,6 +156,30 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*27/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*27": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "*28/*28",
       "description": null,
       "lookupkey": "Poor Metabolizer",
@@ -164,6 +214,30 @@
       "phenotype": "Poor Metabolizer"
     },
     {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*28/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*28": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
       "generesult": "Normal Metabolizer",
       "diplotype": "*36/*36",
       "description": null,
@@ -187,12 +261,60 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*80+*28",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*36/*80+*37",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*36": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
       "generesult": "Poor Metabolizer",
       "diplotype": "*37/*37",
       "description": null,
       "lookupkey": "Poor Metabolizer",
       "diplotypekey": {
         "*37": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*37/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*37": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*37/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*37": 1,
+        "*80+*37": 1
       },
       "activityScore": null,
       "phenotype": "Poor Metabolizer"
@@ -255,6 +377,64 @@
       },
       "activityScore": null,
       "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*80+*28": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*6/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*6": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*28/*80+*28",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*28": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*28/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*28": 1,
+        "*80+*37": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*80+*37/*80+*37",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*80+*37": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     }
   ],
   "namedAlleles": [
@@ -293,7 +473,19 @@
       "activityValue": null,
       "functionValue": "Decreased function",
       "lookupKey": "Decreased function"
+    },
+    {
+      "name": "*80+*28",
+      "activityValue": null,
+      "functionValue": "Decreased function",
+      "lookupKey": "Decreased function"
+    },
+    {
+      "name": "*80+*37",
+      "activityValue": null,
+      "functionValue": "Decreased function",
+      "lookupKey": "Decreased function"
     }
   ],
-  "version": "2023-08-17-20-07"
+  "version": "2023-08-31-09-09"
 }

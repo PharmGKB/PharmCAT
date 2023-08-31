@@ -1113,6 +1113,70 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "30447069",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2018 Update.",
+      "authors": [
+        "Relling Mary V",
+        "Schwab Matthias",
+        "Whirl-Carrillo Michelle",
+        "Suarez-Kurtz Guilherme",
+        "Pui Ching-Hon",
+        "Stein Charles M",
+        "Moyer Ann M",
+        "Evans William E",
+        "Klein Teri E",
+        "Antillon-Klussmann Federico Guillermo",
+        "Caudle Kelly E",
+        "Kato Motohiro",
+        "Yeoh Allen E J",
+        "Schmiegelow Kjeld",
+        "Yang Jun J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    },
+    {
+      "pmid": "23422873",
+      "title": "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing: 2013 update.",
+      "authors": [
+        "Relling M V",
+        "Gardner E E",
+        "Sandborn W J",
+        "Schmiegelow K",
+        "Pui C-H",
+        "Yee S W",
+        "Stein C M",
+        "Carrillo M",
+        "Evans W E",
+        "Hicks J K",
+        "Schwab M",
+        "Klein T E",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    },
+    {
+      "pmid": "21270794",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing.",
+      "authors": [
+        "Relling M V",
+        "Gardner E E",
+        "Sandborn W J",
+        "Schmiegelow K",
+        "Pui C-H",
+        "Yee S W",
+        "Stein C M",
+        "Carrillo M",
+        "Evans W E",
+        "Klein T E",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2011
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

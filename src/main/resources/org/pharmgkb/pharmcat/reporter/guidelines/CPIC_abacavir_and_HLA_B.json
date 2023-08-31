@@ -81,6 +81,41 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "24561393",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update.",
+      "authors": [
+        "Martin M A",
+        "Hoffman J M",
+        "Freimuth R R",
+        "Klein T E",
+        "Dong B J",
+        "Pirmohamed M",
+        "Hicks J K",
+        "Wilkinson M R",
+        "Haas D W",
+        "Kroetz D L",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    },
+    {
+      "pmid": "22378157",
+      "title": "Clinical pharmacogenetics implementation consortium guidelines for HLA-B genotype and abacavir dosing.",
+      "authors": [
+        "Martin M A",
+        "Klein T E",
+        "Dong B J",
+        "Pirmohamed M",
+        "Haas D W",
+        "Kroetz D L",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2012
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

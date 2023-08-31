@@ -459,6 +459,30 @@
       "otherPrescribingGuidance": true
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "30499100",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
+      "authors": [
+        "Gonsalves Stephen G",
+        "Dirksen Robert T",
+        "Sangkuhl Katrin",
+        "Pulk Rebecca",
+        "Alvarellos Maria",
+        "Vo Teresa",
+        "Hikino Keiko",
+        "Roden Dan",
+        "Klein Teri E",
+        "Poler S Mark",
+        "Patel Sephalie",
+        "Caudle Kelly E",
+        "Gordon Ronald",
+        "Brandom Barbara",
+        "Biesecker Leslie G"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

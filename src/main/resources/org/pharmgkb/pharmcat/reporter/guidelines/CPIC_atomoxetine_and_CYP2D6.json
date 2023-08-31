@@ -1323,6 +1323,27 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "30801677",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Cytochrome P450 (CYP)2D6 Genotype and Atomoxetine Therapy.",
+      "authors": [
+        "Brown Jacob T",
+        "Bishop Jeffrey R",
+        "Sangkuhl Katrin",
+        "Nurmi Erika L",
+        "Mueller Daniel J",
+        "Dinh Jean C",
+        "Gaedigk Andrea",
+        "Klein Teri E",
+        "Caudle Kelly E",
+        "McCracken James T",
+        "de Leon Jose",
+        "Leeder J Steven"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

@@ -487,6 +487,28 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "27981572",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C19 and Voriconazole Therapy.",
+      "authors": [
+        "Moriyama B",
+        "Obeng A Owusu",
+        "Barbarino J",
+        "Penzak S R",
+        "Henning S A",
+        "Scott S A",
+        "Agúndez Jag",
+        "Wingard J R",
+        "McLeod H L",
+        "Klein T E",
+        "Cross S J",
+        "Caudle K E",
+        "Walsh T J"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2017
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

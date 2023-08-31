@@ -772,6 +772,48 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "29392710",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.",
+      "authors": [
+        "Phillips Elizabeth J",
+        "Sukasem Chonlaphat",
+        "Whirl-Carrillo Michelle",
+        "Müller Daniel J",
+        "Dunnenberger Henry M",
+        "Chantratita Wasun",
+        "Goldspiel Barry",
+        "Chen Yuan-Tsong",
+        "Carleton Bruce C",
+        "George Alfred L",
+        "Mushiroda Taisei",
+        "Klein Teri",
+        "Gammal Roseann S",
+        "Pirmohamed Munir"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2018
+    },
+    {
+      "pmid": "23695185",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for HLA-B genotype and carbamazepine dosing.",
+      "authors": [
+        "Leckband S G",
+        "Kelsoe J R",
+        "Dunnenberger H M",
+        "George A L",
+        "Tran E",
+        "Berger R",
+        "Müller D J",
+        "Whirl-Carrillo M",
+        "Caudle K E",
+        "Pirmohamed M",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2013
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

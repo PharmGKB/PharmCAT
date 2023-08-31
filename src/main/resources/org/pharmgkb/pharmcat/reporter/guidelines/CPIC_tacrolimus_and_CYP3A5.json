@@ -168,6 +168,31 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "25801146",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP3A5 Genotype and Tacrolimus Dosing.",
+      "authors": [
+        "Birdwell K A",
+        "Decker B",
+        "Barbarino J M",
+        "Peterson J F",
+        "Stein C M",
+        "Sadee W",
+        "Wang D",
+        "Vinks A A",
+        "He Y",
+        "Swen J J",
+        "Leeder J S",
+        "van Schaik Rhn",
+        "Thummel K E",
+        "Klein T E",
+        "Caudle K E",
+        "MacPhee I A M"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2015
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

@@ -685,6 +685,75 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "33387367",
+      "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6, OPRM1, and COMT Genotypes and Select Opioid Therapy.",
+      "authors": [
+        "Crews Kristine R",
+        "Monte Andrew A",
+        "Huddart Rachel",
+        "Caudle Kelly E",
+        "Kharasch Evan D",
+        "Gaedigk Andrea",
+        "Dunnenberger Henry M",
+        "Leeder J Steven",
+        "Callaghan John T",
+        "Samer Caroline Flora",
+        "Klein Teri E",
+        "Haidar Cyrine E",
+        "Van Driest Sara L",
+        "Ruano Gualberto",
+        "Sangkuhl Katrin",
+        "Cavallari Larisa H",
+        "Müller Daniel J",
+        "Prows Cynthia A",
+        "Nagy Mohamed",
+        "Somogyi Andrew A",
+        "Skaar Todd C"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2021
+    },
+    {
+      "pmid": "24458010",
+      "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450 2D6 genotype and codeine therapy: 2014 update.",
+      "authors": [
+        "Crews K R",
+        "Gaedigk A",
+        "Dunnenberger H M",
+        "Leeder J S",
+        "Klein T E",
+        "Caudle K E",
+        "Haidar C E",
+        "Shen D D",
+        "Callaghan J T",
+        "Sadhasivam S",
+        "Prows C A",
+        "Kharasch E D",
+        "Skaar T C",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2014
+    },
+    {
+      "pmid": "22205192",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for codeine therapy in the context of cytochrome P450 2D6 (CYP2D6) genotype.",
+      "authors": [
+        "Crews K R",
+        "Gaedigk A",
+        "Dunnenberger H M",
+        "Klein T E",
+        "Shen D D",
+        "Callaghan J T",
+        "Kharasch E D",
+        "Skaar T C",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2012
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

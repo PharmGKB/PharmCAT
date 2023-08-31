@@ -685,6 +685,30 @@
       "otherPrescribingGuidance": true
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "29385237",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and Tamoxifen Therapy.",
+      "authors": [
+        "Goetz Matthew P",
+        "Sangkuhl Katrin",
+        "Guchelaar Henk-Jan",
+        "Schwab Matthias",
+        "Province Michael",
+        "Whirl-Carrillo Michelle",
+        "Symmans W Fraser",
+        "McLeod Howard L",
+        "Ratain Mark J",
+        "Zembutsu Hitoshi",
+        "Gaedigk Andrea",
+        "van Schaik Ron H",
+        "Ingle James N",
+        "Caudle Kelly E",
+        "Klein Teri E"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2018
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

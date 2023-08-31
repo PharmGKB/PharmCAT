@@ -171,6 +171,63 @@
       "dosingInformation": true,
       "alternateDrugAvailable": false,
       "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166313042",
+      "name": "Recommendation Annotation PA166313042",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA450085",
+          "name": "irinotecan",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452221721,
+        "html": "<p>NO action is needed for this gene-drug interaction.</p>\n"
+      },
+      "implications": [
+        "This genetic variation (*1/*28) is more common in Western populations than the wild-type (*1/*1). This means that treatment is largely geared to patients with this genetic variation. Adjustment of the treatment is therefore not useful. Note that DPWG considers the *36 allele to be clinically equivalent to the *1 allele."
+      ],
+      "lookupKey": {
+        "UGT1A1": {
+          "*1": 1.0,
+          "*80+*28": 1.0
+        }
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
+    },
+    {
+      "id": "PA166313041",
+      "name": "Recommendation Annotation PA166313041",
+      "population": null,
+      "classification": null,
+      "relatedChemicals": [
+        {
+          "id": "PA450085",
+          "name": "irinotecan",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452221720,
+        "html": "<p>Start with 70% of the normal dose If the patient tolerates this initial dose, the dose can be increased, guided by the neutrophil count.</p>\n<p><em>The normal dose is defined as the dose the patient would receive if he/she would not have a gene variant.</em></p>\n"
+      },
+      "implications": [
+        "Serious, life-threatening adverse events occur more often in patients with this genetic variation. The genetic variation reduces conversion of irinotecan to inactive metabolites."
+      ],
+      "lookupKey": {
+        "UGT1A1": {
+          "*80+*28": 2.0
+        }
+      },
+      "dosingInformation": true,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": false
     }
   ],
   "citations": [
@@ -221,5 +278,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-08-17-20-07"
+  "version": "2023-08-31-09-09"
 }

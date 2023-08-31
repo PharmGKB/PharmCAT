@@ -197,6 +197,36 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "35152405",
+      "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
+      "authors": [
+        "Cooper-DeHoff Rhonda M",
+        "Niemi Mikko",
+        "Ramsey Laura B",
+        "Luzum Jasmine A",
+        "Tarkiainen E Katriina",
+        "Straka Robert J",
+        "Gong Li",
+        "Tuteja Sony",
+        "Wilke Russell A",
+        "Wadelius Mia",
+        "Larson Eric A",
+        "Roden Dan M",
+        "Klein Teri E",
+        "Yee Sook Wah",
+        "Krauss Ronald M",
+        "Turner Richard M",
+        "Palaniappan Latha",
+        "Gaedigk Andrea",
+        "Giacomini Kathleen M",
+        "Caudle Kelly E",
+        "Voora Deepak"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2022
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }

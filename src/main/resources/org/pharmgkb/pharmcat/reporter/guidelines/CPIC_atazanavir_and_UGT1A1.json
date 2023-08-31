@@ -139,6 +139,31 @@
       "otherPrescribingGuidance": false
     }
   ],
-  "citations": [],
-  "version": "2023-08-17-20-07"
+  "citations": [
+    {
+      "pmid": "26417955",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for UGT1A1 and Atazanavir Prescribing.",
+      "authors": [
+        "Gammal R S",
+        "Court M H",
+        "Haidar C E",
+        "Iwuchukwu O F",
+        "Gaur A H",
+        "Alvarellos M",
+        "Guillemette C",
+        "Lennox J L",
+        "Whirl-Carrillo M",
+        "Brummel S S",
+        "Ratain M J",
+        "Klein T E",
+        "Schackman B R",
+        "Caudle K E",
+        "Haas D W",
+        "Clinical Pharmacogenetics Implementation Consortium"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2016
+    }
+  ],
+  "version": "2023-08-31-09-09"
 }
