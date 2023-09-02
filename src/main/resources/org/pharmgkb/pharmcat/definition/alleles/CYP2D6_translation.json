@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.30.0",
-  "modificationDate": "Aug 7, 2023, 10:13:25 AM",
+  "version": "v1.31.0",
+  "modificationDate": "Sep 1, 2023, 3:05:08 PM",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -2513,25 +2513,6 @@
     },
     {
       "chromosome": "chr22",
-      "position": 42129906,
-      "cpicPosition": 42129906,
-      "rsid": "rs267608311",
-      "chromosomeHgvsName": "g.42129906G>A",
-      "cpicAlleles": [
-        "A",
-        "G"
-      ],
-      "cpicToVcfAlleleMap": {
-        "A": "A",
-        "G": "G"
-      },
-      "ref": "G",
-      "alts": [
-        "A"
-      ]
-    },
-    {
-      "chromosome": "chr22",
       "position": 42129910,
       "cpicPosition": 42129910,
       "rsid": "rs201377835",
@@ -2934,7 +2915,6 @@
         "C",
         "G",
         "A",
-        "G",
         "C",
         "G",
         "C",
@@ -3081,7 +3061,6 @@
         "C",
         "G",
         "A",
-        "G",
         "C",
         "G",
         "A",
@@ -3249,7 +3228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -3360,7 +3338,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -3551,7 +3528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -3653,7 +3629,6 @@
         null,
         null,
         "Y",
-        null,
         null,
         null,
         null,
@@ -3846,7 +3821,6 @@
         null,
         null,
         null,
-        null,
         "R",
         null,
         null,
@@ -3983,7 +3957,6 @@
         null,
         "Y",
         "K",
-        null,
         null,
         null,
         null,
@@ -4155,7 +4128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -4262,7 +4234,6 @@
         null,
         null,
         "delA",
-        null,
         null,
         null,
         null,
@@ -4457,7 +4428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -4516,7 +4486,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -4759,7 +4728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -4870,7 +4838,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -5061,7 +5028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -5127,7 +5093,6 @@
         null,
         null,
         "delTCT",
-        null,
         null,
         null,
         null,
@@ -5356,7 +5321,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -5474,7 +5438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -5652,7 +5615,6 @@
         null,
         null,
         null,
-        null,
         "G",
         null,
         null,
@@ -5776,7 +5738,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -5958,7 +5919,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -6078,7 +6038,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -6269,7 +6228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -6380,7 +6338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -6560,7 +6517,6 @@
         null,
         null,
         null,
-        null,
         "CA",
         null,
         null,
@@ -6575,7 +6531,6 @@
         null
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         null,
@@ -6873,7 +6828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -6997,7 +6951,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -7175,7 +7128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -7191,7 +7143,6 @@
         null,
         null,
         "AGTGGGCACAGTGGGCAC",
-        null,
         null,
         null,
         null,
@@ -7477,7 +7428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -7588,7 +7538,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -7779,7 +7728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -7890,7 +7838,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -8081,7 +8028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -8192,7 +8138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -8377,7 +8322,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -8387,7 +8331,6 @@
         null
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         null,
@@ -8685,7 +8628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -8818,7 +8760,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -8987,7 +8928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -9049,7 +8989,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -9289,7 +9228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -9336,7 +9274,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -9591,7 +9528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -9630,7 +9566,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -9893,7 +9828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -9925,7 +9859,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -10194,7 +10127,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null
       ],
@@ -10306,7 +10238,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -10497,7 +10428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -10609,7 +10539,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -10799,7 +10728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -10910,7 +10838,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -11101,7 +11028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -11212,7 +11138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -11403,7 +11328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -11514,7 +11438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -11705,7 +11628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -11783,7 +11705,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -12007,7 +11928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -12070,7 +11990,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -12307,7 +12226,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null
@@ -12420,7 +12338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -12604,7 +12521,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -12729,7 +12645,6 @@
         null,
         "M",
         "W",
-        null,
         null,
         null,
         null,
@@ -12906,7 +12821,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -13024,7 +12938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -13215,7 +13128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -13284,7 +13196,6 @@
         null,
         null,
         "TCAG(1)",
-        null,
         null,
         null,
         null,
@@ -13517,7 +13428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -13628,7 +13538,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -13819,7 +13728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -13943,7 +13851,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -14121,7 +14028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -14232,7 +14138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -14423,7 +14328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -14534,7 +14438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -14720,7 +14623,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -14729,7 +14631,6 @@
         null
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         null,
@@ -15021,7 +14922,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -15083,7 +14983,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -15329,7 +15228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -15440,7 +15338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -15626,7 +15523,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -15742,7 +15638,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -15926,7 +15821,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -16044,7 +15938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -16235,7 +16128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -16366,7 +16258,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -16530,7 +16421,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -16655,7 +16545,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -16839,7 +16728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -16944,7 +16832,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -17141,7 +17028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -17252,7 +17138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -17436,7 +17321,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -17554,7 +17438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -17745,7 +17628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -17863,7 +17745,6 @@
         null,
         "A",
         "T",
-        null,
         null,
         null,
         null,
@@ -18040,7 +17921,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -18158,7 +18038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -18349,7 +18228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -18460,7 +18338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -18644,7 +18521,6 @@
         null,
         null,
         null,
-        null,
         "R",
         null,
         null,
@@ -18791,310 +18667,7 @@
         null,
         null,
         null,
-        null,
         "R",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "populationFrequency": null,
-      "reference": false,
-      "numCombinations": 0,
-      "numPartials": 0
-    },
-    {
-      "name": "*57",
-      "id": "778046",
-      "alleles": [
-        null,
-        null,
-        "G",
-        "C",
-        "T",
-        "C",
-        "G",
-        null,
-        "G",
-        "A",
-        null,
-        null,
-        "C",
-        "C",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "G",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "A",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "A",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "cpicAlleles": [
-        null,
-        null,
-        "G",
-        "C",
-        "T",
-        "C",
-        "G",
-        null,
-        "G",
-        "A",
-        null,
-        null,
-        "C",
-        "C",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "G",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "A",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "A",
         null,
         null,
         null,
@@ -19255,7 +18828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -19379,7 +18951,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -19557,7 +19128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -19668,7 +19238,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -19859,7 +19428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -19953,7 +19521,6 @@
         null,
         null,
         "insTA",
-        null,
         null,
         null,
         null,
@@ -20161,7 +19728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -20186,7 +19752,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -20456,7 +20021,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -20587,7 +20151,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -20758,7 +20321,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -20876,7 +20438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -21060,7 +20621,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -21178,7 +20738,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -21369,7 +20928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -21488,7 +21046,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -21661,7 +21218,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -21675,7 +21231,6 @@
         null
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         null,
@@ -21966,7 +21521,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -22084,7 +21638,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -22275,7 +21828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -22402,7 +21954,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -22577,7 +22128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -22707,7 +22257,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -22879,7 +22428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -22903,7 +22451,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -23181,7 +22728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -23253,7 +22799,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -23483,7 +23028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -23613,7 +23157,6 @@
         null,
         "C",
         "T",
-        null,
         null,
         null,
         null,
@@ -23785,7 +23328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -23803,7 +23345,6 @@
         null,
         "C",
         "C",
-        null,
         null,
         null,
         null,
@@ -24087,7 +23628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -24198,7 +23738,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -24389,7 +23928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -24500,7 +24038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -24691,7 +24228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -24759,7 +24295,6 @@
         null,
         "T",
         "T",
-        null,
         null,
         null,
         null,
@@ -24986,7 +24521,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -25104,7 +24638,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -25295,7 +24828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -25421,7 +24953,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -25597,7 +25128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -25707,7 +25237,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -25899,7 +25428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -26008,7 +25536,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -26201,7 +25728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -26305,7 +25831,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -26503,7 +26028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -26587,7 +26111,6 @@
         null,
         null,
         "delG",
-        null,
         null,
         null,
         null,
@@ -26805,7 +26328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -26882,7 +26404,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -27100,7 +26621,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -27218,7 +26738,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -27402,7 +26921,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -27520,7 +27038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -27711,7 +27228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -27740,7 +27256,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -28013,7 +27528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -28033,7 +27547,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -28315,7 +27828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -28426,7 +27938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -28610,7 +28121,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -28749,7 +28259,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -28912,7 +28421,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -29030,7 +28538,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -29214,7 +28721,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -29332,7 +28838,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -29523,7 +29028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -29654,7 +29158,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -29825,7 +29328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -29956,7 +29458,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -30127,7 +29628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -30238,7 +29738,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -30429,7 +29928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -30540,7 +30038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -30731,7 +30228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -30761,7 +30257,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -31033,7 +30528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -31145,7 +30639,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -31335,7 +30828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -31379,7 +30871,6 @@
         null,
         "C",
         "C",
-        null,
         null,
         null,
         null,
@@ -31637,7 +31128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -31703,7 +31193,6 @@
         null,
         null,
         "delTCT",
-        null,
         null,
         null,
         null,
@@ -31939,7 +31428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -31962,7 +31450,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -32241,7 +31728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -32363,7 +31849,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -32543,13 +32028,11 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -32845,7 +32328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -32872,7 +32354,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -33140,7 +32621,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -33246,7 +32726,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -33449,7 +32928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -33515,7 +32993,6 @@
         null,
         "C",
         "delTCT",
-        null,
         null,
         null,
         null,
@@ -33751,7 +33228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -33805,7 +33281,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -34053,7 +33528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -34164,7 +33638,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -34355,7 +33828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -34415,7 +33887,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -34657,7 +34128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -34712,7 +34182,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -34956,14 +34425,12 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
         null
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         null,
@@ -35261,7 +34728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -35372,7 +34838,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -35563,7 +35028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -35601,7 +35065,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -35865,7 +35328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -35976,7 +35438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -36167,7 +35628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -36254,7 +35714,6 @@
         null,
         null,
         "R",
-        null,
         null,
         null,
         null,
@@ -36469,7 +35928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -36580,7 +36038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -36771,7 +36228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -36884,7 +36340,6 @@
         "G",
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -37073,7 +36528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -37116,7 +36570,6 @@
         "T",
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -37375,7 +36828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -37509,7 +36961,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -37677,7 +37128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -37791,7 +37241,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -37979,7 +37428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -38072,7 +37520,6 @@
         null,
         "A",
         "G",
-        null,
         null,
         null,
         null,
@@ -38281,7 +37728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -38361,7 +37807,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -38576,7 +38021,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -38694,7 +38138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -38885,7 +38328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -38996,7 +38438,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -39187,7 +38628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -39232,7 +38672,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -39489,7 +38928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -39600,7 +39038,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -39791,7 +39228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -39902,7 +39338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -40093,12 +39528,10 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
         "T",
-        null,
         null,
         null,
         null,
@@ -40395,7 +39828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -40506,7 +39938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -40697,7 +40128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -40738,7 +40168,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -40999,7 +40428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -41080,7 +40508,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -41301,7 +40728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -41425,7 +40851,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -41596,7 +41021,6 @@
         null,
         null,
         null,
-        null,
         "A",
         "A",
         null,
@@ -41714,7 +41138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -41903,7 +41326,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null
@@ -42021,7 +41443,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -42207,7 +41628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -42290,7 +41710,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -42509,7 +41928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -42605,7 +42023,6 @@
         null,
         null,
         "AAAGGGGCG(2)",
-        null,
         null,
         null,
         null,
@@ -42806,7 +42223,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -42922,7 +42338,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -43106,7 +42521,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -43224,7 +42638,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -43410,7 +42823,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -43526,7 +42938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -43717,7 +43128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -43845,7 +43255,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -44012,7 +43421,6 @@
         null,
         null,
         null,
-        null,
         "R",
         null,
         null,
@@ -44130,7 +43538,6 @@
         null,
         null,
         "S",
-        null,
         null,
         null,
         null,
@@ -44321,7 +43728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -44416,7 +43822,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -44623,7 +44028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -44705,7 +44109,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -44925,7 +44328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -45010,7 +44412,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -45227,7 +44628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -45351,7 +44751,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -45529,7 +44928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -45641,7 +45039,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -45819,7 +45216,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -45943,7 +45339,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -46133,7 +45528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -46245,7 +45639,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -46435,7 +45828,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -46546,7 +45938,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -46729,7 +46120,6 @@
         null,
         null,
         null,
-        null,
         "A",
         null,
         null,
@@ -46848,7 +46238,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -47039,7 +46428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -47169,7 +46557,6 @@
         null,
         "C",
         "T",
-        null,
         null,
         null,
         null,
@@ -47341,7 +46728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -47460,7 +46846,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -47643,7 +47028,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -47754,7 +47138,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -47945,7 +47328,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -48060,7 +47442,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -48247,7 +47628,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -48359,7 +47739,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -48549,7 +47928,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -48661,7 +48039,6 @@
         null,
         "G",
         "T",
-        null,
         null,
         null,
         null,
@@ -48851,7 +48228,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -48962,7 +48338,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -49153,7 +48528,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -49273,7 +48647,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -49445,7 +48818,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null,
@@ -49546,7 +48918,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -49757,7 +49128,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -49791,7 +49161,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -50059,7 +49428,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -50087,7 +49455,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -50361,7 +49728,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "cpicAlleles": [
@@ -50480,7 +49846,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -50661,7 +50026,6 @@
         null,
         null,
         null,
-        null,
         "T",
         null,
         null
@@ -50784,7 +50148,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,

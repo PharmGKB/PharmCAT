@@ -2,9 +2,9 @@
   "geneReports": {
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -107,9 +107,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -234,9 +234,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CFTR": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -871,9 +871,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1668,9 +1668,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2311,9 +2311,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3554,7 +3554,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3658,9 +3658,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -3827,7 +3827,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -4102,9 +4102,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -5391,9 +5391,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "G6PD": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -8117,9 +8117,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8224,7 +8224,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8316,9 +8316,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -8656,9 +8656,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "RYR1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -9375,9 +9375,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -9952,9 +9952,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -10657,9 +10657,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -10818,7 +10818,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -10917,9 +10917,9 @@
     },
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -11022,9 +11022,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -11819,9 +11819,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -12462,9 +12462,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -13705,7 +13705,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -13809,9 +13809,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2023-08-31-21-54",
+        "alleleDefinitionVersion": "2023-09-01-18-07",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -14472,9 +14472,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -14641,9 +14641,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -15930,9 +15930,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "F5": {
-        "alleleDefinitionVersion": "2023-08-31-21-54",
+        "alleleDefinitionVersion": "2023-09-01-18-07",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "F5",
         "chr": "chr1",
@@ -16321,9 +16321,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -16661,9 +16661,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -17238,9 +17238,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -17943,9 +17943,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -18104,9 +18104,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.30.0",
+        "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-08-31-21-54",
+        "phenotypeVersion": "2023-09-01-18-07",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
