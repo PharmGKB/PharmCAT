@@ -1,3 +1,19 @@
+## [2.7.0](https://github.com/PharmGKB/PharmCAT/compare/v2.6.0...v2.7.0) (2023-09-02)
+
+
+### Features
+
+* **pharmcat:** Use PharmGKB for all drug and phenotype annotations ([7390fa1](https://github.com/PharmGKB/PharmCAT/commit/7390fa18fb6f1942266f2278b0852efa1882a46d))
+* **reporter:** add new footnote about CPIC/DPWG function ([b986a13](https://github.com/PharmGKB/PharmCAT/commit/b986a138f5ad9266ca3024ee10c9e55a19441b81))
+
+
+### Bug Fixes
+
+* **data:** fix guideline citation data and update RYR1 phenotypes ([93de1ff](https://github.com/PharmGKB/PharmCAT/commit/93de1ffa7d7f72613dd9de6a48f091744e81dc77))
+* **pharmcat:** disable reporter module when using research mode ([d1b1822](https://github.com/PharmGKB/PharmCAT/commit/d1b182225fa4dc033ca2766bf5f7f8513fa1ab00))
+* **preprocessor:** capture both error and log from subprocess ([c115ed2](https://github.com/PharmGKB/PharmCAT/commit/c115ed253a489969330afbf56a66b4c2afe5ca39))
+* **preprocessor:** install the scikit-allel that has a working toml file ([77e2c43](https://github.com/PharmGKB/PharmCAT/commit/77e2c431f68f2bca3d035b77bff43d012516d15e))
+
 ## [2.6.0](https://github.com/PharmGKB/PharmCAT/compare/v2.5.0...v2.6.0) (2023-08-08)
 
 
