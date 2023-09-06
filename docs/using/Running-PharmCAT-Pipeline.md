@@ -127,6 +127,8 @@ If you have a single sample VCF file, you can also just use the basename of the 
 If you have a multisample VCF file, (e.g. `multisample.vcf`) and have outside calls for `Sample_1`, then can use
 `multisample.Sample_1.outside.tsv` instead.
 
+These files need to be in the same directory as the VCF file.
+
 
 #### Naming Conventions
 
