@@ -315,6 +315,7 @@ public class DataManager {
     }
 
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
+    fixDpyd(definitionFileMap.get("DPYD"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = new HashSet<>();
