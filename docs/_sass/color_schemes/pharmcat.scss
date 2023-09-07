@@ -29,6 +29,33 @@ $callouts: (
   }
 }
 
+.logoDiv {
+  display: flex;
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-top: 8%;
+
+    @media (max-width: 715px) {
+      margin-top: 5%;
+    }
+    @media (min-width: 800px) and (max-width: 995px) {
+      margin-top: 5%;
+    }
+
+    span {
+      &:not(:last-child) {
+        margin-right: .5em;
+      }
+      a {
+        text-align: center;
+      }
+    }
+  }
+}
+
 // hide footer so that menu works on mobile
 .site-footer {
   display: none;
