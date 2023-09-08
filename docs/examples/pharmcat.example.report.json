@@ -1,15 +1,15 @@
 {
   "title": "pharmcat.example",
-  "timestamp": "Sep 7, 2023, 11:14:35 AM",
-  "pharmcatVersion": "v2.7.0-3-g9a78c86e",
+  "timestamp": "Sep 8, 2023, 11:17:46 AM",
+  "pharmcatVersion": "v2.7.0-7-g85821c58",
   "cpicVersion": null,
-  "dpwgVersion": "2023-09-05-12-38",
+  "dpwgVersion": "2023-09-07-21-06",
   "genes": {
     "CPIC": {
       "ABCG2": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -119,7 +119,7 @@
       "CACNA1S": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -275,7 +275,7 @@
       "CFTR": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -917,7 +917,7 @@
       "CYP2B6": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1723,7 +1723,7 @@
       "CYP2C19": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2423,7 +2423,7 @@
       "CYP2C9": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3709,7 +3709,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3888,7 +3888,7 @@
       "CYP3A5": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -4357,7 +4357,7 @@
       "DPYD": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -5690,7 +5690,7 @@
       "G6PD": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -8529,7 +8529,7 @@
       "IFNL3": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8663,7 +8663,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8786,7 +8786,7 @@
       "NUDT15": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -9139,7 +9139,7 @@
       "RYR1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -9887,7 +9887,7 @@
       "SLCO1B1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -10516,7 +10516,7 @@
       "TPMT": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -11249,7 +11249,7 @@
       "UGT1A1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -11550,7 +11550,7 @@
       "ABCG2": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -11660,7 +11660,7 @@
       "CYP2B6": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -12462,7 +12462,7 @@
       "CYP2C19": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -13146,7 +13146,7 @@
       "CYP2C9": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -14400,7 +14400,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -14589,9 +14589,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2023-09-05-12-38",
+        "alleleDefinitionVersion": "2023-09-07-21-06",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -15276,7 +15276,7 @@
       "CYP3A5": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -15465,7 +15465,7 @@
       "DPYD": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -16804,9 +16804,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "F5": {
-        "alleleDefinitionVersion": "2023-09-05-12-38",
+        "alleleDefinitionVersion": "2023-09-07-21-06",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "F5",
         "chr": "chr1",
@@ -17236,7 +17236,7 @@
       "NUDT15": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -17589,7 +17589,7 @@
       "SLCO1B1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -18198,7 +18198,7 @@
       "TPMT": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -18931,7 +18931,7 @@
       "UGT1A1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -19112,7 +19112,7 @@
       "VKORC1": {
         "alleleDefinitionVersion": "v1.31.0",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-09-05-12-38",
+        "phenotypeVersion": "2023-09-07-21-06",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
@@ -19251,7 +19251,7 @@
         "name": "abacavir",
         "id": "PA448004",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19298,7 +19298,7 @@
             "id": "PA166104997",
             "name": "Annotation of CPIC Guideline for abacavir and HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104997",
             "annotations": [
               {
@@ -19366,7 +19366,7 @@
         "name": "allopurinol",
         "id": "PA448320",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19416,7 +19416,7 @@
             "id": "PA166105003",
             "name": "Annotation of CPIC Guideline for allopurinol and HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105003",
             "annotations": [
               {
@@ -19484,7 +19484,7 @@
         "name": "amikacin",
         "id": "PA164744372",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19517,7 +19517,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -19575,7 +19575,7 @@
         "name": "amitriptyline",
         "id": "PA448385",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19629,7 +19629,7 @@
             "id": "PA166105006",
             "name": "Annotation of CPIC Guideline for amitriptyline and CYP2C19, CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105006",
             "annotations": [
               {
@@ -19727,7 +19727,7 @@
         "name": "atazanavir",
         "id": "PA10251",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19764,7 +19764,7 @@
             "id": "PA166128738",
             "name": "Annotation of CPIC Guideline for atazanavir and UGT1A1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166128738",
             "annotations": [
               {
@@ -19828,7 +19828,7 @@
         "name": "atomoxetine",
         "id": "PA134688071",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -19861,7 +19861,7 @@
             "id": "PA166181885",
             "name": "Annotation of CPIC Guideline for atomoxetine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166181885",
             "annotations": [
               {
@@ -19978,7 +19978,7 @@
         "name": "atorvastatin",
         "id": "PA448500",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -20044,7 +20044,7 @@
             "id": "PA166262221",
             "name": "Annotation of CPIC Guideline for atorvastatin and SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262221",
             "annotations": [
               {
@@ -20108,7 +20108,7 @@
         "name": "azathioprine",
         "id": "PA448515",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20184,7 +20184,7 @@
             "id": "PA166104933",
             "name": "Annotation of CPIC Guideline for azathioprine and NUDT15, TPMT",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104933",
             "annotations": [
               {
@@ -20282,7 +20282,7 @@
         "name": "capecitabine",
         "id": "PA448771",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -20350,7 +20350,7 @@
             "id": "PA166109594",
             "name": "Annotation of CPIC Guideline for capecitabine and DPYD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166109594",
             "annotations": [
               {
@@ -20414,7 +20414,7 @@
         "name": "carbamazepine",
         "id": "PA448785",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20468,7 +20468,7 @@
             "id": "PA166105008",
             "name": "Annotation of CPIC Guideline for carbamazepine and HLA-A, HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105008",
             "annotations": [
               {
@@ -20746,7 +20746,7 @@
         "name": "celecoxib",
         "id": "PA448871",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20776,7 +20776,7 @@
             "id": "PA166191841",
             "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166191841",
             "annotations": [
               {
@@ -20840,7 +20840,7 @@
         "name": "citalopram",
         "id": "PA449015",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -20904,7 +20904,7 @@
             "id": "PA166127638",
             "name": "Annotation of CPIC Guideline for citalopram, escitalopram and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127638",
             "annotations": [
               {
@@ -20968,7 +20968,7 @@
         "name": "clomipramine",
         "id": "PA449048",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21022,7 +21022,7 @@
             "id": "PA166105007",
             "name": "Annotation of CPIC Guideline for clomipramine and CYP2C19, CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105007",
             "annotations": [
               {
@@ -21120,7 +21120,7 @@
         "name": "clopidogrel",
         "id": "PA449053",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21195,7 +21195,7 @@
             "id": "PA166104948",
             "name": "Annotation of CPIC Guideline for clopidogrel and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104948",
             "annotations": [
               {
@@ -21365,7 +21365,7 @@
         "name": "codeine",
         "id": "PA449088",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21446,7 +21446,7 @@
             "id": "PA166104996",
             "name": "Annotation of CPIC Guideline for codeine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104996",
             "annotations": [
               {
@@ -21510,7 +21510,7 @@
         "name": "dapsone",
         "id": "PA449211",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -21612,7 +21612,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -21676,7 +21676,7 @@
         "name": "desflurane",
         "id": "PA164749136",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -21737,7 +21737,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -21799,7 +21799,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -21863,7 +21863,7 @@
         "name": "desipramine",
         "id": "PA449233",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -21917,7 +21917,7 @@
             "id": "PA166105002",
             "name": "Annotation of CPIC Guideline for desipramine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105002",
             "annotations": [
               {
@@ -21981,7 +21981,7 @@
         "name": "dexlansoprazole",
         "id": "PA166110257",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22022,7 +22022,7 @@
             "id": "PA166219301",
             "name": "Annotation of CPIC Guideline for dexlansoprazole and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219301",
             "annotations": [
               {
@@ -22086,7 +22086,7 @@
         "name": "doxepin",
         "id": "PA449409",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22140,7 +22140,7 @@
             "id": "PA166105000",
             "name": "Annotation of CPIC Guideline for doxepin and CYP2C19, CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105000",
             "annotations": [
               {
@@ -22238,7 +22238,7 @@
         "name": "efavirenz",
         "id": "PA449441",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22276,7 +22276,7 @@
             "id": "PA166182603",
             "name": "Annotation of CPIC Guideline for efavirenz and CYP2B6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182603",
             "annotations": [
               {
@@ -22340,7 +22340,7 @@
         "name": "enflurane",
         "id": "PA449461",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -22401,7 +22401,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -22463,7 +22463,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -22527,7 +22527,7 @@
         "name": "escitalopram",
         "id": "PA10074",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22591,7 +22591,7 @@
             "id": "PA166127638",
             "name": "Annotation of CPIC Guideline for citalopram, escitalopram and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127638",
             "annotations": [
               {
@@ -22655,7 +22655,7 @@
         "name": "fluorouracil",
         "id": "PA128406956",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -22723,7 +22723,7 @@
             "id": "PA166122686",
             "name": "Annotation of CPIC Guideline for fluorouracil and DPYD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166122686",
             "annotations": [
               {
@@ -22787,7 +22787,7 @@
         "name": "flurbiprofen",
         "id": "PA449683",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -22817,7 +22817,7 @@
             "id": "PA166191841",
             "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166191841",
             "annotations": [
               {
@@ -22881,7 +22881,7 @@
         "name": "fluvastatin",
         "id": "PA449688",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -22947,7 +22947,7 @@
             "id": "PA166262341",
             "name": "Annotation of CPIC Guideline for fluvastatin and CYP2C9, SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262341",
             "annotations": [
               {
@@ -23045,7 +23045,7 @@
         "name": "fluvoxamine",
         "id": "PA449690",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23109,7 +23109,7 @@
             "id": "PA166127637",
             "name": "Annotation of CPIC Guideline for fluvoxamine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127637",
             "annotations": [
               {
@@ -23173,7 +23173,7 @@
         "name": "fosphenytoin",
         "id": "PA164746820",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -23245,7 +23245,7 @@
             "id": "PA166122806",
             "name": "Annotation of CPIC Guideline for fosphenytoin, phenytoin and CYP2C9, HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166122806",
             "annotations": [
               {
@@ -23438,7 +23438,7 @@
         "name": "gentamicin",
         "id": "PA449753",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23471,7 +23471,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -23529,7 +23529,7 @@
         "name": "halothane",
         "id": "PA449845",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -23590,7 +23590,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -23652,7 +23652,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -23716,7 +23716,7 @@
         "name": "hydrocodone",
         "id": "PA449900",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23758,7 +23758,7 @@
             "id": "PA166228121",
             "name": "Annotation of CPIC Guideline for hydrocodone and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166228121",
             "annotations": [
               {
@@ -23822,7 +23822,7 @@
         "name": "ibuprofen",
         "id": "PA449957",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23852,7 +23852,7 @@
             "id": "PA166191841",
             "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166191841",
             "annotations": [
               {
@@ -23916,7 +23916,7 @@
         "name": "imipramine",
         "id": "PA449969",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -23970,7 +23970,7 @@
             "id": "PA166104999",
             "name": "Annotation of CPIC Guideline for imipramine and CYP2C19, CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104999",
             "annotations": [
               {
@@ -24068,7 +24068,7 @@
         "name": "isoflurane",
         "id": "PA450106",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -24129,7 +24129,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -24191,7 +24191,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -24255,7 +24255,7 @@
         "name": "ivacaftor",
         "id": "PA165950341",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24285,7 +24285,7 @@
             "id": "PA166114461",
             "name": "Annotation of CPIC Guideline for ivacaftor and CFTR",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166114461",
             "annotations": [
               {
@@ -24349,7 +24349,7 @@
         "name": "kanamycin",
         "id": "PA450137",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24382,7 +24382,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -24440,7 +24440,7 @@
         "name": "lansoprazole",
         "id": "PA450180",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24481,7 +24481,7 @@
             "id": "PA166219103",
             "name": "Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219103",
             "annotations": [
               {
@@ -24545,7 +24545,7 @@
         "name": "lornoxicam",
         "id": "PA165958395",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24575,7 +24575,7 @@
             "id": "PA166191841",
             "name": "Annotation of CPIC Guideline for celecoxib, flurbiprofen, ibuprofen, lornoxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166191841",
             "annotations": [
               {
@@ -24639,7 +24639,7 @@
         "name": "lovastatin",
         "id": "PA450272",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -24705,7 +24705,7 @@
             "id": "PA166262241",
             "name": "Annotation of CPIC Guideline for lovastatin and SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262241",
             "annotations": [
               {
@@ -24769,7 +24769,7 @@
         "name": "meloxicam",
         "id": "PA450353",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24799,7 +24799,7 @@
             "id": "PA166192301",
             "name": "Annotation of CPIC Guideline for meloxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166192301",
             "annotations": [
               {
@@ -24863,7 +24863,7 @@
         "name": "mercaptopurine",
         "id": "PA450379",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -24939,7 +24939,7 @@
             "id": "PA166104945",
             "name": "Annotation of CPIC Guideline for mercaptopurine and NUDT15, TPMT",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104945",
             "annotations": [
               {
@@ -25037,7 +25037,7 @@
         "name": "methoxyflurane",
         "id": "PA450434",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -25098,7 +25098,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -25160,7 +25160,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -25224,7 +25224,7 @@
         "name": "methylene blue",
         "id": "PA450457",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -25326,7 +25326,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -25390,7 +25390,7 @@
         "name": "nitrofurantoin",
         "id": "PA450640",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -25453,7 +25453,7 @@
             "id": "PA166279721",
             "name": "Annotation of CPIC Guideline for nitrofurantoin and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166279721",
             "annotations": [
               {
@@ -25517,7 +25517,7 @@
         "name": "nortriptyline",
         "id": "PA450657",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25571,7 +25571,7 @@
             "id": "PA166104998",
             "name": "Annotation of CPIC Guideline for nortriptyline and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104998",
             "annotations": [
               {
@@ -25635,7 +25635,7 @@
         "name": "omeprazole",
         "id": "PA450704",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25676,7 +25676,7 @@
             "id": "PA166219103",
             "name": "Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219103",
             "annotations": [
               {
@@ -25740,7 +25740,7 @@
         "name": "ondansetron",
         "id": "PA450705",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25772,7 +25772,7 @@
             "id": "PA166161954",
             "name": "Annotation of CPIC Guideline for ondansetron and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166161954",
             "annotations": [
               {
@@ -25836,7 +25836,7 @@
         "name": "oxcarbazepine",
         "id": "PA450732",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -25871,7 +25871,7 @@
             "id": "PA166176623",
             "name": "Annotation of CPIC Guideline for oxcarbazepine and HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166176623",
             "annotations": [
               {
@@ -25996,7 +25996,7 @@
         "name": "pantoprazole",
         "id": "PA450774",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26037,7 +26037,7 @@
             "id": "PA166219103",
             "name": "Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219103",
             "annotations": [
               {
@@ -26101,7 +26101,7 @@
         "name": "paromomycin",
         "id": "PA164784023",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26134,7 +26134,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -26192,7 +26192,7 @@
         "name": "paroxetine",
         "id": "PA450801",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26256,7 +26256,7 @@
             "id": "PA166127636",
             "name": "Annotation of CPIC Guideline for paroxetine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127636",
             "annotations": [
               {
@@ -26320,7 +26320,7 @@
         "name": "peginterferon alfa-2a",
         "id": "PA164749390",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26350,7 +26350,7 @@
             "id": "PA166110235",
             "name": "Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166110235",
             "annotations": []
           }
@@ -26360,7 +26360,7 @@
         "name": "peginterferon alfa-2b",
         "id": "PA164784024",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26390,7 +26390,7 @@
             "id": "PA166110235",
             "name": "Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166110235",
             "annotations": []
           }
@@ -26400,7 +26400,7 @@
         "name": "pegloticase",
         "id": "PA165963961",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -26502,7 +26502,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -26566,7 +26566,7 @@
         "name": "phenytoin",
         "id": "PA450947",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -26638,7 +26638,7 @@
             "id": "PA166122806",
             "name": "Annotation of CPIC Guideline for fosphenytoin, phenytoin and CYP2C9, HLA-B",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166122806",
             "annotations": [
               {
@@ -26831,7 +26831,7 @@
         "name": "piroxicam",
         "id": "PA450985",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -26861,7 +26861,7 @@
             "id": "PA166192321",
             "name": "Annotation of CPIC Guideline for piroxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166192321",
             "annotations": [
               {
@@ -26925,7 +26925,7 @@
         "name": "pitavastatin",
         "id": "PA142650384",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -26991,7 +26991,7 @@
             "id": "PA166262261",
             "name": "Annotation of CPIC Guideline for pitavastatin and SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262261",
             "annotations": [
               {
@@ -27055,7 +27055,7 @@
         "name": "plazomicin",
         "id": "PA166228921",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27088,7 +27088,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -27146,7 +27146,7 @@
         "name": "pravastatin",
         "id": "PA451089",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -27212,7 +27212,7 @@
             "id": "PA166262281",
             "name": "Annotation of CPIC Guideline for pravastatin and SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262281",
             "annotations": [
               {
@@ -27276,7 +27276,7 @@
         "name": "primaquine",
         "id": "PA451103",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -27361,7 +27361,7 @@
             "id": "PA166279621",
             "name": "Annotation of CPIC Guideline for primaquine and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166279621",
             "annotations": [
               {
@@ -27425,7 +27425,7 @@
         "name": "rasburicase",
         "id": "PA10176",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -27527,7 +27527,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -27591,7 +27591,7 @@
         "name": "ribavirin",
         "id": "PA451241",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27621,7 +27621,7 @@
             "id": "PA166110235",
             "name": "Annotation of CPIC Guideline for peginterferon alfa-2a, peginterferon alfa-2b, ribavirin and IFNL3",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166110235",
             "annotations": []
           }
@@ -27631,7 +27631,7 @@
         "name": "rosuvastatin",
         "id": "PA134308647",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -27697,7 +27697,7 @@
             "id": "PA166262321",
             "name": "Annotation of CPIC Guideline for rosuvastatin and ABCG2, SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262321",
             "annotations": [
               {
@@ -27795,7 +27795,7 @@
         "name": "sertraline",
         "id": "PA451333",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -27859,7 +27859,7 @@
             "id": "PA166127639",
             "name": "Annotation of CPIC Guideline for sertraline and CYP2B6, CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166127639",
             "annotations": [
               {
@@ -27957,7 +27957,7 @@
         "name": "sevoflurane",
         "id": "PA451341",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -28018,7 +28018,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -28080,7 +28080,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -28144,7 +28144,7 @@
         "name": "simvastatin",
         "id": "PA451363",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -28257,7 +28257,7 @@
             "id": "PA166105005",
             "name": "Annotation of CPIC Guideline for simvastatin and SLCO1B1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105005",
             "annotations": [
               {
@@ -28321,7 +28321,7 @@
         "name": "streptomycin",
         "id": "PA451512",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28354,7 +28354,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -28412,7 +28412,7 @@
         "name": "succinylcholine",
         "id": "PA451522",
         "source": "CPIC",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Malignant Hyperthermia Susceptibility warning",
@@ -28473,7 +28473,7 @@
             "id": "PA166180457",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166180457",
             "annotations": [
               {
@@ -28535,7 +28535,7 @@
             "id": "PA166303941",
             "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and RYR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
             "annotations": [
               {
@@ -28599,7 +28599,7 @@
         "name": "tacrolimus",
         "id": "PA451578",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28636,7 +28636,7 @@
             "id": "PA166124619",
             "name": "Annotation of CPIC Guideline for tacrolimus and CYP3A5",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166124619",
             "annotations": [
               {
@@ -28700,7 +28700,7 @@
         "name": "tafenoquine",
         "id": "PA166115580",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -28802,7 +28802,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -28866,7 +28866,7 @@
         "name": "tamoxifen",
         "id": "PA451581",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28902,7 +28902,7 @@
             "id": "PA166176068",
             "name": "Annotation of CPIC Guideline for tamoxifen and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166176068",
             "annotations": [
               {
@@ -28966,7 +28966,7 @@
         "name": "tenoxicam",
         "id": "PA131890625",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -28996,7 +28996,7 @@
             "id": "PA166192341",
             "name": "Annotation of CPIC Guideline for tenoxicam and CYP2C9",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166192341",
             "annotations": [
               {
@@ -29060,7 +29060,7 @@
         "name": "thioguanine",
         "id": "PA451663",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29136,7 +29136,7 @@
             "id": "PA166104965",
             "name": "Annotation of CPIC Guideline for thioguanine and NUDT15, TPMT",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104965",
             "annotations": [
               {
@@ -29234,7 +29234,7 @@
         "name": "tobramycin",
         "id": "PA451704",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29267,7 +29267,7 @@
             "id": "PA166229081",
             "name": "Annotation of CPIC Guideline for amikacin, gentamicin, kanamycin, paromomycin, plazomicin, streptomycin, tobramycin and MT-RNR1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166229081",
             "annotations": [
               {
@@ -29325,7 +29325,7 @@
         "name": "toluidine blue",
         "id": "PA166268821",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "G6PD hemizygous samples",
@@ -29427,7 +29427,7 @@
             "id": "PA166119846",
             "name": "Annotation of CPIC Guideline for dapsone, methylene blue, pegloticase, rasburicase, tafenoquine, toluidine blue and G6PD",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166119846",
             "annotations": [
               {
@@ -29491,7 +29491,7 @@
         "name": "tramadol",
         "id": "PA451735",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29533,7 +29533,7 @@
             "id": "PA166228101",
             "name": "Annotation of CPIC Guideline for tramadol and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166228101",
             "annotations": [
               {
@@ -29597,7 +29597,7 @@
         "name": "trimipramine",
         "id": "PA451791",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29651,7 +29651,7 @@
             "id": "PA166105001",
             "name": "Annotation of CPIC Guideline for trimipramine and CYP2C19, CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166105001",
             "annotations": [
               {
@@ -29749,7 +29749,7 @@
         "name": "tropisetron",
         "id": "PA161925594",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29781,7 +29781,7 @@
             "id": "PA166161955",
             "name": "Annotation of CPIC Guideline for tropisetron and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166161955",
             "annotations": [
               {
@@ -29845,7 +29845,7 @@
         "name": "venlafaxine",
         "id": "PA451866",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29884,7 +29884,7 @@
             "id": "PA166288201",
             "name": "Annotation of CPIC Guideline for venlafaxine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166288201",
             "annotations": [
               {
@@ -29948,7 +29948,7 @@
         "name": "voriconazole",
         "id": "PA10233",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -29982,7 +29982,7 @@
             "id": "PA166161537",
             "name": "Annotation of CPIC Guideline for voriconazole and CYP2C19",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166161537",
             "annotations": [
               {
@@ -30099,7 +30099,7 @@
         "name": "vortioxetine",
         "id": "PA166122595",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30138,7 +30138,7 @@
             "id": "PA166288221",
             "name": "Annotation of CPIC Guideline for vortioxetine and CYP2D6",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166288221",
             "annotations": [
               {
@@ -30202,7 +30202,7 @@
         "name": "warfarin",
         "id": "PA451906",
         "source": "CPIC",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "pcat-cpic-warfarin-1-flowchart",
@@ -30296,7 +30296,7 @@
             "id": "PA166104949",
             "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
             "source": "CPIC",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104949",
             "annotations": [
               {
@@ -30420,7 +30420,7 @@
         "name": "abacavir",
         "id": "PA448004",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30455,7 +30455,7 @@
             "id": "PA166104991",
             "name": "Annotation of DPWG Guideline for abacavir and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104991",
             "annotations": [
               {
@@ -30523,7 +30523,7 @@
         "name": "acenocoumarol",
         "id": "PA452632",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30558,7 +30558,7 @@
             "id": "PA166104938",
             "name": "Annotation of DPWG Guideline for acenocoumarol and VKORC1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104938",
             "annotations": [
               {
@@ -30622,7 +30622,7 @@
         "name": "allopurinol",
         "id": "PA448320",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30659,7 +30659,7 @@
             "id": "PA166264961",
             "name": "Annotation of DPWG Guideline for allopurinol and ABCG2",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264961",
             "annotations": [
               {
@@ -30721,7 +30721,7 @@
             "id": "PA166265141",
             "name": "Annotation of DPWG Guideline for allopurinol and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
             "annotations": []
           }
@@ -30731,7 +30731,7 @@
         "name": "amitriptyline",
         "id": "PA448385",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30766,7 +30766,7 @@
             "id": "PA166104982",
             "name": "Annotation of DPWG Guideline for amitriptyline and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104982",
             "annotations": [
               {
@@ -30830,7 +30830,7 @@
         "name": "aripiprazole",
         "id": "PA10026",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -30888,7 +30888,7 @@
             "id": "PA166104937",
             "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
             "annotations": [
               {
@@ -30952,7 +30952,7 @@
         "name": "atomoxetine",
         "id": "PA134688071",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31010,7 +31010,7 @@
             "id": "PA166104989",
             "name": "Annotation of DPWG Guideline for atomoxetine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104989",
             "annotations": [
               {
@@ -31074,7 +31074,7 @@
         "name": "atorvastatin",
         "id": "PA448500",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -31110,7 +31110,7 @@
             "id": "PA166182843",
             "name": "Annotation of DPWG Guideline for atorvastatin and SLCO1B1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182843",
             "annotations": [
               {
@@ -31174,7 +31174,7 @@
         "name": "azathioprine",
         "id": "PA448515",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31210,7 +31210,7 @@
             "id": "PA166184614",
             "name": "Annotation of DPWG Guideline for azathioprine and NUDT15",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184614",
             "annotations": [
               {
@@ -31272,7 +31272,7 @@
             "id": "PA166104934",
             "name": "Annotation of DPWG Guideline for azathioprine and TPMT",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104934",
             "annotations": [
               {
@@ -31336,7 +31336,7 @@
         "name": "brexpiprazole",
         "id": "PA166160053",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31372,7 +31372,7 @@
             "id": "PA166184527",
             "name": "Annotation of DPWG Guideline for brexpiprazole and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
             "annotations": [
               {
@@ -31436,7 +31436,7 @@
         "name": "capecitabine",
         "id": "PA448771",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -31515,7 +31515,7 @@
             "id": "PA166104963",
             "name": "Annotation of DPWG Guideline for capecitabine and DPYD",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104963",
             "annotations": [
               {
@@ -31579,7 +31579,7 @@
         "name": "carbamazepine",
         "id": "PA448785",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31592,7 +31592,7 @@
             "id": "PA166265161",
             "name": "Annotation of DPWG Guideline for carbamazepine and HLA-A",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265161",
             "annotations": []
           },
@@ -31600,7 +31600,7 @@
             "id": "PA166265162",
             "name": "Annotation of DPWG Guideline for carbamazepine and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265162",
             "annotations": [
               {
@@ -31668,7 +31668,7 @@
         "name": "citalopram",
         "id": "PA449015",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31726,7 +31726,7 @@
             "id": "PA166104977",
             "name": "Annotation of DPWG Guideline for citalopram and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104977",
             "annotations": []
           }
@@ -31736,7 +31736,7 @@
         "name": "clomipramine",
         "id": "PA449048",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31772,7 +31772,7 @@
             "id": "PA166184528",
             "name": "Annotation of DPWG Guideline for clomipramine and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184528",
             "annotations": []
           },
@@ -31780,7 +31780,7 @@
             "id": "PA166104964",
             "name": "Annotation of DPWG Guideline for clomipramine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104964",
             "annotations": [
               {
@@ -31844,7 +31844,7 @@
         "name": "clopidogrel",
         "id": "PA449053",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31879,7 +31879,7 @@
             "id": "PA166104956",
             "name": "Annotation of DPWG Guideline for clopidogrel and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104956",
             "annotations": []
           }
@@ -31889,7 +31889,7 @@
         "name": "codeine",
         "id": "PA449088",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -31946,7 +31946,7 @@
             "id": "PA166104970",
             "name": "Annotation of DPWG Guideline for codeine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104970",
             "annotations": [
               {
@@ -32010,7 +32010,7 @@
         "name": "doxepin",
         "id": "PA449409",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32045,7 +32045,7 @@
             "id": "PA166104994",
             "name": "Annotation of DPWG Guideline for doxepin and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104994",
             "annotations": [
               {
@@ -32109,7 +32109,7 @@
         "name": "efavirenz",
         "id": "PA449441",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32121,7 +32121,7 @@
             "id": "PA166182846",
             "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
             "annotations": [
               {
@@ -32185,7 +32185,7 @@
         "name": "eliglustat",
         "id": "PA166123486",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32197,7 +32197,7 @@
             "id": "PA166182823",
             "name": "Annotation of DPWG Guideline for eliglustat and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182823",
             "annotations": [
               {
@@ -32261,7 +32261,7 @@
         "name": "escitalopram",
         "id": "PA10074",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32319,7 +32319,7 @@
             "id": "PA166104975",
             "name": "Annotation of DPWG Guideline for escitalopram and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
             "annotations": []
           }
@@ -32329,7 +32329,7 @@
         "name": "flecainide",
         "id": "PA449646",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32364,7 +32364,7 @@
             "id": "PA166104969",
             "name": "Annotation of DPWG Guideline for flecainide and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104969",
             "annotations": [
               {
@@ -32428,7 +32428,7 @@
         "name": "flucloxacillin",
         "id": "PA164781042",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32440,7 +32440,7 @@
             "id": "PA166182810",
             "name": "Annotation of DPWG Guideline for flucloxacillin and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182810",
             "annotations": [
               {
@@ -32508,7 +32508,7 @@
         "name": "flucytosine",
         "id": "PA449654",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -32541,7 +32541,7 @@
             "id": "PA166222801",
             "name": "Annotation of DPWG Guideline for flucytosine and DPYD",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166222801",
             "annotations": [
               {
@@ -32605,7 +32605,7 @@
         "name": "fluorouracil",
         "id": "PA128406956",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -32684,7 +32684,7 @@
             "id": "PA166104939",
             "name": "Annotation of DPWG Guideline for fluorouracil and DPYD",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104939",
             "annotations": [
               {
@@ -32748,7 +32748,7 @@
         "name": "haloperidol",
         "id": "PA449841",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32806,7 +32806,7 @@
             "id": "PA166104988",
             "name": "Annotation of DPWG Guideline for haloperidol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104988",
             "annotations": [
               {
@@ -32870,7 +32870,7 @@
         "name": "hormonal contraceptives for systemic use",
         "id": "PA452637",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -32905,7 +32905,7 @@
             "id": "PA166104955",
             "name": "Annotation of DPWG Guideline for hormonal contraceptives for systemic use and F5",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104955",
             "annotations": [
               {
@@ -32969,7 +32969,7 @@
         "name": "imipramine",
         "id": "PA449969",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33005,7 +33005,7 @@
             "id": "PA166104954",
             "name": "Annotation of DPWG Guideline for imipramine and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104954",
             "annotations": []
           },
@@ -33013,7 +33013,7 @@
             "id": "PA166104972",
             "name": "Annotation of DPWG Guideline for imipramine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104972",
             "annotations": [
               {
@@ -33077,7 +33077,7 @@
         "name": "irinotecan",
         "id": "PA450085",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "irinotecan-DPWG",
@@ -33154,7 +33154,7 @@
             "id": "PA166104951",
             "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
             "annotations": [
               {
@@ -33218,7 +33218,7 @@
         "name": "lamotrigine",
         "id": "PA450164",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33230,7 +33230,7 @@
             "id": "PA166265341",
             "name": "Annotation of DPWG Guideline for lamotrigine and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265341",
             "annotations": [
               {
@@ -33298,7 +33298,7 @@
         "name": "lansoprazole",
         "id": "PA450180",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33333,7 +33333,7 @@
             "id": "PA166104987",
             "name": "Annotation of DPWG Guideline for lansoprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104987",
             "annotations": []
           }
@@ -33343,7 +33343,7 @@
         "name": "mercaptopurine",
         "id": "PA450379",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33379,7 +33379,7 @@
             "id": "PA166184613",
             "name": "Annotation of DPWG Guideline for mercaptopurine and NUDT15",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184613",
             "annotations": [
               {
@@ -33441,7 +33441,7 @@
             "id": "PA166104952",
             "name": "Annotation of DPWG Guideline for mercaptopurine and TPMT",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104952",
             "annotations": [
               {
@@ -33505,7 +33505,7 @@
         "name": "metoprolol",
         "id": "PA450480",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33540,7 +33540,7 @@
             "id": "PA166104995",
             "name": "Annotation of DPWG Guideline for metoprolol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104995",
             "annotations": [
               {
@@ -33604,7 +33604,7 @@
         "name": "nortriptyline",
         "id": "PA450657",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33639,7 +33639,7 @@
             "id": "PA166104961",
             "name": "Annotation of DPWG Guideline for nortriptyline and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104961",
             "annotations": [
               {
@@ -33703,7 +33703,7 @@
         "name": "omeprazole",
         "id": "PA450704",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33738,7 +33738,7 @@
             "id": "PA166104957",
             "name": "Annotation of DPWG Guideline for omeprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104957",
             "annotations": []
           }
@@ -33748,7 +33748,7 @@
         "name": "oxcarbazepine",
         "id": "PA450732",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33760,7 +33760,7 @@
             "id": "PA166265201",
             "name": "Annotation of DPWG Guideline for oxcarbazepine and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265201",
             "annotations": [
               {
@@ -33828,7 +33828,7 @@
         "name": "pantoprazole",
         "id": "PA450774",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33863,7 +33863,7 @@
             "id": "PA166104958",
             "name": "Annotation of DPWG Guideline for pantoprazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104958",
             "annotations": []
           }
@@ -33873,7 +33873,7 @@
         "name": "paroxetine",
         "id": "PA450801",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -33931,7 +33931,7 @@
             "id": "PA166104976",
             "name": "Annotation of DPWG Guideline for paroxetine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104976",
             "annotations": [
               {
@@ -33995,7 +33995,7 @@
         "name": "phenprocoumon",
         "id": "PA450921",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34030,7 +34030,7 @@
             "id": "PA166104940",
             "name": "Annotation of DPWG Guideline for phenprocoumon and VKORC1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104940",
             "annotations": [
               {
@@ -34094,7 +34094,7 @@
         "name": "phenytoin",
         "id": "PA450947",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "Phenytoin_HLA-B warning",
@@ -34149,7 +34149,7 @@
             "id": "PA166104984",
             "name": "Annotation of DPWG Guideline for phenytoin and CYP2C9",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104984",
             "annotations": [
               {
@@ -34211,7 +34211,7 @@
             "id": "PA166264881",
             "name": "Annotation of DPWG Guideline for phenytoin and HLA-B",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166264881",
             "annotations": [
               {
@@ -34279,7 +34279,7 @@
         "name": "pimozide",
         "id": "PA450965",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34315,7 +34315,7 @@
             "id": "PA166182819",
             "name": "Annotation of DPWG Guideline for pimozide and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
             "annotations": [
               {
@@ -34379,7 +34379,7 @@
         "name": "propafenone",
         "id": "PA451131",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34414,7 +34414,7 @@
             "id": "PA166104962",
             "name": "Annotation of DPWG Guideline for propafenone and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104962",
             "annotations": [
               {
@@ -34478,7 +34478,7 @@
         "name": "quetiapine",
         "id": "PA451201",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "CYP3A4",
@@ -34532,7 +34532,7 @@
             "id": "PA166265421",
             "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
             "annotations": [
               {
@@ -34596,7 +34596,7 @@
         "name": "risperidone",
         "id": "PA451257",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34654,7 +34654,7 @@
             "id": "PA166104943",
             "name": "Annotation of DPWG Guideline for risperidone and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104943",
             "annotations": [
               {
@@ -34718,7 +34718,7 @@
         "name": "sertraline",
         "id": "PA451333",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34776,7 +34776,7 @@
             "id": "PA166104980",
             "name": "Annotation of DPWG Guideline for sertraline and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104980",
             "annotations": []
           }
@@ -34786,7 +34786,7 @@
         "name": "simvastatin",
         "id": "PA451363",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "SLCO1B1-drug text",
@@ -34822,7 +34822,7 @@
             "id": "PA166182844",
             "name": "Annotation of DPWG Guideline for simvastatin and SLCO1B1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182844",
             "annotations": [
               {
@@ -34886,7 +34886,7 @@
         "name": "siponimod",
         "id": "PA166182736",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34898,7 +34898,7 @@
             "id": "PA166211021",
             "name": "Annotation of DPWG Guideline for siponimod and CYP2C9",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166211021",
             "annotations": [
               {
@@ -34962,7 +34962,7 @@
         "name": "tacrolimus",
         "id": "PA451578",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -34997,7 +34997,7 @@
             "id": "PA166104983",
             "name": "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104983",
             "annotations": [
               {
@@ -35061,7 +35061,7 @@
         "name": "tamoxifen",
         "id": "PA451581",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35096,7 +35096,7 @@
             "id": "PA166104966",
             "name": "Annotation of DPWG Guideline for tamoxifen and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104966",
             "annotations": [
               {
@@ -35160,7 +35160,7 @@
         "name": "tegafur",
         "id": "PA452620",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [
           {
             "rule_name": "DPYD lowest activity score note",
@@ -35239,7 +35239,7 @@
             "id": "PA166104944",
             "name": "Annotation of DPWG Guideline for tegafur and DPYD",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104944",
             "annotations": [
               {
@@ -35303,7 +35303,7 @@
         "name": "thioguanine",
         "id": "PA451663",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35339,7 +35339,7 @@
             "id": "PA166184612",
             "name": "Annotation of DPWG Guideline for thioguanine and NUDT15",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184612",
             "annotations": [
               {
@@ -35401,7 +35401,7 @@
             "id": "PA166104960",
             "name": "Annotation of DPWG Guideline for thioguanine and TPMT",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104960",
             "annotations": [
               {
@@ -35465,7 +35465,7 @@
         "name": "tramadol",
         "id": "PA451735",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35522,7 +35522,7 @@
             "id": "PA166104959",
             "name": "Annotation of DPWG Guideline for tramadol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104959",
             "annotations": [
               {
@@ -35586,7 +35586,7 @@
         "name": "venlafaxine",
         "id": "PA451866",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35621,7 +35621,7 @@
             "id": "PA166104968",
             "name": "Annotation of DPWG Guideline for venlafaxine and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104968",
             "annotations": [
               {
@@ -35685,7 +35685,7 @@
         "name": "voriconazole",
         "id": "PA10233",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35720,7 +35720,7 @@
             "id": "PA166104990",
             "name": "Annotation of DPWG Guideline for voriconazole and CYP2C19",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104990",
             "annotations": []
           }
@@ -35730,7 +35730,7 @@
         "name": "warfarin",
         "id": "PA451906",
         "source": "DPWG",
-        "version": "2023-09-05-12-38, 2023-09-05-12-38",
+        "version": "2023-09-07-21-06, 2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35743,7 +35743,7 @@
             "id": "PA166182842",
             "name": "Annotation of DPWG Guideline for warfarin and CYP2C9",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182842",
             "annotations": [
               {
@@ -35805,7 +35805,7 @@
             "id": "PA166182841",
             "name": "Annotation of DPWG Guideline for warfarin and VKORC1",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182841",
             "annotations": [
               {
@@ -35869,7 +35869,7 @@
         "name": "zuclopenthixol",
         "id": "PA452629",
         "source": "DPWG",
-        "version": "2023-09-05-12-38",
+        "version": "2023-09-07-21-06",
         "messages": [],
         "variants": [],
         "urls": [
@@ -35927,7 +35927,7 @@
             "id": "PA166104992",
             "name": "Annotation of DPWG Guideline for zuclopenthixol and CYP2D6",
             "source": "DPWG",
-            "version": "2023-09-05-12-38",
+            "version": "2023-09-07-21-06",
             "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104992",
             "annotations": [
               {
