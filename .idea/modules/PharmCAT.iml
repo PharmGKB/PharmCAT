@@ -4,8 +4,15 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../..">
       <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../.yarn" />
       <excludeFolder url="file://$MODULE_DIR$/../../build" />
       <excludeFolder url="file://$MODULE_DIR$/../../out" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/.jekyll-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/_site" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/../../docs/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
