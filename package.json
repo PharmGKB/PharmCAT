@@ -11,11 +11,11 @@
   },
   "packageManager": "yarn@3.5.0",
   "devDependencies": {
-    "@google/semantic-release-replace-plugin": "1.2.0",
+    "@google/semantic-release-replace-plugin": "1.2.7",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "conventional-changelog-conventionalcommits": "6.0.0",
-    "semantic-release": "21.0.5",
+    "conventional-changelog-conventionalcommits": "6.1.0",
+    "semantic-release": "21.1.1",
     "showdown": "2.1.0"
   },
   "release": {
