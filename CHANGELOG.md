@@ -1,3 +1,11 @@
+## [2.7.1](https://github.com/PharmGKB/PharmCAT/compare/v2.7.0...v2.7.1) (2023-09-09)
+
+
+### Bug Fixes
+
+* **data:** revert removal of DPYD wobble handling ([9a78c86](https://github.com/PharmGKB/PharmCAT/commit/9a78c86e26bb1dc743a108d14146e7a579e02941))
+* **data:** update to PharmVar 6.0.5 ([63c717b](https://github.com/PharmGKB/PharmCAT/commit/63c717bad5c5539b3c9045f047675756e7fd07d6))
+
 ## [2.7.0](https://github.com/PharmGKB/PharmCAT/compare/v2.6.0...v2.7.0) (2023-09-02)
 
 

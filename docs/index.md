@@ -3,7 +3,7 @@ title: Home
 permalink: /
 nav_order: 1
 # version is dynamically updated - DO NOT MODIFY MANUALLY
-pharmcat_version: 2.7.0
+pharmcat_version: 2.7.1
 ---
 
 # PharmCAT:<br />Pharmacogenomics Clinical Annotation Tool
