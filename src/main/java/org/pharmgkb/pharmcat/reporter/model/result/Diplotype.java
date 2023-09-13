@@ -358,7 +358,8 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   private String buildLabel() {
 
-    if (USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene)) {
+    // m_allele1 can be null if coming from outside calls
+    if (USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene) && m_allele1 != null) {
       boolean isAllele1Ref = m_allele1.isReference();
       boolean isAllele2Ref = m_allele2 != null && m_allele2.isReference();
       if (isAllele1Ref && isAllele2Ref || m_allele2 == null) {

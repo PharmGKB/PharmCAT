@@ -46,7 +46,7 @@ public class Pipeline implements Callable<PipelineResult> {
      * In test mode, PharmCAT tries not to include version/timestamp in output to simplify diffing.
      */
     TEST
-  };
+  }
   private final Env m_env;
   private final boolean m_runMatcher;
   private VcfFile m_vcfFile;
@@ -271,12 +271,12 @@ public class Pipeline implements Callable<PipelineResult> {
         Map<String, Collection<String>> warnings = new HashMap<>();
         if (matcherResult != null) {
           calls = matcherResult.getGeneCalls();
-          warnings = matcherResult.getVcfWarnings();
+          warnings.putAll(matcherResult.getVcfWarnings());
         } else if (m_phenotyperInputFile != null) {
           org.pharmgkb.pharmcat.haplotype.model.Result deserializedMatcherResult = new ResultSerializer()
               .fromJson(m_phenotyperInputFile);
           calls = deserializedMatcherResult.getGeneCalls();
-          warnings = deserializedMatcherResult.getVcfWarnings();
+          warnings.putAll(deserializedMatcherResult.getVcfWarnings());
         } else {
           calls = new ArrayList<>();
         }
@@ -390,7 +390,7 @@ public class Pipeline implements Callable<PipelineResult> {
   }
 
 
-  public String getInputDescription() {
+  private String getInputDescription() {
     StringBuilder builder = new StringBuilder();
     if (m_vcfFile != null) {
       builder.append(m_vcfFile.getFile().getFileName());
