@@ -318,10 +318,10 @@ public class Pipeline implements Callable<PipelineResult> {
           phenotyper = Phenotyper.read(inputFile);
         }
         m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
-        if (!batchDisplayMode) {
-          output.add("Saving reporter HTML results to " + m_reporterHtmlFile);
-        }
         if (m_reporterHtmlFile != null) {
+          if (!batchDisplayMode) {
+            output.add("Saving reporter HTML results to " + m_reporterHtmlFile);
+          }
           new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
               .sources(m_reporterSources)
               .compact(m_reporterCompact)
