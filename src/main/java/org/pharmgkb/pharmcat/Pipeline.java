@@ -87,7 +87,7 @@ public class Pipeline implements Callable<PipelineResult> {
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
-      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson,
+      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHtml,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
       Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
     m_env = env;
@@ -144,7 +144,9 @@ public class Pipeline implements Callable<PipelineResult> {
       if (m_baseDir == null) {
         m_baseDir = inputFile.getParent();
       }
-      m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
+      if (reporterHtml) {
+        m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
+      }
       if (reporterJson) {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
       }

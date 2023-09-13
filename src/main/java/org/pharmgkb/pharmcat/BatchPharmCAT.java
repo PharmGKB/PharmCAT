@@ -127,6 +127,7 @@ public class BatchPharmCAT {
       System.out.println(ex.getMessage());
       PharmCAT.failIfNotTest();
     } catch (Exception e) {
+      //noinspection CallToPrintStackTrace
       e.printStackTrace();
       PharmCAT.failIfNotTest();
     }
@@ -229,7 +230,7 @@ public class BatchPharmCAT {
     }
 
     if (m_config.runPhenotyper) {
-      if (m_matchFilesToProcess.size() > 0) {
+      if (!m_matchFilesToProcess.isEmpty()) {
         System.out.println("* Found " + m_matchFilesToProcess.size() + " independent phenotyper input file" +
             (m_matchFilesToProcess.size() > 1 ? "s" : ""));
         for (String baseFilename : new ArrayList<>(m_matchFilesToProcess.keySet())) {
@@ -238,7 +239,7 @@ public class BatchPharmCAT {
           }
         }
       }
-      if (m_outsideCallFilesToProcess.size() > 0) {
+      if (!m_outsideCallFilesToProcess.isEmpty()) {
         System.out.println("* Found " + m_outsideCallFilesToProcess.size() + " independent phenotyper outside call file" +
             (m_outsideCallFilesToProcess.size() > 1 ? "s" : ""));
         for (String baseFilename : new ArrayList<>(m_outsideCallFilesToProcess.keySet())) {
@@ -250,7 +251,7 @@ public class BatchPharmCAT {
     }
 
     if (m_config.runReporter) {
-      if (m_phenotypeFilesToProcess.size() > 0) {
+      if (!m_phenotypeFilesToProcess.isEmpty()) {
         System.out.println("* Found " + m_phenotypeFilesToProcess.size() + " independent reporter input file" +
             (m_phenotypeFilesToProcess.size() > 1 ? "s" : ""));
         for (String baseFilename : new ArrayList<>(m_phenotypeFilesToProcess.keySet())) {
@@ -391,7 +392,7 @@ public class BatchPharmCAT {
           m_config.topCandidateOnly, m_config.callCyp2d6, m_config.findCombinations, m_config.matcherHtml,
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
-          m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson,
+          m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson, m_config.reporterHtml,
           m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
           mode, (index + "/" + totalTasks), m_verbose);
     }

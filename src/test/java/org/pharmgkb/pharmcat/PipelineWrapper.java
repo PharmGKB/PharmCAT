@@ -104,7 +104,7 @@ class PipelineWrapper {
         runMatcher, vcfFileObj, null, true,
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
-        true, null, null, m_sources, m_compactReport, true,
+        true, null, null, m_sources, m_compactReport, true, true,
         m_outputPath, null, m_compactReport,
         Pipeline.Mode.TEST, null, false
     );

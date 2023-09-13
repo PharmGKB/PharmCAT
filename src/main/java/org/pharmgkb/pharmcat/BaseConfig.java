@@ -42,6 +42,7 @@ public class BaseConfig {
   boolean reporterCompact = true;
   List<DataSource> reporterSources;
   boolean reporterJson;
+  boolean reporterHtml = true;
   Path outputDir;
   String baseFilename;
   boolean deleteIntermediateFiles;
@@ -87,6 +88,7 @@ public class BaseConfig {
       }
     }
 
+    boolean researchMode = false;
     if (runMatcher) {
       topCandidateOnly = !cliHelper.hasOption("ma");
 
@@ -99,29 +101,35 @@ public class BaseConfig {
           types.remove("cyp2d6");
           System.out.println("WARNING: CYP2D6 RESEARCH MODE ENABLED");
           callCyp2d6 = true;
+          researchMode = true;
         }
         if (types.contains("combinations") || types.contains("combination")) {
           types.remove("combinations");
           types.remove("combination");
           System.out.println("WARNING: COMBINATIONS RESEARCH MODE ENABLED");
           findCombinations = true;
+          researchMode = true;
         }
-        if (types.size() > 0) {
+        if (!types.isEmpty()) {
           throw new ReportableException("Unrecognized research option: " + String.join(",", types));
         }
       }
       matcherHtml = cliHelper.hasOption("matcherHtml");
     }
 
-    if ((callCyp2d6 || findCombinations) && runReporter) {
-      runReporter = false;
-      System.out.println("WARNING: REPORTER MODULE NOT AVAILABLE IN RESEARCH MODE");
-    }
-
     if (runReporter) {
       reporterTitle = cliHelper.getValue("rt");
       reporterCompact = !cliHelper.hasOption("re");
       reporterJson = cliHelper.hasOption("reporterJson");
+
+      if (researchMode) {
+        System.out.println("WARNING: REPORTER MODULE NOT AVAILABLE IN RESEARCH MODE");
+        if (!reporterJson) {
+          runReporter = false;
+        }
+        reporterHtml = false;
+      }
+
       if (cliHelper.hasOption("rs")) {
         reporterSources = new ArrayList<>();
         for (String src : sf_commaSplitter.splitToList(Objects.requireNonNull(cliHelper.getValue("rs")))) {
@@ -144,7 +152,7 @@ public class BaseConfig {
 
 
   public boolean runSample(String sample) {
-    if (samples.size() == 0) {
+    if (samples.isEmpty()) {
       return true;
     }
     return samples.contains(sample);

@@ -80,7 +80,7 @@ public class PharmCAT {
           failIfNotTest();
           return;
         }
-      } else if (config.samples.size() > 0) {
+      } else if (!config.samples.isEmpty()) {
         throw new ReportableException("Cannot specify samples unless running matcher.");
       }
 
@@ -132,7 +132,7 @@ public class PharmCAT {
 
       if (config.runMatcher) {
         Objects.requireNonNull(vcfFile);
-        if (config.samples.size() == 0) {
+        if (config.samples.isEmpty()) {
           config.samples.addAll(vcfFile.getSamples());
         } else {
           List<String> missing = new ArrayList<>();
@@ -141,7 +141,7 @@ public class PharmCAT {
               missing.add(sid);
             }
           }
-          if (missing.size() > 0) {
+          if (!missing.isEmpty()) {
             throw new ReportableException("The following samples could not be found in the VCF file: " +
                 String.join(", ", missing));
           }
@@ -160,7 +160,7 @@ public class PharmCAT {
               config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
               config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
               config.runReporter, reporterInputFile, config.reporterTitle,
-              config.reporterSources, config.reporterCompact, config.reporterJson,
+              config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
               config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
               Pipeline.Mode.CLI, null, cliHelper.isVerbose());
           if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
@@ -174,7 +174,7 @@ public class PharmCAT {
             System.out.println();
           }
         }
-        if (blankRuns.size() > 0) {
+        if (!blankRuns.isEmpty()) {
           System.out.println("Nothing to do for " + String.join(", ", blankRuns));
         }
 
@@ -184,7 +184,7 @@ public class PharmCAT {
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
             config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
             config.runReporter, reporterInputFile, config.reporterTitle,
-            config.reporterSources, config.reporterCompact, config.reporterJson,
+            config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
             Pipeline.Mode.CLI, null, cliHelper.isVerbose());
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
@@ -204,6 +204,7 @@ public class PharmCAT {
       System.out.println(ex.getMessage());
       failIfNotTest();
     } catch (Exception e) {
+      //noinspection CallToPrintStackTrace
       e.printStackTrace();
       failIfNotTest();
     }

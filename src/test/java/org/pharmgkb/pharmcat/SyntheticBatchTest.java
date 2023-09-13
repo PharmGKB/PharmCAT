@@ -562,7 +562,7 @@ class SyntheticBatchTest {
         true, new VcfFile(sampleVcf), null, true,
         true, false, false, true,
         true, null, outsideCallPath,
-        true, null, null, m_sources, m_compact, false,
+        true, null, null, m_sources, m_compact, false, true,
         testDir, null, m_compact,
         Pipeline.Mode.TEST, null, false
     ).call();
