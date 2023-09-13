@@ -321,10 +321,12 @@ public class Pipeline implements Callable<PipelineResult> {
         if (!batchDisplayMode) {
           output.add("Saving reporter HTML results to " + m_reporterHtmlFile);
         }
-        new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
-            .sources(m_reporterSources)
-            .compact(m_reporterCompact)
-            .write(m_reportContext);
+        if (m_reporterHtmlFile != null) {
+          new HtmlFormat(m_reporterHtmlFile, m_env, m_mode == Mode.TEST)
+              .sources(m_reporterSources)
+              .compact(m_reporterCompact)
+              .write(m_reportContext);
+        }
         if (m_reporterJsonFile != null) {
           if (!batchDisplayMode) {
             output.add("Saving reporter JSON results to " + m_reporterJsonFile);
