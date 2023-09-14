@@ -56,6 +56,12 @@ For one thing, we do not know what "reference" is because it can vary based on y
 You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
 
 
+### VCF parsing errors
+
+PharmCAT and VCF Preprocessor is designed not to alter any info in the input VCF file. Please make sure your VCF file follow the VCF file specifications > 4.2.
+
+One example is a VCF file where the QUAL column has entries other than the allowed numeric numbers or a missing value `.`. In this case, PharmCAT will complain about the VCF file format. If this happens or you see other parsing errors, please check whether your VCF file follows the VCF file specifications, and if necessary, contact the bioinformatics tool team for a proper solution.
+
 ### Can I modify the definitions of alleles and phenotypes in PharmCAT?
 
 PharmCAT is open source and can be modified to satisfy your own needs.
