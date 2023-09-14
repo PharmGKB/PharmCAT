@@ -112,6 +112,12 @@ Please note that PharmCAT is a research tool and note our disclaimers: [https://
 
 Note that PharmCAT is being actively developed, so there will be ongoing content updates and bug fixes. Additionally, in order for PharmCAT to stay current with alleles defined by [PharmVar](https://www.pharmvar.org) and recommendations from CPIC and DPWG, PharmCAT is continually being released with updates. If the most current version of PharmCAT is not being used at any given time, it may not be the most accurate or complete version.
 
+
+### Why do PharmCAT output have genetic variants that are not listed in the pharmcat_position.vcf?
+
+Some PGx allele-defining positions are multiallelic and can harbor other genetic variants. PharmCAT and VCF Preprocessor is designed not to alter any info in the input VCF file. As a result, it retains all genetic variants at PGx allele-defining positions represented in an input file. This, however, will not affect the appropriate PGx calls.
+
+
 ## Gene-specific
 
 ### Can PharmCAT call _CYP2D6_?
