@@ -86,7 +86,6 @@ is possible, but currently undocumented.  Just adding the required JSON files to
 way there.  We are currently unable to support anyone looking to do this at this time because we are focused on
 providing actionable prescribing recommendations from authorities like CPIC and DPWG.
 
-
 ## Output-related
 
 ### What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
@@ -126,7 +125,7 @@ If you have access to whole genome sequencing (WGS) CRAM/BAM files, we strongly 
 Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmCAT is designed to take VCF as input which is NOT a desirable file format for calling CYP2D6 alleles. This research mode for CYP2D6 calls alleles using ONLY SNPs and INDELs that are available in VCF files. Please note that this approach has many caveats. VCF can't handle structural variation (SV) and copy number variation (CNV) which are essential for calling CYP2D6 alleles, especially CNVs for ultrarapid metabolizers. VCF format cannot correctly reflect whole gene deletion (*5), which will lead to erroneous calls and beyond the capability of PharmCAT. CYP2D6 calls made from VCFs should not be used for clinical purposes. This research mode should be used at your own risk.
 
 
-### G6PD for male samples or samples with only one chrX
+### _G6PD_ for samples with only one chrX
 While PharmCAT supports hemizygotes for genes such as G6PD, you need to pay attention to how the G6PD genotypes are represented in your VCF especially for male samples or samples with only one X chromosome. Some samples only have one copy of the X chromosome, a.k.a., hemizygotes. Nonetheless, many variant calling software or bioinformatics pipelines do not necessarily consider the hemizygosity of the X chromosome in these samples and will represent these samples as homozygotes.
 
 Based on the VCF file format specifications, chrX should be observed as a haploid (_GT field = 0_) in a male with a single X chromosome and a diplotype (_GT field = 0/0_) in a female with two X chromosomes.
@@ -139,5 +138,5 @@ If you run PharmCAT on male samples or samples with only one chrX, be aware of t
 
 We will add the support for hemizygotes at the X chromosome in the PharmCAT VCF Preprocessor in the future.
 
-### Why is the CYP2C Cluster variant, rs12777823, in the CYP2C9 section of PharmCAT's JSON output?
+### Why is the _CYP2C_ Cluster variant, rs12777823, in the CYP2C9 section of PharmCAT's JSON output?
 PharmCAT includes an intergenic single nucleotide variation (SNV), rs12777823, based on the [CPIC warfarin guideline](https://cpicpgx.org/guidelines/guideline-for-warfarin-and-cyp2c9-and-vkorc1/). This SNV is in the _CYP2C_ cluster on chromosome 10 but independent of the _CYP2C9_ gene, and is listed independently in the PharmCAT HTML report. However, the PharmCAT JSON output is gene-dependent. For this reason, rs12777823 is nested under _CYP2C9_ as a _CYP2C_ POI (position of interest) in the JSON even though the SNV is not located within the _CYP2C9_ gene boundary and does not affect _CYP2C9_ genotype or phenotype.
