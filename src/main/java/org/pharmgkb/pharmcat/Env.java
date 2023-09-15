@@ -37,7 +37,7 @@ public class Env {
   public Env(@Nullable Path definitionDir) throws IOException, ReportableException {
     if (definitionDir != null) {
       m_definitionReader = new DefinitionReader(definitionDir);
-      if (m_definitionReader.getGenes().size() == 0) {
+      if (m_definitionReader.getGenes().isEmpty()) {
         throw new ReportableException("Did not find any allele definitions at " + definitionDir);
       }
     } else {

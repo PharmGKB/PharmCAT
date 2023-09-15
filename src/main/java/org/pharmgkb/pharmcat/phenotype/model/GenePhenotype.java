@@ -72,7 +72,7 @@ public class GenePhenotype {
   }
 
   public boolean isMatchedByActivityScore() {
-    return m_activityValues.size() > 0 && m_activityValues.values().stream()
+    return !m_activityValues.isEmpty() && m_activityValues.values().stream()
         .filter(StringUtils::isNotBlank)
         .anyMatch(v -> !v.equalsIgnoreCase(TextConstants.NA));
   }
@@ -120,7 +120,7 @@ public class GenePhenotype {
         .toList();
     if (diplotypes.size() == 1) {
       return Optional.of(diplotypes.get(0));
-    } else if (diplotypes.size() == 0) {
+    } else if (diplotypes.isEmpty()) {
       return Optional.empty();
     }
     throw new RuntimeException("Multiple diplotypes found for " + m_gene);

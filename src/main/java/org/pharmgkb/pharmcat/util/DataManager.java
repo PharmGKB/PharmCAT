@@ -235,8 +235,8 @@ public class DataManager {
     try (Stream<Path> stream = Files.list(downloadDir.resolve("guidelines"))) {
       stream.forEach((file) -> {
         try {
-          String orignalFilename = FilenameUtils.getName(file.toString());
-          Matcher m = GUIDELINE_FILENAME_PATTERN.matcher(orignalFilename);
+          String origFilename = FilenameUtils.getName(file.toString());
+          Matcher m = GUIDELINE_FILENAME_PATTERN.matcher(origFilename);
           if (m.matches()) {
             String dataSource = m.group(1);
             String annotationName = m.group(2);
@@ -299,11 +299,11 @@ public class DataManager {
         }
         DefinitionExemption exemption = exemptionsMap.get(gene);
         if (exemption != null) {
-          if (exemption.getIgnoredAlleles().size() > 0) {
+          if (!exemption.getIgnoredAlleles().isEmpty()) {
             System.out.println("Removing ignored named alleles in " + gene + "...");
             df.removeIgnoredNamedAlleles(exemption);
           }
-          if (exemption.getIgnoredPositions().size() > 0) {
+          if (!exemption.getIgnoredPositions().isEmpty()) {
             System.out.println("Removing ignored positions in " + gene + "...");
             df.removeIgnoredPositions(exemption);
           }
@@ -442,7 +442,7 @@ public class DataManager {
 
   private void deleteObsoleteFiles(Path dir, Set<String> obsoleteFilenames) {
 
-    if (obsoleteFilenames.size() > 0) {
+    if (!obsoleteFilenames.isEmpty()) {
       System.out.println();
       for (String filename : obsoleteFilenames) {
         Path file = dir.resolve(filename);

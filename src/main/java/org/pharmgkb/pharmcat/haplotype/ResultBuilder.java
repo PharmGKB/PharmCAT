@@ -32,7 +32,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Variant;
 public class ResultBuilder {
   private final DefinitionReader m_definitionReader;
   private final Result m_result = new Result();
-  private final SimpleDateFormat m_dateFormat = new SimpleDateFormat("MM/dd/yy");
   private final boolean m_topCandidatesOnly;
   private final boolean m_findCombinations;
   private final boolean m_callCyp2d6;
