@@ -115,7 +115,7 @@ public class Env {
   }
 
   public MessageAnnotation getMessage(String key) {
-    return m_messageHelper.getMessage(key);
+    return getMessageHelper().getMessage(key);
   }
 
 
