@@ -42,8 +42,6 @@ import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.pharmgkb.pharmcat.DpydTest.dpydHasReports;
-import static org.pharmgkb.pharmcat.DpydTest.dpydHtmlChecks;
 
 
 /**
@@ -414,33 +412,25 @@ class PipelineTest {
         .reference("F5")
         .allowUnknownAllele()
         .variation("CYP2C19", "rs3758581", "G", "T")
-        .variation("DPYD", "rs56038477", "T", "T") // g.97573863C>T
         .variation("TPMT", "rs1256618794", "A", "A") // C -> A
         .variation("TPMT", "rs753545734", "C", "C") // C -> T
-    //.variation("DPYD", "rs75017182", "G", "C") // g.97579893G>C
     ;
     Path vcfFile = testWrapper.execute(null);
 
     List<String> expectedCalls = UNKNOWN_CALL;
 
-    testWrapper.testNotCalledByMatcher("DPYD", "CYP2C19", "TPMT");
+    testWrapper.testNotCalledByMatcher("CYP2C19", "TPMT");
 
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
 
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
 
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", List.of(TextConstants.UNCALLED));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", List.of(TextConstants.UNCALLED));
     testWrapper.testPrintCalls(DataSource.CPIC, "TPMT", List.of(TextConstants.UNCALLED));
 
-    dpydHasReports(testWrapper, RecPresence.NO, RecPresence.NO);
-
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, RecPresence.NO, RecPresence.NO);
 
     Map<String, List<String>> expectedCallsMap = new HashMap<>();
     expectedCallsMap.put("CYP2C19", UNKNOWN_CALL);

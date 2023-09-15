@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example",
-  "timestamp": "Sep 8, 2023, 11:17:46 AM",
-  "pharmcatVersion": "v2.7.0-7-g85821c58",
+  "timestamp": "Sep 20, 2023, 3:53:36 PM",
+  "pharmcatVersion": "v2.7.1-13-g4406afea",
   "cpicVersion": null,
   "dpwgVersion": "2023-09-07-21-06",
   "genes": {
@@ -4384,7 +4384,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           },
           {
             "rule_name": "DPYD reverse complement footnote",
@@ -15492,7 +15492,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           },
           {
             "rule_name": "DPYD reverse complement footnote",
@@ -20302,7 +20302,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],
@@ -21699,7 +21699,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -22363,7 +22363,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -22675,7 +22675,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],
@@ -23552,7 +23552,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -24091,7 +24091,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -25060,7 +25060,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -27980,7 +27980,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -28435,7 +28435,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+            "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
           }
         ],
         "variants": [],
@@ -31456,7 +31456,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],
@@ -32528,7 +32528,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],
@@ -32625,7 +32625,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],
@@ -35180,7 +35180,7 @@
               ]
             },
             "exception_type": "note",
-            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+            "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
           }
         ],
         "variants": [],

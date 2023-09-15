@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.haplotype;
 
-import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -9,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -22,6 +22,7 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
 /**
@@ -68,7 +69,7 @@ public class ResultBuilder {
    */
   protected ResultBuilder gene(String gene, MatchData matchData) {
     Preconditions.checkNotNull(gene);
-    m_result.addGeneCall(initGeneCall(gene, matchData));
+    m_result.addGeneCall(initGeneCall(gene, matchData, null));
     return this;
   }
 
@@ -78,8 +79,17 @@ public class ResultBuilder {
    */
   protected ResultBuilder diplotypes(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
+    return diplotypes(gene, matchData, matches, null);
+  }
 
-    GeneCall geneCall = initGeneCall(gene, matchData);
+  /**
+   * Adds diplotype results for specified gene.
+   */
+  protected ResultBuilder diplotypes(String gene, MatchData matchData, List<DiplotypeMatch> matches,
+      @Nullable List<MessageAnnotation> warnings) {
+    Preconditions.checkNotNull(gene);
+
+    GeneCall geneCall = initGeneCall(gene, matchData, warnings);
     // get haplotype/diplotype info
     for (DiplotypeMatch dm : matches) {
       geneCall.addDiplotype(dm);
@@ -96,9 +106,19 @@ public class ResultBuilder {
    * This should only be used when we can't get diplotypes but still need to track potential haplotypes (e.g. DPYD).
    */
   protected ResultBuilder haplotypes(String gene, MatchData matchData, List<HaplotypeMatch> matches) {
+    return haplotypes(gene, matchData, matches, null);
+  }
+
+  /**
+   * Add haplotype results for specified gene.
+   * <p>
+   * This should only be used when we can't get diplotypes but still need to track potential haplotypes (e.g. DPYD).
+   */
+  protected ResultBuilder haplotypes(String gene, MatchData matchData, List<HaplotypeMatch> matches,
+      @Nullable List<MessageAnnotation> warnings) {
     Preconditions.checkNotNull(gene);
 
-    GeneCall geneCall = initGeneCall(gene, matchData);
+    GeneCall geneCall = initGeneCall(gene, matchData, warnings);
     if (matches != null) {
       geneCall.addHaplotypeMatches(matches);
     }
@@ -108,7 +128,7 @@ public class ResultBuilder {
   }
 
 
-  private GeneCall initGeneCall(String gene, MatchData matchData) {
+  private GeneCall initGeneCall(String gene, MatchData matchData, @Nullable List<MessageAnnotation> warnings) {
     Set<String> matchableHaps = matchData.getHaplotypes().stream()
         .map(NamedAllele::getName)
         .collect(Collectors.toSet());
@@ -131,7 +151,7 @@ public class ResultBuilder {
 
     DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
     GeneCall geneCall = new GeneCall(definitionFile.getSource(), definitionFile.getVersion(),
-        definitionFile.getChromosome(), gene, matchData, uncallableHaplotypes, ignoredHaplotypes);
+        definitionFile.getChromosome(), gene, matchData, uncallableHaplotypes, ignoredHaplotypes, warnings);
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {

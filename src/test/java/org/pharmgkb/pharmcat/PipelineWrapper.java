@@ -38,6 +38,7 @@ class PipelineWrapper {
   private static boolean m_compact = true;
   private static List<DataSource> m_sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
 
+  private final Env m_env;
   private final Path m_outputPath;
   private final TestVcfBuilder m_vcfBuilder;
   private final boolean m_findCombinations;
@@ -56,19 +57,29 @@ class PipelineWrapper {
   }
 
 
-  PipelineWrapper(TestInfo testInfo, boolean allMatches) throws IOException {
+  PipelineWrapper(TestInfo testInfo, boolean allMatches) throws IOException, ReportableException {
     this(testInfo, false, allMatches, false);
   }
 
   PipelineWrapper(TestInfo testInfo, boolean findCombinations, boolean allMatches, boolean callCyp2d6)
-      throws IOException {
+      throws IOException, ReportableException {
+    this(testInfo, null, findCombinations, allMatches, callCyp2d6);
+  }
+
+  PipelineWrapper(TestInfo testInfo, @Nullable String name, boolean findCombinations, boolean allMatches,
+      boolean callCyp2d6) throws IOException, ReportableException {
     Preconditions.checkNotNull(testInfo);
 
+    m_env = new Env();
     m_outputPath = TestUtils.getTestOutputDir(testInfo, false);
     if (!Files.isDirectory(m_outputPath)) {
       Files.createDirectories(m_outputPath);
     }
-    m_vcfBuilder = new TestVcfBuilder(testInfo).saveFile();
+    if (name == null) {
+      m_vcfBuilder = new TestVcfBuilder(testInfo).saveFile();
+    } else {
+      m_vcfBuilder = new TestVcfBuilder(testInfo, name).saveFile();
+    }
     m_findCombinations = findCombinations;
     m_callCyp2d6 = callCyp2d6;
     m_topCandidatesOnly = !allMatches;
@@ -100,7 +111,7 @@ class PipelineWrapper {
       vcfFile = m_vcfBuilder.generate();
       vcfFileObj = new VcfFile(vcfFile, false);
     }
-    Pipeline pcat = new Pipeline(new Env(),
+    Pipeline pcat = new Pipeline(m_env,
         runMatcher, vcfFileObj, null, true,
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPath,
@@ -111,6 +122,11 @@ class PipelineWrapper {
     pcat.call();
     m_reportContext = pcat.getReportContext();
     return vcfFile;
+  }
+
+
+  public Env getEnv() {
+    return m_env;
   }
 
 
@@ -211,7 +227,7 @@ class PipelineWrapper {
    * otherwise specify two haplotype names
    */
   void testRecommendedDiplotypes(DataSource source, String gene, List<String> haplotypes) {
-    Preconditions.checkArgument(haplotypes.size() >= 1 && haplotypes.size() <= 2,
+    Preconditions.checkArgument(!haplotypes.isEmpty() && haplotypes.size() <= 2,
         "Can only test on 1 or 2 haplotypes, got " + haplotypes.size());
 
     GeneReport geneReport = getContext().getGeneReport(source, gene);

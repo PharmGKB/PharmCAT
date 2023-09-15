@@ -149,6 +149,9 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.MATCHER;
+    if (call.getWarnings() != null) {
+      call.getWarnings().forEach(this::addMessage);
+    }
 
     m_chr = call.getChromosome();
     m_uncalledHaplotypes.clear();

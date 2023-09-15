@@ -11,9 +11,11 @@ import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
 /**
@@ -61,10 +63,14 @@ public class GeneCall {
   @Expose
   @SerializedName("ignoredHaplotypes")
   private final Set<String> m_ignoredHaplotypes;
+  @Expose
+  @SerializedName("warnings")
+  private final List<MessageAnnotation> m_warnings;
 
 
   public GeneCall(DataSource source, String version, String chromosome, String gene,
-      MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes) {
+      MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes,
+      @Nullable List<MessageAnnotation> warnings) {
     m_source = source;
     m_version = version;
     m_chromosome = chromosome;
@@ -73,11 +79,12 @@ public class GeneCall {
     m_uncallableHaplotypes = uncallableHaplotypes;
     m_ignoredHaplotypes = ignoredHaplotypes;
     m_variantsOfInterest = matchData.getExtraPositions();
+    m_warnings = warnings;
   }
 
 
   /**
-   * Gets the source of the definition fiel used to make this call.
+   * Gets the source of the definition file used to make this call.
    */
   public DataSource getSource() {
     return m_source;
@@ -198,6 +205,13 @@ public class GeneCall {
     return m_matchData.isEffectivelyPhased();
   }
 
+
+  /**
+   * Gets all warnings generated for this call.
+   */
+  public List<MessageAnnotation> getWarnings() {
+    return m_warnings;
+  }
 
   @Override
   public String toString() {

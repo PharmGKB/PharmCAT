@@ -3,7 +3,17 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
@@ -21,12 +31,8 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
-import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
-
-import static org.pharmgkb.pharmcat.util.DataManager.DPYD_HAPB3_WOBBLE_RSID;
 
 
 /**
@@ -246,37 +252,38 @@ public class NamedAlleleMatcher {
   private void callDpyd(String sampleId, SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
     final String gene = "DPYD";
 
-    MatchData refData = initializeCallData(sampleId, alleleMap, gene, true, false);
-    if (refData.getNumSampleAlleles() == 0) {
-      resultBuilder.gene(gene, refData);
+    MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
+    if (origData.getNumSampleAlleles() == 0) {
+      resultBuilder.gene(gene, origData);
       return;
     }
 
-    boolean hasHapB3Wobble = false;
-    VariantLocus hapB3WobbleLocus = m_definitionReader.getLocationsOfInterest().values().stream()
-        .filter(vl -> DPYD_HAPB3_WOBBLE_RSID.equals(vl.getRsid()))
-        .findAny()
-        .orElse(null);
-    if (hapB3WobbleLocus != null) {
-      SampleAllele sa = alleleMap.get(hapB3WobbleLocus.getVcfChrPosition());
-      if (sa != null) {
-        hasHapB3Wobble = !sa.getAllele1().equals(hapB3WobbleLocus.getRef()) ||
-            (sa.getAllele2() != null && !sa.getAllele2().equals(hapB3WobbleLocus.getRef()));
-      }
+    DpydHapB3Matcher dpydHapB3Matcher = new DpydHapB3Matcher(m_env, alleleMap, origData.isEffectivelyPhased());
+    MatchData workingData;
+    if (dpydHapB3Matcher.isMissingHapB3Positions()) {
+      workingData = origData;
+    } else {
+      workingData = initializeDpydCallData(sampleId, alleleMap, true, false);
     }
 
     MatchData comboData = null;
     // try for diplotypes if effectively phased
-    if (refData.isEffectivelyPhased()) {
+    if (origData.isEffectivelyPhased()) {
      // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(refData)
+      List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(workingData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
-        resultBuilder.diplotypes(gene, refData, diplotypeMatches);
+        if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
+          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
+          List<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
+          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        } else {
+          resultBuilder.diplotypes(gene, workingData, diplotypeMatches);
+        }
         return;
       }
       // try combinations
-      comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
+      comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
       diplotypeMatches = new DiplotypeMatcher(comboData)
           .compute(true, false, false, true);
       if (!diplotypeMatches.isEmpty()) {
@@ -286,7 +293,7 @@ public class NamedAlleleMatcher {
         }
         List<DiplotypeMatch> finalMatches = Arrays.asList(matches);
         if (matches.length > 1) {
-          if (refData.isHomozygous()) {
+          if (workingData.isHomozygous()) {
             finalMatches = finalMatches.stream()
                 .filter(m -> m.getHaplotype2() != null &&
                     m.getHaplotype1().getName().equals(m.getHaplotype2().getName()))
@@ -294,39 +301,23 @@ public class NamedAlleleMatcher {
           }
         }
         if (finalMatches.size() > 1) {
-          // potentially possible with HapB3 if rs56038477 is missing
-          if (finalMatches.get(0).getName().contains("HapB3")) {
-            finalMatches = Collections.emptyList();
-          } else {
-            // should never happen
-            throw new IllegalStateException("Least function gene cannot have more than 1 diplotype: " +
-                finalMatches.stream().map(DiplotypeMatch::toString).collect(Collectors.joining("; ")));
-          }
+          // this should never happen
+          throw new IllegalStateException("Least function gene cannot have more than 1 diplotype");
         }
 
-        // partial match, ignore normal functions
-        if (finalMatches.size() == 1 && hasHapB3Wobble) {
-          GenePhenotype cpicPhenotypes = Objects.requireNonNull(m_env.getPhenotype("DPYD", DataSource.CPIC));
-          finalMatches = finalMatches.stream()
-              .filter(m -> {
-                if ("normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getHaplotype1().getName()))) {
-                  return false;
-                }
-                return m.getHaplotype2() == null ||
-                    !"normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getHaplotype2().getName()));
-              })
-              .collect(Collectors.toList());
-        }
-
-        if (!finalMatches.isEmpty()) {
+        if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
+          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, true);
+          List<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, finalMatches);
+          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        } else {
           resultBuilder.diplotypes(gene, comboData, finalMatches);
-          return;
         }
+        return;
       }
     }
 
     if (comboData == null) {
-      comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
+      comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
     }
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
 
@@ -361,23 +352,19 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // diplotype matches would have been handled in effectively phased section
-    // if we get to this point, it's combination that might include Reference and normal function alleles
-    if (hapMatches.size() > 2 || numPartials > 0) {
-      if (hasHapB3Wobble) {
-        // if there are more than 2 haplotype matches, strip out normal function alleles
-        // with 2 or fewer haplotype matches, cannot have normal function allele if there's a partial
-        GenePhenotype cpicPhenotypes = Objects.requireNonNull(m_env.getPhenotype("DPYD", DataSource.CPIC));
-        hapMatches = hapMatches.stream()
-            .filter(m -> !"normal function".equalsIgnoreCase(cpicPhenotypes.getHaplotypeFunction(m.getName())))
-            .collect(Collectors.toCollection(TreeSet::new));
-      } else {
-        // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
-        // with 2 or fewer haplotype matches, cannot have reference if there's a partial
-        hapMatches = hapMatches.stream()
-            .filter(m -> !m.getName().equals("Reference"))
-            .collect(Collectors.toCollection(TreeSet::new));
-      }
+    // Reference/Reference matches should have been handled in effectively phased section
+    // if we get to this point, it's combination that might include Reference
+    if (dpydHapB3Matcher.isHapB3Present()) {
+      // unless we have HapB3, and it cannot have Reference/Reference
+      homozygous.remove("Reference");
+    }
+    // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
+    // with 2 or fewer haplotype matches, cannot have reference if there's a partial
+    int numMatches = hapMatches.size() + dpydHapB3Matcher.getNumHapB3Called();
+    if (numMatches > 2 || numPartials > 0) {
+      hapMatches = hapMatches.stream()
+          .filter(m -> !m.getName().equals("Reference"))
+          .collect(Collectors.toCollection(TreeSet::new));
     }
 
     List<HaplotypeMatch> finalHaps = new ArrayList<>();
@@ -388,10 +375,13 @@ public class NamedAlleleMatcher {
         homozygous.remove(hm.getName());
       }
     }
-    if (!homozygous.isEmpty() && !hasHapB3Wobble) {
+    if (dpydHapB3Matcher.isHapB3Present()) {
+      finalHaps.addAll(dpydHapB3Matcher.buildHapB3HaplotypeMatches(origData));
+    }
+    if (!homozygous.isEmpty()) {
       throw new IllegalStateException("Combination matching found " + homozygous + " but haplotype matching didn't");
     }
-    resultBuilder.haplotypes(gene, refData, finalHaps);
+    resultBuilder.haplotypes(gene, origData, finalHaps, dpydHapB3Matcher.getWarnings());
   }
 
   /**
@@ -521,5 +511,48 @@ public class NamedAlleleMatcher {
       x += 1;
     }
     return ignorablePositions;
+  }
+
+
+  private MatchData initializeDpydCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap,
+      boolean assumeReference, boolean findCombinations) {
+
+    String gene = "DPYD";
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+    SortedSet<VariantLocus> extraPositions = null;
+    // remove HapB3
+    SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene).stream()
+        .filter(a -> !a.getName().equals(DpydHapB3Matcher.HAPB3_ALLELE))
+        .collect(Collectors.toCollection(TreeSet::new));
+    VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
+    SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
+    // add HapB3 positions to ignore
+    for (VariantLocus vl : allPositions) {
+      if (DpydHapB3Matcher.isHapB3Rsid(vl.getRsid())) {
+        unusedPositions.add(vl);
+      }
+    }
+    if (exemption != null) {
+      extraPositions = exemption.getExtraPositions();
+      if (!exemption.getIgnoredAlleles().isEmpty()) {
+        throw new IllegalStateException("Not expecting DPYD to have ignored alleles");
+      }
+    }
+
+    // grab SampleAlleles for all positions related to current gene
+    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
+    if (data.getNumSampleAlleles() == 0) {
+      return data;
+    }
+
+    // handle missing positions (if any)
+    data.marshallHaplotypes(gene, alleles, findCombinations);
+
+    if (assumeReference) {
+      data.defaultMissingAllelesToReference();
+    }
+
+    data.generateSamplePermutations();
+    return data;
   }
 }

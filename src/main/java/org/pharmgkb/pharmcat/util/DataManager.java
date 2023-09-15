@@ -22,11 +22,9 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.pharmgkb.common.util.CliHelper;
@@ -35,7 +33,6 @@ import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
@@ -219,6 +216,7 @@ public class DataManager {
       }
 
     } catch (Exception ex) {
+      //noinspection CallToPrintStackTrace
       ex.printStackTrace();
       System.exit(1);
     }
@@ -315,7 +313,6 @@ public class DataManager {
     }
 
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
-    fixDpyd(definitionFileMap.get("DPYD"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
     Set<String> currentFiles = new HashSet<>();
@@ -365,46 +362,6 @@ public class DataManager {
       if (star1.getAlleles()[x] == null) {
         star1.getAlleles()[x] = star38.getAlleles()[x];
       }
-    }
-  }
-
-
-  // expected HapB3 variations
-  public static final String DPYD_HAPB3_WOBBLE_RSID = "rs56038477";
-  private static final ImmutableMap<String, String> sf_dpydHapB3Rsids = ImmutableMap.of(
-      "rs75017182", "C",
-      DPYD_HAPB3_WOBBLE_RSID, "T"
-  );
-
-  /**
-   * Modifies HapB3 haplotype definition to use wobble @ rs56038477.
-   */
-  private void fixDpyd(DefinitionFile definitionFile) {
-    NamedAllele hapB3 = definitionFile.getNamedAlleles().stream()
-        .filter(na -> na.getName().equals("c.1129-5923C>G, c.1236G>A (HapB3)"))
-        .findFirst()
-        .orElseThrow(() -> new RuntimeException("Cannot find DPYD HapB3!"));
-    List<VariantLocus> hapB3Variants = new ArrayList<>();
-    for (int x = 0; x < definitionFile.getVariants().length; x += 1) {
-      VariantLocus vl = definitionFile.getVariants()[x];
-      String allele = sf_dpydHapB3Rsids.get(vl.getRsid());
-      if (allele != null) {
-        hapB3Variants.add(vl);
-        if (!hapB3.getAlleles()[x].equals(allele)) {
-          throw new RuntimeException("Expecting " + vl.getRsid() + " on HapB3 to be " + hapB3.getAlleles()[x] +
-              " but got " + allele);
-        }
-        if (vl.getRsid().equals(DPYD_HAPB3_WOBBLE_RSID)) {
-          hapB3.getAlleles()[x] = "Y";
-        }
-      }
-    }
-    if (hapB3Variants.size() != sf_dpydHapB3Rsids.size()) {
-      throw new RuntimeException("Cannot find all HapB3 variants.  Expected (" +
-          String.join(", ", sf_dpydHapB3Rsids.keySet()) + ", but found " +
-          hapB3Variants.stream()
-              .map(VariantLocus::getRsid)
-              .collect(Collectors.joining(", ")));
     }
   }
 

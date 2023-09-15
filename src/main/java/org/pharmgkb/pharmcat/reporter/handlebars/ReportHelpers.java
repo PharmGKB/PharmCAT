@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -60,7 +59,7 @@ public class ReportHelpers {
   public static String listGenes(Collection<String> genes) {
     StringBuilder builder = new StringBuilder();
     for (String gene : genes) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(", ");
       }
       builder.append("<a href=\"#")
@@ -136,7 +135,7 @@ public class ReportHelpers {
     String[] alleles = call.split("/");
     StringBuilder builder = new StringBuilder();
     for (String allele : alleles) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append("/<br />");
       }
       if (allele.length() > 8) {
@@ -205,7 +204,7 @@ public class ReportHelpers {
     if (isDpyd(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
     }
-    if (diplotype.getPhenotypes().size() == 0) {
+    if (diplotype.getPhenotypes().isEmpty()) {
       return TextConstants.NA.toUpperCase();
     }
     return String.join("; ", diplotype.getPhenotypes());
@@ -359,7 +358,7 @@ public class ReportHelpers {
 
 
   public static String rxImplications(List<String> implications) {
-    if (implications.size() == 0) {
+    if (implications.isEmpty()) {
       return "";
     }
     if (implications.size() == 1) {
@@ -391,7 +390,7 @@ public class ReportHelpers {
     if (annotationReport.isOtherPrescribingGuidance()) {
       tags.add("<div class=\"tag\">Other Guidance</div>");
     }
-    if (tags.size() > 0) {
+    if (!tags.isEmpty()) {
       return String.join("\n", tags);
     } else {
       return "<div class=\"tag noAction\">No Action</div>";
@@ -402,7 +401,7 @@ public class ReportHelpers {
   public static String amdSubtitle(GeneReport geneReport) {
     StringBuilder builder = new StringBuilder();
 
-    if (isDpyd(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().size() == 0) {
+    if (isDpyd(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().isEmpty()) {
       builder.append("Haplotype");
     } else {
       builder.append("Genotype");
@@ -423,7 +422,7 @@ public class ReportHelpers {
     if (report.getCallSource() == CallSource.NONE) {
       return true;
     } else if (report.getCallSource() == CallSource.MATCHER) {
-      return report.getVariantReports().size() == 0 ||
+      return report.getVariantReports().isEmpty() ||
           report.getVariantReports().stream().allMatch(VariantReport::isMissing);
     }
     return false;
@@ -497,7 +496,7 @@ public class ReportHelpers {
 
   public static boolean amdHasUncalledHaps(GeneReport geneReport) {
     return geneReport.getUncalledHaplotypes() != null &&
-        geneReport.getUncalledHaplotypes().size() > 0;
+        !geneReport.getUncalledHaplotypes().isEmpty();
   }
 
   public static String amdUncalledHaps(GeneReport geneReport) {
@@ -609,5 +608,24 @@ public class ReportHelpers {
         .replaceAll("\\p{Punct}", "-")
         .replaceAll("\\s+", "-")
         .replaceAll("-+", "-");
+  }
+
+  private static final Pattern sf_pmidPattern = Pattern.compile("(.*)PMID:(\\d+)(.*)");
+
+  public static String messageMessage(MessageAnnotation msg) {
+    String text = msg.getMessage();
+    Matcher m = sf_pmidPattern.matcher(text);
+    if (m.matches()) {
+      StringBuilder builder = new StringBuilder();
+      while (m.matches()) {
+        builder.append(m.group(1))
+            .append(externalHref("https://pubmed.ncbi.nlm.nih.gov/" + m.group(2), "PMID:" + m.group(2)));
+        text = m.group(3);
+        m = sf_pmidPattern.matcher(text);
+      }
+      builder.append(text);
+      return builder.toString();
+    }
+    return text;
   }
 }

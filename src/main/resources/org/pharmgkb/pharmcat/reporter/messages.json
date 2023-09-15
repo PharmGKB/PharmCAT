@@ -958,7 +958,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID: 29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
+    "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
   },
   {
     "rule_name": "pcat-cyp2d6-gene-note",
@@ -1539,13 +1539,13 @@
       ]
     },
     "exception_type": "note",
-    "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+    "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
   },
   {
     "rule_name": "pcat-dpyd-hapB3-exonic-only",
     "version": "2",
     "matches": {
-      "gene": "DPYD",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],
@@ -1560,7 +1560,7 @@
     "rule_name": "pcat-dpyd-hapB3-intronic-mismatch-exonic",
     "version": "2",
     "matches": {
-      "gene": "DPYD",
+      "gene": null,
       "hapsCalled": [],
       "hapsMissing": [],
       "variantsMissing": [],

@@ -421,8 +421,8 @@
                 <th>Alleles Not Considered:</th>
                 <td class="top-aligned">
                   <p>
-                    The following alleles are not considered due to {{amdTotalMissingVariants this}} missing positions of the
-                    total {{amdTotalVariants this}} positions: {{amdUncalledHaps this}}
+                    The following alleles are not considered due to {{amdTotalMissingVariants this}} missing positions
+                    of the total {{amdTotalVariants this}} positions: {{amdUncalledHaps this}}
                   </p>
                   <p>
                     Carriage of these alleles might result in a different phenotype and different guideline recommendations.
@@ -435,7 +435,7 @@
         {{/if}}
 
         {{#each (amdMessages this) }}
-          <div class="alert alert-warning {{messageClass this}}">{{{message}}}</div>
+          <div class="alert alert-warning {{messageClass this}}">{{{messageMessage this}}}</div>
         {{/each}}
 
         {{#unless (amdNoCall) }}
