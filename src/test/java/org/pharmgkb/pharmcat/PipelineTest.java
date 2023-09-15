@@ -1755,7 +1755,7 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     Elements clomipramineSection = document.select(".guideline.clomipramine");
     assertEquals(1, clomipramineSection.size());
-    assertEquals(1, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MUlTI_CALL).size());
+    assertEquals(1, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MULTI_CALL).size());
   }
 
   /**
@@ -1792,7 +1792,7 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     Elements clomipramineSection = document.select(".guideline.clomipramine");
     assertEquals(1, clomipramineSection.size());
-    assertEquals(0, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MUlTI_CALL).size());
+    assertEquals(0, clomipramineSection.get(0).getElementsByClass(MessageHelper.MSG_MULTI_CALL).size());
   }
 
   /**

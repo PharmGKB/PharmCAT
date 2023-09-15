@@ -1540,5 +1540,35 @@
     },
     "exception_type": "note",
     "message": "If the summary table (Section I) includes Malignant Hyperthermia Susceptibility as phenotype for either RYR1 or CACNA1S, please refer to the guideline publication PMID:30499100 (link below) since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility."
+  },
+  {
+    "rule_name": "pcat-dpyd-hapB3-exonic-only",
+    "version": "2",
+    "matches": {
+      "gene": "DPYD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "",
+    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP at rs75017182.  HapB3’s decreased function is thought to be due to the rs75017182 (intron) SNP. This genotype was assigned based on the rs56038477 (exon) SNP alone since the rs75017182 (intron) SNP is missing from the VCF input file. The rs75017182 (intron) SNP should be genotyped to confirm the presence or absence of HapB3 and decreased function."
+  },
+  {
+    "rule_name": "pcat-dpyd-hapB3-intronic-mismatch-exonic",
+    "version": "2",
+    "matches": {
+      "gene": "DPYD",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [],
+      "drugs": []
+    },
+    "exception_type": "",
+    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP at rs75017182.  HapB3’s decreased function is thought to be due to the rs75017182 (intron) SNP. This genotype was assigned based on the rs75017182 (intron) SNP alone because the rs56038477 (exon) SNP conflicts with the rs75017182 (intron) SNP in the VCF input file."
   }
 ]

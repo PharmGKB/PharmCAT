@@ -105,7 +105,7 @@ public class Recommendation implements Comparable<Recommendation> {
       }
     }
     if (callMultiMatch) {
-      m_messages.add(m_env.getMessage(MessageHelper.MSG_MUlTI_CALL));
+      m_messages.add(m_env.getMessage(MessageHelper.MSG_MULTI_CALL));
     }
     if (scoreMultimatch) {
       m_messages.add(m_env.getMessage(MessageHelper.MSG_MULTI_SCORE));

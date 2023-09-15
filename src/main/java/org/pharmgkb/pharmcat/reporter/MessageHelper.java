@@ -38,9 +38,11 @@ public class MessageHelper {
   public static final String MSG_COMBO_UNPHASED = "pcat-combo-unphased";
   public static final String MSG_CYP2D6_MODE = "pcat-cyp2d6-research-mode";
   public static final String MSG_CYP2D6_NOTE = "pcat-cyp2d6-gene-note";
-  public static final String MSG_OUTSIDE_CALL = "pcat-outside-call";
-  public static final String MSG_MUlTI_CALL = "pcat-call-multimatch";
+  public static final String MSG_DPYD_HAPB3_EXONIC_ONLY = "pcat-dpyd-hapB3-exonic-only";
+  public static final String MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC = "pcat-dpyd-hapB3-intronic-mismatch-exonic";
+  public static final String MSG_MULTI_CALL = "pcat-call-multimatch";
   public static final String MSG_MULTI_SCORE = "pcat-score-multimatch";
+  public static final String MSG_OUTSIDE_CALL = "pcat-outside-call";
   // -- end static keys
   public static final String MESSAGES_JSON_FILE_NAME = "messages.json";
   private static final String sf_messagesFile   = "org/pharmgkb/pharmcat/reporter/" + MESSAGES_JSON_FILE_NAME;

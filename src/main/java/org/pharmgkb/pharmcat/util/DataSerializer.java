@@ -162,10 +162,14 @@ public class DataSerializer {
       }
     }
     String[] requiredKeys = new String[] {
-        MessageHelper.MSG_CYP2D6_MODE,
-        MessageHelper.MSG_CYP2D6_NOTE,
         MessageHelper.MSG_COMBO_NAMING,
         MessageHelper.MSG_COMBO_UNPHASED,
+        MessageHelper.MSG_CYP2D6_MODE,
+        MessageHelper.MSG_CYP2D6_NOTE,
+        MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY,
+        MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC,
+        MessageHelper.MSG_MULTI_CALL,
+        MessageHelper.MSG_MULTI_SCORE,
         MessageHelper.MSG_OUTSIDE_CALL,
     };
     for (String key : requiredKeys) {
