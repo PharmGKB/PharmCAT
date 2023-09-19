@@ -26,9 +26,9 @@ RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
 
-ENV BCFTOOLS_VERSION 1.16
-ENV HTSLIB_VERSION 1.16
-ENV SAMTOOLS_VERSION 1.16
+ENV BCFTOOLS_VERSION 1.18
+ENV HTSLIB_VERSION 1.18
+ENV SAMTOOLS_VERSION 1.18
 
 # download the suite of tools
 WORKDIR /usr/local/bin/

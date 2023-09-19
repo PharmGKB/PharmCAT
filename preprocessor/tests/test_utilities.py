@@ -33,11 +33,11 @@ def test_validate_bcftools():
     utils.validate_bcftools(None)
     assert 'bcftools' == preprocessor.BCFTOOLS_PATH
 
-    utils.validate_bcftools(None, '1.16')
+    utils.validate_bcftools(None, '1.18')
     assert 'bcftools' == preprocessor.BCFTOOLS_PATH
 
     with pytest.raises(ReportableException) as context:
-        utils.validate_bcftools('foo/bcftools', '1.16')
+        utils.validate_bcftools('foo/bcftools', '1.18')
     # print(context.value)
     assert 'not found' in context.value.msg
     assert 'bcftools' == preprocessor.BCFTOOLS_PATH
@@ -52,7 +52,7 @@ def test_validate_bgzip():
     utils.validate_bgzip(None)
     assert 'bgzip' == preprocessor.BGZIP_PATH
 
-    utils.validate_bgzip(None, '1.16')
+    utils.validate_bgzip(None, '1.18')
     assert 'bgzip' == preprocessor.BGZIP_PATH
 
     with pytest.raises(ReportableException) as context:

@@ -33,8 +33,8 @@ You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker)
 
 1. You will need python 3.9.4 or higher
 2. You will need the following bioinformatic tools:
-    * [bcftools >= v1.16](http://www.htslib.org/download/)
-    * [htslib >= v1.16](http://www.htslib.org/download/)
+    * [bcftools >= v1.18](http://www.htslib.org/download/)
+    * [htslib >= v1.18](http://www.htslib.org/download/)
 3. Download the preprocessor tar file from our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
     * Untar the file
 4. You will need the following python dependencies:

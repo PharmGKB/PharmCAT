@@ -5,8 +5,8 @@ from pathlib import Path
 PHARMCAT_VERSION = '2.7.1'
 
 # expected tool versions
-MIN_BCFTOOLS_VERSION = '1.16'
-MIN_BGZIP_VERSION = '1.16'
+MIN_BCFTOOLS_VERSION = '1.18'
+MIN_BGZIP_VERSION = '1.18'
 MIN_JAVA_VERSION = '17'
 
 # default filenames
