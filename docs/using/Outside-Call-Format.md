@@ -73,6 +73,8 @@ We rely on string matching to match outside calls to recommendations.
 
 Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named alleles, phenotypes and activity scores.
 
+If there is an outside call for a gene that also has data from the VCF, the outside call will trump the VCF data.
+
 
 #### Diplotypes
 

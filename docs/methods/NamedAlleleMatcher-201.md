@@ -83,7 +83,7 @@ You would need to add something like this:
 A combination allele is when a sample matches a combination of 2 or more defined alleles.  For example, `[*6 + *14]` in
 the CYP2B6 `[*6 + *14]/*13` diplotype output.
 
-PharmCAT’s syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
+PharmCAT's syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
 distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
 
 A partial allele is when a sample matches all the (core) variants of a defined allele but also has additional variants.

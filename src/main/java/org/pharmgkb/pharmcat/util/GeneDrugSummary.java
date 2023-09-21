@@ -135,7 +135,7 @@ public class GeneDrugSummary {
     try (PrintWriter mdWriter = new PrintWriter(Files.newBufferedWriter(mdAlleleFile));
          PrintWriter tsvWriter = new PrintWriter(Files.newBufferedWriter(tsvAlleleFile))) {
       mdWriter.println(phenotypesTemplate);
-      tsvWriter.println("Gene\tNamed Alleles\tCPIC Phenotypes\tCPIC Activity Scores\tDPWG Phenotyeps");
+      tsvWriter.println("Gene\tNamed Alleles\tCPIC Phenotypes\tCPIC Activity Scores\tDPWG Phenotypes");
 
       SortedSet<String> allGenes = new TreeSet<>(m_definitionReader.getGenes());
       m_phenotypeMap.getCpicGenes().stream().map(GenePhenotype::getGene).forEach(allGenes::add);
@@ -162,30 +162,10 @@ public class GeneDrugSummary {
 
         SortedSet<String> cpicPhenotypes = new TreeSet<>();
         SortedSet<String> cpicScores = new TreeSet<>();
+        collectDiplotypeMetadata(cpicGp, cpicPhenotypes, cpicScores);
         SortedSet<String> dpwgPhenotypes = new TreeSet<>();
         SortedSet<String> dpwgScores = new TreeSet<>();
-        if (cpicGp != null) {
-          cpicGp.getDiplotypes().forEach(d -> {
-            if (d.getGeneResult() != null) {
-              cpicPhenotypes.add(d.getGeneResult());
-            }
-            String score = d.getActivityScore();
-            if (score != null && !score.equals(TextConstants.NA)) {
-              cpicScores.add(d.getActivityScore());
-            }
-          });
-        }
-        if (dpwgGp != null) {
-          dpwgGp.getDiplotypes().forEach(d -> {
-            if (d.getGeneResult() != null) {
-              dpwgPhenotypes.add(d.getGeneResult());
-            }
-            String score = d.getActivityScore();
-            if (score != null && !score.equals(TextConstants.NA)) {
-              dpwgScores.add(d.getActivityScore());
-            }
-          });
-        }
+        collectDiplotypeMetadata(dpwgGp, dpwgPhenotypes, dpwgScores);
 
         // we use semicolon as separator so make sure it's not used in values
         if (haplotypes.stream().anyMatch(v -> v.contains(";"))) {
@@ -210,7 +190,7 @@ public class GeneDrugSummary {
           throw new IllegalStateException(gene + " DPWG phenotype uses metaboliSe");
         }
 
-        if (cpicPhenotypes.size() > 0 && dpwgPhenotypes.size() > 0) {
+        if (!cpicPhenotypes.isEmpty() && !dpwgPhenotypes.isEmpty()) {
           if (!(cpicPhenotypes.containsAll(dpwgPhenotypes) || dpwgPhenotypes.containsAll(cpicPhenotypes))) {
             System.out.println("WARNING: " + gene + " has CPIC/DPWG phenotype mismatch");
             System.out.println("         CPIC: " + cpicPhenotypes);
@@ -221,19 +201,22 @@ public class GeneDrugSummary {
         boolean isNamedAllele = haplotypes.first().startsWith("*") && !gene.equals("UGT1A1");
         String type = isNamedAllele ? "Named Alleles" : "Variants";
         mdWriter.println("### " + gene);
+        if (!m_guidelineCollection.getGenesWithRecommendations().contains(gene)) {
+          mdWriter.println("<p>No recommendations available for this gene.</p>");
+        }
         mdWriter.println("<table>");
         mdWriter.println("<tr>");
         mdWriter.println("<th style=\"text-align: left\">" + type + "</th>");
-        if (cpicPhenotypes.size() > 0) {
+        if (!cpicPhenotypes.isEmpty()) {
           mdWriter.println("<th style=\"text-align: left\">CPIC Phenotypes</th>");
         }
-        if (cpicScores.size() > 0) {
+        if (!cpicScores.isEmpty()) {
           mdWriter.println("<th style=\"text-align: left\">CPIC Activity Scores</th>");
         }
-        if (dpwgPhenotypes.size() > 0) {
+        if (!dpwgPhenotypes.isEmpty()) {
           mdWriter.println("<th style=\"text-align: left\">DPWG Phenotypes</th>");
         }
-        if (dpwgScores.size() > 0) {
+        if (!dpwgScores.isEmpty()) {
           mdWriter.println("<th style=\"text-align: left\">DPWG Activity Scores</th>");
         }
         mdWriter.println("</tr>");
@@ -242,22 +225,22 @@ public class GeneDrugSummary {
         mdWriter.print(haplotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
         mdWriter.println("</ul></td>");
 
-        if (cpicPhenotypes.size() > 0) {
+        if (!cpicPhenotypes.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
           mdWriter.print(cpicPhenotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
           mdWriter.println("</ul></td>");
         }
-        if (cpicScores.size() > 0) {
+        if (!cpicScores.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
           mdWriter.print(cpicScores.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
           mdWriter.println("</ul></td>");
         }
-        if (dpwgPhenotypes.size() > 0) {
+        if (!dpwgPhenotypes.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
           mdWriter.print(dpwgPhenotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
           mdWriter.println("</ul></td>");
         }
-        if (dpwgScores.size() > 0) {
+        if (!dpwgScores.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
           mdWriter.print(dpwgScores.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
           mdWriter.println("</ul></td>");
@@ -279,6 +262,20 @@ public class GeneDrugSummary {
       }
     }
     sf_logger.info("Saving allele data to {}", summaryFile);
+  }
+
+  private void collectDiplotypeMetadata(GenePhenotype dpwgGp, SortedSet<String> dpwgPhenotypes, SortedSet<String> dpwgScores) {
+    if (dpwgGp != null) {
+      dpwgGp.getDiplotypes().forEach(d -> {
+        if (d.getGeneResult() != null) {
+          dpwgPhenotypes.add(d.getGeneResult());
+        }
+        String score = d.getActivityScore();
+        if (score != null && !score.equals(TextConstants.NA)) {
+          dpwgScores.add(d.getActivityScore());
+        }
+      });
+    }
   }
 
   private void printPhenotype(PrintWriter writer, GenePhenotype gp, String haplotype) {

@@ -45,11 +45,11 @@ includes example translations considering one or two variants.
 
 ### Calling DPYD named alleles
 
-Note: the combination research flag is ignored when calling DPYD.
+Note: the `combinations` research flag is ignored when calling DPYD.
 
 {: .info}
 > Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a
-> position. Since we can effectively predict the alleles on each chromosome in this situation, we can treat the data as
+> position. Since we can effectively predict the alleles on each chromosome in this situation, we can treat this data as
 > we would phased data.
 
 
@@ -65,7 +65,7 @@ If unphased data (that cannot be considered effectively phased) is provided in t
 homozygous at all positions, the `Named Allele Matcher` will not attempt to call a diplotype. Instead, it produces a
 list of all detected DPYD variants in the sample. It will, however, check if variants can be called on both strands.
 If so, it will call the variant twice.  For example: `c.1627A>G (*5)`, `c.1905+1G>A (*2A)`, `c.1905+1G>A (*2A)`. If the
-sample doesn’t contain variants at the positions from the allele definition file, and/or if those positions are omitted
+sample doesn't contain variants at the positions from the allele definition file, and/or if those positions are omitted
 from the vcf file, the `Named Allele Matcher` returns `Reference`.
 
 ### Calling DPYD allele functionality and phenotype
@@ -75,6 +75,22 @@ from phased/all-homozygous data, the lowest function variants on each strand wil
 score and DPYD phenotype. Otherwise, the two lowest function variants found are used to determine the gene activity
 score and DPYD phenotype. The phenotype and gene activity score are utilized to retrieve the corresponding drug
 recommendations.
+
+### Calling the HapB3 allele
+
+DPYD variants included in the CPIC and DPWG guidelines are single variants except for
+`c.1129-5923C>G, c.1236G>A (HapB3)`. HapB3 consists of an exonic SNP at rs56038477 and an intronic SNP at rs75017182.
+Both variants have been found in high linkage, however this is not the case for every sample. HapB3's decreased function
+is thought to be due to the rs75017182 (intron) SNP, while the exon SNP is a synonymous substitution
+(`p.Glu412=`). 
+
+The `Named Allele Matcher` will rely on the intronic SNP (rs75017182) to call HapB3 if it's available, and only use the
+exonic SNP (rs56038477) when it is not. If the VCF file input is conflicting between the two variants, or if the exonic
+SNP is missing, the `Named Allele Matcher` will use the input for the intronic SNP to determine if HapB3 is present and
+include a warning. If the intronic SNP is missing in the VCF file, the `Named Allele Matcher` will use the input for the
+exonic SNP to determine if HapB3 is present and include a warning that the intronic SNP is missing and should be
+genotyped to confirm the presence or absence of HapB3 and decreased function.
+
 
 ### DPWG recommendation
 

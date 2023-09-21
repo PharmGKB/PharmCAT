@@ -19,7 +19,7 @@ little as possible to make it work with the application.
 ## Data Sources 
 
 Guideline recommendation data has a typical format. A guideline can apply to one or more drugs. If the guideline applies
-to multiple drugs it’s typically because they belong to the same drug class or are used for the same therapeutic case.
+to multiple drugs it's typically because they belong to the same drug class or are used for the same therapeutic case.
 The guideline will also specify one or more genes that should be genotyped in order to get specific recommendation
 information. This will lead to possible drug-gene combinations in the guideline where some may have recommendations and
 some may have "no recommendation" as indicated by the guideline authors. The specific recommendations are usually a 
@@ -37,7 +37,7 @@ service. CPIC publishes drug, phenotype, and allele definition data that PharmCA
 The second source is DPWG (the Dutch Pharmacogenomics Working Group). DPWG does not publish their guideline information
 in a well-structured machine-readable format (they only publish as PDFs) so PharmCAT relies on the annotated DPWG
 guidelines in PharmGKB. PharmGKB curators read the source PDFs and curate the guideline data so it is available via
-PharmGKB’s API and file archive service. PharmGKB also provides allele definition data for genes that are used in DPWG
+PharmGKB's API and file archive service. PharmGKB also provides allele definition data for genes that are used in DPWG
 guidelines but are not in CPIC.
 
 PharmCAT pulls the aforementioned guideline data and reorganizes it to prepare for reporting. The annotation data pulled

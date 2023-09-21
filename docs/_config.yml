@@ -2,7 +2,7 @@
 title: PharmCAT
 email: pharmcat@pharmgkb.org
 description: >- # this means to ignore newlines until next YAML key
-  The Pharmacogenomics Clinical Annotation Tool (PharmCAT) is an open-source tool that takes an individual’s genetic
+  The Pharmacogenomics Clinical Annotation Tool (PharmCAT) is an open-source tool that takes an individual's genetic
   data and determines their respective drug-related genotypes and phenotypes. PharmCAT produces a personalized report
   with genotype-specific expert-reviewed drug prescribing recommendations.
 twitter_username: pharmgkb

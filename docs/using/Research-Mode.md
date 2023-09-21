@@ -43,7 +43,7 @@ This option addresses variant combinations not catalogued by PharmVar or other n
 
 A combination allele is when a sample matches a combination of 2 or more defined alleles.  For example, `[*6 + *14]` in the CYP2B6 `[*6 + *14]/*13` diplotype output.
 
-PharmCAT’s syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
+PharmCAT's syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
 distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
 
 A partial allele is when a sample matches all the (core) variants of a defined allele but also has additional variants.  For example, CYP2C19 `*2/[*17 + g.94781859G>A]`.  In the case where a partial call occurs off the reference allele, only the positions are listed (e.g. `*2/g.94781859G>A`).  A partial off the reference allele will only be called if the data is phased, or the unphased data only has 2 possible sequence combinations.

@@ -154,7 +154,7 @@ While this tutorial is specific to Optitype, it can be modified for integrating 
 0	A*32:01	A*68:03	B*07:02	B*35:01	C*07:02	C*07:02	10191.0	9915.832999999959
 ```
 
-Each column represents a separate HLA allele call. To convert this into a format digestible by PharmCAT, you must reorder the TSV file. This can be done using a simple Python script. The following is a simple script to parse Optitype’s output and output a file format usable for PharmCAT. Currently, we only support HLA A and B calls in PharmCAT, so therefore only those two genes are output.
+Each column represents a separate HLA allele call. To convert this into a format digestible by PharmCAT, you must reorder the TSV file. This can be done using a simple Python script. The following is a simple script to parse Optitype's output and output a file format usable for PharmCAT. Currently, we only support HLA A and B calls in PharmCAT, so therefore only those two genes are output.
 
 ```python
 #!/usr/bin/env python

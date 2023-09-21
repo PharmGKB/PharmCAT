@@ -139,6 +139,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 </table>
 
 ### CYP4F2
+<p>No recommendations available for this gene.</p>
 <table>
 <tr>
 <th style="text-align: left">Named Alleles</th>
@@ -189,6 +190,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 </table>
 
 ### IFNL3
+<p>No recommendations available for this gene.</p>
 <table>
 <tr>
 <th style="text-align: left">Variants</th>
