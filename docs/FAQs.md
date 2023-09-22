@@ -89,9 +89,7 @@ providing actionable prescribing recommendations from authorities like CPIC and 
 
 ### What happens if I provide an outside diplotype or phenotype for a gene also found in the VCF file?
 
-Outside calls provided by the user will override the results from the VCF file. If an outside call conflicts with the PGx call that PharmCAT Named Allele Matcher makes based on the input VCF, a warning banner will be displayed in the appropriate sections in the output Report, e.g., the Prescribing Recommendation section.
-
-Details about the types of outside calls and their relative priority can be found on the [Outside Call Format page](docs/using/Outside-Call-Format.md/#file-format).
+Outside calls provided by the user will override the results from the VCF file. Details about the types of outside calls and their relative priority can be found on the [Outside Call Format page](docs/using/Outside-Call-Format.md/#file-format).
 
 
 
