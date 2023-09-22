@@ -17,6 +17,8 @@ class ReportHelpersTest {
   void testSanitizeCssSelector() {
     assertEquals("ABC", ReportHelpers.sanitizeCssSelector("__ABC__"));
     assertEquals("ABC", ReportHelpers.sanitizeCssSelector("(ABC)!"));
-    assertEquals("A_B_C", ReportHelpers.sanitizeCssSelector("A B - C"));
+    assertEquals("A_B-C", ReportHelpers.sanitizeCssSelector("A B - C"));
+    assertEquals("MT-RNR1", ReportHelpers.sanitizeCssSelector("MT-RNR1"));
+    assertEquals("IFNL3_4", ReportHelpers.sanitizeCssSelector("IFNL3/4"));
   }
 }

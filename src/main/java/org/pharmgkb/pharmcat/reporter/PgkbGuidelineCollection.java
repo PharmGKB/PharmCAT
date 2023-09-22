@@ -85,7 +85,7 @@ public class PgkbGuidelineCollection {
         .collect(Collectors.toSet());
   }
 
-  public SortedSet<String> getGenes() {
+  public SortedSet<String> getGenesWithRecommendations() {
     if (m_genes == null) {
       m_genes = f_guidelinePackages.stream()
           .flatMap(p -> p.getRecommendations().stream())

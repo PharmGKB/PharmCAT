@@ -196,7 +196,7 @@ public class DataManager {
           definitionReader = DefinitionReader.defaultReader();
         }
 
-        List<String> genesUsedInDrugRecommendations = new ArrayList<>(pgkbGuidelineCollection.getGenes());
+        List<String> genesUsedInDrugRecommendations = new ArrayList<>(pgkbGuidelineCollection.getGenesWithRecommendations());
         genesUsedInDrugRecommendations.removeAll(definitionReader.getGeneAlleleCount().keySet());
         genesUsedInDrugRecommendations.stream()
             .filter(g -> !g.startsWith("HLA"))

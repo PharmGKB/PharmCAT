@@ -575,7 +575,8 @@ public class ReportHelpers {
   }
 
   public static String sanitizeCssSelector(String value) {
-    return value.replaceAll("\\W+", "_")
+    return value.replaceAll("[^\\w-]+", "_")
+        .replaceAll("_-_", "-")
         .replaceAll("_+", "_")
         .replaceAll("^_+", "")
         .replaceAll("_+$", "");

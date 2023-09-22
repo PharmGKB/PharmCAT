@@ -245,6 +245,45 @@ class PharmCATTest {
     }
   }
 
+  @Test
+  void outsideCallsNoRecs(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+    Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path matcherOutput = outputDir.resolve("reference.match.json");
+    Path phenotyperOutput = outputDir.resolve("reference.phenotype.json");
+    Path reporterOutput = outputDir.resolve("reference.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString(),
+          "-po", outsideCallFile.toString(),
+          "-o", outputDir.toString(),
+      }));
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(Files.exists(matcherOutput));
+      assertTrue(Files.exists(phenotyperOutput));
+      assertTrue(Files.exists(reporterOutput));
+
+      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
+          .values();
+      Optional<GeneReport> grOpt = reports.stream()
+          .filter(gr -> gr.getGene().equals("IFNL3"))
+          .findFirst();
+      assertTrue(grOpt.isPresent());
+      assertTrue(grOpt.get().isCalled());
+      assertTrue(grOpt.get().isOutsideCall());
+
+      Document document = Jsoup.parse(reporterOutput.toFile());
+      assertEquals(1, document.select(".gene.IFNL3_4 .alert-warning.pcat-outside-call").size());
+
+    } finally {
+      TestUtils.deleteTestFiles(outputDir);
+    }
+  }
+
   /**
    * This test is dependent on CYP2C19 definition.
    * It may fail if CYP2C19 definition changes too much.

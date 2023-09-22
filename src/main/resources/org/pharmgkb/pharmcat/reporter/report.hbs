@@ -89,7 +89,7 @@
         </thead>
         <tbody>
         {{#each summaries}}
-          <tr class="top-aligned gs-{{symbol}}">
+          <tr class="top-aligned gs-{{{sanitizeCssSelector symbol}}}">
             <td>
               {{#each relatedDrugs}}
                 <div class="drugName">
@@ -103,7 +103,7 @@
             </td>
             <td>
               <span class="noWrap">
-                <a href="#{{symbol}}" class="normalWrap">{{symbol}}</a>
+                <a href="#{{{sanitizeCssSelector symbol}}}" class="normalWrap">{{symbol}}</a>
                 {{#if hasMessages}}<sup><a href="#genotypes-dagger">&dagger;</a></sup>{{/if}}
                 {{#if showUnphasedNote}}<sup><a href="#genotypes-ddagger">&ddagger;</a></sup>{{/if}}
               </span>
@@ -142,10 +142,10 @@
                 </p>
               {{/if}}
               {{#if treatUndocumentedVariationsAsReference}}
-                <p class="tdNote" id="gs-undocVarAsRef-{{symbol}}">
+                <p class="tdNote" id="gs-undocVarAsRef-{{{sanitizeCssSelector symbol}}}">
                   There are genetic variations in this gene that do not match what is in the allele definition.
                   <b>These undocumented variations were replaced with reference.</b>
-                  See <a href="#{{symbol}}">Section III</a> for details.
+                  See <a href="#{{{sanitizeCssSelector symbol}}}">Section III</a> for details.
                 </p>
               {{/if}}
             </td>
@@ -359,7 +359,7 @@
     {{#if (thereAre geneReports)}}
       <ol>
         {{#each geneReports}}
-          <li><a href="#{{geneDisplay}}">{{geneDisplay}} allele match data</a></li>
+          <li><a href="#{{{sanitizeCssSelector geneDisplay}}}">{{geneDisplay}} allele match data</a></li>
         {{/each}}
       </ol>
     {{/if}}
@@ -369,8 +369,8 @@
 
 
     {{#each geneReports}}
-      <section class="gene {{geneDisplay}}">
-        <h3 id="{{geneDisplay}}">{{geneDisplay}} allele match data</h3>
+      <section class="gene {{{sanitizeCssSelector geneDisplay}}}">
+        <h3 id="{{{sanitizeCssSelector geneDisplay}}}">{{geneDisplay}} allele match data</h3>
 
         {{#if (amdNoCall)}}
           <div class="alert alert-warning no-data">
@@ -504,7 +504,7 @@
               <tbody>
               {{#each variantOfInterestReports}}
                 <tr>
-                  <td id="{{position}}">{{chr}}:{{position}}</td>
+                  <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
                   <td id="{{dbSnpId}}">{{dbSnpId}}</td>
                   {{#if missing}}
                     <td class="missingVariant"><em>missing</em></td>

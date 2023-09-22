@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedSet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
@@ -75,19 +74,16 @@ public class Env {
   }
 
 
-  public SortedSet<String> getGenes() {
-    return m_drugs.getGenes();
-  }
-
   public boolean hasGene(DataSource source, String gene) {
     return m_drugs.getGenesUsedInSource(source).contains(gene);
   }
 
   /**
-   * Checks if gene is used in any drug recommendation from any source.
+   * Checks if gene can be called by NamedAlleleMatcher or is used in any drug recommendation from any source.
    */
   public boolean hasGene(String gene) {
-    return getGenes().contains(gene);
+    return m_definitionReader.getGenes().contains(gene) ||
+        m_drugs.getGenesWithRecommendations().contains(gene);
   }
 
   /**
