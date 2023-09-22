@@ -86,6 +86,15 @@ is possible, but currently undocumented.  Just adding the required JSON files to
 way there.  We are currently unable to support anyone looking to do this at this time because we are focused on
 providing actionable prescribing recommendations from authorities like CPIC and DPWG.
 
+
+### What happens if I provide an outside diplotype or phenotype for a gene also found in the VCF file?
+
+Outside calls provided by the user will override the results from the VCF file. If an outside call conflicts with the PGx call that PharmCAT Named Allele Matcher makes based on the input VCF, a warning banner will be displayed in the appropriate sections in the output Report, e.g., the Prescribing Recommendation section.
+
+Details about the types of outside calls and their relative priority can be found on the [Outside Call Format page](docs/using/Outside-Call-Format.md/#file-format).
+
+
+
 ## Output-related
 
 ### What are the meanings of _unassigned function_, _uncertain function_, _unknown function_ for allele function? And _N/A_, _no call_, _indeterminate_ for phenotype?
