@@ -1,3 +1,21 @@
+## [2.8.0](https://github.com/PharmGKB/PharmCAT/compare/v2.7.1...v2.8.0) (2023-09-22)
+
+
+### Features
+
+* **pharmcat:** update DPYD matcher algorithm ([763b950](https://github.com/PharmGKB/PharmCAT/commit/763b950a34f6227eaf759135cbfeec4cd8ea36f5)), closes [#150](https://github.com/PharmGKB/PharmCAT/issues/150)
+
+
+### Bug Fixes
+
+* **pharmcat:** allow reporter JSON in research mode ([a3b0496](https://github.com/PharmGKB/PharmCAT/commit/a3b04963017e0e99ac3851bd666bdf70513d1262))
+* **pharmcat:** avoid NPE ([a86daa6](https://github.com/PharmGKB/PharmCAT/commit/a86daa61e765bb158e7996c0d250bcb1ac7d7304))
+* **pharmcat:** avoid NPE ([da11bd6](https://github.com/PharmGKB/PharmCAT/commit/da11bd6556298b109e17543faf00f378cc0b6444))
+* **pharmcat:** fix console message ([f2b4086](https://github.com/PharmGKB/PharmCAT/commit/f2b4086b6bfcee20f88874b7c8fea59fc782b8d9))
+* **pharmcat:** fix how warnings are handled with outside calls ([634f3b4](https://github.com/PharmGKB/PharmCAT/commit/634f3b4231dd05e1b6cf43eda035ebe7a74afb24)), closes [#154](https://github.com/PharmGKB/PharmCAT/issues/154)
+* **phenotyper:** pass through outside calls even if no recommendations are available ([03f7f7c](https://github.com/PharmGKB/PharmCAT/commit/03f7f7cb6f97dab9726f7dc4b180ceb45844fa75)), closes [#154](https://github.com/PharmGKB/PharmCAT/issues/154)
+* **reporter:** add DPYD warnings ([2427813](https://github.com/PharmGKB/PharmCAT/commit/24278138e706faa7e749d87debf80b016a4a7683))
+
 ## [2.7.1](https://github.com/PharmGKB/PharmCAT/compare/v2.7.0...v2.7.1) (2023-09-09)
 
 
