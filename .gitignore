@@ -1,11 +1,9 @@
 # IntelliJ files
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
-/.idea/gradle.xml
 /.idea/httpRequests/
 /.idea/jarRepositories.xml
 /.idea/markdown*
-/.idea/misc.xml
 /.idea/sassLintPlugin.xml
 /.idea/scssLintPlugin.xml
 /.idea/shelf/
