@@ -18,7 +18,7 @@ PharmCAT is available for general use, but it is still under _active development
 
 All technical requirements and documentation are available on [PharmCAT.org](https://pharmcat.org).
 
-PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG010862)
+PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077)
 
 
 ## Contact
