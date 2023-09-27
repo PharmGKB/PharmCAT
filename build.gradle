@@ -86,6 +86,10 @@ clean.dependsOn(tasks.cleanTestOutput)
 
 test.dependsOn(tasks.cleanTestOutput)
 
+tasks.withType(JavaCompile) {
+  options.encoding = 'UTF-8'
+}
+
 test {
   useJUnitPlatform()
   testLogging {
