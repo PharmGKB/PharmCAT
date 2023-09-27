@@ -48,7 +48,7 @@ public class DpydCaller {
    */
   public static List<Diplotype> inferFromDiplotypes(Collection<DiplotypeMatch> matches, Env env, DataSource source) {
     List<Diplotype> diplotypes = new ArrayList<>();
-    if (matches.size() == 0) {
+    if (matches.isEmpty()) {
       diplotypes.add(DiplotypeFactory.makeUnknownDiplotype(GENE, env, source));
     } else {
       for (DiplotypeMatch dm : matches) {
@@ -137,7 +137,7 @@ public class DpydCaller {
     boolean isInferred = hapData1.isInferred;
     Haplotype hap1 = hapData1.haplotypes.get(0);
     Haplotype hap2 = null;
-    if (hapNames2 != null && hapNames2.size() > 0) {
+    if (hapNames2 != null && !hapNames2.isEmpty()) {
       InferredHaps hapData2 = makeHaplotypes(hapNames2, env, source);
       hap2 = hapData2.haplotypes.get(0);
       isInferred = isInferred || hapData2.isInferred;

@@ -45,7 +45,7 @@ class DpydTest {
   @BeforeAll
   static void prepare() {
     ReportHelpers.setDebugMode(true);
-//    TestUtils.setSaveTestOutput(true);
+    TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach
@@ -616,6 +616,42 @@ class DpydTest {
 
 
   @Test
+  void test155(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // chr1	97515865	1|0  C->T (*4) 1.0
+        .variation("DPYD", "rs1801158", "T", "C")
+        // chr1	97573863	0|1 C->T
+        .variation("DPYD", "rs56038477", "C", "T")
+        // chr1	97579893	0|1 G->C
+        .variation("DPYD", "rs75017182", "G", "C")
+        // chr1	97699535	1|0 T->C (c.496A>G) 1.0
+        .variation("DPYD", "rs2297595", "C", "T")
+        // chr1	97883329	1|1 A->G (*9A) 1.0
+        .variation("DPYD", "rs1801265", "G", "G")
+    ;
+
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of(
+        "[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.496A>G + c.1601G>A (*4)]"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.85T>C (*9A)", DpydHapB3Matcher.HAPB3_ALLELE));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+
+  @Test
   void hapB3(TestInfo testInfo) throws Exception {
 
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/hapb3.tsv");
@@ -640,110 +676,142 @@ class DpydTest {
       int row = 3;
       while ((line = reader.readLine()) != null) {
         row += 1;
-        /*
-        if (row < 83) {
-          continue;
+        if (row != 97) {
+          //continue;
         }
-        */
         String name = "row_" + row;
         data = line.split("\t");
 
         System.out.println("\n" + name);
-        assertTrue(data.length > 11, name + " only has " + data.length + " columns, expecting at least 12");
+        assertTrue(data.length > 14, name + " only has " + data.length + " columns, expecting at least 15");
 
-        PipelineWrapper testWrapper = new PipelineWrapper(testInfo, name, false, false, false);
-        TestVcfBuilder vcfBuilder = testWrapper.getVcfBuilder();
-        setVariation(testWrapper, vcfBuilder, "rs56038477", data[0]);
-        setVariation(testWrapper, vcfBuilder, "rs75017182", data[1]);
-        setVariation(testWrapper, vcfBuilder, "rs72549310", data[2]);
-        setVariation(testWrapper, vcfBuilder, "rs67376798", data[3]);
-        setVariation(testWrapper, vcfBuilder, "rs1801265", data[4]);
-        setVariation(testWrapper, vcfBuilder, "rs186169810", data[5], "G");
-        setVariation(testWrapper, vcfBuilder, "rs115232898", data[6]);
-        assertFalse(data[7].isEmpty());
-
-        Path vcfFile = testWrapper.execute(null);
-
-        List<String> expectedCalls = parseDiplotypes(data[7]);
-        List<String> recommendedDiplotypes;
-        if (!data[8].isEmpty()) {
-          recommendedDiplotypes = parseDiplotypes(data[8]);
-        } else {
-          recommendedDiplotypes = expectedCalls;
-        }
-        if (recommendedDiplotypes.size() == 1) {
-          recommendedDiplotypes = expectedCallsToRecommendedDiplotypes(recommendedDiplotypes);
-        }
-
-        testWrapper.testCalledByMatcher("DPYD");
-        testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-        testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", recommendedDiplotypes);
-        testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-        GeneReport cpicGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
-        assertNotNull(cpicGeneReport);
-        int numMissing = 0;
-        if ("missing".equals(data[0])) {
-          numMissing += 1;
-        }
-        if ("missing".equals(data[1])) {
-          numMissing += 1;
-        }
-        if ("missing".equals(data[3])) {
-          numMissing += 1;
-        }
-        if ("missing".equals(data[4])) {
-          numMissing += 1;
-        }
-        if ("missing".equals(data[5])) {
-          numMissing += 1;
-        }
-        if ("missing".equals(data[6])) {
-          numMissing += 1;
-        }
-        long numMissingSampleAlleles = cpicGeneReport.getVariantReports().stream()
-            .filter(VariantReport::isMissing)
-            .count();
-        assertEquals(numMissing, numMissingSampleAlleles);
-
-        Document document = readHtmlReport(vcfFile);
-        Element dpydSection = document.select(".gene.dpyd").get(0);
-
-        // check warnings
-        boolean shouldHaveNoWarnings = true;
-        boolean shouldHaveNoPgxWarning = true;
-        if (!"no".equals(data[9])) {
-          shouldHaveNoWarnings = false;
-          shouldHaveNoPgxWarning = !data[9].contains("nonPGx");
-          String warnings = data[10];
-          if (!warnings.isEmpty()) {
-            assertTrue(cpicGeneReport.getMessages().stream()
-                .anyMatch(ma -> ma.getName().equals(warnings)), "Should have warnings, but found none");
-            assertEquals(1, dpydSection.getElementsByClass(warnings).size());
-          }
-        }
-        if (shouldHaveNoWarnings) {
-          assertFalse(cpicGeneReport.getMessages().stream()
-              .anyMatch(ma -> ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
-                  ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)));
-          assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY).size());
-          assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC).size());
-        }
-        if (shouldHaveNoPgxWarning) {
-          assertTrue(cpicGeneReport.getVariantReports().stream()
-              .allMatch(vr -> vr.getWarnings().isEmpty()), "Should not have PGx warnings, but found them");
-        } else {
-          assertTrue(cpicGeneReport.getVariantReports().stream()
-              .anyMatch(vr -> !vr.getWarnings().isEmpty()), "Expecting PGx warnings, found none");
-        }
-
-        RecPresence hasCpicAnnotations = RecPresence.fromString(data[11]);
-        RecPresence hasDpwgAnnotations = RecPresence.fromString(data[12]);
-        dpydHasReports(testWrapper, hasCpicAnnotations, hasDpwgAnnotations);
-        dpydHtmlChecks(document, expectedCalls, numMissingSampleAlleles > 0, hasCpicAnnotations, hasDpwgAnnotations);
+        runDpydTest(testInfo, name, data, true);
+        runDpydTest(testInfo, name, data, false);
       }
     }
   }
+
+  private void runDpydTest(TestInfo testInfo, String name, String[] data, boolean isPhased) throws Exception {
+    if (isPhased) {
+      name += " - phased";
+      System.out.println("\tphased");
+    } else {
+      name += " - unphased";
+      System.out.println("\tunphased");
+    }
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, name, false, false, false);
+    TestVcfBuilder vcfBuilder = testWrapper.getVcfBuilder();
+    if (isPhased) {
+      vcfBuilder.phased();
+    }
+    setVariation(testWrapper, vcfBuilder, "rs56038477", data[0]);
+    setVariation(testWrapper, vcfBuilder, "rs75017182", data[1]);
+    setVariation(testWrapper, vcfBuilder, "rs72549310", data[2]);
+    setVariation(testWrapper, vcfBuilder, "rs67376798", data[3]);
+    setVariation(testWrapper, vcfBuilder, "rs1801265", data[4]);
+    setVariation(testWrapper, vcfBuilder, "rs186169810", data[5], "G");
+    setVariation(testWrapper, vcfBuilder, "rs115232898", data[6]);
+    assertFalse(data[7].isEmpty());
+
+    Path vcfFile = testWrapper.execute(null);
+
+    // 7 - phased call
+    // 8 - phased recommendation
+    // 9 - unphased call
+    // 10 - unphased recommendation
+
+    List<String> expectedCalls = parseDiplotypes(data[7]);
+    if (!isPhased && !data[9].isEmpty()) {
+      expectedCalls = parseDiplotypes(data[9]);
+    }
+    List<String> recommendedDiplotypes;
+    if (isPhased) {
+      if (!data[8].isEmpty()) {
+        recommendedDiplotypes = parseDiplotypes(data[8]);
+      } else {
+        recommendedDiplotypes = expectedCalls;
+      }
+    } else {
+      // not phased
+      if (!data[10].isEmpty()) {
+        recommendedDiplotypes = parseDiplotypes(data[10]);
+      } else if (!data[8].isEmpty()) {
+        recommendedDiplotypes = parseDiplotypes(data[8]);
+      } else {
+        recommendedDiplotypes = expectedCalls;
+      }
+    }
+    if (recommendedDiplotypes.size() == 1) {
+      recommendedDiplotypes = expectedCallsToRecommendedDiplotypes(recommendedDiplotypes);
+    }
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", recommendedDiplotypes);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    GeneReport cpicGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    assertNotNull(cpicGeneReport);
+    int numMissing = 0;
+    if ("missing".equals(data[0])) {
+      numMissing += 1;
+    }
+    if ("missing".equals(data[1])) {
+      numMissing += 1;
+    }
+    if ("missing".equals(data[3])) {
+      numMissing += 1;
+    }
+    if ("missing".equals(data[4])) {
+      numMissing += 1;
+    }
+    if ("missing".equals(data[5])) {
+      numMissing += 1;
+    }
+    if ("missing".equals(data[6])) {
+      numMissing += 1;
+    }
+    long numMissingSampleAlleles = cpicGeneReport.getVariantReports().stream()
+        .filter(VariantReport::isMissing)
+        .count();
+    assertEquals(numMissing, numMissingSampleAlleles);
+
+    Document document = readHtmlReport(vcfFile);
+    Element dpydSection = document.select(".gene.dpyd").get(0);
+
+    // check warnings
+    // 11 - pgx warning
+    // 12 - phased warning
+    // 13 - unphased warning
+
+    // pgx warning
+    if ("yes".equalsIgnoreCase(data[11])) {
+      assertTrue(cpicGeneReport.getVariantReports().stream()
+          .anyMatch(vr -> !vr.getWarnings().isEmpty()), "Expecting PGx warnings, found none");
+    } else {
+      assertTrue(cpicGeneReport.getVariantReports().stream()
+          .allMatch(vr -> vr.getWarnings().isEmpty()), "Should not have PGx warnings, but found them");
+    }
+
+    String warning = isPhased ? StringUtils.stripToNull(data[12]) : StringUtils.stripToNull(data[13]);
+    if (warning != null) {
+      assertTrue(cpicGeneReport.getMessages().stream()
+          .anyMatch(ma -> ma.getName().equals(warning)), "Should have warnings, but found none");
+      assertEquals(1, dpydSection.getElementsByClass(warning).size());
+    } else {
+      assertFalse(cpicGeneReport.getMessages().stream()
+          .anyMatch(ma -> ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
+              ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)));
+      assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY).size());
+      assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC).size());
+    }
+
+    RecPresence hasCpicAnnotations = RecPresence.fromString(data[14]);
+    RecPresence hasDpwgAnnotations = RecPresence.fromString(data[15]);
+    dpydHasReports(testWrapper, hasCpicAnnotations, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, numMissingSampleAlleles > 0, hasCpicAnnotations, hasDpwgAnnotations);
+  }
+
 
   private static List<String> parseDiplotypes(String data) {
     return Arrays.stream(data.split(","))
@@ -770,7 +838,6 @@ class DpydTest {
       calls = callValue.split("/");
     } else if (callValue.contains("|")) {
       calls = callValue.split("\\|");
-      vcfBuilder.phased();
     } else {
       throw new IllegalArgumentException("Invalid call: " + callValue);
     }

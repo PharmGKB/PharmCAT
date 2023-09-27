@@ -162,10 +162,11 @@ public class DpydHapB3Matcher {
       throw new IllegalStateException("Single stranded DPYD diplotype!");
     }
 
-    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName())) {
+    BaseMatch h1 = dm.getHaplotype1();
+    BaseMatch h2 = dm.getHaplotype2();
+
+    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || getNumHapB3Called() == 2) {
       Collections.sort(m_hapB3Call);
-      BaseMatch h1 = dm.getHaplotype1();
-      BaseMatch h2 = dm.getHaplotype2();
       if (h1 == h2 && h2 instanceof CombinationMatch && getNumHapB3Called() == 1) {
         // NamedAlleleMatcherTest.testDpydPhasedDouble tests this code path
         h2 = new CombinationMatch((CombinationMatch)h2);
@@ -177,51 +178,66 @@ public class DpydHapB3Matcher {
       ));
     }
 
-    if (checkStrand(matchData, dm.getHaplotype1(), true)) {
-      if (!checkStrand(matchData, dm.getHaplotype2(), false)) {
+    int h1s1 = checkStrand(matchData, h1, true);
+    int h1s2 = checkStrand(matchData, h1, false);
+    int h2s1 = checkStrand(matchData, h2, true);
+    int h2s2 = checkStrand(matchData, h2, false);
+
+    if (h1s1 >= h1s2) {
+      // hap 1 is strand 1 (but can be strand 2 if h1s1 == h1s2)
+      if (h2s1 > h2s2) {
+        if (h1s1 == h1s2) {
+          return buildDiplotype(matchData, h2, h1);
+        }
         throw new IllegalStateException("STRAND MISMATCH 1");
       }
-      return List.of(new DiplotypeMatch(
-          updateHapB3Haplotype(matchData, dm.getHaplotype1(), m_hapB3Call.get(0)),
-          updateHapB3Haplotype(matchData, dm.getHaplotype2(), m_hapB3Call.get(1)),
-          matchData
-      ));
-    } else {
-      if (!checkStrand(matchData, dm.getHaplotype1(), false)) {
-        throw new IllegalStateException("STRAND MISMATCH 2");
-      }
-      if (!checkStrand(matchData, dm.getHaplotype2(), true)) {
-        throw new IllegalStateException("STRAND MISMATCH 2");
-      }
-      return List.of(new DiplotypeMatch(
-          updateHapB3Haplotype(matchData, dm.getHaplotype2(), m_hapB3Call.get(0)),
-          updateHapB3Haplotype(matchData, dm.getHaplotype1(), m_hapB3Call.get(1)),
-          matchData
-      ));
+      return buildDiplotype(matchData, h1, h2);
     }
+    // hap 1 is strand 2
+    if (h2s1 >= h2s2) {
+      return buildDiplotype(matchData, h2, h1);
+    }
+    throw new IllegalStateException("STRAND MISMATCH 2");
   }
 
-  private boolean checkStrand(MatchData matchData, BaseMatch bm, boolean strand1) {
+  private List<DiplotypeMatch> buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
+    return List.of(new DiplotypeMatch(
+        updateHapB3Haplotype(matchData, h1, m_hapB3Call.get(0)),
+        updateHapB3Haplotype(matchData, h2, m_hapB3Call.get(1)),
+        matchData));
+  }
+
+
+  private int checkStrand(MatchData matchData, BaseMatch bm, boolean strand1) {
+    int total = 0;
+    int match = 0;
+    int noData = 0;
     for (VariantLocus vl : matchData.getPositions()) {
       if (isHapB3Rsid(vl.getRsid())) {
         continue;
       }
+      total += 1;
       SampleAllele sa = m_alleleMap.get(vl.getVcfChrPosition());
-      String expectedAllele = strand1 ? sa.getAllele1() : sa.getAllele2();
-      if (expectedAllele == null) {
+      String sampleAllele = strand1 ? sa.getComputedAllele1() : sa.getComputedAllele2();
+      if (sampleAllele == null) {
         //System.out.println("Sample has no allele @ " + vl);
+        noData += 1;
         continue;
       }
-      String actualAllele = bm.getHaplotype().getAllele(vl);
-      if (actualAllele == null) {
+      String matchAllele = bm.getHaplotype().getAllele(vl);
+      if (matchAllele == null) {
         //System.out.println(bm + " has no allele @ " + vl);
+        noData += 1;
         continue;
       }
-      if (!actualAllele.equals(expectedAllele)) {
-        return false;
+      if (!matchAllele.equals(sampleAllele)) {
+        //System.out.println("Strand " + (strand1 ? "1 " : "2 ") + bm + " mismatch @ " + vl + " (" + vl.getRef() + ">" +
+        //    vl.getAlts().get(0) + ") - sample is " + sampleAllele + " but looking for " + matchAllele);
+        continue;
       }
+      match += 1;
     }
-    return true;
+    return match;
   }
 
   private BaseMatch updateHapB3Haplotype(MatchData matchData, BaseMatch bm, String isHapB3) {
