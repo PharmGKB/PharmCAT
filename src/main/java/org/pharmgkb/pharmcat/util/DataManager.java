@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
@@ -34,6 +35,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
+import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
@@ -277,10 +279,12 @@ public class DataManager {
     List<DefinitionFile> definitionFiles = new ArrayList<>();
     for (DefinitionFile df : parseDefinitionFiles(downloadDir, CPIC_ALLELES_FILE_NAME)) {
       df.setSource(DataSource.CPIC);
+      df.validateAlleleNames();
       definitionFiles.add(df);
     }
     for (DefinitionFile df : parseDefinitionFiles(downloadDir, ALLELES_FILE_NAME)) {
       df.setSource(DataSource.PHARMGKB);
+      df.validateAlleleNames();
       definitionFiles.add(df);
     }
 
@@ -432,7 +436,7 @@ public class DataManager {
         if (!genes.add(gp.getGene())) {
           throw new IllegalStateException("Multiple " + source + " GenePhenotypes for " + gp.getGene());
         }
-        try (Writer writer = Files.newBufferedWriter(outputDir.resolve(sanitizeFiename(gp.getGene()) + ".json"))) {
+        try (Writer writer = Files.newBufferedWriter(outputDir.resolve(sanitizeFilename(gp.getGene()) + ".json"))) {
           DataSerializer.GSON.toJson(gp, writer);
         }
       }
@@ -442,6 +446,12 @@ public class DataManager {
 
 
   private static void validatePhenotypes(PhenotypeMap phenotypeMap) {
+    for (GenePhenotype gp : phenotypeMap.getCpicGenes()) {
+      checkForDuplicatePhenotypeKeys(gp, DataSource.CPIC);
+    }
+    for (GenePhenotype gp : phenotypeMap.getDpwgGenes()) {
+      checkForDuplicatePhenotypeKeys(gp, DataSource.DPWG);
+    }
     // validate DPYD phenotypes (DpydCaller depends on this expectation)
     GenePhenotype dpwgGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.DPWG));
     GenePhenotype cpicGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.CPIC));
@@ -452,7 +462,21 @@ public class DataManager {
     }
   }
 
-  private static String sanitizeFiename(String basename) {
+  private static void checkForDuplicatePhenotypeKeys(GenePhenotype gp, DataSource source) {
+    Set<String> keys = new HashSet<>();
+    for (DiplotypeRecord dr : gp.getDiplotypes()) {
+      String key = dr.getDiplotypeKey().keySet().stream()
+          .sorted()
+          .map(h -> h + " (" + dr.getDiplotypeKey().get(h) + ")")
+          .collect(Collectors.joining("/"));
+      if (!keys.add(key)) {
+        throw new IllegalStateException("Duplicate key: " + key + " for " + gp.getGene() + " from " + source);
+      }
+    }
+  }
+
+
+  private static String sanitizeFilename(String basename) {
     return basename.replaceAll("\\p{Punct}", " ")
         .replaceAll("\\s+", "_");
   }

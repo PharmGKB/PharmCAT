@@ -514,6 +514,18 @@ public class DefinitionFile {
     }
   }
 
+  /**
+   * Makes sure allele names do not have a "/" in them.
+   */
+  public void validateAlleleNames() throws IllegalStateException {
+    for (NamedAllele na : m_namedAlleles) {
+      if (na.getName().contains("/")) {
+        throw new IllegalStateException(m_source + " has a " + m_geneSymbol +
+            " NamedAllele has invalid name with a '/': " + na.getName());
+      }
+    }
+  }
+
 
   /**
    * Get updated {@link NamedAllele} with re-ordered alleles based on re-sorted positions.

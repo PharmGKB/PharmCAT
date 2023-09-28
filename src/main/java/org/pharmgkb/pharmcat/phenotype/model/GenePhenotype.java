@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
@@ -123,7 +124,11 @@ public class GenePhenotype {
     } else if (diplotypes.isEmpty()) {
       return Optional.empty();
     }
-    throw new RuntimeException("Multiple diplotypes found for " + m_gene);
+    // should never happen, DataManager should have caught this
+    throw new IllegalStateException(diplotypes.size() + " diplotypes found for " + m_gene + " for " +
+        diplotypeKey.keySet().stream()
+            .map(k -> k + " (" + diplotypeKey.get(k) + ")")
+            .collect(Collectors.joining(", ")));
   }
 
 
