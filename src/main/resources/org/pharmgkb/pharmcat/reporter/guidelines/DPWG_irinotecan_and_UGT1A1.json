@@ -3,7 +3,7 @@
     "id": "PA166104951",
     "name": "Annotation of DPWG Guideline for irinotecan and UGT1A1",
     "source": "DPWG",
-    "version": 35,
+    "version": 36,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104951",
     "relatedChemicals": [
       {
@@ -253,7 +253,7 @@
         "Swen Jesse J"
       ],
       "journal": "European journal of human genetics : EJHG",
-      "year": 2022
+      "year": 2023
     },
     {
       "pmid": "21412232",
@@ -278,5 +278,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-09-07-21-06"
+  "version": "2023-09-28-14-38"
 }
