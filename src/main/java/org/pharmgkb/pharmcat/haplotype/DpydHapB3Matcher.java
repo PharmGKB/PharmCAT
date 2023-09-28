@@ -208,6 +208,9 @@ public class DpydHapB3Matcher {
   }
 
 
+  /**
+   * Calculates a score for how well a strand matches a {@link BaseMatch}.
+   */
   private int checkStrand(MatchData matchData, BaseMatch bm, boolean strand1) {
     int total = 0;
     int match = 0;
