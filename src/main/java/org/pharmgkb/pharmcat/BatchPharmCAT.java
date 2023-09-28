@@ -312,7 +312,11 @@ public class BatchPharmCAT {
     for (Future<PipelineResult> future : futures) {
       PipelineResult rez = future.get();
       if (rez.getStatus() == PipelineResult.Status.FAILURE) {
-        System.out.println("FAILED " + (rez.getSampleId() == null ? rez.getBasename() : rez.getSampleId()));
+        String msg = rez.getBasename();
+        if (rez.getSampleId() != null) {
+          msg = rez.getSampleId() + " in " + rez.getBasename();
+        }
+        System.out.println("FAILED " + msg + ".vcf.  See " + rez.getBasename() + ".ERROR.txt file for details.");
       }
     }
 

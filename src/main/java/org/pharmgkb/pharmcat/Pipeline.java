@@ -365,7 +365,8 @@ public class Pipeline implements Callable<PipelineResult> {
           m_sampleId);
 
     } catch (Exception ex) {
-      if (!m_singleSample) {
+      if (!m_singleSample || batchDisplayMode) {
+        System.err.println("Error with " + m_displayName + ":");
         //noinspection CallToPrintStackTrace
         ex.printStackTrace();
         Path txtFile = m_baseDir.resolve(m_basename + ".ERROR.txt");
