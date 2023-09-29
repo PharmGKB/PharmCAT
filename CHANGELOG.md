@@ -1,3 +1,12 @@
+## [2.8.1](https://github.com/PharmGKB/PharmCAT/compare/v2.8.0...v2.8.1) (2023-09-29)
+
+
+### Bug Fixes
+
+* improve error handling in batch mode ([b7c9e66](https://github.com/PharmGKB/PharmCAT/commit/b7c9e660464313b0e42c59e014c357aa25a7455b))
+* **data:** add more data validation ([0388049](https://github.com/PharmGKB/PharmCAT/commit/0388049ba06b345f54a4bf2682f872379156d4ce))
+* **namedallelematcher:** fix DPYD HapB3 phasing issue ([256ac64](https://github.com/PharmGKB/PharmCAT/commit/256ac64335d47b53c6c7b566b75bc9b0f52a6646)), closes [#155](https://github.com/PharmGKB/PharmCAT/issues/155)
+
 ## [2.8.0](https://github.com/PharmGKB/PharmCAT/compare/v2.7.1...v2.8.0) (2023-09-22)
 
 
