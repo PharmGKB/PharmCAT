@@ -22,28 +22,14 @@ then
   exit 1
 fi
 
-commits=$(git rev-list HEAD...origin/development | wc -l)
-if [[ $commits -gt 0 ]]
-then
-  echo "This branch is ${commits} behind origin/development."
-  exit 1
-fi
-
 # update disclaimers.hbs
 echo "Updating disclaimer"
 script_dir="$( dirname -- "$BASH_SOURCE"; )";
 "${script_dir}/update_disclaimer.js"
 
-git_config=$(git config --list)
-safe_crlf=""
-if [[ "${git_config}" == *"core.safecrlf"* ]]
-then
-  safe_crlf=$(git config core.safecrlf)
-  if [[ $safe_crlf == 'warn' ]]
-  then
-    git config core.safecrlf "false"
-  fi
-fi
+# this reverts files with only EOL changes
+git stash
+git stash pop
 
 diffs=$(git diff --name-only | wc -l)
 if [[ $diffs -gt 0 ]]
@@ -53,12 +39,6 @@ then
   git commit -m "chore: update disclaimer"
   git push
 fi
-
-if [[ $safe_crlf == 'warn' ]]
-then
-  git config core.safecrlf "warn"
-fi
-
 
 # do release
 echo "Creating release..."
