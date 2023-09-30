@@ -60,7 +60,7 @@ public class CombinationMatch extends BaseMatch {
       String allele = matchData.getAllele(seq, x);
       if (!reference.getAlleles()[x].equals(allele)) {
         VariantLocus vl = matchData.getPositions()[x];
-        if (builder.length() > 0) {
+        if (!builder.isEmpty()) {
           builder.append(COMBINATION_JOINER);
         }
         builder.append(vl.getHgvsForVcfAllele(allele));
@@ -84,7 +84,7 @@ public class CombinationMatch extends BaseMatch {
     StringBuilder builder = new StringBuilder();
     int count = 0;
     for (NamedAllele na : m_componentHaplotypes) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(COMBINATION_JOINER);
       }
       if (na.isCombination()) {
@@ -108,21 +108,27 @@ public class CombinationMatch extends BaseMatch {
    * @param isOffReferencePartial if true, will set score to 0
    */
   private NamedAllele buildHaplotype(int numPartials, boolean isOffReferencePartial) {
-    if (m_componentHaplotypes.first().getAlleles().length != m_componentHaplotypes.first().getCpicAlleles().length) {
-      throw new IllegalStateException(m_componentHaplotypes.first() + " has different number of alleles and cpicAlleles");
+    int length = m_refVariants.length;
+    for (NamedAllele na : m_componentHaplotypes) {
+      if (na.getAlleles().length != length) {
+        throw new IllegalStateException("Component haplotypes have unexpected number of alleles");
+      }
+      if (na.getCpicAlleles().length != length) {
+        throw new IllegalStateException(na + " has different number of alleles and cpicAlleles");
+      }
     }
     StringBuilder idBuilder = new StringBuilder();
     SortedSet<VariantLocus> missingPositions = new TreeSet<>();
     for (NamedAllele na : m_componentHaplotypes) {
-      if (idBuilder.length() > 0) {
+      if (!idBuilder.isEmpty()) {
         idBuilder.append(COMBINATION_JOINER);
       }
       idBuilder.append(na.getId());
       missingPositions.addAll(na.getMissingPositions());
     }
-    String[] alleles = new String[m_componentHaplotypes.first().getAlleles().length];
-    String[] cpicAlleles = new String[alleles.length];
-    for (int x = 0; x < alleles.length; x += 1) {
+    String[] alleles = new String[length];
+    String[] cpicAlleles = new String[length];
+    for (int x = 0; x < length; x += 1) {
       for (NamedAllele na : m_componentHaplotypes) {
         if (alleles[x] == null) {
           alleles[x] = na.getAlleles()[x];

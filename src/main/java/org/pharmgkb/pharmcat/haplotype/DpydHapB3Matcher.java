@@ -247,17 +247,31 @@ public class DpydHapB3Matcher {
     if (isHapB3.equals("0")) {
       return bm;
     }
+
+    if (bm.getSequences().size() > 1) {
+      throw new IllegalStateException("Phased DPYD match should only have 1 sequence");
+    }
+
+    NamedAllele hapB3 = findHapB3(matchData);
     if (bm instanceof CombinationMatch) {
-      CombinationMatch cm = (CombinationMatch)bm;
-      cm.merge(findHapB3(matchData));
+      CombinationMatch cm = null;
+      for (NamedAllele c : ((CombinationMatch)bm).getComponentHaplotypes()) {
+        NamedAllele component = matchData.getHaplotypes().stream()
+            .filter(h -> h.getName().equals(c.getName()))
+            .findAny()
+            .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + c.getName() + "'"));
+        if (cm == null) {
+          cm = new CombinationMatch(matchData.getPositions(), component, bm.getSequences().first());
+        } else {
+          cm.merge(component);
+        }
+      }
+      Objects.requireNonNull(cm).merge(hapB3);
       return cm;
     }
     HaplotypeMatch hm = (HaplotypeMatch)bm;
     if (hm.getName().equals("Reference")) {
-      return isHapB3.equals("1") ? new HaplotypeMatch(findHapB3(matchData)) : bm;
-    }
-    if (hm.getSequences().size() > 1) {
-      throw new IllegalStateException("Phased DPYD haplotype match should only have 1 sequence");
+      return new HaplotypeMatch(hapB3);
     }
     NamedAllele hap = matchData.getHaplotypes().stream()
         .filter(h -> h.getName().equals(hm.getName()))
@@ -265,7 +279,7 @@ public class DpydHapB3Matcher {
         .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + hm.getName() + "'"));
     // warning: sequence will not match haplotype because sequence won't have HapB3 positions
     CombinationMatch cm = new CombinationMatch(matchData.getPositions(), hap, hm.getSequences().first());
-    cm.merge(findHapB3(matchData));
+    cm.merge(hapB3);
     return cm;
   }
 

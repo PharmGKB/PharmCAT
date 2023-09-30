@@ -650,6 +650,39 @@ class DpydTest {
     dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
+  @Test
+  void test156(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // chr1	97305364	1|0  C->T
+        .variation("DPYD", "rs1801160", "T", "C")
+        // chr1	97515839	1|0 T->C
+        .variation("DPYD", "rs1801159", "C", "T")
+
+        // chr1	97573863	1|0 C->T
+        .variation("DPYD", "rs56038477", "T", "C")
+        // chr1	97579893	1|0 G->C
+        .variation("DPYD", "rs75017182", "C", "G")
+    ;
+
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of(
+        "Reference/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)]"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("Reference", DpydHapB3Matcher.HAPB3_ALLELE));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
 
   @Test
   void hapB3(TestInfo testInfo) throws Exception {
