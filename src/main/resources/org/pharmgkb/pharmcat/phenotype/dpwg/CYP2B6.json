@@ -69,17 +69,6 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
-      "generesult": "Poor Metabolizer",
-      "diplotype": "*18/*18",
-      "description": null,
-      "lookupkey": "Poor Metabolizer",
-      "diplotypekey": {
-        "*18": 2
-      },
-      "activityScore": null,
-      "phenotype": "Poor Metabolizer"
-    },
-    {
       "generesult": "Normal Metabolizer",
       "diplotype": "*5/*5",
       "description": null,
@@ -183,6 +172,17 @@
       },
       "activityScore": null,
       "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*18/*18",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*18": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
     }
   ],
   "namedAlleles": [
@@ -217,5 +217,5 @@
       "lookupKey": "No function"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }

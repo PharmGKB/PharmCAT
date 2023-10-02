@@ -148,40 +148,6 @@
     },
     {
       "generesult": "Poor Metabolizer",
-      "diplotype": "*10/*10",
-      "description": null,
-      "lookupkey": "Poor Metabolizer",
-      "diplotypekey": {
-        "*10": 2
-      },
-      "activityScore": null,
-      "phenotype": "Poor Metabolizer"
-    },
-    {
-      "generesult": "Intermediate Metabolizer",
-      "diplotype": "*10/*17",
-      "description": null,
-      "lookupkey": "Intermediate Metabolizer",
-      "diplotypekey": {
-        "*10": 1,
-        "*17": 1
-      },
-      "activityScore": null,
-      "phenotype": "Intermediate Metabolizer"
-    },
-    {
-      "generesult": "Ultrarapid Metabolizer",
-      "diplotype": "*17/*17",
-      "description": null,
-      "lookupkey": "Ultrarapid Metabolizer",
-      "diplotypekey": {
-        "*17": 2
-      },
-      "activityScore": null,
-      "phenotype": "Ultrarapid Metabolizer"
-    },
-    {
-      "generesult": "Poor Metabolizer",
       "diplotype": "*2/*2",
       "description": null,
       "lookupkey": "Poor Metabolizer",
@@ -795,6 +761,40 @@
       },
       "activityScore": null,
       "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "*10/*10",
+      "description": null,
+      "lookupkey": "Poor Metabolizer",
+      "diplotypekey": {
+        "*10": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "*10/*17",
+      "description": null,
+      "lookupkey": "Intermediate Metabolizer",
+      "diplotypekey": {
+        "*10": 1,
+        "*17": 1
+      },
+      "activityScore": null,
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*17/*17",
+      "description": null,
+      "lookupkey": "Ultrarapid Metabolizer",
+      "diplotypekey": {
+        "*17": 2
+      },
+      "activityScore": null,
+      "phenotype": "Ultrarapid Metabolizer"
     }
   ],
   "namedAlleles": [
@@ -865,5 +865,5 @@
       "lookupKey": "Increased function"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }

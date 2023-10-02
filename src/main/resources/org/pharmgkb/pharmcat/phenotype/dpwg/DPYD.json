@@ -122,18 +122,6 @@
       "phenotype": "1.0 (Phenotyping)"
     },
     {
-      "generesult": "0.5 (Phenotyping)",
-      "diplotype": "c.1679T>G (*13)/c.2846A>T",
-      "description": null,
-      "lookupkey": "0.5 (Phenotyping)",
-      "diplotypekey": {
-        "c.1679T>G (*13)": 1,
-        "c.2846A>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "0.5 (Phenotyping)"
-    },
-    {
       "generesult": "0.0 (Poor Metabolizer)",
       "diplotype": "c.1679T>G (*13)/c.1679T>G (*13)",
       "description": null,
@@ -158,11 +146,11 @@
     },
     {
       "generesult": "0.5 (Phenotyping)",
-      "diplotype": "c.1905+1G>A (*2A)/c.2846A>T",
+      "diplotype": "c.1679T>G (*13)/c.2846A>T",
       "description": null,
       "lookupkey": "0.5 (Phenotyping)",
       "diplotypekey": {
-        "c.1905+1G>A (*2A)": 1,
+        "c.1679T>G (*13)": 1,
         "c.2846A>T": 1
       },
       "activityScore": null,
@@ -178,6 +166,18 @@
       },
       "activityScore": null,
       "phenotype": "0.0 (Poor Metabolizer)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1905+1G>A (*2A)/c.2846A>T",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1905+1G>A (*2A)": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
     },
     {
       "generesult": "1.0 (Phenotyping)",
@@ -223,5 +223,5 @@
       "lookupKey": "0.5"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }

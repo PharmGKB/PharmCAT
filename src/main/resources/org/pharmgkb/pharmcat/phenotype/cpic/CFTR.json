@@ -46,6 +46,17 @@
   "diplotypes": [
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/711+3A->G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 2
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "711+3A->G/2789+5G->A",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -82,11 +93,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/711+3A->G",
+      "diplotype": "711+3A->G/A455E",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "711+3A->G": 2
+        "711+3A->G": 1,
+        "A455E": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -99,18 +111,6 @@
       "diplotypekey": {
         "711+3A->G": 1,
         "A1067T": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/A455E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "A455E": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -141,6 +141,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "711+3A->G/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -165,12 +177,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/D579G",
+      "diplotype": "711+3A->G/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "711+3A->G": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -183,18 +195,6 @@
       "diplotypekey": {
         "711+3A->G": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -237,42 +237,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "711+3A->G/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -303,6 +267,42 @@
       "diplotypekey": {
         "711+3A->G": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -345,24 +345,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/R1070Q",
+      "diplotype": "711+3A->G/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "711+3A->G": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -417,36 +405,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/R74W",
+      "diplotype": "711+3A->G/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "711+3A->G": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/S1251N",
+      "diplotype": "711+3A->G/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "711+3A->G": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "711+3A->G/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "711+3A->G": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -513,6 +489,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "711+3A->G/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "711+3A->G": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "711+3A->G/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -560,24 +560,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/A1067T",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "A1067T": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "2789+5G->A/A455E",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "2789+5G->A": 1,
         "A455E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/A1067T",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "A1067T": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -608,6 +608,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "2789+5G->A/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -632,12 +644,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/D579G",
+      "diplotype": "2789+5G->A/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "2789+5G->A": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -650,18 +662,6 @@
       "diplotypekey": {
         "2789+5G->A": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -704,42 +704,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "2789+5G->A/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -770,6 +734,42 @@
       "diplotypekey": {
         "2789+5G->A": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -812,24 +812,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/R1070Q",
+      "diplotype": "2789+5G->A/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "2789+5G->A": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -884,36 +872,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/R74W",
+      "diplotype": "2789+5G->A/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "2789+5G->A": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/S1251N",
+      "diplotype": "2789+5G->A/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "2789+5G->A": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "2789+5G->A/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "2789+5G->A": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -980,6 +956,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "2789+5G->A/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "2789+5G->A": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "2789+5G->A/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1015,24 +1015,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/A1067T",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "A1067T": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3272-26A->G/A455E",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3272-26A->G": 1,
         "A455E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/A1067T",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "A1067T": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1063,6 +1063,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3272-26A->G/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1087,12 +1099,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/D579G",
+      "diplotype": "3272-26A->G/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3272-26A->G": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1105,18 +1117,6 @@
       "diplotypekey": {
         "3272-26A->G": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1159,42 +1159,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3272-26A->G/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1225,6 +1189,42 @@
       "diplotypekey": {
         "3272-26A->G": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1267,24 +1267,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/R1070Q",
+      "diplotype": "3272-26A->G/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3272-26A->G": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1339,36 +1327,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/R74W",
+      "diplotype": "3272-26A->G/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3272-26A->G": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/S1251N",
+      "diplotype": "3272-26A->G/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3272-26A->G": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3272-26A->G/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3272-26A->G": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1435,6 +1411,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3272-26A->G/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3272-26A->G": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3272-26A->G/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1458,24 +1458,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/A1067T",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "A1067T": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3849+10kbC->T/A455E",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3849+10kbC->T": 1,
         "A455E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/A1067T",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "A1067T": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1506,6 +1506,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3849+10kbC->T/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1530,12 +1542,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/D579G",
+      "diplotype": "3849+10kbC->T/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3849+10kbC->T": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1548,18 +1560,6 @@
       "diplotypekey": {
         "3849+10kbC->T": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1602,42 +1602,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3849+10kbC->T/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1668,6 +1632,42 @@
       "diplotypekey": {
         "3849+10kbC->T": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1710,24 +1710,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/R1070Q",
+      "diplotype": "3849+10kbC->T/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3849+10kbC->T": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1782,36 +1770,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/R74W",
+      "diplotype": "3849+10kbC->T/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3849+10kbC->T": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/S1251N",
+      "diplotype": "3849+10kbC->T/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "3849+10kbC->T": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "3849+10kbC->T/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "3849+10kbC->T": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1878,6 +1854,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "3849+10kbC->T/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "3849+10kbC->T": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "3849+10kbC->T/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1890,23 +1890,23 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/A1067T",
+      "diplotype": "A455E/A455E",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "A455E": 1,
-        "A1067T": 1
+        "A455E": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/A455E",
+      "diplotype": "A455E/A1067T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "A455E": 2
+        "A455E": 1,
+        "A1067T": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1937,6 +1937,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A455E/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -1961,12 +1973,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/D579G",
+      "diplotype": "A455E/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A455E": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -1979,18 +1991,6 @@
       "diplotypekey": {
         "A455E": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2033,42 +2033,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A455E/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2099,6 +2063,42 @@
       "diplotypekey": {
         "A455E": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2141,24 +2141,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/R1070Q",
+      "diplotype": "A455E/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A455E": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2213,36 +2201,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/R74W",
+      "diplotype": "A455E/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A455E": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/S1251N",
+      "diplotype": "A455E/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A455E": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A455E/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A455E": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2309,6 +2285,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A455E/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A455E": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A455E/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2356,6 +2356,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A1067T/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2380,12 +2392,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/D579G",
+      "diplotype": "A1067T/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A1067T": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2398,18 +2410,6 @@
       "diplotypekey": {
         "A1067T": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2452,42 +2452,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A1067T/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2518,6 +2482,42 @@
       "diplotypekey": {
         "A1067T": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2560,24 +2560,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/R1070Q",
+      "diplotype": "A1067T/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A1067T": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2632,36 +2620,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/R74W",
+      "diplotype": "A1067T/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A1067T": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/S1251N",
+      "diplotype": "A1067T/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "A1067T": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "A1067T/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "A1067T": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2728,6 +2704,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "A1067T/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "A1067T": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "A1067T/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2763,6 +2763,18 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "D579G": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D110E/D1152H",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2787,12 +2799,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/D579G",
+      "diplotype": "D110E/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110E": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2805,18 +2817,6 @@
       "diplotypekey": {
         "D110E": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2859,42 +2859,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D110E/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -2925,6 +2889,42 @@
       "diplotypekey": {
         "D110E": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -2967,24 +2967,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/R1070Q",
+      "diplotype": "D110E/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110E": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3039,36 +3027,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/R74W",
+      "diplotype": "D110E/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110E": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/S1251N",
+      "diplotype": "D110E/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110E": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110E/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110E": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3135,6 +3111,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110E/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110E": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D110E/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -3152,6 +3152,18 @@
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 2
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "D579G": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3182,12 +3194,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/D579G",
+      "diplotype": "D110H/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 1,
-        "D579G": 1
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3200,18 +3212,6 @@
       "diplotypekey": {
         "D110H": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3254,42 +3254,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D110H/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -3320,6 +3284,42 @@
       "diplotypekey": {
         "D110H": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3362,24 +3362,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/R1070Q",
+      "diplotype": "D110H/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3434,36 +3422,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/R74W",
+      "diplotype": "D110H/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/S1251N",
+      "diplotype": "D110H/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D110H/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D110H": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3530,12 +3506,47 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D110H/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D110H": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D110H/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D110H": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/D579G",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3566,11 +3577,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/D579G",
+      "diplotype": "D579G/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "D579G": 2
+        "D579G": 1,
+        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3583,18 +3595,6 @@
       "diplotypekey": {
         "D579G": 1,
         "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/E56K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "E56K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3637,42 +3637,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D579G/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -3703,6 +3667,42 @@
       "diplotypekey": {
         "D579G": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3745,24 +3745,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/R1070Q",
+      "diplotype": "D579G/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D579G": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3817,36 +3805,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/R74W",
+      "diplotype": "D579G/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D579G": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/S1251N",
+      "diplotype": "D579G/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D579G": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D579G/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D579G": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -3913,6 +3889,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D579G/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D579G": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D579G/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -3948,24 +3948,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/E193K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1152H/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1152H": 1,
         "E56K": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/E193K",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "E193K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4008,42 +4008,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1152H/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -4074,6 +4038,42 @@
       "diplotypekey": {
         "D1152H": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4116,24 +4116,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/R1070Q",
+      "diplotype": "D1152H/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1152H": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4188,36 +4176,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/R74W",
+      "diplotype": "D1152H/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1152H": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/S1251N",
+      "diplotype": "D1152H/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1152H": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1152H/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1152H": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4284,6 +4260,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1152H/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1152H": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1152H/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -4307,24 +4307,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/E193K",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "E193K": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1270N/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1270N": 1,
         "E56K": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/E193K",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "E193K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4367,42 +4367,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1270N/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -4433,6 +4397,42 @@
       "diplotypekey": {
         "D1270N": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4475,24 +4475,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/R1070Q",
+      "diplotype": "D1270N/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1270N": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4547,36 +4535,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/R74W",
+      "diplotype": "D1270N/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1270N": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/S1251N",
+      "diplotype": "D1270N/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "D1270N": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "D1270N/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "D1270N": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4643,6 +4619,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "D1270N/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "D1270N": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "D1270N/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -4655,23 +4655,23 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/E193K",
+      "diplotype": "E56K/E56K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "E56K": 1,
-        "E193K": 1
+        "E56K": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/E56K",
+      "diplotype": "E56K/E193K",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "E56K": 2
+        "E56K": 1,
+        "E193K": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4714,42 +4714,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E56K": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E56K": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E56K": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E56K/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -4780,6 +4744,42 @@
       "diplotypekey": {
         "E56K": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E56K/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E56K": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E56K/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E56K": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E56K/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E56K": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4822,24 +4822,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/R1070Q",
+      "diplotype": "E56K/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E56K": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E56K": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4894,36 +4882,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/R74W",
+      "diplotype": "E56K/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E56K": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/S1251N",
+      "diplotype": "E56K/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E56K": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E56K/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E56K": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -4990,6 +4966,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E56K/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E56K": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E56K/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E56K": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E56K/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5049,42 +5049,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E193K": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E193K": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E193K": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E193K/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5115,6 +5079,42 @@
       "diplotypekey": {
         "E193K": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E193K/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E193K": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E193K/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E193K": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E193K/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E193K": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5157,24 +5157,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/R1070Q",
+      "diplotype": "E193K/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E193K": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E193K": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5229,36 +5217,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/R74W",
+      "diplotype": "E193K/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E193K": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/S1251N",
+      "diplotype": "E193K/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E193K": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E193K/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E193K": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5325,6 +5301,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E193K/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E193K": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E193K/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E193K": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E193K/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5372,42 +5372,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E831X": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E831X": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E831X": 1,
-        "G1349D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E831X/G178R",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5438,6 +5402,42 @@
       "diplotypekey": {
         "E831X": 1,
         "G551S": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E831X/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E831X": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E831X/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E831X": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E831X/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E831X": 1,
+        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5480,24 +5480,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/R1070Q",
+      "diplotype": "E831X/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E831X": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E831X": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5552,36 +5540,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/R74W",
+      "diplotype": "E831X/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E831X": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/S1251N",
+      "diplotype": "E831X/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "E831X": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "E831X/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "E831X": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5648,6 +5624,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E831X/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E831X": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "E831X/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "E831X": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "E831X/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5677,42 +5677,6 @@
       "diplotypekey": {
         "F1052V": 1,
         "F1074L": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1052V": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1052V": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1052V": 1,
-        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5755,6 +5719,42 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1052V/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1052V": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1052V/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1052V": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1052V/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1052V": 1,
+        "G1349D": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "F1052V/K1060T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5791,24 +5791,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/R1070Q",
+      "diplotype": "F1052V/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1052V": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1052V": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5863,36 +5851,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/R74W",
+      "diplotype": "F1052V/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1052V": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/S1251N",
+      "diplotype": "F1052V/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1052V": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1052V/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1052V": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -5959,6 +5935,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1052V/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1052V": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1052V/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1052V": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "F1052V/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -5976,42 +5976,6 @@
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1074L": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/G1069R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1074L": 1,
-        "G1069R": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/G1244E",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1074L": 1,
-        "G1244E": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/G1349D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1074L": 1,
-        "G1349D": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6054,6 +6018,42 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1074L/G1069R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1074L": 1,
+        "G1069R": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1074L/G1244E",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1074L": 1,
+        "G1244E": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1074L/G1349D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1074L": 1,
+        "G1349D": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "F1074L/K1060T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -6090,24 +6090,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/R1070Q",
+      "diplotype": "F1074L/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1074L": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1074L": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6162,36 +6150,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/R74W",
+      "diplotype": "F1074L/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1074L": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/S1251N",
+      "diplotype": "F1074L/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1074L": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "F1074L/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "F1074L": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6258,12 +6234,71 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1074L/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1074L": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "F1074L/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "F1074L": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "F1074L/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "F1074L": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G178R/G178R",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G178R": 2
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G178R/G551D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G178R": 1,
+        "G551D": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G178R/G551S",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G178R": 1,
+        "G551S": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6306,41 +6341,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/G178R",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G178R": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/G551D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G178R": 1,
-        "G551D": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/G551S",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G178R": 1,
-        "G551S": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G178R/K1060T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -6377,24 +6377,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/R1070Q",
+      "diplotype": "G178R/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G178R": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G178R": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6449,36 +6437,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/R74W",
+      "diplotype": "G178R/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G178R": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/S1251N",
+      "diplotype": "G178R/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G178R": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G178R/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G178R": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6545,12 +6521,59 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G178R/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G178R": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G178R/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G178R": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G178R/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G178R": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551D/G551D",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551D": 2
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551D/G551S",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551D": 1,
+        "G551S": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6593,29 +6616,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/G551D",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551D": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/G551S",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551D": 1,
-        "G551S": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G551D/K1060T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -6652,24 +6652,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/R1070Q",
+      "diplotype": "G551D/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551D": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551D": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6724,36 +6712,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/R74W",
+      "diplotype": "G551D/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551D": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/S1251N",
+      "diplotype": "G551D/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551D": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551D/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551D": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6820,12 +6796,47 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551D/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551D": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551D/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551D": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G551D/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551D": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551S/G551S",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551S": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6868,17 +6879,6 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/G551S",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551S": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G551S/K1060T",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -6915,24 +6915,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/R1070Q",
+      "diplotype": "G551S/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551S": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551S": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -6987,36 +6975,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/R74W",
+      "diplotype": "G551S/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551S": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/S1251N",
+      "diplotype": "G551S/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G551S": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G551S/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G551S": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7077,6 +7053,30 @@
       "diplotypekey": {
         "G551S": 1,
         "S977F": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551S/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551S": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G551S/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G551S": 1,
+        "S1255P": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7166,24 +7166,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1069R/R1070Q",
+      "diplotype": "G1069R/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1069R": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1069R/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1069R": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7238,36 +7226,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1069R/R74W",
+      "diplotype": "G1069R/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1069R": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1069R/S1251N",
+      "diplotype": "G1069R/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1069R": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1069R/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1069R": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7328,6 +7304,30 @@
       "diplotypekey": {
         "G1069R": 1,
         "S977F": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1069R/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1069R": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1069R/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1069R": 1,
+        "S1255P": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7405,24 +7405,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1244E/R1070Q",
+      "diplotype": "G1244E/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1244E": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1244E/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1244E": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7477,36 +7465,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1244E/R74W",
+      "diplotype": "G1244E/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1244E": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1244E/S1251N",
+      "diplotype": "G1244E/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1244E": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1244E/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1244E": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7573,6 +7549,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1244E/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1244E": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1244E/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1244E": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G1244E/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -7632,24 +7632,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1349D/R1070Q",
+      "diplotype": "G1349D/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1349D": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1349D/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1349D": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7704,36 +7692,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1349D/R74W",
+      "diplotype": "G1349D/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1349D": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1349D/S1251N",
+      "diplotype": "G1349D/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "G1349D": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "G1349D/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "G1349D": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7800,6 +7776,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1349D/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1349D": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "G1349D/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "G1349D": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "G1349D/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -7847,24 +7847,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "K1060T/R1070Q",
+      "diplotype": "K1060T/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "K1060T": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "K1060T/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "K1060T": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -7919,36 +7907,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "K1060T/R74W",
+      "diplotype": "K1060T/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "K1060T": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "K1060T/S1251N",
+      "diplotype": "K1060T/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "K1060T": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "K1060T/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "K1060T": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8015,6 +7991,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "K1060T/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "K1060T": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "K1060T/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "K1060T": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "K1060T/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -8050,24 +8050,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "L206W/R1070Q",
+      "diplotype": "L206W/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "L206W": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "L206W/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "L206W": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8122,36 +8110,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "L206W/R74W",
+      "diplotype": "L206W/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "L206W": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "L206W/S1251N",
+      "diplotype": "L206W/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "L206W": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "L206W/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "L206W": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8218,6 +8194,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "L206W/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "L206W": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "L206W/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "L206W": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "L206W/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -8241,24 +8241,12 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "P67L/R1070Q",
+      "diplotype": "P67L/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "P67L": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "P67L/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "P67L": 1,
-        "R1070W": 1
+        "R74W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8313,36 +8301,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "P67L/R74W",
+      "diplotype": "P67L/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "P67L": 1,
-        "R74W": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "P67L/S1251N",
+      "diplotype": "P67L/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "P67L": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "P67L/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "P67L": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8409,6 +8385,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "P67L/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "P67L": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "P67L/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "P67L": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "P67L/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -8421,24 +8421,11 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R74W/R1070Q",
+      "diplotype": "R74W/R74W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "R74W": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R74W/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R74W": 1,
-        "R1070W": 1
+        "R74W": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8493,35 +8480,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R74W/R74W",
+      "diplotype": "R74W/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "R74W": 2
+        "R74W": 1,
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R74W/S1251N",
+      "diplotype": "R74W/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R74W": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R74W/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R74W": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8588,36 +8564,36 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R74W/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R74W": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R74W/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R74W": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R74W/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R74W": 1,
         "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117C/R1070Q",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R117C": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117C/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R117C": 1,
-        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8671,24 +8647,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117C/S1251N",
+      "diplotype": "R117C/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117C": 1,
-        "S1251N": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117C/S1255P",
+      "diplotype": "R117C/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117C": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8755,36 +8731,36 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R117C/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R117C": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R117C/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R117C": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R117C/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117C": 1,
         "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117H/R1070Q",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R117H": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117H/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R117H": 1,
-        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8826,24 +8802,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117H/S1251N",
+      "diplotype": "R117H/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117H": 1,
-        "S1251N": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R117H/S1255P",
+      "diplotype": "R117H/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117H": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8910,36 +8886,36 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R117H/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R117H": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R117H/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R117H": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R117H/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R117H": 1,
         "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R347H/R1070Q",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R347H": 1,
-        "R1070Q": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R347H/R1070W",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R347H": 1,
-        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -8969,24 +8945,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R347H/S1251N",
+      "diplotype": "R347H/R1070Q",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R347H": 1,
-        "S1251N": 1
+        "R1070Q": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R347H/S1255P",
+      "diplotype": "R347H/R1070W",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R347H": 1,
-        "S1255P": 1
+        "R1070W": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9053,12 +9029,47 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R347H/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R347H": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R347H/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R347H": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R347H/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R347H": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R352Q/R352Q",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R352Q": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9083,41 +9094,6 @@
       "diplotypekey": {
         "R352Q": 1,
         "R1070W": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R352Q/R352Q",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R352Q": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R352Q/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R352Q": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R352Q/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R352Q": 1,
-        "S1255P": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9184,6 +9160,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R352Q/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R352Q": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R352Q/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R352Q": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R352Q/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -9213,30 +9213,6 @@
       "diplotypekey": {
         "R1070Q": 1,
         "R1070W": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R1070Q/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R1070Q": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R1070Q/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R1070Q": 1,
-        "S1255P": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9303,6 +9279,30 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R1070Q/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R1070Q": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R1070Q/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R1070Q": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "R1070Q/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
@@ -9320,30 +9320,6 @@
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R1070W": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R1070W/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R1070W": 1,
-        "S1251N": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R1070W/S1255P",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "R1070W": 1,
-        "S1255P": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9410,23 +9386,11 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "R1070W/ivacaftor non-responsive CFTR sequence",
+      "diplotype": "R1070W/S1251N",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "R1070W": 1,
-        "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549N/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S549N": 1,
         "S1251N": 1
       },
       "activityScore": null,
@@ -9434,12 +9398,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549N/S1255P",
+      "diplotype": "R1070W/S1255P",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "S549N": 1,
+        "R1070W": 1,
         "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "R1070W/ivacaftor non-responsive CFTR sequence",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "R1070W": 1,
+        "ivacaftor non-responsive CFTR sequence": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9505,23 +9481,11 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549N/ivacaftor non-responsive CFTR sequence",
+      "diplotype": "S549N/S1251N",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "S549N": 1,
-        "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549R(A>C)/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S549R(A>C)": 1,
         "S1251N": 1
       },
       "activityScore": null,
@@ -9529,12 +9493,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549R(A>C)/S1255P",
+      "diplotype": "S549N/S1255P",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "S549R(A>C)": 1,
+        "S549N": 1,
         "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S549N/ivacaftor non-responsive CFTR sequence",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S549N": 1,
+        "ivacaftor non-responsive CFTR sequence": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9588,23 +9564,11 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549R(A>C)/ivacaftor non-responsive CFTR sequence",
+      "diplotype": "S549R(A>C)/S1251N",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "S549R(A>C)": 1,
-        "ivacaftor non-responsive CFTR sequence": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549R(T>G)/S1251N",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S549R(T>G)": 1,
         "S1251N": 1
       },
       "activityScore": null,
@@ -9612,12 +9576,24 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S549R(T>G)/S1255P",
+      "diplotype": "S549R(A>C)/S1255P",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
-        "S549R(T>G)": 1,
+        "S549R(A>C)": 1,
         "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S549R(A>C)/ivacaftor non-responsive CFTR sequence",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S549R(A>C)": 1,
+        "ivacaftor non-responsive CFTR sequence": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9659,12 +9635,59 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S549R(T>G)/S1251N",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S549R(T>G)": 1,
+        "S1251N": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S549R(T>G)/S1255P",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S549R(T>G)": 1,
+        "S1255P": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "S549R(T>G)/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "S549R(T>G)": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S945L/S945L",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S945L": 2
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S945L/S977F",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S945L": 1,
+        "S977F": 1
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9695,35 +9718,23 @@
     },
     {
       "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S945L/S945L",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S945L": 2
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S945L/S977F",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S945L": 1,
-        "S977F": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
       "diplotype": "S945L/ivacaftor non-responsive CFTR sequence",
       "description": null,
       "lookupkey": "ivacaftor responsive in CF patients",
       "diplotypekey": {
         "S945L": 1,
         "ivacaftor non-responsive CFTR sequence": 1
+      },
+      "activityScore": null,
+      "phenotype": "ivacaftor responsive in CF patients"
+    },
+    {
+      "generesult": "ivacaftor responsive in CF patients",
+      "diplotype": "S977F/S977F",
+      "description": null,
+      "lookupkey": "ivacaftor responsive in CF patients",
+      "diplotypekey": {
+        "S977F": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -9748,17 +9759,6 @@
       "diplotypekey": {
         "S977F": 1,
         "S1255P": 1
-      },
-      "activityScore": null,
-      "phenotype": "ivacaftor responsive in CF patients"
-    },
-    {
-      "generesult": "ivacaftor responsive in CF patients",
-      "diplotype": "S977F/S977F",
-      "description": null,
-      "lookupkey": "ivacaftor responsive in CF patients",
-      "diplotypekey": {
-        "S977F": 2
       },
       "activityScore": null,
       "phenotype": "ivacaftor responsive in CF patients"
@@ -10087,5 +10087,5 @@
       "lookupKey": "ivacaftor non-responsive"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }

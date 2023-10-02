@@ -83,6 +83,65 @@
     },
     {
       "generesult": "Poor Function",
+      "diplotype": "*5/*5",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "*5": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    },
+    {
+      "generesult": "Poor Function",
+      "diplotype": "*5/*15",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "*5": 1,
+        "*15": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    },
+    {
+      "generesult": "Poor Function",
+      "diplotype": "*5/*40",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "*5": 1,
+        "*40": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    },
+    {
+      "generesult": "Poor Function",
+      "diplotype": "*5/*46",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "*5": 1,
+        "*46": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    },
+    {
+      "generesult": "Poor Function",
+      "diplotype": "*5/*47",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "*5": 1,
+        "*47": 1
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    },
+    {
+      "generesult": "Poor Function",
       "diplotype": "*15/*15",
       "description": null,
       "lookupkey": "Poor Function",
@@ -196,65 +255,6 @@
       },
       "activityScore": null,
       "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*5/*5",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*5": 2
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*5/*15",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*5": 1,
-        "*15": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*5/*40",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*5": 1,
-        "*40": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*5/*46",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*5": 1,
-        "*46": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*5/*47",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*5": 1,
-        "*47": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
     }
   ],
   "namedAlleles": [
@@ -295,5 +295,5 @@
       "lookupKey": "Decreased function"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }

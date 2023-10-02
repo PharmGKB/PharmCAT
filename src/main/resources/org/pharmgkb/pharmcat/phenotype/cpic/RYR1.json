@@ -642,6 +642,89 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.103T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.130C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.130C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.487C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.487C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.488G>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.488G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.742G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.742G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.742G>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.982C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.103T>C/c.1021G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -666,29 +749,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.103T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.103T>C/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -707,102 +767,6 @@
       "diplotypekey": {
         "c.103T>C": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.130C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.130C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -887,30 +851,6 @@
       "diplotypekey": {
         "c.103T>C": 1,
         "c.1841G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.487C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.487C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.488G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.488G>T": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -1133,30 +1073,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.742G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.742G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.103T>C": 1,
-        "c.742G>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.103T>C/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -1205,11 +1121,166 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.103T>C/c.982C>T",
+      "diplotype": "c.103T>C/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.103T>C": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.103T>C/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.103T>C": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.130C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.487C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.487C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.488G>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.488G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.742G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.742G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.742G>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
         "c.982C>T": 1
       },
       "activityScore": null,
@@ -1241,18 +1312,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.130C>T/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -1271,101 +1330,6 @@
       "diplotypekey": {
         "c.130C>T": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.130C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -1450,30 +1414,6 @@
       "diplotypekey": {
         "c.130C>T": 1,
         "c.1841G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.487C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.487C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.488G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.488G>T": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -1696,30 +1636,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.742G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.742G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.130C>T": 1,
-        "c.742G>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.130C>T/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -1768,11 +1684,154 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.130C>T/c.982C>T",
+      "diplotype": "c.130C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.130C>T": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.130C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.130C>T": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.487C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.488G>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.488G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.742G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.742G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.742G>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
         "c.982C>T": 1
       },
       "activityScore": null,
@@ -1804,18 +1863,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.487C>T/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -1834,90 +1881,6 @@
       "diplotypekey": {
         "c.487C>T": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -2002,29 +1965,6 @@
       "diplotypekey": {
         "c.487C>T": 1,
         "c.1841G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.487C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.488G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.488G>T": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -2247,30 +2187,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.742G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.742G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.487C>T": 1,
-        "c.742G>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.487C>T/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -2319,11 +2235,142 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.487C>T/c.982C>T",
+      "diplotype": "c.487C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.487C>T": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.487C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.487C>T": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.488G>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.742G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.742G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.742G>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
         "c.982C>T": 1
       },
       "activityScore": null,
@@ -2355,18 +2402,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.488G>T/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -2385,90 +2420,6 @@
       "diplotypekey": {
         "c.488G>T": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -2553,17 +2504,6 @@
       "diplotypekey": {
         "c.488G>T": 1,
         "c.1841G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.488G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -2786,30 +2726,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.742G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.742G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.488G>T": 1,
-        "c.742G>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.488G>T/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -2858,11 +2774,130 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.488G>T/c.982C>T",
+      "diplotype": "c.488G>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.488G>T": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.488G>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.488G>T": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.742G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.742G>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
         "c.982C>T": 1
       },
       "activityScore": null,
@@ -2894,18 +2929,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.742G>A/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -2924,90 +2947,6 @@
       "diplotypekey": {
         "c.742G>A": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -3314,29 +3253,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.742G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>A": 1,
-        "c.742G>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.742G>A/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -3385,11 +3301,118 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>A/c.982C>T",
+      "diplotype": "c.742G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.742G>A": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>A/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>A": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.742G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
         "c.982C>T": 1
       },
       "activityScore": null,
@@ -3421,18 +3444,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.742G>C/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -3451,90 +3462,6 @@
       "diplotypekey": {
         "c.742G>C": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -3841,17 +3768,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.742G>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.742G>C": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.742G>C/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -3900,12 +3816,107 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.742G>C/c.982C>T",
+      "diplotype": "c.742G>C/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.742G>C": 1,
-        "c.982C>T": 1
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.742G>C/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.742G>C": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.982C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -3936,18 +3947,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.982C>T/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -3966,90 +3965,6 @@
       "diplotypekey": {
         "c.982C>T": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.982C>T": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -4404,11 +4319,96 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.982C>T/c.982C>T",
+      "diplotype": "c.982C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.982C>T": 2
+        "c.982C>T": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.982C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.982C>T": 1,
+        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -4438,18 +4438,6 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.11969G>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.11969G>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.1021G>A/c.1201C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -4468,90 +4456,6 @@
       "diplotypekey": {
         "c.1021G>A": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>A/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>A": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -4906,23 +4810,107 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.1021G>C",
+      "diplotype": "c.1021G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1021G>C": 2
+        "c.1021G>A": 1,
+        "c.11969G>T": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.11969G>T",
+      "diplotype": "c.1021G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.11969G>T": 1
+        "c.1021G>A": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>A/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>A": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.1021G>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -4947,90 +4935,6 @@
       "diplotypekey": {
         "c.1021G>C": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1021G>C/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1021G>C": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -5385,12 +5289,96 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.11969G>T",
+      "diplotype": "c.1021G>C/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1201C>T": 1,
+        "c.1021G>C": 1,
         "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1021G>C/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1021G>C": 1,
+        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -5414,90 +5402,6 @@
       "diplotypekey": {
         "c.1201C>T": 1,
         "c.1209C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1201C>T/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1201C>T": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -5852,12 +5756,96 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.11969G>T",
+      "diplotype": "c.1201C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1209C>G": 1,
+        "c.1201C>T": 1,
         "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1201C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1201C>T": 1,
+        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -5869,90 +5857,6 @@
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
         "c.1209C>G": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14387A>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14387A>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14477C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14477C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14497C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14497C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14512C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14512C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14545G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14545G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14582G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1209C>G/c.14693T>C",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.1209C>G": 1,
-        "c.14693T>C": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -6307,11 +6211,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.11969G>T",
+      "diplotype": "c.1209C>G/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -6319,11 +6223,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14387A>G",
+      "diplotype": "c.1209C>G/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -6331,11 +6235,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14477C>T",
+      "diplotype": "c.1209C>G/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -6343,11 +6247,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14497C>T",
+      "diplotype": "c.1209C>G/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -6355,11 +6259,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14512C>G",
+      "diplotype": "c.1209C>G/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -6367,11 +6271,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14545G>A",
+      "diplotype": "c.1209C>G/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -6379,11 +6283,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14582G>A",
+      "diplotype": "c.1209C>G/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -6391,11 +6295,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1565A>C/c.14693T>C",
+      "diplotype": "c.1209C>G/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1565A>C": 1,
+        "c.1209C>G": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -6750,11 +6654,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.11969G>T",
+      "diplotype": "c.1565A>C/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -6762,11 +6666,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14387A>G",
+      "diplotype": "c.1565A>C/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -6774,11 +6678,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14477C>T",
+      "diplotype": "c.1565A>C/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -6786,11 +6690,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14497C>T",
+      "diplotype": "c.1565A>C/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -6798,11 +6702,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14512C>G",
+      "diplotype": "c.1565A>C/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -6810,11 +6714,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14545G>A",
+      "diplotype": "c.1565A>C/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -6822,11 +6726,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14582G>A",
+      "diplotype": "c.1565A>C/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -6834,11 +6738,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1589G>A/c.14693T>C",
+      "diplotype": "c.1565A>C/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1589G>A": 1,
+        "c.1565A>C": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -7181,11 +7085,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.11969G>T",
+      "diplotype": "c.1589G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -7193,11 +7097,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14387A>G",
+      "diplotype": "c.1589G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -7205,11 +7109,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14477C>T",
+      "diplotype": "c.1589G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -7217,11 +7121,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14497C>T",
+      "diplotype": "c.1589G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -7229,11 +7133,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14512C>G",
+      "diplotype": "c.1589G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -7241,11 +7145,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14545G>A",
+      "diplotype": "c.1589G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -7253,11 +7157,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14582G>A",
+      "diplotype": "c.1589G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -7265,11 +7169,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1597C>T/c.14693T>C",
+      "diplotype": "c.1589G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1597C>T": 1,
+        "c.1589G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -7600,11 +7504,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.11969G>T",
+      "diplotype": "c.1597C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -7612,11 +7516,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14387A>G",
+      "diplotype": "c.1597C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -7624,11 +7528,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14477C>T",
+      "diplotype": "c.1597C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -7636,11 +7540,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14497C>T",
+      "diplotype": "c.1597C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -7648,11 +7552,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14512C>G",
+      "diplotype": "c.1597C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -7660,35 +7564,35 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14545G>A",
+      "diplotype": "c.1597C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
-      "generesult": "Uncertain Susceptibility",
-      "diplotype": "c.1598G>A/c.14582G>A",
-      "description": null,
-      "lookupkey": "Uncertain Susceptibility",
-      "diplotypekey": {
-        "c.1598G>A": 1,
-        "c.14582G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Uncertain Susceptibility"
-    },
-    {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1598G>A/c.14693T>C",
+      "diplotype": "c.1597C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1598G>A": 1,
+        "c.1597C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.1597C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.1597C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -8007,11 +7911,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.11969G>T",
+      "diplotype": "c.1598G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -8019,11 +7923,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14387A>G",
+      "diplotype": "c.1598G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -8031,11 +7935,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14477C>T",
+      "diplotype": "c.1598G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -8043,11 +7947,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14497C>T",
+      "diplotype": "c.1598G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -8055,11 +7959,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14512C>G",
+      "diplotype": "c.1598G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -8067,35 +7971,35 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14545G>A",
+      "diplotype": "c.1598G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14582G>A",
+      "generesult": "Uncertain Susceptibility",
+      "diplotype": "c.1598G>A/c.14582G>A",
       "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "lookupkey": "Uncertain Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
+      "phenotype": "Uncertain Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1654C>T/c.14693T>C",
+      "diplotype": "c.1598G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1654C>T": 1,
+        "c.1598G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -8402,11 +8306,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.11969G>T",
+      "diplotype": "c.1654C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -8414,11 +8318,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14387A>G",
+      "diplotype": "c.1654C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -8426,11 +8330,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14477C>T",
+      "diplotype": "c.1654C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -8438,11 +8342,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14497C>T",
+      "diplotype": "c.1654C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -8450,11 +8354,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14512C>G",
+      "diplotype": "c.1654C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -8462,11 +8366,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14545G>A",
+      "diplotype": "c.1654C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -8474,11 +8378,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14582G>A",
+      "diplotype": "c.1654C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -8486,11 +8390,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1840C>T/c.14693T>C",
+      "diplotype": "c.1654C>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1840C>T": 1,
+        "c.1654C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -8785,11 +8689,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.11969G>T",
+      "diplotype": "c.1840C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -8797,11 +8701,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14387A>G",
+      "diplotype": "c.1840C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -8809,11 +8713,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14477C>T",
+      "diplotype": "c.1840C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -8821,11 +8725,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14497C>T",
+      "diplotype": "c.1840C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -8833,11 +8737,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14512C>G",
+      "diplotype": "c.1840C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -8845,11 +8749,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14545G>A",
+      "diplotype": "c.1840C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -8857,11 +8761,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14582G>A",
+      "diplotype": "c.1840C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -8869,11 +8773,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.1841G>T/c.14693T>C",
+      "diplotype": "c.1840C>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.1841G>T": 1,
+        "c.1840C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -9156,11 +9060,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.11969G>T",
+      "diplotype": "c.1841G>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -9168,11 +9072,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14387A>G",
+      "diplotype": "c.1841G>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -9180,11 +9084,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14477C>T",
+      "diplotype": "c.1841G>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -9192,11 +9096,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14497C>T",
+      "diplotype": "c.1841G>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -9204,11 +9108,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14512C>G",
+      "diplotype": "c.1841G>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -9216,11 +9120,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14545G>A",
+      "diplotype": "c.1841G>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -9228,11 +9132,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14582G>A",
+      "diplotype": "c.1841G>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -9240,11 +9144,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6487C>T/c.14693T>C",
+      "diplotype": "c.1841G>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6487C>T": 1,
+        "c.1841G>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -9515,11 +9419,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.11969G>T",
+      "diplotype": "c.6487C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -9527,11 +9431,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14387A>G",
+      "diplotype": "c.6487C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -9539,11 +9443,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14477C>T",
+      "diplotype": "c.6487C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -9551,11 +9455,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14497C>T",
+      "diplotype": "c.6487C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -9563,11 +9467,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14512C>G",
+      "diplotype": "c.6487C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -9575,11 +9479,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14545G>A",
+      "diplotype": "c.6487C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -9587,11 +9491,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14582G>A",
+      "diplotype": "c.6487C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -9599,11 +9503,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6488G>A/c.14693T>C",
+      "diplotype": "c.6487C>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6488G>A": 1,
+        "c.6487C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -9862,11 +9766,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.11969G>T",
+      "diplotype": "c.6488G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -9874,11 +9778,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14387A>G",
+      "diplotype": "c.6488G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -9886,11 +9790,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14477C>T",
+      "diplotype": "c.6488G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -9898,11 +9802,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14497C>T",
+      "diplotype": "c.6488G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -9910,11 +9814,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14512C>G",
+      "diplotype": "c.6488G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -9922,11 +9826,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14545G>A",
+      "diplotype": "c.6488G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -9934,11 +9838,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14582G>A",
+      "diplotype": "c.6488G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -9946,11 +9850,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6502G>A/c.14693T>C",
+      "diplotype": "c.6488G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6502G>A": 1,
+        "c.6488G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -10197,11 +10101,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.11969G>T",
+      "diplotype": "c.6502G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -10209,11 +10113,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14387A>G",
+      "diplotype": "c.6502G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -10221,11 +10125,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14477C>T",
+      "diplotype": "c.6502G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -10233,11 +10137,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14497C>T",
+      "diplotype": "c.6502G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -10245,11 +10149,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14512C>G",
+      "diplotype": "c.6502G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -10257,11 +10161,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14545G>A",
+      "diplotype": "c.6502G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -10269,11 +10173,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14582G>A",
+      "diplotype": "c.6502G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -10281,11 +10185,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>G/c.14693T>C",
+      "diplotype": "c.6502G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>G": 1,
+        "c.6502G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -10520,11 +10424,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.11969G>T",
+      "diplotype": "c.6617C>G/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -10532,11 +10436,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14387A>G",
+      "diplotype": "c.6617C>G/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -10544,11 +10448,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14477C>T",
+      "diplotype": "c.6617C>G/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -10556,11 +10460,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14497C>T",
+      "diplotype": "c.6617C>G/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -10568,11 +10472,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14512C>G",
+      "diplotype": "c.6617C>G/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -10580,11 +10484,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14545G>A",
+      "diplotype": "c.6617C>G/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -10592,11 +10496,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14582G>A",
+      "diplotype": "c.6617C>G/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -10604,11 +10508,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.6617C>T/c.14693T>C",
+      "diplotype": "c.6617C>G/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.6617C>T": 1,
+        "c.6617C>G": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -10831,11 +10735,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.11969G>T",
+      "diplotype": "c.6617C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -10843,11 +10747,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14387A>G",
+      "diplotype": "c.6617C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -10855,11 +10759,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14477C>T",
+      "diplotype": "c.6617C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -10867,11 +10771,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14497C>T",
+      "diplotype": "c.6617C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -10879,11 +10783,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14512C>G",
+      "diplotype": "c.6617C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -10891,11 +10795,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14545G>A",
+      "diplotype": "c.6617C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -10903,11 +10807,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14582G>A",
+      "diplotype": "c.6617C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -10915,11 +10819,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7007G>A/c.14693T>C",
+      "diplotype": "c.6617C>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7007G>A": 1,
+        "c.6617C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -11130,11 +11034,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.11969G>T",
+      "diplotype": "c.7007G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -11142,11 +11046,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14387A>G",
+      "diplotype": "c.7007G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -11154,11 +11058,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14477C>T",
+      "diplotype": "c.7007G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -11166,11 +11070,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14497C>T",
+      "diplotype": "c.7007G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -11178,11 +11082,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14512C>G",
+      "diplotype": "c.7007G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -11190,11 +11094,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14545G>A",
+      "diplotype": "c.7007G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -11202,11 +11106,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14582G>A",
+      "diplotype": "c.7007G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -11214,11 +11118,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7042_7044delGAG/c.14693T>C",
+      "diplotype": "c.7007G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7042_7044delGAG": 1,
+        "c.7007G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -11417,11 +11321,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.11969G>T",
+      "diplotype": "c.7042_7044delGAG/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -11429,11 +11333,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14387A>G",
+      "diplotype": "c.7042_7044delGAG/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -11441,11 +11345,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14477C>T",
+      "diplotype": "c.7042_7044delGAG/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -11453,11 +11357,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14497C>T",
+      "diplotype": "c.7042_7044delGAG/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -11465,11 +11369,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14512C>G",
+      "diplotype": "c.7042_7044delGAG/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -11477,11 +11381,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14545G>A",
+      "diplotype": "c.7042_7044delGAG/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -11489,11 +11393,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14582G>A",
+      "diplotype": "c.7042_7044delGAG/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -11501,11 +11405,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7048G>A/c.14693T>C",
+      "diplotype": "c.7042_7044delGAG/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7048G>A": 1,
+        "c.7042_7044delGAG": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -11692,11 +11596,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.11969G>T",
+      "diplotype": "c.7048G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -11704,11 +11608,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14387A>G",
+      "diplotype": "c.7048G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -11716,11 +11620,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14477C>T",
+      "diplotype": "c.7048G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -11728,11 +11632,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14497C>T",
+      "diplotype": "c.7048G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -11740,11 +11644,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14512C>G",
+      "diplotype": "c.7048G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -11752,11 +11656,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14545G>A",
+      "diplotype": "c.7048G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -11764,11 +11668,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14582G>A",
+      "diplotype": "c.7048G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -11776,11 +11680,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7063C>T/c.14693T>C",
+      "diplotype": "c.7048G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7063C>T": 1,
+        "c.7048G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -11955,11 +11859,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.11969G>T",
+      "diplotype": "c.7063C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -11967,11 +11871,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14387A>G",
+      "diplotype": "c.7063C>T/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -11979,11 +11883,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14477C>T",
+      "diplotype": "c.7063C>T/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -11991,11 +11895,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14497C>T",
+      "diplotype": "c.7063C>T/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -12003,11 +11907,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14512C>G",
+      "diplotype": "c.7063C>T/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -12015,11 +11919,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14545G>A",
+      "diplotype": "c.7063C>T/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -12027,11 +11931,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14582G>A",
+      "diplotype": "c.7063C>T/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -12039,11 +11943,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7124G>C/c.14693T>C",
+      "diplotype": "c.7063C>T/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7124G>C": 1,
+        "c.7063C>T": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -12206,11 +12110,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.11969G>T",
+      "diplotype": "c.7124G>C/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -12218,11 +12122,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14387A>G",
+      "diplotype": "c.7124G>C/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -12230,11 +12134,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14477C>T",
+      "diplotype": "c.7124G>C/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -12242,11 +12146,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14497C>T",
+      "diplotype": "c.7124G>C/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -12254,11 +12158,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14512C>G",
+      "diplotype": "c.7124G>C/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -12266,11 +12170,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14545G>A",
+      "diplotype": "c.7124G>C/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -12278,11 +12182,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14582G>A",
+      "diplotype": "c.7124G>C/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -12290,11 +12194,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7282G>A/c.14693T>C",
+      "diplotype": "c.7124G>C/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7282G>A": 1,
+        "c.7124G>C": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -12445,11 +12349,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.11969G>T",
+      "diplotype": "c.7282G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -12457,11 +12361,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14387A>G",
+      "diplotype": "c.7282G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -12469,11 +12373,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14477C>T",
+      "diplotype": "c.7282G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -12481,11 +12385,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14497C>T",
+      "diplotype": "c.7282G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -12493,11 +12397,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14512C>G",
+      "diplotype": "c.7282G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -12505,11 +12409,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14545G>A",
+      "diplotype": "c.7282G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -12517,11 +12421,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14582G>A",
+      "diplotype": "c.7282G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -12529,11 +12433,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7300G>A/c.14693T>C",
+      "diplotype": "c.7282G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7300G>A": 1,
+        "c.7282G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -12672,11 +12576,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.11969G>T",
+      "diplotype": "c.7300G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -12684,11 +12588,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14387A>G",
+      "diplotype": "c.7300G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -12696,11 +12600,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14477C>T",
+      "diplotype": "c.7300G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -12708,11 +12612,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14497C>T",
+      "diplotype": "c.7300G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -12720,11 +12624,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14512C>G",
+      "diplotype": "c.7300G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -12732,11 +12636,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14545G>A",
+      "diplotype": "c.7300G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -12744,11 +12648,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14582G>A",
+      "diplotype": "c.7300G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -12756,11 +12660,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7304G>A/c.14693T>C",
+      "diplotype": "c.7300G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7304G>A": 1,
+        "c.7300G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -12887,11 +12791,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.11969G>T",
+      "diplotype": "c.7304G>A/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.11969G>T": 1
       },
       "activityScore": null,
@@ -12899,11 +12803,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14387A>G",
+      "diplotype": "c.7304G>A/c.14387A>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14387A>G": 1
       },
       "activityScore": null,
@@ -12911,11 +12815,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14477C>T",
+      "diplotype": "c.7304G>A/c.14477C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14477C>T": 1
       },
       "activityScore": null,
@@ -12923,11 +12827,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14497C>T",
+      "diplotype": "c.7304G>A/c.14497C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14497C>T": 1
       },
       "activityScore": null,
@@ -12935,11 +12839,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14512C>G",
+      "diplotype": "c.7304G>A/c.14512C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14512C>G": 1
       },
       "activityScore": null,
@@ -12947,11 +12851,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14545G>A",
+      "diplotype": "c.7304G>A/c.14545G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14545G>A": 1
       },
       "activityScore": null,
@@ -12959,11 +12863,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14582G>A",
+      "diplotype": "c.7304G>A/c.14582G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14582G>A": 1
       },
       "activityScore": null,
@@ -12971,11 +12875,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7354C>T/c.14693T>C",
+      "diplotype": "c.7304G>A/c.14693T>C",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7354C>T": 1,
+        "c.7304G>A": 1,
         "c.14693T>C": 1
       },
       "activityScore": null,
@@ -13090,6 +12994,197 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.11969G>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.11969G>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14387A>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14387A>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14477C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14477C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14497C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14497C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14512C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14512C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14545G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14545G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14582G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14582G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7354C>T/c.14693T>C",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7354C>T": 1,
+        "c.14693T>C": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7360C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 2
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7361G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7361G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7372C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7372C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7373G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7373G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7522C>G",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7522C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7522C>T",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7522C>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.7523G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.7523G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
+      "diplotype": "c.7360C>T/c.9310G>A",
+      "description": null,
+      "lookupkey": "Malignant Hyperthermia Susceptibility",
+      "diplotypekey": {
+        "c.7360C>T": 1,
+        "c.9310G>A": 1
+      },
+      "activityScore": null,
+      "phenotype": "Malignant Hyperthermia Susceptibility"
+    },
+    {
+      "generesult": "Malignant Hyperthermia Susceptibility",
       "diplotype": "c.7360C>T/c.11969G>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
@@ -13186,34 +13281,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7360C>T",
+      "diplotype": "c.7361G>A/c.7361G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 2
+        "c.7361G>A": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7361G>A",
+      "diplotype": "c.7361G>A/c.7372C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
-        "c.7361G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7372C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.7372C>T": 1
       },
       "activityScore": null,
@@ -13221,11 +13304,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7373G>A",
+      "diplotype": "c.7361G>A/c.7373G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.7373G>A": 1
       },
       "activityScore": null,
@@ -13233,11 +13316,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7522C>G",
+      "diplotype": "c.7361G>A/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.7522C>G": 1
       },
       "activityScore": null,
@@ -13245,11 +13328,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7522C>T",
+      "diplotype": "c.7361G>A/c.7522C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.7522C>T": 1
       },
       "activityScore": null,
@@ -13257,11 +13340,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.7523G>A",
+      "diplotype": "c.7361G>A/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.7523G>A": 1
       },
       "activityScore": null,
@@ -13269,11 +13352,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7360C>T/c.9310G>A",
+      "diplotype": "c.7361G>A/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7360C>T": 1,
+        "c.7361G>A": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -13377,34 +13460,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7361G>A",
+      "diplotype": "c.7372C>T/c.7372C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 2
+        "c.7372C>T": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7372C>T",
+      "diplotype": "c.7372C>T/c.7373G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 1,
-        "c.7372C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7373G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7361G>A": 1,
+        "c.7372C>T": 1,
         "c.7373G>A": 1
       },
       "activityScore": null,
@@ -13412,11 +13483,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7522C>G",
+      "diplotype": "c.7372C>T/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 1,
+        "c.7372C>T": 1,
         "c.7522C>G": 1
       },
       "activityScore": null,
@@ -13424,11 +13495,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7522C>T",
+      "diplotype": "c.7372C>T/c.7522C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 1,
+        "c.7372C>T": 1,
         "c.7522C>T": 1
       },
       "activityScore": null,
@@ -13436,11 +13507,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.7523G>A",
+      "diplotype": "c.7372C>T/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 1,
+        "c.7372C>T": 1,
         "c.7523G>A": 1
       },
       "activityScore": null,
@@ -13448,11 +13519,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7361G>A/c.9310G>A",
+      "diplotype": "c.7372C>T/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7361G>A": 1,
+        "c.7372C>T": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -13556,34 +13627,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.7372C>T",
+      "diplotype": "c.7373G>A/c.7373G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7372C>T": 2
+        "c.7373G>A": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.7373G>A",
+      "diplotype": "c.7373G>A/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7372C>T": 1,
-        "c.7373G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.7522C>G",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7372C>T": 1,
+        "c.7373G>A": 1,
         "c.7522C>G": 1
       },
       "activityScore": null,
@@ -13591,11 +13650,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.7522C>T",
+      "diplotype": "c.7373G>A/c.7522C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7372C>T": 1,
+        "c.7373G>A": 1,
         "c.7522C>T": 1
       },
       "activityScore": null,
@@ -13603,11 +13662,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.7523G>A",
+      "diplotype": "c.7373G>A/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7372C>T": 1,
+        "c.7373G>A": 1,
         "c.7523G>A": 1
       },
       "activityScore": null,
@@ -13615,11 +13674,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7372C>T/c.9310G>A",
+      "diplotype": "c.7373G>A/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7372C>T": 1,
+        "c.7373G>A": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -13723,34 +13782,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7373G>A/c.7373G>A",
+      "diplotype": "c.7522C>G/c.7522C>G",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7373G>A": 2
+        "c.7522C>G": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7373G>A/c.7522C>G",
+      "diplotype": "c.7522C>G/c.7522C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7373G>A": 1,
-        "c.7522C>G": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7373G>A/c.7522C>T",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7373G>A": 1,
+        "c.7522C>G": 1,
         "c.7522C>T": 1
       },
       "activityScore": null,
@@ -13758,11 +13805,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7373G>A/c.7523G>A",
+      "diplotype": "c.7522C>G/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7373G>A": 1,
+        "c.7522C>G": 1,
         "c.7523G>A": 1
       },
       "activityScore": null,
@@ -13770,11 +13817,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7373G>A/c.9310G>A",
+      "diplotype": "c.7522C>G/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7373G>A": 1,
+        "c.7522C>G": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -13878,34 +13925,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>G/c.7522C>G",
+      "diplotype": "c.7522C>T/c.7522C>T",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7522C>G": 2
+        "c.7522C>T": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>G/c.7522C>T",
+      "diplotype": "c.7522C>T/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7522C>G": 1,
-        "c.7522C>T": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>G/c.7523G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7522C>G": 1,
+        "c.7522C>T": 1,
         "c.7523G>A": 1
       },
       "activityScore": null,
@@ -13913,11 +13948,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>G/c.9310G>A",
+      "diplotype": "c.7522C>T/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7522C>G": 1,
+        "c.7522C>T": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -14021,34 +14056,22 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>T/c.7522C>T",
+      "diplotype": "c.7523G>A/c.7523G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7522C>T": 2
+        "c.7523G>A": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>T/c.7523G>A",
+      "diplotype": "c.7523G>A/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7522C>T": 1,
-        "c.7523G>A": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7522C>T/c.9310G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7522C>T": 1,
+        "c.7523G>A": 1,
         "c.9310G>A": 1
       },
       "activityScore": null,
@@ -14152,23 +14175,11 @@
     },
     {
       "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7523G>A/c.7523G>A",
+      "diplotype": "c.9310G>A/c.9310G>A",
       "description": null,
       "lookupkey": "Malignant Hyperthermia Susceptibility",
       "diplotypekey": {
-        "c.7523G>A": 2
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.7523G>A/c.9310G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.7523G>A": 1,
-        "c.9310G>A": 1
+        "c.9310G>A": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -14265,17 +14276,6 @@
       "diplotypekey": {
         "c.9310G>A": 1,
         "c.14693T>C": 1
-      },
-      "activityScore": null,
-      "phenotype": "Malignant Hyperthermia Susceptibility"
-    },
-    {
-      "generesult": "Malignant Hyperthermia Susceptibility",
-      "diplotype": "c.9310G>A/c.9310G>A",
-      "description": null,
-      "lookupkey": "Malignant Hyperthermia Susceptibility",
-      "diplotypekey": {
-        "c.9310G>A": 2
       },
       "activityScore": null,
       "phenotype": "Malignant Hyperthermia Susceptibility"
@@ -15001,5 +15001,5 @@
       "lookupKey": "Malignant Hyperthermia associated"
     }
   ],
-  "version": "2023-09-28-14-38"
+  "version": "2023-10-01-20-48"
 }
