@@ -2207,4 +2207,32 @@ class PipelineTest {
         BaseConfig.REPORTER_SUFFIX + ".html");
     return Jsoup.parse(reporterOutput.toFile());
   }
+
+  /**
+   * Assert single-position genes can be called outside, and double-check that a named allele gene can also be called
+   * outside. Made in response to <a href="https://github.com/PharmGKB/PharmCAT/issues/154#top">issue 154</a>.
+   */
+  @Test
+  void testOutsideSinglePositionCalls(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      // dipltoype in backwards order
+      writer.println("IFNL3\trs12979860 reference (C)/rs12979860 reference (C)\n" +
+          "CYP4F2\t*1/*3");
+    }
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    testWrapper.execute(outsideCallPath);
+
+    // these are outside calls
+    testWrapper.testNotCalledByMatcher("IFNL3");
+    testWrapper.testNotCalledByMatcher("CYP4F2");
+    // this is a regular call
+    testWrapper.testCalledByMatcher("CYP2C9");
+
+    testWrapper.testPrintCpicCalls( "IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
+    testWrapper.testPrintCpicCalls( "CYP4F2", "*1/*3");
+  }
 }
