@@ -1,5 +1,5 @@
-# tests    = 79,671
-# passed   = 79,671
+# tests    = 31,655
+# passed   = 31,655
 # warnings = 0
 # failed   = 0
 # no alts & no match   = 0
@@ -13,11 +13,11 @@
 | CYP2B6     |       0  |       0  |
 | CYP2C19    |       0  |       0  |
 | CYP2C9     |       0  |       0  |
-| CYP2D6     |       0  |       0  |
 | CYP3A4     |       0  |       0  |
 | CYP3A5     |       0  |       0  |
 | CYP4F2     |       0  |       0  |
 | DPYD       |       0  |       0  |
+| F5         |       0  |       0  |
 | G6PD       |       0  |       0  |
 | IFNL3      |       0  |       0  |
 | NUDT15     |       0  |       0  |
