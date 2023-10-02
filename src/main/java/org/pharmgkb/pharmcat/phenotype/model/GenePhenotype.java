@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.SortedSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -33,7 +34,7 @@ public class GenePhenotype {
   private Map<String,String> m_activityValues = new HashMap<>();
   @SerializedName("diplotypes")
   @Expose
-  private List<DiplotypeRecord> m_diplotypes;
+  private SortedSet<DiplotypeRecord> m_diplotypes;
   @SerializedName("namedAlleles")
   @Expose
   private List<HaplotypeRecord> m_namedAlleles;
@@ -107,7 +108,7 @@ public class GenePhenotype {
   /**
    * List of all diplotype to phenotype mappings for this gene
    */
-  public List<DiplotypeRecord> getDiplotypes() {
+  public SortedSet<DiplotypeRecord> getDiplotypes() {
     return m_diplotypes;
   }
 

@@ -4,6 +4,8 @@ import java.util.Map;
 import com.google.common.base.Objects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.common.util.ComparisonChain;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -11,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author Ryan Whaley
  */
-public class DiplotypeRecord {
+public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
 
   @SerializedName("generesult")
   @Expose
@@ -30,10 +32,10 @@ public class DiplotypeRecord {
   private Map<String,Integer> m_diplotypeKey;
   @SerializedName("activityScore")
   @Expose
-  private String activityScore;
+  private String m_activityScore;
   @SerializedName("phenotype")
   @Expose
-  private String phenotype;
+  private String m_phenotype;
 
 
   public String getGeneResult() {
@@ -66,11 +68,11 @@ public class DiplotypeRecord {
   }
 
   public String getActivityScore() {
-    return this.activityScore;
+    return this.m_activityScore;
   }
 
   public String getPhenotype() {
-    return this.phenotype;
+    return this.m_phenotype;
   }
 
 
@@ -106,5 +108,32 @@ public class DiplotypeRecord {
   @Override
   public int hashCode() {
     return Objects.hashCode(m_geneResult, m_diplotype, m_description, m_lookupKey, m_diplotypeKey);
+  }
+
+  @Override
+  public int compareTo(DiplotypeRecord o) {
+
+    String[] dips1 = m_diplotype.split("/");
+    String[] dips2 = o.getDiplotype().split("/");
+
+    int rez = HaplotypeNameComparator.getComparator().compare(dips1[0], dips2[0]);
+    if (rez != 0) {
+      return rez;
+    }
+    if (dips1.length > 1) {
+      if (dips2.length > 1) {
+        rez = HaplotypeNameComparator.getComparator().compare(dips1[1], dips2[1]);
+        if (rez != 0) {
+          return rez;
+        }
+      } else {
+        return 1;
+      }
+    }
+    return new ComparisonChain()
+        .compare(m_activityScore, o.getActivityScore())
+        .compare(m_geneResult, o.getGeneResult())
+        .compare(m_phenotype, o.getPhenotype())
+        .result();
   }
 }
