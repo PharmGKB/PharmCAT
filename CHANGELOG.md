@@ -1,3 +1,12 @@
+## [2.8.2](https://github.com/PharmGKB/PharmCAT/compare/v2.8.1...v2.8.2) (2023-10-02)
+
+
+### Bug Fixes
+
+* **data:** update to PharmVar 6.0.7 ([34e253b](https://github.com/PharmGKB/PharmCAT/commit/34e253b92ee0922162bc2026adee47522a91dac7))
+* **namedallelematcher:** fix ArrayIndexOutOfBoundsException bug ([a29420a](https://github.com/PharmGKB/PharmCAT/commit/a29420a43b5ffba505c60fbc42e14fe9de05636e)), closes [#156](https://github.com/PharmGKB/PharmCAT/issues/156)
+* **phenotyper:** consistently sort GenePhenotype.diplotypes ([36f1aa5](https://github.com/PharmGKB/PharmCAT/commit/36f1aa509540c9133bef66779c40d23b72e9e659))
+
 ## [2.8.1](https://github.com/PharmGKB/PharmCAT/compare/v2.8.0...v2.8.1) (2023-09-29)
 
 
