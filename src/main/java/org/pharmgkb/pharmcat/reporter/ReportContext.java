@@ -67,7 +67,8 @@ public class ReportContext {
     f_title = title;
     m_geneReports = geneReports;
 
-    m_dpwgVersion = validateDpwgVersions(env.getDrugs());
+    m_cpicVersion = validateVersions(env.getDrugs(), DataSource.CPIC);
+    m_dpwgVersion = validateVersions(env.getDrugs(), DataSource.DPWG);
 
     for (DataSource dataSource : DRUG_REPORT_SOURCES) {
       Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSource, (s) -> new TreeMap<>());
@@ -106,35 +107,39 @@ public class ReportContext {
     }
   }
 
-  private String validateDpwgVersions(PgkbGuidelineCollection dpwgCollection) {
-    Set<String> dpwgVersions = new HashSet<>();
-    // check GeneReports from the Phenotyper
-    for (GeneReport geneReport : m_geneReports.get(DataSource.DPWG).values()) {
-      if (geneReport.getPhenotypeVersion() != null) {
-        dpwgVersions.add(geneReport.getPhenotypeVersion());
-      }
-      if (geneReport.getAlleleDefinitionSource() == DataSource.PHARMGKB ||
-          geneReport.getAlleleDefinitionSource() == DataSource.DPWG) {
+  private String validateVersions(PgkbGuidelineCollection guidelineCollection, DataSource dataSource) {
+    Set<String> observedVersions = new HashSet<>();
+    for (GeneReport geneReport : m_geneReports.get(dataSource).values()) {
+      if (geneReport.getAlleleDefinitionSource() == dataSource) {
         if (geneReport.getAlleleDefinitionVersion() != null) {
-          dpwgVersions.add(geneReport.getAlleleDefinitionVersion());
+          observedVersions.add(geneReport.getAlleleDefinitionVersion());
+        }
+        // NOTE: CPIC phenotypes are pulled from PharmGKB DB, not CPIC DB so their version will not match the allele
+        // definition, so let's exclude the check for CPIC
+        if (dataSource != DataSource.CPIC && geneReport.getPhenotypeVersion() != null) {
+          observedVersions.add(geneReport.getPhenotypeVersion());
         }
       }
     }
 
-    // check DPWG drug data
-    for (GuidelinePackage guidelinePackage : dpwgCollection.getGuidelinePackages()) {
-      dpwgVersions.add(guidelinePackage.getVersion());
+    // check drug data
+    for (GuidelinePackage guidelinePackage : guidelineCollection.getGuidelinePackages()) {
+      // NOTE: CPIC recommendations are pulled from PharmGKB DB, not CPIC DB so their version will not match the allele
+      // definition, so let's exclude the check for CPIC
+      if (dataSource != DataSource.CPIC && guidelinePackage.getGuideline().getSource().equals(dataSource.getPharmgkbName())) {
+        observedVersions.add(guidelinePackage.getVersion());
+      }
     }
 
-    if (dpwgVersions.size() == 0) {
+    if (observedVersions.isEmpty()) {
       return TextConstants.NA;
     } else {
-      if (dpwgVersions.size() > 1) {
-        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-dpwg-versions",
-            "Multiple DPWG versions used to generate gene and drug reports: " + dpwgVersions + "."
+      if (observedVersions.size() > 1) {
+        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-" + dataSource.getPharmgkbName().toLowerCase() + "-versions",
+            "Multiple " + dataSource.getPharmgkbName() + " versions used to generate gene and drug reports: " + observedVersions + "."
         ));
       }
-      return String.join(", ", dpwgVersions);
+      return String.join(", ", observedVersions);
     }
   }
 
