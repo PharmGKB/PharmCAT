@@ -31,6 +31,7 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -334,13 +335,13 @@ public class NamedAlleleMatcher {
 
       Map<String, Integer> haps = new HashMap<>();
       for (String h : dm.getHaplotype1().getHaplotypeNames()) {
-        if (!dm.getHaplotype1().getHaplotype().isPartial() || !h.equals("Reference")) {
+        if (!dm.getHaplotype1().getHaplotype().isPartial() || !h.equals(TextConstants.REFERENCE)) {
           haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
         }
       }
       if (dm.getHaplotype2() != null) {
         for (String h : dm.getHaplotype2().getHaplotypeNames()) {
-          if (!dm.getHaplotype2().getHaplotype().isPartial() || !h.equals("Reference")) {
+          if (!dm.getHaplotype2().getHaplotype().isPartial() || !h.equals(TextConstants.REFERENCE)) {
             haps.compute(h, (k, v) -> v == null ? 1 : v + 1);
           }
         }
@@ -356,14 +357,14 @@ public class NamedAlleleMatcher {
     // if we get to this point, it's combination that might include Reference
     if (dpydHapB3Matcher.isHapB3Present()) {
       // unless we have HapB3, and it cannot have Reference/Reference
-      homozygous.remove("Reference");
+      homozygous.remove(TextConstants.REFERENCE);
     }
     // if there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible
     // with 2 or fewer haplotype matches, cannot have reference if there's a partial
     int numMatches = hapMatches.size() + dpydHapB3Matcher.getNumHapB3Called();
     if (numMatches > 2 || numPartials > 0) {
       hapMatches = hapMatches.stream()
-          .filter(m -> !m.getName().equals("Reference"))
+          .filter(m -> !m.getName().equals(TextConstants.REFERENCE))
           .collect(Collectors.toCollection(TreeSet::new));
     }
 

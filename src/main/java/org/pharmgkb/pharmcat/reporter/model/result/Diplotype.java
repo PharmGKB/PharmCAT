@@ -362,9 +362,13 @@ public class Diplotype implements Comparable<Diplotype> {
     if (USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene) && m_allele1 != null) {
       boolean isAllele1Ref = m_allele1.isReference();
       boolean isAllele2Ref = m_allele2 != null && m_allele2.isReference();
-      if (isAllele1Ref && isAllele2Ref || m_allele2 == null) {
-        // homozygous reference
-        return "No CPIC variants found";
+      if (isAllele1Ref && isAllele2Ref) {
+         if (m_allele2 == null) {
+           return TextConstants.REFERENCE;
+         } else {
+           // homozygous reference
+           return TextConstants.HOMOZYGOUS_REFERENCE;
+         }
       }
       if (isAllele1Ref || isAllele2Ref) {
         // heterozygous

@@ -370,12 +370,12 @@ class PipelineTest {
         .variation("CYP2C19", "rs3758581", "G", "T");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedRyr1Calls = List.of("No CPIC variants found");
+    List<String> expectedRyr1Calls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedRyr1Calls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
 
     Document document = readHtmlReport(vcfFile);
     assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
@@ -396,7 +396,7 @@ class PipelineTest {
 
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "g.38444212G>A"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "g.38444212G>A"));
 
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-RYR1"));
@@ -741,7 +741,7 @@ class PipelineTest {
         .reference("CFTR");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("No CPIC variants found");
+    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("CFTR");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CFTR", expectedCalls);

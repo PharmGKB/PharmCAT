@@ -31,6 +31,8 @@ public class TextConstants {
   public static final List<String> LIST_UNCALLED_NO_DATA = ImmutableList.of(NO_DATA);
 
   public static final String GENOTYPE_DELIMITER = "/";
+  public static final String REFERENCE = "Reference";
+  public static final String HOMOZYGOUS_REFERENCE = REFERENCE + GENOTYPE_DELIMITER + REFERENCE;
 
   /**
    * Detects an unspecified value.

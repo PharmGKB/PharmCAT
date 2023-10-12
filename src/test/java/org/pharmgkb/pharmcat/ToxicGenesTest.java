@@ -75,11 +75,11 @@ class ToxicGenesTest {
         .reference("CACNA1S");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("No CPIC variants found");
+    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "Reference"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
@@ -103,7 +103,7 @@ class ToxicGenesTest {
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "c.3257G>A"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, "c.3257G>A"));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
@@ -431,11 +431,11 @@ class ToxicGenesTest {
         .reference("RYR1");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("No CPIC variants found");
+    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
@@ -456,7 +456,7 @@ class ToxicGenesTest {
 
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "c.103T>C"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.103T>C"));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
@@ -497,13 +497,13 @@ class ToxicGenesTest {
         .reference("RYR1");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("No CPIC variants found");
+    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("CACNA1S", "RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of("Reference", "Reference"));
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "Reference"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 

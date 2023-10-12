@@ -14,6 +14,7 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 
 
@@ -270,7 +271,7 @@ public class DpydHapB3Matcher {
       return cm;
     }
     HaplotypeMatch hm = (HaplotypeMatch)bm;
-    if (hm.getName().equals("Reference")) {
+    if (hm.getName().equals(TextConstants.REFERENCE)) {
       return new HaplotypeMatch(hapB3);
     }
     NamedAllele hap = matchData.getHaplotypes().stream()
