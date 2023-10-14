@@ -107,6 +107,13 @@ Indeterminate is a standardized CPIC phenotype term assigned to genotypes contai
 
 Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
 
+### How to understand "_reference_" or "_*1_"?
+
+You will see "Reference" (for genes like _DPYD_, _RYR1_, _CACNA1S_, _CFTR_, etc.) or "*1" (for genes like _CYP2B6_, _CYP2C9_, etc.). _Reference_ or _*1_ indicate an absence of alternative genetic alleles at the PharmCAT interrogated genetic positions. They are assigned by default when no alternative variants are found at the queried positions. They do not suggest a lack of genetic variation at every position in the gene and should not be mistaken to mean an exact match to the entire reference sequence for the gene.
+
+For the gene _CFTR_, "_Reference_" in the PharmCAT report corresponds to "_ivacaftor non-reponsive CFTR sequnence_" in the CPIC guideline.
+
+
 ### How to render PharmCAT outputs into a tabular-formatted file
 PharmCAT is designed to take a single-sample VCF file and generate an individual PGx report in JSON or HTML formats. To support data analysis, we provide scripts and examples that render PharmCAT JSON outputs to tabular-formatted files. You can follow the instructions on this [PharmCAT multi-sample analysis page](https://pharmcat.org/technical-docs/multi-sample-analysis) for how to convert PharmCAT JSONs into TSV or CSV files.
 
