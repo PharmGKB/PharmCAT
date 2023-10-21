@@ -40,7 +40,7 @@ You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker)
 4. You will need the following python dependencies:
     * colorama >= 0.4.6
     * pandas >= 1.5.1
-    * scikit-allel == 1.3.5 (warning: testing compatibility with python >= 3.11)
+    * scikit-allel >= 1.3.7 (warning: testing compatibility with python >= 3.11)
     * packaging ~= 21.3
 
 To install the necessary python packages, run the following code:

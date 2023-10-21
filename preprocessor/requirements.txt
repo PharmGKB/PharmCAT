@@ -1,9 +1,4 @@
 colorama >= 0.4.6
 pandas >= 1.5.1
-#scikit-allel==1.3.5
+scikit-allel >= 1.3.7
 packaging~=21.3
-
-# scikit-allel toml did not specify package name and version, which causes error in "pip install" (https://github.com/cggh/scikit-allel/issues/397)
-# the permanent fix is to transition to `sgkit`, the successor library of scikit-allel
-# as an interim solution, install a fixing commit of scikit-allel (https://github.com/cggh/scikit-allel/pull/398)
-git+https://github.com/cggh/scikit-allel.git@1d35fed62b64decb19c42870a3f1de5cc3898f14
