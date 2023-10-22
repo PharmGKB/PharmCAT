@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.31.1",
-  "modificationDate": "Sep 27, 2023, 7:48:25 PM",
+  "version": "v1.32.0",
+  "modificationDate": "2023-10-03T03:13:17.216Z",
   "gene": "TPMT",
   "orientation": null,
   "chromosome": "chr6",

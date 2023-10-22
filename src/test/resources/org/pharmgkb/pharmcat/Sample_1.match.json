@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "Sample_1.preprocessed.vcf",
-    "timestamp": "Nov 15, 2022, 7:32:43 PM",
+    "timestamp": "2023-10-03T03:13:15.094Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false

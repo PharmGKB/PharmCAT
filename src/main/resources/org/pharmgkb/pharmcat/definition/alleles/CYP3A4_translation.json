@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2023-10-01-20-48",
-  "modificationDate": "Oct 1, 2023, 4:03:51 PM",
+  "version": "2023-10-05-00-25",
+  "modificationDate": "2023-10-01T23:03:51.828Z",
   "gene": "CYP3A4",
   "orientation": null,
   "chromosome": "chr7",

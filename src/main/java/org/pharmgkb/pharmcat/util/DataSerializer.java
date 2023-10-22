@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,6 +38,7 @@ public class DataSerializer {
       .serializeNulls()
       .disableHtmlEscaping()
       .excludeFieldsWithoutExposeAnnotation()
+      .registerTypeAdapter(Date.class, new GsonDateAdapter())
       .setPrettyPrinting()
       .create();
   private static final Pattern sf_rsidPattern = Pattern.compile("rs\\d+");

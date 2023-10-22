@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.31.1",
-  "modificationDate": "Sep 27, 2023, 7:48:25 PM",
+  "version": "v1.32.0",
+  "modificationDate": "2023-10-03T03:13:16.468Z",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -1814,7 +1814,7 @@
       "position": 42129033,
       "cpicPosition": 42129033,
       "rsid": "rs5030865",
-      "chromosomeHgvsName": "g.42129033C>T; g.42129033C>A",
+      "chromosomeHgvsName": "g.42129033C>A; g.42129033C>T",
       "cpicAlleles": [
         "A",
         "C",

@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2023-10-01-20-48",
-  "modificationDate": "May 3, 2023, 5:06:53 PM",
+  "version": "2023-10-05-00-25",
+  "modificationDate": "2023-05-04T00:06:53.312Z",
   "gene": "F5",
   "orientation": null,
   "chromosome": "chr1",
