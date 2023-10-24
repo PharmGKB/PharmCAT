@@ -700,7 +700,10 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
     ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
     # add a special case for 'chrMT'
     idx_chr_m = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
-    ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chr_m].assign(**{'CHROM': 'chrMT'})])
+    # pandas will no longer exclude empty columns when concatenating two DataFrames
+    # thus, do not concatenate when idx_chr_m is empty, which means the 2nd DataFrame is empty
+    if len(idx_chr_m > 0):
+        ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chr_m].assign(**{'CHROM': 'chrMT'})])
 
     # validate chromosome formats
     if _is_valid_chr(bgz_file):
