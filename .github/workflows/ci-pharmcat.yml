@@ -31,11 +31,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: ['17', '21']
           cache: 'gradle'
 
       - name: Run PharmCAT tests
         run: ./gradlew test --no-daemon
+
+      - name: Run PharmCAT tests on Java 21
+        run: ./gradlew testOnJava21 --no-daemon
 
       - name: Codecov
         uses: codecov/codecov-action@v3

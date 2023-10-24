@@ -86,11 +86,17 @@ clean.dependsOn(tasks.cleanTestOutput)
 
 test.dependsOn(tasks.cleanTestOutput)
 
-tasks.withType(JavaCompile) {
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+  }
+}
+
+tasks.withType(JavaCompile).configureEach {
   options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test).configureEach {
   useJUnitPlatform()
   testLogging {
     // set options for log level LIFECYCLE
@@ -102,6 +108,11 @@ test {
   finalizedBy jacocoTestReport
 }
 
+tasks.register('testOnJava21', Test) {
+  javaLauncher = javaToolchains.launcherFor {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+}
 
 jacocoTestReport {
   // tests must be run before generating the report
