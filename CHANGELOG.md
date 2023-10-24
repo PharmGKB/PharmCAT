@@ -1,3 +1,12 @@
+## [2.8.3](https://github.com/PharmGKB/PharmCAT/compare/v2.8.2...v2.8.3) (2023-10-24)
+
+
+### Bug Fixes
+
+* improve labeling of reference calls ([4713b9b](https://github.com/PharmGKB/PharmCAT/commit/4713b9bae11e2de782e682bc2a8c935a12b679a2)), closes [#158](https://github.com/PharmGKB/PharmCAT/issues/158)
+* **data:** fix date parsing for Java 21 ([aba3dcd](https://github.com/PharmGKB/PharmCAT/commit/aba3dcd8cdd0377175038a51c1435ac523141fe3)), closes [#159](https://github.com/PharmGKB/PharmCAT/issues/159)
+* **reporter:** fix version check for CPIC content ([cb4b762](https://github.com/PharmGKB/PharmCAT/commit/cb4b7627e8010ba463255321915868033d41e007)), closes [#157](https://github.com/PharmGKB/PharmCAT/issues/157)
+
 ## [2.8.2](https://github.com/PharmGKB/PharmCAT/compare/v2.8.1...v2.8.2) (2023-10-02)
 
 
