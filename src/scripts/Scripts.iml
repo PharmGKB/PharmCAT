@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/cyp2d6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/diplotype_comparison" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vcf_generator" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

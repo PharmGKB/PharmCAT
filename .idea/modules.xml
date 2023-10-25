@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprocessor/Preprocessor.iml" filepath="$PROJECT_DIR$/preprocessor/Preprocessor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/scripts/Scripts.iml" filepath="$PROJECT_DIR$/src/scripts/Scripts.iml" />
     </modules>
   </component>
 </project>
