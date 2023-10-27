@@ -32,10 +32,12 @@ updateData: clean
 	@echo "Moving pharmcat_position files..."
 	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
 	cp pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
-	cp  pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	cp pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	sed -e '/rs12769205/ s/0\/0/1\/1/g' pharmcat_positions.vcf | sed '/rs4244285/ s/0\/0/1\/1/g' | sed '/rs3758581/ s/0\/0/1\/1/g' | sed '/rs3745274/ s/0\/0/0\/1/g' | sed '/rs2279343/ s/0\/0/0\/1/g' > docs/examples/pharmcat.example2.vcf
 	@echo ""
 	@echo "Updating examples..."
 	@${GRADLE_CMD} updateExample
+	@${GRADLE_CMD} updateExample2
 	# this reverts files with only EOL changes
 	@git stash
 	@git stash pop
