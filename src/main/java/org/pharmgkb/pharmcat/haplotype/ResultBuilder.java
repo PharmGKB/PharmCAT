@@ -65,7 +65,7 @@ public class ResultBuilder {
 
 
   /**
-   * Builds result for gene when VCF has with no samples for it.
+   * Builds the result for gene when VCF has with no samples for it.
    */
   protected ResultBuilder gene(String gene, MatchData matchData) {
     Preconditions.checkNotNull(gene);

@@ -86,7 +86,7 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.  Primarily used for testing.
-   * Reads in VCF file and pull the (first) sample's alleles for positions of interest.
+   * This will read in the VCF file and pull the (first) sample's alleles for positions of interest.
    */
   public VcfReader(DefinitionReader definitionReader, Path vcfFile) throws IOException {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
@@ -99,7 +99,7 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.  Primarily for testing.
-   * Reads in VCF file and pull the sample's alleles for <em>ALL</em> positions.
+   * This will read in the VCF file and pull the sample's alleles for <em>ALL</em> positions.
    */
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
@@ -259,7 +259,7 @@ public class VcfReader implements VcfLineParser {
       boolean expectMultiBase = varLoc.getAlts().stream().anyMatch(a -> a.length() > 1);
       boolean hasMultiBase = altBases.stream().anyMatch(a -> a.length() > 1);
       if (expectMultiBase && !hasMultiBase) {
-        if (altBases.size() == 0) {
+        if (altBases.isEmpty()) {
           addWarning(chrPos, "Genotype at this position has no ALT allele and an indel or repeat is expected. " +
               "PharmCAT cannot validate this position");
         } else {
@@ -276,7 +276,7 @@ public class VcfReader implements VcfLineParser {
             }
           }
         }
-        if (undocumentedVariations.size() > 0) {
+        if (!undocumentedVariations.isEmpty()) {
           StringBuilder msgBuilder = new StringBuilder()
               .append("The genetic variation at this position does not match what is in the allele definition " +
                   "(expected ")
@@ -335,9 +335,9 @@ public class VcfReader implements VcfLineParser {
         .toArray();
     boolean isHaploid = gtArray.length == 1;
 
-    // normalize alleles to use same syntax as haplotype definition
+    // normalize alleles to use the same syntax as haplotype definition
     List<String> alleles = new ArrayList<>();
-    if (position.getAltBases().size() == 0) {
+    if (position.getAltBases().isEmpty()) {
       String gt1 = position.getAllele(0);
       if (!validateAlleles(chrPos, gt1, null, false)) {
         return;
@@ -359,7 +359,7 @@ public class VcfReader implements VcfLineParser {
         String[] g = normalizeAlleles(gt1, gt2);
         String g1 = g[0];
         String g2 = g[1];
-        if (alleles.size() == 0) {
+        if (alleles.isEmpty()) {
           alleles.add(g1);
           alleles.add(g2);
         } else {
@@ -454,8 +454,15 @@ public class VcfReader implements VcfLineParser {
 
 
   private boolean treatAsReference(String chrPos) {
-    return !m_findCombinations &&
-        NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(m_locationsByGene.get(chrPos));
+    String gene = m_locationsByGene.get(chrPos);
+    if (NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
+      if ("DPYD".equals(gene)) {
+        // DPYD ignores find-combinations mode
+        return true;
+      }
+      return !m_findCombinations;
+    }
+    return false;
   }
 
 

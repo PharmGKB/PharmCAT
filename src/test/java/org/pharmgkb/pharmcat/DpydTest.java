@@ -684,6 +684,38 @@ class DpydTest {
     dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
+
+  /**
+   * Check that DPYD matching isn't affected when "find-combinations" mode is enabled.
+   */
+  @Test
+  void testFindCombinations(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .allowUnknownAllele()
+        .variation("DPYD", "rs114096998", "G", "A")
+    ;
+
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of(
+        "Reference/Reference"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+
   @Test
   void hapB3(TestInfo testInfo) throws Exception {
 
