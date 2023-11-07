@@ -67,7 +67,7 @@ class PipelineTest {
     try (BufferedWriter writer = Files.newBufferedWriter(s_outsideCallFilePath)) {
       writer.write("""
           ##Test Outside Call Data
-          CYP2D6\tCYP2D6*1/CYP2D6*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09
+          CYP2D6\t*1/*4\t\t\t0.6\t0.75\tp: 0.0\t\t\tv1.9-2017_02_09
               """);
     }
 
@@ -794,6 +794,31 @@ class PipelineTest {
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, "CFTR", expectedCalls, "ivacaftor", RecPresence.YES, RecPresence.NO);
+  }
+
+
+  /**
+   *  Check to see if the CPIC-specified allele name of "ivacaftor non-responsive CFTR sequence" gets translated to the
+   *  more generic value of "Reference" for display in the report
+   */
+  @Test
+  void testCftrOutsideReferenceCall(TestInfo testInfo) throws Exception {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
+      writer.println("CFTR\tivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence");
+    }
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C19")
+        .reference("CYP2C9")
+    ;
+    testWrapper.execute(outsideCallPath);
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testCalledByMatcher("CYP2C9");
+
+    testWrapper.testReportable("CFTR");
+    testWrapper.testPrintCalls(DataSource.CPIC, "CFTR", "Reference/Reference");
   }
 
 

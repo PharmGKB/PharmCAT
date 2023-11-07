@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
- * Calls from an outside data source. For example, Astrolabe (but could be others)
+ * Calls from an outside data source.
  *
  * @author Ryan Whaley
  */
@@ -51,7 +51,7 @@ public class OutsideCall {
       throw new BadOutsideCallException("Line " + lineNumber + ": No gene specified");
     }
 
-    m_diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS).replaceAll(m_gene, ""));
+    m_diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
     if (fields.size() == 2 && (m_diplotype == null || m_diplotype.equals(sf_diplotypeSeparator))) {
       if (StringUtils.isBlank(fields.get(IDX_DIPS))) {
         throw new BadOutsideCallException("Line " + lineNumber + ": No diplotype specified");

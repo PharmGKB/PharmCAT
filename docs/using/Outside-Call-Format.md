@@ -73,6 +73,9 @@ We rely on string matching to match outside calls to recommendations.
 
 Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named alleles, phenotypes and activity scores.
 
+_Do not_ prefix allele names with the gene symbol in the second field (e.g. CYP2C9*1/CYP2C9*3). The gene is specified in
+the first field so repeating it in second field is not necessary.
+
 If there is an outside call for a gene that also has data from the VCF, the outside call will trump the VCF data.
 
 

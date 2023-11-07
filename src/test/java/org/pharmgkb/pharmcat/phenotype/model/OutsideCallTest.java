@@ -36,7 +36,7 @@ class OutsideCallTest {
 
     assertThrows(BadOutsideCallException.class, () -> {
       try {
-        new OutsideCall("CYP2D6\tCYP2D6", 3);
+        new OutsideCall("CYP2D6\t   ", 3);
       } catch (BadOutsideCallException ex) {
         System.out.println(ex.getMessage());
         throw ex;
