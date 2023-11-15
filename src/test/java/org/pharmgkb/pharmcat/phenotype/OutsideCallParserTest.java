@@ -59,9 +59,7 @@ class OutsideCallParserTest {
           """);
     }
 
-    assertThrows(BadOutsideCallException.class, () -> {
-      OutsideCallParser.parse(outsideCallPath);
-    });
+    assertThrows(BadOutsideCallException.class, () -> OutsideCallParser.parse(outsideCallPath));
   }
 
 

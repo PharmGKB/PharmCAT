@@ -185,7 +185,7 @@ class PipelineTest {
       List<String> expectedRxCalls = new ArrayList<>();
       for (String gene : expectedCalls.keySet()) {
         List<String> calls = expectedCalls.get(gene);
-        if (calls == null || calls.size() == 0) {
+        if (calls == null || calls.isEmpty()) {
           Elements cpicDrugDips = drugSections.select(".cpic-" + sanitizedDrug + " .rx-dip");
           assertEquals(0, cpicDrugDips.size());
 
@@ -225,7 +225,7 @@ class PipelineTest {
     } else {
       assertEquals(0, drugDips.size());
 
-      if (drugSections.select(baseSelector).size() > 0) {
+      if (!drugSections.select(baseSelector).isEmpty()) {
         Elements unmatchedDips = drugSections.select(baseSelector + " .rx-unmatched-dip");
         assertEquals(expectedRxCalls, unmatchedDips.stream()
             .map(e -> cleanupRxDip(e, genes))
@@ -244,9 +244,9 @@ class PipelineTest {
 
 
   /**
-   * NOTE: if these assertions fail then new data may have been added from the DataManager because of an update to the
+   * NOTE: if these assertions fail, then new data may have been added from the DataManager because of an update to the
    * CPIC database. If that's true, then update these numbers to the current count. If the count changes with no known
-   * change to the CPIC database then something may be wrong in code.
+   * change to the CPIC database, then something may be wrong in the code.
    */
   @Test
   void testCounts(TestInfo testInfo) throws Exception {
@@ -541,17 +541,17 @@ class PipelineTest {
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
     assertFalse(vr.isHetCall());
 
-    // the variant is hom so ambiguity message should not apply and, thus, no matching messages
+    // the variant is hom, so the ambiguity message should not apply and, thus, no matching messages
     assertEquals(0, cyp2c19report.getMessages().stream()
         .filter(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_AMBIGUITY) &&
             Objects.requireNonNull(m.getMatches().getVariant()).equals("rs58973490"))
         .count());
 
     testWrapper.testAnyMatchFromSource("amitriptyline", DataSource.CPIC);
-    // the variant is hom so ambiguity message should not match
+    // the variant is hom, so the ambiguity message should not apply and, thus, no matching messages
     testWrapper.testMessageCountForDrug(DataSource.CPIC, "amitriptyline", 0);
 
-    // CYP2C19 reference is *38, not *1, so should not have reference message
+    // CYP2C19 reference is *38, not *1, so should not have a reference message
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 0);
   }
 
@@ -846,7 +846,7 @@ class PipelineTest {
   }
 
   @Test
-  void testAmitryptylineCallWoCyp2c19(TestInfo testInfo) throws Exception {
+  void testAmitriptylineCallWoCyp2c19(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("DPYD");
@@ -1257,7 +1257,7 @@ class PipelineTest {
   }
 
   @Test
-  void testUgt1a1s1s80s27s60s28missingphased(TestInfo testInfo) throws Exception {
+  void testUgt1a1s1s80s27s60s28MissingPhased(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .phased()
@@ -1505,7 +1505,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("abacavir", DataSource.DPWG, 1);
     // allopurinol relies on a different allele for recs so no matches
     testWrapper.testMatchedAnnotations("allopurinol", 0);
-    // phenytoin also relies on a different allele but there will be a match for DPWG since the recommendations are
+    // phenytoin also relies on a different allele, but there will be a match for DPWG since the recommendations are
     // split between the two genes on that side
     testWrapper.testMatchedAnnotations("phenytoin", 1);
     testWrapper.testNoMatchFromSource("phenytoin", DataSource.CPIC);
@@ -1516,10 +1516,10 @@ class PipelineTest {
    * An example report that shows a few different types of recommendation scenarios all in one report. The examples
    * shown are:
    * <ul>
-   *   <li>celecoxib = 1 CPIC recommenation</li>
+   *   <li>celecoxib = 1 CPIC recommendation</li>
    *   <li>citalopram = 2 recommendations: 1 CPIC, 1 DPWG, 1 gene and it's called</li>
    *   <li>clomipramine = 2 recommendations: 1 CPIC, 1 DPWG, 2 gene but only 1 called</li>
-   *   <li>carbamezepine = 3 CPIC recommendations on different populations</li>
+   *   <li>carbamazepine = 3 CPIC recommendations on different populations</li>
    *   <li>clopidogrel = 4 recommendations: 3 CPIC on different pops, 1 DPWG</li>
    *   <li>flucloxacillin = 1 recommendation from DPWG but none exists for CPIC</li>
    *   <li>fluvoxamine = 0 recommendations, no gene reportable</li>
@@ -1619,9 +1619,11 @@ class PipelineTest {
 
 
   /**
-   * Test CYP2B6 for a het *34 sample file. When doing the "top match" scenario this will only match to a 1/34 and,
-   * thus, only match to a single recommendation. This test will have a different outcome when run in "all matches" mode
-   * and should be compared with {@link #testCyp2b6star1star34AllMatch(TestInfo)}.
+   * Test CYP2B6 for a het *34 sample file. When doing the "top match" scenario, this will only match to a *1/*34 and
+   * thus only match to a single recommendation.
+   * <p>
+   * This test will have a different outcome when run in "all matches" mode and should be compared with
+   * {@link #testCyp2b6star1star34AllMatch(TestInfo)}.
    */
   @Test
   void testCyp2b6star1star34(TestInfo testInfo) throws Exception {
@@ -1641,9 +1643,9 @@ class PipelineTest {
   }
 
   /**
-   * This test is just like {@link #testCyp2b6star1star34(TestInfo)} but run in "all matches" mode. This should result in 2
-   * possible different calls coming from the matcher. These two have different phenotypes and, thus, match to different
-   * recommendations.
+   * This test is just like {@link #testCyp2b6star1star34(TestInfo)} but run in "all matches" mode. This should result
+   * in 2 possible different calls coming from the matcher. These two have different phenotypes and, thus, match to
+   * different recommendations.
    */
   @Test
   void testCyp2b6star1star34AllMatch(TestInfo testInfo) throws Exception {
@@ -2003,7 +2005,7 @@ class PipelineTest {
   void testOutsideCallDiplotypeNormalization(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      // dipltoype in backwards order
+      // diplotype in backwards order
       writer.println("CYP2C19\t*2/*1");
     }
 
@@ -2013,7 +2015,7 @@ class PipelineTest {
     testWrapper.execute(outsideCallPath);
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
-    // this should be a normalized version of hte given diplotype
+    // this should be a normalized version of the given diplotype
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
   }
 
@@ -2078,8 +2080,8 @@ class PipelineTest {
 
   /**
    * This test ensures that a user can specify both a diplotype AND a phenotype from an outside call. This also tests
-   * to make sure the user can override the internally-known phenotype with their own phenotype assignment. *2/*10 would
-   * normally be a Normal Metabolizer but this outside call overrides it as an Intermediate Metabolizer.
+   * to make sure the user can override the internally known phenotype with their own phenotype assignment. *2/*10 would
+   * normally be a Normal Metabolizer, but this outside call overrides it as an Intermediate Metabolizer.
    */
   @Test
   void testOutsideCallActivityScoreAndPhenotype(TestInfo testInfo) throws Exception {
@@ -2226,7 +2228,7 @@ class PipelineTest {
 
   public static Document readHtmlReport(@Nullable Path file) throws IOException {
     if (file == null) {
-      throw new IOException("No such file: " + file);
+      throw new IOException("No file specified!");
     }
     Path reporterOutput = file.getParent().resolve(BaseConfig.getBaseFilename(file) +
         BaseConfig.REPORTER_SUFFIX + ".html");
@@ -2241,7 +2243,7 @@ class PipelineTest {
   void testOutsideSinglePositionCalls(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      // dipltoype in backwards order
+      // diplotype in backwards order
       writer.println("IFNL3\trs12979860 reference (C)/rs12979860 reference (C)\n" +
           "CYP4F2\t*1/*3");
     }

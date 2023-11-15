@@ -30,7 +30,7 @@ import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
  * The phenotype call in the third "column" is not required if the diplotype is supplied, the phenotyper will fill it
  * in. You can supply a phenotype without supplying a diplotype.
  * <p>
- * The diplotype call must include 2 alleles and they must be separated by a "/".
+ * The diplotype call must include 2 alleles, and they must be separated by a "/".
  * <p>
  * Multiple diplotypes can be separated by " or ". For example, "*1/*2 or *2/*3".
  *
