@@ -11,19 +11,8 @@ import utilities as util
 
 # read reference predictions
 reference_file_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
-reference_file_pattern: Path = Path('predicted_pharmcat_calls_*tsv')
-reference_files: list[str] = glob(str(reference_file_dir.joinpath(reference_file_pattern)))
-reference_predictions = pd.DataFrame()
-# iteratively read predictions
-for file in reference_files:
-    # read the file
-    reference_prediction_i: pd.DataFrame = pd.read_csv(file, delimiter='\t')
-    # if no content, continue to the next file
-    if len(reference_prediction_i) == 0:
-        continue
-
-    # concatenate the reference predictions to the summary data frame
-    reference_predictions = pd.concat([reference_predictions, reference_prediction_i], ignore_index=True)
+reference_file: Path = reference_file_dir.joinpath('predicted_pharmcat_calls.tsv')
+reference_predictions: pd.DataFrame = pd.read_csv(str(reference_file), delimiter='\t')
 # replace "NaN" values with ''
 reference_predictions = reference_predictions.fillna('')
 
