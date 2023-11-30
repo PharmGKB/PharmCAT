@@ -3,10 +3,10 @@ __author__ = 'BinglanLi'
 
 import json
 import sys
-
-import numpy as np
 from pathlib import Path
 from typing import List, Set, Optional
+
+import numpy as np
 
 
 # todo: convert sys.exit(1) to reportableExceptions
@@ -381,10 +381,10 @@ def convert_dictionary_to_numpy_array(dict_definitions: dict[str, dict]) -> np.n
     definition_names: list[str] = [*dict_definitions]
 
     # get the list of hgvs names for all positions
-    hgvs_names: list[str] = [*dict_definitions[definition_names[0]]]
+    n_definitions: int = len(definition_names)
+    hgvs_names: list[str] = [*dict_definitions[definition_names[0]]] if n_definitions > 0 else []
 
     # initialize an empty numpy array with rows and columns
-    n_definitions: int = len(definition_names)
     n_positions: int = len(hgvs_names)
     n_genotypes: int = len(genotype_list)
     definition_arrays: np.ndarray = np.zeros((n_definitions, n_genotypes, n_positions), dtype='int8')
@@ -724,6 +724,8 @@ def find_predicted_calls(possible_call_sets: list[set[str]],
 
     # iterate over possible_call_set
     for possible_call_set in possible_call_sets:
+        if len(possible_call_set) == 0:
+            continue
         # initialize lists to concatenate
         actual_calls: list[str] = []
         alternative_calls: list[str] = []
@@ -774,7 +776,7 @@ def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, st
         if missing_positions:
             # get the hgvs names of allele-defining positions, excluding missing positions
             p: list[str] = [k for k in dict_defining_genotypes if k not in missing_positions]
-            # get genotypes at each allele-defining positions, excluding missing positions
+            # get genotypes at each allele-defining position, excluding missing positions
             g: list[str] = [dict_defining_genotypes[hgvs_name] for hgvs_name in p]
             # if definitions are not empty for this allele, add to the definitions dictionary
             if any(g):

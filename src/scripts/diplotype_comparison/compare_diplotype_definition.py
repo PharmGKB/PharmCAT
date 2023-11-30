@@ -95,6 +95,8 @@ if __name__ == "__main__":
         print()
         if args.clinical_outcome:
             print(f'Generating clinical outcome data')
+            if args.base_filename == 'predicted_pharmcat_calls':
+                m_output_file: Path = m_output_dir / 'clinical_outcomes_diff.tsv'
         print(f'Saving to {m_output_file}\n')
 
         # process each gene
@@ -135,62 +137,63 @@ if __name__ == "__main__":
             gregarious_alleles: list[str] = list(allele_names[idx_gregarious_alleles])
 
             # skip the gene if none of its alleles shares any allele-defining positions with others
-            if len(gregarious_alleles):
-                # find all possible outcomes of alternative calls for each diplotype
-                dict_predicted_calls = dict()
-                if args.missing:
-                    if gene == 'CYP2D6':
-                        print(f'\tSkipping - too complex')
-                        continue
+            if len(gregarious_alleles) == 0:
+                print(f'\tSkipping - no alleles share definitions with others')
+                continue
 
-                    # identify the combinations of missing positions to evaluate
-                    hgvs_names = [*allele_defining_variants]
-                    missing_combinations = util.find_missingness_combinations(allele_position_array, list(allele_names),
-                                                                              hgvs_names, reference_alleles,
-                                                                              gregarious_alleles)
+            # find all possible outcomes of alternative calls for each diplotype
+            dict_predicted_calls = dict()
+            if args.missing:
+                if gene == 'CYP2D6':
+                    print(f'\tSkipping - too complex')
+                    continue
 
-                    # if the gene does not have positions whose absence will cause ambiguous pharmcat calls, then skip
-                    if not missing_combinations:
-                        print(f'\tSkipping - no ambiguous calls')
-                        continue
-                    else:
-                        print(f'\tNumber of combinations = {len(missing_combinations)}')
-                        for m in missing_combinations:
-                            # find possible calls for each missing position
-                            dict_predicted_calls_m = util.predict_pharmcat_calls(allele_defining_variants,
-                                                                                 allele_definitions, m)
+                # identify the combinations of missing positions to evaluate
+                hgvs_names = [*allele_defining_variants]
+                missing_combinations = util.find_missingness_combinations(allele_position_array, list(allele_names),
+                                                                          hgvs_names, reference_alleles,
+                                                                          gregarious_alleles)
 
-                            # append to dict_predicted_calls
-                            for key in dict_predicted_calls_m:
-                                dict_predicted_calls[key] = dict_predicted_calls.get(key, []) + dict_predicted_calls_m[key]
+                # if the gene does not have positions whose absence will cause ambiguous pharmcat calls, then skip
+                if not missing_combinations:
+                    print(f'\tSkipping - no ambiguous calls')
+                    continue
                 else:
-                    dict_predicted_calls = util.predict_pharmcat_calls(allele_defining_variants,
-                                                                       allele_definitions,
-                                                                       gregarious_alleles)
+                    print(f'\tNumber of combinations = {len(missing_combinations)}')
+                    for m in missing_combinations:
+                        # find possible calls for each missing position
+                        dict_predicted_calls_m = util.predict_pharmcat_calls(allele_defining_variants,
+                                                                             allele_definitions, m)
 
-                # convert the python dictionary to a pandas data frame for output
-                df_predicted_calls = pd.DataFrame.from_dict(dict_predicted_calls)
-                # add gene name to the data frame for readability in the output
-                df_predicted_calls['gene'] = gene
-                # write to an output
-                if len(df_predicted_calls):
-                    if args.clinical_outcome:
-                        rows = df_predicted_calls[df_predicted_calls['actual'].str.contains(';')]
-                        cols = ['gene', 'actual']
-                    else:
-                        rows = df_predicted_calls
-                        cols = rows.columns
-                    if m_output_file.is_file():
-                        mode = 'a'
-                        header = False
-                    else:
-                        mode = 'w'
-                        header = True
-                    rows.to_csv(m_output_file.absolute(), mode=mode, sep="\t", columns=cols, header=header, index=False)
-                else:
-                    print(f'\tNo alternative calls')
+                        # append to dict_predicted_calls
+                        for key in dict_predicted_calls_m:
+                            dict_predicted_calls[key] = dict_predicted_calls.get(key, []) + dict_predicted_calls_m[key]
             else:
-                print(f'\tNo alleles share definitions with others')
+                dict_predicted_calls = util.predict_pharmcat_calls(allele_defining_variants,
+                                                                   allele_definitions,
+                                                                   gregarious_alleles)
+
+            # convert the python dictionary to a pandas data frame for output
+            df_predicted_calls = pd.DataFrame.from_dict(dict_predicted_calls)
+            # add gene name to the data frame for readability in the output
+            df_predicted_calls['gene'] = gene
+            # write to an output
+            if len(df_predicted_calls):
+                if args.clinical_outcome:
+                    rows = df_predicted_calls[df_predicted_calls['actual'].str.contains(';')]
+                    cols = ['gene', 'actual']
+                else:
+                    rows = df_predicted_calls
+                    cols = rows.columns
+                if m_output_file.is_file():
+                    mode = 'a'
+                    header = False
+                else:
+                    mode = 'w'
+                    header = True
+                rows.to_csv(m_output_file.absolute(), mode=mode, sep="\t", columns=cols, header=header, index=False)
+            else:
+                print(f'\tNo alternative calls')
             allele_definitions = util.get_allele_definitions(json_data, allele_defining_variants)
 
             # find all possible outcomes of alternative calls for each diplotype
@@ -218,7 +221,7 @@ if __name__ == "__main__":
                         for key in dict_predicted_calls_m:
                             dict_predicted_calls[key] = dict_predicted_calls.get(key, []) + dict_predicted_calls_m[key]
             else:
-                dict_predicted_calls = util.predict_pharmcat_calls(allele_defining_variants, allele_definitions)
+                dict_predicted_calls = util.predict_pharmcat_calls(allele_defining_variants, allele_definitions, [])
 
             # convert the python dictionary to a pandas data frame for output
             df_predicted_calls = pd.DataFrame.from_dict(dict_predicted_calls)
