@@ -180,7 +180,10 @@ if __name__ == "__main__":
             # write to an output
             if len(rez):
                 if args.clinical_calls:
-                    rows = rez[rez['actual'].str.contains(';')]
+                    # keep only diplotypes that have multiple top-scored calls
+                    mask = rez[rez['actual'].str.contains(';')]
+                    # remove duplicates
+                    rows = mask.drop_duplicates(subset=['gene', 'actual'])
                     cols = ['gene', 'actual']
                 else:
                     rows = rez

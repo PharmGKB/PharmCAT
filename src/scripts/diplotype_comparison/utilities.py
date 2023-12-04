@@ -13,7 +13,7 @@ import numpy as np
 
 # define the list of wobble genotypes
 _wobble_genotype_list: list = ['S', 'Y', 'M', 'K', 'R', 'W', 'V', 'H', 'D', 'B', 'N']
-# build a dictionary of wobble genotypes and their corresponding basepairs
+# build a dictionary of wobble genotypes and their corresponding base pairs
 _wobble_match_table: dict[str, Set[str]] = {
     'M': {'A', 'C'},
     'R': {'A', 'G'},
@@ -190,7 +190,7 @@ def fill_definitions_with_references(dict_allele_definitions: dict[str, dict[str
 
 def replace_wobble(wobl_genotype: str) -> Set[str]:
     """
-    replace wobble genotypes with basic basepairs A/T/C/G
+    replace wobble genotypes with basic base pairs A/T/C/G
     :param wobl_genotype: an allele-defining genotype
     :return: a list of genotypes with only A, T, C, G, or indels
     """
@@ -559,10 +559,10 @@ def find_pairwise_relationship(d1: str, d2: str, g1: np.ndarray, g2: np.ndarray)
 
     :param d1: the name of diplotype 1
     :param d2: the name of diplotype 2
-    :param g1: the numpy aray of diplotype 1 (M, P)
+    :param g1: the numpy array of diplotype 1 (M, P)
                 M = possible genotypes at a position for a diplotype
                 P = allele-defining position for a gene
-    :param g2: the numpy aray of diplotype 1 (M, P)
+    :param g2: the numpy array of diplotype 1 (M, P)
     :return: a string specifying the relationship between d1 and d2,
             including "equivalent", "overlapping", "included", and "inclusive"
     """
@@ -574,6 +574,7 @@ def find_pairwise_relationship(d1: str, d2: str, g1: np.ndarray, g2: np.ndarray)
 
     # g1 and g2 must have only one True status
     status_sum = sum([status_equivalent, status_included, status_inclusive, status_overlapping])
+    relationship: str = ''
     if status_sum != 1:
         print(f'Something is wrong between {d1} and {d2}.')
         sys.exit(1)
@@ -594,7 +595,7 @@ def find_possible_calls(g1: np.ndarray,
                         diplotype_names: list[str]) -> list[str]:
     """
     find all alternative calls for one diplotype
-    :param g1: the numpy aray of diplotype 1 (M, P)
+    :param g1: the numpy array of diplotype 1 (M, P)
                 M = possible genotypes at a position for a diplotype
                 P = allele-defining position for a gene
     :param definition_arrays: a numpy array of all diplotype definitions (D, M, P)
