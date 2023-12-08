@@ -19,24 +19,24 @@ little as possible to make it work with the application.
 ## Data Sources 
 
 Guideline recommendation data has a typical format. A guideline can apply to one or more drugs. If the guideline applies
-to multiple drugs it's typically because they belong to the same drug class or are used for the same therapeutic case.
-The guideline will also specify one or more genes that should be genotyped in order to get specific recommendation
-information. This will lead to possible drug-gene combinations in the guideline where some may have recommendations and
-some may have "no recommendation" as indicated by the guideline authors. The specific recommendations are usually a 
+to multiple drugs, it's typically because they belong to the same drug class or are used for the same therapeutic case.
+The guideline will also specify one or more genes that should be genotyped to get specific recommendation
+information. This will lead to possible drug-gene combinations in the guideline where some may have recommendations
+while others may have "no recommendation" as indicated by the guideline authors. The specific recommendations are usually a 
 collection of text annotations of different types (e.g. implications, recommendation, strength of recommendation) that
 apply to specific gene results like a particular phenotype or the presence of a particular allele. A guideline may have
 more than one group of annotations for the same genotype if the guideline can apply to multiple populations that have 
 different recommendations. The method to get from a genotype (e.g. a diplotype like CYP2C9 `*1/*3`) to gene results
-vary by guideline so it is important to closely read and understand the guideline before interpreting genotypes in that
+vary by guideline, so it is important to closely read and understand the guideline before interpreting genotypes in that
 context.
 
 Currently, PharmCAT pulls guideline data from two sources. The first is CPIC. CPIC makes their guideline
 recommendations and supporting data available in machine-readable formats through their REST API and via a file archive
-service. CPIC publishes drug, phenotype, and allele definition data that PharmCAT consumes in order to do its work. 
+service. CPIC publishes drug, phenotype, and allele definition data that PharmCAT consumes to do its work. 
 
 The second source is DPWG (the Dutch Pharmacogenomics Working Group). DPWG does not publish their guideline information
-in a well-structured machine-readable format (they only publish as PDFs) so PharmCAT relies on the annotated DPWG
-guidelines in PharmGKB. PharmGKB curators read the source PDFs and curate the guideline data so it is available via
+in a well-structured machine-readable format (they only publish as PDFs), so PharmCAT relies on the annotated DPWG
+guidelines in PharmGKB. PharmGKB curators read the source PDFs and curate the guideline data, so it is available via
 PharmGKB's API and file archive service. PharmGKB also provides allele definition data for genes that are used in DPWG
 guidelines but are not in CPIC.
 
@@ -114,7 +114,7 @@ Some genes do not have defined named alleles and, instead, rely on a single SNP 
 recommendations.
 
 For example, ABCG2 uses the `rs2231142` SNP for recommendation lookups with two possible alleles that can be used for
-lookups: `reference (G)` and `variant (T)`. Each allele is assigned a function but the diplotype itself is also
+lookups: `reference (G)` and `variant (T)`. Each allele is assigned a function, but the diplotype itself is also
 assigned an overall function which is then used for lookup.
 
 
@@ -133,11 +133,11 @@ result in more than one gene result for HLA-B, one for each allele that is used 
 ## Multi-gene Guidelines
 
 Some guidelines will use more than one gene to look up recommendations. In that case, each gene uses its own lookup
-method as described above and then the combination of the gene results is used to match a guideline recommendation. 
+method as described above, and then the combination of the gene results is used to match a guideline recommendation. 
 
 For example, the CPIC phenytoin guideline uses both CYP2C9 (an activity score gene) and HLA-B (an allele status gene) to
-match to recommendation text. If a sample is CYP2C9 `*1/*1` and the HLA-B `*15:02` allele is not present then a combined
-gene result of a CYP2C9 activity score of `2.0` and a HLA-B result of `*15:02 negative` will be used to match to a
+match to the recommendation text. If a sample is CYP2C9 `*1/*1` and the HLA-B `*15:02` allele is not present then a combined
+gene result of a CYP2C9 activity score of `2.0` and an HLA-B result of `*15:02 negative` will be used to match to a
 recommendation.
 
 
@@ -160,3 +160,10 @@ particular medication or a particular clinical finding, or something else.
 There are genes that need to use special, individual logic to determine their gene results for recommendation lookup.
 
 See [Gene Definition Exceptions](/methods/Gene-Definition-Exceptions) for details on these genes.
+
+In the `Reporter` JSON output, the diplotype used to look up the recommendation is specified in the
+`recommendationDiplotype` field.
+
+The "real" diplotype is stored in the `sourceDiplotype` field.
+This will be either what the `Named Allele Matcher` called, or was provided as an outside call.
+This is the value that is displayed in the PharmCAT reports.

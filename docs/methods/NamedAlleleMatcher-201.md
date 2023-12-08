@@ -25,7 +25,7 @@ Example:
 The default named allele definitions are designed to assume that missing alleles are the same as the reference named 
 allele, which is defined as the first named allele in the definition file.
 
-It is, however, possible to increse the score of a named allele by specifying the reference allele.  For example, this
+It is, however, possible to increase the score of a named allele by specifying the reference allele.  For example, this
 gene definition table is effectively identical to the one above, but _*2_ has a different score.
 
 |     | rs1 | rs2 | rs3 | rs4 | rs5 | score |
@@ -58,19 +58,6 @@ collection of the former).
     "ignoredAllelesLc": [
       "*1s"
     ]
-  }
-```
-
-### Return All Diplotypes
-
-The `Named Allele Matcher` can be required to always return all matching diplotypes instead of just the top scoring one(s).
-
-You would need to add something like this:
-
-```json
-  {
-    "gene": "XXX",
-    "allHits": true
   }
 ```
 
@@ -124,8 +111,9 @@ By default, only genetic variations that are defined in the allele definitions c
 position that is part of the allele definitions, the `Named Allele Matcher` produces a "Not called" for the affected
 gene since the sample matches neither the reference nor any defined variant.
 
-A different approach is taken for genes for which the defined variants affect drug toxicity . When these "undefined"
-variant calls are encountered, they will be treated as reference.  This applies to:
+A different approach is taken for genes for which the defined variants affect drug toxicity.
+When these "undefined" variant calls are encountered, they will be treated as reference.
+This applies to:
 
 * CACNA1S
 * DPYD
