@@ -2,9 +2,9 @@
   "geneReports": {
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -107,9 +107,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -234,9 +234,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CFTR": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -871,9 +871,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1668,9 +1668,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2303,9 +2303,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3546,7 +3546,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3634,9 +3634,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -3803,7 +3803,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -4078,9 +4078,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -5367,9 +5367,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "G6PD": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -8065,9 +8065,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8172,7 +8172,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8248,9 +8248,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -8588,9 +8588,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "RYR1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -8684,6 +8684,48 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38433867,
+            "dbSnpId": "rs193922744",
+            "call": "T/T",
+            "alleles": [
+              "c.38T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38440747,
+            "dbSnpId": "rs193922745",
+            "call": "CGAT/CGAT",
+            "alleles": [
+              "c.51_53del"
+            ],
+            "phased": false,
+            "wildtypeAllele": "CGAT",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38440796,
+            "dbSnpId": "rs193922746",
+            "call": "A/A",
+            "alleles": [
+              "c.97A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38440802,
             "dbSnpId": "rs193922747",
             "call": "T/T",
@@ -8698,6 +8740,20 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38440818,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.119G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38440829,
             "dbSnpId": "rs193922748",
             "call": "C/C",
@@ -8706,6 +8762,161 @@
             ],
             "phased": false,
             "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38440830,
+            "dbSnpId": "rs139161723",
+            "call": "G/G",
+            "alleles": [
+              "c.131G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38440851,
+            "dbSnpId": "rs193922749",
+            "call": "C/C",
+            "alleles": [
+              "c.152C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38442361,
+            "dbSnpId": "rs118192160",
+            "call": "G/G",
+            "alleles": [
+              "c.178G>A",
+              "c.178G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38442373,
+            "dbSnpId": "rs995399438",
+            "call": "T/T",
+            "alleles": [
+              "c.190T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38442395,
+            "dbSnpId": "rs118192113",
+            "call": "C/C",
+            "alleles": [
+              "c.212C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38442434,
+            "dbSnpId": "rs186983396",
+            "call": "C/C",
+            "alleles": [
+              "c.251C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38443790,
+            "dbSnpId": "rs142474192",
+            "call": "G/G",
+            "alleles": [
+              "c.418G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444179,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.455C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444187,
+            "dbSnpId": "rs193922750",
+            "call": "C/C",
+            "alleles": [
+              "c.463C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444191,
+            "dbSnpId": "rs193922751",
+            "call": "G/G",
+            "alleles": [
+              "c.467G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444203,
+            "dbSnpId": "rs193922752",
+            "call": "A/A",
+            "alleles": [
+              "c.479A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -8730,10 +8941,180 @@
             "dbSnpId": "rs193922753",
             "call": "G/G",
             "alleles": [
+              "c.488G>A",
               "c.488G>T"
             ],
             "phased": false,
             "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444217,
+            "dbSnpId": "rs193922754",
+            "call": "G/G",
+            "alleles": [
+              "c.493G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444220,
+            "dbSnpId": "rs193922755",
+            "call": "G/G",
+            "alleles": [
+              "c.496G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444221,
+            "dbSnpId": "rs193922756",
+            "call": "A/A",
+            "alleles": [
+              "c.497A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444250,
+            "dbSnpId": "rs761616815",
+            "call": "G/G",
+            "alleles": [
+              "c.526G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444252,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.528G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444253,
+            "dbSnpId": "rs193922757",
+            "call": "C/C",
+            "alleles": [
+              "c.529C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444257,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.533A>C",
+              "c.533A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38444671,
+            "dbSnpId": "rs771058055",
+            "call": "G/G",
+            "alleles": [
+              "c.625G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38446481,
+            "dbSnpId": "rs727504129",
+            "call": "C/C",
+            "alleles": [
+              "c.641C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38446492,
+            "dbSnpId": "rs193922759",
+            "call": "G/G",
+            "alleles": [
+              "c.652G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38446517,
+            "dbSnpId": "rs112596687",
+            "call": "T/T",
+            "alleles": [
+              "c.677T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38446520,
+            "dbSnpId": "rs193922760",
+            "call": "A/A",
+            "alleles": [
+              "c.680A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -8746,6 +9127,34 @@
             "alleles": [
               "c.742G>A",
               "c.742G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38448500,
+            "dbSnpId": "rs752652072",
+            "call": "C/C",
+            "alleles": [
+              "c.946C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38448501,
+            "dbSnpId": "rs193922761",
+            "call": "G/G",
+            "alleles": [
+              "c.947G>T"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -8769,6 +9178,20 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38448680,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.992_994dup"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38448712,
             "dbSnpId": "rs121918592",
             "call": "G/G",
@@ -8784,14 +9207,74 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38448715,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.1024G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38448791,
+            "dbSnpId": "rs113332073",
+            "call": "G/G",
+            "alleles": [
+              "c.1100G>A",
+              "c.1100G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38451785,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.1144C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38451842,
             "dbSnpId": "rs193922764",
             "call": "C/C",
             "alleles": [
+              "c.1201C>A",
+              "c.1201C>G",
               "c.1201C>T"
             ],
             "phased": false,
             "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38451843,
+            "dbSnpId": "rs193922766",
+            "call": "G/G",
+            "alleles": [
+              "c.1202G>A",
+              "c.1202G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -8812,11 +9295,110 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38452985,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.1411C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38452996,
+            "dbSnpId": "rs193922767",
+            "call": "G/G",
+            "alleles": [
+              "c.1422G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455247,
+            "dbSnpId": "rs147723844",
+            "call": "A/A",
+            "alleles": [
+              "c.1453A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455253,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.1459C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455254,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.1460T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455269,
+            "dbSnpId": "rs901087791",
+            "call": "G/G",
+            "alleles": [
+              "c.1475G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455347,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.1553T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38455359,
             "dbSnpId": "rs118192162",
             "call": "A/A",
             "alleles": [
-              "c.1565A>C"
+              "c.1565A>C",
+              "c.1565A>G"
             ],
             "phased": false,
             "wildtypeAllele": "A",
@@ -8844,6 +9426,7 @@
             "dbSnpId": "rs193922768",
             "call": "C/C",
             "alleles": [
+              "c.1597C>A",
               "c.1597C>T"
             ],
             "phased": false,
@@ -8868,6 +9451,35 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38455489,
+            "dbSnpId": "rs193922769",
+            "call": "T/T",
+            "alleles": [
+              "c.1615T>C",
+              "c.1615T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38455504,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.1630G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38455528,
             "dbSnpId": "rs193922770",
             "call": "C/C",
@@ -8876,6 +9488,20 @@
             ],
             "phased": false,
             "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38457539,
+            "dbSnpId": "rs118204423",
+            "call": "G/G",
+            "alleles": [
+              "c.1834G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -8910,6 +9536,637 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38458175,
+            "dbSnpId": "rs747177274",
+            "call": "G/G",
+            "alleles": [
+              "c.2050G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38458247,
+            "dbSnpId": "rs138874610",
+            "call": "G/G",
+            "alleles": [
+              "c.2122G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38460461,
+            "dbSnpId": "rs376149732",
+            "call": "C/C",
+            "alleles": [
+              "c.2447C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38460551,
+            "dbSnpId": "rs193922775",
+            "call": "C/C",
+            "alleles": [
+              "c.2537C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38463499,
+            "dbSnpId": "rs370634440",
+            "call": "G/G",
+            "alleles": [
+              "c.2654G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38464649,
+            "dbSnpId": "rs148623597",
+            "call": "G/G",
+            "alleles": [
+              "c.2797G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466144,
+            "dbSnpId": "rs778241277",
+            "call": "G/G",
+            "alleles": [
+              "c.2924G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466216,
+            "dbSnpId": "rs180714609",
+            "call": "G/G",
+            "alleles": [
+              "c.2996G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466315,
+            "dbSnpId": "rs141942845",
+            "call": "G/G",
+            "alleles": [
+              "c.3095G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466347,
+            "dbSnpId": "rs111272095",
+            "call": "C/C",
+            "alleles": [
+              "c.3127C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466386,
+            "dbSnpId": "rs2145447772",
+            "call": "G/G",
+            "alleles": [
+              "c.3166G>A",
+              "c.3166G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38466392,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.3172G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38467655,
+            "dbSnpId": "rs749040743",
+            "call": "G/G",
+            "alleles": [
+              "c.3224G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38469002,
+            "dbSnpId": "rs193922776",
+            "call": "C/C",
+            "alleles": [
+              "c.3418C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38469111,
+            "dbSnpId": "rs549201486",
+            "call": "C/C",
+            "alleles": [
+              "c.3527C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38469404,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.3656A>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38469415,
+            "dbSnpId": "rs936513262",
+            "call": "G/G",
+            "alleles": [
+              "c.3667G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38473635,
+            "dbSnpId": "rs34694816",
+            "call": "A/A",
+            "alleles": [
+              "c.4024A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38475335,
+            "dbSnpId": "rs137933390",
+            "call": "A/A",
+            "alleles": [
+              "c.4178A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38477816,
+            "dbSnpId": "rs145573319",
+            "call": "A/A",
+            "alleles": [
+              "c.4400A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38483293,
+            "dbSnpId": "rs146429605",
+            "call": "A/A",
+            "alleles": [
+              "c.4711A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38483329,
+            "dbSnpId": "rs754476250",
+            "call": "C/C",
+            "alleles": [
+              "c.4747C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38483345,
+            "dbSnpId": "rs151029675",
+            "call": "C/C",
+            "alleles": [
+              "c.4763C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38483357,
+            "dbSnpId": "rs193922777",
+            "call": "C/C",
+            "alleles": [
+              "c.4775C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485679,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.5024T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485688,
+            "dbSnpId": "rs781104539",
+            "call": "A/A",
+            "alleles": [
+              "c.5033A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485691,
+            "dbSnpId": "rs146504767",
+            "call": "G/G",
+            "alleles": [
+              "c.5036G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485787,
+            "dbSnpId": "rs754785770",
+            "call": "A/A",
+            "alleles": [
+              "c.5132A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485838,
+            "dbSnpId": "rs193922781",
+            "call": "C/C",
+            "alleles": [
+              "c.5183C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485841,
+            "dbSnpId": "rs193922782",
+            "call": "T/T",
+            "alleles": [
+              "c.5186T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485972,
+            "dbSnpId": "rs192863857",
+            "call": "C/C",
+            "alleles": [
+              "c.5317C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38485996,
+            "dbSnpId": "rs372958050",
+            "call": "T/T",
+            "alleles": [
+              "c.5341T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38486015,
+            "dbSnpId": "rs34934920",
+            "call": "C/C",
+            "alleles": [
+              "c.5360C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38486095,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.5440A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38486096,
+            "dbSnpId": "rs193922783",
+            "call": "T/T",
+            "alleles": [
+              "c.5441T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38490151,
+            "dbSnpId": "rs145801146",
+            "call": "C/C",
+            "alleles": [
+              "c.5890C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38490642,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.6037A>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38492540,
+            "dbSnpId": "rs35364374",
+            "call": "G/G",
+            "alleles": [
+              "c.6178G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494379,
+            "dbSnpId": "rs746818096",
+            "call": "T/T",
+            "alleles": [
+              "c.6302T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494381,
+            "dbSnpId": "rs770593660",
+            "call": "G/G",
+            "alleles": [
+              "c.6304G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494426,
+            "dbSnpId": "rs193922788",
+            "call": "G/G",
+            "alleles": [
+              "c.6349G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494454,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.6377G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494464,
+            "dbSnpId": "rs117886618",
+            "call": "C/C",
+            "alleles": [
+              "c.6387C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494465,
+            "dbSnpId": "rs193922789",
+            "call": "G/G",
+            "alleles": [
+              "c.6388G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494555,
+            "dbSnpId": "rs143398211",
+            "call": "G/G",
+            "alleles": [
+              "c.6478G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38494564,
             "dbSnpId": "rs118192175",
             "call": "C/C",
@@ -8928,7 +10185,9 @@
             "dbSnpId": "rs118192163",
             "call": "G/G",
             "alleles": [
-              "c.6488G>A"
+              "c.6488G>A",
+              "c.6488G>C",
+              "c.6488G>T"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -8952,6 +10211,62 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38494621,
+            "dbSnpId": "rs193922790",
+            "call": "A/A",
+            "alleles": [
+              "c.6544A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38494625,
+            "dbSnpId": "rs959170123",
+            "call": "G/G",
+            "alleles": [
+              "c.6548G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496265,
+            "dbSnpId": "rs193922791",
+            "call": "C/C",
+            "alleles": [
+              "c.6599C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496278,
+            "dbSnpId": "rs141646642",
+            "call": "C/C",
+            "alleles": [
+              "c.6612C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38496283,
             "dbSnpId": "rs118192177",
             "call": "C/C",
@@ -8967,11 +10282,249 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38496294,
+            "dbSnpId": "rs193922792",
+            "call": "G/G",
+            "alleles": [
+              "c.6628G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496301,
+            "dbSnpId": "rs193922793",
+            "call": "T/T",
+            "alleles": [
+              "c.6635T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496306,
+            "dbSnpId": "rs193922795",
+            "call": "G/G",
+            "alleles": [
+              "c.6640G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496415,
+            "dbSnpId": "rs199870223",
+            "call": "C/C",
+            "alleles": [
+              "c.6670C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496416,
+            "dbSnpId": "rs537994744",
+            "call": "G/G",
+            "alleles": [
+              "c.6671G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496455,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.6710G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496487,
+            "dbSnpId": "rs763352221",
+            "call": "C/C",
+            "alleles": [
+              "c.6742C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496488,
+            "dbSnpId": "rs140152019",
+            "call": "G/G",
+            "alleles": [
+              "c.6743G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496502,
+            "dbSnpId": "rs917523269",
+            "call": "C/C",
+            "alleles": [
+              "c.6757C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496901,
+            "dbSnpId": "rs193922797",
+            "call": "G/G",
+            "alleles": [
+              "c.6838G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38496910,
+            "dbSnpId": "rs118192121",
+            "call": "A/A",
+            "alleles": [
+              "c.6847A>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499177,
+            "dbSnpId": "rs34390345",
+            "call": "A/A",
+            "alleles": [
+              "c.6961A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38499223,
             "dbSnpId": "rs112563513",
             "call": "G/G",
             "alleles": [
               "c.7007G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499234,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.7018T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499241,
+            "dbSnpId": "rs147213895",
+            "call": "A/A",
+            "alleles": [
+              "c.7025A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499639,
+            "dbSnpId": "rs193922798",
+            "call": "G/G",
+            "alleles": [
+              "c.7032G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499642,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.7035C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499643,
+            "dbSnpId": "rs193922799",
+            "call": "G/G",
+            "alleles": [
+              "c.7036G>A"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -8995,11 +10548,39 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38499650,
+            "dbSnpId": "rs193922801",
+            "call": "A/A",
+            "alleles": [
+              "c.7043A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38499655,
             "dbSnpId": "rs193922802",
             "call": "G/G",
             "alleles": [
               "c.7048G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499667,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.7060G>A"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -9023,11 +10604,193 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38499680,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.7073T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499682,
+            "dbSnpId": "rs769482889",
+            "call": "C/C",
+            "alleles": [
+              "c.7075C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499683,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.7076G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499691,
+            "dbSnpId": "rs762401851",
+            "call": "G/G",
+            "alleles": [
+              "c.7084G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499692,
+            "dbSnpId": "rs193922804",
+            "call": "A/A",
+            "alleles": [
+              "c.7085A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499696,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.7089C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499697,
+            "dbSnpId": "rs193922805",
+            "call": "T/T",
+            "alleles": [
+              "c.7090T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499704,
+            "dbSnpId": "rs193922806",
+            "call": "C/C",
+            "alleles": [
+              "c.7097C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499706,
+            "dbSnpId": "rs146306934",
+            "call": "G/G",
+            "alleles": [
+              "c.7099G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499719,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.7112A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499730,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.7123G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38499731,
             "dbSnpId": "rs193922807",
             "call": "G/G",
             "alleles": [
               "c.7124G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499806,
+            "dbSnpId": "rs976108591",
+            "call": "A/A",
+            "alleles": [
+              "c.7199A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499817,
+            "dbSnpId": "rs111364296",
+            "call": "G/G",
+            "alleles": [
+              "c.7210G>A"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -9045,6 +10808,35 @@
             ],
             "phased": false,
             "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499984,
+            "dbSnpId": "rs193922810",
+            "call": "G/G",
+            "alleles": [
+              "c.7291G>A",
+              "c.7291G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38499985,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.7292A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9069,7 +10861,50 @@
             "dbSnpId": "rs28933396",
             "call": "G/G",
             "alleles": [
-              "c.7304G>A"
+              "c.7304G>A",
+              "c.7304G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500000,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.7307G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500003,
+            "dbSnpId": "rs193922812",
+            "call": "C/C",
+            "alleles": [
+              "c.7310C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500010,
+            "dbSnpId": "rs193922813",
+            "call": "G/G",
+            "alleles": [
+              "c.7317G>C"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -9087,6 +10922,35 @@
             ],
             "phased": false,
             "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500637,
+            "dbSnpId": "rs193922815",
+            "call": "G/G",
+            "alleles": [
+              "c.7355G>A",
+              "c.7355G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500640,
+            "dbSnpId": "rs118192123",
+            "call": "T/T",
+            "alleles": [
+              "c.7358T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9139,10 +11003,39 @@
             "dbSnpId": "rs121918594",
             "call": "G/G",
             "alleles": [
-              "c.7373G>A"
+              "c.7373G>A",
+              "c.7373G>T"
             ],
             "phased": false,
             "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500667,
+            "dbSnpId": "rs551223467",
+            "call": "C/C",
+            "alleles": [
+              "c.7385C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38500863,
+            "dbSnpId": "rs193922817",
+            "call": "C/C",
+            "alleles": [
+              "c.7487C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9178,6 +11071,372 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38500904,
+            "dbSnpId": "rs193922819",
+            "call": "T/T",
+            "alleles": [
+              "c.7528T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502652,
+            "dbSnpId": "rs767553612",
+            "call": "A/A",
+            "alleles": [
+              "c.7760A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502663,
+            "dbSnpId": "rs193922822",
+            "call": "C/C",
+            "alleles": [
+              "c.7771C>G",
+              "c.7771C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502669,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.7777C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502670,
+            "dbSnpId": "rs751180702",
+            "call": "G/G",
+            "alleles": [
+              "c.7778G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502679,
+            "dbSnpId": "rs193922824",
+            "call": "C/C",
+            "alleles": [
+              "c.7787C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502708,
+            "dbSnpId": "rs748575133",
+            "call": "T/T",
+            "alleles": [
+              "c.7816T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38502923,
+            "dbSnpId": "rs914804033",
+            "call": "G/G",
+            "alleles": [
+              "c.7879G>A",
+              "c.7879G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504298,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.8005G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504319,
+            "dbSnpId": "rs193922826",
+            "call": "C/C",
+            "alleles": [
+              "c.8026C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504347,
+            "dbSnpId": "rs781126470",
+            "call": "C/C",
+            "alleles": [
+              "c.8054C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504868,
+            "dbSnpId": "rs193922827",
+            "call": "G/G",
+            "alleles": [
+              "c.8188G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504869,
+            "dbSnpId": "rs112196644",
+            "call": "A/A",
+            "alleles": [
+              "c.8189A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38504878,
+            "dbSnpId": "rs193922828",
+            "call": "G/G",
+            "alleles": [
+              "c.8198G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38505061,
+            "dbSnpId": "rs193922829",
+            "call": "G/G",
+            "alleles": [
+              "c.8290G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38505325,
+            "dbSnpId": "rs147707463",
+            "call": "C/C",
+            "alleles": [
+              "c.8327C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38505358,
+            "dbSnpId": "rs35180584",
+            "call": "C/C",
+            "alleles": [
+              "c.8360C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38505923,
+            "dbSnpId": "rs193922830",
+            "call": "C/C",
+            "alleles": [
+              "c.8518C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38505932,
+            "dbSnpId": "rs768535909",
+            "call": "T/T",
+            "alleles": [
+              "c.8527T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38506361,
+            "dbSnpId": "rs193922831",
+            "call": "T/T",
+            "alleles": [
+              "c.8600T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38506492,
+            "dbSnpId": "rs112772310",
+            "call": "G/G",
+            "alleles": [
+              "c.8638G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38506508,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.8654C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38506865,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.8729C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38507821,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.8926C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38511590,
+            "dbSnpId": "rs147303895",
+            "call": "G/G",
+            "alleles": [
+              "c.9152G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38512279,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.9268G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38512321,
             "dbSnpId": "rs193922832",
             "call": "G/G",
@@ -9186,6 +11445,566 @@
             ],
             "phased": false,
             "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38512367,
+            "dbSnpId": "rs193922833",
+            "call": "G/G",
+            "alleles": [
+              "c.9356G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38515052,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.9499C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38516167,
+            "dbSnpId": "rs199738299",
+            "call": "A/A",
+            "alleles": [
+              "c.9635A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38516181,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.9649T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38516184,
+            "dbSnpId": "rs553055844",
+            "call": "G/G",
+            "alleles": [
+              "c.9652G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38516208,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.9676G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38517431,
+            "dbSnpId": "rs375626634",
+            "call": "T/T",
+            "alleles": [
+              "c.9758T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38517470,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.9797T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38517521,
+            "dbSnpId": "rs757753317",
+            "call": "G/G",
+            "alleles": [
+              "c.9848G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38517523,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.9850T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38517541,
+            "dbSnpId": "rs112151058",
+            "call": "G/G",
+            "alleles": [
+              "c.9868G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519237,
+            "dbSnpId": "rs118204421",
+            "call": "C/C",
+            "alleles": [
+              "c.10042C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519238,
+            "dbSnpId": "rs193922834",
+            "call": "G/G",
+            "alleles": [
+              "c.10043G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519292,
+            "dbSnpId": "rs137932199",
+            "call": "G/G",
+            "alleles": [
+              "c.10097G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519295,
+            "dbSnpId": "rs118192126",
+            "call": "A/A",
+            "alleles": [
+              "c.10100A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519424,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.10229C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519432,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.10237A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38519447,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.10252A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38525432,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.10556C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38525492,
+            "dbSnpId": "rs143987857",
+            "call": "G/G",
+            "alleles": [
+              "c.10616G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38527707,
+            "dbSnpId": "rs55876273",
+            "call": "G/G",
+            "alleles": [
+              "c.10747G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38527710,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.10750G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38528372,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.10891G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38529002,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.11086G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38529036,
+            "dbSnpId": "rs193922838",
+            "call": "G/G",
+            "alleles": [
+              "c.11120G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38529042,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.11126C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38529048,
+            "dbSnpId": "rs375915752",
+            "call": "C/C",
+            "alleles": [
+              "c.11132C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38534726,
+            "dbSnpId": "rs4802584",
+            "call": "C/C",
+            "alleles": [
+              "c.11266C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38534774,
+            "dbSnpId": "rs763112609",
+            "call": "C/C",
+            "alleles": [
+              "c.11314C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38534775,
+            "dbSnpId": "rs193922839",
+            "call": "G/G",
+            "alleles": [
+              "c.11315G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38535197,
+            "dbSnpId": "rs111565359",
+            "call": "G/G",
+            "alleles": [
+              "c.11416G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38535998,
+            "dbSnpId": "rs140616359",
+            "call": "G/G",
+            "alleles": [
+              "c.11518G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543365,
+            "dbSnpId": "rs148399313",
+            "call": "G/G",
+            "alleles": [
+              "c.11708G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543380,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.11723A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543405,
+            "dbSnpId": "rs193922840",
+            "call": "T/T",
+            "alleles": [
+              "c.11748T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543551,
+            "dbSnpId": "rs147136339",
+            "call": "A/A",
+            "alleles": [
+              "c.11798A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543566,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.11813G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543810,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.11947C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543816,
+            "dbSnpId": "rs118204422",
+            "call": "T/T",
+            "alleles": [
+              "c.11953T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38543821,
+            "dbSnpId": "rs193922842",
+            "call": "C/C",
+            "alleles": [
+              "c.11958C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9206,6 +12025,595 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38546460,
+            "dbSnpId": "rs755088027",
+            "call": "G/G",
+            "alleles": [
+              "c.12028G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38546496,
+            "dbSnpId": "rs773040531",
+            "call": "A/A",
+            "alleles": [
+              "c.12064A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38548253,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.12115A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38548259,
+            "dbSnpId": "rs144685735",
+            "call": "C/C",
+            "alleles": [
+              "c.12121C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38548287,
+            "dbSnpId": "rs193922844",
+            "call": "C/C",
+            "alleles": [
+              "c.12149C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38548380,
+            "dbSnpId": "rs373406011",
+            "call": "C/C",
+            "alleles": [
+              "c.12242C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561140,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.12310G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561185,
+            "dbSnpId": "rs193922848",
+            "call": "A/A",
+            "alleles": [
+              "c.12355A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561213,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.12383C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561228,
+            "dbSnpId": "rs201321695",
+            "call": "A/A",
+            "alleles": [
+              "c.12398A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561236,
+            "dbSnpId": "rs193922849",
+            "call": "C/C",
+            "alleles": [
+              "c.12406C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561243,
+            "dbSnpId": "rs193922850",
+            "call": "T/T",
+            "alleles": [
+              "c.12413T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561362,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.12532G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561363,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.12533G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38561383,
+            "dbSnpId": "rs151119428",
+            "call": "G/G",
+            "alleles": [
+              "c.12553G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38565023,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "c.12689T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38565034,
+            "dbSnpId": "rs193922852",
+            "call": "G/G",
+            "alleles": [
+              "c.12700G>C",
+              "c.12700G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38565182,
+            "dbSnpId": "rs193922853",
+            "call": "A/A",
+            "alleles": [
+              "c.12848A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38565215,
+            "dbSnpId": "rs587784372",
+            "call": "C/C",
+            "alleles": [
+              "c.12881C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38565218,
+            "dbSnpId": "rs193922855",
+            "call": "C/C",
+            "alleles": [
+              "c.12884C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38566978,
+            "dbSnpId": "rs139647387",
+            "call": "A/A",
+            "alleles": [
+              "c.13505A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38566986,
+            "dbSnpId": "rs150396398",
+            "call": "G/G",
+            "alleles": [
+              "c.13513G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38570619,
+            "dbSnpId": "rs771741606",
+            "call": "C/C",
+            "alleles": [
+              "c.13672C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38570620,
+            "dbSnpId": "rs118192130",
+            "call": "G/G",
+            "alleles": [
+              "c.13673G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38570649,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.13702C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572032,
+            "dbSnpId": "rs143520367",
+            "call": "C/C",
+            "alleles": [
+              "c.13760C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572185,
+            "dbSnpId": "rs118192135",
+            "call": "G/G",
+            "alleles": [
+              "c.13913G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572190,
+            "dbSnpId": "rs756850145",
+            "call": "A/A",
+            "alleles": [
+              "c.13918A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572206,
+            "dbSnpId": "rs193922860",
+            "call": "G/G",
+            "alleles": [
+              "c.13934G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572262,
+            "dbSnpId": "rs759500310",
+            "call": "T/T",
+            "alleles": [
+              "c.13990T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38572266,
+            "dbSnpId": "rs193922862",
+            "call": "TC/TC",
+            "alleles": [
+              "c.13994_13995delTCinsCT"
+            ],
+            "phased": false,
+            "wildtypeAllele": "TC",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38573180,
+            "dbSnpId": "rs193922863",
+            "call": "C/C",
+            "alleles": [
+              "c.14002C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38573229,
+            "dbSnpId": "rs193922864",
+            "call": "T/T",
+            "alleles": [
+              "c.14051T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38573304,
+            "dbSnpId": "rs118192140",
+            "call": "C/C",
+            "alleles": [
+              "c.14126C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38575957,
+            "dbSnpId": "rs200766617",
+            "call": "G/G",
+            "alleles": [
+              "c.14168G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38577931,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.14186A>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38577942,
+            "dbSnpId": "rs193922865",
+            "call": "T/T",
+            "alleles": [
+              "c.14197T>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38577946,
+            "dbSnpId": "rs193922866",
+            "call": "G/G",
+            "alleles": [
+              "c.14201G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38577954,
+            "dbSnpId": "rs193922867",
+            "call": "C/C",
+            "alleles": [
+              "c.14209C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38577955,
+            "dbSnpId": "rs193922868",
+            "call": "G/G",
+            "alleles": [
+              "c.14210G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38578015,
+            "dbSnpId": "rs768360593",
+            "call": "G/G",
+            "alleles": [
+              "c.14270G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38578205,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.14364+1G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38580004,
             "dbSnpId": "rs118192167",
             "call": "A/A",
@@ -9214,6 +12622,77 @@
             ],
             "phased": false,
             "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580039,
+            "dbSnpId": null,
+            "call": "TT/TT",
+            "alleles": [
+              "c.14422_14423delinsAA"
+            ],
+            "phased": false,
+            "wildtypeAllele": "TT",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580041,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.14424C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580066,
+            "dbSnpId": "rs143988412",
+            "call": "A/A",
+            "alleles": [
+              "c.14449A>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580075,
+            "dbSnpId": "rs193922873",
+            "call": "G/G",
+            "alleles": [
+              "c.14458G>A",
+              "c.14458G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580088,
+            "dbSnpId": "rs193922874",
+            "call": "T/T",
+            "alleles": [
+              "c.14471T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9248,6 +12727,20 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38580126,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.14509C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38580370,
             "dbSnpId": "rs193922878",
             "call": "C/C",
@@ -9256,6 +12749,34 @@
             ],
             "phased": false,
             "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580382,
+            "dbSnpId": "rs193922879",
+            "call": "G/G",
+            "alleles": [
+              "c.14524G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580397,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.14539G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -9276,11 +12797,109 @@
           {
             "gene": "RYR1",
             "chromosome": "chr19",
+            "position": 38580416,
+            "dbSnpId": null,
+            "call": "C/C",
+            "alleles": [
+              "c.14558C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580425,
+            "dbSnpId": "rs193922880",
+            "call": "C/C",
+            "alleles": [
+              "c.14567C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580439,
+            "dbSnpId": "rs118192181",
+            "call": "C/C",
+            "alleles": [
+              "c.14581C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
             "position": 38580440,
             "dbSnpId": "rs63749869",
             "call": "G/G",
             "alleles": [
               "c.14582G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580485,
+            "dbSnpId": "rs113210953",
+            "call": "A/A",
+            "alleles": [
+              "c.14627A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38580497,
+            "dbSnpId": "rs193922883",
+            "call": "T/T",
+            "alleles": [
+              "c.14639T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38584974,
+            "dbSnpId": "rs118192151",
+            "call": "G/G",
+            "alleles": [
+              "c.14678G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38584976,
+            "dbSnpId": "rs193922888",
+            "call": "G/G",
+            "alleles": [
+              "c.14680G>A"
             ],
             "phased": false,
             "wildtypeAllele": "G",
@@ -9300,6 +12919,174 @@
             "wildtypeAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585078,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.14782A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585099,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.14803G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585947,
+            "dbSnpId": "rs111657878",
+            "call": "T/T",
+            "alleles": [
+              "c.14813T>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585948,
+            "dbSnpId": "rs118192159",
+            "call": "C/C",
+            "alleles": [
+              "c.14814C>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585951,
+            "dbSnpId": "rs193922895",
+            "call": "C/C",
+            "alleles": [
+              "c.14817C>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585952,
+            "dbSnpId": "rs118192158",
+            "call": "G/G",
+            "alleles": [
+              "c.14818G>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38585959,
+            "dbSnpId": "rs193922896",
+            "call": "G/G",
+            "alleles": [
+              "c.14825G>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38586101,
+            "dbSnpId": "rs193922898",
+            "call": "T/T",
+            "alleles": [
+              "c.14879T>A"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38586140,
+            "dbSnpId": "rs146876145",
+            "call": "C/C",
+            "alleles": [
+              "c.14918C>T"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38586190,
+            "dbSnpId": null,
+            "call": "A/A",
+            "alleles": [
+              "c.14968A>G"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38587362,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.15059G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "RYR1",
+            "chromosome": "chr19",
+            "position": 38587363,
+            "dbSnpId": null,
+            "call": "G/G",
+            "alleles": [
+              "c.15060G>C"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
           }
         ],
         "variantsOfInterest": [],
@@ -9307,9 +13094,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -9884,9 +13671,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -10589,9 +14376,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -10750,7 +14537,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -10849,9 +14636,9 @@
     },
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -10954,9 +14741,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -11751,9 +15538,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -12386,9 +16173,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -13629,7 +17416,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -13717,9 +17504,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2023-10-05-00-25",
+        "alleleDefinitionVersion": "2023-12-05-00-25",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -14408,9 +18195,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -14577,9 +18364,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -15866,9 +19653,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "F5": {
-        "alleleDefinitionVersion": "2023-10-05-00-25",
+        "alleleDefinitionVersion": "2023-12-05-00-25",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "F5",
         "chr": "chr1",
@@ -16143,9 +19930,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -16483,9 +20270,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -17060,9 +20847,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -17765,9 +21552,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -17926,9 +21713,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "v1.32.0",
+        "alleleDefinitionVersion": "v1.35.0-2-gf40f6f6",
         "alleleDefinitionSource": "CPIC",
-        "phenotypeVersion": "2023-10-05-00-25",
+        "phenotypeVersion": "2023-12-05-00-25",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",

@@ -3,7 +3,7 @@
     "id": "PA166262341",
     "name": "Annotation of CPIC Guideline for fluvastatin and CYP2C9, SLCO1B1",
     "source": "CPIC",
-    "version": 5,
+    "version": 6,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166262341",
     "relatedChemicals": [
       {
@@ -1547,5 +1547,5 @@
       "year": 2022
     }
   ],
-  "version": "2023-10-05-00-25"
+  "version": "2023-12-05-00-25"
 }

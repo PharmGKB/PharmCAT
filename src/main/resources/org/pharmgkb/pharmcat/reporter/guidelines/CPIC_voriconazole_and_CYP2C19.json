@@ -3,7 +3,7 @@
     "id": "PA166161537",
     "name": "Annotation of CPIC Guideline for voriconazole and CYP2C19",
     "source": "CPIC",
-    "version": 37,
+    "version": 38,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166161537",
     "relatedChemicals": [
       {
@@ -510,5 +510,5 @@
       "year": 2017
     }
   ],
-  "version": "2023-10-05-00-25"
+  "version": "2023-12-05-00-25"
 }

@@ -366,7 +366,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
-        .variation("RYR1", "rs193922753", "G", "A")
+        .variation("RYR1", "rs193922753", "G", "C")
         .variation("CYP2C19", "rs3758581", "G", "T");
     Path vcfFile = testWrapper.execute(null);
 
@@ -388,15 +388,15 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
-        .variation("RYR1", "rs193922753", "G", "A");
+        .variation("RYR1", "rs193922753", "G", "C");
     Path vcfFile = testWrapper.execute(null);
 
     // becomes Reference and custom snp because combo is enabled
-    List<String> expectedCalls = List.of("g.38444212G>A (heterozygous)");
+    List<String> expectedCalls = List.of("g.38444212G>C (heterozygous)");
 
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "g.38444212G>A"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "g.38444212G>C"));
 
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-RYR1"));

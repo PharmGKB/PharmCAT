@@ -68,7 +68,7 @@
       ],
       "text": {
         "id": 1452060173,
-        "html": "<p>Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
+        "html": "<p>Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication. The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
       },
       "implications": [
         "CYP2C19: Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
@@ -242,7 +242,7 @@
       ],
       "text": {
         "id": 1452060174,
-        "html": "<p>Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</p>\n"
+        "html": "<p>Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For cardiovascular indications of acute coronary syndrome (ACS) and/or percutaneous coronary intervention (PCI). ACS and/or PCI includes patients undergoing PCI for an ACS or non-ACS (elective) indication.</p>\n"
       },
       "implications": [
         "CYP2C19: Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
@@ -271,7 +271,7 @@
       ],
       "text": {
         "id": 1452060183,
-        "html": "<p>Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
+        "html": "<p>Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI. The strength of recommendation for &quot;likely&quot; phenotypes are the same as their respective confirmed phenotypes. &quot;Likely&quot; indicates the uncertainty in the phenotype assignment, but it is reasonable to apply the recommendation for the confirmed phenotype to the corresponding &quot;likely&quot; phenotype.</p>\n"
       },
       "implications": [
         "CYP2C19: Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
@@ -416,7 +416,7 @@
       ],
       "text": {
         "id": 1452060184,
-        "html": "<p>Avoid standard dose (75 mg/day) clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.</p>\n"
+        "html": "<p>Avoid clopidogrel if possible. Use prasugrel or ticagrelor at standard dose if no contraindication.</p>\n<h4 id=\"other-considerations\">Other Considerations</h4>\n<p>For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary intervention (non-PCI) cardiovascular indications. Non-ACS, non-PCI cardiovascular indications include peripheral arterial disease and stable coronary artery disease following a recent myocardial infarction outside the setting of PCI.</p>\n"
       },
       "implications": [
         "CYP2C19: Significantly reduced clopidogrel active metabolite formation; increased on-treatment platelet reactivity; increased risk for adverse cardiac and cerebrovascular events"
@@ -783,5 +783,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-10-05-00-25"
+  "version": "2023-12-05-00-25"
 }

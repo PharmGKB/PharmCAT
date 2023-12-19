@@ -77,5 +77,33 @@
       "mediterranean haplotype"
     ],
     "allHits": null
+  },
+  {
+    "gene": "RYR1",
+    "ignoredPositions": [
+      {
+        "chromosome": "chr19",
+        "position": 38580126,
+        "cpicPosition": 38580126,
+        "rsid": "rs193922877",
+        "chromosomeHgvsName": "g.38580127del",
+        "cpicAlleles": [
+          "C",
+          "CA"
+        ],
+        "cpicToVcfAlleleMap": {
+          "C": "C",
+          "CA": "CA"
+        },
+        "ref": "CA",
+        "alts": [
+          "C"
+        ]
+      }
+    ],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": null
   }
 ]

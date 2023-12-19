@@ -3,7 +3,7 @@
     "id": "PA166104949",
     "name": "Annotation of CPIC Guideline for warfarin and CYP2C9, CYP4F2, VKORC1",
     "source": "CPIC",
-    "version": 42,
+    "version": 43,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104949",
     "relatedChemicals": [
       {
@@ -80,5 +80,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-10-05-00-25"
+  "version": "2023-12-05-00-25"
 }
