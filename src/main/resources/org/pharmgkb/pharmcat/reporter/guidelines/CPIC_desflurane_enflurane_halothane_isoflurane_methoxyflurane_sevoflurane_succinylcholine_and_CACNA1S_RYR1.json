@@ -1,0 +1,1767 @@
+{
+  "guideline": {
+    "id": "PA166303941",
+    "name": "Annotation of CPIC Guideline for desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine and CACNA1S, RYR1",
+    "source": "CPIC",
+    "version": 2,
+    "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166303941",
+    "relatedChemicals": [
+      {
+        "id": "PA164749136",
+        "name": "desflurane",
+        "symbol": null
+      },
+      {
+        "id": "PA449461",
+        "name": "enflurane",
+        "symbol": null
+      },
+      {
+        "id": "PA449845",
+        "name": "halothane",
+        "symbol": null
+      },
+      {
+        "id": "PA450106",
+        "name": "isoflurane",
+        "symbol": null
+      },
+      {
+        "id": "PA450434",
+        "name": "methoxyflurane",
+        "symbol": null
+      },
+      {
+        "id": "PA451341",
+        "name": "sevoflurane",
+        "symbol": null
+      },
+      {
+        "id": "PA451522",
+        "name": "succinylcholine",
+        "symbol": null
+      }
+    ],
+    "relatedGenes": [
+      {
+        "id": "PA85",
+        "name": "calcium voltage-gated channel subunit alpha1 S",
+        "symbol": "CACNA1S"
+      },
+      {
+        "id": "PA34896",
+        "name": "ryanodine receptor 1",
+        "symbol": "RYR1"
+      }
+    ],
+    "recommendation": true
+  },
+  "recommendations": [
+    {
+      "id": "PA166323362",
+      "name": "Recommendation Annotation PA166323362",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326461,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323401",
+      "name": "Recommendation Annotation PA166323401",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326500,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323421",
+      "name": "Recommendation Annotation PA166323421",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326520,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323321",
+      "name": "Recommendation Annotation PA166323321",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326420,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323301",
+      "name": "Recommendation Annotation PA166323301",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326400,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323361",
+      "name": "Recommendation Annotation PA166323361",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326460,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323381",
+      "name": "Recommendation Annotation PA166323381",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326480,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323341",
+      "name": "Recommendation Annotation PA166323341",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA164749136",
+          "name": "desflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326440,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675). CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323447",
+      "name": "Recommendation Annotation PA166323447",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326546,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323448",
+      "name": "Recommendation Annotation PA166323448",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326547,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323441",
+      "name": "Recommendation Annotation PA166323441",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326540,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323442",
+      "name": "Recommendation Annotation PA166323442",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326541,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323443",
+      "name": "Recommendation Annotation PA166323443",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326542,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323444",
+      "name": "Recommendation Annotation PA166323444",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326543,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323445",
+      "name": "Recommendation Annotation PA166323445",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326544,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323446",
+      "name": "Recommendation Annotation PA166323446",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449461",
+          "name": "enflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326545,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323450",
+      "name": "Recommendation Annotation PA166323450",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326549,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323461",
+      "name": "Recommendation Annotation PA166323461",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326560,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323462",
+      "name": "Recommendation Annotation PA166323462",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326561,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323451",
+      "name": "Recommendation Annotation PA166323451",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326550,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323463",
+      "name": "Recommendation Annotation PA166323463",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326562,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323449",
+      "name": "Recommendation Annotation PA166323449",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326548,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323482",
+      "name": "Recommendation Annotation PA166323482",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326581,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323481",
+      "name": "Recommendation Annotation PA166323481",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA449845",
+          "name": "halothane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326580,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323522",
+      "name": "Recommendation Annotation PA166323522",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326641,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323523",
+      "name": "Recommendation Annotation PA166323523",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326642,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323501",
+      "name": "Recommendation Annotation PA166323501",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326620,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323521",
+      "name": "Recommendation Annotation PA166323521",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326640,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323527",
+      "name": "Recommendation Annotation PA166323527",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326646,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323526",
+      "name": "Recommendation Annotation PA166323526",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326645,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323524",
+      "name": "Recommendation Annotation PA166323524",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326643,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323525",
+      "name": "Recommendation Annotation PA166323525",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450106",
+          "name": "isoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326644,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323534",
+      "name": "Recommendation Annotation PA166323534",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326653,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323533",
+      "name": "Recommendation Annotation PA166323533",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326652,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323532",
+      "name": "Recommendation Annotation PA166323532",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326651,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323529",
+      "name": "Recommendation Annotation PA166323529",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326648,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323531",
+      "name": "Recommendation Annotation PA166323531",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326650,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323528",
+      "name": "Recommendation Annotation PA166323528",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326647,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323530",
+      "name": "Recommendation Annotation PA166323530",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326649,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323535",
+      "name": "Recommendation Annotation PA166323535",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA450434",
+          "name": "methoxyflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326654,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323539",
+      "name": "Recommendation Annotation PA166323539",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326658,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323538",
+      "name": "Recommendation Annotation PA166323538",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326657,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323541",
+      "name": "Recommendation Annotation PA166323541",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326660,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323562",
+      "name": "Recommendation Annotation PA166323562",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326681,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323540",
+      "name": "Recommendation Annotation PA166323540",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326659,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323537",
+      "name": "Recommendation Annotation PA166323537",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326656,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323561",
+      "name": "Recommendation Annotation PA166323561",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326680,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323536",
+      "name": "Recommendation Annotation PA166323536",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451341",
+          "name": "sevoflurane",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326655,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323582",
+      "name": "Recommendation Annotation PA166323582",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326701,
+        "html": "<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>Based on RYR1 status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323583",
+      "name": "Recommendation Annotation PA166323583",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326702,
+        "html": "<p>No CACNA1S genotype is available. Based on RYR1 status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "No Result"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323584",
+      "name": "Recommendation Annotation PA166323584",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326703,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "RYR1: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323564",
+      "name": "Recommendation Annotation PA166323564",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326683,
+        "html": "<p>Based on CACNA1S status, halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323585",
+      "name": "Recommendation Annotation PA166323585",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326704,
+        "html": "<p>No RYR1 genotype is available. Based on CACNA1S status, clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "No Result",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323563",
+      "name": "Recommendation Annotation PA166323563",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326682,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 or CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine"
+      ],
+      "lookupKey": {
+        "RYR1": "Malignant Hyperthermia Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323586",
+      "name": "Recommendation Annotation PA166323586",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326705,
+        "html": "<p>Clinical findings, family history, further genetic testing and other laboratory data should guide use of halogenated volatile anesthetics or depolarizing muscle relaxants.</p>\n"
+      },
+      "implications": [
+        "These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Uncertain Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": false,
+      "otherPrescribingGuidance": true
+    },
+    {
+      "id": "PA166323581",
+      "name": "Recommendation Annotation PA166323581",
+      "population": "general",
+      "classification": {
+        "term": "Strong",
+        "termId": "guidelineStrength:981501930"
+      },
+      "relatedChemicals": [
+        {
+          "id": "PA451522",
+          "name": "succinylcholine",
+          "symbol": null
+        }
+      ],
+      "text": {
+        "id": 1452326700,
+        "html": "<p>Halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine are relatively contraindicated in persons with malignant hyperthermia susceptibility (MHS). They should not be used, except in extraordinary circumstances where the benefits outweigh the risks. In general, alternative anesthetics are widely available and effective in patients with MHS.</p>\n<p>A list of unsafe halogenated volatile anesthetics or depolarizing muscle relaxants and alternative anesthetics can be found at http://www.mhaus.org/healthcare-professionals/be-prepared/safe-and-unsafe-anesthetics. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in CACNA1S generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders. Although some may, indeed, have susceptibility to anesthetic agents, the recommendations described here cannot adequately address such patients, and they should be managed by a physician who is knowledgeable regarding those disorders.</p>\n"
+      },
+      "implications": [
+        "CACNA1S: Individuals are at increased risk of developing malignant hyperthermia if administered halogenated volatile anesthetics or the depolarizing muscle relaxant succinylcholine, RYR1: These results do not eliminate the chance that this patient is susceptible to malignant hyperthermia (MH). The genetic cause of about half of all MH survivors, with MH susceptibility confirmed by contracture test, remains unknown (PMID 28902675)."
+      ],
+      "lookupKey": {
+        "RYR1": "Uncertain Susceptibility",
+        "CACNA1S": "Malignant Hyperthermia Susceptibility"
+      },
+      "dosingInformation": false,
+      "alternateDrugAvailable": true,
+      "otherPrescribingGuidance": true
+    }
+  ],
+  "citations": [
+    {
+      "pmid": "30499100",
+      "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
+      "authors": [
+        "Gonsalves Stephen G",
+        "Dirksen Robert T",
+        "Sangkuhl Katrin",
+        "Pulk Rebecca",
+        "Alvarellos Maria",
+        "Vo Teresa",
+        "Hikino Keiko",
+        "Roden Dan",
+        "Klein Teri E",
+        "Poler S Mark",
+        "Patel Sephalie",
+        "Caudle Kelly E",
+        "Gordon Ronald",
+        "Brandom Barbara",
+        "Biesecker Leslie G"
+      ],
+      "journal": "Clinical pharmacology and therapeutics",
+      "year": 2019
+    }
+  ],
+  "version": "2023-12-19-10-38"
+}

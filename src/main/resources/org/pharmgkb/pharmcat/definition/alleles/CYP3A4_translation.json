@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2023-12-05-00-25",
+  "version": "2023-12-19-10-38",
   "modificationDate": "2023-10-01T23:03:51.828Z",
   "gene": "CYP3A4",
   "orientation": null,
@@ -32,7 +32,7 @@
       "chromosome": "chr7",
       "position": 99758228,
       "cpicPosition": 99758228,
-      "rsid": null,
+      "rsid": "rs1584538410",
       "chromosomeHgvsName": "g.99758228T>A",
       "cpicAlleles": [
         "A",
