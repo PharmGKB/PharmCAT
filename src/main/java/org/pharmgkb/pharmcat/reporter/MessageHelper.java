@@ -85,13 +85,19 @@ public class MessageHelper {
    */
   public void addMatchingMessagesTo(GeneReport report) {
     if (!report.isReportable()) {
-      // purposely don't apply any messages if the gene is not called
+      if (!report.isNoData()) {
+        // if not reportable but does have data apply only "non-match" rules
+        m_geneMap.get(report.getGene()).stream()
+            .filter(m -> m.getExceptionType().equalsIgnoreCase(MessageAnnotation.TYPE_NONMATCH) && matchesGeneReport(m, report))
+            .forEach(report::addMessage);
+      }
       return;
     }
     if (report.getCallSource() != CallSource.MATCHER) {
       return;
     }
     m_geneMap.get(report.getGene()).stream()
+        .filter(m -> !m.getExceptionType().equalsIgnoreCase(MessageAnnotation.TYPE_NONMATCH))
         .filter(m -> matchesGeneReport(m, report))
         .forEach(report::addMessage);
   }
