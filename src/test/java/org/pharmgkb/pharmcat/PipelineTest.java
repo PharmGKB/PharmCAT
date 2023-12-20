@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -401,6 +402,201 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-RYR1"));
     htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
+  }
+
+
+  // RYR1/CACNA1S Tests
+
+  /**
+   * Test a het CACNA1S and het RYR1 call
+   */
+  @Test
+  void testRyr1(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("CACNA1S")
+        .reference("RYR1")
+        .variation("CACNA1S", "rs772226819", "G", "A")
+        .variation("RYR1", "rs118192178", "G", "C");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", List.of("c.520C>T (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, "c.520C>T"));
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.7522C>G (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.7522C>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "CACNA1S", List.of("c.520C>T (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "RYR1", List.of("c.7522C>G (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+
+    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
+    expectedCallsMap.put("CACNA1S", List.of("c.520C>T (heterozygous)"));
+    expectedCallsMap.put("RYR1", List.of("c.7522C>G (heterozygous)"));
+    htmlChecks(document, expectedCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test a missing CACNA1S gene and het RYR1 call
+   */
+  @Test
+  void testRyr2(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("RYR1")
+        .variation("RYR1", "rs118192178", "C", "T");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.7522C>T (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.7522C>T"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "RYR1", List.of("c.7522C>T (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test a het CACNA1S and missing RYR1 call
+   */
+  @Test
+  void testRyr3(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("CACNA1S")
+        .variation("CACNA1S", "rs772226819", "G", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("RYR1");
+    testWrapper.testCalledByMatcher("CACNA1S");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", List.of("c.520C>T (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, "c.520C>T"));
+
+    testWrapper.testMatchedAnnotations("enflurane", DataSource.CPIC, 1);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "CACNA1S", List.of("c.520C>T (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test a ref CACNA1S and het RYR1 call
+   */
+  @Test
+  void testRyr4(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("CACNA1S")
+        .reference("RYR1")
+        .variation("RYR1", "rs193922749", "A", "C");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.HOMOZYGOUS_REFERENCE));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.152C>A (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.152C>A"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "CACNA1S", List.of(TextConstants.HOMOZYGOUS_REFERENCE), null, RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "RYR1", List.of("c.152C>A (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+
+    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
+    expectedCallsMap.put("CACNA1S", List.of(TextConstants.HOMOZYGOUS_REFERENCE));
+    expectedCallsMap.put("RYR1", List.of("c.152C>A (heterozygous)"));
+    htmlChecks(document, expectedCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test a missing CACNA1S and het RYR1 call
+   */
+  @Test
+  void testRyr5(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("RYR1")
+        .variation("RYR1", "rs34694816", "A", "G");
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.4024A>G (heterozygous)"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.4024A>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "RYR1", List.of("c.4024A>G (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test what happens for three RYR1 variants
+   */
+  @Test
+  void testRyr6(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("CACNA1S")
+        .reference("RYR1")
+        .variation("RYR1", "rs34694816", "A", "G")
+        .variation("RYR1", "rs137933390", "A", "G")
+        .variation("RYR1", "rs145573319", "A", "G")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testNotCalledByMatcher("RYR1");
+  }
+
+  /**
+   * Test what happens for two RYR1 het variants and no CACNA1S data
+   */
+  @Test
+  void testRyr7(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("RYR1")
+        .variation("RYR1", "rs34694816", "A", "G")
+        .variation("RYR1", "rs137933390", "A", "G")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.4024A>G/c.4178A>G"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("c.4024A>G", "c.4178A>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "RYR1", List.of("c.4024A>G/c.4178A>G"), null, RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test what happens for two RYR1 het variants and no CACNA1S data
+   */
+  @Test
+  void testRyr8(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("CACNA1S")
+        .reference("RYR1")
+        .variation("RYR1", "rs34694816", "A", "G")
+        .variation("RYR1", "rs137933390", "A", "G")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", List.of("c.4024A>G/c.4178A>G"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("c.4024A>G", "c.4178A>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document, "RYR1", List.of("c.4024A>G/c.4178A>G"), null, RecPresence.YES, RecPresence.NO);
   }
 
 
