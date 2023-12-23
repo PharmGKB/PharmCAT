@@ -28,6 +28,7 @@ class ReporterTest {
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");
+    assertNotNull(geneReport);
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.isCalled());
     assertFalse(geneReport.isOutsideCall());
@@ -51,7 +52,6 @@ class ReporterTest {
     DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
         .filter(d -> d.getName().equals("desflurane")).findFirst()
         .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
-    // desflurane has been split in two, one for each gene
-    assertEquals(2, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
+    assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }
 }

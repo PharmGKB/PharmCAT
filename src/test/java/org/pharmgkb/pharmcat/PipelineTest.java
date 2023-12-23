@@ -127,7 +127,7 @@ class PipelineTest {
     }
   }
 
-  private static void htmlCheckGene(Document document, String gene, List<String> expectedCalls) {
+  static void htmlCheckGene(Document document, String gene, List<String> expectedCalls) {
     Preconditions.checkNotNull(expectedCalls);
     if (expectedCalls == NO_DATA) {
       expectedCalls = null;
@@ -151,7 +151,7 @@ class PipelineTest {
     } else {
       // check section i
       Elements gsDips = document.select(".gs-" + gene + " .gs-dip");
-      assertEquals(expectedCalls.size(), gsDips.size());
+      assertEquals(expectedCalls.size(), gsDips.size(), "diplotype count mismatched for " + gene);
       assertEquals(expectedCalls,
           gsDips.stream()
               .map(e -> e.child(0).text())
@@ -546,7 +546,6 @@ class PipelineTest {
         .variation("RYR1", "rs137933390", "A", "G")
         .variation("RYR1", "rs145573319", "A", "G")
     ;
-    Path vcfFile = testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testNotCalledByMatcher("RYR1");

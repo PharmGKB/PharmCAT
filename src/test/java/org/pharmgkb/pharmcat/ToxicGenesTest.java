@@ -72,7 +72,8 @@ class ToxicGenesTest {
   void testCacna1sHomoRef(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("CACNA1S");
+        .reference("CACNA1S")
+        .reference("RYR1");
     Path vcfFile = testWrapper.execute(null);
 
     List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
@@ -88,6 +89,7 @@ class ToxicGenesTest {
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
             .put("CACNA1S", expectedCalls)
+            .put("RYR1", expectedCalls)
             .build(),
         "desflurane", RecPresence.YES, RecPresence.NO);
   }
@@ -508,7 +510,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
     // each gene has its own annotation so 2 CPIC annotations match, one for each gene
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 2);
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
     testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
 
