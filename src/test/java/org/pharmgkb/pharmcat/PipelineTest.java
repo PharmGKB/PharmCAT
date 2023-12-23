@@ -546,6 +546,7 @@ class PipelineTest {
         .variation("RYR1", "rs137933390", "A", "G")
         .variation("RYR1", "rs145573319", "A", "G")
     ;
+    Path vcfFile = testWrapper.execute(null);
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testNotCalledByMatcher("RYR1");
