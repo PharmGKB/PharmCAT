@@ -40,6 +40,7 @@ jobs:
         run: ./gradlew test --no-daemon
 
       - uses: actions/upload-artifact@v4
+        if: failure()
         with:
           name: ci-pharmcat-tests-jdk17
           path: build/reports/tests/test/index.html
@@ -49,6 +50,7 @@ jobs:
         run: ./gradlew testOnJava21 --no-daemon
 
       - uses: actions/upload-artifact@v4
+        if: failure()
         with:
           name: ci-pharmcat-tests-jdk21
           path: build/reports/tests/test/index.html
