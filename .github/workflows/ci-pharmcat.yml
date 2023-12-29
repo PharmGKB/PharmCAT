@@ -39,8 +39,20 @@ jobs:
       - name: Run PharmCAT tests
         run: ./gradlew test --no-daemon
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ci-pharmcat-tests-jdk17
+          path: build/reports/tests/test/index.html
+          if-no-files-found: ignore
+
       - name: Run PharmCAT tests on Java 21
         run: ./gradlew testOnJava21 --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ci-pharmcat-tests-jdk21
+          path: build/reports/tests/test/index.html
+          if-no-files-found: ignore
 
       - name: Codecov
         uses: codecov/codecov-action@v3
