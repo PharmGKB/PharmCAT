@@ -102,6 +102,7 @@ tasks.withType(Test).configureEach {
     // set options for log level LIFECYCLE
     events 'failed', 'standard_error'
     exceptionFormat 'full'
+    showStackTraces true
   }
 
   // always generate reports after tests are run
