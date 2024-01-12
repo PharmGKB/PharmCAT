@@ -25,12 +25,8 @@ def getVersionName() {
 }
 
 
-sourceCompatibility = 17
-targetCompatibility = 17
 project.group = 'org.pharmgkb'
 project.version = getVersionName()
-archivesBaseName = "pharmcat"
-mainClassName = "org.pharmgkb.pharmcat.PharmCAT"
 
 ext {
   moduleName = 'org.pharmgkb.pharmcat'
@@ -39,6 +35,8 @@ ext {
   scm = 'scm:git@github.com:PharmGKB/PharmCAT.git'
   orgName = 'PharmGKB'
   orgUrl = 'https://www.pharmgkb.org'
+  mainClassName = "org.pharmgkb.pharmcat.PharmCAT"
+  archiveBaseName = "pharmcat"
 }
 
 def dataDir = System.env.PHARMCAT_DATA_DIR == null ? 'build' : System.env.PHARMCAT_DATA_DIR
@@ -87,6 +85,8 @@ clean.dependsOn(tasks.cleanTestOutput)
 test.dependsOn(tasks.cleanTestOutput)
 
 java {
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
   toolchain {
     languageVersion = JavaLanguageVersion.of(17)
   }
@@ -96,7 +96,13 @@ tasks.withType(JavaCompile).configureEach {
   options.encoding = 'UTF-8'
 }
 
+application {
+  mainClass = project.ext.mainClassName
+}
+
 tasks.withType(Test).configureEach {
+  minHeapSize = "512m"
+  maxHeapSize = "1024m"
   useJUnitPlatform()
   testLogging {
     // set options for log level LIFECYCLE
@@ -131,8 +137,9 @@ jar {
     attributes 'Automatic-Module-Name': project.ext.moduleName
     attributes 'Implementation-Title': project.name
     attributes 'Implementation-Version': project.version
-    attributes 'Main-Class': mainClassName
+    attributes 'Main-Class': project.ext.mainClassName
   }
+  archiveBaseName = project.ext.archiveBaseName
 }
 
 shadowJar {
@@ -140,6 +147,7 @@ shadowJar {
     attributes 'Implementation-Title': project.name
     attributes 'Implementation-Version': project.version
   }
+  archiveBaseName = project.ext.archiveBaseName
 }
 
 tasks.withType(Javadoc).configureEach {
