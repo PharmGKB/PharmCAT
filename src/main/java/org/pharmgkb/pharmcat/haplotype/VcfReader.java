@@ -177,8 +177,8 @@ public class VcfReader implements VcfLineParser {
         if (!"R".equals(number)) {
           m_useAdFormat = false;
           if (!".".equals(number)) {
-            addWarning("VCF", "Unexpected AD format number: '" + number +
-                "'. Treating number as '.' and ignoring AD field.");
+            addWarning("VCF", "INFO header for AD has unexpected number (" + number +
+                "). Expecting 'R'. Treating number as '.' and ignoring AD field.");
           }
         }
       }
