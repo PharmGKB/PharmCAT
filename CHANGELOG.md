@@ -1,3 +1,24 @@
+## [2.9.0](https://github.com/PharmGKB/PharmCAT/compare/v2.8.3...v2.9.0) (2024-1-17)
+
+
+### Features
+
+* **data:** update to CPIC version v1.35 ([5cb6717](https://github.com/PharmGKB/PharmCAT/commit/5cb671756393b82732c2ffeb5e06201d453cade3))
+* **data:** update to PharmGKB version 2023-12-19 ([66c49f9](https://github.com/PharmGKB/PharmCAT/commit/66c49f9d584b9c3e72cb6488fc17ffc79e9442cd))
+* **reporter:** add new "non-match" type of message ([f5df05a](https://github.com/PharmGKB/PharmCAT/commit/f5df05a0cf0c7edd8e91fc59644cb81ea0535504))
+
+
+### Bug Fixes
+
+* **namedallelematcher:** DPYD matching should ignore find-combinations mode ([153853a](https://github.com/PharmGKB/PharmCAT/commit/153853a36a79694002de3d92c5fd56ad17a113d2))
+* **namedallelematcher:** improve AD number warning ([9d9a0b9](https://github.com/PharmGKB/PharmCAT/commit/9d9a0b98dbd5ea75ea5ab7476986f715125eb0a3)), closes [#168](https://github.com/PharmGKB/PharmCAT/issues/168)
+* **phenotyper:** fix bug with stripping gene symbol from outside call diplotypes ([cb97898](https://github.com/PharmGKB/PharmCAT/commit/cb978987fc7e54386c1bd09e6caeba817e485de2)), closes [#161](https://github.com/PharmGKB/PharmCAT/issues/161)
+
+
+### Performance Improvements
+
+* improve runtime of diplotype comparison ([406930c](https://github.com/PharmGKB/PharmCAT/commit/406930cedffa551ed3e21331766c8f630a9b7881))
+
 ## [2.8.3](https://github.com/PharmGKB/PharmCAT/compare/v2.8.2...v2.8.3) (2023-10-24)
 
 
