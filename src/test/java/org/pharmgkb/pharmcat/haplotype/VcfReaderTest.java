@@ -187,7 +187,7 @@ class VcfReaderTest {
     printWarnings(reader);
     assertEquals(1, reader.getWarnings().size());
     assertEquals(1, reader.getWarnings().get("VCF").size());
-    assertEquals("Unexpected AD format number: 'f'. Treating number as '.' and ignoring AD field.",
+    assertEquals("INFO header for AD has unexpected number (f). Expecting 'R'. Treating number as '.' and ignoring AD field.",
         reader.getWarnings().get("VCF").first());
   }
 
