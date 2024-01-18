@@ -119,7 +119,7 @@ Although we did not simulate coverage, a recent study by [Thuesen et al. 2022](h
 
 ## Working with HLA in PharmCAT
 
-PharmCAT supports incorporating results from your favorite HLA programs for phenotype translations through “[outside calls](https://pharmcat.org/using/Outside-Call-Format/).”
+PharmCAT supports incorporating results from your favorite HLA programs for phenotype translations through “[outside calls](/using/Outside-Call-Format).”
 
 To incorporate the outside calls, you would run PharmCAT as you normally would, and add the -po flag which signals the program to look for an external call file. Please note that PharmCAT requires that your HLA call have only two fields for phenotype translations. Therefore, if your external calls have more than two fields, you should truncate your output to only two fields. For more information on HLA nomenclature and what the each field means in HLA, please visit the page for [Nomenclature for Factors of the HLA System page](https://hla.alleles.org/nomenclature/naming.html). For example:
 
@@ -139,9 +139,9 @@ HLA-B	*07:02/*35:01
 
 For more information:
 
--   see [Running PharmCAT](https://pharmcat.org/using/Running-PharmCAT#phenotyper) for details on the -po flag
+-   see [Running PharmCAT](/using/Running-PharmCAT#phenotyper) for details on the -po flag
 
--   see [Outside Call Format](https://pharmcat.org/using/Outside-Call-Format) for details on the outside call file
+-   see [Outside Call Format](/using/Outside-Call-Format) for details on the outside call file
 
 ### Formatting Optitype output for PharmCAT
 
