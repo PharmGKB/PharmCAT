@@ -30,14 +30,14 @@ import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
-import org.pharmgkb.pharmcat.reporter.caller.DpydCaller;
+import org.pharmgkb.pharmcat.reporter.caller.LowestFunctionGeneCaller;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
-import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
+import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b1;
 
 
@@ -183,11 +183,13 @@ public class GeneReport implements Comparable<GeneReport> {
     }
 
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
-    if (isDpyd(m_gene)) {
+    if (isLowestFunctionGene(m_gene)) {
+
       if (call.isEffectivelyPhased() && call.getDiplotypes().size() == 1) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferFromDiplotypes(call.getDiplotypes(), env, phenotypeSource));
+        m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromDiplotypes(m_gene, env,
+            phenotypeSource, diplotypeFactory, call.getDiplotypes()));
       } else {
         List<HaplotypeMatch> uniqueMatches = new ArrayList<>();
         Map<String, Integer> counts = new HashMap<>();
@@ -200,8 +202,9 @@ public class GeneReport implements Comparable<GeneReport> {
           }
         });
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(uniqueMatches, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(DpydCaller.inferFromHaplotypeMatches(call.getHaplotypeMatches(), env, phenotypeSource));
-        if (isDpyd(m_gene)) {
+        m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromHaplotypeMatches(m_gene, env, phenotypeSource,
+            diplotypeFactory, call.getHaplotypeMatches()));
+        if (isLowestFunctionGene(m_gene)) {
           for (String h : counts.keySet()) {
             if (counts.get(h) > 1) {
               m_matcherHomozygousComponentHaplotypes.add(h);
@@ -247,11 +250,12 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public void addOutsideCall(OutsideCall call, Env env) {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
+    Preconditions.checkState(m_gene.equals(call.getGene()));
 
     Diplotype diplotype = new Diplotype(call, env, m_phenotypeSource);
     m_sourceDiplotypes.add(diplotype);
-    if (isDpyd(m_gene)) {
-      m_recommendationDiplotypes.addAll(DpydCaller.inferFromOutsideCall(call, env, m_phenotypeSource));
+    if (isLowestFunctionGene(m_gene)) {
+      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env, m_phenotypeSource));
     } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
       m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env, m_phenotypeSource));
     } else {
@@ -519,7 +523,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Is this gene ignored, meaning it shouldn't be included in reports
+   * Is this gene ignored (i.e. it shouldn't be included in reports)?
    * @return true if this gene should be left out of output reports
    */
   public boolean isIgnored() {
@@ -536,7 +540,7 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Is the specified gene single ploidy, i.e. it is on chrY or chrM which occur on a single chromosome, not a pair.
+   * Is the specified gene single ploidy, i.e. it is on chrY or chrM that occur on a single chromosome, not a pair.
    * @param gene a gene symbol
    * @return true if the gene occurs on a single chromosome, not a pair
    */
@@ -568,8 +572,8 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Gets the list of component haplotypes as {@link Diplotype}s.  This comes from the {@link NamedAlleleMatcher}.
-   * This is currently only used by DPYD.
+   * Gets the list of component haplotypes as {@link Diplotype}s. This comes from the {@link NamedAlleleMatcher}.
+   * This is only used by lowest-function genes (currently DPYD & RYR1).
    */
   public SortedSet<Diplotype> getMatcherComponentHaplotypes() {
     return m_matcherComponentHaplotypes;
@@ -577,7 +581,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * Gets the list of haplotypes that are homozygous.
-   * This is currently only used by DPYD.
+   * This is only used by lowest function genes (currently DPYD & RYR1).
    */
   public SortedSet<String> getMatcherHomozygousComponentHaplotypes() {
     return m_matcherHomozygousComponentHaplotypes;
@@ -614,7 +618,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private void applyMatcherMessages(GeneCall geneCall, Env env) {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
         .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
-    if (comboOrPartialCall && !isDpyd(geneCall.getGene())) {
+    if (comboOrPartialCall && !isLowestFunctionGene(geneCall.getGene())) {
       addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_NAMING));
 
       if (!isPhased()) {

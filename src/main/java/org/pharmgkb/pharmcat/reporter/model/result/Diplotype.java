@@ -38,6 +38,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private static final List<String> USE_CPIC_STYLE_DIPLOTYPE_NAMES = List.of(
       "CACNA1S",
       "CFTR",
+      "DPYD",
       "RYR1"
   );
   private static final String sf_phenoScoreFormat = "%s (%s)";
@@ -371,6 +372,9 @@ public class Diplotype implements Comparable<Diplotype> {
          }
       }
       if (isAllele1Ref || isAllele2Ref) {
+        if (m_allele2 == null) {
+          return m_allele1.getName();
+        }
         // heterozygous
         String allele = isAllele1Ref ? m_allele2.getName() : m_allele1.getName();
         return allele + HETEROZYGOUS_SUFFIX;

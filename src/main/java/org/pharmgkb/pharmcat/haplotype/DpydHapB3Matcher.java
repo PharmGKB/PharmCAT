@@ -35,8 +35,7 @@ public class DpydHapB3Matcher {
   private MessageAnnotation m_warning;
 
 
-  public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap,
-      boolean isEffectivelyPhased) {
+  public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap, boolean isEffectivelyPhased) {
     m_alleleMap = alleleMap;
     DefinitionReader definitionReader = env.getDefinitionReader();
 

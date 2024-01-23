@@ -9,24 +9,29 @@ nav_order: 7
 Genotype determination is based on [CPIC gene definition tables](https://www.pharmgkb.org/page/pgxGeneRef), with 
 modifications for the following genes:
 
-* [SLCO1B1](#slco1b1)
-* [DPYD](#dpyd)
 * [CYP3A4](#cyp3a4)
+* [DPYD](#dpyd) (lowest function)
 * [G6PD](#g6pd)
+* [SLCO1B1](#slco1b1)
+* [RYR1](#ryr1) (lowest function)
 
 ---    
 
 
-## SLCO1B1
+## CYP3A4
 
-CPIC provides recommendations based on the SLCO1B1 star allele genotype. The CPIC guideline for statins and SLCO1B1, ABCG2, and CYP2C9 [(PMID:35152405)](https://pubmed.ncbi.nlm.nih.gov/35152405/) includes the following excerpt:
+PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of
+Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype
+mappings from the DPWG to provide genotype-specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG
+terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
 
-> The most common and well-studied variant in SLCO1B1 is c.521T>C (rs4149056), and can be genotyped alone (e.g., PCR-based single SNV assay) or multiplexed on a variety of array-based platforms. All SLCO1B1 genetic tests should interrogate c.521T>C; however, while other less common variants in this gene may have limited evidence to guide action, they may also be important. 
+CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations
+for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022)
+PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*16`, `*20` and `*22` definitions are the same
+in the DPWG CYP3A4 gene document and PharmVar.
 
-PharmCAT attempts to determine the star allele genotype for SLCO1B1, but in cases where no call can be determined it provides the CPIC recommendation based on the rs4149056 variant genotype.
 
-
-## DPYD
+### DPYD
 
 The CPIC DPYD allele definition file includes variants that have been assigned normal function (activity value 1),
 decreased function (activity value 0.5), or no function (activity value 0). According to the
@@ -50,13 +55,13 @@ Note: the `combinations` research flag is ignored when calling DPYD.
 {: .info}
 > Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a
 > position. Since we can effectively predict the alleles on each chromosome in this situation, we can treat this data as
-> we would phased data.
+> if it were phased data.
 
 
 #### Phased or effectively phased data
 
 If phased or effectively phased data is provided in the VCF file, the `Named Allele Matcher` produces an output that
-lists all detected variants per allele. For example: `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]` . If no variants
+lists all detected variants per allele. For example: `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]`. If no variants
 are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
 
 #### Unphased data
@@ -64,9 +69,9 @@ are found on an allele, the `Named Allele Matcher` returns `Reference` for that 
 If unphased data (that cannot be considered effectively phased) is provided in the VCF file, and the data are not
 homozygous at all positions, the `Named Allele Matcher` will not attempt to call a diplotype. Instead, it produces a
 list of all detected DPYD variants in the sample. It will, however, check if variants can be called on both strands.
-If so, it will call the variant twice.  For example: `c.1627A>G (*5)`, `c.1905+1G>A (*2A)`, `c.1905+1G>A (*2A)`. If the
-sample doesn't contain variants at the positions from the allele definition file, and/or if those positions are omitted
-from the vcf file, the `Named Allele Matcher` returns `Reference`.
+If so, it will call the variant twice.  For example: `c.1627A>G (*5)`, `c.1905+1G>A (*2A)`, `c.1905+1G>A (*2A)`.
+If the sample doesn't contain variants at the positions from the allele definition file, and/or if those positions are
+omitted from the VCF file, the `Named Allele Matcher` returns `Reference`.
 
 ### Calling DPYD allele functionality and phenotype
 
@@ -94,7 +99,7 @@ genotyped to confirm the presence or absence of HapB3 and decreased function.
 
 ### DPWG recommendation
 
-As of October 2022, DPWG recommendations are available for 4 DPYD variation:
+As of October 2022, DPWG recommendations are available for 4 DPYD variations:
 
 * `c.1129-5923C>G, c.1236G>A (HapB3)`
 * `2846A>T`
@@ -118,23 +123,74 @@ For example, in the above sample, the inferred genotype `c.1905+1G>A (*2A)/c.498
 in the DPWG data, DPWG guidance for `c.1905+1G>A (*2A)/Reference` will be included in the report.
 
 
-## CYP3A4
-
-PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
-
-CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022) PharmCAT relies on [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). The CYP3A4 `*16`, `*20` and `*22` definitions are the same in the DPWG CYP3A4 gene document and PharmVar.
-
-
 ## G6PD
 
 As of June 2023, PharmCAT does not call the following two _G6PD_ alleles:
 - Mediterranean Haplotype (different from the Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham)
 - Villeurbanne
 
-`Mediterranean Haplotype` is defined by rs5030868 (shared with `Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham` allele) and rs2230037 G>A (exclusive to `Mediterranean Haplotype`). PharmCAT excluded rs2230037 as the reference genotype in the Mediterranean Haplotype (G) does not align with the GRCh38 reference base (A). As a result, Mediterranean Haplotype is currently not called in PharmCAT.
+`Mediterranean Haplotype` is defined by rs5030868 (shared with `Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham`
+allele) and rs2230037 G>A (exclusive to `Mediterranean Haplotype`). PharmCAT excluded rs2230037 as the reference
+genotype in the Mediterranean Haplotype (G) does not align with the GRCh38 reference base (A). As a result,
+Mediterranean Haplotype is currently not called in PharmCAT.
 
-Instead, individuals with the `Mediterranean Haplotype` will be recognized as having `Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham`. Both alleles have the same function (deficient); therefore, the phenotype assignment and subsequent drug prescribing recommendations are not affected.
+Instead, individuals with the `Mediterranean Haplotype` will be recognized as having
+`Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham`. Both alleles have the same function (deficient);
+therefore, the phenotype assignment and subsequent drug prescribing recommendations are not affected.
 
-It remains challenging to properly represent SNPs and INDELs that share the same genetic positions in a VCF file. This affects NC_000023.11:g.154532991_154532993delGGT and rs5030869 in the _G6PD_ allele definitions. Left-aligned, normalized NC_000023.11:g.154532991_154532993delGGT is located at the same genomic position as rs5030869. This poses nontrivial challenges to properly format variant representations for both SNP and INDEL in a VCF file and for PharmCAT to accurately recognize any genetic variants of this kind at any allele-defining position. Due to this challenge, NC_000023.11:g.154532991_154532993delGGT, which defines `Villeurbanne`, is currently excluded from the _G6PD_ allele definitions in PharmCAT.
+It remains challenging to properly represent SNPs and INDELs that share the same genetic positions in a VCF file.
+This affects NC_000023.11:g.154532991_154532993delGGT and rs5030869 in the _G6PD_ allele definitions.
+Left-aligned, normalized NC_000023.11:g.154532991_154532993delGGT is located at the same genomic position as rs5030869.
+This poses nontrivial challenges to properly format variant representations for both SNP and INDEL in a VCF file and for
+PharmCAT to accurately recognize any genetic variants of this kind at any allele-defining position.
+Due to this challenge, NC_000023.11:g.154532991_154532993delGGT, which defines `Villeurbanne`,
+is currently excluded from the _G6PD_ allele definitions in PharmCAT.
 
 
+## RYR1
+
+### Calling RYR1 named alleles
+
+Note: the `combinations` research flag is ignored when calling RYR1.
+
+{: .info}
+> Effectively phased data is unphased data that is homozygous at all positions or is heterozygous at a single a
+> position. Since we can effectively predict the alleles on each chromosome in this situation, we can treat this data as
+> if it were phased data.
+
+#### Phased or effectively phased data
+
+If phased or effectively phased data is provided in the VCF file, the `Named Allele Matcher` produces an output that
+lists all detected variants per allele. For example: `[c.97A>G + c.103T>C]/[c.418G>A + c.14918C>T]`. If no variants
+are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
+
+#### Unphased data
+
+If unphased data (that cannot be considered effectively phased) is provided in the VCF file, and the data are not
+homozygous at all positions, the `Named Allele Matcher` will not attempt to call a diplotype. Instead, it produces a
+list of all detected RYR1 variants in the sample. It will, however, check if variants can be called on both strands.
+If so, it will call the variant twice.  For example: `c.97A>G`, `c.103T>C`, `c.103T>C`.
+If the sample doesn't contain variants at the positions from the allele definition file, and/or if those positions are
+omitted from the VCF file, the `Named Allele Matcher` returns `Reference`.
+
+### Calling RYR1 allele functionality and phenotype
+
+The report lists the respective allele functionality for each variant and for `Reference`. If a diplotype was called
+from phased/all-homozygous data, the lowest function variants on each strand will be used to determine the gene activity
+score and RYR1 phenotype. Otherwise, the two lowest function variants found are used to determine the gene activity
+score and RYR1 phenotype.  "Lowest function" for RYR1 variants with the _Malignant Hyperthermia associated_ allele
+functionality. The phenotype is utilized to retrieve the corresponding drug recommendations.
+
+
+## SLCO1B1
+
+CPIC provides recommendations based on the SLCO1B1 star allele genotype. The CPIC guideline for statins and SLCO1B1,
+ABCG2, and CYP2C9 [(PMID:35152405)](https://pubmed.ncbi.nlm.nih.gov/35152405/) includes the following excerpt:
+
+> The most common and well-studied variant in SLCO1B1 is c.521T>C (rs4149056), and can be genotyped alone
+> (e.g., PCR-based single SNV assay) or multiplexed on a variety of array-based platforms.
+> All SLCO1B1 genetic tests should interrogate c.521T>C; however, while other less common variants in this gene may have
+> limited evidence to guide action, they may also be important.
+
+PharmCAT attempts to determine the star allele genotype for SLCO1B1, but in cases where no call can be determined, it
+provides the CPIC recommendation based on the rs4149056 variant genotype.

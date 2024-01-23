@@ -37,6 +37,8 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
+
 
 /**
  * This class reads VCF files and pulls the sample's alleles for positions of interest (i.e. is necessary to make a
@@ -456,8 +458,8 @@ public class VcfReader implements VcfLineParser {
   private boolean treatAsReference(String chrPos) {
     String gene = m_locationsByGene.get(chrPos);
     if (NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
-      if ("DPYD".equals(gene)) {
-        // DPYD ignores find-combinations mode
+      if (isLowestFunctionGene(gene)) {
+        // lowest-function genes ignore find-combinations mode
         return true;
       }
       return !m_findCombinations;

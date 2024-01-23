@@ -121,7 +121,10 @@ class SyntheticBatchTest {
       LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
           .selectors(
               selectClass(PharmCATTest.class),
-              selectClass(PipelineTest.class)
+              selectClass(PipelineTest.class),
+              selectClass(Cacna1sTest.class),
+              selectClass(DpydTest.class),
+              selectClass(Ryr1Test.class)
           )
           .build();
       Launcher launcher = LauncherFactory.create();

@@ -10,6 +10,7 @@ import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
+import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -22,11 +23,11 @@ import static org.pharmgkb.pharmcat.reporter.model.DataSource.DPWG;
 
 
 /**
- * This is a JUnit test for {@link DpydCaller}.
+ * This is a JUnit test for {@link LowestFunctionGeneCaller}.
  *
  * @author Mark Woon
  */
-class DpydCallerTest {
+class LowestFunctionGeneCallerTest {
   private static Env s_env;
 
   @BeforeAll
@@ -38,10 +39,11 @@ class DpydCallerTest {
   @Test
   void infer_outsideCall_noMatch() {
     OutsideCall call = new OutsideCall("DPYD\t*1/*5", 1);
-    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(call, s_env, CPIC);
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, CPIC);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
+    assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
     assertNotNull(dip.getAllele2());
     assertEquals("*5", dip.getAllele2().getName());
@@ -114,10 +116,12 @@ class DpydCallerTest {
 
   private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
     OutsideCall call = new OutsideCall("DPYD\t" + diplotype, 1);
-    List<Diplotype> dips = DpydCaller.inferFromOutsideCall(call, s_env, source);
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, source);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
+    assertNotNull(dip.getAllele1());
+    assertNotNull(dip.getAllele2());
     assertEquals(a1, dip.getAllele1().getName());
     assertEquals(f1, dip.getAllele1().getFunction());
     assertEquals(a2, dip.getAllele2().getName());
@@ -142,15 +146,22 @@ class DpydCallerTest {
     matches.add(new HaplotypeMatch(na3));
     matches.add(new HaplotypeMatch(na4));
 
-    List<Diplotype> dips = DpydCaller.inferFromHaplotypeMatches(matches, s_env, CPIC);
+    DiplotypeFactory diplotypeFactory = new DiplotypeFactory("DPYD", s_env);
+
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromHaplotypeMatches("DPYD", s_env, CPIC,
+        diplotypeFactory, matches);
     Diplotype dip = dips.get(0);
+    assertNotNull(dip.getAllele1());
+    assertNotNull(dip.getAllele2());
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());
     assertEquals("No function", dip.getAllele1().getFunction());
     assertEquals("Decreased function", dip.getAllele2().getFunction());
 
-    dips = DpydCaller.inferFromHaplotypeMatches(matches, s_env, DPWG);
+    dips = LowestFunctionGeneCaller.inferFromHaplotypeMatches("DPYD", s_env, DPWG, diplotypeFactory, matches);
     dip = dips.get(0);
+    assertNotNull(dip.getAllele1());
+    assertNotNull(dip.getAllele2());
     assertEquals(na4.getName(), dip.getAllele1().getName());
     assertEquals(na3.getName(), dip.getAllele2().getName());
     assertEquals(GenePhenotype.UNASSIGNED_FUNCTION, dip.getAllele1().getFunction());
@@ -160,7 +171,7 @@ class DpydCallerTest {
 
   @Test
   void testComparator() {
-    DpydCaller.DpydActivityComparator comparator = new DpydCaller.DpydActivityComparator(s_env);
+    LowestFunctionGeneCaller.DpydActivityComparator comparator = new LowestFunctionGeneCaller.DpydActivityComparator(s_env);
 
     Haplotype hapRef = new Haplotype("DPYD", "Reference");  // normal, DPWG
     Haplotype hap498 = new Haplotype("DPYD", "c.498G>A");   // normal

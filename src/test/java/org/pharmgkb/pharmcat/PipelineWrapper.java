@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -17,6 +18,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.opentest4j.AssertionFailedError;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -141,12 +143,39 @@ class PipelineWrapper {
         .toList();
   }
 
-
   void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes) {
+    testSourceDiplotypes(source, gene, diplotypes, null);
+  }
+  void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes,
+      @Nullable List<String> cpicStyleDiplotypes) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
     assertNotNull(geneReport);
+
+    if (cpicStyleDiplotypes != null) {
+      testDiplotypeLabels(geneReport, cpicStyleDiplotypes);
+      testDiplotypeNames(geneReport, diplotypes);
+    } else {
+      testDiplotypeLabels(geneReport, diplotypes);
+    }
+
+  }
+
+  void testDiplotypeLabels(GeneReport geneReport, List<String> diplotypes) {
     List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
         .map(Diplotype::getLabel)
+        .toList();
+    List<String> expectedDiplotypes = stripHomozygousNotes(diplotypes);
+    try {
+      assertEquals(expectedDiplotypes, actualDiplotypes);
+    } catch (AssertionError ex) {
+      System.out.println(printDiagnostic(geneReport));
+      throw ex;
+    }
+  }
+
+  private void testDiplotypeNames(GeneReport geneReport, List<String> diplotypes) {
+    List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
+        .map(d -> Objects.requireNonNull(d.getAllele1()).getName() + TextConstants.GENOTYPE_DELIMITER + d.getAllele2().getName())
         .toList();
     List<String> expectedDiplotypes = stripHomozygousNotes(diplotypes);
     try {
@@ -160,7 +189,7 @@ class PipelineWrapper {
 
   /**
    * Test the "print" calls for a gene that will display in the final report or in the phenotyper. This will check
-   * that the call count matches and then check each individual call is present (can be 1 or more).
+   * that the call count matches and then check that each call is present (can be 1 or more).
    *
    * @param gene the gene to get diplotypes for
    * @param calls the expected display of the calls, 1 or more

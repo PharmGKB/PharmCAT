@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
@@ -45,7 +46,7 @@ class DpydTest {
   @BeforeAll
   static void prepare() {
     ReportHelpers.setDebugMode(true);
-    TestUtils.setSaveTestOutput(true);
+    //TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach
@@ -54,7 +55,7 @@ class DpydTest {
   }
 
 
-  private static @Nullable List<String> callsToComponents(List<String> expectedCalls) {
+  public static @Nullable List<String> callsToComponents(List<String> expectedCalls) {
     if (expectedCalls == null || expectedCalls.size() != 1) {
       return null;
     }
@@ -193,15 +194,17 @@ class DpydTest {
   }
 
 
-  private static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
-      RecPresence hasDpwgAnnotation) {
-    dpydHtmlChecks(document, expectedCalls, hasMissingPositions, RecPresence.YES, hasDpwgAnnotation);
+  private static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls,
+      boolean hasMissingPositions, RecPresence hasDpwgAnnotation) {
+    dpydHtmlChecks(document, expectedCalls, null, hasMissingPositions, RecPresence.YES, hasDpwgAnnotation);
   }
 
   /**
-   * Checks for expected HTML output for DPYD.  Only drug checked is capecitabine.
+   * Checks for expected HTML output for DPYD.
+   * The only drug checked is capecitabine.
    */
-  static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls, boolean hasMissingPositions,
+  static void dpydHtmlChecks(Document document, @Nullable List<String> expectedCalls,
+      @Nullable List<String> cpicStyleCalls, boolean hasMissingPositions,
       RecPresence hasCpicAnnotation, RecPresence hasDpwgAnnotation) {
 
     boolean noCall = expectedCalls != null && expectedCalls.size() == 1 &&
@@ -209,10 +212,10 @@ class DpydTest {
     List<String> expectedComponents = callsToComponents(expectedCalls);
 
     if (expectedComponents != null) {
-      Elements gsLeastFunction = document.select(".gs-DPYD .gs-dip_leastFunction");
-      assertEquals(expectedCalls.size(), gsLeastFunction.size());
-      assertEquals(expectedCalls,
-          gsLeastFunction.stream()
+      Elements gsLowestFunction = document.select(".gs-DPYD .gs-dip_lowestFunction");
+      assertEquals(expectedCalls.size(), gsLowestFunction.size());
+      assertEquals(cpicStyleCalls == null ? expectedCalls : cpicStyleCalls,
+          gsLowestFunction.stream()
               .map(e -> e.child(0).text())
               .toList());
 
@@ -252,9 +255,13 @@ class DpydTest {
         assertEquals(0, missingVariantsWarning.size());
       }
 
-      List<String> expectedRxCalls = expectedCalls.stream()
-          .map(c -> "DPYD:" + c)
-          .toList();
+      List<String> expectedRxCalls = cpicStyleCalls == null ?
+          expectedCalls.stream()
+              .map(c -> "DPYD:" + c)
+              .toList() :
+          cpicStyleCalls.stream()
+              .map(c -> "DPYD:" + c)
+              .toList();
 
       Elements cpicCapecitabineDips = capecitabineSection.select(".cpic-capecitabine .rx-dip");
       if (hasCpicAnnotation == RecPresence.YES) {
@@ -367,17 +374,18 @@ class DpydTest {
     Path vcfFile = testWrapper.execute(null);
 
     List<String> expectedCalls = List.of("Reference/c.2846A>T");
+    List<String> cpicStyleCalls = List.of("c.2846A>T (heterozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.YES;
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, false, RecPresence.YES, hasDpwgAnnotations);
   }
 
   /**
@@ -395,7 +403,7 @@ class DpydTest {
     highScoreWrapper.execute(null);
 
     highScoreWrapper.testCalledByMatcher("DPYD");
-    highScoreWrapper.testPrintCpicCalls("DPYD", "Reference/c.2846A>T");
+    highScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T (heterozygous)");
     highScoreWrapper.testRecommendedDiplotypes("DPYD", "Reference", "c.2846A>T");
     GeneReport highScoreDpydReport = highScoreWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertNotNull(highScoreDpydReport);
@@ -439,8 +447,8 @@ class DpydTest {
   }
 
   /**
-   * This test puts 2 alleles on each strand of a phased DPYD and then asserts that the least-function allele is used
-   * for lookup on each of the strands.
+   * This test puts 2 alleles on each strand of a phased DPYD and then asserts that the
+   * lowest-function allele is used for lookup on each of the strands.
    */
   @Test
   void testDpydPhasedMultiTrans(TestInfo testInfo) throws Exception {
@@ -469,8 +477,9 @@ class DpydTest {
   }
 
   /**
-   * This test is the same as the previous test but DPYD is unphased instead of phased. This means the individual found
-   * alleles should be reported and then the two least-function alleles should be used for recommendation lookup.
+   * This test is the same as the previous test, but DPYD is unphased instead of phased.
+   * This means the individual found alleles should be reported and then the two lowest-function
+   * alleles should be used for recommendation lookup.
    */
   @Test
   void testDpydUnphasedMultiTrans(TestInfo testInfo) throws Exception {
@@ -531,17 +540,18 @@ class DpydTest {
     Path vcfFile = testWrapper.execute(null);
 
     List<String> expectedCalls = List.of("Reference/c.1156G>T (*12)");
+    List<String> cpicStyleCalls = List.of("c.1156G>T (*12) (heterozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", cpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, false, RecPresence.YES, hasDpwgAnnotations);
   }
 
   @Test
@@ -671,17 +681,20 @@ class DpydTest {
     List<String> expectedCalls = List.of(
         "Reference/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)]"
     );
+    List<String> cpicStyleCalls = List.of(
+        "[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)] (heterozygous)"
+    );
     RecPresence hasDpwgAnnotations = RecPresence.YES;
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("Reference", DpydHapB3Matcher.HAPB3_ALLELE));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
     Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, false, RecPresence.YES, hasDpwgAnnotations);
   }
 
 
@@ -810,10 +823,23 @@ class DpydTest {
       recommendedDiplotypes = expectedCallsToRecommendedDiplotypes(recommendedDiplotypes);
     }
 
+    List<String> cpicStyleCalls = expectedCalls.stream()
+        .map(d -> {
+          if (d.startsWith("Reference/") && !d.endsWith("/Reference")) {
+            return d.substring(10) + " (heterozygous)";
+          }
+          return null;
+        })
+        .filter(Objects::nonNull)
+        .toList();
+    if (cpicStyleCalls.isEmpty()) {
+      cpicStyleCalls = null;
+    }
+
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", recommendedDiplotypes);
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls == null ? expectedCalls : cpicStyleCalls);
 
     GeneReport cpicGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
     assertNotNull(cpicGeneReport);
@@ -874,7 +900,7 @@ class DpydTest {
     RecPresence hasCpicAnnotations = RecPresence.fromString(data[14]);
     RecPresence hasDpwgAnnotations = RecPresence.fromString(data[15]);
     dpydHasReports(testWrapper, hasCpicAnnotations, hasDpwgAnnotations);
-    dpydHtmlChecks(document, expectedCalls, numMissingSampleAlleles > 0, hasCpicAnnotations, hasDpwgAnnotations);
+    dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, numMissingSampleAlleles > 0, hasCpicAnnotations, hasDpwgAnnotations);
   }
 
 

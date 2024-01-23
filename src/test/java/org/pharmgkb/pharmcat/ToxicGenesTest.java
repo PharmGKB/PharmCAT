@@ -454,18 +454,19 @@ class ToxicGenesTest {
         .variation("RYR1", "rs193922747", "T", "C");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("c.103T>C (heterozygous)");
+    List<String> expectedCalls = List.of("Reference/c.103T>C");
+    List<String> cpicStyleCalls = List.of("c.103T>C (heterozygous)");
 
     testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", cpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.103T>C"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
+    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", cpicStyleCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
     testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "RYR1", expectedCalls, cpicStyleCalls, null, RecPresence.YES, RecPresence.NO);
   }
 
   @Test
@@ -476,11 +477,11 @@ class ToxicGenesTest {
         .variation("RYR1", "rs193922748", "C", "T");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedCalls = List.of("c.103T>C/c.130C>T");
+    List<String> expectedCalls = List.of("c.103T>C", "c.130C>T");
 
     testWrapper.testCalledByMatcher("RYR1");
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
@@ -509,7 +510,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    // each gene has its own annotation so 2 CPIC annotations match, one for each gene
+    // each gene has its own annotation which means there should be 2 CPIC annotations matched, one for each gene
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
     testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 

@@ -37,7 +37,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
-import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
+import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b1;
 
 
@@ -289,7 +289,7 @@ public class HtmlFormat extends AbstractFormat {
         if (report.getCallSource() == CallSource.MATCHER) {
           if (isSlco1b1(symbol)) {
             summary.put("diplotypes", report.getRecommendationDiplotypes());
-          } else if (isDpyd(symbol) && !report.getMatcherComponentHaplotypes().isEmpty()) {
+          } else if (isLowestFunctionGene(symbol) && !report.getMatcherComponentHaplotypes().isEmpty()) {
             summary.put("showComponents", true);
             summary.put("diplotypes", report.getSourceDiplotypes().first());
             summary.put("componentDiplotypes", report.getMatcherComponentHaplotypes());
@@ -317,7 +317,7 @@ public class HtmlFormat extends AbstractFormat {
   }
 
   private static boolean showUnphasedNote(GeneReport geneReport) {
-    return !geneReport.isOutsideCall() && !geneReport.isPhased() && !isDpyd(geneReport.getGeneDisplay());
+    return !geneReport.isOutsideCall() && !geneReport.isPhased() && !isLowestFunctionGene(geneReport.getGeneDisplay());
   }
 
   private static boolean hasMessages(GeneReport geneReport) {

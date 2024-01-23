@@ -10,7 +10,7 @@ import com.google.common.collect.Multimap;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
-import org.pharmgkb.pharmcat.reporter.caller.DpydCaller;
+import org.pharmgkb.pharmcat.reporter.caller.LowestFunctionGeneCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
@@ -71,7 +71,7 @@ public class Recommendation implements Comparable<Recommendation> {
     for (GuidelineReport guideline : report.getGuidelines()) {
       for (GeneReport gr : guideline.getGeneReports()) {
         // pull in DPYD HapB3 warnings
-        if (gr.getGene().equals(DpydCaller.GENE)) {
+        if (gr.getGene().equals(LowestFunctionGeneCaller.DPYD)) {
           for (MessageAnnotation ma : gr.getMessages()) {
             if (MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC.equals(ma.getName()) ||
                 MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY.equals(ma.getName())) {

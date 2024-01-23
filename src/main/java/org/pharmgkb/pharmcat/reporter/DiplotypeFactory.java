@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -21,8 +20,6 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePloidy;
 
@@ -35,7 +32,6 @@ import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePlo
  * @author Ryan Whaley
  */
 public class DiplotypeFactory {
-  private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Set<String> PHENOTYPE_ONLY = ImmutableSet.of("HLA-A", "HLA-B");
 
   private final String m_gene;
@@ -72,7 +68,7 @@ public class DiplotypeFactory {
 
 
   public List<Diplotype> makeDiplotypes(Collection<DiplotypeMatch> matches, DataSource source) {
-    if (matches.size() == 0) {
+    if (matches.isEmpty()) {
       return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
     return matches.stream()
@@ -92,7 +88,7 @@ public class DiplotypeFactory {
   }
 
   public List<Diplotype> makeDiplotypesFromHaplotypeMatches(Collection<HaplotypeMatch> matches, DataSource source) {
-    if (matches.size() == 0) {
+    if (matches.isEmpty()) {
       return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
     return matches.stream()

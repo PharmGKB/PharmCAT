@@ -142,7 +142,7 @@ public class GeneCall {
   /**
    * Gets possible haplotype matches when no diplotypes are called.
    * <p>
-   * This is currently only used for DPYD.
+   * This is only used by lowest-function genes (currently DPYD & RYR1).
    */
   public List<HaplotypeMatch> getHaplotypeMatches() {
     return m_haplotypeMatches;

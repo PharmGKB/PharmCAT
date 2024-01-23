@@ -29,8 +29,8 @@ import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
+import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
-import static org.pharmgkb.pharmcat.reporter.caller.DpydCaller.isDpyd;
 
 
 /**
@@ -176,7 +176,7 @@ public class ReportHelpers {
   }
 
   public static String gsFunction(Diplotype diplotype) {
-    if (diplotype.isCombination() && isDpyd(diplotype.getGene())) {
+    if (diplotype.isCombination() && isLowestFunctionGene(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
     }
 
@@ -201,7 +201,7 @@ public class ReportHelpers {
   }
 
   public static String gsPhenotype(Diplotype diplotype) {
-    if (isDpyd(diplotype.getGene())) {
+    if (isLowestFunctionGene(diplotype.getGene())) {
       return TextConstants.SEE_DRUG;
     }
     if (diplotype.getPhenotypes().isEmpty()) {
@@ -401,7 +401,7 @@ public class ReportHelpers {
   public static String amdSubtitle(GeneReport geneReport) {
     StringBuilder builder = new StringBuilder();
 
-    if (isDpyd(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().isEmpty()) {
+    if (isLowestFunctionGene(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().isEmpty()) {
       builder.append("Haplotype");
     } else {
       builder.append("Genotype");
@@ -491,7 +491,7 @@ public class ReportHelpers {
   }
 
   public static boolean amdShowUnphasedNote(GeneReport geneReport) {
-    return !geneReport.isPhased() && !isDpyd(geneReport.getGeneDisplay());
+    return !geneReport.isPhased() && !isLowestFunctionGene(geneReport.getGeneDisplay());
   }
 
   public static boolean amdHasUncalledHaps(GeneReport geneReport) {
