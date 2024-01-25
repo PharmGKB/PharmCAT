@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
 import com.google.common.collect.ImmutableSet;
@@ -42,6 +43,7 @@ public class GeneDrugSummary {
   private static final String PHENOTYPES_TSV_FILE_NAME = "phenotypes.tsv";
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "F5", "HLA-A", "HLA-B", "MT-RNR1");
+  private static final Pattern sf_globCopyNumberPattern = Pattern.compile("\\*\\d+xN");
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
   private final PgkbGuidelineCollection m_guidelineCollection;
@@ -102,7 +104,7 @@ public class GeneDrugSummary {
         .sorted()
         .forEach(g -> appendGene(outsideCallGeneList, g));
 
-    // get drug list
+    // drug list
     StringBuilder drugList = new StringBuilder()
         .append("| Drug | CPIC | PharmGKB-DPWG |\n")
         .append("| :--- | :---: | :---: |\n");
@@ -222,7 +224,9 @@ public class GeneDrugSummary {
         mdWriter.println("</tr>");
         mdWriter.println("<tr>");
         mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-        mdWriter.print(haplotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+        mdWriter.print(haplotypes.stream()
+            .filter(v -> !sf_globCopyNumberPattern.matcher(v).matches())
+            .map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
         mdWriter.println("</ul></td>");
 
         if (!cpicPhenotypes.isEmpty()) {
