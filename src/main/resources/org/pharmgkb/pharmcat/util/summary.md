@@ -25,7 +25,7 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 matching recommendation data.
 
 See [Outside Call Format](/using/Outside-Call-Format) for formatting details and
-[Calling-CYP2D6.md](/using/Calling-CYP2D6.md) or [Calling-HLA.md](/using/Calling-HLA.md) for how to obtain CYP2D6 or
+[Calling CYP2D6(/using/Calling-CYP2D6) or [Calling HLA](/using/Calling-HLA) for how to obtain CYP2D6 or
 HLA calls, respectively, using sequencing data.
 
 %s
