@@ -9,7 +9,7 @@ nav_order: 4
 The basic process:
 
 1. Read in all named allele definitions from the gene definition table.
-   Each gene has a reference allele defined by the first definition row in the table (eg. _*1_).  By default, any non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition table) will default to the reference row's base call.
+   Each gene has a reference allele defined by the first definition row in the table (eg. \*1).  By default, any non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition table) will default to the reference row's base call.
 2. Read in sample data (VCF file), ignoring positions that are not used in the gene definition tables.
 3. For each gene:
     1. If data is unphased, generate all possible combinations of genotypes for the positions of interest.
@@ -28,12 +28,12 @@ Take a look at this sample gene definition table:
 
 |     | rs1 | rs2 | rs3 | rs4 | rs5 | score |
 | --- | --- | --- | --- | --- | --- | ----- |
-| *1  | C   | C   | T   | G   | A   | 5     |
-| *2  | T   | T   |     | A   |     | 3     |
+| \*1 | C   | C   | T   | G   | A   | 5     |
+| \*2 | T   | T   |     | A   |     | 3     |
 
-Since the gene definition table contains 5 positions, the reference allele, _*1_, gets a score of 5 while _*2_ only has 3 positions defined and gets a score of 3. <sup>[3](#notes)</sup>
+Since the gene definition table contains 5 positions, the reference allele, \*1, gets a score of 5 while \*2 only has 3 positions defined and gets a score of 3. <sup>[3](#notes)</sup>
 
-A diplotype's score is the combined score of its component named alleles.  A _*1_/_*2_ from the example above would have a score of 8.
+A diplotype's score is the combined score of its component named alleles.  A \*1/\*2 from the example above would have a score of 8.
 
 
 ## Missing Positions
@@ -49,11 +49,11 @@ Using the following gene definition table:
 
 |     | rs1 | rs2 | rs3 | rs4 | rs5 | score |
 | --- | --- | --- | --- | --- | --- | ----- |
-| *1  | C   | C   | T   | G   | A   | 5     |
-| *2  | T   |     |     | A   |     | 2     |
-| *3  |     |     |     | A   |     | 1     |
-| *4  |     | T   |     |     |     | 1     |
-| *5  | T   |     |     |     |     | 1     |
+| \*1 | C   | C   | T   | G   | A   | 5     |
+| \*2 | T   |     |     | A   |     | 2     |
+| \*3 |     |     |     | A   |     | 1     |
+| \*4 |     | T   |     |     |     | 1     |
+| \*5 | T   |     |     |     |     | 1     |
 
 And the following (unphased) sample data:
 
@@ -61,18 +61,18 @@ And the following (unphased) sample data:
 | --- | --- | --- | --- | --- |
 | C/T | C/C | T/T | A/G | A/A |
 
-The potential permutations of those genotypes will match _*1_, _*2_, _*3_ and _*5_.
+The potential permutations of those genotypes will match \*1, \*2, \*3 and \*5.
 
 From that, plausible diplotypes are:
 
 | Diplotype | Score     |
 | --------- | --------- |
-| *1/*2     | 5 + 2 = 7 |
-| *3/*5     | 1 + 1 = 2 |
+| \*1/\*2   | 5 + 2 = 7 |
+| \*3/\*5   | 1 + 1 = 2 |
 
-Which results in _*1_/_*2_ being returned.
+Which results in \*1/\*2 being returned.
 
-Note that _*1_/_*3_ is not a plausible diplotype because one chromosome must have a `C` and the other must have a `T` at position rs1.  They can't both be `C`.  Similarly, _*2_/_*3_ is not a plausible diplotype either because it cannot be homozygous at rs4.
+Note that \*1/\*3 is not a plausible diplotype because one chromosome must have a `C` and the other must have a `T` at position rs1.  They can't both be `C`.  Similarly, \*2/\*3 is not a plausible diplotype either because it cannot be homozygous at rs4.
 
 
 #### Missing rs5
@@ -87,8 +87,8 @@ The results would be the same, except the scores would be different:
 
 | Diplotype | Score     |
 | --------- | --------- |
-| *1/*2     | 4 + 2 = 6 |
-| *3/*5     | 1 + 1 = 2 |
+| \*1/\*2   | 4 + 2 = 6 |
+| \*3/\*5   | 1 + 1 = 2 |
 
 
 #### Missing rs1
@@ -103,12 +103,12 @@ Then the results would be different:
 
 | Diplotype | Score     |
 | --------- | --------- |
-| *1/*2     | 4 + 1 = 5 |
-| *1/*3     | 4 + 1 = 5 |
+| \*1/\*2   | 4 + 1 = 5 |
+| \*1/\*3   | 4 + 1 = 5 |
 
-As such, _*1_/_*2_ and _*1_/_*3_ would be returned.
+As such, \*1/\*2 and \*1/\*3 would be returned.
 
-Note that *5 could never be matched in this scenario because it's definining allele is missing.
+Note that \*5 could never be matched in this scenario because it's definining allele is missing.
 
 
 ### Notes

@@ -49,7 +49,7 @@ data. This data is visible in an HTML report and also in a JSON file for machine
 
 # Example 2 - Some Non-Reference Alleles
 
-This is a collection of example files with CYP2C19 *2/*2 and CYP2B6 *1/*6 diplotypes. One input VCF file that contains 
+This is a collection of example files with CYP2C19 \*2/\*2 and CYP2B6 \*1/\*6 diplotypes. One input VCF file that contains
 the source variant data and the corresponding output files that would result from running that input file.
 
 ## Input VCF

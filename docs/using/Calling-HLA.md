@@ -22,10 +22,10 @@ We tested imputation accuracy using 258 in house samples for which we had target
 
 | HLA Allele   | Sequence | Imputed |
 |--------------|----------|---------|
-| HLA-A*31:01 | 25       | 14      |
-| HLA-B*15:02 | 3        | 2       |
-| HLA-B*57:01 | 13       | 13      |
-| HLA-B*58:01 | 8        | 7       |
+| HLA-A\*31:01 | 25       | 14      |
+| HLA-B\*15:02 | 3        | 2       |
+| HLA-B\*57:01 | 13       | 13      |
+| HLA-B\*58:01 | 8        | 7       |
 
 Our results indicate that HLA B allele imputation was more accurate than the single HLA-A allele tested. While imputation is possible from a VCF, **we do NOT recommend imputing HLA from a VCF** as there are many factors that contribute to inaccuracy (e.g., marker density, an appropriate reference panel, etc.). [Although the methods and reference panels](https://doi.org/10.1038/tpj.2017.7) have drastically improved over the past few years, we still have reservations based on our own internal testing of the accuracy of allele typing. Instead, we recommend that you call HLA directly from either whole exome or whole genome data.
 
@@ -84,10 +84,10 @@ Note, of the 203 samples tested, Optitype misassigned an HLA to 3 of the samples
 
 | HLA Allele   | OPTITYPE CALLS | 1KG OFFICIAL CALLS |
 |--------------|----------------|--------------------|
-| HLA-A*31:01 | 47             | 48                 |
-| HLA-B*15:02 | 39             | 39                 |
-| HLA-B*57:01 | 54             | 54                 |
-| HLA-B*58:01 | 67             | 69                 |
+| HLA-A\*31:01 | 47             | 48                 |
+| HLA-B\*15:02 | 39             | 39                 |
+| HLA-B\*57:01 | 54             | 54                 |
+| HLA-B\*58:01 | 67             | 69                 |
 
 Regardless of whether it is a single sample per sheet or multi-sample per sample sheet, Optitype will generate individual files for each sample. Nextflow It will generate a plot showing the overall coverage of the allele and a TSV (tab-separated values) file with the HLA allele calls. It is always a good idea to check and ensure you had good coverage across the HLA region.
 

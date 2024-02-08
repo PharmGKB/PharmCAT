@@ -28,12 +28,12 @@ For demonstration purposes, we are using [StellarPGx](https://github.com/SBIMB/S
 
 | Sample | WES | Low-Cov WGS | 30x WGS | GeT-RM |
 | ------ | --- | ----------- | ------- | ------ |
-| [HG00436](https://www.internationalgenome.org/data-portal/sample/HG00436) | No_call | No_call | *71/*2x2 | *2x2/*71 |
-| [HG01086](https://www.internationalgenome.org/data-portal/sample/HG01086) | *1/*1x2 | No_call | *1/*31 | *1/*31 |
-| [HG01190](https://www.internationalgenome.org/data-portal/sample/HG01190) | *1/*1 | *5/*1 | *5/*68+*4 | *68+*4/*5 |
-| [NA07048](https://www.internationalgenome.org/data-portal/sample/NA07048) | No_call | *1/*1 | *139/*4 | *1/*4 |
-| [NA18545](https://www.internationalgenome.org/data-portal/sample/NA18545) | *34/*34x7 | *1/*1x5 | *36+*10/*36+*10 | *5/*36x2+*10x2 |
-| [NA21105](https://www.internationalgenome.org/data-portal/sample/NA21105) | No_call | *34/*34 | *111/*3 | *3/*111 |
+| [HG00436](https://www.internationalgenome.org/data-portal/sample/HG00436) | No_call | No_call | \*71/\*2x2 | \*2x2/\*71 |
+| [HG01086](https://www.internationalgenome.org/data-portal/sample/HG01086) | \*1/\*1x2 | No_call | \*1/\*31 | \*1/\*31 |
+| [HG01190](https://www.internationalgenome.org/data-portal/sample/HG01190) | \*1/\*1 | \*5/\*1 | \*5/\*68+\*4 | \*68+\*4/\*5 |
+| [NA07048](https://www.internationalgenome.org/data-portal/sample/NA07048) | No_call | \*1/\*1 | \*139/\*4 | \*1/\*4 |
+| [NA18545](https://www.internationalgenome.org/data-portal/sample/NA18545) | \*34/\*34x7 | \*1/\*1x5 | \*36+\*10/\*36+\*10 | \*5/\*36x2+\*10x2 |
+| [NA21105](https://www.internationalgenome.org/data-portal/sample/NA21105) | No_call | \*34/\*34 | \*111/\*3 | \*3/\*111 |
 
 There is drastic variation in the calls produced by the three sequencing technologies. In many cases, the WES or low-coverage WGS input resulted in a "no call" result. In some samples, improbably high copy numbers and calls that varied greatly from the GeT-RM calls were produced. The 30x WGS produced identical or equivalent results most of the time, and when it deviated the differences were relatively minor. In conclusion, we do not recommend the use WES or low-coverage WGS for calling CYP2D6 for both research and clinical purposes.
 
