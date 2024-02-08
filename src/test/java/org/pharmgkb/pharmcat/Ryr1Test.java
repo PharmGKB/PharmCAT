@@ -186,6 +186,35 @@ class Ryr1Test {
   }
 
   /**
+   * Test a missing CACNA1S gene with 2 RYR1 het calls and 1 hom call.
+   */
+  @Test
+  void cacna1sMissing_ryr1Het2Hom1(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .reference("RYR1")
+        .variation("RYR1", "rs193922746", "G", "G") // c.97A>G
+        .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
+        .variation("RYR1", "rs142474192", "G", "A")  // c.418G>A
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    List<String> ryr1ExpectedCalls = List.of("c.97A>G/[c.97A>G + c.152C>A + c.418G>A]");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("c.97A>G", "c.97A>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
+    expectedCallsMap.put("CACNA1S", NO_DATA);
+    expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
+    htmlChecks(document, expectedCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
    * Test a missing CACNA1S gene with 3 RYR1 het calls.
    */
   @Test
@@ -242,5 +271,41 @@ class Ryr1Test {
     expectedCallsMap.put("CACNA1S", NO_DATA);
     expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
     htmlChecks(document, expectedCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
+   * Test a missing CACNA1S gene with 3 RYR1 het calls, phased.
+   * Make sure malignant function variants are used to look up recommendations.
+   */
+  @Test
+  void cacna1sMissing_ryr1Het4Phased(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .reference("RYR1")
+        .variation("RYR1", "rs193922746", "A", "G") // c.97A>G - malignant
+        .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
+        .variation("RYR1", "rs142474192", "G", "A") // c.418G>A
+        .variation("RYR1", "rs146876145", "C", "T") // c.14918C>T - malignant
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    List<String> ryr1ExpectedCalls = List.of("Reference/[c.97A>G + c.152C>A + c.418G>A + c.14918C>T]");
+    List<String> cpicStyleCalls = List.of("[c.97A>G + c.152C>A + c.418G>A + c.14918C>T] (heterozygous)");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", cpicStyleCalls);
+    // make sure malignant function variants are used to look up recommendations
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("Reference", "c.97A>G"));
+
+    Document document = readHtmlReport(vcfFile);
+    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
+    expectedCallsMap.put("CACNA1S", NO_DATA);
+    expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
+    Map<String, List<String>> cpicStyleCallsMap = new LinkedHashMap<>();
+    cpicStyleCallsMap.put("CACNA1S", NO_DATA);
+    cpicStyleCallsMap.put("RYR1", cpicStyleCalls);
+    htmlChecks(document, expectedCallsMap, cpicStyleCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
   }
 }
