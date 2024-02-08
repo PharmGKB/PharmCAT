@@ -10,10 +10,10 @@ Genotype determination is based on [CPIC gene definition tables](https://www.pha
 modifications for the following genes:
 
 * [CYP3A4](#cyp3a4)
-* [DPYD](#dpyd) (lowest function)
+* [DPYD](#dpyd)
 * [G6PD](#g6pd)
 * [SLCO1B1](#slco1b1)
-* [RYR1](#ryr1) (lowest function)
+* [RYR1](#ryr1)
 
 ---    
 
@@ -149,6 +149,17 @@ is currently excluded from the _G6PD_ allele definitions in PharmCAT.
 
 ## RYR1
 
+In December 2023, CPIC has added additional variants to align with the ClinGen malignant hyperthermia susceptibility
+(MHS) variant curation expert panel (VCEP) developed and published recommendations for RYR1 pathogenicity
+classifications in malignant hyperthermia susceptibility. Pathogenic and likely pathogenic variants are assigned a CPIC
+function of Malignant Hyperthermia associated, variants of uncertain significance (VUS) are mapped to uncertain
+function, and benign and likely benign variants are assigned normal function.
+
+RYR1 phenotypes are determined based on the function combinations of two RYR1 variants. In case >2 variants are found,
+the variants with Malignant Hyperthermia associated function should be used first. If 2 Malignant Hyperthermia
+associated variants are found, those are assumed on different chromosomes.
+
+
 ### Calling RYR1 named alleles
 
 Note: the `combinations` research flag is ignored when calling RYR1.
@@ -176,10 +187,11 @@ omitted from the VCF file, the `Named Allele Matcher` returns `Reference`.
 ### Calling RYR1 allele functionality and phenotype
 
 The report lists the respective allele functionality for each variant and for `Reference`. If a diplotype was called
-from phased/all-homozygous data, the lowest function variants on each strand will be used to determine the gene activity
-score and RYR1 phenotype. Otherwise, the two lowest function variants found are used to determine the gene activity
-score and RYR1 phenotype.  "Lowest function" for RYR1 variants with the _Malignant Hyperthermia associated_ allele
-functionality. The phenotype is utilized to retrieve the corresponding drug recommendations.
+from phased/all-homozygous data, PharmCAT determines if variants assigned the function
+"_Malignant Hyperthermia associated_" are present, and those variants are used to assign the phenotype. Similarly, for
+unphased data variants assigned "_Malignant Hyperthermia associated_" function are used to determine the
+"_Malignant Hyperthermia susceptible_" phenotype. The phenotype is utilized to retrieve the corresponding drug
+recommendations.
 
 
 ## SLCO1B1
