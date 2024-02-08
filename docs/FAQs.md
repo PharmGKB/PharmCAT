@@ -107,11 +107,11 @@ Indeterminate is a standardized CPIC phenotype term assigned to genotypes contai
 
 Please review the latest [CPIC SOP for assigning allele function](https://cpicpgx.org/resources/cpic-draft-allele-function-sop/) for further details or any updates on the definitions.
 
-### How to understand "_reference_" or "_*1_"?
+### How to understand "Reference" or "\*1"?
 
-You will see "Reference" (for genes like _DPYD_, _RYR1_, _CACNA1S_, _CFTR_, etc.) or "*1" (for genes like _CYP2B6_, _CYP2C9_, etc.). _Reference_ or _*1_ indicate an absence of alternative genetic alleles at the PharmCAT interrogated genetic positions. They are assigned by default when no alternative variants are found at the queried positions. They do not suggest a lack of genetic variation at every position in the gene and should not be mistaken to mean an exact match to the entire reference sequence for the gene.
+You will see "Reference" (for genes like _DPYD_, _RYR1_, _CACNA1S_, _CFTR_, etc.) or "\*1" (for genes like _CYP2B6_, _CYP2C9_, etc.). "Reference" or "\*1" indicate an absence of alternative genetic alleles at the PharmCAT interrogated genetic positions. They are assigned by default when no alternative variants are found at the queried positions. They do not suggest a lack of genetic variation at every position in the gene and should not be mistaken to mean an exact match to the entire reference sequence for the gene.
 
-For the gene _CFTR_, "_Reference_" in the PharmCAT report corresponds to "_ivacaftor non-reponsive CFTR sequnence_" in the CPIC guideline.
+For the gene _CFTR_, "Reference" in the PharmCAT report corresponds to "ivacaftor non-reponsive CFTR sequnence" in the CPIC guideline.
 
 
 ### How to render PharmCAT outputs into a tabular-formatted file
@@ -136,7 +136,7 @@ Some PGx allele-defining positions are multiallelic and can harbor other genetic
 ### Can PharmCAT call _CYP2D6_?
 If you have access to whole genome sequencing (WGS) CRAM/BAM files, we strongly discourage calling CYP2D6 using PharmCAT. Please refer to our documentation about [calling CYP2D6](/using/Calling-CYP2D6).
 
-Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmCAT is designed to take VCF as input which is NOT a desirable file format for calling CYP2D6 alleles. This research mode for CYP2D6 calls alleles using ONLY SNPs and INDELs that are available in VCF files. Please note that this approach has many caveats. VCF can't handle structural variation (SV) and copy number variation (CNV) which are essential for calling CYP2D6 alleles, especially CNVs for ultrarapid metabolizers. VCF format cannot correctly reflect whole gene deletion (*5), which will lead to erroneous calls and beyond the capability of PharmCAT. CYP2D6 calls made from VCFs should not be used for clinical purposes. This research mode should be used at your own risk.
+Starting with v2.0, PharmCAT provides a research mode for calling CYP2D6. PharmCAT is designed to take VCF as input which is NOT a desirable file format for calling CYP2D6 alleles. This research mode for CYP2D6 calls alleles using ONLY SNPs and INDELs that are available in VCF files. Please note that this approach has many caveats. VCF can't handle structural variation (SV) and copy number variation (CNV) which are essential for calling CYP2D6 alleles, especially CNVs for ultrarapid metabolizers. VCF format cannot correctly reflect whole gene deletion (\*5), which will lead to erroneous calls and beyond the capability of PharmCAT. CYP2D6 calls made from VCFs should not be used for clinical purposes. This research mode should be used at your own risk.
 
 
 ### _G6PD_ for samples with only one chrX

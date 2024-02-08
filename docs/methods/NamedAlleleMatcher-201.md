@@ -19,19 +19,19 @@ Example:
 
 |     | rs1 | rs2 | rs3 | rs4 | rs5 | score |
 | --- | --- | --- | --- | --- | --- | ----- |
-| *1  | C   | C   | T   | G   | A   | 5     |
-| *2  | T   | T   |     | A   |     | 3     |
+| \*1 | C   | C   | T   | G   | A   | 5     |
+| \*2 | T   | T   |     | A   |     | 3     |
 
 The default named allele definitions are designed to assume that missing alleles are the same as the reference named 
 allele, which is defined as the first named allele in the definition file.
 
 It is, however, possible to increase the score of a named allele by specifying the reference allele.  For example, this
-gene definition table is effectively identical to the one above, but _*2_ has a different score.
+gene definition table is effectively identical to the one above, but `*2` has a different score.
 
 |     | rs1 | rs2 | rs3 | rs4 | rs5 | score |
 | --- | --- | --- | --- | --- | --- | ----- |
-| *1  | C   | C   | T   | G   | A   | 5     |
-| *2  | T   | T   | T   | A   | A   | 5     |
+| \*1 | C   | C   | T   | G   | A   | 5     |
+| \*2 | T   | T   | T   | A   | A   | 5     |
 
 
 
@@ -74,7 +74,7 @@ PharmCAT's syntax for combination calls uses square brackets to reflect that it 
 distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
 
 A partial allele is when a sample matches all the (core) variants of a defined allele but also has additional variants.
-For example, CYP2C19 `"*2/[*17 + g.94781859G>A]"`.  In the case where a partial call occurs off the reference allele,
+For example, CYP2C19 `*2/[*17 + g.94781859G>A]`.  In the case where a partial call occurs off the reference allele,
 only the positions are listed (e.g. `*2/g.94781859G>A`).
 
 When asked to find combination and partial alleles, the `Named Allele Matcher` will only attempt to do so if no viable 
@@ -98,7 +98,7 @@ phased or the unphased data only has 2 possible sequence combinations.
 
 ### Scoring
 
-Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually *1) 
+Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually \*1)
 will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6 
 `*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`,
 `*23/[*5 + *9]` are also possible.

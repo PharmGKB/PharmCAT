@@ -155,7 +155,7 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
    refer to the PharmCAT [outside calls documentation](https://pharmcat.org/using/Outside-Call-Format/).
 
 2. CPIC has assigned function to the following CYP2D6 CNV alleles: \*1x2, \*1x≥3, \*2x2, \*2x≥3, \*3x2, \*4x2, \*4x≥3,
-   \*6x2, \*9x2, \*10x2, \*17x2, \*29x2, \*35x2, \*36x2, \*41x2, \*41x3, \*43x2, \*45x2, *146x2. These alleles are part
+   \*6x2, \*9x2, \*10x2, \*17x2, \*29x2, \*35x2, \*36x2, \*41x2, \*41x3, \*43x2, \*45x2, \*146x2. These alleles are part
    of the CPIC diplotype to phenotype translation and can be connected to recommendations. Other CNV notations from
    outside calls need to be mapped accordingly. 
 
