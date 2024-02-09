@@ -116,10 +116,16 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
     for (Diplotype dip : genotype.getDiplotypes()) {
       for (String phenotype : dip.getPhenotypes()) {
-        f_phenotypes.put(dip.getGene(), phenotype);
+        String oldPhenotype = f_phenotypes.put(dip.getGene(), phenotype);
+        if (!dip.isAllelePresenceType() && oldPhenotype != null && !oldPhenotype.equals(phenotype)) {
+          throw new RuntimeException("Multiple phenotypes for gene " + dip.getGene());
+        }
       }
       if (dip.hasActivityScore()) {
-        f_activityScores.put(dip.getGene(), dip.getActivityScore());
+        String oldActivity = f_activityScores.put(dip.getGene(), dip.getActivityScore());
+        if (!dip.isAllelePresenceType() && oldActivity != null && !oldActivity.equals(dip.getActivityScore())) {
+          throw new RuntimeException("Multiple activity scores for gene " + dip.getGene());
+        }
       }
     }
   }
