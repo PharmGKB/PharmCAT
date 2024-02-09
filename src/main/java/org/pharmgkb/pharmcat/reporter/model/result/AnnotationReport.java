@@ -30,7 +30,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   private String m_classification;
   @Expose
   @SerializedName("activityScore")
-  private final SortedMap<String, String> m_activityScore = new TreeMap<>();
+  private final SortedMap<String, String> f_activityScores = new TreeMap<>();
   @Expose
   @SerializedName("population")
   private String m_population = TextConstants.NA;
@@ -52,6 +52,9 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   @Expose
   @SerializedName("otherPrescribingGuidance")
   private boolean m_otherPrescribingGuidance = false;
+  @Expose
+  @SerializedName("phenotypes")
+  private Map<String,String> f_phenotypes = new TreeMap<>();
 
 
   /**
@@ -110,6 +113,19 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
   public void addGenotype(Genotype genotype) {
     m_genotypes.add(genotype);
+
+    for (Diplotype dip : genotype.getDiplotypes()) {
+      for (String phenotype : dip.getPhenotypes()) {
+        f_phenotypes.put(dip.getGene(), phenotype);
+      }
+      if (dip.hasActivityScore()) {
+        f_activityScores.put(dip.getGene(), dip.getActivityScore());
+      }
+    }
+  }
+
+  public Map<String,String> getPhenotypes() {
+    return f_phenotypes;
   }
 
   public String getDrugRecommendation() {
@@ -129,7 +145,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   }
 
   public Map<String, String> getActivityScores() {
-    return m_activityScore;
+    return f_activityScores;
   }
 
 
@@ -193,7 +209,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         .compare(m_genotypes, o.getGenotypes())
         .compare(m_population, o.getPopulation())
         .compare(m_highlightedVariants, o.getHighlightedVariants())
-        .compare(m_activityScore, o.getActivityScores())
+        .compare(this.getActivityScores(), o.getActivityScores())
         .compare(m_classification, o.getClassification())
         .compare(m_drugRecommendation, o.getDrugRecommendation())
         .compare(m_implications, o.getImplications())
