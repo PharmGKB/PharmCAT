@@ -13,6 +13,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
+import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.RecommendationAnnotation;
@@ -30,7 +31,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   private String m_classification;
   @Expose
   @SerializedName("activityScore")
-  private final SortedMap<String, String> f_activityScores = new TreeMap<>();
+  private final SortedMap<String, String> m_activityScores = new TreeMap<>();
   @Expose
   @SerializedName("population")
   private String m_population = TextConstants.NA;
@@ -54,7 +55,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   private boolean m_otherPrescribingGuidance = false;
   @Expose
   @SerializedName("phenotypes")
-  private Map<String,String> f_phenotypes = new TreeMap<>();
+  private Map<String,String> m_phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("lookupKey")
   private Map<String,Object> m_lookupKey = new TreeMap<>();
@@ -121,30 +122,32 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     for (Diplotype dip : genotype.getDiplotypes()) {
       String geneSymbol = dip.getGene();
       for (String phenotype : dip.getPhenotypes()) {
-        String oldPhenotype = f_phenotypes.put(geneSymbol, phenotype);
+        String oldPhenotype = m_phenotypes.put(geneSymbol, phenotype);
         if (!dip.isAllelePresenceType() && oldPhenotype != null && !oldPhenotype.equals(phenotype)) {
-          throw new RuntimeException("Multiple phenotypes for gene " + geneSymbol);
+          throw new UnexpectedStateException("Multiple phenotypes for gene " + geneSymbol);
         }
       }
       if (genotype.usesActivityScore()) {
-        /* If this genotype uses activity score at all then we need a value for activity score for each diplotype in this genotype */
+        // if this genotype uses activity score at all, then we need a value for activity score for each diplotype in
+        // this genotype
         if (dip.isActivityScoreType()) {
-          /* if the diplotype uses AS, try to use the AS in the diplotype and fallback to the AS in the recommendation if it's not available */
+          // if the diplotype uses AS, try to use the AS in the diplotype and fallback to the AS in the recommendation
+          // if it's not available
           String activityScore = TextConstants.isUnspecified(dip.getActivityScore()) ? (String)m_lookupKey.get(geneSymbol) : dip.getActivityScore();
-          String oldActivity = f_activityScores.put(geneSymbol, activityScore);
+          String oldActivity = m_activityScores.put(geneSymbol, activityScore);
           if (oldActivity != null && !oldActivity.equals(activityScore)) {
-            throw new RuntimeException("Multiple activity scores for gene " + geneSymbol);
+            throw new UnexpectedStateException("Multiple activity scores for gene " + geneSymbol);
           }
         } else {
           /* if this diplotype does not use AS then just mark it as n/a */
-          f_activityScores.put(geneSymbol, TextConstants.NA);
+          m_activityScores.put(geneSymbol, TextConstants.NA);
         }
       }
     }
   }
 
   public Map<String,String> getPhenotypes() {
-    return f_phenotypes;
+    return m_phenotypes;
   }
 
   public String getDrugRecommendation() {
@@ -164,7 +167,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   }
 
   public Map<String, String> getActivityScores() {
-    return f_activityScores;
+    return m_activityScores;
   }
 
 
@@ -228,7 +231,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         .compare(m_genotypes, o.getGenotypes())
         .compare(m_population, o.getPopulation())
         .compare(m_highlightedVariants, o.getHighlightedVariants())
-        .compare(this.getActivityScores(), o.getActivityScores())
+        .compare(m_activityScores, o.getActivityScores())
         .compare(m_classification, o.getClassification())
         .compare(m_drugRecommendation, o.getDrugRecommendation())
         .compare(m_implications, o.getImplications())
