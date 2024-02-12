@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
-import static org.pharmgkb.pharmcat.reporter.model.result.GeneReport.isSinglePloidy;
+import static org.pharmgkb.pharmcat.Constants.isSinglePloidy;
 
 
 /**
@@ -101,8 +101,8 @@ public class DiplotypeFactory {
   public static String[] splitDiplotype(String gene, String diplotypeText) {
     if (diplotypeText.contains("/")) {
       if (isSinglePloidy(gene) && !GeneReport.isXChromo(gene)) {
-        throw new BadOutsideCallException("Cannot specify two genotypes [" + diplotypeText + "] for single chromosome gene " +
-            gene);
+        throw new BadOutsideCallException("Cannot specify two genotypes [" + diplotypeText +
+            "] for single chromosome gene " + gene);
       }
       String[] alleles = diplotypeText.split("/");
       if (alleles.length != 2) {

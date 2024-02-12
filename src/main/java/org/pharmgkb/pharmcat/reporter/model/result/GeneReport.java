@@ -47,11 +47,6 @@ import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES = ImmutableSet.of("IFNL4");
-  /**
-   * These genes have custom callers that can potentially infer a diplotype even though the {@link NamedAlleleMatcher}
-   * cannot make a call.
-   */
-  private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE = ImmutableSet.of("HLA-A", "HLA-B");
   private static final Set<String> ACTIVITY_SCORE = ImmutableSet.of("CYP2C9", "CYP2D6", "DPYD");
@@ -549,14 +544,6 @@ public class GeneReport implements Comparable<GeneReport> {
     return StringUtils.isNotBlank(gene) && IGNORED_GENES.contains(gene);
   }
 
-  /**
-   * Is the specified gene single ploidy, i.e. it is on chrY or chrM that occur on a single chromosome, not a pair.
-   * @param gene a gene symbol
-   * @return true if the gene occurs on a single chromosome, not a pair
-   */
-  public static boolean isSinglePloidy(String gene) {
-    return StringUtils.isNotBlank(gene) && SINGLE_PLOIDY.contains(gene);
-  }
 
   public static boolean isXChromo(String gene) {
     return StringUtils.isNotBlank(gene) && CHROMO_X.contains(gene);
