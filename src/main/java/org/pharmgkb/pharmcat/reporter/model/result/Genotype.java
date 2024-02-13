@@ -77,6 +77,14 @@ public class Genotype implements Comparable<Genotype> {
     return m_diplotypes.stream().anyMatch(Diplotype::isInferred);
   }
 
+  /**
+   * Does any diplotype in this genotype rely on activity score for phenotype assignment
+   * @return true if any diplotype in this genotype uses AS
+   */
+  public boolean usesActivityScore() {
+    return m_diplotypes.stream().anyMatch(Diplotype::isActivityScoreType);
+  }
+
   public String toString() {
     if (m_diplotypes.size() == 0) {
       return TextConstants.UNKNOWN_GENOTYPE;

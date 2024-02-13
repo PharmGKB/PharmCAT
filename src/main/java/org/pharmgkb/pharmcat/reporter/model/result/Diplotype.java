@@ -353,6 +353,14 @@ public class Diplotype implements Comparable<Diplotype> {
     return GeneReport.isAllelePresenceType(getGene());
   }
 
+  /**
+   * True if the gene for this diplotype relies on activity score to assign phenotypes and match recommendations
+   * @return true if this diplotype uses activity score
+   */
+  public boolean isActivityScoreType() {
+    return GeneReport.isActivityScoreType(getGene());
+  }
+
 
   /**
    * Builds a String representation of this haplotype with no gene prefix (e.g. *1/*10) that can be used for lookups.

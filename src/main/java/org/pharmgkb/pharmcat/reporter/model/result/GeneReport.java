@@ -54,6 +54,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
   private static final Set<String> CHROMO_X = ImmutableSet.of("G6PD");
   private static final Set<String> ALLELE_PRESENCE = ImmutableSet.of("HLA-A", "HLA-B");
+  private static final Set<String> ACTIVITY_SCORE = ImmutableSet.of("CYP2C9", "CYP2D6", "DPYD");
   public static final String YES = "Yes";
   public static final String NO = "No";
 
@@ -468,6 +469,15 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public static boolean isAllelePresenceType(String gene) {
     return ALLELE_PRESENCE.contains(gene);
+  }
+
+  /**
+   * True if the gene uses activity score to assign phenotype and match to recommendations
+   * @param gene the gene symbol
+   * @return true if this gene is an activity score gene
+   */
+  public static boolean isActivityScoreType(String gene) {
+    return gene != null && ACTIVITY_SCORE.contains(gene.toUpperCase());
   }
 
   /**

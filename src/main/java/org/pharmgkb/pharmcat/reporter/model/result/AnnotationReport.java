@@ -55,6 +55,9 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   @Expose
   @SerializedName("phenotypes")
   private Map<String,String> f_phenotypes = new TreeMap<>();
+  @Expose
+  @SerializedName("lookupKey")
+  private Map<String,Object> m_lookupKey = new TreeMap<>();
 
 
   /**
@@ -91,6 +94,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     m_dosingInformation = recommendation.isDosingInformation();
     m_alternateDrugAvailable = recommendation.isAlternateDrugAvailable();
     m_otherPrescribingGuidance = recommendation.isOtherPrescribingGuidance();
+    m_lookupKey.putAll(recommendation.getLookupKey());
   }
 
   private AnnotationReport(String localId) {
@@ -115,16 +119,25 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     m_genotypes.add(genotype);
 
     for (Diplotype dip : genotype.getDiplotypes()) {
+      String geneSymbol = dip.getGene();
       for (String phenotype : dip.getPhenotypes()) {
-        String oldPhenotype = f_phenotypes.put(dip.getGene(), phenotype);
+        String oldPhenotype = f_phenotypes.put(geneSymbol, phenotype);
         if (!dip.isAllelePresenceType() && oldPhenotype != null && !oldPhenotype.equals(phenotype)) {
-          throw new RuntimeException("Multiple phenotypes for gene " + dip.getGene());
+          throw new RuntimeException("Multiple phenotypes for gene " + geneSymbol);
         }
       }
-      if (dip.hasActivityScore()) {
-        String oldActivity = f_activityScores.put(dip.getGene(), dip.getActivityScore());
-        if (!dip.isAllelePresenceType() && oldActivity != null && !oldActivity.equals(dip.getActivityScore())) {
-          throw new RuntimeException("Multiple activity scores for gene " + dip.getGene());
+      if (genotype.usesActivityScore()) {
+        /* If this genotype uses activity score at all then we need a value for activity score for each diplotype in this genotype */
+        if (dip.isActivityScoreType()) {
+          /* if the diplotype uses AS, try to use the AS in the diplotype and fallback to the AS in the recommendation if it's not available */
+          String activityScore = TextConstants.isUnspecified(dip.getActivityScore()) ? (String)m_lookupKey.get(geneSymbol) : dip.getActivityScore();
+          String oldActivity = f_activityScores.put(geneSymbol, activityScore);
+          if (oldActivity != null && !oldActivity.equals(activityScore)) {
+            throw new RuntimeException("Multiple activity scores for gene " + geneSymbol);
+          }
+        } else {
+          /* if this diplotype does not use AS then just mark it as n/a */
+          f_activityScores.put(geneSymbol, TextConstants.NA);
         }
       }
     }
