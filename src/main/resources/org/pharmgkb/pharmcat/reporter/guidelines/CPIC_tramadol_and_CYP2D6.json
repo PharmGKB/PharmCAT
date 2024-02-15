@@ -3,7 +3,7 @@
     "id": "PA166228101",
     "name": "Annotation of CPIC Guideline for tramadol and CYP2D6",
     "source": "CPIC",
-    "version": 5,
+    "version": 6,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166228101",
     "relatedChemicals": [
       {
@@ -716,5 +716,5 @@
       "year": 2021
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

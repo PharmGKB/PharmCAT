@@ -124,10 +124,10 @@
     table.diplotype tbody tr:first-child td {
       border-top: 0;
     }
-    tr.leastFunctionDiplotype td {
+    tr.lowestFunctionDiplotype td {
       color: #3f3f3f;
     }
-    tr.leastFunctionDiplotype + tr td {
+    tr.lowestFunctionDiplotype + tr td {
       border-top: 0;
     }
     table.diplotype tbody tr td:first-child {
@@ -404,9 +404,9 @@
   </div>
   <div class="metadata">
     <table>
-      <tr><th>Date created</th><td>December 19, 2023</td></tr>
-      <tr><th>PharmCAT Version</th><td>v2.8.3-13-g5cb67175</td></tr>
-      <tr><th>CPIC Version</th><td>v1.35.0-2-gf40f6f6</td></tr>
+      <tr><th>Date created</th><td>February 15, 2024</td></tr>
+      <tr><th>PharmCAT Version</th><td>v2.9.0-11-g1321518d</td></tr>
+      <tr><th>CPIC Version</th><td>v1.38.0-1-g39f50e7</td></tr>
     </table>
   </div>
 </header>
@@ -1022,7 +1022,7 @@
                 <tbody>
                 
                   
-                    <tr class="leastFunctionDiplotype gs-dip_leastFunction">
+                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
                       <td colspan="3"><b>Reference/Reference</b></td>
                     </tr>
                   
@@ -1305,19 +1305,23 @@
               <span class="noWrap">
                 <a href="#RYR1" class="normalWrap">RYR1</a>
                 <sup><a href="#genotypes-dagger">&dagger;</a></sup>
-                <sup><a href="#genotypes-ddagger">&ddagger;</a></sup>
+                
               </span>
             </td>
             <td>
               <table class="diplotype">
                 <tbody>
                 
-                  <!-- standard diplotype -->
                   
-                    <tr class="top-aligned gs-dip">
-                      <td>Reference/Reference</td>
-                      <td>Two Normal function alleles</td>
-                      <td>Uncertain Susceptibility</td>
+                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
+                      <td colspan="3"><b>Reference/Reference</b></td>
+                    </tr>
+                  
+                  
+                    <tr class="top-aligned gs-dip_component">
+                      <td>Reference</td>
+                      <td>Normal function</td>
+                      <td>See drug section</td>
                     </tr>
                   
                 
@@ -1625,6 +1629,9 @@
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
+                        
                         
                       </td>
                     
@@ -1703,6 +1710,9 @@
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -1786,6 +1796,12 @@
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
                         
                       </td>
                     
@@ -1868,6 +1884,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -1952,6 +1971,9 @@ All studies correlating UGT1A1 genotypes with atazanavir adverse events have inv
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -1995,6 +2017,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -2075,6 +2100,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -2119,6 +2147,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -2156,6 +2187,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -2244,6 +2278,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -2286,6 +2326,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -2371,6 +2417,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -2451,6 +2503,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -2494,6 +2549,9 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -2585,6 +2643,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
                         
                       </td>
                     
@@ -2628,6 +2692,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -2714,6 +2781,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -2752,6 +2822,9 @@ For cardiovascular indications of acute coronary syndrome (ACS) and/or percutane
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -2789,6 +2862,9 @@ For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary interven
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -2833,6 +2909,9 @@ For neurovascular indications. Neurovascular disease includes acute ischemic str
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -2922,6 +3001,9 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -2958,8 +3040,6 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
         <section class="guideline desflurane">
           <h3 id="desflurane">desflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -3004,6 +3084,9 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -3083,6 +3166,9 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -3164,6 +3250,12 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
                         
                       </td>
                     
@@ -3249,6 +3341,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3293,6 +3388,9 @@ If therapeutic drug monitoring is available and a decreased efavirenz dose is pr
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3327,8 +3425,6 @@ If therapeutic drug monitoring is available and a decreased efavirenz dose is pr
         <section class="guideline enflurane">
           <h3 id="enflurane">enflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -3373,6 +3469,9 @@ If therapeutic drug monitoring is available and a decreased efavirenz dose is pr
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -3454,6 +3553,9 @@ If therapeutic drug monitoring is available and a decreased efavirenz dose is pr
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3497,6 +3599,9 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -3585,6 +3690,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -3657,6 +3768,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -3699,6 +3816,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -3784,6 +3907,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -3865,6 +3994,12 @@ Per the FDA warning, citalopram 20 mg/day is the maximum recommended dose in CYP
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>SLCO1B1:</dt><dd>Normal Function</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>SLCO1B1:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -3948,6 +4083,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -3984,6 +4125,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -4020,8 +4167,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
         <section class="guideline halothane">
           <h3 id="halothane">halothane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -4066,6 +4211,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -4146,6 +4294,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Factor V Leiden absent</p>
+                        
                         
                       </td>
                     
@@ -4225,6 +4376,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -4305,6 +4462,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
                         
                       </td>
                     
@@ -4348,6 +4511,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -4436,6 +4602,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -4472,8 +4641,6 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
         <section class="guideline isoflurane">
           <h3 id="isoflurane">isoflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -4518,6 +4685,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -4598,6 +4768,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>ivacaftor non-responsive in CF patients</p>
+                        
                         
                       </td>
                     
@@ -4677,6 +4850,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -4718,6 +4894,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -4800,6 +4979,12 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -4880,6 +5065,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -4962,6 +5150,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -5041,6 +5235,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -5085,6 +5282,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -5122,6 +5322,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -5163,8 +5366,6 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
         <section class="guideline methoxyflurane">
           <h3 id="methoxyflurane">methoxyflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -5209,6 +5410,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -5290,6 +5494,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
                         
                         
                       </td>
@@ -5374,6 +5581,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -5444,6 +5654,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -5485,6 +5698,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -5567,6 +5783,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -5608,6 +5827,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -5820,6 +6042,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -5900,6 +6125,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
                         
                         
                       </td>
@@ -5982,6 +6210,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -6018,6 +6252,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -6060,6 +6300,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -6145,6 +6391,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -6225,6 +6477,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -6309,6 +6564,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -6392,6 +6650,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -6473,6 +6734,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -6553,6 +6817,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
                         
                         
                       </td>
@@ -6701,6 +6968,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>ABCG2:</dt><dd>Normal Function</dd><dt>SLCO1B1:</dt><dd>Normal Function</dd></dl>
+                        
                         
                       </td>
                     
@@ -6783,6 +7053,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2B6:</dt><dd>Intermediate Metabolizer</dd><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -6825,6 +7098,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -6865,8 +7141,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
         <section class="guideline sevoflurane">
           <h3 id="sevoflurane">sevoflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -6911,6 +7185,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -6993,6 +7270,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -7036,6 +7316,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -7120,6 +7403,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -7145,8 +7434,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
         <section class="guideline succinylcholine">
           <h3 id="succinylcholine">succinylcholine</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -7191,6 +7478,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -7271,6 +7561,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -7314,6 +7607,9 @@ This recommendation includes the use of tacrolimus in kidney, heart, lung and he
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -7403,6 +7699,9 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -7488,6 +7787,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -7569,6 +7874,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -7648,6 +7959,9 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -7692,6 +8006,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -7729,6 +8046,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -7817,6 +8137,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -7901,6 +8224,12 @@ Toluidine blue classification strength is based on extrapolation from methylene 
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Poor Metabolizer</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>No Result</dd></dl>
                         
                       </td>
                     
@@ -7985,6 +8314,9 @@ Dosing recommendations only apply to higher initial doses of TCAs for treatment 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -8023,6 +8355,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -8067,6 +8402,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Poor Metabolizer</p>
                         
                         
                       </td>
@@ -8153,6 +8491,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>CYP4F2:</dt><dd>N/A</dd><dt>VKORC1:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -8199,6 +8543,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -8236,6 +8586,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
                         
                         
                       </td>
@@ -15208,6 +15561,30 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                 </tr>
               
                 <tr style="vertical-align: initial;">
+                  <td id="chr19_15878920">chr19:15878920</td>
+                  <td id="rs4020346">rs4020346</td>
+                  
+                  
+                    <td class="">T/T</td>
+                  
+                  <td>
+                    T
+                  </td>
+                  <td>
+                    
+                      <ul class="noBullet mt-0 mb-0">
+                        
+                          <li>*17 - Unassigned function</li>
+                        
+                      </ul>
+                    
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr>
+              
+                <tr style="vertical-align: initial;">
                   <td id="chr19_15879412">chr19:15879412</td>
                   <td id="rs138971789">rs138971789</td>
                   
@@ -16968,6 +17345,8 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                   <td>
                     
                       <ul class="noBullet mt-0 mb-0">
+                        
+                          <li>c.1129-5923C>G - 0.5</li>
                         
                           <li>c.1129-5923C>G, c.1236G>A (HapB3) - 0.5</li>
                         
@@ -22487,11 +22866,6 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                     Unphased
                   </p>
                   
-                    <p>
-                      PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In
-                      case of unphased data, additional genotypes might be possible and cannot be ruled out.
-                    </p>
-                  
                 </td>
               </tr>
             
@@ -22500,8 +22874,6 @@ Further dose adjustments or selection of alternative therapy may be necessary du
           </table>
         
 
-        
-          <div class="alert alert-warning Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication <a href="https://pubmed.ncbi.nlm.nih.gov/30499100" target="_blank" rel="noopener noreferrer">PMID:30499100</a> since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
         
           <div class="alert alert-warning reference-allele">The RYR1 Reference allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions.</div>
         

@@ -68,7 +68,7 @@
       ],
       "text": {
         "id": 1452061533,
-        "html": "<p>Choose an alternative or start with 10% of the standard dose.\nAny adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness.\nIf the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur.</p>\n"
+        "html": "<p>Choose an alternative or start with 10% of the standard dose. Any adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. If the dose is decreased: advise patients to seek medical attention when symptoms of myelosuppression (such as severe sore throat in combination with fever, regular nosebleeds and tendency to bruising) occur.</p>\n"
       },
       "implications": [
         "Grade ≥ 2 leukopaenia and intolerance occurred in 98% of these patients with standard therapy. The gene variation increases the quantities of the active metabolites of azathioprine and mercaptopurine."
@@ -97,7 +97,7 @@
       ],
       "text": {
         "id": 1452061532,
-        "html": "<p>IMMUNOSUPPRESSION\nStart with 50% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. Dose adjustment is not required for doses lower than 1.5 mg/kg per day for azathioprine or 0.75 mg/kg per day for mercaptopurine.\n-LEUKAEMIA:\nstart with 50% of the standard mercaptopurine dose, or start with the standard dose and reduce to 50% if side effects necessitate a dose reduction\nIt is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM or NUDT15 PM.</p>\n"
+        "html": "<p>IMMUNOSUPPRESSION: Start with 50% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and effectiveness. Dose adjustment is not required for doses lower than 1.5 mg/kg per day for azathioprine or 0.75 mg/kg per day for mercaptopurine.\nLEUKAEMIA: Start with 50% of the standard mercaptopurine dose, or start with the standard dose and reduce to 50% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy. Note: more stringent dose reductions are necessary if the patient is also NUDT15 IM or NUDT15 PM.</p>\n"
       },
       "implications": [
         "Grade ≥ 2 leukopaenia occurs in 23% of these patients with normal therapy for immunosuppression. The genetic variation increases the quantity of the active metabolites of azathioprine and mercaptopurine"
@@ -134,5 +134,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

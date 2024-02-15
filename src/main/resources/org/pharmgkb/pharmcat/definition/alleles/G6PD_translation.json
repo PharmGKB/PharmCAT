@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.35.0-2-gf40f6f6",
-  "modificationDate": "2023-12-19T16:55:00.427Z",
+  "version": "v1.38.0-1-g39f50e7",
+  "modificationDate": "2024-02-15T19:05:07.793Z",
   "gene": "G6PD",
   "orientation": null,
   "chromosome": "chrX",

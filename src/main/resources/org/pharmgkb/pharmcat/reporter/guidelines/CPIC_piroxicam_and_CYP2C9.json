@@ -3,7 +3,7 @@
     "id": "PA166192321",
     "name": "Annotation of CPIC Guideline for piroxicam and CYP2C9",
     "source": "CPIC",
-    "version": 7,
+    "version": 8,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166192321",
     "relatedChemicals": [
       {
@@ -216,5 +216,5 @@
       "year": 2020
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

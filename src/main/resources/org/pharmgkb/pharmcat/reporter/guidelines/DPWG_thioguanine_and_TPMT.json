@@ -97,7 +97,7 @@
       ],
       "text": {
         "id": 1452061591,
-        "html": "<p>IMMUNOSUPPRESSION: Start with 75% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. The frequency of monitoring should be increased.</p>\n<ul>\n<li>LEUKAEMIA: Start with 75% of the standard thioguanine dose, or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM.</li>\n</ul>\n"
+        "html": "<p>IMMUNOSUPPRESSION: Start with 75% of the standard dose. Adjustment of the initial dose should be guided by toxicity (monitoring of blood counts) and efficacy. The frequency of monitoring should be increased.\nLEUKAEMIA: Start with 75% of the standard thioguanine dose, or start with the standard dose and reduce to 75% if side effects necessitate a dose reduction. It is not known whether dose reduction in advance results in the same efficacy as dose reduction based on toxicity. The initial dose should be adjusted based on toxicity (monitoring of the blood counts) and efficacy. Monitoring should be performed at an increased frequency.\nNote: more stringent dose reductions are necessary if the patient is also NUDT15 IM.</p>\n"
       },
       "implications": [
         "Genetic variation reduces conversion of thioguanine to inactive metabolites. This increases the risk of serious adverse events such as myelosuppression."
@@ -134,5 +134,5 @@
       "year": 2011
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

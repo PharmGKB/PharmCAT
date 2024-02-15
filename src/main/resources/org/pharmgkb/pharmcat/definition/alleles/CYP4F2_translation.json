@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.35.0-2-gf40f6f6",
-  "modificationDate": "2023-12-19T16:54:59.972Z",
+  "version": "v1.38.0-1-g39f50e7",
+  "modificationDate": "2024-02-15T19:05:07.460Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -26,6 +26,25 @@
       "ref": "G",
       "alts": [
         "T"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15878920,
+      "cpicPosition": 15878920,
+      "rsid": "rs4020346",
+      "chromosomeHgvsName": "g.15878920T>C",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
       ]
     },
     {
@@ -263,6 +282,7 @@
       "id": "778238",
       "alleles": [
         "G",
+        "T",
         "C",
         "C",
         "G",
@@ -278,6 +298,7 @@
       ],
       "cpicAlleles": [
         "G",
+        "T",
         "C",
         "C",
         "G",
@@ -312,9 +333,11 @@
         null,
         null,
         null,
+        null,
         "C"
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -340,6 +363,7 @@
       "alleles": [
         null,
         null,
+        null,
         "T",
         null,
         null,
@@ -353,6 +377,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         "T",
@@ -378,6 +403,7 @@
       "alleles": [
         null,
         null,
+        null,
         "T",
         null,
         null,
@@ -391,6 +417,7 @@
         "C"
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         "T",
@@ -426,10 +453,12 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "cpicAlleles": [
         "T",
+        null,
         null,
         null,
         null,
@@ -457,6 +486,7 @@
         null,
         null,
         null,
+        null,
         "A",
         null,
         null,
@@ -467,6 +497,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -501,10 +532,12 @@
         null,
         null,
         null,
+        null,
         "G",
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -538,11 +571,13 @@
         null,
         null,
         null,
+        null,
         "A",
         null,
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -575,12 +610,14 @@
         null,
         null,
         null,
+        null,
         "T",
         null,
         null,
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -612,6 +649,7 @@
         null,
         null,
         null,
+        null,
         "T",
         null,
         null,
@@ -619,6 +657,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -649,6 +688,7 @@
         null,
         null,
         null,
+        null,
         "A",
         null,
         null,
@@ -657,6 +697,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -686,6 +727,7 @@
         null,
         null,
         null,
+        null,
         "T",
         null,
         null,
@@ -695,6 +737,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -722,6 +765,7 @@
         null,
         null,
         null,
+        null,
         "A",
         null,
         null,
@@ -733,6 +777,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -759,6 +804,7 @@
         null,
         null,
         null,
+        null,
         "C",
         null,
         null,
@@ -771,6 +817,7 @@
         null
       ],
       "cpicAlleles": [
+        null,
         null,
         null,
         null,
@@ -795,6 +842,7 @@
       "id": "3318599",
       "alleles": [
         null,
+        null,
         "T",
         null,
         null,
@@ -810,7 +858,48 @@
       ],
       "cpicAlleles": [
         null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "populationFrequency": null,
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*17",
+      "id": "4058604",
+      "alleles": [
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        "C",
+        null,
         null,
         null,
         null,

@@ -3,7 +3,7 @@
     "id": "PA166182603",
     "name": "Annotation of CPIC Guideline for efavirenz and CYP2B6",
     "source": "CPIC",
-    "version": 8,
+    "version": 9,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182603",
     "relatedChemicals": [
       {
@@ -224,5 +224,5 @@
       "year": 2019
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

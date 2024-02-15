@@ -3,7 +3,7 @@
     "id": "PA166122686",
     "name": "Annotation of CPIC Guideline for fluorouracil and DPYD",
     "source": "CPIC",
-    "version": 47,
+    "version": 48,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166122686",
     "relatedChemicals": [
       {
@@ -204,5 +204,5 @@
       "year": 2013
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

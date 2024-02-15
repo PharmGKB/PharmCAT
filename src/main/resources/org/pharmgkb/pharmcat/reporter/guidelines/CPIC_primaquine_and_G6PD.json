@@ -3,7 +3,7 @@
     "id": "PA166279621",
     "name": "Annotation of CPIC Guideline for primaquine and G6PD",
     "source": "CPIC",
-    "version": 0,
+    "version": 1,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166279621",
     "relatedChemicals": [
       {
@@ -191,5 +191,5 @@
       "year": 2022
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

@@ -3,7 +3,7 @@
     "id": "PA166219103",
     "name": "Annotation of CPIC Guideline for lansoprazole, omeprazole, pantoprazole and CYP2C19",
     "source": "CPIC",
-    "version": 6,
+    "version": 7,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166219103",
     "relatedChemicals": [
       {
@@ -759,5 +759,5 @@
       "year": 2021
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }

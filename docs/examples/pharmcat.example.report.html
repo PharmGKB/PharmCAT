@@ -124,10 +124,10 @@
     table.diplotype tbody tr:first-child td {
       border-top: 0;
     }
-    tr.leastFunctionDiplotype td {
+    tr.lowestFunctionDiplotype td {
       color: #3f3f3f;
     }
-    tr.leastFunctionDiplotype + tr td {
+    tr.lowestFunctionDiplotype + tr td {
       border-top: 0;
     }
     table.diplotype tbody tr td:first-child {
@@ -404,9 +404,9 @@
   </div>
   <div class="metadata">
     <table>
-      <tr><th>Date created</th><td>December 19, 2023</td></tr>
-      <tr><th>PharmCAT Version</th><td>v2.8.3-13-g5cb67175</td></tr>
-      <tr><th>CPIC Version</th><td>v1.35.0-2-gf40f6f6</td></tr>
+      <tr><th>Date created</th><td>February 15, 2024</td></tr>
+      <tr><th>PharmCAT Version</th><td>v2.9.0-11-g1321518d</td></tr>
+      <tr><th>CPIC Version</th><td>v1.38.0-1-g39f50e7</td></tr>
     </table>
   </div>
 </header>
@@ -1221,7 +1221,7 @@
                 <tbody>
                 
                   
-                    <tr class="leastFunctionDiplotype gs-dip_leastFunction">
+                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
                       <td colspan="3"><b>Reference/Reference</b></td>
                     </tr>
                   
@@ -1545,8 +1545,8 @@
                   
                     <tr class="top-aligned gs-dip">
                       <td>1555A&gt;G</td>
-                      <td>Increased risk of aminoglycoside-induced hearing loss</td>
-                      <td>increased risk of aminoglycoside-induced hearing loss</td>
+                      <td>Unassigned function</td>
+                      <td>n/a</td>
                     </tr>
                   
                 
@@ -1656,19 +1656,23 @@
               <span class="noWrap">
                 <a href="#RYR1" class="normalWrap">RYR1</a>
                 <sup><a href="#genotypes-dagger">&dagger;</a></sup>
-                <sup><a href="#genotypes-ddagger">&ddagger;</a></sup>
+                
               </span>
             </td>
             <td>
               <table class="diplotype">
                 <tbody>
                 
-                  <!-- standard diplotype -->
                   
-                    <tr class="top-aligned gs-dip">
-                      <td>Reference/Reference</td>
-                      <td>Two Normal function alleles</td>
-                      <td>Uncertain Susceptibility</td>
+                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
+                      <td colspan="3"><b>Reference/Reference</b></td>
+                    </tr>
+                  
+                  
+                    <tr class="top-aligned gs-dip_component">
+                      <td>Reference</td>
+                      <td>Normal function</td>
+                      <td>See drug section</td>
                     </tr>
                   
                 
@@ -1976,6 +1980,9 @@
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -2017,6 +2024,9 @@
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -2104,6 +2114,9 @@
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
+                        
                         
                       </td>
                     
@@ -2183,6 +2196,9 @@
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -2224,6 +2240,9 @@
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -2280,47 +2299,30 @@
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-amikacin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-amikacin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -2391,6 +2393,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd><dt>CYP2D6:</dt><dd>Intermediate Metabolizer</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>1.0</dd></dl>
                         
                       </td>
                     
@@ -2435,6 +2443,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -2518,6 +2532,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -2598,6 +2618,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -2680,6 +2703,12 @@ All studies correlating UGT1A1 genotypes with atazanavir adverse events have inv
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -2718,6 +2747,12 @@ Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limite
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -2762,6 +2797,12 @@ Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limite
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -2847,6 +2888,9 @@ Therapeutic range of 200 to 1000 ng/mL has been proposed (PMID 29493375). Limite
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -2890,6 +2934,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -2970,6 +3017,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -3014,6 +3064,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3051,6 +3104,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -3137,6 +3193,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -3218,6 +3280,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -3260,6 +3328,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -3345,6 +3419,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -3383,6 +3460,9 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -3420,6 +3500,9 @@ Previous tolerance of carbamazepine is not indicative of tolerance to other arom
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -3466,6 +3549,9 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -3550,6 +3636,12 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -3628,6 +3720,9 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -3741,6 +3836,12 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd><dt>CYP2D6:</dt><dd>Intermediate Metabolizer</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>1.0</dd></dl>
                         
                       </td>
                     
@@ -3787,6 +3888,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -3871,6 +3978,9 @@ For depression, the therapeutic range is 200-400 ng/mL for the sum of the plasma
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3909,6 +4019,9 @@ For cardiovascular indications of acute coronary syndrome (ACS) and/or percutane
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -3946,6 +4059,9 @@ For non-acute coronary syndrome (non-ACS) and non-percutaneous coronary interven
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -4061,6 +4177,12 @@ For neurovascular indications. Neurovascular disease includes acute ischemic str
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -4105,6 +4227,12 @@ For neurovascular indications. Neurovascular disease includes acute ischemic str
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -4203,6 +4331,9 @@ No action required.</td>
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -4239,8 +4370,6 @@ No action required.</td>
         <section class="guideline desflurane">
           <h3 id="desflurane">desflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -4285,6 +4414,9 @@ No action required.</td>
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -4365,6 +4497,12 @@ No action required.</td>
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -4448,6 +4586,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -4528,6 +4669,12 @@ Monitor for efficacy.</td>
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd><dt>CYP2D6:</dt><dd>Intermediate Metabolizer</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>1.0</dd></dl>
                         
                       </td>
                     
@@ -4572,6 +4719,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -4655,6 +4808,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -4698,6 +4854,9 @@ The ENCORE study showed that in treatment-naïve patients randomized to initiate
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -4779,6 +4938,12 @@ The ENCORE study showed that in treatment-naïve patients randomized to initiate
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -4835,8 +5000,6 @@ NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong C
           <h3 id="enflurane">enflurane</h3>
 
           
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
-          
 
           <table>
             <thead>
@@ -4880,6 +5043,9 @@ NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong C
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -4959,6 +5125,9 @@ NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong C
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -5072,6 +5241,12 @@ NO co-medication with a moderate or strong CYP2D6 or CYP3A inhibitor or strong C
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -5159,6 +5334,9 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -5234,6 +5412,12 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -5306,6 +5490,12 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -5348,6 +5538,12 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -5433,6 +5629,12 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -5514,6 +5716,12 @@ Provocation test for diagnosis of Brugada syndrome:
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>SLCO1B1:</dt><dd>Normal Function</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>SLCO1B1:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -5595,6 +5803,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -5678,6 +5892,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>HLA-B:</dt><dd>*58:01 negative</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -5716,6 +5936,12 @@ Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phen
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>HLA-B:</dt><dd>*58:01 negative</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -5769,47 +5995,30 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-gentamicin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-gentamicin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -5880,6 +6089,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -5916,8 +6131,6 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
         <section class="guideline halothane">
           <h3 id="halothane">halothane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -5962,6 +6175,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -6042,6 +6258,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Factor V Leiden absent</p>
+                        
                         
                       </td>
                     
@@ -6121,6 +6340,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -6200,6 +6425,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -6279,6 +6510,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd><dt>CYP2D6:</dt><dd>Intermediate Metabolizer</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>1.0</dd></dl>
                         
                       </td>
                     
@@ -6325,6 +6562,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -6410,6 +6653,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -6446,8 +6692,6 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
         <section class="guideline isoflurane">
           <h3 id="isoflurane">isoflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -6492,6 +6736,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -6572,6 +6819,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>ivacaftor non-responsive in CF patients</p>
+                        
                         
                       </td>
                     
@@ -6621,47 +6871,30 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-kanamycin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-kanamycin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -6732,6 +6965,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -6812,6 +7048,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -6922,6 +7161,12 @@ Monitor for efficacy.</td>
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -7002,6 +7247,9 @@ Monitor for efficacy.</td>
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -7084,6 +7332,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -7163,6 +7417,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -7207,6 +7464,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -7244,6 +7504,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -7285,8 +7548,6 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
         <section class="guideline methoxyflurane">
           <h3 id="methoxyflurane">methoxyflurane</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -7331,6 +7592,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -7413,6 +7677,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -7494,6 +7761,12 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -7582,6 +7855,9 @@ OTHER CASES:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -7652,6 +7928,12 @@ OTHER CASES:
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -7696,6 +7978,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -7778,6 +8066,9 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -7888,6 +8179,12 @@ Monitor for efficacy.</td>
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -7969,6 +8266,9 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
+                        
                         
                       </td>
                     
@@ -8006,6 +8306,9 @@ Other aromatic anticonvulsants have weaker evidence linking SJS/TEN with the HLA
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -8051,6 +8354,9 @@ Previous tolerance of oxcarbazepine is not indicative of tolerance to other arom
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -8141,6 +8447,9 @@ observed with these medicines. Therefore, they are also not suitable as alternat
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -8220,47 +8529,30 @@ Monitor for efficacy.</td>
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-paromomycin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-paromomycin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -8331,6 +8623,12 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -8376,6 +8674,12 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -8591,6 +8895,9 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -8671,6 +8978,9 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
                         
                         
                       </td>
@@ -8753,6 +9063,12 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>HLA-B:</dt><dd>*58:01 negative</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -8791,6 +9107,12 @@ Other aromatic anticonvulsants, including eslicarbazepine, lamotrigine, and phen
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>Normal Metabolizer</dd><dt>HLA-B:</dt><dd>*58:01 negative</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>HLA-B:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -8835,6 +9157,12 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -8873,6 +9201,9 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>*58:01 negative</p>
                         
                         
                       </td>
@@ -8966,6 +9297,12 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -9049,6 +9386,12 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -9130,6 +9473,9 @@ Previous tolerance of phenytoin is not indicative of tolerance to other aromatic
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -9181,47 +9527,30 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-plazomicin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-plazomicin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -9293,6 +9622,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -9377,6 +9709,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -9457,6 +9792,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -9542,6 +9883,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -9622,6 +9966,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
                         
                         
                       </td>
@@ -9768,6 +10115,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -9851,6 +10204,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>ABCG2:</dt><dd>Normal Function</dd><dt>SLCO1B1:</dt><dd>Normal Function</dd></dl>
+                        
                         
                       </td>
                     
@@ -9932,6 +10288,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2B6:</dt><dd>Normal Metabolizer</dd><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -10000,8 +10359,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
           <h3 id="sevoflurane">sevoflurane</h3>
 
           
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
-          
 
           <table>
             <thead>
@@ -10045,6 +10402,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -10127,6 +10487,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
+                        
                         
                       </td>
                     
@@ -10170,6 +10533,9 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Function</p>
                         
                         
                       </td>
@@ -10254,6 +10620,12 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -10294,47 +10666,30 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-streptomycin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-streptomycin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -10360,8 +10715,6 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
         <section class="guideline succinylcholine">
           <h3 id="succinylcholine">succinylcholine</h3>
 
-          
-            <div class="alert alert-info Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
           
 
           <table>
@@ -10406,6 +10759,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CACNA1S:</dt><dd>Uncertain Susceptibility</dd><dt>RYR1:</dt><dd>Uncertain Susceptibility</dd></dl>
                         
                         
                       </td>
@@ -10486,6 +10842,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -10529,6 +10888,9 @@ This recommendation includes the use of tacrolimus in kidney, heart, lung and he
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -10618,6 +10980,9 @@ Use 2.5 times the initial dose that would yield the desired result in non-expres
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
+                        
                         
                       </td>
                     
@@ -10702,6 +11067,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -10745,6 +11116,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -10831,6 +11208,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>2.0 (Normal Metabolizer)</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0 (Normal Metabolizer)</p>
                         
                       </td>
                     
@@ -10912,6 +11295,12 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>2.0</p>
                         
                       </td>
                     
@@ -10991,6 +11380,9 @@ Tafenoquine’s safety has been established for a G6PD enzyme activity ≥70% of
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>NUDT15:</dt><dd>Normal Metabolizer</dd><dt>TPMT:</dt><dd>Normal Metabolizer</dd></dl>
+                        
                         
                       </td>
                     
@@ -11035,6 +11427,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -11072,6 +11467,9 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -11128,47 +11526,30 @@ Normal starting doses vary by race/ethnicity and treatment regimens. If standard
             <tbody>
             
               
-                
+                <tr class="top-aligned cpic-tobramycin">
+                  <td class="top-aligned">
+                    <p>
+                      <b>CPIC</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
                   
-                    <tr class="top-aligned cpic-tobramycin">
-                      <td>
-                        <p>
-                          <b>CPIC</b>
-                          
-                            <sup class="sources">
-                              <a href="https://www.pharmgkb.org/guidelineAnnotation/PA166229081" target="_blank" rel="noopener noreferrer">1</a>
-                            </sup>
-                          
-                        </p>
-                        <p>Population:<br />general</p>
-                        <div class="tag">Alternate Drug</div>
-                      </td>
-                      <td>
-                        <div class="hint">Genotype</div>
-                        <ul class="noBullet mt-0">
-                          
-                            <li>
-                              <span class="noWrap">
-                                <span class="rx-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
-                                
-                                
-                              </span>
-                              
-                            </li>
-                          
-                        </ul>
-                        
-                        
-                      </td>
-                    
-                        <td>MT-RNR1: Very high risk of developing hearing loss if administered an aminoglycoside antibiotic.</td>
-                        <td class="drugRecommendation">Avoid aminoglycoside anitbiotics unless the high risk of permanent hearing loss is outweighed by the severity of infection and lack of safe or effective alternative therapies.
-<h4 id="other-considerations">Other Considerations</h4>
-If no effective alternative to an aminoglycoside antibiotic is available, evaluate for hearing loss frequently during therapy and ensure that all appropriate precautions are utilized (e.g., lowest possible dose and duration, utilization of therapeutic drug monitoring, hydration, renal function monitoring).</td>
-                        <td>Strong</td>
-                    
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#MT-RNR1">MT-RNR1</a>:1555A>G</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      CPIC provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                    </td>
                   
-                
+                </tr>
               
             
             </tbody>
@@ -11240,6 +11621,9 @@ If no effective alternative to an aminoglycoside antibiotic is available, evalua
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal</p>
                         
                         
                       </td>
@@ -11324,6 +11708,12 @@ Toluidine blue classification strength is based on extrapolation from methylene 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11368,6 +11758,12 @@ Toluidine blue classification strength is based on extrapolation from methylene 
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11462,6 +11858,12 @@ Toluidine blue classification strength is based on extrapolation from methylene 
                           
                         </ul>
                         
+                          <div class="hint">Phenotypes</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>Normal Metabolizer</dd><dt>CYP2D6:</dt><dd>Intermediate Metabolizer</dd></dl>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C19:</dt><dd>N/A</dd><dt>CYP2D6:</dt><dd>1.0</dd></dl>
                         
                       </td>
                     
@@ -11545,6 +11947,12 @@ Patients may receive an initial low dose of a tricyclic, which is then increased
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11626,6 +12034,12 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11669,6 +12083,12 @@ Drug-drug interactions and other patient characteristics (e.g., age, renal funct
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11759,6 +12179,9 @@ It is not known whether it is possible to reduce the dose to such an extent that
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
                         
                       </td>
                     
@@ -11796,6 +12219,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
                         
                         
                       </td>
@@ -11907,6 +12333,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -11990,6 +12422,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Scores</div>
+                          <dl class="compact mt-0"><dt>CYP2C9:</dt><dd>2.0</dd><dt>CYP4F2:</dt><dd>N/A</dd><dt>VKORC1:</dt><dd>N/A</dd></dl>
                         
                       </td>
                     
@@ -12036,6 +12474,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Normal Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>Normal Metabolizer</p>
                         
                       </td>
                     
@@ -12073,6 +12517,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                             </li>
                           
                         </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p>-1639 GG</p>
                         
                         
                       </td>
@@ -12155,6 +12602,12 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                           
                         </ul>
                         
+                          <div class="hint">Phenotype</div>
+                          <p>Intermediate Metabolizer</p>
+                        
+                        
+                          <div class="hint">Activity Score</div>
+                          <p>1.0</p>
                         
                       </td>
                     
@@ -19167,6 +19620,30 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                 </tr>
               
                 <tr style="vertical-align: initial;">
+                  <td id="chr19_15878920">chr19:15878920</td>
+                  <td id="rs4020346">rs4020346</td>
+                  
+                  
+                    <td class="">T/T</td>
+                  
+                  <td>
+                    T
+                  </td>
+                  <td>
+                    
+                      <ul class="noBullet mt-0 mb-0">
+                        
+                          <li>*17 - Unassigned function</li>
+                        
+                      </ul>
+                    
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr>
+              
+                <tr style="vertical-align: initial;">
                   <td id="chr19_15879412">chr19:15879412</td>
                   <td id="rs138971789">rs138971789</td>
                   
@@ -20927,6 +21404,8 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                   <td>
                     
                       <ul class="noBullet mt-0 mb-0">
+                        
+                          <li>c.1129-5923C>G - 0.5</li>
                         
                           <li>c.1129-5923C>G, c.1236G>A (HapB3) - 0.5</li>
                         
@@ -26516,11 +26995,6 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                     Unphased
                   </p>
                   
-                    <p>
-                      PharmCAT reports the genotype(s) that receive the highest score during the matcher process. In
-                      case of unphased data, additional genotypes might be possible and cannot be ruled out.
-                    </p>
-                  
                 </td>
               </tr>
             
@@ -26529,8 +27003,6 @@ Further dose adjustments or selection of alternative therapy may be necessary du
           </table>
         
 
-        
-          <div class="alert alert-warning Malignant-Hyperthermia-Susceptibility-warning">If the RYR1 genotype is “not called”, please refer to the RYR1 gene table in section 3 for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication <a href="https://pubmed.ncbi.nlm.nih.gov/30499100" target="_blank" rel="noopener noreferrer">PMID:30499100</a> since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. </div>
         
           <div class="alert alert-warning reference-allele">The RYR1 Reference allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions.</div>
         

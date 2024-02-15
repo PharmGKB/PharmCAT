@@ -23,6 +23,7 @@
     "c.1024G>A": "0.0",
     "c.1057C>T": "0.0",
     "c.1108A>G": "1.0",
+    "c.1129-5923C>G": "0.5",
     "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
     "c.1156G>T (*12)": "0.0",
     "c.1180C>T": "1.0",
@@ -108,6 +109,7 @@
     "c.1024G>A": "0.0",
     "c.1057C>T": "0.0",
     "c.1108A>G": "1.0",
+    "c.1129-5923C>G": "0.5",
     "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
     "c.1156G>T (*12)": "0.0",
     "c.1180C>T": "1.0",
@@ -469,6 +471,18 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "Reference/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -1455,6 +1469,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.46C>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.46C>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.46C>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -2426,6 +2452,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.61C>T/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.61C>T": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -3385,6 +3423,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.62G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.62G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.62G>A/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -4296,6 +4346,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.85T>C (*9A)/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.85T>C (*9A)": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -5123,6 +5185,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.295_298delTCAT (*7)/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.295_298delTCAT (*7)": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.295_298delTCAT (*7)/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -5947,6 +6021,18 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.313G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.313G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -6861,6 +6947,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.343A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.343A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.343A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -7760,6 +7858,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.451A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.451A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.451A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -8647,6 +8757,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.496A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.496A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.496A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -9522,6 +9644,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.498G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.498G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.498G>A/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -10385,6 +10519,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.525G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.525G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.525G>A/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -11236,6 +11382,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.557A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.557A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.557A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.0",
@@ -12075,6 +12233,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.601A>C/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.601A>C": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.601A>C/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -12902,6 +13072,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.632A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.632A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.632A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -13717,6 +13899,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.703C>T (*8)/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.703C>T (*8)": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.703C>T (*8)/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -14409,6 +14603,18 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.775A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.775A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -15203,6 +15409,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.868A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.868A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.868A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.0",
@@ -15982,6 +16200,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.929T>C/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.929T>C": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.929T>C/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -16749,6 +16979,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.934C>T/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.934C>T": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.934C>T/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -17501,6 +17743,18 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.967G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.967G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -18283,6 +18537,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1003G>T (*11)/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1003G>T (*11)": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.1003G>T (*11)/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -19014,6 +19280,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.1024G>A/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1024G>A": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.1024G>A/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -19733,6 +20011,18 @@
     },
     {
       "generesult": "Poor Metabolizer",
+      "diplotype": "c.1057C>T/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1057C>T": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
       "diplotype": "c.1057C>T/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "0.5",
@@ -20440,6 +20730,18 @@
     },
     {
       "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1108A>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1108A>G": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
       "diplotype": "c.1108A>G/c.1129-5923C>G, c.1236G>A (HapB3)",
       "description": null,
       "lookupkey": "1.5",
@@ -21133,6 +21435,713 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.1129-5923C>G": 2
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1156G>T (*12)",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1156G>T (*12)": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1180C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1180C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1181G>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1181G>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1218G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1218G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1260T>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1260T>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1278G>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1278G>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1294G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1294G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1314T>G",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1314T>G": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1349C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1349C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1358C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1358C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1371C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1371C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1403C>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1403C>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1475C>T",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1475C>T": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1484A>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1484A>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1519G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1519G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1543G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1543G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1577C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1577C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1601G>A (*4)",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1601G>A (*4)": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1615G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1615G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1627A>G (*5)",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1627A>G (*5)": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1679T>G (*13)": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1682G>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1682G>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1774C>T",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1774C>T": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1775G>A",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1775G>A": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1777G>A",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1777G>A": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1796T>C",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1796T>C": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1896T>C",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1896T>C": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1898delC (*3)",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1898delC (*3)": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1905+1G>A (*2A)": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1905C>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1905C>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1906A>C",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1906A>C": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.1990G>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1990G>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2021G>A",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2021G>A": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2161G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2161G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2186C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2186C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2194G>A (*6)",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2194G>A (*6)": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2195T>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2195T>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2279C>T",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2279C>T": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2303C>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2303C>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2336C>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2336C>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2482G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2482G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2582A>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2582A>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2623A>C",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2623A>C": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2639G>T",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2639G>T": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2656C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2656C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2657G>A (*9B)",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2657G>A (*9B)": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2846A>T",
+      "description": null,
+      "lookupkey": "1.0",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": "1.0",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2872A>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2872A>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2915A>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2915A>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2921A>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2921A>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2933A>G",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2933A>G": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2977C>T",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2977C>T": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2978T>G",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2978T>G": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Poor Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.2983G>T (*10)",
+      "description": null,
+      "lookupkey": "0.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2983G>T (*10)": 1
+      },
+      "activityScore": "0.5",
+      "phenotype": "Poor Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.3049G>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.3049G>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.3061G>C",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.3061G>C": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
+    },
+    {
+      "generesult": "Intermediate Metabolizer",
+      "diplotype": "c.1129-5923C>G/c.3067C>A",
+      "description": null,
+      "lookupkey": "1.5",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.3067C>A": 1
+      },
+      "activityScore": "1.5",
+      "phenotype": "Intermediate Metabolizer"
     },
     {
       "generesult": "Intermediate Metabolizer",
@@ -41947,6 +42956,12 @@
       "lookupKey": "1.0"
     },
     {
+      "name": "c.295_298delTCAT (*7)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
       "name": "c.313G>A",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -42001,6 +43016,24 @@
       "lookupKey": "0.0"
     },
     {
+      "name": "c.1003G>T (*11)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.703C>T (*8)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.85T>C (*9A)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
       "name": "c.775A>G",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -42031,16 +43064,28 @@
       "lookupKey": "1.0"
     },
     {
-      "name": "c.1003G>T (*11)",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
+      "name": "c.1024G>A",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
     },
     {
       "name": "c.1057C>T",
       "activityValue": "0.0",
       "functionValue": "No function",
       "lookupKey": "0.0"
+    },
+    {
+      "name": "c.1108A>G",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.1129-5923C>G",
+      "activityValue": "0.5",
+      "functionValue": "Decreased function",
+      "lookupKey": "0.5"
     },
     {
       "name": "c.1129-5923C>G, c.1236G>A (HapB3)",
@@ -42053,36 +43098,6 @@
       "activityValue": "0.0",
       "functionValue": "No function",
       "lookupKey": "0.0"
-    },
-    {
-      "name": "c.295_298delTCAT (*7)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.703C>T (*8)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.85T>C (*9A)",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
-    },
-    {
-      "name": "c.1024G>A",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.1108A>G",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
     },
     {
       "name": "c.1180C>T",
@@ -42421,5 +43436,5 @@
       "lookupKey": "1.0"
     }
   ],
-  "version": "2023-12-19-10-38"
+  "version": "2024-02-14-21-41"
 }
