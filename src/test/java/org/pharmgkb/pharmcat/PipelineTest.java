@@ -1765,7 +1765,7 @@ class PipelineTest {
   void testMtrnr1(TestInfo testInfo) throws Exception {
     Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
-      writer.println("MT-RNR1\t1555A>G");
+      writer.println("MT-RNR1\tm.1555A>G");
     }
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
