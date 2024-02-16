@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -143,16 +144,27 @@ class PipelineWrapper {
         .toList();
   }
 
+  /**
+   * Tests the original diplotype from the source (i.e. matcher or outside call).
+   */
   void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes) {
     testSourceDiplotypes(source, gene, diplotypes, null);
   }
+
+  /**
+   * Tests the original diplotype from the source (i.e. matcher or outside call).
+   *
+   * @param visibleAlleleDiplotypes - If non-null, this is compared against diplotype labels and
+   * {@code diplotypes} will be compared against allele names. Normally used to test CPIC-style names or outside calls
+   * with missing diplotype.
+   */
   void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes,
-      @Nullable List<String> cpicStyleDiplotypes) {
+      @Nullable List<String> visibleAlleleDiplotypes) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
     assertNotNull(geneReport);
 
-    if (cpicStyleDiplotypes != null) {
-      testDiplotypeLabels(geneReport, cpicStyleDiplotypes);
+    if (visibleAlleleDiplotypes != null) {
+      testDiplotypeLabels(geneReport, visibleAlleleDiplotypes);
       testDiplotypeNames(geneReport, diplotypes);
     } else {
       testDiplotypeLabels(geneReport, diplotypes);
@@ -160,7 +172,7 @@ class PipelineWrapper {
 
   }
 
-  void testDiplotypeLabels(GeneReport geneReport, List<String> diplotypes) {
+  private void testDiplotypeLabels(GeneReport geneReport, List<String> diplotypes) {
     List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
         .map(Diplotype::getLabel)
         .toList();
@@ -175,7 +187,22 @@ class PipelineWrapper {
 
   private void testDiplotypeNames(GeneReport geneReport, List<String> diplotypes) {
     List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
-        .map(d -> Objects.requireNonNull(d.getAllele1()).getName() + TextConstants.GENOTYPE_DELIMITER + d.getAllele2().getName())
+        .map(d -> {
+          StringBuilder builder = new StringBuilder();
+          if (d.getAllele1() == null) {
+            builder.append(Haplotype.UNKNOWN)
+                .append(TextConstants.GENOTYPE_DELIMITER)
+                .append(Haplotype.UNKNOWN);
+          } else {
+            builder.append(Objects.requireNonNull(d.getAllele1()).getName());
+            if (d.getAllele2() != null) {
+              builder
+                  .append(TextConstants.GENOTYPE_DELIMITER)
+                  .append(d.getAllele2().getName());
+            }
+          }
+          return builder.toString();
+        })
         .toList();
     List<String> expectedDiplotypes = stripHomozygousNotes(diplotypes);
     try {

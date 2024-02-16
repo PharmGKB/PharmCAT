@@ -86,7 +86,7 @@ public class Genotype implements Comparable<Genotype> {
   }
 
   public String toString() {
-    if (m_diplotypes.size() == 0) {
+    if (m_diplotypes.isEmpty()) {
       return TextConstants.UNKNOWN_GENOTYPE;
     } else {
       return m_diplotypes.stream()
@@ -96,7 +96,7 @@ public class Genotype implements Comparable<Genotype> {
   }
 
   public String getPhenotypes() {
-    if (m_diplotypes.size() == 0) {
+    if (m_diplotypes.isEmpty()) {
       return Haplotype.UNKNOWN;
     } else {
       return m_diplotypes.stream()

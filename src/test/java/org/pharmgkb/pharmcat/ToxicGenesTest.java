@@ -1,10 +1,11 @@
 package org.pharmgkb.pharmcat;
 
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import com.google.common.collect.ImmutableMap;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.AfterEach;
@@ -62,14 +63,18 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, "TPMT", List.of(TextConstants.UNCALLED));
 
     Document document = readHtmlReport(vcfFile);
-    Map<String, List<String>> expectedCallsMap = new HashMap<>();
+    SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();
     expectedCallsMap.put("TPMT", UNKNOWN_CALL);
-    htmlChecks(document, expectedCallsMap, null, RecPresence.NO, RecPresence.NO);
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("TPMT", UNKNOWN_CALL)
+            .build(),
+        null);
   }
 
 
   @Test
-  void testCacna1sHomoRef(TestInfo testInfo) throws Exception {
+  void cacna1sRef_ryr1Ref(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CACNA1S")
@@ -78,65 +83,27 @@ class ToxicGenesTest {
 
     List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
-    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("CACNA1S", "RYR1");
+
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
+
+    // each gene has its own annotation which means there should be 2 CPIC annotations matched, one for each gene
     testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
     testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
+    htmlChecks(document, new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
             .put("CACNA1S", expectedCalls)
             .put("RYR1", expectedCalls)
             .build(),
         "desflurane", RecPresence.YES, RecPresence.NO);
   }
-
-  @Test
-  void testCacna1sHomoVar(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("CACNA1S", "rs1800559", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.3257G>A (heterozygous)");
-
-    testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, "c.3257G>A"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testCacna1sHet(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("CACNA1S", "rs1800559", "C", "T")
-        .variation("CACNA1S", "rs772226819", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.520C>T/c.3257G>A");
-
-    testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CACNA1S", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
 
 
   @Test
@@ -423,104 +390,6 @@ class ToxicGenesTest {
     testWrapper.testMatchedAnnotations("azathioprine", 2);
     testWrapper.testMatchedAnnotations("mercaptopurine", 2);
     testWrapper.testMatchedAnnotations("thioguanine", 2);
-  }
-
-
-  @Test
-  void testRyr1HomoRef(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testRyr1HomoVar(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("RYR1", "rs193922747", "T", "C");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("Reference/c.103T>C");
-    List<String> cpicStyleCalls = List.of("c.103T>C (heterozygous)");
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", cpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.103T>C"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", cpicStyleCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, cpicStyleCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-  @Test
-  void testRyr1Het(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("RYR1", "rs193922747", "T", "C")
-        .variation("RYR1", "rs193922748", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("c.103T>C", "c.130C>T");
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "RYR1", expectedCalls, null, RecPresence.YES, RecPresence.NO);
-  }
-
-
-  @Test
-  void testRyr1HomoRefCacna1sRef(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .reference("CACNA1S")
-        .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
-
-    testWrapper.testCalledByMatcher("CACNA1S", "RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
-
-    // each gene has its own annotation which means there should be 2 CPIC annotations matched, one for each gene
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
-
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, new ImmutableMap.Builder<String, List<String>>()
-            .put("CACNA1S", expectedCalls)
-            .put("RYR1", expectedCalls)
-            .build(),
-        "desflurane", RecPresence.YES, RecPresence.NO);
   }
 
 

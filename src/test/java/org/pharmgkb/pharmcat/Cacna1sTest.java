@@ -1,9 +1,11 @@
 package org.pharmgkb.pharmcat;
 
 import java.nio.file.Path;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,7 +28,7 @@ class Cacna1sTest {
   @BeforeAll
   static void prepare() {
     ReportHelpers.setDebugMode(true);
-    //TestUtils.setSaveTestOutput(true);
+    TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach
@@ -60,12 +62,13 @@ class Cacna1sTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
 
     Document document = readHtmlReport(vcfFile);
-    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
-    expectedCallsMap.put("CACNA1S", cacna1sExpectedCalls);
-    expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
-    Map<String, List<String>> cpicStyleCallsMap = new LinkedHashMap<>();
-    cpicStyleCallsMap.put("RYR1", ryr1ExpectedCalls);
-    htmlChecks(document, expectedCallsMap, cpicStyleCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", cacna1sExpectedCalls)
+            .put("RYR1", ryr1ExpectedCalls)
+            .build(),
+        null,
+        "enflurane", RecPresence.YES, RecPresence.NO);
   }
 
 
@@ -89,15 +92,57 @@ class Cacna1sTest {
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
     testWrapper.testMatchedAnnotations("enflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
 
     Document document = readHtmlReport(vcfFile);
-    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
-    expectedCallsMap.put("CACNA1S", cacna1sExpectedCalls);
-    expectedCallsMap.put("RYR1", NO_DATA);
-    Map<String, List<String>> cpicStyleCallsMap = new LinkedHashMap<>();
-    cpicStyleCallsMap.put("CACNA1S", cacna1sCpicStyleCalls);
-    htmlChecks(document, expectedCallsMap, cpicStyleCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", cacna1sExpectedCalls)
+            .put("RYR1", NO_DATA)
+            .build(),
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", cacna1sCpicStyleCalls)
+            .build(),
+         "enflurane", RecPresence.YES,
+        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
+            .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
+            .put("RYR1", "No Result")
+            .build(),
+        RecPresence.NO, null);
   }
+
+  @Test
+  void cacna1sHet2_ryr1Missing(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("CACNA1S", "rs1800559", "C", "T")
+        .variation("CACNA1S", "rs772226819", "G", "A");
+    Path vcfFile = testWrapper.execute(null);
+
+    List<String> expectedCalls = List.of("c.520C>T/c.3257G>A");
+
+    testWrapper.testCalledByMatcher("CACNA1S");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
+
+    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
+    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+
+    Document document = readHtmlReport(vcfFile);
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", expectedCalls)
+            .put("RYR1", NO_DATA)
+            .build(),
+        null, "desflurane", RecPresence.YES,
+        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
+            .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
+            .put("RYR1", "No Result")
+            .build(),
+        RecPresence.NO, null);
+  }
+
 
   /**
    * Test a het CACNA1S and het RYR1 call.
@@ -115,25 +160,32 @@ class Cacna1sTest {
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
 
+    List<String> cacna1sExpectedCalls = List.of(TextConstants.REFERENCE + TextConstants.GENOTYPE_DELIMITER + "c.520C>T");
+    List<String> cacna1sCpicStyleCalls = List.of("c.520C>T (heterozygous)");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
+
     List<String> ryr1ExpectedCalls = List.of("Reference/c.7522C>G");
     List<String> ryr1CpicStyleCalls = List.of("c.7522C>G (heterozygous)");
-
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", List.of("c.520C>T (heterozygous)"));
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", List.of(TextConstants.REFERENCE, "c.520C>T"));
-
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1CpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, "c.7522C>G"));
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CACNA1S", List.of("c.520C>T (heterozygous)"), null, RecPresence.YES, RecPresence.NO);
-    htmlChecks(document, "RYR1", ryr1ExpectedCalls, ryr1CpicStyleCalls, null, RecPresence.YES, RecPresence.NO);
-
-    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
-    expectedCallsMap.put("CACNA1S", List.of("c.520C>T (heterozygous)"));
-    expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
-    Map<String, List<String>> cpicStyleCallsMap = new LinkedHashMap<>();
-    cpicStyleCallsMap.put("RYR1", ryr1CpicStyleCalls);
-    htmlChecks(document, expectedCallsMap, cpicStyleCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", cacna1sExpectedCalls)
+            .put("RYR1", ryr1ExpectedCalls)
+            .build(),
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CACNA1S", cacna1sCpicStyleCalls)
+            .put("RYR1", ryr1CpicStyleCalls)
+            .build(),
+        "desflurane", RecPresence.YES,
+        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
+            .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
+            .put("RYR1", "Uncertain Susceptibility")
+            .build(),
+        RecPresence.NO, null);
   }
 
   /**
@@ -161,10 +213,10 @@ class Cacna1sTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
 
     Document document = readHtmlReport(vcfFile);
-    Map<String, List<String>> expectedCallsMap = new LinkedHashMap<>();
+    SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();
     expectedCallsMap.put("CACNA1S", cacna1sExpectedCalls);
     expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
-    Map<String, List<String>> cpicStyleCallsMap = new LinkedHashMap<>();
+    SortedMap<String, List<String>> cpicStyleCallsMap = new TreeMap<>();
     cpicStyleCallsMap.put("CACNA1S", cacna1sCpicStyleCalls);
     htmlChecks(document, expectedCallsMap, cpicStyleCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
   }

@@ -107,7 +107,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele2 = h2;
     m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
-    m_label = buildLabel();
+    m_label = buildLabel(false);
   }
 
   public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source) {
@@ -116,7 +116,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
     m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
-    m_label = buildLabel();
+    m_label = buildLabel(false);
   }
 
   /**
@@ -128,7 +128,7 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele2 = null;
     m_phenotypes.add(phenotype);
     m_lookupKeys.add(phenotype);
-    m_label = buildLabel();
+    m_label = buildLabel(false);
   }
 
   /**
@@ -166,7 +166,7 @@ public class Diplotype implements Comparable<Diplotype> {
       }
     }
     annotateDiplotype(gp);
-    m_label = buildLabel();
+    m_label = buildLabel(false);
   }
 
 
@@ -199,7 +199,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Is this Diplotype for a single-ploidy gene like MT-RNR1?
-   * We acknowledge this isn't a "real" diplotype if this is true but for the purposes of this system we will call it a
+   * We acknowledge this isn't a "real" diplotype if this is true, but for the purposes of this system we will call it a
    * diplotype.
    *
    * @return true if this Diplotype is single ploidy
@@ -250,7 +250,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   public boolean isUnknownPhenotype() {
-    return m_phenotypes.size() == 0 || m_phenotypes.contains(TextConstants.NO_RESULT);
+    return m_phenotypes.isEmpty() || m_phenotypes.contains(TextConstants.NO_RESULT);
   }
 
 
@@ -364,11 +364,13 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Builds a String representation of this haplotype with no gene prefix (e.g. *1/*10) that can be used for lookups.
+   *
+   * @param noCpicStyle true to force ignoring CPIC-style naming
    */
-  private String buildLabel() {
+  public String buildLabel(boolean noCpicStyle) {
 
     // m_allele1 can be null if coming from outside calls
-    if (USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene) && m_allele1 != null) {
+    if (!noCpicStyle && USE_CPIC_STYLE_DIPLOTYPE_NAMES.contains(m_gene) && m_allele1 != null) {
       boolean isAllele1Ref = m_allele1.isReference();
       boolean isAllele2Ref = m_allele2 != null && m_allele2.isReference();
       if (isAllele1Ref && isAllele2Ref) {
@@ -422,7 +424,7 @@ public class Diplotype implements Comparable<Diplotype> {
    * Gets a String representation of this diplotype with the gene as prefix, e.g. GENEX:*1/*2
    */
   public String toString() {
-    return m_gene + ":" + buildLabel();
+    return m_gene + ":" + buildLabel(false);
   }
 
 

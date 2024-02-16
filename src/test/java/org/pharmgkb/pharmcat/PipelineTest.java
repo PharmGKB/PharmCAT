@@ -5,19 +5,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -56,7 +57,7 @@ class PipelineTest {
   private static final String sf_unknownDiplotype = Haplotype.UNKNOWN + TextConstants.GENOTYPE_DELIMITER + Haplotype.UNKNOWN;
   public static final List<String> UNKNOWN_CALL = List.of(sf_unknownDiplotype);
   public static final List<String> NO_DATA = List.of(sf_unknownDiplotype);
-  private static final List<String> sf_notCalled = List.of(TextConstants.UNCALLED);
+  public static final List<String> NO_OUTSIDE_DIPLOTYPE = List.of(sf_unknownDiplotype);
   private static Path s_outsideCallFilePath;
   private static Path s_otherOutsideCallFilePath;
 
@@ -80,7 +81,7 @@ class PipelineTest {
           G6PD\tB (wildtype)/B (wildtype)
           """);
     }
-    //TestUtils.setSaveTestOutput(true);
+    TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach
@@ -103,27 +104,13 @@ class PipelineTest {
    * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
    */
   public static void htmlChecks(Document document, String gene, List<String> expectedCalls,
-      @Nullable String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
-    htmlChecks(document, gene, expectedCalls, null, drug, cpicAnnPresence, dpwgAnnPresence);
-  }
-
-    /**
-     * Checks for expected HTML output.
-     *
-     * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
-     */
-  public static void htmlChecks(Document document, String gene, List<String> expectedCalls,
-      @Nullable List<String> cpicStyleCalls, @Nullable String drug, RecPresence cpicAnnPresence,
-      RecPresence dpwgAnnPresence) {
+      String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
     Preconditions.checkNotNull(expectedCalls);
-
-    Map<String, List<String>> geneCallMap = new HashMap<>();
-    geneCallMap.put(gene, expectedCalls);
-    Map<String, List<String>> cpicStyleCallMap = new HashMap<>();
-    if (cpicStyleCalls != null) {
-      cpicStyleCallMap.put(gene, cpicStyleCalls);
-    }
-    htmlChecks(document, geneCallMap, cpicStyleCallMap, drug, cpicAnnPresence, dpwgAnnPresence);
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put(gene, expectedCalls)
+            .build(),
+        null, drug, cpicAnnPresence, dpwgAnnPresence);
   }
 
   /**
@@ -131,9 +118,9 @@ class PipelineTest {
    *
    * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
    */
-  public static void htmlChecks(Document document, Map<String, List<String>> expectedCalls,
-      @Nullable String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
-    htmlChecks(document, expectedCalls, Collections.emptyMap(), drug, cpicAnnPresence, dpwgAnnPresence);
+  public static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
+      String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
+    htmlChecks(document, expectedCalls, null, drug, cpicAnnPresence, dpwgAnnPresence);
   }
 
   /**
@@ -141,30 +128,67 @@ class PipelineTest {
    *
    * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
    */
-  static void htmlChecks(Document document, Map<String, List<String>> expectedCalls,
-      Map<String, List<String>> cpicStyleCalls, @Nullable String drug, RecPresence cpicAnnPresence,
+  static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
+      @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
       RecPresence dpwgAnnPresence) {
-
-    for (String gene : expectedCalls.keySet()) {
-      htmlCheckGene(document, gene, expectedCalls.get(gene), cpicStyleCalls.get(gene));
-    }
-
-    if (drug != null) {
-      htmlCheckDrug(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, dpwgAnnPresence);
-    }
+    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, null, dpwgAnnPresence, null);
   }
 
-  static void htmlCheckGene(Document document, String gene, List<String> expectedCalls) {
-    htmlCheckGene(document, gene, expectedCalls, null);
+  /**
+   * Checks for expected HTML output.
+   *
+   * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
+   */
+  static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
+      @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
+      @Nullable SortedMap<String, String> cpicPhenotypes, RecPresence dpwgAnnPresence,
+      @Nullable SortedMap<String, String> dpwgPhenotypes) {
+    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, cpicPhenotypes, null, dpwgAnnPresence,
+        dpwgPhenotypes, null);
+  }
+
+  /**
+   * Checks for expected HTML output.
+   *
+   * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
+   */
+  static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
+      @Nullable Map<String, List<String>> cpicStyleCalls, String drug,
+      RecPresence cpicAnnPresence,
+      @Nullable SortedMap<String, String> cpicPhenotypes,
+      @Nullable SortedMap<String, SortedSet<String>> cpicActivityScores,
+      RecPresence dpwgAnnPresence,
+      @Nullable SortedMap<String, String> dpwgPhenotypes,
+      @Nullable SortedMap<String, SortedSet<String>> dpwgActivityScores) {
+    if (drug == null) {
+      throw new IllegalArgumentException("If you don't want to provide drug, use htmlCheckGenes()");
+    }
+
+    htmlCheckGenes(document, expectedCalls, cpicStyleCalls);
+    htmlCheckDrug(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, cpicPhenotypes, cpicActivityScores,
+        dpwgAnnPresence, dpwgPhenotypes, dpwgActivityScores);
+  }
+
+  /**
+   * Runs all gene-related HTML checks.
+   *
+   * @param expectedCalls - use {@link #UNKNOWN_CALL} or {@link #NO_DATA} where necessary
+   */
+  static void htmlCheckGenes(Document document, Map<String, List<String>> expectedCalls,
+      @Nullable Map<String, List<String>> cpicStyleCalls) {
+    for (String gene : expectedCalls.keySet()) {
+      htmlCheckGene(document, gene, expectedCalls.get(gene), cpicStyleCalls == null ? null : cpicStyleCalls.get(gene));
+    }
   }
 
   static void htmlCheckGene(Document document, String gene, List<String> expectedCalls,
       @Nullable List<String> cpicStyleCalls) {
     Preconditions.checkNotNull(expectedCalls);
-    if (expectedCalls == NO_DATA) {
-      expectedCalls = null;
+    if (cpicStyleCalls != null && cpicStyleCalls.isEmpty()) {
+      cpicStyleCalls = null;
     }
-    if (expectedCalls == null || expectedCalls == UNKNOWN_CALL) {
+
+    if (expectedCalls == NO_DATA || expectedCalls == UNKNOWN_CALL) {
       // check section i
       assertEquals(0, document.select(".gs-" + gene + " .gs-dip").size());
       if (expectedCalls == UNKNOWN_CALL) {
@@ -174,7 +198,7 @@ class PipelineTest {
       // check section iii
       Elements geneSection = document.select(".gene." + gene);
       assertEquals(1, geneSection.size());
-      if (expectedCalls == null) {
+      if (expectedCalls == NO_DATA) {
         assertEquals(1, geneSection.get(0).getElementsByClass("no-data").size());
       } else {
         assertEquals("Not called", geneSection.select(".genotype-result").text());
@@ -202,11 +226,15 @@ class PipelineTest {
         }
       }
       if (!didLowestFunctionCheck) {
-        Elements gsDips = document.select(".gs-" + gene + " .gs-dip");
-        assertEquals(cpicStyleCalls == null ? expectedCalls : cpicStyleCalls,
-            gsDips.stream()
-                .map(e -> e.child(0).text())
-                .toList());
+        List<String> gsDips = document.select(".gs-" + gene + " .gs-dip").stream()
+            .map(e -> e.child(0).text())
+            .toList();
+        if (expectedCalls == NO_OUTSIDE_DIPLOTYPE) {
+          assertEquals(1, gsDips.size());
+          assertEquals(TextConstants.OUTSIDE_DATA_NO_GENOTYPE, gsDips.get(0));
+        } else {
+          assertEquals(cpicStyleCalls == null ? expectedCalls : cpicStyleCalls, gsDips);
+        }
       }
       // check section iii
       Elements geneSection = document.select(".gene." + gene);
@@ -215,15 +243,11 @@ class PipelineTest {
     }
   }
 
-  private void htmlCheckDrug(Document document, String gene, @Nullable List<String> expectedCalls,
-      @Nullable String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
-    Map<String, List<String>> geneCallMap = new HashMap<>();
-    geneCallMap.put(gene, expectedCalls);
-    htmlCheckDrug(document, geneCallMap, Collections.emptyMap(), drug, cpicAnnPresence, dpwgAnnPresence);
-  }
-
-  private static void htmlCheckDrug(Document document, Map<String, List<String>> expectedCalls,
-      Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence, RecPresence dpwgAnnPresence) {
+  private static void htmlCheckDrug(Document document, SortedMap<String, List<String>> expectedCalls,
+      @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
+      @Nullable SortedMap<String, String> cpicPhenotypes, @Nullable SortedMap<String, SortedSet<String>> cpicActivityScores,
+      RecPresence dpwgAnnPresence, @Nullable SortedMap<String, String> dpwgPhenotypes,
+      @Nullable SortedMap<String, SortedSet<String>> dpwgActivityScores) {
 
     String sanitizedDrug = ReportHelpers.sanitizeCssSelector(drug);
     Elements drugSections = document.getElementsByClass(sanitizedDrug);
@@ -234,7 +258,7 @@ class PipelineTest {
     } else {
       assertEquals(1, drugSections.size());
 
-      List<String> expectedRxCalls = new ArrayList<>();
+      SortedMap<String, List<String>> expectedRxCalls = new TreeMap<>();
       for (String gene : expectedCalls.keySet()) {
         List<String> calls = expectedCalls.get(gene);
         if (cpicStyleCalls != null && cpicStyleCalls.containsKey(gene)) {
@@ -251,40 +275,121 @@ class PipelineTest {
         }
 
         if (calls == NO_DATA) {
-          expectedRxCalls.add(gene + ":" + TextConstants.NO_DATA);
+          expectedRxCalls.put(gene, List.of(gene + ":" + TextConstants.NO_DATA));
+        } else if (calls == NO_OUTSIDE_DIPLOTYPE) {
+          expectedRxCalls.put(gene, List.of(gene + ":" + TextConstants.OUTSIDE_DATA_NO_GENOTYPE));
         } else {
-          for (String call : calls) {
-            expectedRxCalls.add(gene + ":" + call);
+          expectedRxCalls.put(gene, calls.stream()
+              .map(c -> gene + ":" + c)
+              .collect(Collectors.toList()));
+        }
+      }
+
+      htmlCheckDrugAnnotation(drugSections, "cpic", sanitizedDrug, cpicAnnPresence,
+          filterRxCalls(expectedRxCalls, cpicPhenotypes), cpicPhenotypes, cpicActivityScores);
+
+      htmlCheckDrugAnnotation(drugSections, "dpwg", sanitizedDrug, dpwgAnnPresence,
+          filterRxCalls(expectedRxCalls, dpwgPhenotypes), dpwgPhenotypes, dpwgActivityScores);
+    }
+  }
+
+  private static SortedMap<String, List<String>> filterRxCalls(SortedMap<String, List<String>> expectedRxCalls,
+      Map<String, String> phenotypes) {
+    if (phenotypes == null || phenotypes.size() == expectedRxCalls.size()) {
+      return expectedRxCalls;
+    }
+    SortedMap<String, List<String>> filteredRxCalls = new TreeMap<>();
+    for (String gene : phenotypes.keySet()) {
+      filteredRxCalls.put(gene, expectedRxCalls.get(gene));
+    }
+    return filteredRxCalls;
+  }
+
+
+  private static void htmlCheckDrugAnnotation(Elements drugSections, String src, String drug, RecPresence annPresence,
+      SortedMap<String, List<String>> expectedRxCalls, @Nullable SortedMap<String, String> expectedPhenotypes,
+      @Nullable SortedMap<String, SortedSet<String>> expectedActivityScores) {
+
+    String srcSelector = "." + src + "-" + ReportHelpers.sanitizeCssSelector(drug);
+    Elements srcSections = drugSections.select(srcSelector);
+
+    if (annPresence == RecPresence.NO) {
+      Elements rows = drugSections.select(srcSelector + " .rx-dip");
+      assertEquals(0, rows.size());
+      rows = drugSections.select(srcSelector + " .rx-unmatched-dip");
+      assertEquals(0, rows.size());
+
+    } else if (annPresence == RecPresence.YES_NO_MATCH) {
+      Elements unmatchedDips = drugSections.select(srcSelector + " .rx-unmatched-dip");
+      assertEquals(expectedRxCalls.values().stream()
+              .flatMap(Collection::stream)
+              .toList(),
+          unmatchedDips.stream()
+              .map(e -> cleanupRxDip(e, expectedRxCalls.keySet()))
+              .toList());
+
+    } else {
+      SortedMap<String, SortedSet<String>> actualActivityScores = new TreeMap<>();
+      boolean hasActivityScore = false;
+      for (Element row : srcSections) {
+        Elements rxDips = row.select(".rx-dip");
+        assertEquals(expectedRxCalls.values().stream()
+                .flatMap(Collection::stream)
+                .toList(),
+            rxDips.stream()
+                .map(e -> cleanupRxDip(e, expectedRxCalls.keySet()))
+                .toList());
+
+        Elements rxPhenotypes = row.select(".rx-phenotype");
+        if (expectedPhenotypes != null) {
+          assertEquals(expectedPhenotypes.size(), rxPhenotypes.size());
+          SortedMap<String, String> actualPhenotypes = new TreeMap<>();
+          if (rxPhenotypes.size() == 1) {
+            actualPhenotypes.put(expectedPhenotypes.firstKey(), rxPhenotypes.get(0).text());
+          } else {
+            for (Element e : rxPhenotypes) {
+              Elements dts = e.select("dt");
+              String gene = dts.get(0).text();
+              if (gene.endsWith(":")) {
+                gene = gene.substring(0, gene.length() - 1);
+              }
+              actualPhenotypes.put(gene, e.select("dd").get(0).text());
+            }
+          }
+          assertEquals(expectedPhenotypes, actualPhenotypes);
+        }
+
+        Elements rxActivityScores = row.select(".rx-activity");
+        if (!rxActivityScores.isEmpty()) {
+          hasActivityScore = true;
+        }
+        if (expectedActivityScores != null) {
+          assertEquals(expectedActivityScores.size(), rxActivityScores.size());
+          if (rxActivityScores.size() == 1) {
+            String gene = expectedActivityScores.firstKey();
+            actualActivityScores.putIfAbsent(gene, new TreeSet<>());
+            actualActivityScores.get(gene).add(rxActivityScores.get(0).text());
+          } else {
+            for (Element e : rxActivityScores) {
+              Elements dts = e.select("dt");
+              String gene = dts.get(0).text();
+              if (gene.endsWith(":")) {
+                gene = gene.substring(0, gene.length() - 1);
+              }
+              actualActivityScores.putIfAbsent(gene, new TreeSet<>());
+              actualActivityScores.get(gene).add(e.select("dd").get(0).text());
+            }
           }
         }
       }
 
-      htmlCheckDrugAnnotation(drugSections, "cpic", sanitizedDrug, cpicAnnPresence, expectedCalls.keySet(),
-          expectedRxCalls);
-      htmlCheckDrugAnnotation(drugSections, "dpwg", sanitizedDrug, dpwgAnnPresence, expectedCalls.keySet(),
-          expectedRxCalls);
-    }
-  }
-
-  private static void htmlCheckDrugAnnotation(Elements drugSections, String src, String drug, RecPresence annPresence,
-      Collection<String> genes, List<String> expectedRxCalls) {
-
-    String baseSelector = "." + src + "-" + ReportHelpers.sanitizeCssSelector(drug);
-
-    Elements drugDips = drugSections.select(baseSelector + " .rx-dip");
-    if (annPresence == RecPresence.YES) {
-      assertEquals(expectedRxCalls,
-          drugDips.stream()
-              .map(e -> cleanupRxDip(e, genes))
-              .toList());
-    } else {
-      assertEquals(0, drugDips.size());
-
-      if (!drugSections.select(baseSelector).isEmpty()) {
-        Elements unmatchedDips = drugSections.select(baseSelector + " .rx-unmatched-dip");
-        assertEquals(expectedRxCalls, unmatchedDips.stream()
-            .map(e -> cleanupRxDip(e, genes))
-            .toList());
+      // we check activity scores across all rows
+      if (expectedActivityScores == null) {
+        if (hasActivityScore) {
+          fail("Not checking for activity score!");
+        }
+      } else {
+        assertEquals(expectedActivityScores, actualActivityScores);
       }
     }
   }
@@ -398,7 +503,11 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.YES);
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CYP2C19", UNKNOWN_CALL)
+            .build(),
+        null);
   }
 
   @Test
@@ -413,7 +522,11 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.NO);
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CYP2C19", UNKNOWN_CALL)
+            .build(),
+        null);
   }
 
   @Test
@@ -443,9 +556,14 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     assertNotNull(document.getElementById("gs-undocVarAsRef-TPMT"));
     assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
-    htmlChecks(document, "CYP2C19", UNKNOWN_CALL, null, RecPresence.YES, RecPresence.NO);
-    htmlChecks(document, "TPMT", tpmtExpectedCalls, null, RecPresence.YES, RecPresence.NO);
-    htmlChecks(document, "RYR1", ryr1ExpectedCalls, null, RecPresence.YES, RecPresence.NO);
+
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CYP2C19", UNKNOWN_CALL)
+            .put("TPMT", tpmtExpectedCalls)
+            .put("RYR1", ryr1ExpectedCalls)
+            .build(),
+        null);
   }
 
   @Test
@@ -475,7 +593,12 @@ class PipelineTest {
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-TPMT"));
     assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
-    htmlChecks(document, "RYR1", ryr1ExpectedCalls, null, RecPresence.YES, RecPresence.NO);
+
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("RYR1", ryr1ExpectedCalls)
+            .build(),
+        null);
   }
 
   @Test
@@ -486,15 +609,19 @@ class PipelineTest {
         .variation("RYR1", "rs193922753", "G", "C");
     Path vcfFile = testWrapper.execute(null);
 
-    List<String> expectedRyr1Calls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
+    List<String> ryr1ExpectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedRyr1Calls);
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
 
     Document document = readHtmlReport(vcfFile);
     assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
-    htmlChecks(document, "RYR1", expectedRyr1Calls, null, RecPresence.YES, RecPresence.NO);
+    htmlCheckGenes(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("RYR1", ryr1ExpectedCalls)
+            .build(),
+        null);
   }
 
 
@@ -526,10 +653,10 @@ class PipelineTest {
 
     Document document = readHtmlReport(vcfFile);
 
-    Map<String, List<String>> expectedCallsMap = new HashMap<>();
+    SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();
     expectedCallsMap.put("CYP2C19", UNKNOWN_CALL);
     expectedCallsMap.put("TPMT", UNKNOWN_CALL);
-    htmlChecks(document, expectedCallsMap, null, RecPresence.NO, RecPresence.NO);
+    htmlCheckGenes(document, expectedCallsMap, null);
   }
 
 
@@ -712,6 +839,7 @@ class PipelineTest {
 
   @Test
   void testCyp2c19s4bs17rs28399504missing(TestInfo testInfo) throws Exception {
+    // NOTE: this test has multiple annotations for a single population - amitriptyline
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("CYP2C19", "rs12248560", "T", "T")
@@ -1022,7 +1150,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("simvastatin", 1);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES_NO_MATCH);
   }
 
   @Test
@@ -1065,7 +1193,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("simvastatin", 1);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.NO);
+    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES_NO_MATCH);
   }
 
   /**
@@ -1241,6 +1369,7 @@ class PipelineTest {
 
   @Test
   void testUgt1a1s6s60s80s28MissingUnphased(TestInfo testInfo) throws Exception {
+    // NOTE: this test has multiple annotations for a single population - atazanavir
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .missing("UGT1A1", "rs3064744")
@@ -1923,8 +2052,13 @@ class PipelineTest {
         .reference("CYP2C19");
     Path vcfFile = testWrapper.execute(outsideCallPath);
 
+    List<String> cyp2c19ExpectedCalls = List.of("*38/*38");
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C19", cyp2c19ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CYP2C19",
+        expectedCallsToRecommendedDiplotypes(cyp2c19ExpectedCalls));
+    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", cyp2c19ExpectedCalls);
+
 
     testWrapper.testNotCalledByMatcher("CYP2D6");
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "Intermediate Metabolizer");
@@ -1948,6 +2082,30 @@ class PipelineTest {
     assertThat(diplotype.getLookupKeys(), contains("0.25", "0.5", "0.75", "1.0"));
 
     Document document = readHtmlReport(vcfFile);
+    SortedSet<String> expectedActivityScores = new TreeSet<>(List.of("0.25", "0.5", "0.75", "1.0"));
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put("CYP2C19", cyp2c19ExpectedCalls)
+            .put("CYP2D6", NO_OUTSIDE_DIPLOTYPE)
+            .build(),
+        null, "amitriptyline", RecPresence.YES,
+        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
+            .put("CYP2C19", "Normal Metabolizer")
+            .put("CYP2D6", "Intermediate Metabolizer")
+            .build(),
+        new ImmutableSortedMap.Builder<String, SortedSet<String>>(Ordering.natural())
+            .put("CYP2C19", new TreeSet<>(List.of("N/A")))
+            .put("CYP2D6", expectedActivityScores)
+            .build(),
+        RecPresence.YES,
+        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
+            .put("CYP2D6", "Intermediate Metabolizer")
+            .build(),
+        new ImmutableSortedMap.Builder<String, SortedSet<String>>(Ordering.natural())
+            .put("CYP2D6", expectedActivityScores)
+            .build()
+    );
+
     assertNotNull(document.getElementById("CYP2D6"));
     Elements cyp2d6Section = document.select(".gene.CYP2D6");
     assertEquals(1, cyp2d6Section.size());
@@ -1962,6 +2120,7 @@ class PipelineTest {
 
   @Test
   void testCyp2d6CpicVsDpwg(TestInfo testInfo) throws Exception {
+    // NOTE: this test has multiple annotations for a single population - amitriptyline
     Path outsideCallPath = TestUtils.createTestFile(testInfo,".tsv");
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath))) {
       writer.println("CYP2D6\t*1x2/*9");
@@ -2243,20 +2402,24 @@ class PipelineTest {
     testWrapper.execute(outsideCallFile);
 
     String gene = "F5";
-    List<String> expectedCalls = List.of("Factor V Leiden absent");
+
+    List<String> displayedCalls = List.of("Factor V Leiden absent");
 
     testWrapper.testNotCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, NO_OUTSIDE_DIPLOTYPE, displayedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, displayedCalls);
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
+    testWrapper.testPrintCalls(DataSource.DPWG, gene, displayedCalls);
 
     testWrapper.testNoMatchFromSource("hormonal contraceptives for systemic use", DataSource.CPIC);
     testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", DataSource.DPWG, 1);
 
     Document document = readHtmlReport(outsideCallFile);
-    htmlCheckGene(document, gene, sf_notCalled);
-    htmlCheckDrug(document, gene, expectedCalls, "hormonal contraceptives for systemic use",
+    htmlChecks(document,
+        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
+            .put(gene, NO_OUTSIDE_DIPLOTYPE)
+            .build(),
+        null, "hormonal contraceptives for systemic use",
         RecPresence.NO, RecPresence.YES);
   }
 
