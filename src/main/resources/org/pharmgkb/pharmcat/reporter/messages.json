@@ -1539,7 +1539,7 @@
       ]
     },
     "exception_type": "non-match",
-    "message": "non-match"
+    "message": "If the RYR1 genotype is “not called” and the drug section reports RYR1:Unknown/Unknown, please refer to the RYR1 gene table in section III for the variants included in the input VCF file. In case one or more variant(s) with “Malignant Hyperthermia associated” function are present, please refer to the guideline publication PMID:30499100 since halogenated volatile anesthetics or depolarizing muscle relaxants succinylcholine are relatively contraindicated in persons with Malignant Hyperthermia Susceptibility. "
   },
   {
     "rule_name": "pcat-dpyd-hapB3-exonic-only",
