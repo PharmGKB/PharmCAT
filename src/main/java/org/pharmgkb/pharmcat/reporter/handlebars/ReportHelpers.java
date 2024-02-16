@@ -85,19 +85,35 @@ public class ReportHelpers {
   }
 
 
-  public static String printRecMap(Map<String, String> data) {
+  public static String printRecMap(Map<String, String> data, @Nullable String cssClass) {
     if (data.size() == 1) {
-      return "<p>" + capitalizeNA(data.values().iterator().next()) + "</p>";
+      String tag = "";
+      if (cssClass != null) {
+        tag = " class=\"" + cssClass + "\"";
+      }
+      return "<p" + tag + ">" + capitalizeNA(data.values().iterator().next()) + "</p>";
     }
 
     StringBuilder builder = new StringBuilder()
         .append("<dl class=\"compact mt-0\">");
     for (String key : data.keySet()) {
+      if (cssClass != null) {
+        builder.append("<div class=\"")
+            .append(cssClass)
+            .append(" ")
+            .append(cssClass)
+            .append("--")
+            .append(key)
+            .append("\">");
+      }
       builder.append("<dt>")
           .append(key)
           .append(":</dt><dd>")
           .append(capitalizeNA(data.get(key)))
           .append("</dd>");
+      if (cssClass != null) {
+        builder.append("</div>");
+      }
     }
     builder.append("</dl>");
     return builder.toString();
@@ -160,7 +176,17 @@ public class ReportHelpers {
 
   public static String gsCall(Diplotype diplotype, Collection<String> homozygousComponentHaplotypes) {
     if (diplotype.isUnknownAlleles()) {
-      return "<span class=\"gs-uncalled-" + HtmlEscapers.htmlEscaper().escape(diplotype.getGene()) + "\">" + UNCALLED + "</span>";
+      StringBuilder builder = new StringBuilder()
+          .append("<span class=\"gs-uncalled-")
+          .append(HtmlEscapers.htmlEscaper().escape(diplotype.getGene()))
+          .append("\">");
+      if (diplotype.isOutsidePhenotype() || diplotype.isOutsideActivityScore()) {
+        builder.append(OUTSIDE_DATA_NO_GENOTYPE);
+      } else {
+        builder.append(UNCALLED);
+      }
+      builder.append("</span>");
+      return builder.toString();
     }
     if (diplotype.getInferredSourceDiplotypes() != null) {
       if (diplotype.getInferredSourceDiplotypes().size() > 1) {
@@ -328,6 +354,11 @@ public class ReportHelpers {
             .append("</a>");
         builder.append(":");
         String call = diplotype.getLabel();
+        if (diplotype.getAllele1() == null && (diplotype.isOutsidePhenotype() || diplotype.isOutsideActivityScore())) {
+          call = OUTSIDE_DATA_NO_GENOTYPE;
+        } else if (forDebug) {
+          call = diplotype.buildLabel(true);
+        }
         if (noLengthLimit || call.length() <= 15) {
           builder.append(call);
         } else {

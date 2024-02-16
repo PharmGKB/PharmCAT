@@ -259,11 +259,11 @@
                         </ul>
                         {{#if (thereAre phenotypes)}}
                           <div class="hint">{{pluralize "Phenotype" phenotypes}}</div>
-                          {{{printRecMap phenotypes}}}
+                          {{{printRecMap phenotypes "rx-phenotype"}}}
                         {{/if}}
                         {{#if (thereAre activityScores)}}
                           <div class="hint">{{pluralize "Activity Score" activityScores}}</div>
-                          {{{printRecMap activityScores}}}
+                          {{{printRecMap activityScores "rx-activity"}}}
                         {{/if}}
                       </td>
                     {{#if (rxIsCpicWarfarin drug source)}}

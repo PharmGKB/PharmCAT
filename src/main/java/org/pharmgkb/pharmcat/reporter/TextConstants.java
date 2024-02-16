@@ -29,6 +29,10 @@ public class TextConstants {
   public static final String NO_DATA = UNCALLED + " - no variant data provided";
   public static final List<String> LIST_UNCALLED = ImmutableList.of(UNCALLED);
   public static final List<String> LIST_UNCALLED_NO_DATA = ImmutableList.of(NO_DATA);
+  /**
+   * Displayed when outside data does not provide genotype.
+   */
+  public static final String OUTSIDE_DATA_NO_GENOTYPE = "Not provided";
 
   public static final String GENOTYPE_DELIMITER = "/";
   public static final String REFERENCE = "Reference";
