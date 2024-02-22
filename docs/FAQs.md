@@ -41,6 +41,9 @@ PharmCAT releases new versions when substantial updates are ready to be released
 
 No, PharmCAT does not copy or transmit any user-input data (i.e. input VCFs or outside call data) off of the system that it's being run on.
 
+### Does PharmCAT take genotype dosage data?
+
+No, PharmCAT is designed not to interpret quality control fields or assume genotypes. As genotype dosages are presented in a VCF file as quality control fields, PharmCAT will not interpret the field nor make decision on the actual genotypes at the position. 
 
 ## Running PharmCAT
 
