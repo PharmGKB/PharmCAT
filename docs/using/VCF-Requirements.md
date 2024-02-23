@@ -6,7 +6,7 @@ nav_order: 2
 ---
 # VCF Requirements
 
-PharmCAT expects incoming VCF files to follow the [official VCF spec](https://samtools.github.io/hts-specs/VCFv4.3.pdf). PharmCAT only considers _CHROM_, _POS_, _REF_, _ALT_, and _FORMAT/GT_ columns in a VCF file
+PharmCAT expects incoming VCF files to follow the [official VCF spec](https://samtools.github.io/hts-specs/VCFv4.3.pdf). PharmCAT only considers _CHROM_, _POS_, _REF_, _ALT_, and _FORMAT/GT_ columns in a VCF file.
 
 In addition, PharmCAT expects incoming VCF to have the following properties:
 
