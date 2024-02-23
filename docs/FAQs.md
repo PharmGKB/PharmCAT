@@ -41,9 +41,9 @@ PharmCAT releases new versions when substantial updates are ready to be released
 
 No, PharmCAT does not copy or transmit any user-input data (i.e. input VCFs or outside call data) off of the system that it's being run on.
 
-### Does PharmCAT take genotype dosage data?
+### Does PharmCAT read genotype dosage data in a VCF?
 
-No, PharmCAT is designed not to interpret quality control fields or assume genotypes. As genotype dosages are presented in a VCF file as quality control fields, PharmCAT will not interpret the field nor make decision on the actual genotypes at the position. 
+No, PharmCAT only considers the information as stated in the [VCF Requirements](/using/VCF-Requirements) section. Genotype dosage refers to the posterior probability of allele counts as a result of imputation. Genotype dosage can take any value between 0 and 2, such as 1.05. It is often stored in a separate genotype field other than _GT_ and requires the user to pick a numeric threshold to determine the specific allele counts at a position.
 
 ## Running PharmCAT
 
