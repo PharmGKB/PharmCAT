@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -78,19 +79,23 @@ public class GeneDrugSummary {
   public void write(Path documentationDir) throws IOException {
 
     Multimap<String, DataSource> geneSourceMap = TreeMultimap.create();
-    Multimap<String, DataSource> drugSourceMap = TreeMultimap.create();
+    Multimap<String, PrescribingGuidanceSource> drugSourceMap = TreeMultimap.create();
     m_guidelineCollection.getGenesUsedInSource(DataSource.DPWG)
         .forEach(g -> geneSourceMap.put(g, DataSource.DPWG));
     m_guidelineCollection.getGenesUsedInSource(DataSource.CPIC)
         .forEach(g -> geneSourceMap.put(g, DataSource.CPIC));
-    m_guidelineCollection.getChemicalsUsedInSource(DataSource.CPIC)
-        .forEach(d -> drugSourceMap.put(d, DataSource.CPIC));
-    m_guidelineCollection.getChemicalsUsedInSource(DataSource.DPWG)
-        .forEach(d -> drugSourceMap.put(d, DataSource.DPWG));
+    m_guidelineCollection.getChemicalsUsedInSource(PrescribingGuidanceSource.CPIC_GUIDELINE)
+        .forEach(d -> drugSourceMap.put(d, PrescribingGuidanceSource.CPIC_GUIDELINE));
+    m_guidelineCollection.getChemicalsUsedInSource(PrescribingGuidanceSource.DPWG_GUIDELINE)
+        .forEach(d -> drugSourceMap.put(d, PrescribingGuidanceSource.DPWG_GUIDELINE));
+    m_guidelineCollection.getChemicalsUsedInSource(PrescribingGuidanceSource.FDA_LABEL)
+        .forEach(d -> drugSourceMap.put(d, PrescribingGuidanceSource.FDA_LABEL));
+    m_guidelineCollection.getChemicalsUsedInSource(PrescribingGuidanceSource.FDA_ASSOC)
+        .forEach(d -> drugSourceMap.put(d, PrescribingGuidanceSource.FDA_ASSOC));
 
     // get matcher gene list
     StringBuilder matcherGeneList = new StringBuilder()
-        .append("| Gene | CPIC | PharmGKB-DPWG |\n")
+        .append("| Gene | CPIC | DPWG |\n")
         .append("| :--- | :---: | :---: |\n");
     m_definitionReader.getGenes().stream()
         .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
@@ -98,7 +103,7 @@ public class GeneDrugSummary {
         .forEach(g -> appendGene(matcherGeneList, g));
     // outside call gene list
     StringBuilder outsideCallGeneList = new StringBuilder()
-        .append("| Gene | CPIC | PharmGKB-DPWG |\n")
+        .append("| Gene | CPIC | DPWG |\n")
         .append("| :--- | :---: | :---: |\n");
     PREFER_OUTSIDE_CALL.stream()
         .sorted()
@@ -106,19 +111,27 @@ public class GeneDrugSummary {
 
     // drug list
     StringBuilder drugList = new StringBuilder()
-        .append("| Drug | CPIC | PharmGKB-DPWG |\n")
-        .append("| :--- | :---: | :---: |\n");
+        .append("| Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |\n")
+        .append("| :--- | :---: | :---: | :---: | :---: |\n");
     drugSourceMap.keySet().stream()
         .sorted()
         .forEach(d -> {
           drugList.append("| ")
               .append(d)
               .append(" | ");
-          if (drugSourceMap.get(d).contains(DataSource.CPIC)) {
+          if (drugSourceMap.get(d).contains(PrescribingGuidanceSource.CPIC_GUIDELINE)) {
             drugList.append(":heavy_check_mark:");
           }
           drugList.append(" | ");
-          if (drugSourceMap.get(d).contains(DataSource.DPWG)) {
+          if (drugSourceMap.get(d).contains(PrescribingGuidanceSource.DPWG_GUIDELINE)) {
+            drugList.append(":heavy_check_mark:");
+          }
+          drugList.append(" | ");
+          if (drugSourceMap.get(d).contains(PrescribingGuidanceSource.FDA_LABEL)) {
+            drugList.append(":heavy_check_mark:");
+          }
+          drugList.append(" | ");
+          if (drugSourceMap.get(d).contains(PrescribingGuidanceSource.FDA_ASSOC)) {
             drugList.append(":heavy_check_mark:");
           }
           drugList.append(" |\n");

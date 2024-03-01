@@ -95,8 +95,6 @@
                 <div class="drugName">
                   {{#if (contains ../../drugsWithRecommendations this) }}
                     <a href="#{{{sanitizeCssSelector this}}}">{{this}}</a>
-                  {{else}}
-                    {{this}}
                   {{/if}}
                 </div>
               {{/each}}
@@ -211,6 +209,8 @@
         <section class="guideline {{{sanitizeCssSelector drug}}}">
           <h3 id="{{{sanitizeCssSelector drug}}}">{{drug}}</h3>
 
+
+
           {{#each messages}}
             <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>
           {{/each}}
@@ -218,7 +218,7 @@
           <table>
             <thead>
             <tr>
-              <th>Guideline</th>
+              <th>Source</th>
               <th>Genes</th>
               <th>Implications</th>
               <th>Recommendation</th>
@@ -233,14 +233,9 @@
                     <tr class="top-aligned {{{rxAnnotationClass source drug}}}">
                       <td>
                         <p>
-                          <b>{{source.displayName}}</b>
-                          {{#unless notCalled}}
-                            <sup class="sources">
-                              {{{listSources urls}}}
-                            </sup>
-                          {{/unless}}
+                          <b><a href="{{url}}" target="_blank">{{sourceValue source ../name}}</a></b>
                         </p>
-                        <p>Population:<br />{{capitalizeNA population}}</p>
+                        <p>{{{populationValue source population}}}</p>
                         {{#unless (rxIsCpicWarfarin drug source)}}
                           {{{annotationTags this}}}
                         {{/unless}}
@@ -280,7 +275,10 @@
                         </td>
                     {{else}}
                         <td>{{{rxImplications implications}}}</td>
-                        <td class="drugRecommendation">{{{drugRecommendation}}}</td>
+                        <td class="drugRecommendation">
+                          {{{drugRecommendation}}}
+                          {{#if ../fda}}<a href="#rx-ast-{{../../../drug}}" style="text-decoration: none">&ast;</a>{{/if}}
+                        </td>
                         <td>{{capitalizeNA classification}}</td>
                     {{/if}}
                   {{/each}}
@@ -316,7 +314,7 @@
                     </td>
                     <td colspan="4" class="top-aligned">
                       <div class="hint">&nbsp;</div>
-                      {{source.displayName}} provides no genotype-based recommendations for the following genotype, after evaluating the evidence.
+                      {{source.displayName}} provides no genotype-based recommendations for this genotype, after evaluating the evidence.
                     </td>
                   {{/if}}
                 </tr>
@@ -340,6 +338,13 @@
               for details.
             </div>
           {{/if}}
+          {{#if fda}}
+            <div class="footnote" id="rx-ast-{{drug}}">
+              <sup>&ast;</sup> Text in quotation is taken directly from the FDA Label or FDA PGx Association table. For
+              a label PDF with highlighted PGx content use the link in the Source column or go to
+              <a href="https://www.pharmgkb.org/fda">PharmGKB</a>.
+            </div>
+          {{/if}}
 
           {{#each footnotes}}
             <div class="footnote {{messageClass this}}">{{message}}</div>
@@ -358,6 +363,18 @@
         </section>
       {{/each}}
     {{/unless}}
+
+    {{#if (thereAre drugsWithoutRecommendations)}}
+      <div>
+        <h3>Drugs With No Guidance</h3>
+        <p>The following drugs are known to be associated with the given genes but have no guidance for their genotypes.</p>
+        <ul>
+          {{#each drugsWithoutRecommendations}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
   </section>
 
 

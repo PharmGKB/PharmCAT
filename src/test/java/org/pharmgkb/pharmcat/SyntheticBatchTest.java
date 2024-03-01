@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTpmtTest;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherUgt1a1Test;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherVkorc1Test;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ class SyntheticBatchTest {
   private static final Path sf_outsideCYP2D6G6PDFile
       = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/outside_CYP2D6_G6PD.tsv");
   private final boolean m_compact;
-  private final List<DataSource> m_sources;
+  private final List<PrescribingGuidanceSource> m_sources;
 
 
   public static void main(String[] args) {
@@ -64,8 +65,10 @@ class SyntheticBatchTest {
         .addOption("o", "output-dir", "directory to output to", false, "o")
         .addOption("a", "all-tests", "run all tests for Katrin")
         .addOption("re", "reporter-extended", "output extended report")
-        .addOption("cpic", "cpic", "CPIC reports")
-        .addOption("dpwg", "dpwg", "DPWG reports")
+        .addOption("cpic", "cpic", "CPIC guideline annotation reports")
+        .addOption("dpwg", "dpwg", "DPWG guideline annotation reports")
+        .addOption("fdaLabel", "fda-label", "FDA label annotation reports")
+        .addOption("fdaAssoc", "fda-assoc", "FDA PGx association reports")
         .addOption("mega", "mega", "generate all variations in one run")
         ;
 
@@ -86,27 +89,38 @@ class SyntheticBatchTest {
 
         dir = dir.resolve(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm")));
 
-        List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+        List<PrescribingGuidanceSource> sources = PrescribingGuidanceSource.listValues();
         doRun(dir.resolve("default"), true, sources, true);
         doRun(dir.resolve("extended"), false, sources, true);
-        doRun(dir.resolve("cpic"), true, Lists.newArrayList(DataSource.CPIC), true);
-        doRun(dir.resolve("cpic-extended"), false, Lists.newArrayList(DataSource.CPIC), true);
-        doRun(dir.resolve("dpwg"), true, Lists.newArrayList(DataSource.DPWG), true);
-        doRun(dir.resolve("dpwg-extended"), false, Lists.newArrayList(DataSource.DPWG), true);
+        for (PrescribingGuidanceSource dataSource : sources) {
+          doRun(dir.resolve(dataSource.getCodeName()), true, Lists.newArrayList(dataSource), true);
+          doRun(dir.resolve(dataSource.getCodeName() + "-extended"), false, Lists.newArrayList(dataSource), true);
+        }
 
 
       } else {
-        List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
+        List<PrescribingGuidanceSource> sources;
         boolean cpic = cliHelper.hasOption("cpic");
         boolean dpwg = cliHelper.hasOption("dpwg");
-        if (cpic || dpwg) {
-          sources.clear();
+        boolean fdaLabel = cliHelper.hasOption("fdaLabel");
+        boolean fdaAssoc = cliHelper.hasOption("fdaAssoc");
+        if (cpic || dpwg || fdaLabel || fdaAssoc) {
+          sources = new ArrayList<>();
           if (cpic) {
-            sources.add(DataSource.CPIC);
+            sources.add(PrescribingGuidanceSource.CPIC_GUIDELINE);
           }
           if (dpwg) {
-            sources.add(DataSource.DPWG);
+            sources.add(PrescribingGuidanceSource.DPWG_GUIDELINE);
           }
+          if (fdaLabel) {
+            sources.add(PrescribingGuidanceSource.FDA_LABEL);
+          }
+          if (fdaAssoc) {
+            sources.add(PrescribingGuidanceSource.FDA_ASSOC);
+          }
+        }
+        else {
+          sources = PrescribingGuidanceSource.listValues();
         }
         Path dir = null;
         if (cliHelper.hasOption("o")) {
@@ -120,7 +134,7 @@ class SyntheticBatchTest {
     }
   }
 
-  private static void doRun(@Nullable Path dir, boolean compact, List<DataSource> sources, boolean allTests)
+  private static void doRun(@Nullable Path dir, boolean compact, List<PrescribingGuidanceSource> sources, boolean allTests)
       throws Exception {
     if (dir != null) {
       System.out.println("Saving results to " + dir);
@@ -564,7 +578,7 @@ class SyntheticBatchTest {
   }
 
 
-  private SyntheticBatchTest(boolean compact, List<DataSource> sources) throws IOException {
+  private SyntheticBatchTest(boolean compact, List<PrescribingGuidanceSource> sources) throws IOException {
     m_compact = compact;
     m_sources = sources;
 
@@ -577,7 +591,7 @@ class SyntheticBatchTest {
         Style: %s
             """, new SimpleDateFormat("MMMMM dd, yyyy").format(new Date()), CliUtils.getVersion(),
         (compact ? "Compact" : "Full"),
-        sources.stream().map(DataSource::toString).collect(Collectors.joining(", "))
+        sources.stream().map(PrescribingGuidanceSource::toString).collect(Collectors.joining(", "))
 
     );
     Files.writeString(TestUtils.createTestFile(getClass(), "README.md"), readmeContent);

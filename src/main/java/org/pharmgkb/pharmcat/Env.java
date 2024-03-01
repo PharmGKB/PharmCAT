@@ -13,6 +13,7 @@ import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 
@@ -66,6 +67,10 @@ public class Env {
 
   public @Nullable GenePhenotype getPhenotype(String gene, DataSource source) {
     return m_phenotypeMap.getPhenotype(gene, source);
+  }
+
+  public @Nullable GenePhenotype getPhenotype(String gene, PrescribingGuidanceSource source) {
+    return m_phenotypeMap.getPhenotype(gene, source.getPhenoSource());
   }
 
 

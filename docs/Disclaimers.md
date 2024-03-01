@@ -141,13 +141,16 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
    [outside calls](https://pharmcat.org/using/Outside-Call-Format/) but not be determined from the VCF file by the
    Named Allele Matcher.
 
-4. IMPORTANT: As of March 2022, gene information documents from the DPWG are no longer publicly available from the KNMP
-   website. PharmGKB is currently providing PDF versions of these documents to users. These files were downloaded in
-   February 2022. As such, it cannot be guaranteed that these documents match the mappings DPWG may use internally as
-   there have been no publicly accessible updates since February 2022.
+ ## D. FDA drug-label and Table of Pharmacogenetic Associations recommendations
+ 
+PharmCAT includes recommendations from PharmGKB-annotated FDA drug labels and the FDA Table of Pharmacogenetic Associations. 
+It only contains FDA information for genes with CPIC or DPWG guidelines because the FDA does not offer any genotype-to-phenotype mapping information. PharmCAT uses CPIC genotype-to-phenotype mappings when they exist, and DPWG genotype-to-phenotype mappings when no CPIC mappings exist, to determine the phenotypes to use with FDA label annotations and Table of Pharmacogenetic Associations entries. Results presented for [FDA Table of Pharmacogenetic Associations](https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations) use wording and “Affected Subgroups” taken directly from the Table. Results presented from PharmGKB-annotated drug labels present wording from the specific label that was curated. In many cases, multiple FDA labels may exist for a particular medication. Typically, PharmGKB annotates the label linked to from the FDA [Table of Pharmacogenomic Biomarkers in Drug Labeling](https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling) but in some cases a different label may be annotated. Follow the “FDA Label Annotation” link in section II of the report to access the annotated label and more information.
 
+## E. Source Tags in Section II 
 
-## D. PharmCAT Exceptions to the CPIC Guideline Gene List
+Part of PharmGKB’s annotations of guidelines, drug labels and Table of Pharmacogenetic Associations is the assignment of labels that are meant to provide a high-level indication of the provided action. If recommendations or FDA Table wording exists, yellow boxes display if the guidance/wording is regarding (1) a dosing change, (2) recommending an alternate drug be used, or (3) other guidance. These boxes are included in the Source column in Section II of the PharmCAT report. More detailed information about what the yellow boxes mean is available on [PharmGKB](https://www.pharmgkb.org/page/clinicalGuidelineLegend#clinical-guideline-annotation-tags).
+
+## F. PharmCAT Exceptions to the CPIC Guideline Gene List
 
 1. PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the VCF file, but genotypes for CYP2D6,
    MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype 
@@ -160,7 +163,7 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
    outside calls need to be mapped accordingly. 
 
 
-## E. CPIC Guideline Disclaimers and Caveats
+## G. CPIC Guideline Disclaimers and Caveats
 
 1. A version of the following quoted disclaimer is part of each CPIC guideline and applies to the CPIC recommendations
    as used in PharmCAT. For the full description of potential benefits and risks, additional considerations (general and
@@ -195,6 +198,6 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
 3. CPIC is a registered service mark of the U.S. Department of Health & Human Services (HHS).
 
 
-## F. PharmGKB Disclaimers and Caveats
+## H. PharmGKB Disclaimers and Caveats
 
 PharmGKB is a registered service mark of the U.S. Department of Health & Human Services (HHS).

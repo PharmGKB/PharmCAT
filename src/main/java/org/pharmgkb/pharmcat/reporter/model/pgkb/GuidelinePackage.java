@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 
 
@@ -25,8 +26,8 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   @SerializedName("citations")
   private List<Publication> citations = new ArrayList<>();
   @Expose
-  @SerializedName("version")
-  private String m_version;
+  @SerializedName("url")
+  private String url;
 
 
   /**
@@ -46,12 +47,16 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
   public boolean hasRecommendations() {
-    return guideline.isRecommendation() && recommendations != null && recommendations.size() > 0;
+    return guideline.isRecommendation() && recommendations != null && !recommendations.isEmpty();
   }
 
 
   public List<Publication> getCitations() {
     return citations;
+  }
+
+  public String getUrl() {
+    return this.url;
   }
 
   
@@ -68,10 +73,9 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
   }
 
 
-  public String getVersion() {
-    return m_version;
+  public boolean isDataSourceType(PrescribingGuidanceSource type) {
+    return guideline != null && type.matches(guideline);
   }
-
 
   @Override
   public String toString() {

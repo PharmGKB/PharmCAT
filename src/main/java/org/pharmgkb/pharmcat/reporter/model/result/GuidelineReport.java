@@ -12,6 +12,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.RecommendationAnnotation;
 
@@ -26,7 +27,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
 
   @Expose
   @SerializedName("source")
-  private DataSource m_source;
+  private PrescribingGuidanceSource m_source;
   @Expose
   @SerializedName("version")
   private String m_version;
@@ -54,9 +55,9 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   public GuidelineReport(GuidelinePackage guidelinePackage, ReportContext reportContext, String drugName) {
     m_id = guidelinePackage.getGuideline().getId();
     m_name = guidelinePackage.getGuideline().getName();
-    m_source = DataSource.valueOf(guidelinePackage.getGuideline().getSource());
-    m_version = guidelinePackage.getVersion();
-    m_url = guidelinePackage.getGuideline().getUrl();
+    m_source = PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline());
+    m_version = reportContext.getCpicVersion();
+    m_url = guidelinePackage.getUrl();
     initializeGenes(guidelinePackage.getGenes(), reportContext);
     matchAnnotations(guidelinePackage, drugName);
   }
@@ -90,7 +91,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_name;
   }
 
-  public DataSource getSource() {
+  public PrescribingGuidanceSource getSource() {
     return m_source;
   }
 
@@ -137,6 +138,10 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     return m_homozygousComponentHaplotypes;
   }
 
+  public boolean isFda() {
+    return m_source.getPgkbSource() == DataSource.FDA;
+  }
+
 
   private void matchAnnotations(GuidelinePackage guidelinePackage, String drugName) {
     HashMultimap<RecommendationAnnotation, Genotype> matchedGenotypes = HashMultimap.create();
@@ -147,14 +152,14 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
           .filter(rec -> rec.matchesGenotype(genotype))
           .forEach(rec -> matchedGenotypes.put(rec, genotype));
     }
-    if (drugName.equals("warfarin") && m_source == DataSource.CPIC) {
+    if (drugName.equals("warfarin") && m_source == PrescribingGuidanceSource.CPIC_GUIDELINE) {
       AnnotationReport ann = AnnotationReport.forCpicWarfarin(m_recommendationGenotypes);
       m_annotationReports.add(ann);
     }
     for (RecommendationAnnotation recommendationAnnotation : matchedGenotypes.keys()) {
       String id = guidelinePackage.getGuideline().getSource() + "-" + recommendationAnnotation.getId();
       AnnotationReport annotationReport = new AnnotationReport(recommendationAnnotation, id);
-      matchedGenotypes.get(recommendationAnnotation).forEach(g -> annotationReport.addGenotype(g, false));
+      matchedGenotypes.get(recommendationAnnotation).forEach((a) -> annotationReport.addGenotype(a, false));
       annotationReport.checkDiplotypes();
       m_annotationReports.add(annotationReport);
     }

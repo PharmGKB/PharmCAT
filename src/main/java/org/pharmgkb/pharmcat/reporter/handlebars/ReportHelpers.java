@@ -17,8 +17,8 @@ import org.apache.http.util.TextUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
@@ -29,6 +29,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 
 import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
+import static org.pharmgkb.pharmcat.Constants.isVariantGene;
 import static org.pharmgkb.pharmcat.reporter.TextConstants.*;
 
 
@@ -236,19 +237,14 @@ public class ReportHelpers {
   }
 
 
-  public static String rxAnnotationClass(DataSource source, String drug) {
-    StringBuilder builder = new StringBuilder();
-    if (source == DataSource.CPIC) {
-      builder.append("cpic-");
-    } else {
-      builder.append("dpwg-");
-    }
-    builder.append(sanitizeCssSelector(drug));
-    return builder.toString();
+  public static String rxAnnotationClass(PrescribingGuidanceSource source, String drug) {
+    return source.getCodeName() +
+        "-" +
+        sanitizeCssSelector(drug);
   }
 
-  public static boolean rxIsCpicWarfarin(String drug, DataSource source) {
-    return drug.equals("warfarin") && source == DataSource.CPIC;
+  public static boolean rxIsCpicWarfarin(String drug, PrescribingGuidanceSource source) {
+    return drug.equals("warfarin") && source == PrescribingGuidanceSource.CPIC_GUIDELINE;
   }
 
   public static boolean rxDpydInferred(Genotype genotype) {
@@ -431,10 +427,10 @@ public class ReportHelpers {
   public static String amdSubtitle(GeneReport geneReport) {
     StringBuilder builder = new StringBuilder();
 
-    if (isLowestFunctionGene(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().isEmpty()) {
-      builder.append("Haplotype");
+    if (isVariantGene(geneReport.getGene()) && geneReport.getMatcherComponentHaplotypes().isEmpty()) {
+      builder.append("Variant");
     } else {
-      builder.append("Genotype");
+      builder.append("Allele");
     }
     if (geneReport.getSourceDiplotypes().size() > 1) {
       builder.append("s");
@@ -615,13 +611,16 @@ public class ReportHelpers {
   private static final Pattern sf_endsWithPuncuationPattern = Pattern.compile(".*?\\p{Punct}$");
 
   public static String printCitation(Publication pub) {
-    String url = "https://www.ncbi.nlm.nih.gov/pubmed/" + pub.getPmid();
     String period = "";
     if (!sf_endsWithPuncuationPattern.matcher(pub.getTitle()).matches()) {
       period = ".";
     }
-    return externalHref(url, pub.getTitle()) + period + " <i>" + pub.getJournal() + "</i>. " + pub.getYear() +
-        ". PMID:" + pub.getPmid();
+    if (pub.getPmid() != null) {
+      return externalHref(pub.getUrl(), pub.getTitle()) + period + " <i>" + pub.getJournal() + "</i>. " + pub.getYear() +
+          ". PMID:" + pub.getPmid();
+    } else {
+      return externalHref(pub.getUrl(), pub.getTitle()) + period;
+    }
   }
 
   public static String capitalizeNA(String text) {
@@ -658,5 +657,21 @@ public class ReportHelpers {
       return builder.toString();
     }
     return text;
+  }
+
+  public static String populationValue(PrescribingGuidanceSource source, String population) {
+    if (source == PrescribingGuidanceSource.FDA_ASSOC) {
+      return population;
+    } else {
+      return "Population:<br/>" + capitalizeNA(population);
+    }
+  }
+
+  public static String sourceValue(PrescribingGuidanceSource source, String name) {
+    if (source == PrescribingGuidanceSource.FDA_ASSOC) {
+      return name.substring(0, name.indexOf(':'));
+    } else {
+      return source.getDisplayName();
+    }
   }
 }

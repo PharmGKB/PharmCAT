@@ -19,6 +19,7 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
@@ -153,11 +154,11 @@ public class MessageHelper {
    * @param drugReport a {@link DrugReport} to add message annotations to
    * @param reportContext the report context to pull related information from
    */
-  public void addMatchingMessagesTo(DrugReport drugReport, ReportContext reportContext, DataSource source) {
+  public void addMatchingMessagesTo(DrugReport drugReport, ReportContext reportContext, PrescribingGuidanceSource source) {
     Collection<MessageAnnotation> allMessages = m_drugMap.get(drugReport.getName()).stream()
         .filter((ma) -> allowedForSource(ma, source))
         .toList();
-    if (allMessages.size() == 0) {
+    if (allMessages.isEmpty()) {
       return;
     }
     List<MessageAnnotation> reportAsGenotype = new ArrayList<>();
@@ -171,7 +172,7 @@ public class MessageHelper {
       }
     }
 
-    if (reportAsGenotype.size() > 0) {
+    if (!reportAsGenotype.isEmpty()) {
       for (MessageAnnotation msgAnn : reportAsGenotype) {
         String geneSymbol = msgAnn.getMatches().getGene();
         String genotype = null;
@@ -179,7 +180,7 @@ public class MessageHelper {
           if (geneSymbol == null || guidelineReport.getGenes().contains(geneSymbol)) {
             for (AnnotationReport annotationReport : guidelineReport.getAnnotations()) {
               if (genotype == null) {
-                genotype = computeGenotype(msgAnn, reportContext, source);
+                genotype = computeGenotype(msgAnn, reportContext, source.getPhenoSource());
               }
               annotationReport.addHighlightedVariant(genotype);
             }
@@ -189,15 +190,15 @@ public class MessageHelper {
     }
   }
 
-  private boolean allowedForSource(MessageAnnotation messageAnnotation, DataSource source) {
+  private boolean allowedForSource(MessageAnnotation messageAnnotation, PrescribingGuidanceSource source) {
     String key = messageAnnotation.getName();
-    if (key.contains("cpic-") && source != DataSource.CPIC) {
+    if (key.contains("cpic-") && source != PrescribingGuidanceSource.CPIC_GUIDELINE) {
       return false;
     }
-    if (key.contains("dpwg-") && source != DataSource.DPWG) {
+    if (key.contains("dpwg-") && source != PrescribingGuidanceSource.DPWG_GUIDELINE) {
       return false;
     }
-    return true;
+    return !key.contains("fda-") || source == PrescribingGuidanceSource.FDA_LABEL;
   }
 
 
@@ -234,7 +235,7 @@ public class MessageHelper {
    * @return true if the message is a match, false otherwise
    */
   private boolean matchDrugReport(MessageAnnotation message, ReportContext reportContext,
-      DataSource source) {
+      PrescribingGuidanceSource source) {
     String gene = message.getMatches().getGene();
     if (StringUtils.isBlank(gene)) {
       return true;

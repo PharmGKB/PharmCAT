@@ -21,6 +21,7 @@ public class Constants {
    * cannot make a call.
    */
   private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
+  private static final List<String> VARIANT_GENES = List.of("ABCG2", "CACNA1S", "DPYD", "INFL3", "MT-RNR1", "RYR1", "VKORC1");
 
 
   /**
@@ -39,5 +40,15 @@ public class Constants {
    */
   public static boolean isSinglePloidy(String gene) {
     return StringUtils.isNotBlank(gene) && SINGLE_PLOIDY.contains(gene);
+  }
+
+  /**
+   * Are the "alleles" specified for this gene variants (e.g. 1234A>G) instead of haplotypes (e.g. *1, *3)
+   * <p>Note: this data should eventually come from PharmGKB and not be hard-coded</p>
+   * @param geneSymbol a gene symbol
+   * @return true if this genes alleles represent individual variants
+   */
+  public static boolean isVariantGene(String geneSymbol) {
+    return VARIANT_GENES.contains(geneSymbol);
   }
 }

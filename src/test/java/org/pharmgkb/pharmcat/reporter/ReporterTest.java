@@ -17,6 +17,7 @@ import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
@@ -65,7 +66,7 @@ class ReporterTest {
     );
 
     // test that messages were applied for a drug
-    DrugReport warfarinReport = reportContext.getDrugReports().get(DataSource.CPIC).get("warfarin");
+    DrugReport warfarinReport = reportContext.getDrugReports().get(PrescribingGuidanceSource.CPIC_GUIDELINE).get("warfarin");
     assertNotNull(warfarinReport, "Missing warfarin drug report");
     assertEquals(2, warfarinReport.getMessages().size());
     assertEquals(1, warfarinReport.getGuidelines().size());
@@ -74,7 +75,7 @@ class ReporterTest {
     assertEquals(0, guidelineReport.getAnnotations().first().getMessages().size());
 
     // test that recommendations were matched
-    DrugReport desfluraneReport = reportContext.getDrugReport(DataSource.CPIC, "desflurane");
+    DrugReport desfluraneReport = reportContext.getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "desflurane");
     assertNotNull(desfluraneReport);
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }
@@ -95,7 +96,7 @@ class ReporterTest {
     assertNotNull(geneReport.getVariantReports());
 
     // CYP2C9 has 2 activity scores - should have 2 rows (AnnotationReports)
-    DrugReport tenoxicam = reportContext.getDrugReport(DataSource.CPIC, "tenoxicam");
+    DrugReport tenoxicam = reportContext.getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "tenoxicam");
     assertNotNull(tenoxicam);
     assertEquals(1, tenoxicam.getGuidelines().size());
     assertEquals(2, tenoxicam.getGuidelines().first().getAnnotations().size());
@@ -103,7 +104,7 @@ class ReporterTest {
     assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
     // warfarin is a special case - even though CYP2C9 has 2 activity scores, it gets merged into 1 row/AnnotationReport
-    DrugReport warfarin = reportContext.getDrugReport(DataSource.CPIC, "warfarin");
+    DrugReport warfarin = reportContext.getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "warfarin");
     assertNotNull(warfarin);
     assertEquals(1, warfarin.getGuidelines().size());
     assertEquals(1, warfarin.getGuidelines().first().getAnnotations().size());
@@ -113,20 +114,20 @@ class ReporterTest {
     Path reporterOutput = printReport(testInfo, reportContext);
     Document document = Jsoup.parse(reporterOutput.toFile());
     // should have no tags for CPIC
-    Elements tags = document.select(".cpic-warfarin .tag");
+    Elements tags = document.select(".cpic-guideline-warfarin .tag");
     assertEquals(0, tags.size());
     // should have tags for DPWG
-    tags = document.select(".dpwg-warfarin .tag");
+    tags = document.select(".dpwg-guideline-warfarin .tag");
     assertEquals(2, tags.size());
 
-    Elements phenotype = document.select(".cpic-warfarin .rx-phenotype");
+    Elements phenotype = document.select(".cpic-guideline-warfarin .rx-phenotype");
     assertEquals(0, phenotype.size());
-    phenotype = document.select(".dpwg-warfarin .rx-phenotype");
+    phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
     assertEquals(2, phenotype.size());
 
-    Elements activityScore = document.select(".cpic-warfarin .rx-activity");
+    Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
-    activityScore = document.select(".dpwg-warfarin .rx-activity");
+    activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
     assertEquals(1, activityScore.size());
   }
 
@@ -146,7 +147,7 @@ class ReporterTest {
     assertNotNull(geneReport.getVariantReports());
 
     // CYP2C9 has 2 activity scores - should have 2 rows (AnnotationReports)
-    DrugReport tenoxicam = reportContext.getDrugReport(DataSource.CPIC, "tenoxicam");
+    DrugReport tenoxicam = reportContext.getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "tenoxicam");
     assertNotNull(tenoxicam);
     assertEquals(1, tenoxicam.getGuidelines().size());
     assertEquals(2, tenoxicam.getGuidelines().first().getAnnotations().size());
@@ -154,7 +155,7 @@ class ReporterTest {
     assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
     // warfarin is a special case - even though CYP2C9 has 2 phenotypes, it gets merged into 1 row/AnnotationReport
-    DrugReport warfarin = reportContext.getDrugReport(DataSource.CPIC, "warfarin");
+    DrugReport warfarin = reportContext.getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "warfarin");
     assertNotNull(warfarin);
     assertEquals(1, warfarin.getGuidelines().size());
     assertEquals(1, warfarin.getGuidelines().first().getAnnotations().size());
@@ -164,20 +165,20 @@ class ReporterTest {
     Path reporterOutput = printReport(testInfo, reportContext);
     Document document = Jsoup.parse(reporterOutput.toFile());
     // should have no tags for CPIC
-    Elements tags = document.select(".cpic-warfarin .tag");
+    Elements tags = document.select(".cpic-guideline-warfarin .tag");
     assertEquals(0, tags.size());
     // should have tags for DPWG
-    tags = document.select(".dpwg-warfarin .tag");
+    tags = document.select(".dpwg-guideline-warfarin .tag");
     assertEquals(1, tags.size());
 
-    Elements phenotype = document.select(".cpic-warfarin .rx-phenotype");
+    Elements phenotype = document.select(".cpic-guideline-warfarin .rx-phenotype");
     assertEquals(0, phenotype.size());
-    phenotype = document.select(".dpwg-warfarin .rx-phenotype");
+    phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
     assertEquals(1, phenotype.size());
 
-    Elements activityScore = document.select(".cpic-warfarin .rx-activity");
+    Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
-    activityScore = document.select(".dpwg-warfarin .rx-activity");
+    activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
     assertEquals(1, activityScore.size());
   }
 

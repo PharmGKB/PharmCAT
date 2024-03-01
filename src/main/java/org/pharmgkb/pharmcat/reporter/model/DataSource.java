@@ -5,9 +5,9 @@ package org.pharmgkb.pharmcat.reporter.model;
  */
 public enum DataSource {
   CPIC("CPIC", "CPIC"),
-  // NOTE: we want to indicate that the Dutch (DPWG) data comes through PharmGKB annotations so we add it to the display
-  DPWG("PharmGKB-DPWG", "DPWG"),
+  DPWG("DPWG", "DPWG"),
   PHARMGKB("PharmGKB", "PharmGKB"),
+  FDA("FDA", "FDA"),
   UNKNOWN("Unknown", "Unknown");
 
   private final String displayName;

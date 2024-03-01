@@ -28,7 +28,7 @@ import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 
 /**
@@ -69,7 +69,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private Path m_reporterInputFile;
   private String m_reporterTitle;
   private boolean m_reporterCompact;
-  private List<DataSource> m_reporterSources;
+  private List<PrescribingGuidanceSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
   private ReportContext m_reportContext;
@@ -88,7 +88,7 @@ public class Pipeline implements Callable<PipelineResult> {
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable List<Path> phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
-      @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHtml,
+      @Nullable List<PrescribingGuidanceSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHtml,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
       Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
     m_env = env;

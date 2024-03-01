@@ -16,7 +16,7 @@ import com.google.common.base.Splitter;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.CliHelper;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 
 /**
@@ -44,7 +44,7 @@ public class BaseConfig {
   boolean runReporter = true;
   String reporterTitle;
   boolean reporterCompact = true;
-  List<DataSource> reporterSources;
+  List<PrescribingGuidanceSource> reporterSources;
   boolean reporterJson;
   boolean reporterHtml = true;
   Path outputDir;
@@ -97,7 +97,6 @@ public class BaseConfig {
       topCandidateOnly = !cliHelper.hasOption("ma");
 
       if (cliHelper.hasOption("research")) {
-        //noinspection UnstableApiUsage
         List<String> types = sf_commaSplitter.splitToStream(Objects.requireNonNull(cliHelper.getValue("research")))
             .map(String::toLowerCase)
             .collect(Collectors.toList());
@@ -138,7 +137,7 @@ public class BaseConfig {
         reporterSources = new ArrayList<>();
         for (String src : sf_commaSplitter.splitToList(Objects.requireNonNull(cliHelper.getValue("rs")))) {
           try {
-            reporterSources.add(DataSource.valueOf(src.toUpperCase()));
+            reporterSources.add(PrescribingGuidanceSource.valueOf(src));
           } catch (IllegalArgumentException ex) {
             throw new ReportableException("Unknown source: " + src);
           }

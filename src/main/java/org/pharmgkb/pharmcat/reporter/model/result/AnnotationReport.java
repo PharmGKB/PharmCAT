@@ -16,6 +16,7 @@ import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.OntologyTerm;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.RecommendationAnnotation;
 
 
@@ -86,7 +87,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
       m_implications.addAll(recommendation.getImplications());
     }
     m_drugRecommendation = recommendation.getText().getHtmlStripped();
-    m_classification = recommendation.getClassification() != null ? recommendation.getClassification().getTerm() : null;
+    m_classification = normalizeClassification(recommendation.getClassification());
 
     m_population = recommendation.getPopulation();
 
@@ -224,6 +225,13 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         }
       }
     }
+  }
+
+  private static String normalizeClassification(OntologyTerm term) {
+    if (term != null && !TextConstants.isUnspecified(term.getTerm())) {
+      return term.getTerm();
+    }
+    return TextConstants.UNSPECIFIED;
   }
 
 

@@ -12,43 +12,40 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.PrescribingGuidanceDataset;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 public class PgkbGuidelineCollection {
-  private static final Path GUIDELINES_DIR =
-      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/guidelines");
+  private static final Path GUIDANCE_DATA_PATH =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/prescribing_guidance.json");
 
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
   private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create(String::compareToIgnoreCase, Comparator.naturalOrder());
   private SortedSet<String> m_genes;
+  private final String m_version;
 
 
   public PgkbGuidelineCollection() throws IOException {
-    this(GUIDELINES_DIR);
+    this(GUIDANCE_DATA_PATH);
   }
 
-  public PgkbGuidelineCollection(Path dir) throws IOException {
-    List<Path> annotationFiles = new ArrayList<>();
-    try (Stream<Path> stream = Files.list(dir)) { {
-        stream.filter(f -> f.getFileName().toString().endsWith(".json"))
-            .forEach(annotationFiles::add);
-    }}
-    if (annotationFiles.size() == 0) {
-      throw new IOException("Cannot find annotations");
-    }
+  public PgkbGuidelineCollection(Path guidanceDataPath) throws IOException {
+    try (BufferedReader br = Files.newBufferedReader(guidanceDataPath)) {
+      PrescribingGuidanceDataset dataset = DataSerializer.GSON.fromJson(br, PrescribingGuidanceDataset.class);
 
-    for (Path guidelineFile : annotationFiles) {
-      try (BufferedReader br = Files.newBufferedReader(guidelineFile)) {
-        GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(br, GuidelinePackage.class);
-        f_guidelinePackages.add(guidelinePackage);
+      m_version = dataset.getVersion();
+
+      f_guidelinePackages.addAll(dataset.getGuidelinePackages());
+
+      for (GuidelinePackage guidelinePackage : dataset.getGuidelinePackages()) {
         for (AccessionObject chemical : guidelinePackage.getGuideline().getRelatedChemicals()) {
           f_guidelineMap.put(chemical.getName(), guidelinePackage);
         }
@@ -60,9 +57,13 @@ public class PgkbGuidelineCollection {
     return f_guidelinePackages;
   }
 
-  public List<GuidelinePackage> findGuidelinePackages(String chemicalName, DataSource source) {
+  public String getVersion() {
+    return m_version;
+  }
+
+  public List<GuidelinePackage> findGuidelinePackages(String chemicalName, PrescribingGuidanceSource source) {
     return f_guidelineMap.get(chemicalName).stream()
-        .filter(p -> p.getGuideline().getSource().equalsIgnoreCase(source.getPharmgkbName()))
+        .filter(p -> p.isDataSourceType(source))
         .collect(Collectors.toList());
   }
 
@@ -76,10 +77,16 @@ public class PgkbGuidelineCollection {
         .collect(Collectors.toSet());
   }
 
-  public Set<String> getChemicalsUsedInSource(DataSource source) {
+  public Set<GuidelinePackage> getGuidelinesFromSource(PrescribingGuidanceSource source) {
+    return f_guidelineMap.values().stream()
+        .filter(g -> g.isDataSourceType(source))
+        .collect(Collectors.toSet());
+  }
+
+  public Set<String> getChemicalsUsedInSource(PrescribingGuidanceSource source) {
     return f_guidelineMap.values().stream()
         .map(GuidelinePackage::getGuideline)
-        .filter(g -> g.getSource().equalsIgnoreCase(source.getPharmgkbName()))
+        .filter(g -> g.getSource().equalsIgnoreCase(source.getPgkbSource().getPharmgkbName()) && g.getObjCls().equalsIgnoreCase(source.getPgkbObjectType()))
         .flatMap(g -> g.getRelatedChemicals().stream())
         .map(AccessionObject::getName)
         .collect(Collectors.toSet());

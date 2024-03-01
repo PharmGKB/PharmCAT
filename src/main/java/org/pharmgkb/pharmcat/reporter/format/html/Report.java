@@ -5,7 +5,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -21,10 +21,10 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
  */
 public class Report {
   private final String m_id;
-  private final DataSource m_source;
+  private final PrescribingGuidanceSource m_source;
   private final boolean m_matched;
   private final List<String> m_urls;
-  private SortedSet<GuidelineReport> m_guidelines;
+  private final SortedSet<GuidelineReport> m_guidelines;
   private boolean m_notCalled;
   private String m_uncalledGenes;
   private SortedSet<Diplotype> m_unmatchedDiplotypes;
@@ -32,7 +32,7 @@ public class Report {
   private boolean m_unmatchedDpydInferred;
 
 
-  public Report(DataSource source, DrugReport drugReport) {
+  public Report(PrescribingGuidanceSource source, DrugReport drugReport) {
     m_id = drugReport.getId();
     m_source = source;
     m_matched = drugReport.isMatched();
@@ -73,7 +73,7 @@ public class Report {
     return m_id;
   }
 
-  public DataSource getSource() {
+  public PrescribingGuidanceSource getSource() {
     return m_source;
   }
 

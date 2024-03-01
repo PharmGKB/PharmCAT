@@ -30,6 +30,9 @@ public class Publication implements Comparable<Publication> {
   @Expose(serialize = false)
   @SerializedName("crossReferences")
   private List<Map<String, Object>> m_crossReferences;
+  @Expose
+  @SerializedName("_sameAs")
+  private String m_url;
 
 
   public String getPmid() {
@@ -50,6 +53,10 @@ public class Publication implements Comparable<Publication> {
 
   public Long getYear() {
     return m_year;
+  }
+
+  public String getUrl() {
+    return m_url;
   }
 
 

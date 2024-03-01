@@ -14,6 +14,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 import static org.pharmgkb.pharmcat.PipelineTest.*;
 
@@ -174,8 +175,8 @@ class Ryr1Test {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+    testWrapper.testMatchedAnnotations("desflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document,

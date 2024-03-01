@@ -1,18 +1,9 @@
 package org.pharmgkb.pharmcat.reporter.model.pgkb;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
-
-import static org.pharmgkb.pharmcat.reporter.TextConstants.GENOTYPE_DELIMITER;
 
 
 /**
@@ -25,6 +16,9 @@ public class DosingGuideline {
   @Expose
   @SerializedName("name")
   private String name;
+  @Expose
+  @SerializedName("objCls")
+  private String objCls;
   @Expose
   @SerializedName("source")
   private String source;
@@ -55,6 +49,10 @@ public class DosingGuideline {
 
   public String getSource() {
     return source;
+  }
+
+  public String getObjCls() {
+    return objCls;
   }
 
   public Integer getVersion() {

@@ -15,6 +15,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
@@ -94,8 +95,8 @@ class ToxicGenesTest {
     testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
 
     // each gene has its own annotation which means there should be 2 CPIC annotations matched, one for each gene
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+    testWrapper.testMatchedAnnotations("desflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
@@ -346,11 +347,11 @@ class ToxicGenesTest {
 
     testWrapper.testMatchedAnnotations("azathioprine", 2);
     testWrapper.testMatchedAnnotations("mercaptopurine", 2);
-    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("mercaptopurine", DataSource.DPWG);
+    testWrapper.testAnyMatchFromSource("mercaptopurine", PrescribingGuidanceSource.CPIC_GUIDELINE);
+    testWrapper.testAnyMatchFromSource("mercaptopurine", PrescribingGuidanceSource.DPWG_GUIDELINE);
     testWrapper.testMatchedAnnotations("thioguanine", 2);
-    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.CPIC);
-    testWrapper.testAnyMatchFromSource("thioguanine", DataSource.DPWG);
+    testWrapper.testAnyMatchFromSource("thioguanine", PrescribingGuidanceSource.CPIC_GUIDELINE);
+    testWrapper.testAnyMatchFromSource("thioguanine", PrescribingGuidanceSource.DPWG_GUIDELINE);
   }
 
   @Test
@@ -366,13 +367,13 @@ class ToxicGenesTest {
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*2");
     testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*2");
 
-    DrugReport azaReport = testWrapper.getContext().getDrugReport(DataSource.CPIC, "azathioprine");
+    DrugReport azaReport = testWrapper.getContext().getDrugReport(PrescribingGuidanceSource.CPIC_GUIDELINE, "azathioprine");
     assertNotNull(azaReport);
     GuidelineReport azaCpicGuideline = azaReport.getGuidelines().iterator().next();
     List<Genotype> genotypes = Genotype.makeGenotypes(azaCpicGuideline.getGeneReports());
     assertEquals(1, genotypes.size());
 
-    testWrapper.testMatchedAnnotations("azathioprine", 2);
+    testWrapper.testMatchedAnnotations("azathioprine", 4);
   }
 
   @Test
@@ -387,9 +388,9 @@ class ToxicGenesTest {
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*3");
     testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*3");
 
-    testWrapper.testMatchedAnnotations("azathioprine", 2);
-    testWrapper.testMatchedAnnotations("mercaptopurine", 2);
-    testWrapper.testMatchedAnnotations("thioguanine", 2);
+    testWrapper.testMatchedAnnotations("azathioprine", 4);
+    testWrapper.testMatchedAnnotations("mercaptopurine", 4);
+    testWrapper.testMatchedAnnotations("thioguanine", 4);
   }
 
 

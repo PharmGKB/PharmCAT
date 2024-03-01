@@ -10,13 +10,13 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -30,8 +30,6 @@ import org.pharmgkb.pharmcat.util.CliUtils;
  * @author Ryan Whaley
  */
 public class ReportContext {
-  private static final List<DataSource> DRUG_REPORT_SOURCES = ImmutableList.of(DataSource.CPIC, DataSource.DPWG);
-
   @Expose
   @SerializedName("title")
   private final String f_title;
@@ -52,7 +50,7 @@ public class ReportContext {
   private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports;
   @Expose
   @SerializedName("drugs")
-  private final SortedMap<DataSource, SortedMap<String, DrugReport>> m_drugReports = new TreeMap<>();
+  private final SortedMap<PrescribingGuidanceSource, SortedMap<String, DrugReport>> m_drugReports = new TreeMap<>();
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> f_messages = new ArrayList<>();
@@ -70,12 +68,12 @@ public class ReportContext {
     m_cpicVersion = validateVersions(env.getDrugs(), DataSource.CPIC);
     m_dpwgVersion = validateVersions(env.getDrugs(), DataSource.DPWG);
 
-    for (DataSource dataSource : DRUG_REPORT_SOURCES) {
-      Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSource, (s) -> new TreeMap<>());
+    for (PrescribingGuidanceSource dataSourceType : PrescribingGuidanceSource.values()) {
+      Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSourceType, (s) -> new TreeMap<>());
       // go through all drugs, we iterate this way because one guideline may have multiple chemicals/drugs
       for (String drugName : env.getDrugs().getGuidelineMap().keys()) {
-        List<GuidelinePackage> guidelinePackages = env.getDrugs().findGuidelinePackages(drugName, dataSource);
-        if (guidelinePackages != null && guidelinePackages.size() > 0) {
+        List<GuidelinePackage> guidelinePackages = env.getDrugs().findGuidelinePackages(drugName, dataSourceType);
+        if (guidelinePackages != null && !guidelinePackages.isEmpty()) {
           DrugReport newDrugReport = new DrugReport(drugName, guidelinePackages, this);
           drugReports.put(drugName.toLowerCase(), newDrugReport);
         }
@@ -89,7 +87,7 @@ public class ReportContext {
         .flatMap((m) -> m.values().stream())
         .forEach(messageHelper::addMatchingMessagesTo);
     // to drug reports
-    for (DataSource source : m_drugReports.keySet()) {
+    for (PrescribingGuidanceSource source : m_drugReports.keySet()) {
       for (DrugReport drugReport : m_drugReports.get(source).values()) {
         messageHelper.addMatchingMessagesTo(drugReport, this, source);
 
@@ -123,18 +121,15 @@ public class ReportContext {
     }
 
     // check drug data
-    for (GuidelinePackage guidelinePackage : guidelineCollection.getGuidelinePackages()) {
-      // NOTE: CPIC recommendations are pulled from PharmGKB DB, not CPIC DB so their version will not match the allele
-      // definition, so let's exclude the check for CPIC
-      if (dataSource != DataSource.CPIC && guidelinePackage.getGuideline().getSource().equals(dataSource.getPharmgkbName())) {
-        observedVersions.add(guidelinePackage.getVersion());
-      }
+    if (guidelineCollection.getVersion() != null) {
+      observedVersions.add(guidelineCollection.getVersion());
     }
 
     if (observedVersions.isEmpty()) {
       return TextConstants.NA;
     } else {
-      if (observedVersions.size() > 1) {
+      // TODO: the CPIC check is temporary until we stop pulling allele definitions from CPIC and replace it with PharmGKB
+      if (observedVersions.size() > 1 && dataSource != DataSource.CPIC) {
         addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-" + dataSource.getPharmgkbName().toLowerCase() + "-versions",
             "Multiple " + dataSource.getPharmgkbName() + " versions used to generate gene and drug reports: " + observedVersions + "."
         ));
@@ -150,7 +145,7 @@ public class ReportContext {
    *
    * @return a map of {@link DrugReport} objects
    */
-  public Map<DataSource, SortedMap<String, DrugReport>> getDrugReports() {
+  public Map<PrescribingGuidanceSource, SortedMap<String, DrugReport>> getDrugReports() {
     return m_drugReports;
   }
 
@@ -168,8 +163,8 @@ public class ReportContext {
         .toList();
   }
 
-  public @Nullable DrugReport getDrugReport(DataSource source, String drug) {
-    return m_drugReports.get(source).get(drug);
+  public @Nullable DrugReport getDrugReport(PrescribingGuidanceSource type, String drug) {
+    return m_drugReports.get(type).get(drug);
   }
 
   public List<GeneReport> getGeneReports(String gene) {
@@ -181,6 +176,10 @@ public class ReportContext {
 
   public @Nullable GeneReport getGeneReport(DataSource source, String gene) {
     return m_geneReports.get(source).get(gene);
+  }
+
+  public @Nullable GeneReport getGeneReport(PrescribingGuidanceSource source, String gene) {
+    return m_geneReports.get(source.getPhenoSource()).get(gene);
   }
 
   /**
@@ -202,7 +201,7 @@ public class ReportContext {
 
   /**
    * Gets the PharmCAT version tag this context was created with
-   * @return a verstion tag string in the form vX.Y
+   * @return a version tag string in the form vX.Y
    */
   public String getPharmcatVersion() {
     return f_pharmcatVersion;

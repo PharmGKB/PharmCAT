@@ -14,6 +14,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 import static org.pharmgkb.pharmcat.PipelineTest.*;
 
@@ -91,8 +92,8 @@ class Cacna1sTest {
 
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
-    testWrapper.testMatchedAnnotations("enflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+    testWrapper.testMatchedAnnotations("enflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document,
@@ -126,8 +127,8 @@ class Cacna1sTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("desflurane", DataSource.CPIC, 1);
-    testWrapper.testNoMatchFromSource("desflurane", DataSource.DPWG);
+    testWrapper.testMatchedAnnotations("desflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document,

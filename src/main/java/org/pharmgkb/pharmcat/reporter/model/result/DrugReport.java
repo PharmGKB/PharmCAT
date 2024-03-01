@@ -14,8 +14,8 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
@@ -37,7 +37,7 @@ public class DrugReport implements Comparable<DrugReport> {
   private String m_id;
   @Expose
   @SerializedName("source")
-  private DataSource m_source;
+  private PrescribingGuidanceSource m_source;
   @Expose
   @SerializedName("version")
   private String m_version;
@@ -68,12 +68,12 @@ public class DrugReport implements Comparable<DrugReport> {
         .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
             guidelinePackages.get(0).getGuideline().getId() + " is supposed to be related to " + name + " but is not"))
         .getId();
-    m_version = guidelinePackages.stream().map(GuidelinePackage::getVersion).collect(Collectors.joining(", "));
+    m_version = reportContext.getCpicVersion();
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {
-      m_source = DataSource.valueOf(guidelinePackage.getGuideline().getSource());
-      m_urls.add(guidelinePackage.getGuideline().getUrl());
+      m_source = PrescribingGuidanceSource.typeFor(guidelinePackage.getGuideline());
+      m_urls.add(guidelinePackage.getUrl());
       if (guidelinePackage.getCitations() != null) {
         m_citations.addAll(guidelinePackage.getCitations());
       }
@@ -100,7 +100,7 @@ public class DrugReport implements Comparable<DrugReport> {
     return m_id;
   }
 
-  public DataSource getSource() {
+  public PrescribingGuidanceSource getSource() {
     return m_source;
   }
 
@@ -122,7 +122,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public boolean isMatched() {
-    return (m_source == DataSource.CPIC && sf_notApplicableMatches.contains(m_id))
+    return (m_source == PrescribingGuidanceSource.CPIC_GUIDELINE && sf_notApplicableMatches.contains(m_id))
         || m_guidelines.stream().anyMatch(GuidelineReport::isMatched);
   }
 
@@ -185,7 +185,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   public String toString() {
-    return m_drugName;
+    return m_source + ": " + m_drugName;
   }
 
   /**
@@ -201,7 +201,7 @@ public class DrugReport implements Comparable<DrugReport> {
 
   public void addGuideline(GuidelineReport guidelineReport) {
     if (guidelineReport != null) {
-      Preconditions.checkArgument(guidelineReport.getSource() == m_source, "Sources do not match");
+      Preconditions.checkArgument(guidelineReport.getSource().equals(m_source), "Sources do not match");
       m_guidelines.add(guidelineReport);
     }
   }
