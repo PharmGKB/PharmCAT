@@ -860,11 +860,6 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         fields = line.split('\t')
                         input_chr_pos = (fields[0], fields[1])
 
-                        # check whether input is a block gVCF
-                        # this is a backup check - it should already have been checked earlier
-                        if re.search('END', fields[7]):
-                            raise ReportableException('gVCF is not supported')
-
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
                             '''

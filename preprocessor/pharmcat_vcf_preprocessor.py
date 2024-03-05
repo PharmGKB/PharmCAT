@@ -59,6 +59,8 @@ if __name__ == "__main__":
                                 help="(Optional) a path to the bcftools program.  Defaults to bcftools in PATH.")
     advanced_group.add_argument("-bgzip", "--path-to-bgzip", type=str, metavar='</path/to/bgzip>',
                                 help="(Optional) a path to the bgzip program.  Defaults to bgzip in PATH.")
+    advanced_group.add_argument("-G", "--no-gvcf-check", action="store_true",
+                                help="(Optional) do not check whether input is a gVCF, false by default.")
 
     parser.add_argument("-v", "--verbose", action="count", default=0,
                         help="(Optional) print more verbose messages")
@@ -146,11 +148,15 @@ if __name__ == "__main__":
             print("Error: no VCF input")
             sys.exit(1)
 
-        for file in m_vcf_files:
-            if preprocessor.is_gvcf_file(file):
-                print('%s is a gVCF file, which is not currently supported.\n'
-                      'The PharmCAT VCF Preprocessor will support block gVCF in the future.' % str(file))
-                sys.exit(1)
+        # check whether input is a gVCF, which currently does not support yet
+        if args.no_gvcf_check:
+            print('\nBypass the gVCF check.\n')
+        else:
+            for file in m_vcf_files:
+                if preprocessor.is_gvcf_file(file):
+                    print('%s is a gVCF file, which is not currently supported.\n'
+                          'The PharmCAT VCF Preprocessor will support block gVCF in the future.' % str(file))
+                    sys.exit(1)
 
         m_samples: List[str] = []
         if args.sample_file:
