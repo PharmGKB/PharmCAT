@@ -155,7 +155,8 @@ if __name__ == "__main__":
             for file in m_vcf_files:
                 if preprocessor.is_gvcf_file(file):
                     print('%s is a gVCF file, which is not currently supported.\n'
-                          'The PharmCAT VCF Preprocessor will support block gVCF in the future.' % str(file))
+                          'See https://github.com/PharmGKB/PharmCAT/issues/79 for details.\n'
+                          'If this is not a gVCF file, use -G to bypass.' % str(file))
                     sys.exit(1)
 
         m_samples: List[str] = []
