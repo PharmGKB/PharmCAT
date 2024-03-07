@@ -12,7 +12,6 @@ import pandas as pd
 
 import utilities as util
 
-
 if __name__ == "__main__":
     import argparse
 
@@ -26,9 +25,8 @@ if __name__ == "__main__":
                         help="File name or the directory to the PharmCAT JSONs of allele definitions.")
     # input arguments
     parser.add_argument("-m", "--missing",
-                        type=bool,
+                        action='store_true',
                         required=False,
-                        default=False,
                         help="To evaluate diplotypes with missing positions, True or False.")
 
     # output args
@@ -148,6 +146,10 @@ if __name__ == "__main__":
                     print(f'\tSkipping - too complex')
                     continue
 
+                if gene == 'RYR1':
+                    print(f'\tSkipping - not necessary')
+                    continue
+
                 # identify the combinations of missing positions to evaluate
                 hgvs_names = [*allele_defining_variants]
                 missing_combinations = util.find_missingness_combinations(allele_position_array, list(allele_names),
@@ -163,7 +165,7 @@ if __name__ == "__main__":
                     for m in missing_combinations:
                         # find possible calls for each missing position
                         dict_predicted_calls_m = util.predict_pharmcat_calls(allele_defining_variants,
-                                                                             allele_definitions, m)
+                                                                             allele_definitions, gregarious_alleles, m)
 
                         # append to dict_predicted_calls
                         for key in dict_predicted_calls_m:

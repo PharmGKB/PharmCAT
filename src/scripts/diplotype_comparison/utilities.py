@@ -325,7 +325,7 @@ def find_missingness_combinations(allele_array: np.ndarray,
             # get the positions' hgvs names
             p_names: np.ndarray = np.array(hgvs_names)[p_idx]
 
-            # find indices of positions that need to be missing together for an allele to be mistaken as another
+            # find indices of positions that need to be missing together for an allele to be mistaken for another
             u, indices = np.unique(allele_array[:, p_idx], axis=1, return_inverse=True)
             # get the list of missing positions based on indices
             p_to_permute: set[str] = set()
@@ -574,7 +574,6 @@ def find_pairwise_relationship(d1: str, d2: str, g1: np.ndarray, g2: np.ndarray)
 
     # g1 and g2 must have only one True status
     status_sum = sum([status_equivalent, status_included, status_inclusive, status_overlapping])
-    relationship: str = ''
     if status_sum != 1:
         print(f'Something is wrong between {d1} and {d2}.')
         sys.exit(1)
@@ -605,16 +604,6 @@ def find_possible_calls(g1: np.ndarray,
     """
     # check whether g1 shares definitions with any other diplotype definitions
     status_sharing_definitions: np.ndarray = is_sharing_definitions(g1, definition_arrays)
-    # # check whether each of the diplotypes differs from g1
-    # status_discrepant: np.ndarray = is_discrepant(g1, definition_arrays)
-    # # sanity check to make sure no diplotypes can be discrepant but share definitions at the same time
-    # if (status_sharing_definitions == status_discrepant).any():
-    #     print(f'Something went wrong. Some diplotypes are different but also the same at the same time.')
-    #     sys.exit(1)
-    # # continue to the next diplotype if the current one is discrepant from all other diplotypes
-    # if all(status_discrepant):
-    #     print(f'Something went wrong. A diplotype should at least share the allele definition with itself.')
-    #     sys.exit(1)
 
     # get the names of the diplotypes that share definitions with g1
     diplotypes_sharing_definitions: list[str] = [d for d, s in zip(diplotype_names, status_sharing_definitions) if s]
@@ -669,48 +658,57 @@ def find_wobble_subsets(genotypes: np.ndarray, diplotypes: np.ndarray, wobble_su
         return wobble_subsets
 
 
-def find_all_possible_calls(definition_arrays: np.ndarray, diplotype_names: list[str],
-                            possible_call_sets: list[set[str]]) -> list[set[str]]:
+def find_all_possible_calls(definition_arrays: np.ndarray, diplotype_names: np.ndarray[str],
+                            possible_call_sets: set[frozenset[str]]) -> set[frozenset[str]]:
+    """
+    Find all possible call sets given the allele definition arrays
+    :param definition_arrays: a 3D numpy array [diplotypes, genotypes, positions]
+    :param diplotype_names: 1D numpy array of diplotype names for diplotypes in the definition_arrays
+    :param possible_call_sets: a variable containing one or more sets of possible calls to be tested.
+            By default, all diplotypes.
+    :return: a variable containing one or more sets of diplotypes that share the same unphased definition
+    """
     # initialize variables
     n_positions = definition_arrays.shape[2]
-    # initialize an empty list to store the sets of overlapping diplotypes based on the current position
-    current_possible_call_sets: list[set[str]] = []
+    # initialize an empty set as an intermediate variable
+    # to store the sets of overlapping diplotypes based on the current position
+    current_possible_call_sets: set[frozenset[str]] = set()
 
     for idx_position in range(n_positions):
-        # get the total number of possible_call_sets
-        n_combinations = len(possible_call_sets)
+        # extract the diplotype x genotype array at the current position
+        genotype_array = definition_arrays[:, :, idx_position]
+        # find genotypes that define more than one diplotype
+        busy_genotypes = np.where(np.sum(genotype_array, axis=0) > 1)[0]
 
         # update the overlapping diplotype calls based on the current position
-        for i in range(n_combinations):
-            # get the possible calls
-            possible_calls: np.ndarray = np.array(list(possible_call_sets[i]))
-            idx_possible_calls: list[int] = [diplotype_names.index(x) for x in possible_calls]
-            genotypes_of_possible_calls = definition_arrays[idx_possible_calls, :, idx_position]
-
-            # find genotypes that define more than one diplotype
-            busy_genotypes = np.where(np.sum(genotypes_of_possible_calls, axis=0) > 1)[0]
-            if len(busy_genotypes):
-                for idx_genotype in busy_genotypes:
-                    idx_diplotypes = np.unique(np.where(genotypes_of_possible_calls[:, idx_genotype])[0])
-                    current_possible_calls = set(possible_calls[idx_diplotypes])
-                    if current_possible_calls not in current_possible_call_sets:
-                        current_possible_call_sets.append(current_possible_calls)
-
+        if len(busy_genotypes):
+            for idx_genotype in busy_genotypes:
+                # get the indices of diplotypes that are defined by the same genotype
+                idx_diplotypes = np.unique(np.where(genotype_array[:, idx_genotype])[0])
+                # get the diplotype names
+                current_possible_calls = frozenset(diplotype_names[idx_diplotypes])
+                # get the minimal set of diplotypes that are permitted based on both the current and previous positions
+                for previous_possible_calls in possible_call_sets:
+                    possible_calls = previous_possible_calls.intersection(current_possible_calls)
+                    if len(possible_calls) > 1:
+                        current_possible_call_sets.add(possible_calls)
+                    else:
+                        continue
         # update the possible_call_sets
         possible_call_sets = current_possible_call_sets
         # reset current_possible_call_sets
-        current_possible_call_sets = []
+        current_possible_call_sets = set()
 
     # return the summary dictionary of alternative calls for all diplotypes
     return possible_call_sets
 
 
-def find_predicted_calls(possible_call_sets: list[set[str]],
+def find_predicted_calls(possible_call_sets: set[frozenset[str]],
                          diplotype_scores: dict[str, int],
                          missing_positions: list[str] = None) -> dict[list[str], list[str], list[str]]:
     """
     for a diplotype that have alternative calls, find the call with the highest score that PharmCAT will return
-    :param possible_call_sets: (list) sets of possible calls.
+    :param possible_call_sets: sets of possible calls.
         Each set comprises diplotypes with overlapping definitions.
     :param diplotype_scores: dictionary of diplotype scores based on the number of allele-defining positions
     :param missing_positions: list of positions that are presumed missing and not considered in this round of comparison
@@ -721,7 +719,7 @@ def find_predicted_calls(possible_call_sets: list[set[str]],
     """
     # initialize the return dictionary
     predict_calls_cols = ['expected', 'actual', 'alternative', 'missing_positions']
-    predicted_calls: dict = {key: [] for key in predict_calls_cols}
+    predicted_calls: dict[list[str], list[str], list[str]] = {key: [] for key in predict_calls_cols}
 
     # iterate over possible_call_set
     for possible_call_set in possible_call_sets:
@@ -755,7 +753,7 @@ def find_predicted_calls(possible_call_sets: list[set[str]],
 def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, str]],
                            dict_allele_definitions: dict[str, dict[str, set[str]]],
                            alleles_to_test: list[str],
-                           missing_positions: Optional[set[str]] = None) -> dict[list[str], list[str], list[str]]:
+                           missing_positions: Optional[list[str]] = None) -> dict[list[str], list[str], list[str]]:
     # initialize values
     definitions = dict()
     defining_variants = dict()
@@ -797,9 +795,9 @@ def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, st
     # vectorized computation by numpy arrays speeds up diplotype comparison
     diplotype_definition_arrays: np.ndarray = convert_dictionary_to_numpy_array(diplotype_definitions)
     # get diplotype names
-    diplotype_names: list[str] = [*diplotype_definitions]
+    diplotype_names: np.ndarray[str] = np.array([*diplotype_definitions])
     # initialize a possible call sets
-    possible_call_sets: list[set[str]] = [set(diplotype_names)]
+    possible_call_sets: set[frozenset[str]] = {frozenset(diplotype_names)}
     # find possible calls for each diplotype
     possible_call_sets = find_all_possible_calls(diplotype_definition_arrays, diplotype_names, possible_call_sets)
 
@@ -945,11 +943,27 @@ def compare_diplotype_pairs(dict_diplotype_definitions: dict[str, dict[str, set[
     return pairwise_comparison
 
 
-def order_list(list_to_be_ordered: list[str], reference_list: list[str]) -> list[str]:
+def order_alleles_in_a_diplotype(diplotype: str, reference_list: list[str]) -> tuple[bool, str]:
     """
-    order a list based on another list
-    :param list_to_be_ordered:
+    order the alleles in a diplotype based on the reference list
+    :param diplotype: a diplotype whose haplotypes will be ordered
     :param reference_list:
     :return:
     """
-    return [x for x in reference_list if x in list_to_be_ordered]
+    # split the input diplotype into haplotypes
+    unordered_alleles: list[str] = diplotype.split('/')
+
+    # check whether the diplotype has more than two allele after the string split
+    is_diplotype: bool = True if len(unordered_alleles) == 2 else False
+
+    if is_diplotype:
+        # order alleles based on the reference list
+        ordered_alleles: list[str] = [x for x in reference_list if x in unordered_alleles]
+        if len(ordered_alleles) == 1:
+            ordered_diplotype: str = '/'.join(ordered_alleles * 2)
+        else:
+            ordered_diplotype: str = '/'.join(ordered_alleles)
+    else:
+        ordered_diplotype = diplotype
+
+    return is_diplotype, ordered_diplotype
