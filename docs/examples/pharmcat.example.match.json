@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2024-02-15T19:53:52.585Z",
+    "timestamp": "2024-03-11T16:40:18.457Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -2958,7 +2958,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-02-14-21-41",
+      "version": "2024-03-11-09-29",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -5010,7 +5010,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-02-14-21-41",
+      "version": "2024-03-11-09-29",
       "chromosome": "chr1",
       "gene": "F5",
       "diplotypes": [

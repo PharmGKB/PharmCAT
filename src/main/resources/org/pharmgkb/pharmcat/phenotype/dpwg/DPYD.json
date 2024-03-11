@@ -2,6 +2,7 @@
   "gene": "DPYD",
   "haplotypes": {
     "Reference": "1.0",
+    "c.1129-5923C>G": "0.5",
     "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
     "c.1679T>G (*13)": "0.0",
     "c.1905+1G>A (*2A)": "0.0",
@@ -9,6 +10,7 @@
   },
   "activityValues": {
     "Reference": "1.0",
+    "c.1129-5923C>G": "0.5",
     "c.1129-5923C>G, c.1236G>A (HapB3)": "0.5",
     "c.1679T>G (*13)": "0.0",
     "c.1905+1G>A (*2A)": "0.0",
@@ -25,6 +27,18 @@
       },
       "activityScore": null,
       "phenotype": "2.0 (Normal Metabolizer)"
+    },
+    {
+      "generesult": "1.5 (Intermediate Metabolizer)",
+      "diplotype": "Reference/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.5 (Intermediate Metabolizer)",
+      "diplotypekey": {
+        "Reference": 1,
+        "c.1129-5923C>G": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.5 (Intermediate Metabolizer)"
     },
     {
       "generesult": "1.5 (Intermediate Metabolizer)",
@@ -73,6 +87,65 @@
       },
       "activityScore": null,
       "phenotype": "1.5 (Intermediate Metabolizer)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G/c.1129-5923C>G",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G": 2
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1129-5923C>G, c.1236G>A (HapB3)": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G/c.1679T>G (*13)",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1679T>G (*13)": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "0.5 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G/c.1905+1G>A (*2A)",
+      "description": null,
+      "lookupkey": "0.5 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.1905+1G>A (*2A)": 1
+      },
+      "activityScore": null,
+      "phenotype": "0.5 (Phenotyping)"
+    },
+    {
+      "generesult": "1.0 (Phenotyping)",
+      "diplotype": "c.1129-5923C>G/c.2846A>T",
+      "description": null,
+      "lookupkey": "1.0 (Phenotyping)",
+      "diplotypekey": {
+        "c.1129-5923C>G": 1,
+        "c.2846A>T": 1
+      },
+      "activityScore": null,
+      "phenotype": "1.0 (Phenotyping)"
     },
     {
       "generesult": "1.0 (Phenotyping)",
@@ -199,6 +272,12 @@
       "lookupKey": "1.0"
     },
     {
+      "name": "c.1129-5923C>G",
+      "activityValue": "0.5",
+      "functionValue": "Decreased function",
+      "lookupKey": "0.5"
+    },
+    {
       "name": "c.1129-5923C>G, c.1236G>A (HapB3)",
       "activityValue": "0.5",
       "functionValue": "Decreased function",
@@ -223,5 +302,5 @@
       "lookupKey": "0.5"
     }
   ],
-  "version": "2024-02-14-21-41"
+  "version": "2024-03-11-09-29"
 }

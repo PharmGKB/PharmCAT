@@ -3,7 +3,7 @@
     "id": "PA166104996",
     "name": "Annotation of CPIC Guideline for codeine and CYP2D6",
     "source": "CPIC",
-    "version": 65,
+    "version": 66,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104996",
     "relatedChemicals": [
       {
@@ -755,5 +755,5 @@
       "year": 2012
     }
   ],
-  "version": "2024-02-14-21-41"
+  "version": "2024-03-11-09-29"
 }
