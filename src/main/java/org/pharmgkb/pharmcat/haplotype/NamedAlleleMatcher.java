@@ -580,9 +580,10 @@ public class NamedAlleleMatcher {
     String gene = "DPYD";
     DefinitionExemption exemption = m_definitionReader.getExemption(gene);
     SortedSet<VariantLocus> extraPositions = null;
-    // remove HapB3
+    // remove HapB3 and HapB3Intron
     SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene).stream()
-        .filter(a -> !a.getName().equals(DpydHapB3Matcher.HAPB3_ALLELE))
+        .filter(a -> !a.getName().equals(DpydHapB3Matcher.HAPB3_ALLELE) &&
+            !a.getName().equals(DpydHapB3Matcher.HAPB3_INTRONIC_ALLELE))
         .collect(Collectors.toCollection(TreeSet::new));
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
     SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
@@ -599,7 +600,7 @@ public class NamedAlleleMatcher {
       }
     }
 
-    // grab SampleAlleles for all positions related to current gene
+    // grab SampleAlleles for all positions related to the current gene
     MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
     if (data.getNumSampleAlleles() == 0) {
       return data;

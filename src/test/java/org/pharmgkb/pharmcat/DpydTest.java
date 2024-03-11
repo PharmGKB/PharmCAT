@@ -754,7 +754,7 @@ class DpydTest {
       int row = 3;
       while ((line = reader.readLine()) != null) {
         row += 1;
-        if (row != 97) {
+        if (row < 99) {
           //continue;
         }
         String name = "row_" + row;
@@ -890,9 +890,18 @@ class DpydTest {
           .anyMatch(ma -> ma.getName().equals(warning)), "Should have warnings, but found none");
       assertEquals(1, dpydSection.getElementsByClass(warning).size());
     } else {
-      assertFalse(cpicGeneReport.getMessages().stream()
-          .anyMatch(ma -> ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
-              ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)));
+      List<String> warnings = cpicGeneReport.getMessages().stream()
+          .map(ma -> {
+            if (ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
+                ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)) {
+              return ma.getName();
+            }
+            return null;
+          })
+          .filter(Objects::nonNull)
+          .toList();
+
+      assertTrue(warnings.isEmpty(), "Expected no warnings, found " + String.join(", ", warnings));
       assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY).size());
       assertEquals(0, dpydSection.getElementsByClass(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC).size());
     }
@@ -909,7 +918,9 @@ class DpydTest {
         .map(a -> StringUtils.stripToEmpty(a)
             .replaceAll("(\\S)\\+(\\S)", "$1 + $2")
             .replaceAll("ref", "Reference")
-            .replaceAll("HapB3", DpydHapB3Matcher.HAPB3_ALLELE)).toList();
+            .replaceAll("HapB3Intron", DpydHapB3Matcher.HAPB3_INTRONIC_ALLELE)
+            .replaceAll("HapB3", DpydHapB3Matcher.HAPB3_ALLELE))
+        .toList();
   }
 
 

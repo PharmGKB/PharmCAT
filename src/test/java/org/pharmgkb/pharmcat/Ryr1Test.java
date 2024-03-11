@@ -256,6 +256,33 @@ class Ryr1Test {
   }
 
   /**
+   * Test a missing CACNA1S gene with 1 RYR1 het calls and 1 hom call.
+   */
+  @Test
+  void cacna1sMissing_ryr1Het1Hom1(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false, false, false);
+    testWrapper.getVcfBuilder()
+        .reference("RYR1")
+        .variation("RYR1", "rs193922746", "A", "G") // c.97A>G - malignant
+        .variation("RYR1", "rs142474192", "A", "A")  // c.418G>A
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testNotCalledByMatcher("CACNA1S");
+    testWrapper.testCalledByMatcher("RYR1");
+
+    List<String> ryr1ExpectedCalls = List.of("c.418G>A/[c.97A>G + c.418G>A]");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of("c.97A>G", "c.418G>A"));
+
+    Document document = readHtmlReport(vcfFile);
+    SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();
+    expectedCallsMap.put("CACNA1S", NO_DATA);
+    expectedCallsMap.put("RYR1", ryr1ExpectedCalls);
+    htmlChecks(document, expectedCallsMap, "enflurane", RecPresence.YES, RecPresence.NO);
+  }
+
+  /**
    * Test a missing CACNA1S gene with 2 RYR1 het calls and 1 hom call.
    */
   @Test

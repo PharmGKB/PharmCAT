@@ -1554,7 +1554,7 @@
       "drugs": []
     },
     "exception_type": "",
-    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP at rs75017182.  HapB3’s decreased function is thought to be due to the rs75017182 (intron) SNP. This genotype was assigned based on the rs56038477 (exon) SNP alone since the rs75017182 (intron) SNP is missing from the VCF input file. The rs75017182 (intron) SNP should be genotyped to confirm the presence or absence of HapB3 and decreased function."
+    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP (c.1129-5923C>G) at rs75017182.  HapB3’s decreased function is thought to be due to the intronic SNP. This genotype was assigned based on the rs56038477 (exon) SNP alone since the rs75017182 (intron) SNP is missing from the VCF input file. The rs75017182 (intron) SNP should be genotyped to confirm the presence or absence of HapB3 and decreased function."
   },
   {
     "rule_name": "pcat-dpyd-hapB3-intronic-mismatch-exonic",
@@ -1569,6 +1569,6 @@
       "drugs": []
     },
     "exception_type": "",
-    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP at rs75017182.  HapB3’s decreased function is thought to be due to the rs75017182 (intron) SNP. This genotype was assigned based on the rs75017182 (intron) SNP alone because the rs56038477 (exon) SNP conflicts with the rs75017182 (intron) SNP in the VCF input file."
+    "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP (c.1129-5923C>G) at rs75017182.  HapB3’s decreased function is thought to be due to the intronic SNP. This genotype was assigned based on the c.1129-5923C>G (intron) SNP alone because the VCF input for the exon SNP is either missing or conflicts with the intron SNP."
   }
 ]

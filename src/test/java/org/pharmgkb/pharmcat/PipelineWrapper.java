@@ -309,7 +309,7 @@ class PipelineWrapper {
 
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
             .anyMatch(d -> DiplotypeTest.computeLookupMap(d).equals(lookup)),
-        "Lookup key " + lookup + " not found in lookup " +
+        "EXPECTED: " + lookup + " -- ACTUAL: " +
             geneReport.getRecommendationDiplotypes().stream().map(DiplotypeTest::computeLookupMap).toList());
   }
 

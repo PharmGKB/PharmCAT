@@ -26,12 +26,16 @@ import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 public class DpydHapB3Matcher {
   private static final String sf_gene = "DPYD";
   public static final String HAPB3_ALLELE = "c.1129-5923C>G, c.1236G>A (HapB3)";
+  public static final String HAPB3_INTRONIC_ALLELE = "c.1129-5923C>G";
   public static final String HAPB3_EXONIC_RSID = "rs56038477";
   public static final String HAPB3_INTRONIC_RSID = "rs75017182";
 
   private final SortedMap<String, SampleAllele> m_alleleMap;
   private final boolean m_isMissingHapB3;
+  private List<String> m_hapB3IntronCall;
   private List<String> m_hapB3Call;
+  private final boolean m_isHapB3Present;
+  private int m_numHapB3Called;
   private MessageAnnotation m_warning;
 
 
@@ -63,40 +67,101 @@ public class DpydHapB3Matcher {
     } else {
       m_isMissingHapB3 = false;
       if (hapB3IntronSample != null) {
-        m_hapB3Call = callHapB3(hapB3Allele, hapB3IntronLocus, hapB3IntronSample);
+        List<String> intronicHapB3 = callHapB3(hapB3Allele, hapB3IntronLocus, hapB3IntronSample);
 
-        if (hapB3ExonSample != null) {
-          if (m_hapB3Call.size() == 2) {
-            List<String> exonicHapB3 = callHapB3(hapB3Allele, hapB3ExonLocus, hapB3ExonSample);
-            if (!m_hapB3Call.contains("1")) {
-              if (exonicHapB3.contains("1")) {
-                m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
-              }
-            } else {
-              if (exonicHapB3.size() == 2) {
-                if (isEffectivelyPhased) {
-                  if (!(m_hapB3Call.get(0).equals(exonicHapB3.get(0)) && m_hapB3Call.get(1).equals(exonicHapB3.get(1)))) {
-                    m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
+        if (hapB3ExonSample == null) {
+          m_hapB3IntronCall = intronicHapB3;
+        } else {
+          // we have both intron and exon variants
+          List<String> exonicHapB3 = callHapB3(hapB3Allele, hapB3ExonLocus, hapB3ExonSample);
+
+          if (intronicHapB3.isEmpty()) {
+            m_hapB3Call = exonicHapB3;
+            if (!exonicHapB3.isEmpty()) {
+              m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
+            }
+          } else if (intronicHapB3.size() == 1) {
+            // ignore this case
+          } else if (intronicHapB3.size() == 2) {
+            if (exonicHapB3.isEmpty()) {
+              m_hapB3IntronCall = intronicHapB3;
+            } else if (exonicHapB3.size() == 1) {
+              // ignore this case
+            } else if (exonicHapB3.size() == 2) {
+              m_hapB3IntronCall = new ArrayList<>();
+              m_hapB3Call = new ArrayList<>();
+              if (isEffectivelyPhased) {
+                handlePhasedCall(env, intronicHapB3.get(0), exonicHapB3.get(0));
+                handlePhasedCall(env, intronicHapB3.get(1), exonicHapB3.get(1));
+              } else {
+                long numIntrons = intronicHapB3.stream().filter(c -> c.equals("1")).count();
+                long numExons = exonicHapB3.stream().filter(c -> c.equals("1")).count();
+
+                if (numIntrons == numExons) {
+                  for (int x = 0; x < numIntrons; x += 1) {
+                    m_hapB3Call.add("1");
+                  }
+                } else if (numIntrons > numExons) {
+                  // 2 intron, 1 exon
+                  // 2 intron, 0 exon
+                  // 1 intron, 0 exon
+                  m_hapB3IntronCall.add("1");
+                  if (numExons == 1) {
+                    m_hapB3Call.add("1");
+                  } else if (numIntrons == 2) {
+                    m_hapB3IntronCall.add("1");
                   }
                 } else {
-                  if (m_hapB3Call.stream().filter(x -> x.equals("1")).count() !=
-                      exonicHapB3.stream().filter(x -> x.equals("1")).count()) {
+                  // intronic call trumps exonic call
+                  if (numIntrons == 1) {
+                    // 2 exons, 1 intron - call ref/hapB3
+                    m_hapB3Call.add("1");
+                    m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
+                  } else {
+                    // 1 exon, 0 intron - call reference
+                    // 2 exon, 0 intron - call reference
                     m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
                   }
                 }
-              } else {
-                m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
               }
             }
           }
         }
       } else {
         m_hapB3Call = callHapB3(hapB3Allele, hapB3ExonLocus, hapB3ExonSample);
-        m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY);
+        if (m_hapB3Call.size() == 2) {
+          m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY);
+        }
+      }
+    }
+
+    if (m_hapB3IntronCall != null) {
+      m_numHapB3Called += (int)m_hapB3IntronCall.stream().filter(c -> c.equals("1")).count();
+    }
+    if (m_hapB3Call != null) {
+      m_numHapB3Called += (int)m_hapB3Call.stream().filter(c -> c.equals("1")).count();
+    }
+    m_isHapB3Present = m_numHapB3Called > 0;
+  }
+
+  private void handlePhasedCall(Env env, String intronicCall, String exonicCall) {
+    // intronic call trumps exonic call
+    if (intronicCall.equals("0")) {
+      m_hapB3IntronCall.add("0");
+      m_hapB3Call.add("0");
+      if (!exonicCall.equals("0")) {
+        m_warning = env.getMessage(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC);
+      }
+    } else {
+      if (exonicCall.equals("0")) {
+        m_hapB3IntronCall.add("1");
+        m_hapB3Call.add("0");
+      } else {
+        m_hapB3IntronCall.add("0");
+        m_hapB3Call.add("1");
       }
     }
   }
-
 
   /**
    * Calls HapB3 using a single {@link VariantLocus}.
@@ -107,9 +172,15 @@ public class DpydHapB3Matcher {
     rez.add(exonAllele.equals(sampleAllele.getAllele1()) ? "1" : "0");
     if (sampleAllele.getAllele2() != null) {
       rez.add(exonAllele.equals(sampleAllele.getAllele2()) ? "1" : "0");
+    } else {
+      // this warning can get overwritten!
+      // but we don't really care
+      m_warning = new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "warn.alleleCount",
+          "Only found 1 allele for " + locus.getRsid());
     }
     return rez;
   }
+
 
   public static boolean isHapB3Rsid(String rsid) {
     return HAPB3_EXONIC_RSID.equals(rsid) || HAPB3_INTRONIC_RSID.equals(rsid);
@@ -124,33 +195,41 @@ public class DpydHapB3Matcher {
   }
 
   /**
-   * Gets whether HapB3 named allele is called.
+   * Gets whether HapB3 (or HapB3 intron) named allele is called.
    */
   public boolean isHapB3Present() {
-    return m_hapB3Call != null && m_hapB3Call.size() == 2 && m_hapB3Call.contains("1");
+    return m_isHapB3Present;
   }
 
 
   public int getNumHapB3Called() {
-    if (m_hapB3Call == null) {
-      return 0;
-    }
-    return (int)m_hapB3Call.stream()
-        .filter(c -> c.equals("1"))
-        .count();
+    return m_numHapB3Called;
   }
 
+  /**
+   * Generate {@code HaplotypeMatch}es for unphased data.
+   */
   public List<HaplotypeMatch> buildHapB3HaplotypeMatches(MatchData matchData) {
-    return m_hapB3Call.stream()
-        .filter(c -> c.equals("1"))
-        .map(c -> new HaplotypeMatch(findHapB3(matchData)))
-        .toList();
+    List<HaplotypeMatch> matches = new ArrayList<>();
+    if (m_hapB3Call != null) {
+      matches.addAll(m_hapB3Call.stream()
+            .filter(c -> c.equals("1"))
+            .map(c -> new HaplotypeMatch(findHapB3Allele(matchData, HAPB3_ALLELE)))
+            .toList());
+    }
+    if (m_hapB3IntronCall != null) {
+      matches.addAll(m_hapB3IntronCall.stream()
+          .filter(c -> c.equals("1"))
+          .map(c -> new HaplotypeMatch(findHapB3Allele(matchData, HAPB3_INTRONIC_ALLELE)))
+          .toList());
+    }
+    return matches;
   }
 
 
   public List<DiplotypeMatch> mergePhasedDiplotypeMatch(MatchData matchData, List<DiplotypeMatch> diplotypeMatches) {
 
-    if (!isHapB3Present()) {
+    if (!m_isHapB3Present) {
       return diplotypeMatches;
     }
     if (diplotypeMatches.size() > 1) {
@@ -165,15 +244,15 @@ public class DpydHapB3Matcher {
     BaseMatch h1 = dm.getHaplotype1();
     BaseMatch h2 = dm.getHaplotype2();
 
-    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || getNumHapB3Called() == 2) {
-      Collections.sort(m_hapB3Call);
-      if (h1 == h2 && h2 instanceof CombinationMatch && getNumHapB3Called() == 1) {
+    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || m_numHapB3Called == 2) {
+      // homozygous
+      if (h1 == h2 && h2 instanceof CombinationMatch && m_numHapB3Called == 1) {
         // NamedAlleleMatcherTest.testDpydPhasedDouble tests this code path
         h2 = new CombinationMatch((CombinationMatch)h2);
       }
       return List.of(new DiplotypeMatch(
-          updateHapB3Haplotype(matchData, h1, m_hapB3Call.get(0)),
-          updateHapB3Haplotype(matchData, h2, m_hapB3Call.get(1)),
+          updateHapB3Haplotype(matchData, h1, 0),
+          updateHapB3Haplotype(matchData, h2, 1),
           matchData
       ));
     }
@@ -200,10 +279,13 @@ public class DpydHapB3Matcher {
     throw new IllegalStateException("STRAND MISMATCH 2");
   }
 
+  /**
+   * Build {@link DiplotypeMatch} for phased data.
+   */
   private List<DiplotypeMatch> buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
     return List.of(new DiplotypeMatch(
-        updateHapB3Haplotype(matchData, h1, m_hapB3Call.get(0)),
-        updateHapB3Haplotype(matchData, h2, m_hapB3Call.get(1)),
+        updateHapB3Haplotype(matchData, h1, 0),
+        updateHapB3Haplotype(matchData, h2, 1),
         matchData));
   }
 
@@ -243,8 +325,13 @@ public class DpydHapB3Matcher {
     return match;
   }
 
-  private BaseMatch updateHapB3Haplotype(MatchData matchData, BaseMatch bm, String isHapB3) {
-    if (isHapB3.equals("0")) {
+  private BaseMatch updateHapB3Haplotype(MatchData matchData, BaseMatch bm, int alleleIndex) {
+    String alleleName;
+    if (m_hapB3Call != null && m_hapB3Call.get(alleleIndex).equals("1")) {
+      alleleName = HAPB3_ALLELE;
+    } else if (m_hapB3IntronCall != null && m_hapB3IntronCall.get(alleleIndex).equals("1")) {
+      alleleName = HAPB3_INTRONIC_ALLELE;
+    } else {
       return bm;
     }
 
@@ -252,7 +339,7 @@ public class DpydHapB3Matcher {
       throw new IllegalStateException("Phased DPYD match should only have 1 sequence");
     }
 
-    NamedAllele hapB3 = findHapB3(matchData);
+    NamedAllele hapB3 = findHapB3Allele(matchData, alleleName);
     if (bm instanceof CombinationMatch) {
       CombinationMatch cm = null;
       for (NamedAllele c : ((CombinationMatch)bm).getComponentHaplotypes()) {
@@ -277,18 +364,18 @@ public class DpydHapB3Matcher {
         .filter(h -> h.getName().equals(hm.getName()))
         .findAny()
         .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + hm.getName() + "'"));
-    // warning: sequence will not match haplotype because sequence won't have HapB3 positions
+    // warning: the sequence will not match haplotype because the sequence won't have HapB3 positions
     CombinationMatch cm = new CombinationMatch(matchData.getPositions(), hap, hm.getSequences().first());
     cm.merge(hapB3);
     return cm;
   }
 
 
-  private NamedAllele findHapB3(MatchData matchData) {
+  private NamedAllele findHapB3Allele(MatchData matchData, String name) {
     return matchData.getHaplotypes().stream()
-        .filter(na -> na.getName().equals(HAPB3_ALLELE))
+        .filter(na -> na.getName().equals(name))
         .findAny()
-        .orElseThrow(() -> new IllegalStateException("DPYD definition is missing HapB3 allele (" + HAPB3_ALLELE + ")"));
+        .orElseThrow(() -> new IllegalStateException("DPYD definition is missing HapB3 allele (" + name + ")"));
   }
 
 
