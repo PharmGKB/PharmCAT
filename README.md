@@ -4,7 +4,7 @@
 [![Preprocessor CI](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml)
 [![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=development)
 
-A tool to extract all [CPIC](https://cpicpgx.org) guideline gene variants from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, and generate a report.
+A tool to extract variants of pharmacogenomic interest from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, match to defined named alleles, find related prescribing guidance, and generate reports in various formats.
 
 For more details:
 
