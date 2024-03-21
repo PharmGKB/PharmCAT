@@ -1,7 +1,7 @@
 ---
 title: FAQs
 permalink: faqs/
-nav_order: 6
+nav_order: 7
 ---
 # Frequently Asked Questions
 {: .no_toc }
@@ -44,6 +44,15 @@ No, PharmCAT does not copy or transmit any user-input data (i.e. input VCFs or o
 ### Does PharmCAT read genotype dosage data in a VCF?
 
 No, PharmCAT only considers the information as stated in the [VCF Requirements](/using/VCF-Requirements) section. Genotype dosage refers to the posterior probability of allele counts as a result of imputation. Genotype dosage can take any value between 0 and 2, such as 1.05. It is often stored in a separate genotype field other than _GT_ and requires the user to pick a numeric threshold to determine the specific allele counts at a position.
+
+### What VCF fields does PharmCAT use?
+
+Please see the [VCF requirements](/using/VCF-Requirements.md) for the specific VCF fields used by PharmCAT. 
+
+When an optional _FORMAT/AD_ field is present in a VCF file, PharmCAT will perform a quality assurance check on whether _FORMAT/GT_ and _FORMAT/GT_ agree with each other. The check was added to PharmCAT to address a [reported issue](https://github.com/PharmGKB/PharmCAT/issues/90) where _FORMAT/GT_ and _FORMAT/AD_ were discrepant from each other and confused PharmCAT.
+
+The VCF Preprocessor uses the _INFO/END_ field to recognize gVCF, a file format that is yet to be supported. As the [VCF specs v4.4](https://samtools.github.io/hts-specs/) states: "_END: End reference position (1-based), indicating the variant spans positions POS–END on reference/contig CHROM. Normally this is the position of the last base in the REF allele... and no END INFO field is needed. However when symbolic alleles are used, e.g. in gVCF or structural variants, an explicit END INFO field provides variant span information that is otherwise unknown._" If your file is indeed a VCF, you can strip out the _INFO/END_ or other fields that PharmCAT does not require.
+
 
 ## Running PharmCAT
 
