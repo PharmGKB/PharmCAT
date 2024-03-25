@@ -61,8 +61,8 @@ Note: the `combinations` research flag is ignored when calling DPYD.
 #### Phased or effectively phased data
 
 If phased or effectively phased data is provided in the VCF file, the `Named Allele Matcher` produces an output that
-lists all detected variants per allele. For example: `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]`. If no variants
-are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
+lists all detected variants per strand. For example: `[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]`.
+If no variants are found on a strand, the `Named Allele Matcher` returns `Reference` for that allele.
 
 #### Unphased data
 
@@ -149,11 +149,12 @@ is currently excluded from the _G6PD_ allele definitions in PharmCAT.
 
 ## RYR1
 
-In December 2023, CPIC has added additional variants to align with the ClinGen malignant hyperthermia susceptibility
-(MHS) variant curation expert panel (VCEP) developed and published recommendations for RYR1 pathogenicity
-classifications in malignant hyperthermia susceptibility. Pathogenic and likely pathogenic variants are assigned a CPIC
-function of Malignant Hyperthermia associated, variants of uncertain significance (VUS) are mapped to uncertain
-function, and benign and likely benign variants are assigned normal function.
+In December 2023, [CPIC](https://www.pharmgkb.org/guidelineAnnotation/PA166303941) added additional variants to align
+with the ClinGen malignant hyperthermia susceptibility (MHS) variant curation expert panel (VCEP), which developed and
+published recommendations for RYR1 pathogenicity classifications in malignant hyperthermia susceptibility.
+Pathogenic and likely pathogenic variants are assigned a CPIC function of Malignant Hyperthermia associated,
+variants of uncertain significance (VUS) are mapped to uncertain function, and benign and likely benign variants are
+assigned normal function.
 
 RYR1 phenotypes are determined based on the function combinations of two RYR1 variants. In case >2 variants are found,
 the variants with Malignant Hyperthermia associated function should be used first. If 2 Malignant Hyperthermia
@@ -172,8 +173,8 @@ Note: the `combinations` research flag is ignored when calling RYR1.
 #### Phased or effectively phased data
 
 If phased or effectively phased data is provided in the VCF file, the `Named Allele Matcher` produces an output that
-lists all detected variants per allele. For example: `[c.97A>G + c.103T>C]/[c.418G>A + c.14918C>T]`. If no variants
-are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
+lists all detected variants per strand. For example: `[c.97A>G + c.103T>C]/[c.418G>A + c.14918C>T]`.
+If no variants are found on an allele, the `Named Allele Matcher` returns `Reference` for that allele.
 
 #### Unphased data
 
@@ -189,8 +190,8 @@ omitted from the VCF file, the `Named Allele Matcher` returns `Reference`.
 The report lists the respective allele functionality for each variant and for `Reference`. If a diplotype was called
 from phased/all-homozygous data, PharmCAT determines if variants assigned the function
 "_Malignant Hyperthermia associated_" are present, and those variants are used to assign the phenotype. Similarly, for
-unphased data variants assigned "_Malignant Hyperthermia associated_" function are used to determine the
-"_Malignant Hyperthermia susceptible_" phenotype. The phenotype is utilized to retrieve the corresponding drug
+unphased data, variants assigned "_Malignant Hyperthermia associated_" function are used to determine the
+"_Malignant Hyperthermia susceptible_" phenotype. The phenotype is used to retrieve the corresponding drug
 recommendations.
 
 
