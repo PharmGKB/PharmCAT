@@ -1,3 +1,34 @@
+## [2.10.0](https://github.com/PharmGKB/PharmCAT/compare/v2.9.0...v2.10.0) (2024-3-25)
+
+
+### Features
+
+* **data:** update to CPIC v1.38 and latest PharmVar ([560bdb8](https://github.com/PharmGKB/PharmCAT/commit/560bdb870ae50b842fdd58dcdd7f4d7ada636b86))
+* **pharmcat:** report RYR1 using lowest-function gene algorithm ([596058a](https://github.com/PharmGKB/PharmCAT/commit/596058a70a013b5da2b80c689c15e6cc7f3b8a6e))
+* **preprocessor:** an option to not perform a gVCF check ([209f68f](https://github.com/PharmGKB/PharmCAT/commit/209f68f0ddf35a57733c73023d560d2ffa61a9ca)), closes [#174](https://github.com/PharmGKB/PharmCAT/issues/174)
+
+
+### Bug Fixes
+
+* **data:** update data ([984c73a](https://github.com/PharmGKB/PharmCAT/commit/984c73ab32583af2464c9927e434860034d175d5))
+* **namedallelematcher:** update DPYD HapB3 support for HapB3 intronic allele ([b32b4ae](https://github.com/PharmGKB/PharmCAT/commit/b32b4ae63f47cf33b728fb99bf3c4db92b749010))
+* **preprocessor:** improve message for gVCF ([2d4da7d](https://github.com/PharmGKB/PharmCAT/commit/2d4da7d9ff0e2113e28d79178748815abef715f5)), closes [#174](https://github.com/PharmGKB/PharmCAT/issues/174)
+* **reporter:** add check for multiple conflicting phenotype/activity values ([b9b1cd1](https://github.com/PharmGKB/PharmCAT/commit/b9b1cd13de5bd79f9dd04fe16371e0631fadeb98))
+* **reporter:** fix edge-case for outside calls of AS genes that only specify phenotype and not score ([1321518](https://github.com/PharmGKB/PharmCAT/commit/1321518db04175974cd813d719cb16979e7135b2))
+* **reporter:** fix genotype display when no genotype is provided in outside call ([1be5c6d](https://github.com/PharmGKB/PharmCAT/commit/1be5c6d903599267092dd76e05c8901fc44eee08))
+* **reporter:** fix missing phenotype and activity score in drug section of HTML report ([e3f1029](https://github.com/PharmGKB/PharmCAT/commit/e3f1029e194344c26d6e0871cb25be27ce9bb607))
+* **reporter:** standardize naming ([29e3900](https://github.com/PharmGKB/PharmCAT/commit/29e3900c00fe4af07e9beb175b55bfe245e5252e))
+
+
+### Performance Improvements
+
+* **diplotype-comparator:** reduce runtime ([d17ca4a](https://github.com/PharmGKB/PharmCAT/commit/d17ca4a829a639271015fa13136f5be9ede624b8))
+
+
+### Reverts
+
+* revert message annotation update ([6cf0e3b](https://github.com/PharmGKB/PharmCAT/commit/6cf0e3baadcad8df4b26483a0b27458b4394dea6))
+
 ## [2.9.0](https://github.com/PharmGKB/PharmCAT/compare/v2.8.3...v2.9.0) (2024-1-17)
 
 
