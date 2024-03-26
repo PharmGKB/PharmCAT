@@ -3,7 +3,7 @@
     "id": "PA166182810",
     "name": "Annotation of DPWG Guideline for flucloxacillin and HLA-B",
     "source": "DPWG",
-    "version": 12,
+    "version": 13,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182810",
     "relatedChemicals": [
       {
@@ -53,5 +53,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

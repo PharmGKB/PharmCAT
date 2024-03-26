@@ -3,7 +3,7 @@
     "id": "PA166104976",
     "name": "Annotation of DPWG Guideline for paroxetine and CYP2D6",
     "source": "DPWG",
-    "version": 34,
+    "version": 35,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104976",
     "relatedChemicals": [
       {
@@ -592,5 +592,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

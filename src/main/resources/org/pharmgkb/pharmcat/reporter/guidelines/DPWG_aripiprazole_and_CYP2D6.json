@@ -3,7 +3,7 @@
     "id": "PA166104937",
     "name": "Annotation of DPWG Guideline for aripiprazole and CYP2D6",
     "source": "DPWG",
-    "version": 41,
+    "version": 42,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104937",
     "relatedChemicals": [
       {
@@ -567,7 +567,7 @@
         "van der Weide Jan"
       ],
       "journal": "European journal of human genetics : EJHG",
-      "year": 2023
+      "year": 2024
     },
     {
       "pmid": "21412232",
@@ -592,5 +592,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

@@ -3,7 +3,7 @@
     "id": "PA166104940",
     "name": "Annotation of DPWG Guideline for phenprocoumon and VKORC1",
     "source": "DPWG",
-    "version": 37,
+    "version": 39,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104940",
     "relatedChemicals": [
       {
@@ -134,5 +134,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

@@ -3,7 +3,7 @@
     "id": "PA166104983",
     "name": "Annotation of DPWG Guideline for tacrolimus and CYP3A5",
     "source": "DPWG",
-    "version": 32,
+    "version": 33,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104983",
     "relatedChemicals": [
       {
@@ -134,5 +134,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

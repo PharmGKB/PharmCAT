@@ -3,7 +3,7 @@
     "id": "PA166104963",
     "name": "Annotation of DPWG Guideline for capecitabine and DPYD",
     "source": "DPWG",
-    "version": 32,
+    "version": 33,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104963",
     "relatedChemicals": [
       {
@@ -244,5 +244,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

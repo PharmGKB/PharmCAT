@@ -418,13 +418,13 @@ class PipelineTest {
         .flatMap((k) -> testWrapper.getContext().getGeneReports().get(k).values().stream()
             .map(GeneReport::getGeneDisplay))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(23, genes.size());
+    assertEquals(22, genes.size());
 
     SortedSet<String> drugs = testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(102, drugs.size());
+    assertEquals(101, drugs.size());
   }
 
   @Test
@@ -630,7 +630,7 @@ class PipelineTest {
 
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("F5")
+        .reference("ABCG2")
         .allowUnknownAllele()
         .variation("CYP2C19", "rs3758581", "G", "T")
         .variation("TPMT", "rs1256618794", "A", "A") // C -> A
@@ -2362,95 +2362,6 @@ class PipelineTest {
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
-  }
-
-
-  @Test
-  void testF5(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    String gene = "F5";
-    testWrapper.getVcfBuilder()
-        .reference(gene);
-    Path vcfFile = testWrapper.execute(null);
-
-    List<String> expectedCalls = List.of("rs6025 C/rs6025 C");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
-
-    testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", 1);
-
-    Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, gene, expectedCalls, "hormonal contraceptives for systemic use", RecPresence.NO, RecPresence.YES);
-  }
-
-
-  /**
-   * Can we use phenotype for F5 DPWG matching?
-   */
-  @Test
-  void testF5OutsideCallPhenotype(TestInfo testInfo) throws Exception {
-    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
-    Path outsideCallFile = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
-    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallFile))) {
-      writer.println("F5\t\tFactor V Leiden absent");
-    }
-
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.execute(outsideCallFile);
-
-    String gene = "F5";
-
-    List<String> displayedCalls = List.of("Factor V Leiden absent");
-
-    testWrapper.testNotCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, NO_OUTSIDE_DIPLOTYPE, displayedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, displayedCalls);
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, displayedCalls);
-
-    testWrapper.testNoMatchFromSource("hormonal contraceptives for systemic use", DataSource.CPIC);
-    testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", DataSource.DPWG, 1);
-
-    Document document = readHtmlReport(outsideCallFile);
-    htmlChecks(document,
-        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
-            .put(gene, NO_OUTSIDE_DIPLOTYPE)
-            .build(),
-        null, "hormonal contraceptives for systemic use",
-        RecPresence.NO, RecPresence.YES);
-  }
-
-
-  @Test
-  void testF5OutsideCallDiplotype(TestInfo testInfo) throws Exception {
-    Path outDir = TestUtils.getTestOutputDir(testInfo, false);
-    Path outsideCallFile = outDir.resolve(TestUtils.getTestName(testInfo) + ".tsv");
-    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallFile))) {
-      writer.println("F5\trs6025 C/rs6025 T (Factor V Leiden)");
-    }
-
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.execute(outsideCallFile);
-
-    String gene = "F5";
-    List<String> expectedCalls = List.of("rs6025 C/rs6025 T (Factor V Leiden)");
-
-    testWrapper.testNotCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testSourcePhenotype(DataSource.DPWG, gene, "Factor V Leiden heterozygous");
-    testWrapper.testRecommendedPhenotype(DataSource.DPWG, gene, "Factor V Leiden heterozygous");
-    testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
-
-    testWrapper.testNoMatchFromSource("hormonal contraceptives for systemic use", DataSource.CPIC);
-    testWrapper.testMatchedAnnotations("hormonal contraceptives for systemic use", DataSource.DPWG, 1);
-
-    Document document = readHtmlReport(outsideCallFile);
-    htmlChecks(document, gene, expectedCalls, "hormonal contraceptives for systemic use", RecPresence.NO, RecPresence.YES);
   }
 
 

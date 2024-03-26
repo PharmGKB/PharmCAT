@@ -3,7 +3,7 @@
     "id": "PA166104970",
     "name": "Annotation of DPWG Guideline for codeine and CYP2D6",
     "source": "DPWG",
-    "version": 36,
+    "version": 37,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104970",
     "relatedChemicals": [
       {
@@ -591,5 +591,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

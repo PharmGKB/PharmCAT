@@ -3,7 +3,7 @@
     "id": "PA166184613",
     "name": "Annotation of DPWG Guideline for mercaptopurine and NUDT15",
     "source": "DPWG",
-    "version": 10,
+    "version": 11,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184613",
     "relatedChemicals": [
       {
@@ -111,5 +111,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

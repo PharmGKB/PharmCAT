@@ -51,7 +51,6 @@ HLA calls, respectively, using sequencing data.
 | Gene | CPIC | PharmGKB-DPWG |
 | :--- | :---: | :---: |
 | [CYP2D6](/Phenotypes-List#cyp2d6) | :heavy_check_mark: | :heavy_check_mark: |
-| [F5](/Phenotypes-List#f5) |  | :heavy_check_mark: |
 | [HLA-A](/Phenotypes-List#hla-a) | :heavy_check_mark: | :heavy_check_mark: |
 | [HLA-B](/Phenotypes-List#hla-b) | :heavy_check_mark: | :heavy_check_mark: |
 | [MT-RNR1](/Phenotypes-List#mt-rnr1) | :heavy_check_mark: |  |
@@ -104,7 +103,6 @@ The following table lists drugs for which PharmCAT has recommendations for, alon
 | gentamicin | :heavy_check_mark: |  |
 | haloperidol |  | :heavy_check_mark: |
 | halothane | :heavy_check_mark: |  |
-| hormonal contraceptives for systemic use |  | :heavy_check_mark: |
 | hydrocodone | :heavy_check_mark: |  |
 | ibuprofen | :heavy_check_mark: |  |
 | imipramine | :heavy_check_mark: | :heavy_check_mark: |

@@ -3,7 +3,7 @@
     "id": "PA166104975",
     "name": "Annotation of DPWG Guideline for escitalopram and CYP2C19",
     "source": "DPWG",
-    "version": 33,
+    "version": 34,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104975",
     "relatedChemicals": [
       {
@@ -186,5 +186,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

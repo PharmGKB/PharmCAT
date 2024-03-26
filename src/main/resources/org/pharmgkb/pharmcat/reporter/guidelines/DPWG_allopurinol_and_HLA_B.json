@@ -3,7 +3,7 @@
     "id": "PA166265141",
     "name": "Annotation of DPWG Guideline for allopurinol and HLA-B",
     "source": "DPWG",
-    "version": 6,
+    "version": 7,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265141",
     "relatedChemicals": [
       {
@@ -77,5 +77,5 @@
       "year": 2024
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

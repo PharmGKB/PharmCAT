@@ -3,7 +3,7 @@
     "id": "PA166104991",
     "name": "Annotation of DPWG Guideline for abacavir and HLA-B",
     "source": "DPWG",
-    "version": 35,
+    "version": 38,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104991",
     "relatedChemicals": [
       {
@@ -76,5 +76,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

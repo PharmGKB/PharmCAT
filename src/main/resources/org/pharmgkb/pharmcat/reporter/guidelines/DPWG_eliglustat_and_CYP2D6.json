@@ -3,7 +3,7 @@
     "id": "PA166182823",
     "name": "Annotation of DPWG Guideline for eliglustat and CYP2D6",
     "source": "DPWG",
-    "version": 12,
+    "version": 13,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182823",
     "relatedChemicals": [
       {
@@ -543,5 +543,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

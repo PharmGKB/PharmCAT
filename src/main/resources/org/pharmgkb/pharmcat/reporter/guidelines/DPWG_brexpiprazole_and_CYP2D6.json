@@ -3,7 +3,7 @@
     "id": "PA166184527",
     "name": "Annotation of DPWG Guideline for brexpiprazole and CYP2D6",
     "source": "DPWG",
-    "version": 11,
+    "version": 12,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184527",
     "relatedChemicals": [
       {
@@ -567,8 +567,8 @@
         "van der Weide Jan"
       ],
       "journal": "European journal of human genetics : EJHG",
-      "year": 2023
+      "year": 2024
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

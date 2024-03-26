@@ -3,7 +3,7 @@
     "id": "PA166265421",
     "name": "Annotation of DPWG Guideline for quetiapine and CYP3A4",
     "source": "DPWG",
-    "version": 14,
+    "version": 15,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265421",
     "relatedChemicals": [
       {
@@ -132,8 +132,8 @@
         "van der Weide Jan"
       ],
       "journal": "European journal of human genetics : EJHG",
-      "year": 2023
+      "year": 2024
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

@@ -3,7 +3,7 @@
     "id": "PA166104959",
     "name": "Annotation of DPWG Guideline for tramadol and CYP2D6",
     "source": "DPWG",
-    "version": 35,
+    "version": 36,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104959",
     "relatedChemicals": [
       {
@@ -591,5 +591,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

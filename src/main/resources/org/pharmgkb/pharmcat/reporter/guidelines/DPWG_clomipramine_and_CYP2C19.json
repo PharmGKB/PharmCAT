@@ -3,7 +3,7 @@
     "id": "PA166184528",
     "name": "Annotation of DPWG Guideline for clomipramine and CYP2C19",
     "source": "DPWG",
-    "version": 9,
+    "version": 10,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184528",
     "relatedChemicals": [
       {
@@ -140,5 +140,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

@@ -3,7 +3,7 @@
     "id": "PA166182843",
     "name": "Annotation of DPWG Guideline for atorvastatin and SLCO1B1",
     "source": "DPWG",
-    "version": 11,
+    "version": 12,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182843",
     "relatedChemicals": [
       {
@@ -111,5 +111,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

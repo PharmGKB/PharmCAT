@@ -3,7 +3,7 @@
     "id": "PA166182846",
     "name": "Annotation of DPWG Guideline for efavirenz and CYP2B6",
     "source": "DPWG",
-    "version": 14,
+    "version": 15,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182846",
     "relatedChemicals": [
       {
@@ -111,5 +111,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

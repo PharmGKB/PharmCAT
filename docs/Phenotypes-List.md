@@ -165,18 +165,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 </tr>
 </table>
 
-### F5
-<table>
-<tr>
-<th style="text-align: left">Variants</th>
-<th style="text-align: left">DPWG Phenotypes</th>
-</tr>
-<tr>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs6025 C</li><li>rs6025 T (Factor V Leiden)</li></ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Factor V Leiden absent</li><li>Factor V Leiden heterozygous</li><li>Factor V Leiden homozygous</li></ul></td>
-</tr>
-</table>
-
 ### G6PD
 <table>
 <tr>

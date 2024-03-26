@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2024-03-11T16:40:47.661Z",
+    "timestamp": "2024-03-26T04:55:50.267Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -3070,7 +3070,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-03-11-09-29",
+      "version": "2024-03-25-16-13",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -5119,102 +5119,6 @@
       "uncallableHaplotypes": [],
       "ignoredHaplotypes": [],
       "warnings": []
-    },
-    {
-      "source": "PHARMGKB",
-      "version": "2024-03-11-09-29",
-      "chromosome": "chr1",
-      "gene": "F5",
-      "diplotypes": [
-        {
-          "name": "rs6025 C/rs6025 C",
-          "haplotype1": {
-            "name": "rs6025 C",
-            "haplotype": {
-              "name": "rs6025 C",
-              "id": "PA166300382",
-              "alleles": [
-                "C"
-              ],
-              "cpicAlleles": [
-                "C"
-              ],
-              "populationFrequency": null,
-              "reference": true,
-              "numCombinations": 0,
-              "numPartials": 0
-            },
-            "sequences": [
-              "169549811:C;"
-            ]
-          },
-          "haplotype2": {
-            "name": "rs6025 C",
-            "haplotype": {
-              "name": "rs6025 C",
-              "id": "PA166300382",
-              "alleles": [
-                "C"
-              ],
-              "cpicAlleles": [
-                "C"
-              ],
-              "populationFrequency": null,
-              "reference": true,
-              "numCombinations": 0,
-              "numPartials": 0
-            },
-            "sequences": [
-              "169549811:C;"
-            ]
-          },
-          "score": 2
-        }
-      ],
-      "haplotypes": [
-        {
-          "name": "rs6025 C",
-          "haplotype": {
-            "name": "rs6025 C",
-            "id": "PA166300382",
-            "alleles": [
-              "C"
-            ],
-            "cpicAlleles": [
-              "C"
-            ],
-            "populationFrequency": null,
-            "reference": true,
-            "numCombinations": 0,
-            "numPartials": 0
-          },
-          "sequences": [
-            "169549811:C;"
-          ]
-        }
-      ],
-      "haplotypeMatches": [],
-      "phased": false,
-      "variants": [
-        {
-          "position": 169549811,
-          "rsid": "rs6025",
-          "vcfCall": "C/C",
-          "phased": false
-        }
-      ],
-      "variantsOfInterest": [],
-      "matchData": {
-        "missingPositions": [],
-        "positionsWithUndocumentedVariations": [],
-        "treatUndocumentedVariationsAsReference": false,
-        "phased": false,
-        "homozygous": true,
-        "effectivelyPhased": true
-      },
-      "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
-      "warnings": null
     },
     {
       "source": "CPIC",

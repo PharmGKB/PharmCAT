@@ -3,7 +3,7 @@
     "id": "PA166104939",
     "name": "Annotation of DPWG Guideline for fluorouracil and DPYD",
     "source": "DPWG",
-    "version": 34,
+    "version": 35,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104939",
     "relatedChemicals": [
       {
@@ -241,5 +241,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

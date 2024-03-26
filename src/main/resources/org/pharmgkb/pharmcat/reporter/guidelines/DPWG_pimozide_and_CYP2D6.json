@@ -3,7 +3,7 @@
     "id": "PA166182819",
     "name": "Annotation of DPWG Guideline for pimozide and CYP2D6",
     "source": "DPWG",
-    "version": 17,
+    "version": 18,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166182819",
     "relatedChemicals": [
       {
@@ -567,8 +567,8 @@
         "van der Weide Jan"
       ],
       "journal": "European journal of human genetics : EJHG",
-      "year": 2023
+      "year": 2024
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

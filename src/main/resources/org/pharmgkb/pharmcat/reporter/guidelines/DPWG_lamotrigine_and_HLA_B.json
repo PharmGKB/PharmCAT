@@ -3,7 +3,7 @@
     "id": "PA166265341",
     "name": "Annotation of DPWG Guideline for lamotrigine and HLA-B",
     "source": "DPWG",
-    "version": 7,
+    "version": 8,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166265341",
     "relatedChemicals": [
       {
@@ -82,5 +82,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

@@ -3,7 +3,7 @@
     "id": "PA166211021",
     "name": "Annotation of DPWG Guideline for siponimod and CYP2C9",
     "source": "DPWG",
-    "version": 9,
+    "version": 10,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166211021",
     "relatedChemicals": [
       {
@@ -269,5 +269,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

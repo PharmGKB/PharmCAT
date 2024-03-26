@@ -3,7 +3,7 @@
     "id": "PA166184614",
     "name": "Annotation of DPWG Guideline for azathioprine and NUDT15",
     "source": "DPWG",
-    "version": 9,
+    "version": 10,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166184614",
     "relatedChemicals": [
       {
@@ -111,5 +111,5 @@
     }
   ],
   "citations": [],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }

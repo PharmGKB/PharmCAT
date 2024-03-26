@@ -3,7 +3,7 @@
     "id": "PA166104990",
     "name": "Annotation of DPWG Guideline for voriconazole and CYP2C19",
     "source": "DPWG",
-    "version": 27,
+    "version": 28,
     "url": "https://www.pharmgkb.org/guidelineAnnotation/PA166104990",
     "relatedChemicals": [
       {
@@ -163,5 +163,5 @@
       "year": 2011
     }
   ],
-  "version": "2024-03-11-09-29"
+  "version": "2024-03-25-16-13"
 }
