@@ -1,3 +1,15 @@
+## [2.11.0](https://github.com/PharmGKB/PharmCAT/compare/v2.10.0...v2.11.0) (2024-3-26)
+
+
+### Features
+
+* **data:** remove F5 ([0c6123b](https://github.com/PharmGKB/PharmCAT/commit/0c6123b692d07a362d34c7b61d6a9bab779f7ad6))
+
+
+### Bug Fixes
+
+* **datamanager:** make sure we remove obsolete data files ([da21f6e](https://github.com/PharmGKB/PharmCAT/commit/da21f6ee1c254ab05411b980ac46c7faf4555fe9))
+
 ## [2.10.0](https://github.com/PharmGKB/PharmCAT/compare/v2.9.0...v2.10.0) (2024-3-25)
 
 
