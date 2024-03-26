@@ -135,6 +135,10 @@ public class DataManager {
                 zipFile.toFile());
             ZipUtils.unzip(zipFile, downloadDir);
           }
+          Path guidelinesDir = downloadDir.resolve("guidelines");
+          if (Files.exists(guidelinesDir)) {
+            FileUtils.deleteDirectory(guidelinesDir.toFile());
+          }
           if (Files.exists(zipFile)) {
             ZipUtils.unzip(zipFile, downloadDir);
           } else {
@@ -145,8 +149,8 @@ public class DataManager {
         // must get guidelines before alleles
         PgkbGuidelineCollection pgkbGuidelineCollection;
         if (!skipGuidelines) {
-          Path drugsDir = cliHelper.getValidDirectory("g", true);
-          Path guidelinesDir = drugsDir.resolve("guidelines");
+          Path reporterDir = cliHelper.getValidDirectory("g", true);
+          Path guidelinesDir = reporterDir.resolve("guidelines");
           manager.transformGuidelines(downloadDir, guidelinesDir);
           pgkbGuidelineCollection = new PgkbGuidelineCollection(guidelinesDir);
         } else {
@@ -231,6 +235,8 @@ public class DataManager {
       Files.createDirectories(guidelinesDir);
     }
     System.out.println("Saving guidelines to " + guidelinesDir);
+    Set<String> currentFiles = getCurrentFiles(guidelinesDir, ".json");
+
     AtomicInteger count = new AtomicInteger();
     try (Stream<Path> stream = Files.list(downloadDir.resolve("guidelines"))) {
       stream.forEach((file) -> {
@@ -248,6 +254,9 @@ public class DataManager {
               try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(filename))) {
                 DataSerializer.GSON.toJson(guidelinePackage, writer);
               }
+              if (!currentFiles.remove(filename)) {
+                System.out.println("New guideline: " + filename);
+              }
             }
           }
         } catch (IOException ex) {
@@ -256,6 +265,7 @@ public class DataManager {
       });
     }
     System.out.println("Found " + count.get() + " guidelines");
+    deleteObsoleteFiles(guidelinesDir, currentFiles);
   }
 
 
@@ -319,12 +329,7 @@ public class DataManager {
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
     System.out.println("Saving allele definitions in " + definitionsDir.toString());
-    Set<String> currentFiles = new HashSet<>();
-    try (Stream<Path> list = Files.list(definitionsDir)) {
-      list.map(PathUtils::getFilename)
-          .filter(f -> f.endsWith("_translation.json"))
-          .forEachOrdered(currentFiles::add);
-    }
+    Set<String> currentFiles = getCurrentFiles(definitionsDir, "_translation.json");
 
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
@@ -345,6 +350,16 @@ public class DataManager {
     return new DefinitionReader(definitionsDir);
   }
 
+
+  private Set<String> getCurrentFiles(Path dir, String suffix) throws IOException {
+    Set<String> currentFiles = new HashSet<>();
+    try (Stream<Path> list = Files.list(dir)) {
+      list.map(PathUtils::getFilename)
+          .filter(f -> f.endsWith(suffix))
+          .forEachOrdered(currentFiles::add);
+    }
+    return currentFiles;
+  }
 
 
   /**
@@ -429,6 +444,8 @@ public class DataManager {
     if (!Files.exists(outputDir)) {
       Files.createDirectories(outputDir);
     }
+
+    Set<String> currentFiles = getCurrentFiles(outputDir, ".json");
     try (BufferedReader reader = Files.newBufferedReader(phenotypeFile)) {
       GenePhenotype[] rez = DataSerializer.GSON.fromJson(reader, GenePhenotype[].class);
       Set<String> genes = new HashSet<>();
@@ -436,11 +453,16 @@ public class DataManager {
         if (!genes.add(gp.getGene())) {
           throw new IllegalStateException("Multiple " + source + " GenePhenotypes for " + gp.getGene());
         }
-        try (Writer writer = Files.newBufferedWriter(outputDir.resolve(sanitizeFilename(gp.getGene()) + ".json"))) {
+        String filename = sanitizeFilename(gp.getGene()) + ".json";
+        try (Writer writer = Files.newBufferedWriter(outputDir.resolve(filename))) {
           DataSerializer.GSON.toJson(gp, writer);
+        }
+        if (!currentFiles.remove(filename)) {
+          System.out.println("New gene: " + gp.getGene());
         }
       }
       System.out.println("Found " + rez.length + " " + source + " phenotypes");
+      deleteObsoleteFiles(outputDir, currentFiles);
     }
   }
 
