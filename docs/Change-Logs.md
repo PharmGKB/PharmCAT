@@ -10,11 +10,16 @@ Starting in March 2024, this page highlights the major content updates. For more
 
 You can subscribe to the PharmCAT GitHub repository following [the instructions](https://github.blog/changelog/2018-11-27-watch-releases/). You will receive notifications of PharmCAT releases. You do need a GitHub account, which can be registered for free.
 
-## v2.10.0
+
+## v2.11.0
 
 #### _F5_
 
 DPWG removed the recommendation for _F5_ and the hormonal contraceptives for systemic use. The guideline annotation was retired on PharmGKB, which removes _F5_ from PharmCAT.
+
+
+
+## v2.10.0
 
 #### _DPYD_
 
