@@ -23,9 +23,11 @@ Then you can get PharmCAT from [Docker Hub](https://hub.docker.com/r/pgkb/pharmc
 
 ## Usage
 
-You will need to make your data accessible to the Docker container.  There are [many options](https://docs.docker.com/storage/), of which a volume mount is probably the best.
+You will need to make your data accessible to the Docker container. There are
+[several options](https://docs.docker.com/storage/) to choose from, and you will have to decide what works best for you.
+For example, a volume mount is the best for persisting data, but will take some configuration.
 
-However, this tutorial will use bind mounts.
+This tutorial will use bind mounts because they are the easiest to use and requires no prior configuration.
 
 General usage:
 
