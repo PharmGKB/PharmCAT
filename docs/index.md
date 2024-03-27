@@ -48,6 +48,7 @@ Read [the Methods](methods) to learn how PharmCAT works, including how it [match
 
 [Learn how to run PharmCAT](using) and all the different components that make up the PharmCAT tool.  Please make sure to also read and understand PharmCAT's [VCF requirements](using/VCF-Requirements).
 
+Tutorial videos are available on the [PharmGKB YouTube channel](https://www.youtube.com/channel/UCnYHYK_5HD1Lt2N_B4FsTYQ). The tutorial videos provide step-by-step demonstration. The first two videos cover (1) the [introduction to PharmCAT, modules, and reports](https://youtu.be/PjVdtMp8oRI?si=mRaiaU6EVEEd6dJL) and (2) a hands-on example that walks through the setup and commands for [running PharmCAT](https://youtu.be/d1IZPLOrPOE?si=LREY8RI-wz-5PoqN). Future videos will cover more topics.
 
 ## License
 
