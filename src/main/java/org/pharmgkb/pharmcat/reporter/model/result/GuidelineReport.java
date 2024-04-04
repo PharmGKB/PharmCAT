@@ -149,7 +149,6 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
     }
     if (drugName.equals("warfarin") && m_source == DataSource.CPIC) {
       AnnotationReport ann = AnnotationReport.forWarfarin(m_recommendationGenotypes);
-      m_recommendationGenotypes.forEach(ann::addGenotype);
       m_annotationReports.add(ann);
     }
     for (RecommendationAnnotation recommendationAnnotation : matchedGenotypes.keys()) {
