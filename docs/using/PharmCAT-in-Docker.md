@@ -75,13 +75,13 @@ the core [PharmCAT tool](/using/Running-PharmCAT).  You should be familiar with 
 That said, this is the easiest way to run PharmCAT:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline <vcf_file>
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_pipeline <vcf_file>
 ```
 
 If you have a file `/path/to/data/sample.vcf`, you would use:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline data/sample.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_pipeline data/sample.vcf
 ```
 
 
