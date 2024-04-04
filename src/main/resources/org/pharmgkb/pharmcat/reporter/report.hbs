@@ -454,8 +454,8 @@
               </thead>
               <tbody>
               {{#each variantReports}}
-                <tr style="vertical-align: initial;">
-                  <td id="{{chr}}_{{position}}">{{chr}}:{{position}}</td>
+                <tr id="{{chr}}_{{position}}" style="vertical-align: initial;">
+                  <td>{{chr}}:{{position}}</td>
                   <td {{#if (thereAre dbSnpId) }}id="{{dbSnpId}}"{{/if}}>{{dbSnpId}}</td>
                   {{#if missing}}
                     <td class="missingVariant"><div class="callMessage">Missing</div></td>

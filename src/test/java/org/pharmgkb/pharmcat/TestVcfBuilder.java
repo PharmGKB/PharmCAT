@@ -29,6 +29,7 @@ public class TestVcfBuilder {
   private static final int sf_numChrM = 1;
   private final Map<String, Map<String, VcfEdit>> m_edits = new HashMap<>();
   private final Map<String, Map<String, VcfEdit>> m_extraPositions = new HashMap<>();
+  private final Map<String, List<VcfEdit>> m_duplicatePositions = new HashMap<>();
   private final TestInfo m_testInfo;
   private final String m_name;
   private final List<Path> m_definitionFiles = new ArrayList<>();
@@ -92,6 +93,26 @@ public class TestVcfBuilder {
     return this;
   }
 
+  public TestVcfBuilder variationAsIs(String gene, String rsid, String gt, String ref, String... vcfAltAlleles) {
+    VcfEdit edit = new VcfEdit(rsid, null);
+    edit.gt = gt;
+    edit.ref = ref;
+    edit.vcfAltAlleles = vcfAltAlleles;
+    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
+
+  public TestVcfBuilder variationAsIs(String gene, String chrom, long position, String gt, String ref,
+      String... vcfAltAlleles) {
+    VcfEdit edit = new VcfEdit(chrom, position, null);
+    edit.gt = gt;
+    edit.ref = ref;
+    edit.vcfAltAlleles = vcfAltAlleles;
+    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
 
   public TestVcfBuilder missing(String gene, String... rsids) {
     for (String rsid : rsids) {
@@ -125,6 +146,32 @@ public class TestVcfBuilder {
   }
 
 
+  public TestVcfBuilder duplicatePosition(String gene, String rsid, String... cpicAlleles) {
+    VcfEdit edit = new VcfEdit(rsid, cpicAlleles);
+    m_duplicatePositions.computeIfAbsent(gene, g -> new ArrayList<>())
+        .add(edit);
+    return this;
+  }
+
+  public TestVcfBuilder duplicatePosition(String gene, String chrom, long position, String... cpicAlleles) {
+    VcfEdit edit = new VcfEdit(chrom, position, cpicAlleles);
+    m_duplicatePositions.computeIfAbsent(gene, g -> new ArrayList<>())
+        .add(edit);
+    return this;
+  }
+
+  public TestVcfBuilder duplicatePositionAsIs(String gene, String chrom, long position, String gt, String ref,
+      String... vcfAltAlleles) {
+    VcfEdit edit = new VcfEdit(chrom, position, null);
+    edit.gt = gt;
+    edit.ref = ref;
+    edit.vcfAltAlleles = vcfAltAlleles;
+    m_duplicatePositions.computeIfAbsent(gene, g -> new ArrayList<>())
+        .add(edit);
+    return this;
+  }
+
+
   /**
    * Adds reference for specified gene.
    * This is only necessary to add gene positions to VCF when there is no variation.
@@ -154,21 +201,19 @@ public class TestVcfBuilder {
 
 
   public boolean hasData() {
-    return m_edits.size() > 0;
+    return !m_edits.isEmpty();
   }
 
 
   public Path generate() throws IOException {
     DefinitionReader definitionReader;
-    if (m_definitionFiles.size() > 0) {
+    if (!m_definitionFiles.isEmpty()) {
       definitionReader = new DefinitionReader(m_definitionFiles, DataManager.DEFAULT_EXEMPTIONS_FILE);
     } else {
       definitionReader = DefinitionReader.defaultReader();
     }
 
-    String filename = m_name.replaceAll("\\*", "s")
-        .replaceAll("/", "-")
-        .replaceAll("[^a-zA-Z0-9_\\-]", "_") + ".vcf";
+    String filename = TestUtils.sanitizeBaseFilename(m_name) + ".vcf";
 
     Path dir = TestUtils.getTestOutputDir(m_testInfo, false);
     Path file = dir.resolve(filename);
@@ -203,14 +248,14 @@ public class TestVcfBuilder {
       if (editMap != null) {
         if (vl.getRsid() != null) {
           edit = editMap.get(vl.getRsid());
-        } else {
+        }
+        if (edit == null) {
           edit = editMap.get(vl.getChromosome() + ":" + vl.getPosition());
         }
       }
-      String sample;
-      List<String> alts = new ArrayList<>(vl.getAlts());
       if (edit == null) {
         // reference sample
+        String sample;
         if (definitionFile.getChromosome().equals("chrX") && m_numChrX != 2) {
           sample = buildRefSample(m_numChrX);
         } else if (definitionFile.getChromosome().equals("chrY") && m_numChrY != 2) {
@@ -220,68 +265,91 @@ public class TestVcfBuilder {
         } else {
           sample = m_isPhased ? "0|0" : "0/0";
         }
+        VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+            String.join(",", vl.getAlts()), info, sample);
 
       } else {
         // custom sample
         matched.add(edit.id);
-        if (edit.cpicAlleles == null || edit.cpicAlleles.length == 0) {
-          writer.println("# missing: " + edit.id);
-          continue;
-        }
-        if (edit.cpicAlleles.length == 1) {
-          if (!definitionFile.getChromosome().equals("chrX") && !definitionFile.getChromosome().equals("chrY")) {
-            throw new IllegalStateException(edit.id + " only has one allele defined and is not on chrX or chrY");
-          }
-        } else if (edit.cpicAlleles.length > 2) {
-          throw new IllegalStateException(edit.id + " has too many alleles (" +
-              Arrays.toString(edit.cpicAlleles) + ")");
-        }
-        StringBuilder builder = new StringBuilder();
-        for (String cpicAllele : edit.cpicAlleles) {
-          if (builder.length() > 0) {
-            builder.append(m_isPhased ? "|" : "/");
-          }
-          String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
-          if (vcfAllele == null) {
-            if (m_allowUnknownAllele) {
-              vcfAllele = cpicAllele;
-              alts.add(vcfAllele);
-            } else {
-              throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele + ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
-            }
-          }
-          if (vcfAllele.equals(vl.getRef())) {
-            builder.append("0");
-          } else {
-            int idx = alts.indexOf(vcfAllele);
-            if (idx == -1) {
-              throw new IllegalStateException(edit.id + ":  VCF allele (" + vcfAllele + ") for " + cpicAllele +
-                  " is neither ref not alt!");
-            }
-            builder.append((idx + 1));
+        handleCustomEdit(definitionFile, writer, info, vl, edit);
+        List<VcfEdit> duplicates = m_duplicatePositions.get(definitionFile.getGeneSymbol());
+        if (duplicates != null) {
+          for (VcfEdit dup : duplicates) {
+            handleCustomEdit(definitionFile, writer, info, vl, dup);
           }
         }
-        sample = builder.toString();
       }
-
-      VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-          String.join(",", alts), info, sample);
     }
 
     if (editMap != null) {
       List<String> check = new ArrayList<>(editMap.keySet());
       matched.forEach(check::remove);
-      if (check.size() > 0) {
+      if (!check.isEmpty()) {
         throw new IllegalStateException("Not involved in named alleles for " + definitionFile.getGeneSymbol() + ": " +
             String.join(", ", check));
       }
     }
   }
 
+  private void handleCustomEdit(DefinitionFile definitionFile, PrintWriter writer, String info, VariantLocus vl,
+      VcfEdit edit) {
+
+    if (edit.gt != null) {
+      // write out VCF line as-is
+      VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), edit.ref,
+          String.join(",", edit.vcfAltAlleles), info, edit.gt);
+      return;
+    }
+
+    if (edit.cpicAlleles == null || edit.cpicAlleles.length == 0) {
+      writer.println("# missing: " + edit.id);
+      return;
+    }
+    if (edit.cpicAlleles.length == 1) {
+      if (!definitionFile.getChromosome().equals("chrX") && !definitionFile.getChromosome().equals("chrY")) {
+        throw new IllegalStateException(edit.id + " only has one allele defined and is not on chrX or chrY");
+      }
+    } else if (edit.cpicAlleles.length > 2) {
+      throw new IllegalStateException(edit.id + " has too many alleles (" +
+          Arrays.toString(edit.cpicAlleles) + ")");
+    }
+
+    List<String> alts = new ArrayList<>(vl.getAlts());
+    StringBuilder builder = new StringBuilder();
+    for (String cpicAllele : edit.cpicAlleles) {
+      if (!builder.isEmpty()) {
+        builder.append(m_isPhased ? "|" : "/");
+      }
+      String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
+      if (vcfAllele == null) {
+        if (m_allowUnknownAllele) {
+          vcfAllele = cpicAllele;
+          alts.add(vcfAllele);
+        } else {
+          throw new IllegalStateException(edit.id + ": cannot determine VCF allele for " + cpicAllele +
+              ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
+        }
+      }
+      if (vcfAllele.equals(vl.getRef())) {
+        builder.append("0");
+      } else {
+        int idx = alts.indexOf(vcfAllele);
+        if (idx == -1) {
+          throw new IllegalStateException(edit.id + ":  VCF allele (" + vcfAllele + ") for " + cpicAllele +
+              " is neither ref not alt!");
+        }
+        builder.append((idx + 1));
+      }
+    }
+    String sample = builder.toString();
+    VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
+        String.join(",", alts), info, sample);
+  }
+
   private String buildRefSample(int times) {
     StringBuilder builder = new StringBuilder();
     for (int x = 0; x < times; x += 1) {
-      if (builder.length() > 0) {
+      if (!builder.isEmpty()) {
         builder.append(m_isPhased ? "|" : "/");
       }
       builder.append("0");
@@ -293,6 +361,9 @@ public class TestVcfBuilder {
   private static class VcfEdit {
     private final String id;
     private final String[] cpicAlleles;
+    private String[] vcfAltAlleles;
+    private String ref;
+    private String gt;
 
     private VcfEdit(String rsid, @Nullable String[] cpicAlleles) {
       this.id = rsid;

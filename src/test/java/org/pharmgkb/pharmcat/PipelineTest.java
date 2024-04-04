@@ -2403,6 +2403,7 @@ class PipelineTest {
     return Jsoup.parse(reporterOutput.toFile());
   }
 
+
   /**
    * Assert single-position genes can be called outside, and double-check that a named allele gene can also be called
    * outside. Made in response to <a href="https://github.com/PharmGKB/PharmCAT/issues/154#top">issue 154</a>.
@@ -2429,5 +2430,49 @@ class PipelineTest {
 
     testWrapper.testPrintCpicCalls( "IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
     testWrapper.testPrintCpicCalls( "CYP4F2", "*1/*3");
+  }
+
+
+  @Test
+  void testDuplicateEntrySecondIsBad(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
+        .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
+        .duplicatePositionAsIs("NUDT15", "chr13", 48037782, "0/1", "A", "C")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("NUDT15");
+    testWrapper.testReportable("NUDT15");
+
+    Document document = readHtmlReport(vcfFile);
+    Elements warnings = document.select("#chr13_48037782 .warningList li");
+    assertNotNull(warnings);
+    assertEquals(1, warnings.size());
+    assertTrue(warnings.get(0).text().toLowerCase().contains("duplicate entry"));
+    System.out.println(warnings.get(0).text());
+  }
+
+  @Test
+  void testDuplicateEntryFirstIsBad(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .allowUnknownAllele()
+        .variationAsIs("NUDT15", "chr13", 48037782, "0/1", "A", "C")
+        .duplicatePosition("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
+    ;
+    Path vcfFile = testWrapper.execute(null);
+
+    testWrapper.testCalledByMatcher("NUDT15");
+    testWrapper.testReportable("NUDT15");
+
+    Document document = readHtmlReport(vcfFile);
+    Elements warnings = document.select("#chr13_48037782 .warningList li");
+    assertNotNull(warnings);
+    warnings.forEach(System.out::println);
+    assertEquals(2, warnings.size());
+    assertTrue(warnings.get(0).text().toLowerCase().contains("does not match expected reference"));
+    assertTrue(warnings.get(1).text().toLowerCase().contains("duplicate entry"));
   }
 }

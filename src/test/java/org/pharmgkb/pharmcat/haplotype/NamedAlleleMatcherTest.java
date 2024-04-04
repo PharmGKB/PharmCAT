@@ -107,7 +107,7 @@ class NamedAlleleMatcherTest {
   }
 
   /**
-   * Checks that the list of diplotype matches are what we expect.
+   * Checks that the list of diplotype matches is what we expect.
    *
    * @param expectedPairs the set of expected diplotypes in "*1/*2" format
    * @param result the {@link NamedAlleleMatcher} results
@@ -119,10 +119,10 @@ class NamedAlleleMatcherTest {
 
     List<String> pairs = new ArrayList<>();
     StringBuilder builder = new StringBuilder();
-    if (result.getGeneCalls().size() > 0) {
+    if (!result.getGeneCalls().isEmpty()) {
       for (DiplotypeMatch dm : result.getGeneCalls().get(0).getDiplotypes()) {
         pairs.add(dm.getName());
-        if (builder.length() > 0) {
+        if (!builder.isEmpty()) {
           builder.append(", ");
         }
         builder.append(dm.getName())
@@ -494,7 +494,7 @@ class NamedAlleleMatcherTest {
 
 
   /**
-   * Make sure longest combination + partial scoring works.
+   * Make sure the longest combination + partial scoring works.
    * {@code *1/*4 + *9 + g.41010006G>C} should beat {@code *1/*6 + g.41010006G>C}
    */
   @Test

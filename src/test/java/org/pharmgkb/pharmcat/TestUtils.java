@@ -227,4 +227,11 @@ public class TestUtils {
       }
     }
   }
+
+
+  public static String sanitizeBaseFilename(String name) {
+    return name.replaceAll("\\*", "s")
+        .replaceAll("/", "-")
+        .replaceAll("[^a-zA-Z0-9_\\-]", "_");
+  }
 }

@@ -69,6 +69,7 @@ public class VcfReader implements VcfLineParser {
   private final SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
   // <chr:position, warning>
   private final SortedSetMultimap<String, String> m_warnings = TreeMultimap.create();
+  private final Set<String> m_discardedPositions = new HashSet<>();
 
 
   /**
@@ -212,19 +213,31 @@ public class VcfReader implements VcfLineParser {
     }
   }
 
+
   private void addWarning(String chrPos, String msg) {
-    m_warnings.put(chrPos, msg);
-    sf_logger.warn(msg);
+    addWarning(chrPos, msg, msg);
+  }
+
+  private void addWarning(String chrPos, String reportMsg, String clMsg) {
+    // saved to report
+    m_warnings.put(chrPos, reportMsg);
+    // prints to command line
+    sf_logger.warn(clMsg);
   }
 
 
   @Override
   public void parseLine(VcfMetadata metadata, VcfPosition position, List<VcfSample> sampleData) {
 
-    String chrPos = position.getChromosome() + ":" + position.getPosition();
+    final String chrPos = position.getChromosome() + ":" + position.getPosition();
 
     if (sampleData.isEmpty()) {
       sf_logger.warn("Missing sample data on {}", chrPos);
+      return;
+    }
+    if (m_alleleMap.containsKey(chrPos)) {
+      addWarning(chrPos, "Duplicate entry found in VCF; this entry trumps others.",
+          "Duplicate entry: first valid position wins");
       return;
     }
 
@@ -240,6 +253,7 @@ public class VcfReader implements VcfLineParser {
       if (!position.getRef().equals(varLoc.getRef())) {
         addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
             ") does not match expected reference (" + varLoc.getRef() + ")");
+        m_discardedPositions.add(chrPos);
         return;
       } else if (position.getFilters().contains(sf_filterCodeRef)) {
         addWarning(chrPos, "PharmCAT preprocessor detected REF mismatch (filter " + sf_filterCodeRef +
@@ -303,6 +317,7 @@ public class VcfReader implements VcfLineParser {
       if (position.getFilters().contains(sf_filterCodeRef)) {
         addWarning(chrPos, "Discarded genotype at this position because REF in VCF (" + position.getRef() +
             ") does not match expected reference");
+        m_discardedPositions.add(chrPos);
         return;
       }
       if (position.getFilters().contains(sf_filterCodeAlt)) {
@@ -312,10 +327,6 @@ public class VcfReader implements VcfLineParser {
         addWarning(chrPos, "Genotype at this position uses unexpected format for INDEL");
       }
     }
-    if (m_alleleMap.containsKey(chrPos)) {
-      addWarning(chrPos, "Duplicate entry: first valid position wins");
-      return;
-    }
 
     if (sampleData.size() > 1 && !m_useSpecificSample) {
       addWarning(chrPos, "Multiple samples found, only using first entry.");
@@ -323,10 +334,12 @@ public class VcfReader implements VcfLineParser {
 
     if (gt == null) {
       addWarning(chrPos, "Ignoring: no genotype");
+      m_discardedPositions.add(chrPos);
       return;
     }
     if (sf_noCallPattern.matcher(gt).matches()) {
       addWarning(chrPos, "Ignoring: no call (" + gt + ")");
+      m_discardedPositions.add(chrPos);
       return;
     }
     // already filtered out no-calls, guaranteed to have at least 1 GT here
@@ -342,6 +355,7 @@ public class VcfReader implements VcfLineParser {
     if (position.getAltBases().isEmpty()) {
       String gt1 = position.getAllele(0);
       if (!validateAlleles(chrPos, gt1, null, false)) {
+        m_discardedPositions.add(chrPos);
         return;
       }
 
@@ -355,6 +369,7 @@ public class VcfReader implements VcfLineParser {
         String gt2 = position.getAllele(x);
         boolean isSelected = selected.contains(x);
         if (!validateAlleles(chrPos, gt1, gt2, isSelected)) {
+          m_discardedPositions.add(chrPos);
           return;
         }
 
@@ -397,6 +412,7 @@ public class VcfReader implements VcfLineParser {
             if (genotype.size() != 1 && depths.stream().filter(d -> d > 0).count() == 1) {
               addWarning(chrPos, "Discarding genotype at this position because GT field indicates heterozygous (" +
                   gt + ") but AD field indicates homozygous (" + allelicDepth + ")");
+              m_discardedPositions.add(chrPos);
               return;
             }
           } catch (NumberFormatException ex) {
@@ -427,6 +443,7 @@ public class VcfReader implements VcfLineParser {
         // treating "./0" like any other missing position
         addWarning(chrPos, "Ignoring: only a single genotype found.  " +
             "Since it's reference, treating this as a missing position.");
+        m_discardedPositions.add(chrPos);
         return;
       }
       // going to accept "./1" because there's a variation, and we want to pass this on to the reporter
@@ -452,6 +469,10 @@ public class VcfReader implements VcfLineParser {
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
         isEffectivelyPhased, vcfAlleles, undocumentedVariations, treatUndocumentedAsReference);
     m_alleleMap.put(chrPos, sampleAllele);
+    if (m_discardedPositions.contains(chrPos)) {
+      addWarning(chrPos, "Duplicate entry found in VCF; this entry trumps previous invalid entry.",
+          "Duplicate entry: first valid position wins");
+    }
   }
 
 
