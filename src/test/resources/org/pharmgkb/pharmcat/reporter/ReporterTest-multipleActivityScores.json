@@ -1,0 +1,3121 @@
+{
+  "geneReports": {
+    "CPIC": {
+      "CYP2C9": {
+        "alleleDefinitionVersion": "v1.38.0-1-g39f50e7",
+        "alleleDefinitionSource": "CPIC",
+        "phenotypeVersion": "2024-03-25-16-13",
+        "phenotypeSource": "CPIC",
+        "geneSymbol": "CYP2C9",
+        "chr": "chr10",
+        "phased": true,
+        "effectivelyPhased": true,
+        "callSource": "MATCHER",
+        "uncalledHaplotypes": [
+          "*3",
+          "*4",
+          "*5",
+          "*6",
+          "*7",
+          "*8",
+          "*9",
+          "*10",
+          "*11",
+          "*12",
+          "*13",
+          "*14",
+          "*15",
+          "*16",
+          "*17",
+          "*18",
+          "*19",
+          "*20",
+          "*21",
+          "*22",
+          "*23",
+          "*24",
+          "*25",
+          "*26",
+          "*27",
+          "*28",
+          "*29",
+          "*30",
+          "*31",
+          "*32",
+          "*33",
+          "*34",
+          "*36",
+          "*37",
+          "*38",
+          "*39",
+          "*40",
+          "*41",
+          "*42",
+          "*43",
+          "*44",
+          "*45",
+          "*46",
+          "*47",
+          "*48",
+          "*49",
+          "*50",
+          "*51",
+          "*52",
+          "*53",
+          "*54",
+          "*55",
+          "*56",
+          "*57",
+          "*58",
+          "*59",
+          "*60",
+          "*62",
+          "*63",
+          "*64",
+          "*65",
+          "*66",
+          "*67",
+          "*68",
+          "*69",
+          "*70",
+          "*71",
+          "*72",
+          "*73",
+          "*74",
+          "*75",
+          "*76",
+          "*77",
+          "*78",
+          "*79",
+          "*80",
+          "*81",
+          "*82",
+          "*83",
+          "*84",
+          "*85"
+        ],
+        "messages": [
+          {
+            "rule_name": "reference-allele",
+            "version": null,
+            "matches": null,
+            "exception_type": "note",
+            "message": "The CYP2C9 *1 allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions either because the position is reference or missing."
+          }
+        ],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*2",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "0.5"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.5",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.5"
+            ],
+            "label": "*1/*2",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*35",
+              "function": "No function",
+              "reference": false,
+              "activityValue": "0.0"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.0",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.0"
+            ],
+            "label": "*1/*35",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*61",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "0.5"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.5",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.5"
+            ],
+            "label": "*1/*61",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*2",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "0.5"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.5",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.5"
+            ],
+            "label": "*1/*2",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*35",
+              "function": "No function",
+              "reference": false,
+              "activityValue": "0.0"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.0",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.0"
+            ],
+            "label": "*1/*35",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "1.0"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*61",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "0.5"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": "1.5",
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "1.5"
+            ],
+            "label": "*1/*61",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          }
+        ],
+        "variants": [
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942290,
+            "dbSnpId": "rs1799853",
+            "call": "C|T",
+            "alleles": [
+              "*2",
+              "*35",
+              "*61"
+            ],
+            "phased": true,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938683,
+            "dbSnpId": "rs114071557",
+            "call": null,
+            "alleles": [
+              "*36"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938719,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*80"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938737,
+            "dbSnpId": "rs67807361",
+            "call": null,
+            "alleles": [
+              "*7"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938771,
+            "dbSnpId": "rs142240658",
+            "call": null,
+            "alleles": [
+              "*21"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938788,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*83"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938800,
+            "dbSnpId": "rs1364419386",
+            "call": null,
+            "alleles": [
+              "*76"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938803,
+            "dbSnpId": "rs2031308986",
+            "call": null,
+            "alleles": [
+              "*22"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938828,
+            "dbSnpId": "rs564813580",
+            "call": null,
+            "alleles": [
+              "*37"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941897,
+            "dbSnpId": "rs371055887",
+            "call": null,
+            "alleles": [
+              "*20"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941915,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*23"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941958,
+            "dbSnpId": "rs72558187",
+            "call": null,
+            "alleles": [
+              "*13"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941975,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*77"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941976,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*38"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941982,
+            "dbSnpId": "rs762239445",
+            "call": null,
+            "alleles": [
+              "*39"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942018,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*40"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942205,
+            "dbSnpId": "rs1304490498",
+            "call": null,
+            "alleles": [
+              "*25"
+            ],
+            "phased": false,
+            "wildtypeAllele": "CAATGGAAAGA",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942216,
+            "dbSnpId": "rs774607211",
+            "call": null,
+            "alleles": [
+              "*41"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942230,
+            "dbSnpId": "rs767576260",
+            "call": null,
+            "alleles": [
+              "*43"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942231,
+            "dbSnpId": "rs12414460",
+            "call": null,
+            "alleles": [
+              "*42"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942233,
+            "dbSnpId": "rs375805362",
+            "call": null,
+            "alleles": [
+              "*62"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942234,
+            "dbSnpId": "rs72558189",
+            "call": null,
+            "alleles": [
+              "*14",
+              "*35"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942243,
+            "dbSnpId": "rs1375956433",
+            "call": null,
+            "alleles": [
+              "*78"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942249,
+            "dbSnpId": "rs200965026",
+            "call": null,
+            "alleles": [
+              "*26",
+              "*44"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942254,
+            "dbSnpId": "rs199523631",
+            "call": null,
+            "alleles": [
+              "*45"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942255,
+            "dbSnpId": "rs200183364",
+            "call": null,
+            "alleles": [
+              "*33"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942291,
+            "dbSnpId": "rs141489852",
+            "call": null,
+            "alleles": [
+              "*63"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942305,
+            "dbSnpId": "rs754487195",
+            "call": null,
+            "alleles": [
+              "*46"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942306,
+            "dbSnpId": "rs1289704600",
+            "call": null,
+            "alleles": [
+              "*72"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942308,
+            "dbSnpId": "rs17847037",
+            "call": null,
+            "alleles": [
+              "*73"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942309,
+            "dbSnpId": "rs7900194",
+            "call": null,
+            "alleles": [
+              "*8",
+              "*27"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947782,
+            "dbSnpId": "rs72558190",
+            "call": null,
+            "alleles": [
+              "*15"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947785,
+            "dbSnpId": "rs774550549",
+            "call": null,
+            "alleles": [
+              "*47"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947869,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*69"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947907,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*57"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947917,
+            "dbSnpId": "rs1326630788",
+            "call": null,
+            "alleles": [
+              "*48"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947938,
+            "dbSnpId": "rs2031531005",
+            "call": null,
+            "alleles": [
+              "*28"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947939,
+            "dbSnpId": "rs370100007",
+            "call": null,
+            "alleles": [
+              "*74"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949129,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*49"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949144,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*50"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949145,
+            "dbSnpId": "rs772782449",
+            "call": null,
+            "alleles": [
+              "*82"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949161,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*85"
+            ],
+            "phased": false,
+            "wildtypeAllele": "AT",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949217,
+            "dbSnpId": "rs2256871",
+            "call": null,
+            "alleles": [
+              "*9"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949280,
+            "dbSnpId": "rs9332130",
+            "call": null,
+            "alleles": [
+              "*10",
+              "*71"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949281,
+            "dbSnpId": "rs9332131",
+            "call": null,
+            "alleles": [
+              "*6"
+            ],
+            "phased": false,
+            "wildtypeAllele": "GA",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972119,
+            "dbSnpId": "rs182132442",
+            "call": null,
+            "alleles": [
+              "*29"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972123,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*64"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972134,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*51"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972179,
+            "dbSnpId": "rs72558192",
+            "call": null,
+            "alleles": [
+              "*16"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972180,
+            "dbSnpId": "rs988617574",
+            "call": null,
+            "alleles": [
+              "*52"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972183,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*81"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972233,
+            "dbSnpId": "rs1237225311",
+            "call": null,
+            "alleles": [
+              "*53"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981199,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*65"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981201,
+            "dbSnpId": "rs57505750",
+            "call": null,
+            "alleles": [
+              "*31"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981224,
+            "dbSnpId": "rs28371685",
+            "call": null,
+            "alleles": [
+              "*11"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981225,
+            "dbSnpId": "rs367826293",
+            "call": null,
+            "alleles": [
+              "*34"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981230,
+            "dbSnpId": "rs1274535931",
+            "call": null,
+            "alleles": [
+              "*58"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981250,
+            "dbSnpId": "rs750820937",
+            "call": null,
+            "alleles": [
+              "*54"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981258,
+            "dbSnpId": "rs1297714792",
+            "call": null,
+            "alleles": [
+              "*79"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981281,
+            "dbSnpId": "rs749060448",
+            "call": null,
+            "alleles": [
+              "*24"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981296,
+            "dbSnpId": "rs1057910",
+            "call": null,
+            "alleles": [
+              "*3",
+              "*18",
+              "*68"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981297,
+            "dbSnpId": "rs56165452",
+            "call": null,
+            "alleles": [
+              "*4"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981301,
+            "dbSnpId": "rs28371686",
+            "call": null,
+            "alleles": [
+              "*5"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981302,
+            "dbSnpId": "rs1250577724",
+            "call": null,
+            "alleles": [
+              "*55"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981305,
+            "dbSnpId": "rs578144976",
+            "call": null,
+            "alleles": [
+              "*66"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981365,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*17"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981371,
+            "dbSnpId": "rs542577750",
+            "call": null,
+            "alleles": [
+              "*68"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986042,
+            "dbSnpId": "rs764211126",
+            "call": null,
+            "alleles": [
+              "*56"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986073,
+            "dbSnpId": "rs72558193",
+            "call": null,
+            "alleles": [
+              "*18"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986136,
+            "dbSnpId": "rs1254213342",
+            "call": null,
+            "alleles": [
+              "*75"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986174,
+            "dbSnpId": "rs1441296358",
+            "call": null,
+            "alleles": [
+              "*84"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988852,
+            "dbSnpId": "rs776908257",
+            "call": null,
+            "alleles": [
+              "*67"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988855,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*59"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988880,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*70"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988917,
+            "dbSnpId": "rs769942899",
+            "call": null,
+            "alleles": [
+              "*19"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988925,
+            "dbSnpId": "rs202201137",
+            "call": null,
+            "alleles": [
+              "*61"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988955,
+            "dbSnpId": "rs767284820",
+            "call": null,
+            "alleles": [
+              "*60"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988984,
+            "dbSnpId": "rs781583846",
+            "call": null,
+            "alleles": [
+              "*30"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94989020,
+            "dbSnpId": "rs9332239",
+            "call": null,
+            "alleles": [
+              "*12",
+              "*71"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94989023,
+            "dbSnpId": "rs868182778",
+            "call": null,
+            "alleles": [
+              "*32"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "variantsOfInterest": [
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94645745,
+            "dbSnpId": "rs12777823",
+            "call": "G|A",
+            "alleles": [],
+            "phased": true,
+            "wildtypeAllele": null,
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      },
+      "VKORC1": {
+        "alleleDefinitionVersion": "v1.38.0-1-g39f50e7",
+        "alleleDefinitionSource": "CPIC",
+        "phenotypeVersion": null,
+        "phenotypeSource": "CPIC",
+        "geneSymbol": "VKORC1",
+        "chr": "chr16",
+        "phased": false,
+        "effectivelyPhased": true,
+        "callSource": "MATCHER",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": null,
+              "reference": true,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": null,
+              "reference": true,
+              "activityValue": null
+            },
+            "gene": "VKORC1",
+            "phenotypes": [],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [],
+            "label": "rs9923231 reference (C)/rs9923231 reference (C)",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": null,
+              "reference": true,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": null,
+              "reference": true,
+              "activityValue": null
+            },
+            "gene": "VKORC1",
+            "phenotypes": [],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [],
+            "label": "rs9923231 reference (C)/rs9923231 reference (C)",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "CPIC"
+          }
+        ],
+        "variants": [
+          {
+            "gene": "VKORC1",
+            "chromosome": "chr16",
+            "position": 31096368,
+            "dbSnpId": "rs9923231",
+            "call": "C/C",
+            "alleles": [
+              "rs9923231 variant (T)"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "variantsOfInterest": [],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      }
+
+    },
+    "DPWG": {
+      "CYP2C9": {
+        "alleleDefinitionVersion": "v1.38.0-1-g39f50e7",
+        "alleleDefinitionSource": "CPIC",
+        "phenotypeVersion": "2024-03-25-16-13",
+        "phenotypeSource": "DPWG",
+        "geneSymbol": "CYP2C9",
+        "chr": "chr10",
+        "phased": true,
+        "effectivelyPhased": true,
+        "callSource": "MATCHER",
+        "uncalledHaplotypes": [
+          "*3",
+          "*4",
+          "*5",
+          "*6",
+          "*7",
+          "*8",
+          "*9",
+          "*10",
+          "*11",
+          "*12",
+          "*13",
+          "*14",
+          "*15",
+          "*16",
+          "*17",
+          "*18",
+          "*19",
+          "*20",
+          "*21",
+          "*22",
+          "*23",
+          "*24",
+          "*25",
+          "*26",
+          "*27",
+          "*28",
+          "*29",
+          "*30",
+          "*31",
+          "*32",
+          "*33",
+          "*34",
+          "*36",
+          "*37",
+          "*38",
+          "*39",
+          "*40",
+          "*41",
+          "*42",
+          "*43",
+          "*44",
+          "*45",
+          "*46",
+          "*47",
+          "*48",
+          "*49",
+          "*50",
+          "*51",
+          "*52",
+          "*53",
+          "*54",
+          "*55",
+          "*56",
+          "*57",
+          "*58",
+          "*59",
+          "*60",
+          "*62",
+          "*63",
+          "*64",
+          "*65",
+          "*66",
+          "*67",
+          "*68",
+          "*69",
+          "*70",
+          "*71",
+          "*72",
+          "*73",
+          "*74",
+          "*75",
+          "*76",
+          "*77",
+          "*78",
+          "*79",
+          "*80",
+          "*81",
+          "*82",
+          "*83",
+          "*84",
+          "*85"
+        ],
+        "messages": [
+          {
+            "rule_name": "reference-allele",
+            "version": null,
+            "matches": null,
+            "exception_type": "note",
+            "message": "The CYP2C9 *1 allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions either because the position is reference or missing."
+          }
+        ],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*2",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "Intermediate Metabolizer"
+            ],
+            "label": "*1/*2",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*35",
+              "function": "Unassigned function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "n/a"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "n/a"
+            ],
+            "label": "*1/*35",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*61",
+              "function": "Unassigned function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "n/a"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "n/a"
+            ],
+            "label": "*1/*61",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*2",
+              "function": "Decreased function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "Intermediate Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "Intermediate Metabolizer"
+            ],
+            "label": "*1/*2",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*35",
+              "function": "Unassigned function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "n/a"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "n/a"
+            ],
+            "label": "*1/*35",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          },
+          {
+            "allele1": {
+              "gene": "CYP2C9",
+              "name": "*1",
+              "function": "Normal function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "CYP2C9",
+              "name": "*61",
+              "function": "Unassigned function",
+              "reference": false,
+              "activityValue": "n/a"
+            },
+            "gene": "CYP2C9",
+            "phenotypes": [
+              "n/a"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "n/a"
+            ],
+            "label": "*1/*61",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "variants": [
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942290,
+            "dbSnpId": "rs1799853",
+            "call": "C|T",
+            "alleles": [
+              "*2",
+              "*35",
+              "*61"
+            ],
+            "phased": true,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938683,
+            "dbSnpId": "rs114071557",
+            "call": null,
+            "alleles": [
+              "*36"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938719,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*80"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938737,
+            "dbSnpId": "rs67807361",
+            "call": null,
+            "alleles": [
+              "*7"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938771,
+            "dbSnpId": "rs142240658",
+            "call": null,
+            "alleles": [
+              "*21"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938788,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*83"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938800,
+            "dbSnpId": "rs1364419386",
+            "call": null,
+            "alleles": [
+              "*76"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938803,
+            "dbSnpId": "rs2031308986",
+            "call": null,
+            "alleles": [
+              "*22"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94938828,
+            "dbSnpId": "rs564813580",
+            "call": null,
+            "alleles": [
+              "*37"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941897,
+            "dbSnpId": "rs371055887",
+            "call": null,
+            "alleles": [
+              "*20"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941915,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*23"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941958,
+            "dbSnpId": "rs72558187",
+            "call": null,
+            "alleles": [
+              "*13"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941975,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*77"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941976,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*38"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94941982,
+            "dbSnpId": "rs762239445",
+            "call": null,
+            "alleles": [
+              "*39"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942018,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*40"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942205,
+            "dbSnpId": "rs1304490498",
+            "call": null,
+            "alleles": [
+              "*25"
+            ],
+            "phased": false,
+            "wildtypeAllele": "CAATGGAAAGA",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942216,
+            "dbSnpId": "rs774607211",
+            "call": null,
+            "alleles": [
+              "*41"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942230,
+            "dbSnpId": "rs767576260",
+            "call": null,
+            "alleles": [
+              "*43"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942231,
+            "dbSnpId": "rs12414460",
+            "call": null,
+            "alleles": [
+              "*42"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942233,
+            "dbSnpId": "rs375805362",
+            "call": null,
+            "alleles": [
+              "*62"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942234,
+            "dbSnpId": "rs72558189",
+            "call": null,
+            "alleles": [
+              "*14",
+              "*35"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942243,
+            "dbSnpId": "rs1375956433",
+            "call": null,
+            "alleles": [
+              "*78"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942249,
+            "dbSnpId": "rs200965026",
+            "call": null,
+            "alleles": [
+              "*26",
+              "*44"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942254,
+            "dbSnpId": "rs199523631",
+            "call": null,
+            "alleles": [
+              "*45"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942255,
+            "dbSnpId": "rs200183364",
+            "call": null,
+            "alleles": [
+              "*33"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942291,
+            "dbSnpId": "rs141489852",
+            "call": null,
+            "alleles": [
+              "*63"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942305,
+            "dbSnpId": "rs754487195",
+            "call": null,
+            "alleles": [
+              "*46"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942306,
+            "dbSnpId": "rs1289704600",
+            "call": null,
+            "alleles": [
+              "*72"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942308,
+            "dbSnpId": "rs17847037",
+            "call": null,
+            "alleles": [
+              "*73"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94942309,
+            "dbSnpId": "rs7900194",
+            "call": null,
+            "alleles": [
+              "*8",
+              "*27"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947782,
+            "dbSnpId": "rs72558190",
+            "call": null,
+            "alleles": [
+              "*15"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947785,
+            "dbSnpId": "rs774550549",
+            "call": null,
+            "alleles": [
+              "*47"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947869,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*69"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947907,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*57"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947917,
+            "dbSnpId": "rs1326630788",
+            "call": null,
+            "alleles": [
+              "*48"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947938,
+            "dbSnpId": "rs2031531005",
+            "call": null,
+            "alleles": [
+              "*28"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94947939,
+            "dbSnpId": "rs370100007",
+            "call": null,
+            "alleles": [
+              "*74"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949129,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*49"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949144,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*50"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949145,
+            "dbSnpId": "rs772782449",
+            "call": null,
+            "alleles": [
+              "*82"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949161,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*85"
+            ],
+            "phased": false,
+            "wildtypeAllele": "AT",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949217,
+            "dbSnpId": "rs2256871",
+            "call": null,
+            "alleles": [
+              "*9"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949280,
+            "dbSnpId": "rs9332130",
+            "call": null,
+            "alleles": [
+              "*10",
+              "*71"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94949281,
+            "dbSnpId": "rs9332131",
+            "call": null,
+            "alleles": [
+              "*6"
+            ],
+            "phased": false,
+            "wildtypeAllele": "GA",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972119,
+            "dbSnpId": "rs182132442",
+            "call": null,
+            "alleles": [
+              "*29"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972123,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*64"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972134,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*51"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972179,
+            "dbSnpId": "rs72558192",
+            "call": null,
+            "alleles": [
+              "*16"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972180,
+            "dbSnpId": "rs988617574",
+            "call": null,
+            "alleles": [
+              "*52"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972183,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*81"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94972233,
+            "dbSnpId": "rs1237225311",
+            "call": null,
+            "alleles": [
+              "*53"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981199,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*65"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981201,
+            "dbSnpId": "rs57505750",
+            "call": null,
+            "alleles": [
+              "*31"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981224,
+            "dbSnpId": "rs28371685",
+            "call": null,
+            "alleles": [
+              "*11"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981225,
+            "dbSnpId": "rs367826293",
+            "call": null,
+            "alleles": [
+              "*34"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981230,
+            "dbSnpId": "rs1274535931",
+            "call": null,
+            "alleles": [
+              "*58"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981250,
+            "dbSnpId": "rs750820937",
+            "call": null,
+            "alleles": [
+              "*54"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981258,
+            "dbSnpId": "rs1297714792",
+            "call": null,
+            "alleles": [
+              "*79"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981281,
+            "dbSnpId": "rs749060448",
+            "call": null,
+            "alleles": [
+              "*24"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981296,
+            "dbSnpId": "rs1057910",
+            "call": null,
+            "alleles": [
+              "*3",
+              "*18",
+              "*68"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981297,
+            "dbSnpId": "rs56165452",
+            "call": null,
+            "alleles": [
+              "*4"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981301,
+            "dbSnpId": "rs28371686",
+            "call": null,
+            "alleles": [
+              "*5"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981302,
+            "dbSnpId": "rs1250577724",
+            "call": null,
+            "alleles": [
+              "*55"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981305,
+            "dbSnpId": "rs578144976",
+            "call": null,
+            "alleles": [
+              "*66"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981365,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*17"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94981371,
+            "dbSnpId": "rs542577750",
+            "call": null,
+            "alleles": [
+              "*68"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986042,
+            "dbSnpId": "rs764211126",
+            "call": null,
+            "alleles": [
+              "*56"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986073,
+            "dbSnpId": "rs72558193",
+            "call": null,
+            "alleles": [
+              "*18"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986136,
+            "dbSnpId": "rs1254213342",
+            "call": null,
+            "alleles": [
+              "*75"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94986174,
+            "dbSnpId": "rs1441296358",
+            "call": null,
+            "alleles": [
+              "*84"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988852,
+            "dbSnpId": "rs776908257",
+            "call": null,
+            "alleles": [
+              "*67"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988855,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*59"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988880,
+            "dbSnpId": null,
+            "call": null,
+            "alleles": [
+              "*70"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988917,
+            "dbSnpId": "rs769942899",
+            "call": null,
+            "alleles": [
+              "*19"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988925,
+            "dbSnpId": "rs202201137",
+            "call": null,
+            "alleles": [
+              "*61"
+            ],
+            "phased": false,
+            "wildtypeAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988955,
+            "dbSnpId": "rs767284820",
+            "call": null,
+            "alleles": [
+              "*60"
+            ],
+            "phased": false,
+            "wildtypeAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94988984,
+            "dbSnpId": "rs781583846",
+            "call": null,
+            "alleles": [
+              "*30"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94989020,
+            "dbSnpId": "rs9332239",
+            "call": null,
+            "alleles": [
+              "*12",
+              "*71"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94989023,
+            "dbSnpId": "rs868182778",
+            "call": null,
+            "alleles": [
+              "*32"
+            ],
+            "phased": false,
+            "wildtypeAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "variantsOfInterest": [
+          {
+            "gene": "CYP2C9",
+            "chromosome": "chr10",
+            "position": 94645745,
+            "dbSnpId": "rs12777823",
+            "call": "G|A",
+            "alleles": [],
+            "phased": true,
+            "wildtypeAllele": null,
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      },
+      "VKORC1": {
+        "alleleDefinitionVersion": "v1.38.0-1-g39f50e7",
+        "alleleDefinitionSource": "CPIC",
+        "phenotypeVersion": "2024-03-25-16-13",
+        "phenotypeSource": "DPWG",
+        "geneSymbol": "VKORC1",
+        "chr": "chr16",
+        "phased": false,
+        "effectivelyPhased": true,
+        "callSource": "MATCHER",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": "Normal coumarin sensitivity",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": "Normal coumarin sensitivity",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "gene": "VKORC1",
+            "phenotypes": [
+              "-1639 GG"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "-1639 GG"
+            ],
+            "label": "rs9923231 reference (C)/rs9923231 reference (C)",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": "Normal coumarin sensitivity",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "VKORC1",
+              "name": "rs9923231 reference (C)",
+              "function": "Normal coumarin sensitivity",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "gene": "VKORC1",
+            "phenotypes": [
+              "-1639 GG"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "-1639 GG"
+            ],
+            "label": "rs9923231 reference (C)/rs9923231 reference (C)",
+            "inferred": false,
+            "combination": false,
+            "phenotypeDataSource": "DPWG"
+          }
+        ],
+        "variants": [
+          {
+            "gene": "VKORC1",
+            "chromosome": "chr16",
+            "position": 31096368,
+            "dbSnpId": "rs9923231",
+            "call": "C/C",
+            "alleles": [
+              "rs9923231 variant (T)"
+            ],
+            "phased": false,
+            "wildtypeAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "variantsOfInterest": [],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      }
+    }
+  }
+}

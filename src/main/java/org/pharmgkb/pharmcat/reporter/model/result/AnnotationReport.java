@@ -105,9 +105,9 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   /**
    * Creates a special {@link AnnotationReport} for warfarin in CPIC.
    */
-  public static AnnotationReport forWarfarin(List<Genotype> genotypes) {
+  public static AnnotationReport forCpicWarfarin(List<Genotype> genotypes) {
     AnnotationReport annotationReport = new AnnotationReport("warfarin-cpic-1-1");
-    genotypes.forEach(annotationReport::addGenotype);
+    genotypes.forEach(g -> annotationReport.addGenotype(g, true));
     return annotationReport;
   }
 
@@ -116,8 +116,13 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     return m_genotypes;
   }
 
-  public void addGenotype(Genotype genotype) {
+  public void addGenotype(Genotype genotype, boolean forCpicWarfarin) {
     m_genotypes.add(genotype);
+
+    // CPIC warfarin does not use phenotype/AS so don't get them (can lead to UnexpectedStateExceptions below)
+    if (forCpicWarfarin) {
+      return;
+    }
 
     for (Diplotype dip : genotype.getDiplotypes()) {
       String geneSymbol = dip.getGene();

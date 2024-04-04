@@ -148,13 +148,13 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
           .forEach(rec -> matchedGenotypes.put(rec, genotype));
     }
     if (drugName.equals("warfarin") && m_source == DataSource.CPIC) {
-      AnnotationReport ann = AnnotationReport.forWarfarin(m_recommendationGenotypes);
+      AnnotationReport ann = AnnotationReport.forCpicWarfarin(m_recommendationGenotypes);
       m_annotationReports.add(ann);
     }
     for (RecommendationAnnotation recommendationAnnotation : matchedGenotypes.keys()) {
       String id = guidelinePackage.getGuideline().getSource() + "-" + recommendationAnnotation.getId();
       AnnotationReport annotationReport = new AnnotationReport(recommendationAnnotation, id);
-      matchedGenotypes.get(recommendationAnnotation).forEach(annotationReport::addGenotype);
+      matchedGenotypes.get(recommendationAnnotation).forEach(g -> annotationReport.addGenotype(g, false));
       annotationReport.checkDiplotypes();
       m_annotationReports.add(annotationReport);
     }
