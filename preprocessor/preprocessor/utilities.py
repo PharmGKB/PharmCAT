@@ -70,7 +70,7 @@ def run_pharmcat(jar_location: Path, args: List[str], max_processes: int, max_me
                  verbose: int = 0):
     command: List[str] = [common.JAVA_PATH, '-cp', str(jar_location.absolute())]
     if max_memory:
-        command.extend(['-Xmx', max_memory])
+        command.extend(['-Xmx' + max_memory])
     command.append('org.pharmgkb.pharmcat.BatchPharmCAT')
     command.extend(args)
     if max_processes:

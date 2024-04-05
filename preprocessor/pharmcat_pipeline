@@ -66,6 +66,8 @@ if __name__ == '__main__':
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
     preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
                                     help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.')
+    preprocessor_group.add_argument("-G", "--no-gvcf-check", action="store_true",
+                                    help="(Optional) do not check whether input is a gVCF, false by default.")
     # matcher args
     matcher_group = parser.add_argument_group('Named allele matcher arguments')
     matcher_group.add_argument('-matcher', action='store_true',
@@ -110,6 +112,7 @@ if __name__ == '__main__':
                                    help='The maximum memory PharmCAT should use (e.g. "64G"). This is passed on using '
                                         'Java''s -Xmx.  Alternatively, set using the JAVA_MAX_HEAP environment '
                                         'variable.')
+
     # misc args
     parser.add_argument('-v', '--verbose', action='count', default=0,
                         help='Print more verbose messages')
@@ -277,11 +280,14 @@ lead to different results.
         if len(vcf_files) == 0:
             raise ReportableException('Error: no VCF input')
 
-        for file in vcf_files:
-            if preprocessor.is_gvcf_file(file):
-                raise ReportableException('%s is a gVCF file, which is not currently supported.\n'
-                                          'The PharmCAT VCF Preprocessor will support block gVCF in the future.'
-                                          % str(file))
+        if args.no_gvcf_check:
+            print('\nBypass the gVCF check.\n')
+        else:
+            for file in vcf_files:
+                if preprocessor.is_gvcf_file(file):
+                    raise ReportableException('%s is a gVCF file, which is not currently supported.\n'
+                                              'See https://github.com/PharmGKB/PharmCAT/issues/79 for details.\n'
+                                              'If this is not a gVCF file, use -G to bypass.' % str(file))
 
         if len(m_samples) == 0:
             m_samples = preprocessor.read_vcf_samples(vcf_files[0], verbose=args.verbose)
