@@ -241,7 +241,9 @@
                           {{/unless}}
                         </p>
                         <p>Population:<br />{{capitalizeNA population}}</p>
-                        {{{annotationTags this}}}
+                        {{#unless (rxIsCpicWarfarin drug source)}}
+                          {{{annotationTags this}}}
+                        {{/unless}}
                       </td>
                       <td>
                         <div class="hint">{{pluralize "Genotype" genotypes}}</div>
