@@ -19,6 +19,7 @@ public class TextConstants {
   public static final String NO_RESULT = "No Result";
   public static final String INDETERMINATE = "Indeterminate";
   public static final String UNSPECIFIED = "Unspecified";
+  public static final String UNASSIGNED = "Unassigned";
   // greater than or equal to symbol
   public static final String GTE = "\u2265";
 

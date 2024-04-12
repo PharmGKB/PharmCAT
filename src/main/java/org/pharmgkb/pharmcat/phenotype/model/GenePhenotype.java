@@ -58,12 +58,23 @@ public class GenePhenotype {
     return m_haplotypes;
   }
 
-
   /**
    * Map of a haplotype name (e.g. *1) to an activity value (e.g. 1.0) if applicable. Not all genes use activity values
    */
   public Map<String,String> getActivityValues() {
     return m_activityValues;
+  }
+
+  /**
+   * Makes a map combining the allele function and activity value (if applicable) and mapping it by allele name (e.g. *1)
+   * @return a map of allele name to formatted function + score
+   */
+  public Map<String,String> makeFormattedFunctionScoreMap() {
+    Map<String,String> newMap = new HashMap<>();
+    for (HaplotypeRecord haplotypeRecord : getNamedAlleles()) {
+      newMap.put(haplotypeRecord.getName(), haplotypeRecord.toFormattedFunction());
+    }
+    return newMap;
   }
 
   public void assignActivity(Haplotype haplotype) {

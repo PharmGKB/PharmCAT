@@ -141,7 +141,7 @@ public class HtmlFormat extends AbstractFormat {
         if (!functionMap.containsKey(symbol)) {
           GenePhenotype genePhenotype = getEnv().getPhenotype(symbol, source);
           if (genePhenotype != null) {
-            functionMap.put(symbol, genePhenotype.getHaplotypes());
+            functionMap.put(symbol, genePhenotype.makeFormattedFunctionScoreMap());
           }
         }
 

@@ -15,7 +15,6 @@ import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.TextUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -472,11 +471,11 @@ public class ReportHelpers {
     Map<String, String> functions = functionMap.get(gene);
     if (functions != null) {
       String function = functions.get(allele);
-      if (function != null) {
+      if (!TextConstants.isUnspecified(function)) {
         return "<li>" + allele + " - " + function + "</li>";
       }
     }
-    return "<li>" + allele + " - " + GenePhenotype.UNASSIGNED_FUNCTION + "</li>";
+    return "<li>" + allele + " - " + UNASSIGNED + "</li>";
   }
 
   public static String amdNoDataMessage(Collection<String> compactNoDataGenes) {

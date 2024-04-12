@@ -2001,6 +2001,7 @@ class PipelineTest {
   /**
    * Should not have call multimatch message.
    * Should have inferred CYP2D6 copy number.
+   * This test has two outside calls for 2D6 with different phenotypes
    */
   @Test
   void testCyp2d6DoubleCall(TestInfo testInfo) throws Exception {
@@ -2026,6 +2027,7 @@ class PipelineTest {
 
     diplotype = recommendationDipIt.next();
     assertNotNull(diplotype.getAllele2());
+    assertThat(diplotype.getPhenotypes(), contains("Ultrarapid Metabolizer"));
     assertEquals("*1x" + TextConstants.GTE + "3", diplotype.getAllele2().getName());
     assertEquals("One 1.0 (Normal function) allele and one ≥3.0 (Increased function) allele", ReportHelpers.gsFunction(diplotype));
 
