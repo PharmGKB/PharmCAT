@@ -169,44 +169,27 @@ These commands yield `Named Allele Matcher`, `Phenotyper`, and `Reporter` result
 
 ### Extracting PharmCAT JSON content into TSV
 
-We also provide accessory R scripts that organize and extract the content from the [Named Allele Matcher](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat_named_allele_matcher.R) or from [the final reports](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat_report.R) JSON outputs into tab-separated values (TSV) files. Here is an example TSV that the users will obtain from the provided R scripts.
+We also provide [an accessory python script]((https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat.py)) that extracts and organizes the content from the PharmCAT JSON outputs into a tab-separated values (TSV) file. Here is an example TSV that the users will obtain from the provided R scripts.
 
-|samples|gene |diplotype                                      |haplotype_1            |haplotype_2            |haplotype_1_variants|haplotype_2_variants|missing_positions|
-|-------|-----|-----------------------------------------------|-----------------------|-----------------------|--------------------|--------------------|-----------------|
-|NA18526|ABCG2|rs2231142 reference (G)/rs2231142 reference (G)|rs2231142 reference (G)|rs2231142 reference (G)|88131171_G          |88131171_G          |NULL             |
-|NA18526|CYP3A5|\*1/\*1                                          |\*1                     |\*1                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_T|99660516;99676198|
-|NA18526|SLCO1B1|\*1/\*15                                         |\*1                     |\*15                    |21176804_A;21176868_A;21176879_C;21176898_G;<...truncated for visual clarity...>|21176804_G;21176868_A;21176879_C;<...truncated for visual clarity...>|21172734;<...truncated for visual clarity...>|
-|NA18565|ABCG2|rs2231142 reference (G)/rs2231142 reference (G)|rs2231142 reference (G)|rs2231142 reference (G)|88131171_G          |88131171_G          |NULL             |
-|NA18565|CYP3A5|\*1/\*3                                          |\*1                     |\*3                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_C|99660516;99676198|
-|NA18565|SLCO1B1|\*1/\*1                                          |\*1                     |\*1                     |21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21172734;;<...truncated for visual clarity...>|
-|NA18861|CYP3A5|\*1/\*1                                          |\*1                     |\*1                     |99652770_T;99665212_C;99672916_T|99652770_T;99665212_C;99672916_T|99660516;99676198|
-|NA18861|SLCO1B1|\*1/\*43                                         |\*1                     |\*43                    |21176804_A;21176868_A;21176879_C;<...truncated for visual clarity...>|21176804_G;21176868_A;21176879_A;<...truncated for visual clarity...>|21172734;;<...truncated for visual clarity...>|
+| Sample   | Gene    | Phenotype       | Activity_Score                                  | Diplotype_Effectively_Phased_DPYD_RYR1 | DPYD_RYR1_Variants    | DPYD_RYR1_Variant_Functions      | DPYD_RYR1_Variant_Genotypes | Haplotype_1             | Haplotype_2            | Haplotype_1_Functions | Haplotype_2_Functions | Haplotype_1_Variants                                                             | Haplotype_2_Variants                                                  | Missing_Positions | Uncallable_Haplotypes |
+|----------|---------|-----------------|-------------------------------------------------|----------------------------------------|-----------------------|----------------------------------|-----------------------------|-------------------------|------------------------|-----------------------|-----------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------|-----------------------|
+| NA18526  | ABCG2   |                 | rs2231142 reference (G)/rs2231142 reference (G) | |                       |                                  |                             | rs2231142 reference (G) | rs2231142 reference (G) |                       |                       | 88131171:G                                                                       | 88131171:G                                                            |                   |                       |
+| sample_1 | CYP3A5  |                 | \*1/\*1                                         | |                       |                                  |                             | \*1                     | \*1                    |                       |                       | | | 99660516;99676198 |                       |
+| sample_1  | SLCO1B1 | Decreased Function | \*1/\*15                                        | |                       |                                  |                             | \*1                     | \*15                   | Normal function       | No function           |  | 21178615:C | 21176804 | \*37                  |
+| sample_1  | CYP2C9 | Normal Metabolizer | 2.0 | |                       |                                  |                             | \*1                     | \*1                    | Normal function       | Normal function           |  |  |  |                   |
+| sample_1  | RYR1 | Uncertain Susceptibility |  | c.13513G>C (heterozygous)| Reference;c.13513G>C  | Normal function;Normal function  | 38566986:C                  |                         |                     |       |            |  |  | 38433867;38440747;38440796;<...truncated for visual clarity...> |     c.12115A>T;c.6349G>C;c.178G>T;<...truncated for visual clarity...>              |
 
-
-#### Extracting the PharmCAT Named Allele Matcher JSON data into a TSV file
+#### Extracting the PharmCAT JSON data into a TSV file
 ```shell
-SCRIPT_PATH=src/json2tsv_pharmcat_named_allele_matcher.R
-MATCHER_DIR=results/pharmcat_named_allele_matcher/
-MATCHER_PATTERN=*match.json
-PROJECT_DIR="$PWD"
-Rscript  "$SCRIPT_PATH" \
---input-dir "$MATCHER_DIR" \
---input-file-pattern "$MATCHER_PATTERN" \
---output-dir "$PROJECT_DIR"
+conda env create -f src/environment.yml
+conda activate json2tsv
+# extract json content into a tsv file
+python3 src/json2tsv_pharmcat.py \
+  -i results/pharmcat_all/ \
+  -a </path/to/pharmcat/allele/definition/json/> \
+  -o results/
 ```
 
-#### Extracting the PharmCAT reports (in JSON files) into a TSV file
-
-```shell
-SCRIPT_PATH=src/json2tsv_pharmcat_report.R
-PHARMCAT_ALL_DIR=results/pharmcat_all/
-REPORT_PATTERN=*report.json
-PROJECT_DIR="$PWD"
-Rscript  "$SCRIPT_PATH" \
---input-dir "$PHARMCAT_ALL_DIR" \
---input-file-pattern "$REPORT_PATTERN" \
---output-dir "$PROJECT_DIR"
-```
 
 ---
 
