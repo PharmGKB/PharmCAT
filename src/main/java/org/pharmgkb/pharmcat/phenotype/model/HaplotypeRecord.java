@@ -56,7 +56,7 @@ public class HaplotypeRecord {
     if (isUnspecified(this.activityValue)) {
       return this.functionValue;
     } else {
-      return String.format("%s (%s)", this.activityValue, this.functionValue);
+      return String.format("Activity Value %s (%s)", this.activityValue, this.functionValue);
     }
   }
 
