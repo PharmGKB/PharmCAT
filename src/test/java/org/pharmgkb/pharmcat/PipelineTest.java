@@ -413,7 +413,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(null);
+    testWrapper.execute();
     SortedSet<String> genes = testWrapper.getContext().getGeneReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getGeneReports().get(k).values().stream()
             .map(GeneReport::getGeneDisplay))
@@ -498,7 +498,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
         .variation("CYP2C19", "rs3758581", "G", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
@@ -517,7 +517,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
         .variation("CYP2C19", "rs3758581", "G", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
@@ -540,7 +540,7 @@ class PipelineTest {
         .variation("RYR1", "rs193922753", "G", "C")
         // not undocumented-as-reference
         .variation("CYP2C19", "rs3758581", "G", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> tpmtExpectedCalls = List.of("*1/*1");
     List<String> ryr1ExpectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
@@ -575,7 +575,7 @@ class PipelineTest {
         .variation("TPMT", "rs1800462", "C", "T")
         // undocumented as reference + lowest-function
         .variation("RYR1", "rs193922753", "G", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("TPMT");
     testWrapper.testCalledByMatcher("RYR1");
@@ -607,7 +607,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .allowUnknownAllele()
         .variation("RYR1", "rs193922753", "G", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> ryr1ExpectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
@@ -636,7 +636,7 @@ class PipelineTest {
         .variation("TPMT", "rs1256618794", "A", "A") // C -> A
         .variation("TPMT", "rs753545734", "C", "C") // C -> T
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = UNKNOWN_CALL;
 
@@ -845,7 +845,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12248560", "T", "T")
         .missing("CYP2C19", "rs28399504")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls("CYP2C19", "*4/*4", "*4/*17", "*17/*17");
@@ -961,7 +961,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CFTR");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
@@ -982,7 +982,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("CFTR", "rs11971167", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("D1270N (heterozygous)");
 
@@ -1003,7 +1003,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CFTR", "rs11971167", "G", "A")
         .variation("CFTR", "rs75527207", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("D1270N/G551D");
 
@@ -1050,7 +1050,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("ABCG2", "rs2231142", "G", "T")
         .variation("SLCO1B1", "rs56101265", "T", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("ABCG2", "SLCO1B1");
     testWrapper.testPrintCpicCalls("SLCO1B1", "*1/*2");
@@ -1089,7 +1089,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("SLCO1B1");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("*1/*1");
 
@@ -1115,7 +1115,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs4149056", "C", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("*5/*15");
 
@@ -1138,7 +1138,7 @@ class PipelineTest {
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs11045852", "A", "G")
         .variation("SLCO1B1", "rs74064213", "A", "G");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("*1/*44");
 
@@ -1159,7 +1159,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("SLCO1B1", "rs2306283", "A", "G")
         .variation("SLCO1B1", "rs4149056", "T", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("*1/*15");
 
@@ -1181,7 +1181,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("SLCO1B1", "rs4149056", "T", "C")
         .variation("SLCO1B1", "rs71581941", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("*5/*45");
 
@@ -1209,7 +1209,7 @@ class PipelineTest {
         .variation("SLCO1B1", "rs4149056", "T", "C")
         .variation("SLCO1B1", "rs11045853", "A", "A")
         .variation("SLCO1B1", "rs72559748", "G", "G");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("rs4149056 C/rs4149056 T");
 
@@ -1231,7 +1231,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80");
@@ -1244,7 +1244,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80");
@@ -1256,7 +1256,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("UGT1A1");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*1");
@@ -1269,7 +1269,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*28");
@@ -1281,7 +1281,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(9)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*28/*37");
@@ -1295,7 +1295,7 @@ class PipelineTest {
         .phased()
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs3064744", "TA(7)", "TA(8)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*28");
@@ -1317,7 +1317,7 @@ class PipelineTest {
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs4148323", "G", "A");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80+*28");
@@ -1331,7 +1331,7 @@ class PipelineTest {
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs4148323", "G", "A");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80+*28");
@@ -1343,7 +1343,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("UGT1A1", "rs4148323", "A", "A");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*6/*6");
@@ -1358,7 +1358,7 @@ class PipelineTest {
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs4148323", "A", "G");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
@@ -1375,7 +1375,7 @@ class PipelineTest {
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T")
         .variation("UGT1A1", "rs4148323", "A", "G");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*6/*80", "*6/*80+*28", "*6/*80+*37");
@@ -1390,7 +1390,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testRecommendedDiplotypes("UGT1A1", "*1", "*80");
@@ -1417,7 +1417,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("UGT1A1", "rs887829", "T", "T")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*80/*80+*28");
@@ -1430,7 +1430,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .missing("UGT1A1", "rs887829")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(8)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*28/*28", "*28/*80+*28", "*80+*28/*80+*28");
@@ -1444,7 +1444,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*28");
@@ -1458,7 +1458,7 @@ class PipelineTest {
         .missing("UGT1A1", "rs887829")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs35350960", "C", "A");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*27/*28", "*27/*80+*28");
@@ -1474,7 +1474,7 @@ class PipelineTest {
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs35350960", "A", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
   }
@@ -1487,7 +1487,7 @@ class PipelineTest {
         .missing("UGT1A1", "rs3064744")
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs35350960", "A", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
@@ -1502,7 +1502,7 @@ class PipelineTest {
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs35350960", "A", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
@@ -1518,7 +1518,7 @@ class PipelineTest {
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(8)", "TA(7)")
         .variation("UGT1A1", "rs35350960", "A", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
@@ -1533,7 +1533,7 @@ class PipelineTest {
         .phased()
         .variation("UGT1A1", "rs887829", "T", "C")
         .variation("UGT1A1", "rs3064744", "TA(9)", "TA(7)");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("UGT1A1");
     testWrapper.testReportable("UGT1A1");
@@ -1549,7 +1549,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .missing("CYP3A5", "rs776746");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testReportable("CYP3A5");
@@ -1575,7 +1575,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("CYP3A5", "rs776746", "T", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testReportable("CYP3A5");
@@ -1590,7 +1590,7 @@ class PipelineTest {
         .variation("CYP3A5", "rs28383479", "C", "T")
         .variation("CYP3A5", "rs776746", "C", "T")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testPrintCpicCalls("CYP3A5", "*3/*9");
@@ -1603,7 +1603,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CYP3A5", "rs776746", "C", "C")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testPrintCpicCalls("CYP3A5", "*3/*3");
@@ -1616,7 +1616,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CYP3A5", "rs776746", "T", "C")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testPrintCpicCalls("CYP3A5", "*1/*3");
@@ -1630,7 +1630,7 @@ class PipelineTest {
         .variation("CYP3A5", "rs28383479", "T", "C")
         .variation("CYP3A5", "rs776746", "T", "C")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP3A5");
     testWrapper.testPrintCpicCalls("CYP3A5", "*3/*9");
@@ -1800,7 +1800,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("TPMT", "rs1800460", "C", "T")
         .variation("TPMT", "rs1142345", "T", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("TPMT");
     testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");
@@ -1818,7 +1818,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C9", "rs202201137", "A", "G");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls("CYP2C9", "*1/*61");
@@ -1830,7 +1830,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls("CYP2C9", "*1/*1");
@@ -1857,7 +1857,7 @@ class PipelineTest {
         .variation("CYP2B6", "rs3745274", "G", "T")
         .variation("CYP2B6", "rs2279343", "A", "G")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2B6");
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34");
@@ -1879,7 +1879,7 @@ class PipelineTest {
         .variation("CYP2B6", "rs3745274", "G", "T")
         .variation("CYP2B6", "rs2279343", "A", "G")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2B6");
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34", "*33/*36");
@@ -1917,7 +1917,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .reference("IFNL3")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("IFNL3");
     testWrapper.testReportable("IFNL3");
@@ -2157,7 +2157,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CYP3A4", "rs72552799", "T", "T")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
     testWrapper.testCalledByMatcher("CYP3A4");
     testWrapper.testReportable("CYP3A4");
     testWrapper.testPrintCalls(DataSource.DPWG, "CYP3A4", "*8/*8");
@@ -2175,7 +2175,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs367543002", "C", "T")
         .variation("CYP2C19", "rs3758581", "G", "G")
         .missing("CYP2C19", "rs367543003");
-    testWrapper.execute(null);
+    testWrapper.execute();
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2C19");
   }
@@ -2214,7 +2214,7 @@ class PipelineTest {
         .reference("CYP2D6")
         .reference("CYP2C19")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
     testWrapper.testCalledByMatcher("CYP2C19", "CYP2D6");
     testWrapper.testReportable("CYP2C19", "CYP2D6");
 
@@ -2250,6 +2250,38 @@ class PipelineTest {
     testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 2);
     testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "prefer-sample-data",
         MessageHelper.MSG_OUTSIDE_CALL);
+  }
+
+
+
+  @Test
+  void outsideCallCollision2Files(TestInfo testInfo) throws Exception {
+
+    Path outsideCallPath1 = TestUtils.createTestFile(testInfo, "1.tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath1))) {
+      writer.println("CYP4F2\t*1/*3");
+    }
+    Path outsideCallPath2 = TestUtils.createTestFile(testInfo, "2.tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outsideCallPath2))) {
+      writer.println("CYP4F2\t*9/*4");
+    }
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9");
+    Path vcfFile = testWrapper.execute(outsideCallPath1, outsideCallPath2);
+
+    // this is an outside calls
+    testWrapper.testNotCalledByMatcher("CYP4F2");
+    // this is a regular call
+    testWrapper.testCalledByMatcher("CYP2C9");
+
+    testWrapper.testPrintCpicCalls( "CYP4F2", "*1/*3", "*4/*9");
+    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP4F2", MessageHelper.MSG_OUTSIDE_CALL);
+
+    Document document = readHtmlReport(vcfFile);
+    assertEquals(1,
+        document.select(".gene.CYP4F2 .alert-warning." + MessageHelper.MSG_OUTSIDE_CALL).size());
   }
 
 
@@ -2376,7 +2408,7 @@ class PipelineTest {
         .reference("VKORC1")
         .missingExtraPosition("CYP2C9", "rs12777823")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("CYP2C9");
@@ -2443,7 +2475,7 @@ class PipelineTest {
         .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
         .duplicatePositionAsIs("NUDT15", "chr13", 48037782, "0/1", "A", "C")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("NUDT15");
     testWrapper.testReportable("NUDT15");
@@ -2464,7 +2496,7 @@ class PipelineTest {
         .variationAsIs("NUDT15", "chr13", 48037782, "0/1", "A", "C")
         .duplicatePosition("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("NUDT15");
     testWrapper.testReportable("NUDT15");

@@ -1,13 +1,15 @@
 package org.pharmgkb.pharmcat.phenotype.model;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeUtils;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -18,7 +20,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  *
  * @author Ryan Whaley
  */
-public class OutsideCall {
+public class OutsideCall implements Comparable<OutsideCall> {
   private static final Splitter sf_lineSplitter = Splitter.on("\t").trimResults();
   private static final Splitter sf_diplotypeSplitter = Splitter.on("/").trimResults();
   private static final String sf_diplotypeSeparator = "/";
@@ -29,10 +31,10 @@ public class OutsideCall {
   private static final int IDX_ACTIVITY = 3;
 
   private final String m_gene;
-  private String m_diplotype;
+  private final @Nullable String m_diplotype;
   private final List<String> m_diplotypes;
-  private String m_phenotype = null;
-  private String m_activityScore = null;
+  private @Nullable String m_phenotype = null;
+  private @Nullable String m_activityScore = null;
   private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
 
   /**
@@ -52,8 +54,8 @@ public class OutsideCall {
       throw new BadOutsideCallException("Line " + lineNumber + ": No gene specified");
     }
 
-    m_diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
-    if (fields.size() == 2 && (m_diplotype == null || m_diplotype.equals(sf_diplotypeSeparator))) {
+    String diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
+    if (fields.size() == 2 && (diplotype == null || diplotype.equals(sf_diplotypeSeparator))) {
       if (StringUtils.isBlank(fields.get(IDX_DIPS))) {
         throw new BadOutsideCallException("Line " + lineNumber + ": No diplotype specified");
       } else {
@@ -61,13 +63,14 @@ public class OutsideCall {
       }
     }
 
-    if (m_diplotype != null) {
-      List<String> alleles = new ArrayList<>();
+    if (diplotype == null) {
+      m_diplotype = null;
+      m_diplotypes = ImmutableList.of();
+    } else {
       // strip any prefix of the gene symbol
-      for (String allele : sf_diplotypeSplitter.splitToList(m_diplotype)) {
-        alleles.add(allele.replaceFirst("^" + m_gene + "\\s*", ""));
-      }
-
+      List<String> alleles = sf_diplotypeSplitter.splitToList(diplotype).stream()
+          .map(a -> a.replaceFirst("^" + m_gene + "\\s*", ""))
+          .toList();
       // re-join alleles to eliminate white space when gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
       m_diplotypes = ImmutableList.of(m_diplotype);
@@ -78,8 +81,6 @@ public class OutsideCall {
       if (alleles.size() == 2) {
         m_haplotypes.add(alleles.get(1));
       }
-    } else {
-      m_diplotypes = ImmutableList.of();
     }
 
     if (fields.size() >= 3) {
@@ -121,11 +122,47 @@ public class OutsideCall {
     return m_haplotypes;
   }
 
-  public String getPhenotype() {
+  public @Nullable String getPhenotype() {
     return m_phenotype;
   }
 
-  public String getActivityScore() {
+  public @Nullable String getActivityScore() {
     return m_activityScore;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof OutsideCall oc)) {
+      return false;
+    }
+    if (o == this) {
+      return true;
+    }
+    // ignore diplotypes and haplotypes because they are derived props
+    return Objects.equals(m_gene, oc.getGene()) &&
+        Objects.equals(m_diplotype, oc.getDiplotype()) &&
+        Objects.equals(m_phenotype, oc.getPhenotype()) &&
+        Objects.equals(m_activityScore, oc.getActivityScore())
+        ;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_gene, m_diplotype, m_phenotype, m_activityScore);
+  }
+
+  @Override
+  public int compareTo(@NonNull OutsideCall o) {
+    if (this == o) {
+      return 0;
+    }
+    // ignore diplotypes and haplotypes because they are derived props
+    return new ComparisonChain()
+        .compare(m_gene, o.getGene())
+        .compare(m_diplotype, o.getDiplotype())
+        .compare(m_phenotype, o.getPhenotype())
+        .compare(m_activityScore, o.getActivityScore())
+        .result();
   }
 }

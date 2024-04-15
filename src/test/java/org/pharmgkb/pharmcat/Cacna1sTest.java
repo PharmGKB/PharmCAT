@@ -48,7 +48,7 @@ class Cacna1sTest {
         .variation("RYR1", "rs193922746", "A", "G") // c.97A>G
         .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -81,7 +81,7 @@ class Cacna1sTest {
     testWrapper.getVcfBuilder()
         .reference("CACNA1S")
         .variation("CACNA1S", "rs772226819", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("RYR1");
     testWrapper.testCalledByMatcher("CACNA1S");
@@ -117,7 +117,7 @@ class Cacna1sTest {
     testWrapper.getVcfBuilder()
         .variation("CACNA1S", "rs1800559", "C", "T")
         .variation("CACNA1S", "rs772226819", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.520C>T/c.3257G>A");
 
@@ -155,7 +155,7 @@ class Cacna1sTest {
         .reference("RYR1")
         .variation("CACNA1S", "rs772226819", "G", "A")
         .variation("RYR1", "rs118192178", "G", "C");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -198,7 +198,7 @@ class Cacna1sTest {
         .variation("CACNA1S", "rs772226819", "G", "A")
         .reference("RYR1")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");

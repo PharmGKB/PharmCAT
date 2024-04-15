@@ -57,14 +57,14 @@ public class Phenotyper {
    * @param outsideCalls a List of {@link OutsideCall} objects
    * @param variantWarnings map of VCF warnings, keyed to chromosomal position
    */
-  public Phenotyper(Env env, List<GeneCall> geneCalls, List<OutsideCall> outsideCalls,
+  public Phenotyper(Env env, List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls,
       @Nullable Map<String, Collection<String>> variantWarnings) {
     initialize(geneCalls, outsideCalls, env, DataSource.CPIC, variantWarnings);
     initialize(geneCalls, outsideCalls, env, DataSource.DPWG, variantWarnings);
   }
 
 
-  private void initialize(List<GeneCall> geneCalls, List<OutsideCall> outsideCalls, Env env, DataSource source,
+  private void initialize(List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls, Env env, DataSource source,
       @Nullable Map<String, Collection<String>> variantWarnings) {
     SortedMap<String, GeneReport> reportMap = m_geneReports.computeIfAbsent(source, (s) -> new TreeMap<>());
 
@@ -97,7 +97,6 @@ public class Phenotyper {
 
         } else {
           // add alternate outside call
-          System.out.println("WARNING: Multiple outside calls for " + outsideCall.getGene());
           geneReport.addOutsideCall(outsideCall, env);
           continue;
         }

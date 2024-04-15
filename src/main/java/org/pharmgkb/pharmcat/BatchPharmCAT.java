@@ -6,15 +6,16 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
@@ -36,7 +37,7 @@ public class BatchPharmCAT {
   private final boolean m_verbose;
   private final Map<String, VcfFile> m_vcfFilesToProcess = new TreeMap<>();
   private final Map<String, Path> m_matchFilesToProcess = new TreeMap<>();
-  private final Map<String, Path> m_outsideCallFilesToProcess = new TreeMap<>();
+  private final Map<String, List<Path>> m_outsideCallFilesToProcess = new TreeMap<>();
   private final Map<String, Path> m_phenotypeFilesToProcess = new TreeMap<>();
 
 
@@ -158,9 +159,9 @@ public class BatchPharmCAT {
         if (config.runPhenotyper) {
           m_matchFilesToProcess.put(basename, file);
         }
-      } else if (name.endsWith(BaseConfig.OUTSIDE_SUFFIX + ".tsv")) {
+      } else if (BaseConfig.OUTSIDE_FILENAME_PATTERN.matcher(name).matches()) {
         if (config.runPhenotyper) {
-          m_outsideCallFilesToProcess.put(basename, file);
+          m_outsideCallFilesToProcess.computeIfAbsent(basename, k -> new ArrayList<>()).add(file);
         }
       } else if (name.endsWith(BaseConfig.PHENOTYPER_SUFFIX + ".json")) {
         if (config.runReporter) {
@@ -175,12 +176,11 @@ public class BatchPharmCAT {
         return;
       }
       // input VCF file trumps other VCF files in inputDir
-      Set<String> vcfBasenames = m_vcfFilesToProcess.keySet();
       String vcfBasename = BaseConfig.getBaseFilename(vcfFile);
       m_vcfFilesToProcess.clear();
       m_vcfFilesToProcess.put(vcfBasename, new VcfFile(vcfFile));
       if (config.runPhenotyper) {
-        Path f = m_outsideCallFilesToProcess.get(vcfBasename);
+        List<Path> f = m_outsideCallFilesToProcess.get(vcfBasename);
         m_outsideCallFilesToProcess.clear();
         if (f != null) {
           m_outsideCallFilesToProcess.put(vcfBasename, f);
@@ -198,7 +198,7 @@ public class BatchPharmCAT {
       }
       if (config.runPhenotyper) {
         types.add("*" + BaseConfig.MATCHER_SUFFIX + ".json");
-        types.add("*" + BaseConfig.OUTSIDE_SUFFIX + ".tsv");
+        types.add(BaseConfig.OUTSIDE_FILENAME_PATTERN.pattern());
       }
       if (config.runReporter) {
         types.add("*" + BaseConfig.PHENOTYPER_SUFFIX + ".json");
@@ -335,7 +335,7 @@ public class BatchPharmCAT {
     private String m_sampleId;
     private boolean m_runPhenotyper;
     private Path m_piFile;
-    private Path m_poFile;
+    private List<Path> m_poFile = null;
     private boolean m_runReporter;
     private Path m_riFile;
     private boolean m_singleSample;
@@ -418,12 +418,12 @@ public class BatchPharmCAT {
       }
       // po file
       if (m_outsideCallFilesToProcess.containsKey(basename)) {
-        Path file = m_outsideCallFilesToProcess.get(basename);
-        m_poFile = pickFirstFile(m_poFile, file);
+        List<Path> files = m_outsideCallFilesToProcess.get(basename);
+        m_poFile = pickFirst(m_poFile, files);
         m_outsideCallFilesToProcess.remove(basename);
 
         if ((m_piFile == null && !m_config.runMatcher) || (m_piFile == null && m_vcfFile == null)) {
-          System.out.println("* Warning: lone outside call file (" + m_poFile.getFileName() +
+          System.out.println("* Warning: lone outside call file (" + printFileNames(m_poFile) +
               ") with no matching .vcf or " + BaseConfig.MATCHER_SUFFIX + ".json");
         }
       }
@@ -456,5 +456,21 @@ public class BatchPharmCAT {
         return origFile;
       }
     }
+  }
+
+  private List<Path> pickFirst(List<Path> origList, List<Path> newList) {
+    if (origList == null) {
+      return newList;
+    } else {
+      System.out.println("* Ignoring " + printFileNames(newList) + " - using " + printFileNames(origList) + " instead");
+      return origList;
+    }
+  }
+
+  private String printFileNames(Collection<Path> paths) {
+    if (paths == null || paths.isEmpty()) {
+      return "";
+    }
+    return paths.stream().map(p -> p.getFileName().toString()).collect(Collectors.joining(", "));
   }
 }

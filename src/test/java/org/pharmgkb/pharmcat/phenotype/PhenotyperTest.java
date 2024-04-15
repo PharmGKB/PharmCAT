@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -96,7 +97,7 @@ class PhenotyperTest {
   void testCyp2C19Hom() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("Cyp2C19s2s2.match.json"),
-        new ArrayList<>(), null);
+        new HashSet<>(), null);
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
 
@@ -107,7 +108,7 @@ class PhenotyperTest {
   void testUGT1A1Phased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("UGT1A1s1s60s80phased.match.json"),
-        new ArrayList<>(), null);
+        new HashSet<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
@@ -120,7 +121,7 @@ class PhenotyperTest {
   void testUGT1A1Unphased() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("UGT1A1s1s60s80unphased.match.json"),
-        new ArrayList<>(), null);
+        new HashSet<>(), null);
 
     assertCalledByMatcher(phenotyper, "UGT1A1");
 
@@ -133,7 +134,7 @@ class PhenotyperTest {
   void testNUDT15() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("NUDT15ref.match.json"),
-        new ArrayList<>(), null);
+        new HashSet<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
 
@@ -145,7 +146,7 @@ class PhenotyperTest {
   void testNUDT15star3() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("NUDT15s3.match.json"),
-        new ArrayList<>(), null);
+        new HashSet<>(), null);
 
     assertCalledByMatcher(phenotyper, "NUDT15");
 

@@ -13,6 +13,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
@@ -101,11 +102,14 @@ class PipelineWrapper {
     return m_vcfBuilder;
   }
 
-  @Nullable Path execute(Path outsideCallPath) throws Exception {
-    return execute(outsideCallPath, false);
+  @Nullable Path execute(Path... outsideCallPath) throws Exception {
+    if (outsideCallPath == null || outsideCallPath.length == 0) {
+      return execute(null, false);
+    }
+    return execute(ImmutableList.copyOf(outsideCallPath), false);
   }
 
-  @Nullable Path execute(Path outsideCallPath, boolean allowNoData) throws Exception {
+  @Nullable Path execute(@Nullable List<Path> outsideCallPaths, boolean allowNoData) throws Exception {
     Path vcfFile = null;
     VcfFile vcfFileObj = null;
     boolean runMatcher = false;
@@ -117,7 +121,7 @@ class PipelineWrapper {
     Pipeline pcat = new Pipeline(m_env,
         runMatcher, vcfFileObj, null, true,
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
-        true, null, outsideCallPath,
+        true, null, outsideCallPaths,
         true, null, null, m_sources, m_compactReport, true, true,
         m_outputPath, null, m_compactReport,
         Pipeline.Mode.TEST, null, false

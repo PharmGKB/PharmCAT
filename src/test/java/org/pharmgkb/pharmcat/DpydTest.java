@@ -129,7 +129,7 @@ class DpydTest {
         .variation("DPYD", "rs3918290", "C", "T")
         .variation("DPYD", "rs1801159", "C", "T")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "DPYD";
     List<String> expectedCalls = List.of("c.1627A>G (*5)/c.1905+1G>A (*2A)");
@@ -153,7 +153,7 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .variation("DPYD", "rs3918290", "C", "T")
         .variation("DPYD", "rs1801159", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.1627A>G (*5)", "c.1905+1G>A (*2A)");
     RecPresence hasDpwgAnnotations = RecPresence.YES;
@@ -177,7 +177,7 @@ class DpydTest {
         .allowUnknownAllele()
         .variation("DPYD", "rs3918290", "C", "G")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("Reference/Reference");
     RecPresence hasDpwgAnnotations = RecPresence.YES;
@@ -312,7 +312,7 @@ class DpydTest {
         .variation("DPYD", "rs186169810", "A", "C") // 0.5 activity value
         .variation("DPYD", "rs112766203", "G", "A") // c.2279C>T - 0.5 activity value
         .variation("DPYD", "rs144395748", "G", "C"); // 1 activity value
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
         "c.1024G>A",
@@ -343,7 +343,7 @@ class DpydTest {
         .variation("DPYD", "rs67376798", "T", "A") // c.2846A>T
         .variation("DPYD", "rs144395748", "G", "C"); // 1 activity value
 
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
         "c.1024G>A",
@@ -371,7 +371,7 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .phased()
         .variation("DPYD", "rs67376798", "T", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("Reference/c.2846A>T");
     List<String> cpicStyleCalls = List.of("c.2846A>T (heterozygous)");
@@ -400,7 +400,7 @@ class DpydTest {
     highScoreWrapper.getVcfBuilder()
         .phased()
         .variation("DPYD", "rs67376798", "T", "A");
-    highScoreWrapper.execute(null);
+    highScoreWrapper.execute();
 
     highScoreWrapper.testCalledByMatcher("DPYD");
     highScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T (heterozygous)");
@@ -422,7 +422,7 @@ class DpydTest {
     lowScoreWrapper.getVcfBuilder()
         .phased()
         .variation("DPYD", "rs67376798", "A", "A");
-    lowScoreWrapper.execute(null);
+    lowScoreWrapper.execute();
     lowScoreWrapper.testCalledByMatcher("DPYD");
     lowScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T/c.2846A>T");
     lowScoreWrapper.testRecommendedDiplotypes("DPYD", "c.2846A>T", "c.2846A>T");
@@ -460,7 +460,7 @@ class DpydTest {
         .variation("DPYD", "rs60139309", "T", "C") // Strand 2 normal function - c.2582A>G
         .variation("DPYD", "rs139834141", "C", "T") // Strand 2 normal function - c.498G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -490,7 +490,7 @@ class DpydTest {
         .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
         .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -515,7 +515,7 @@ class DpydTest {
         .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
         .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -537,7 +537,7 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .phased()
         .variation("DPYD", "rs78060119", "C", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("Reference/c.1156G>T (*12)");
     List<String> cpicStyleCalls = List.of("c.1156G>T (*12) (heterozygous)");
@@ -561,7 +561,7 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
         .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -584,7 +584,7 @@ class DpydTest {
         .phased()
         .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
         .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -608,7 +608,7 @@ class DpydTest {
         .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T - decreased
         .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G - normal
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of("c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
     RecPresence hasDpwgAnnotations = RecPresence.NO;
@@ -642,7 +642,7 @@ class DpydTest {
         .variation("DPYD", "rs1801265", "G", "G")
     ;
 
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
         "[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.496A>G + c.1601G>A (*4)]"
@@ -676,7 +676,7 @@ class DpydTest {
         .variation("DPYD", "rs75017182", "C", "G")
     ;
 
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
         "Reference/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)]"
@@ -710,7 +710,7 @@ class DpydTest {
         .variation("DPYD", "rs114096998", "G", "A")
     ;
 
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
         "Reference/Reference"
@@ -791,7 +791,7 @@ class DpydTest {
     setVariation(testWrapper, vcfBuilder, "rs115232898", data[6]);
     assertFalse(data[7].isEmpty());
 
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     // 7 - phased call
     // 8 - phased recommendation

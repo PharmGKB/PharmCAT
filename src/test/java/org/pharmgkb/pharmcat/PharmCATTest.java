@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.AfterEach;
@@ -15,8 +16,11 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -277,7 +281,8 @@ class PharmCATTest {
       assertTrue(grOpt.get().isOutsideCall());
 
       Document document = Jsoup.parse(reporterOutput.toFile());
-      assertEquals(1, document.select(".gene.IFNL3_4 .alert-warning.pcat-outside-call").size());
+      assertEquals(1,
+          document.select(".gene.IFNL3_4 .alert-warning." + MessageHelper.MSG_OUTSIDE_CALL).size());
 
     } finally {
       TestUtils.deleteTestFiles(outputDir);
@@ -436,6 +441,57 @@ class PharmCATTest {
     } finally {
       TestUtils.deleteTestFiles(outputDir);
     }
+  }
+
+  @Test
+  void multipleOutsideCallFiles(TestInfo testInfo) throws Exception {
+    Path outsideCallFile1 = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
+    Path outsideCallFile2 = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv");
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+
+    try {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-phenotyper",
+          "-reporter",
+          "-reporterJson",
+          "-po", outsideCallFile1.toString(),
+          "-po", outsideCallFile2.toString(),
+          "-o", outputDir.toString(),
+      }));
+      assertTrue(systemOut.contains("Done."));
+
+      // file names should be based on the first outside call file
+      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json")));
+      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.json")));
+      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.html")));
+
+      // file names should NOT be based on the second outside call file
+      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.phenotype.json")));
+      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.json")));
+      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.html")));
+
+      Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
+      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
+          "CYP2D6*3", "CYP2D6*4");
+      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
+          "*1", "*3");
+      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
+          "rs12979860 variant (T)", "rs12979860 variant (T)");
+
+    } finally {
+      TestUtils.deleteTestFiles(outputDir);
+    }
+  }
+
+  public static void checkOutsideDiplotype(@Nullable GeneReport report, String allele1, String allele2) {
+    assertNotNull(report);
+    assertEquals(CallSource.OUTSIDE, report.getCallSource());
+    Haplotype haplotype = report.getSourceDiplotypes().first().getAllele1();
+    assertNotNull(haplotype);
+    assertEquals(allele1, haplotype.getName());
+    haplotype = report.getSourceDiplotypes().first().getAllele2();
+    assertNotNull(haplotype);
+    assertEquals(allele2, haplotype.getName());
   }
 
 

@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
@@ -122,6 +124,44 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Done."));
     assertThat(systemOut, not(containsString("FAIL")));
     checkForOutputFiles(tmpDir, vcfFiles);
+  }
+
+  @Test
+  void twoOutsideCallsForOneSample(TestInfo testInfo) throws Exception {
+    Path[] vcfFiles = new Path[] {
+        PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_1.preprocessed.vcf"),
+        PathUtils.getPathToResource("org/pharmgkb/pharmcat/Sample_2.preprocessed.vcf"),
+    };
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, vcfFiles);
+
+    Path outsideFileS2O1 = tmpDir.resolve("Sample_2.outside1.tsv");
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv"), outsideFileS2O1);
+
+    Path outsideFileS2O2 = tmpDir.resolve("Sample_2.outside2.tsv");
+    Files.copy(PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv"), outsideFileS2O2);
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-i", tmpDir.toString(),
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Found 2 VCF files"));
+    // this should always come out as 2 samples queued, the two outside call files are attached to one sample
+    assertThat(systemOut, containsString("Queueing up 2 samples"));
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
+    checkForOutputFiles(tmpDir, vcfFiles);
+
+    Phenotyper phenotyper = Phenotyper.read(tmpDir.resolve("Sample_2.phenotype.json"));
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
+        "CYP2D6*3", "CYP2D6*4");
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
+        "*1", "*3");
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
+        "rs12979860 variant (T)", "rs12979860 variant (T)");
+
+
   }
 
 
@@ -355,7 +395,7 @@ class BatchPharmCATTest {
         checked = true;
       }
       if (extension.endsWith(".vcf") || extension.equals(BaseConfig.MATCHER_SUFFIX + ".json") ||
-          extension.equals(BaseConfig.OUTSIDE_SUFFIX + "..tsv")) {
+          BaseConfig.OUTSIDE_SUFFIX_PATTERN.matcher(extension).matches()) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .phenotype.json");
         }
@@ -379,7 +419,7 @@ class BatchPharmCATTest {
         checked = true;
       }
       if (extension.endsWith(".vcf") || extension.equals(BaseConfig.MATCHER_SUFFIX + ".json") ||
-          extension.equals(BaseConfig.OUTSIDE_SUFFIX + ".tsv") ||
+          BaseConfig.OUTSIDE_SUFFIX_PATTERN.matcher(extension).matches() ||
           extension.equals(BaseConfig.PHENOTYPER_SUFFIX + ".json")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .report.html");

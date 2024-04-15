@@ -6,9 +6,11 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.platform.launcher.Launcher;
@@ -108,6 +110,9 @@ class SyntheticBatchTest {
     if (dir != null) {
       System.out.println("Saving results to " + dir);
       TestUtils.setTestOutputDir(dir);
+      if (!Files.exists(dir)) {
+        Files.createDirectories(dir);
+      }
     }
     TestUtils.setSaveTestOutput(true);
 
@@ -552,19 +557,20 @@ class SyntheticBatchTest {
     Files.writeString(TestUtils.createTestFile(getClass(), "README.md"), readmeContent);
   }
 
-  private void makeReport(String key, String[] testVcfs, Path outsideCallPath) throws Exception {
+  private void makeReport(String key, String[] testVcfs, @Nullable Path outsideCallPath) throws Exception {
     Path testDir = TestUtils.getTestOutputDir(getClass(), false);
     if (!Files.exists(testDir)) {
       if (!testDir.toFile().mkdirs()) {
         throw new RuntimeException("Output directory could not be created " + testDir.toAbsolutePath());
       }
     }
+    List<Path> outsideCallPaths = outsideCallPath == null ? Collections.emptyList() : ImmutableList.of(outsideCallPath);
 
     Path sampleVcf = writeVcf(testDir.resolve(key + ".vcf"), testVcfs);
     new Pipeline(new Env(),
         true, new VcfFile(sampleVcf), null, true,
         true, false, false, true,
-        true, null, outsideCallPath,
+        true, null, outsideCallPaths,
         true, null, null, m_sources, m_compact, false, true,
         testDir, null, m_compact,
         Pipeline.Mode.TEST, null, false

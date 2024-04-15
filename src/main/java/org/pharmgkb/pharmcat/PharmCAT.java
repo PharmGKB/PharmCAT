@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat;
 
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -85,16 +86,23 @@ public class PharmCAT {
       }
 
       Path phenotyperInputFile = null;
-      Path phenotyperOutsideCallsFile = null;
+      List<Path> phenotyperOutsideCallsFiles = new ArrayList<>();
       if (config.runPhenotyper) {
         if (cliHelper.hasOption("pi")) {
           phenotyperInputFile = cliHelper.getValidFile("pi", true);
         }
         if (cliHelper.hasOption("po")) {
-          phenotyperOutsideCallsFile = cliHelper.getValidFile("po", true);
+          for (String outsidePathString : cliHelper.getValues("po")) {
+            Path outsidePath = Paths.get(outsidePathString);
+            if (outsidePath.toFile().exists() && outsidePath.toFile().isFile()) {
+              phenotyperOutsideCallsFiles.add(outsidePath);
+            } else {
+              throw new ReportableException("Not a valid file: '" + outsidePathString);
+            }
+          }
         }
 
-        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null) {
+        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFiles.isEmpty()) {
           System.out.println("""
               No input for Phenotyper!
 
@@ -113,7 +121,7 @@ public class PharmCAT {
           reporterInputFile = cliHelper.getValidFile("ri", true);
         }
 
-        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFile == null &&
+        if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFiles.isEmpty() &&
             reporterInputFile == null) {
           System.out.println(
               """
@@ -158,7 +166,7 @@ public class PharmCAT {
           Pipeline pipeline = new Pipeline(env,
               config.runMatcher, vcfFile, sampleId, singleSample,
               config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
-              config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+              config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFiles,
               config.runReporter, reporterInputFile, config.reporterTitle,
               config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
               config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
@@ -182,7 +190,7 @@ public class PharmCAT {
         Pipeline pipeline = new Pipeline(env,
             false, null, null, true,
             config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
-            config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFile,
+            config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFiles,
             config.runReporter, reporterInputFile, config.reporterTitle,
             config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
             config.outputDir, config.baseFilename, config.deleteIntermediateFiles,

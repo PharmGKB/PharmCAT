@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
@@ -56,8 +58,8 @@ public class OutsideCallParser {
     return calls;
   }
 
-  public static List<OutsideCall> parse(String outsideCallData) {
-    List<OutsideCall> calls = new ArrayList<>();
+  public static Set<OutsideCall> parse(String outsideCallData) {
+    Set<OutsideCall> calls = new HashSet<>();
     String[] lines = StringUtils.stripToEmpty(outsideCallData).split("\n");
     for (int x = 0; x < lines.length; x += 1) {
       String line = lines[x];

@@ -53,7 +53,7 @@ class ToxicGenesTest {
         .variation("TPMT", "rs1256618794", "C", "A") // C -> A
         .variation("TPMT", "rs753545734", "C", "C") // C -> T
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = UNKNOWN_CALL;
 
@@ -79,7 +79,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .reference("CACNA1S")
         .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
@@ -112,7 +112,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .male()
         .reference("G6PD");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
@@ -131,7 +131,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .female()
         .reference("G6PD");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
@@ -151,7 +151,7 @@ class ToxicGenesTest {
         .male()
         .reference("G6PD")
         .variation("G6PD", "rs5030868", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
@@ -172,7 +172,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .reference("G6PD")
         .variation("G6PD", "rs5030868", "A", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
@@ -193,7 +193,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .reference("G6PD")
         .variation("G6PD", "rs5030868", "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("B (reference)/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
@@ -216,7 +216,7 @@ class ToxicGenesTest {
         .male()
         .reference("G6PD")
         .variation("G6PD", "rs5030869", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("Chatham");
@@ -237,7 +237,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .reference("G6PD")
         .variation("G6PD", "rs5030869", "T", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("Chatham/Chatham");
@@ -258,7 +258,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .reference("G6PD")
         .variation("G6PD", "rs5030869", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     String gene = "G6PD";
     List<String> expectedCalls = List.of("B (reference)/Chatham");
@@ -280,7 +280,7 @@ class ToxicGenesTest {
         .male()
         .reference("G6PD")
         .variation("G6PD", "chrX", 154532082, "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
@@ -300,7 +300,7 @@ class ToxicGenesTest {
         .female()
         .reference("G6PD")
         .variation("G6PD", "chrX", 154532082, "G", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
@@ -320,7 +320,7 @@ class ToxicGenesTest {
         .female()
         .reference("G6PD")
         .variation("G6PD", "chrX", 154532082, "A", "A");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("G6PD");
     testWrapper.testReportable("G6PD");
@@ -339,7 +339,7 @@ class ToxicGenesTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("NUDT15");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*1");
     testWrapper.testRecommendedDiplotypes("NUDT15", "*1", "*1");
@@ -360,7 +360,7 @@ class ToxicGenesTest {
         .variation("NUDT15", "rs746071566", "GAGTCG(3)", "GAGTCG(4)")
         .variation("NUDT15", "rs116855232", "C", "T")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("NUDT15");
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*2");
@@ -381,7 +381,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .variation("NUDT15", "rs116855232", "C", "T")
     ;
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("NUDT15");
     testWrapper.testPrintCpicCalls("NUDT15", "*1/*3");
@@ -399,7 +399,7 @@ class ToxicGenesTest {
     testWrapper.getVcfBuilder()
         .variation("TPMT", "rs1800460", "C", "T")
         .variation("TPMT", "rs1142345", "T", "C");
-    testWrapper.execute(null);
+    testWrapper.execute();
 
     testWrapper.testCalledByMatcher("TPMT");
     testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");

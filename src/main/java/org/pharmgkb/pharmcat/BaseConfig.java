@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.google.common.base.Splitter;
 import org.apache.commons.io.FilenameUtils;
@@ -28,7 +30,8 @@ public class BaseConfig {
   public static final String MATCHER_SUFFIX = ".match";
   public static final String PHENOTYPER_SUFFIX = ".phenotype";
   public static final String REPORTER_SUFFIX = ".report";
-  public static final String OUTSIDE_SUFFIX = ".outside";
+  public static final Pattern OUTSIDE_SUFFIX_PATTERN = Pattern.compile("^(.+)\\.outside\\d*$");
+  public static final Pattern OUTSIDE_FILENAME_PATTERN = Pattern.compile("^(.+)\\.outside\\d*\\.tsv$");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   boolean runMatcher = true;
   Path definitionDir;
@@ -170,8 +173,9 @@ public class BaseConfig {
     if (filename.endsWith(MATCHER_SUFFIX)) {
       filename = filename.substring(0, filename.length() - MATCHER_SUFFIX.length());
     }
-    if (filename.endsWith(OUTSIDE_SUFFIX)) {
-      filename = filename.substring(0, filename.length() - OUTSIDE_SUFFIX.length());
+    Matcher m = BaseConfig.OUTSIDE_SUFFIX_PATTERN.matcher(filename);
+    if (m.matches()) {
+      filename = m.group(1);
     }
     if (filename.endsWith(PHENOTYPER_SUFFIX)) {
       filename = filename.substring(0, filename.length() - PHENOTYPER_SUFFIX.length());

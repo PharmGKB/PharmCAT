@@ -48,7 +48,7 @@ class Ryr1Test {
         .reference("CACNA1S")
         .reference("RYR1")
         .variation("RYR1", "rs193922749", "A", "T"); // c.152C>A
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -80,7 +80,7 @@ class Ryr1Test {
         .reference("CACNA1S")
         .reference("RYR1")
         .variation("RYR1", "rs193922749", "A", "C"); // c.152C>A
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -114,7 +114,7 @@ class Ryr1Test {
         .variation("RYR1", "rs34694816", "A", "G")
         .variation("RYR1", "rs137933390", "A", "G")
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -143,7 +143,7 @@ class Ryr1Test {
         .variation("RYR1", "rs137933390", "A", "G")  // c.4178A>G, normal
         .variation("RYR1", "rs145573319", "A", "G")  // c.4400A>G, uncertain
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -165,7 +165,7 @@ class Ryr1Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("RYR1");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testCalledByMatcher("RYR1");
 
@@ -200,7 +200,7 @@ class Ryr1Test {
     testWrapper.getVcfBuilder()
         .reference("RYR1")
         .variation("RYR1", "rs118192178", "C", "T");
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -232,7 +232,7 @@ class Ryr1Test {
         .variation("RYR1", "rs34694816", "A", "G")
         .variation("RYR1", "rs137933390", "A", "G")  // c.4178A>G
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -266,7 +266,7 @@ class Ryr1Test {
         .variation("RYR1", "rs193922746", "A", "G") // c.97A>G - malignant
         .variation("RYR1", "rs142474192", "A", "A")  // c.418G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -294,7 +294,7 @@ class Ryr1Test {
         .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
         .variation("RYR1", "rs142474192", "G", "A")  // c.418G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -323,7 +323,7 @@ class Ryr1Test {
         .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
         .variation("RYR1", "rs142474192", "G", "A")  // c.418G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -351,7 +351,7 @@ class Ryr1Test {
         .variation("RYR1", "rs193922749", "C", "A") // c.152C>A
         .variation("RYR1", "rs142474192", "G", "A")  // c.418G>A
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -381,7 +381,7 @@ class Ryr1Test {
         .variation("RYR1", "rs142474192", "G", "A") // c.418G>A
         .variation("RYR1", "rs146876145", "C", "T") // c.14918C>T - malignant
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");
@@ -413,7 +413,7 @@ class Ryr1Test {
         .variation("RYR1", "rs142474192", "G", "A") // c.418G>A
         .variation("RYR1", "rs146876145", "C", "T") // c.14918C>T - malignant
     ;
-    Path vcfFile = testWrapper.execute(null);
+    Path vcfFile = testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("CACNA1S");
     testWrapper.testCalledByMatcher("RYR1");

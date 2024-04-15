@@ -7,10 +7,15 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.AnsiConsole;
@@ -57,7 +62,7 @@ public class Pipeline implements Callable<PipelineResult> {
 
   private final boolean m_runPhenotyper;
   private Path m_phenotyperInputFile;
-  private Path m_phenotyperOutsideCallsFile;
+  private List<Path> m_phenotyperOutsideCallsFile;
   private Path m_phenotyperJsonFile;
 
   private final boolean m_runReporter;
@@ -81,7 +86,7 @@ public class Pipeline implements Callable<PipelineResult> {
   public Pipeline(Env env,
       boolean runMatcher, @Nullable VcfFile vcfFile, @Nullable String sampleId, boolean singleSample,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
-      boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable Path phenotyperOutsideCallsFile,
+      boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable List<Path> phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
       @Nullable List<DataSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHtml,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
@@ -113,8 +118,8 @@ public class Pipeline implements Callable<PipelineResult> {
       Path inputFile = m_matcherJsonFile;
       if (m_phenotyperInputFile != null) {
         inputFile = m_phenotyperInputFile;
-      } else if (m_phenotyperOutsideCallsFile != null) {
-        inputFile = m_phenotyperOutsideCallsFile;
+      } else if (m_phenotyperOutsideCallsFile != null && !m_phenotyperOutsideCallsFile.isEmpty()) {
+        inputFile = m_phenotyperOutsideCallsFile.get(0);
       }
       if (inputFile == null) {
         throw new IllegalStateException("No phenotyper input file");
@@ -277,22 +282,32 @@ public class Pipeline implements Callable<PipelineResult> {
           calls = new ArrayList<>();
         }
 
-        List<OutsideCall> outsideCalls = new ArrayList<>();
-        if (m_phenotyperOutsideCallsFile != null) {
-          for (OutsideCall call : OutsideCallParser.parse(m_phenotyperOutsideCallsFile)) {
-            if (!m_env.hasGene(call.getGene())) {
-              String msg = "Discarded outside call for " + call.getGene() + " because it is not supported by PharmCAT.";
-              output.add(AnsiConsole.styleWarning(msg));
-              continue;
-            }
-            if (!m_env.isActivityScoreGene(call.getGene())) {
-              if (call.getDiplotype() == null && call.getPhenotype() == null) {
-                String msg = call.getGene() + " is not an activity score gene but has outside call with only an " +
-                    "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
+        Map<String, Set<OutsideCall>> outsideCallMap = new HashMap<>();
+        SortedSet<OutsideCall> outsideCalls = new TreeSet<>();
+        if (m_phenotyperOutsideCallsFile != null && !m_phenotyperOutsideCallsFile.isEmpty()) {
+          for (Path outsideCallPath : m_phenotyperOutsideCallsFile) {
+            for (OutsideCall call : OutsideCallParser.parse(outsideCallPath)) {
+              String gene = call.getGene();
+              if (!m_env.hasGene(gene)) {
+                String msg = "Discarded outside call for " + gene + " because it is not supported by PharmCAT.";
                 output.add(AnsiConsole.styleWarning(msg));
+                continue;
               }
+              if (!m_env.isActivityScoreGene(gene)) {
+                if (call.getDiplotype() == null && call.getPhenotype() == null) {
+                  String msg = gene + " is not an activity score gene but has outside call with only an " +
+                      "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
+                  output.add(AnsiConsole.styleWarning(msg));
+                }
+              }
+              outsideCalls.add(call);
+              outsideCallMap.computeIfAbsent(gene, g -> new HashSet<>()).add(call);
             }
-            outsideCalls.add(call);
+          }
+          for (String gene : outsideCallMap.keySet()) {
+            if (outsideCallMap.get(gene).size() > 1) {
+              output.add(AnsiConsole.styleWarning("WARNING: Multiple outside calls for " + gene + "."));
+            }
           }
         }
 
@@ -396,11 +411,11 @@ public class Pipeline implements Callable<PipelineResult> {
       }
       builder.append(m_phenotyperInputFile.getFileName());
     }
-    if (m_phenotyperOutsideCallsFile != null) {
+    if (m_phenotyperOutsideCallsFile != null && !m_phenotyperOutsideCallsFile.isEmpty()) {
       if (!builder.isEmpty()) {
         builder.append(", ");
       }
-      builder.append(m_phenotyperOutsideCallsFile.getFileName());
+      builder.append(m_phenotyperOutsideCallsFile.stream().map(p -> p.getFileName().toString()).collect(Collectors.joining(", ")));
     }
     if (m_reporterInputFile != null) {
       if (!builder.isEmpty()) {
