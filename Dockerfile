@@ -20,6 +20,8 @@ RUN apt-get update && \
 
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
+ENV PATH="$PATH:/pharmcat"
+
 # download fasta files
 RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     tar -xf GRCh38_reference_fasta.tar --no-same-owner && \
