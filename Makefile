@@ -22,6 +22,12 @@ else
 	GRADLE_CMD := ./gradlew --console=plain
 endif
 
+ifdef PHARMCAT_DOCKER_PLATFORM
+	dockerPlatform := --platform $(PHARMCAT_DOCKER_PLATFORM)
+else
+	dockerPlatform :=
+endif
+
 quietTest = true
 
 
@@ -43,11 +49,14 @@ updateData: clean
 	@git stash pop
 
 
-.PHONY: docker
-docker: clean
+.PHONY: _dockerPrep
+_dockerPrep: clean
 	${GRADLE_CMD} shadowJar
 	mv build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pharmcat.jar
-	docker build -t pcat .
+
+.PHONY: docker
+docker: _dockerPrep
+	docker build ${dockerPlatform} -t pcat .
 
 
 .PHONY: scriptPkg
@@ -211,17 +220,14 @@ release:
 
 
 .PHONY: dockerRelease
-dockerRelease: docker
+dockerRelease: _dockerPrep
 	version=`git describe --tags | sed -r s/^v//`
-	docker tag pcat pgkb/pharmcat:$${version}
-	docker push pgkb/pharmcat:$${version}
-	docker tag pcat pgkb/pharmcat:latest
-	docker push pgkb/pharmcat:latest
-
+	docker buildx inspect pcat-builder || docker buildx create --name pcat-builder --bootstrap --platform linux/amd64,linux/arm64
+	docker buildx build --builder pcat-builder --platform linux/amd64,linux/arm64 --push --tag pgkb/pharmcat:latest --tag pgkb/pharmcat:$${version} .
 
 .PHONEY: jekyllDocker
 jekyllDocker:
-	docker build -t jekyll docs/
+	docker build ${dockerPlatform} -t jekyll docs/
 
 .PHONEY: jekyll
 jekyll:
