@@ -17,8 +17,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BCFTOOLS_VERSION: 1.20
-  HTSLIB_VERSION: 1.20
+  BCFTOOLS_VERSION: '1.20'
+  HTSLIB_VERSION: '1.20'
   REFERENCE_FASTA_ZENODO_ID: 7288118
   TOOLS_DIR: /home/runner/work/PharmCAT/PharmCAT/tools
 
