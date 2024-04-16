@@ -25,10 +25,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: |
@@ -78,10 +78,39 @@ jobs:
 
       - name: Send Slack notification on failure
         if: failure()
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel-id: 'dev'
+          payload: |
+            {
+              "attachments": [{
+                "color": "#ff0000",
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": ":stop: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|FAILED ${{ github.workflow }}!>"
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "Triggered by ${{ github.event_name }} on <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.ref_name }}> by ${{ github.actor }}."
+                    }
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "Last commit:\n${{ github.event.head_commit.message }}"
+                      }
+                    ]
+                  }
+                ]
+            }]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: dev
-          status: FAILED
-          color: danger

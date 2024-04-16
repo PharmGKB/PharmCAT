@@ -2,7 +2,7 @@
 #
 # Base Dockerfile for PharmCAT
 #
-FROM python:3.10
+FROM python:3.12
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
@@ -26,9 +26,9 @@ RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
 
-ENV BCFTOOLS_VERSION 1.18
-ENV HTSLIB_VERSION 1.18
-ENV SAMTOOLS_VERSION 1.18
+ENV BCFTOOLS_VERSION 1.20
+ENV HTSLIB_VERSION 1.20
+ENV SAMTOOLS_VERSION 1.20
 
 # download the suite of tools
 WORKDIR /usr/local/bin/

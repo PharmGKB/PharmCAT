@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set appVersion
         uses: bhowell2/github-substring-action@v1
@@ -23,7 +23,7 @@ jobs:
       - run: echo "Version = ${{steps.appVersion.outputs.substring}}"
 
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
@@ -35,30 +35,63 @@ jobs:
           mv build/libs/pharmcat-${{steps.appVersion.outputs.substring}}-all.jar build/pharmcat.jar
 
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: pgkb/pharmcat:latest,pgkb/pharmcat:${{steps.appVersion.outputs.substring}}
 
 
       - name: Send Slack notification on failure
         if: failure()
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel-id: 'dev'
+          payload: |
+            {
+              "attachments": [{
+                "color": "#ff0000",
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": ":stop: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|FAILED ${{ github.workflow }}!>"
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "Triggered by ${{ github.event_name }} on <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.ref_name }}> by ${{ github.actor }}."
+                    }
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "Last commit:\n${{ github.event.head_commit.message }}"
+                      }
+                    ]
+                  }
+                ]
+            }]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: dev
-          status: FAILED
-          color: danger

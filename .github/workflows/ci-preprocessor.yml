@@ -17,8 +17,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BCFTOOLS_VERSION: 1.18
-  HTSLIB_VERSION: 1.18
+  BCFTOOLS_VERSION: 1.20
+  HTSLIB_VERSION: 1.20
   REFERENCE_FASTA_ZENODO_ID: 7288118
   TOOLS_DIR: /home/runner/work/PharmCAT/PharmCAT/tools
 
@@ -29,11 +29,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache bcftools
         id: cache-bcftools
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.TOOLS_DIR }}/bcftools
           key: bcftools-${{ env.BCFTOOLS_VERSION }}
@@ -50,7 +50,7 @@ jobs:
 
       - name: Cache htslib
         id: cache-htslib
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.TOOLS_DIR }}/htslib
           key: htslib-${{ env.HTSLIB_VERSION }}
@@ -70,13 +70,13 @@ jobs:
 
       # need JDK present for tests
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
       - name: Set up python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           cache: 'pip'
@@ -89,7 +89,7 @@ jobs:
 
       - name: Cache reference FASTA
         id: cache-ref-fasta
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             reference.fna.bgz
@@ -116,10 +116,39 @@ jobs:
 
       - name: Send Slack notification on failure
         if: failure()
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel-id: 'dev'
+          payload: |
+            {
+              "attachments": [{
+                "color": "#ff0000",
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": ":stop: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|FAILED ${{ github.workflow }}!>"
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "Triggered by ${{ github.event_name }} on <${{ github.event.pull_request.html_url || github.event.head_commit.url }}|${{ github.ref_name }}> by ${{ github.actor }}."
+                    }
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "Last commit:\n${{ github.event.head_commit.message }}"
+                      }
+                    ]
+                  }
+                ]
+            }]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1
-        with:
-          channel: dev
-          status: FAILED
-          color: danger
