@@ -1455,6 +1455,142 @@
         ],
         "hasUndocumentedVariations": false,
         "treatUndocumentedVariationsAsReference": false
+      },
+      "HLA-A": {
+        "phenotypeSource": "NA",
+        "geneSymbol": "HLA-A",
+        "chr": null,
+        "phased": false,
+        "effectivelyPhased": false,
+        "callSource": "NONE",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "sourceComponentDiplotypes": [],
+        "matcherAlleles": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "variants": [],
+        "variantsOfInterest": [],
+        "highlightedVariants": []
+      },
+      "HLA-B": {
+        "phenotypeSource": "NA",
+        "geneSymbol": "HLA-B",
+        "chr": null,
+        "phased": false,
+        "effectivelyPhased": false,
+        "callSource": "NONE",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-B",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "sourceComponentDiplotypes": [],
+        "matcherAlleles": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-B",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "variants": [],
+        "variantsOfInterest": [],
+        "highlightedVariants": []
       }
     },
     "DPWG": {
@@ -2912,6 +3048,142 @@
         ],
         "hasUndocumentedVariations": false,
         "treatUndocumentedVariationsAsReference": false
+      },
+      "HLA-A": {
+        "phenotypeSource": "NA",
+        "geneSymbol": "HLA-A",
+        "chr": null,
+        "phased": false,
+        "effectivelyPhased": false,
+        "callSource": "NONE",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "sourceComponentDiplotypes": [],
+        "matcherAlleles": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-A",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-A",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "variants": [],
+        "variantsOfInterest": [],
+        "highlightedVariants": []
+      },
+      "HLA-B": {
+        "phenotypeSource": "NA",
+        "geneSymbol": "HLA-B",
+        "chr": null,
+        "phased": false,
+        "effectivelyPhased": false,
+        "callSource": "NONE",
+        "uncalledHaplotypes": [],
+        "messages": [],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-B",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "sourceComponentDiplotypes": [],
+        "matcherAlleles": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "allele2": {
+              "gene": "HLA-B",
+              "name": "Unknown",
+              "function": null,
+              "reference": false,
+              "activityValue": null
+            },
+            "gene": "HLA-B",
+            "phenotypes": [],
+            "variant": null,
+            "lookupKey": [],
+            "label": "Unknown/Unknown",
+            "activityScore": null,
+            "observed": "DIRECT",
+            "combination": false
+          }
+        ],
+        "variants": [],
+        "variantsOfInterest": [],
+        "highlightedVariants": []
       }
     }
   }

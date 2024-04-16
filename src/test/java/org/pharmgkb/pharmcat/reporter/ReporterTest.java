@@ -2,6 +2,10 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -32,6 +36,12 @@ class ReporterTest {
   void before() throws Exception {
     ReportHelpers.setDebugMode(true);
     m_env = new Env();
+    //TestUtils.setSaveTestOutput(true);
+  }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
   }
 
 
@@ -64,9 +74,8 @@ class ReporterTest {
     assertEquals(0, guidelineReport.getAnnotations().first().getMessages().size());
 
     // test that recommendations were matched
-    DrugReport desfluraneReport = reportContext.getDrugReports().get(DataSource.CPIC).values().stream()
-        .filter(d -> d.getName().equals("desflurane")).findFirst()
-        .orElseThrow(() -> new RuntimeException("No desflurane drug report found"));
+    DrugReport desfluraneReport = reportContext.getDrugReport(DataSource.CPIC, "desflurane");
+    assertNotNull(desfluraneReport);
     assertEquals(1, desfluraneReport.getGuidelines().stream().filter(GuidelineReport::isMatched).count());
   }
 
@@ -90,14 +99,35 @@ class ReporterTest {
     assertNotNull(tenoxicam);
     assertEquals(1, tenoxicam.getGuidelines().size());
     assertEquals(2, tenoxicam.getGuidelines().first().getAnnotations().size());
+    assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getActivityScores().size());
+    assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
     // warfarin is a special case - even though CYP2C9 has 2 activity scores, it gets merged into 1 row/AnnotationReport
     DrugReport warfarin = reportContext.getDrugReport(DataSource.CPIC, "warfarin");
     assertNotNull(warfarin);
     assertEquals(1, warfarin.getGuidelines().size());
     assertEquals(1, warfarin.getGuidelines().first().getAnnotations().size());
+    assertEquals(0, warfarin.getGuidelines().first().getAnnotations().first().getActivityScores().size());
+    assertEquals(0, warfarin.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
-    printReport(testInfo, reportContext);
+    Path reporterOutput = printReport(testInfo, reportContext);
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    // should have no tags for CPIC
+    Elements tags = document.select(".cpic-warfarin .tag");
+    assertEquals(0, tags.size());
+    // should have tags for DPWG
+    tags = document.select(".dpwg-warfarin .tag");
+    assertEquals(2, tags.size());
+
+    Elements phenotype = document.select(".cpic-warfarin .rx-phenotype");
+    assertEquals(0, phenotype.size());
+    phenotype = document.select(".dpwg-warfarin .rx-phenotype");
+    assertEquals(2, phenotype.size());
+
+    Elements activityScore = document.select(".cpic-warfarin .rx-activity");
+    assertEquals(0, activityScore.size());
+    activityScore = document.select(".dpwg-warfarin .rx-activity");
+    assertEquals(1, activityScore.size());
   }
 
   @Test
@@ -120,25 +150,50 @@ class ReporterTest {
     assertNotNull(tenoxicam);
     assertEquals(1, tenoxicam.getGuidelines().size());
     assertEquals(2, tenoxicam.getGuidelines().first().getAnnotations().size());
+    assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getActivityScores().size());
+    assertEquals(1, tenoxicam.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
     // warfarin is a special case - even though CYP2C9 has 2 phenotypes, it gets merged into 1 row/AnnotationReport
     DrugReport warfarin = reportContext.getDrugReport(DataSource.CPIC, "warfarin");
     assertNotNull(warfarin);
     assertEquals(1, warfarin.getGuidelines().size());
     assertEquals(1, warfarin.getGuidelines().first().getAnnotations().size());
+    assertEquals(0, warfarin.getGuidelines().first().getAnnotations().first().getActivityScores().size());
+    assertEquals(0, warfarin.getGuidelines().first().getAnnotations().first().getPhenotypes().size());
 
-    printReport(testInfo, reportContext);
+    Path reporterOutput = printReport(testInfo, reportContext);
+    Document document = Jsoup.parse(reporterOutput.toFile());
+    // should have no tags for CPIC
+    Elements tags = document.select(".cpic-warfarin .tag");
+    assertEquals(0, tags.size());
+    // should have tags for DPWG
+    tags = document.select(".dpwg-warfarin .tag");
+    assertEquals(1, tags.size());
+
+    Elements phenotype = document.select(".cpic-warfarin .rx-phenotype");
+    assertEquals(0, phenotype.size());
+    phenotype = document.select(".dpwg-warfarin .rx-phenotype");
+    assertEquals(1, phenotype.size());
+
+    Elements activityScore = document.select(".cpic-warfarin .rx-activity");
+    assertEquals(0, activityScore.size());
+    activityScore = document.select(".dpwg-warfarin .rx-activity");
+    assertEquals(1, activityScore.size());
   }
 
-  private void printReport(TestInfo testInfo, ReportContext reportContext) throws Exception {
+  private Path printReport(TestInfo testInfo, ReportContext reportContext) throws Exception {
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, false);
     if (!Files.isDirectory(outputDir)) {
       Files.createDirectories(outputDir);
     }
     Path file = outputDir.resolve("test" + BaseConfig.REPORTER_SUFFIX + ".html");
-    System.out.println("Saving report to " + file);
+    if (TestUtils.isSaveTestOutput()) {
+      System.out.println("Saving report to " + file);
+    }
     new HtmlFormat(file, m_env, true)
+        .compact(true)
         .write(reportContext);
+    return file;
   }
 }

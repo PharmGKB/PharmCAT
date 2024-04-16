@@ -299,7 +299,13 @@
                   </td>
                   {{#if notCalled}}
                     <td colspan="5" class="top-aligned">
-                      <span class="rx-no-call">No call data for {{uncalledGenes}}</span>.
+                      <span class="rx-no-call">
+                        {{#if (thereAre uncalledGenes) }}
+                          No call data for {{uncalledGenes}}
+                        {{else}}
+                          No call data provided
+                        {{/if}}
+                      </span>.
                     </td>
                   {{else}}
                     <td class="top-aligned">
