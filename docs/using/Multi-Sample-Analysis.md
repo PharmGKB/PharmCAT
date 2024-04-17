@@ -173,25 +173,48 @@ We also provide [an accessory python script](https://github.com/PharmGKB/PharmCA
 
 | Sample   | Gene    | Phenotype       | Activity_Score | Diplotype\*                                     | DPYD_RYR1_Variants    | DPYD_RYR1_Variant_Functions      | DPYD_RYR1_Variant_Genotypes | Haplotype_1             | Haplotype_2            | Haplotype_1_Functions | Haplotype_2_Functions | Haplotype_1_Variants                                                             | Haplotype_2_Variants                                                  | Missing_Positions | Uncallable_Haplotypes |
 |----------|---------|-----------------|----------------|-------------------------------------------------|-----------------------|----------------------------------|-----------------------------|-------------------------|------------------------|-----------------------|-----------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------|-----------------------|
-| sample_1  | ABCG2   |                 |                | rs2231142 reference (G)/rs2231142 reference (G) | |                       |                                  |                             | rs2231142 reference (G) | rs2231142 reference (G) |                       | 88131171:G                                                                       | 88131171:G                                                            |                   |                       |
-| sample_1 | CYP3A5  |                 | | \*1/\*1                                         |                                                 |                       |                                  |                             | \*1                     | \*1                    |                       |                       | | | 99660516;99676198 |                       |
+| sample_1  | ABCG2   |                 |                | rs2231142 reference (G)/rs2231142 reference (G) | |                                     |                             | rs2231142 reference (G) | rs2231142 reference (G) |        |                       |                                                                        |                                                             |                   |                       |
+| sample_1 | CYP3A5  |                 | | \*1/\*1                                         |                        |                                  |                             | \*1                     | \*1                    |                       |                       | | | 99660516;99676198 |                       |
 | sample_1  | SLCO1B1 | Decreased Function | | \*1/\*15                                        |                                                 |                       |                                   | \*1                     | \*15                   | Normal function       | No function           |  | 21178615:C | 21176804 | \*37                  |
-| sample_1  | CYP2C9 | Normal Metabolizer | 2.0            |                                                 |                       |                                  |                             | \*1                     | \*1                    | Normal function       | Normal function           |  |  |  |                   |
-| sample_1  | RYR1 | Uncertain Susceptibility |                | c.13513G>C (heterozygous)                       | Reference;c.13513G>C  | Normal function;Normal function  | 38566986:C                  |                         |                     |       |            |  |  | 38433867;38440747;38440796;<...truncated for visual clarity...> |     c.12115A>T;c.6349G>C;c.178G>T;<...truncated for visual clarity...>              |
+| sample_1  | CYP2C9 | Normal Metabolizer | 2.0            |                                                 |                       |                                  |                             | \*1                     | \*1                    | Normal function       | Normal function       |  |  |  |                   |
+| sample_1  | RYR1 | Uncertain Susceptibility |                | c.13513G>C (heterozygous)                       | Reference;c.13513G>C  | Normal function;Normal function  | 38566986:C                  |                         |                     |       |                       |  |  | 38433867;38440747;38440796;<...truncated for visual clarity...> |     c.12115A>T;c.6349G>C;c.178G>T;<...truncated for visual clarity...>              |
 
 [*] This column only shows [the effectively phased _DPYD_ and _RYR1_ diplotypes](/methods/Gene-Definition-Exceptions/). If the column is empty, please check out other designated columns for _DPYD_ or _RYR1_ variants.
 
 #### Extracting the PharmCAT JSON data into a TSV file
 ```shell
-conda env create -f src/environment.yml
-conda activate json2tsv
+# the yaml file is under the PharmCAT/src/scripts/ folder
+conda env create -f pharmcat_scripts.yaml
+conda activate pharmcat_scripts
 # extract json content into a tsv file
-python3 src/json2tsv_pharmcat.py \
-  -i results/pharmcat_all/ \
-  -a </path/to/pharmcat/allele/definition/json/> \
-  -o results/
+python3 json2tsv_pharmcat.py \
+  -i </path/to/PharmCAT/output/folder/> \
+  -a </path/to/pharmcat/allele/definition/json/*_translation.json> \
+  -g CYP2C19,DPYD \
+  -S <sample.txt> \
+  -c -cp 4 \
+  -o </results/>
 ```
 
+**Mandatory** argument:
+-i `<path/to/PharmCAT/output/folder/>`
+: Path to the directory that contains the PharmCAT Named Allele Matcher and Phenotyper JSON outputs.
+
+**Optional** argument:
+-a `</path/to/*_translation.json>`
+: Path to the PharmCAT allele definition JSON files. Directory path should be included. Pattern matching is acceptable to read more than one sample.
+
+-G `gene1,gene2`
+: A list of genes separated by comma. The script will only process results for these genes.
+
+-S `<txt_file>`
+: A file of samples. One sample per line. The script will only process results for samples listed in this file.
+
+-c
+: Enable concurrent mode. 
+
+-cp `<num processes>`
+: The maximum number of processes to use if concurrent mode is enabled.
 
 ---
 
