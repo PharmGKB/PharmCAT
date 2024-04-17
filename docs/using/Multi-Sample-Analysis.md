@@ -169,7 +169,7 @@ These commands yield `Named Allele Matcher`, `Phenotyper`, and `Reporter` result
 
 ### Extracting PharmCAT JSON content into TSV
 
-We also provide [an accessory python script](https://github.com/PharmGKB/PharmCAT-tutorial/blob/main/src/json2tsv_pharmcat.py) that extracts and organizes the content from the PharmCAT JSON outputs into a tab-separated values (TSV) file. Here is an example TSV that the users will obtain from the provided Python script.
+We also provide [an accessory python script](https://github.com/PharmGKB/PharmCAT/blob/development/src/scripts/json2tsv/json2tsv_pharmcat.py) under `src/scripts/json2tsv/` that extracts and organizes the content from the PharmCAT JSON outputs into a tab-separated values (TSV) file. Here is an example TSV that the users will obtain from the provided Python script.
 
 | Sample   | Gene    | Phenotype       | Activity_Score | Diplotype\*                                     | DPYD_RYR1_Variants    | DPYD_RYR1_Variant_Functions      | DPYD_RYR1_Variant_Genotypes | Haplotype_1             | Haplotype_2            | Haplotype_1_Functions | Haplotype_2_Functions | Haplotype_1_Variants                                                             | Haplotype_2_Variants                                                  | Missing_Positions | Uncallable_Haplotypes |
 |----------|---------|-----------------|----------------|-------------------------------------------------|-----------------------|----------------------------------|-----------------------------|-------------------------|------------------------|-----------------------|-----------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------|-----------------------|
@@ -181,7 +181,7 @@ We also provide [an accessory python script](https://github.com/PharmGKB/PharmCA
 
 [*] This column only shows [the effectively phased _DPYD_ and _RYR1_ diplotypes](/methods/Gene-Definition-Exceptions/). If the column is empty, please check out other designated columns for _DPYD_ or _RYR1_ variants.
 
-#### Extracting the PharmCAT JSON data into a TSV file
+#### Example command
 ```shell
 # the yaml file is under the PharmCAT/src/scripts/ folder
 conda env create -f pharmcat_scripts.yaml
@@ -200,7 +200,7 @@ python3 json2tsv_pharmcat.py \
 -i `<path/to/PharmCAT/output/folder/>`
 : Path to the directory that contains the PharmCAT Named Allele Matcher and Phenotyper JSON outputs.
 
-**Optional** argument:
+**Optional** arguments:
 -a `</path/to/*_translation.json>`
 : Path to the PharmCAT allele definition JSON files. Directory path should be included. Pattern matching is acceptable to read more than one sample.
 
