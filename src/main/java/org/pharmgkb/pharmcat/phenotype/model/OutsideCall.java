@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.phenotype.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -61,7 +62,12 @@ public class OutsideCall {
     }
 
     if (m_diplotype != null) {
-      List<String> alleles = sf_diplotypeSplitter.splitToList(m_diplotype);
+      List<String> alleles = new ArrayList<>();
+      // strip any prefix of the gene symbol
+      for (String allele : sf_diplotypeSplitter.splitToList(m_diplotype)) {
+        alleles.add(allele.replaceFirst("^" + m_gene + "\\s*", ""));
+      }
+
       // re-join alleles to eliminate white space when gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
       m_diplotypes = ImmutableList.of(m_diplotype);

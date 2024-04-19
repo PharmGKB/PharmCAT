@@ -30,6 +30,50 @@ class OutsideCallParserTest {
   }
 
   @Test
+  void testGenePrefixStripping(TestInfo testInfo) throws IOException {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2C9\tCYP2C9*1/CYP2C9      *2");
+    }
+
+    List<OutsideCall> calls = OutsideCallParser.parse(outsideCallPath);
+    assertNotNull(calls);
+    assertEquals(1, calls.size());
+    assertEquals("CYP2C9", calls.get(0).getGene());
+    assertEquals("*1/*2", calls.get(0).getDiplotype());
+  }
+
+  @Test
+  void testPhenotype(TestInfo testInfo) throws IOException {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2C9\t*1/*2\tNormal Metabolizer");
+    }
+
+    List<OutsideCall> calls = OutsideCallParser.parse(outsideCallPath);
+    assertNotNull(calls);
+    assertEquals(1, calls.size());
+    assertEquals("CYP2C9", calls.get(0).getGene());
+    assertEquals("*1/*2", calls.get(0).getDiplotype());
+    assertEquals("Normal Metabolizer", calls.get(0).getPhenotype());
+  }
+
+  @Test
+  void testPrefixedPhenotype(TestInfo testInfo) throws IOException {
+    Path outsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
+    try (FileWriter fw = new FileWriter(outsideCallPath.toFile())) {
+      fw.write("CYP2C9\t*1/*2\tCYP2C9 Normal Metabolizer");
+    }
+
+    List<OutsideCall> calls = OutsideCallParser.parse(outsideCallPath);
+    assertNotNull(calls);
+    assertEquals(1, calls.size());
+    assertEquals("CYP2C9", calls.get(0).getGene());
+    assertEquals("*1/*2", calls.get(0).getDiplotype());
+    assertEquals("Normal Metabolizer", calls.get(0).getPhenotype());
+  }
+
+  @Test
   void testTwoGenes(TestInfo testInfo) throws IOException {
     Path tmpOutsideCallPath = TestUtils.createTestFile(testInfo, ".tsv");
     try (FileWriter fw = new FileWriter(tmpOutsideCallPath.toFile())) {
