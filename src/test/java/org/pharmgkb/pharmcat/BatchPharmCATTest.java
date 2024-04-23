@@ -155,13 +155,11 @@ class BatchPharmCATTest {
 
     Phenotyper phenotyper = Phenotyper.read(tmpDir.resolve("Sample_2.phenotype.json"));
     PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
-        "CYP2D6*3", "CYP2D6*4");
+        "*3", "*4");
     PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
         "*1", "*3");
     PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
         "rs12979860 variant (T)", "rs12979860 variant (T)");
-
-
   }
 
 
@@ -419,7 +417,7 @@ class BatchPharmCATTest {
         checked = true;
       }
       if (extension.endsWith(".vcf") || extension.equals(BaseConfig.MATCHER_SUFFIX + ".json") ||
-          BaseConfig.OUTSIDE_SUFFIX_PATTERN.matcher(extension).matches() ||
+          BaseConfig.OUTSIDE_EXTENSION_PATTERN.matcher(extension).matches() ||
           extension.equals(BaseConfig.PHENOTYPER_SUFFIX + ".json")) {
         if (sf_debugCheckOutput) {
           System.out.println("Checking .report.html");

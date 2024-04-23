@@ -32,6 +32,7 @@ public class BaseConfig {
   public static final String REPORTER_SUFFIX = ".report";
   public static final Pattern OUTSIDE_SUFFIX_PATTERN = Pattern.compile("^(.+)\\.outside\\d*$");
   public static final Pattern OUTSIDE_FILENAME_PATTERN = Pattern.compile("^(.+)\\.outside\\d*\\.tsv$");
+  public static final Pattern OUTSIDE_EXTENSION_PATTERN = Pattern.compile("^\\.outside\\d*\\.tsv$");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
   boolean runMatcher = true;
   Path definitionDir;

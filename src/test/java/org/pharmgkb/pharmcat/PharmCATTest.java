@@ -472,7 +472,7 @@ class PharmCATTest {
 
       Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
       checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
-          "CYP2D6*3", "CYP2D6*4");
+          "*3", "*4");
       checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
           "*1", "*3");
       checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
