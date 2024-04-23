@@ -1,3 +1,23 @@
+## [2.12.0](https://github.com/PharmGKB/PharmCAT/compare/v2.11.0...v2.12.0) (2024-4-23)
+
+
+### Features
+
+* **pharmcat:** support more than one outside call file ([154ac49](https://github.com/PharmGKB/PharmCAT/commit/154ac494c49ff178b77c6e27ac1dd4042fb878d2))
+* **pipeline:** add the feature of bypassing the gVCF check to the pipeline ([d38005e](https://github.com/PharmGKB/PharmCAT/commit/d38005e7cfe42a8e403af701ae078fb255779ce0))
+
+
+### Bug Fixes
+
+* add json2tsv script ([dfabdc1](https://github.com/PharmGKB/PharmCAT/commit/dfabdc1988a852f6e38cdbd91e83df35c653e864))
+* **namedallelematcher:** improve VCF warnings ([1659e21](https://github.com/PharmGKB/PharmCAT/commit/1659e21baa578af0dcd56989f40021d4df19af21))
+* **pharmcat:** add to path in docker container to fix running scripts ([57a956b](https://github.com/PharmGKB/PharmCAT/commit/57a956b79432c7a7a1ffa3d21177009e607ec24a))
+* **phenotyper:** strip gene symbol prefix from outside call diplotype alleles ([940f6cf](https://github.com/PharmGKB/PharmCAT/commit/940f6cf8f5c96731d9a51c66393e40ce0ac96936))
+* **reporter:** add "Activity Value" prefix to formatted function ([8735554](https://github.com/PharmGKB/PharmCAT/commit/8735554840622bb560cf4edc7c3461cc2ddbe6ff))
+* **reporter:** avoid exception for multiple phenotypes or activity scores for warfarin ([da65834](https://github.com/PharmGKB/PharmCAT/commit/da65834cdddba220739269de6a930c7ad2f9ba15)), closes [#180](https://github.com/PharmGKB/PharmCAT/issues/180)
+* **reporter:** fix display of function/activity in variant position section ([2181f31](https://github.com/PharmGKB/PharmCAT/commit/2181f31cb8dd4252302962fd02520c91f5305b43))
+* **reporter:** no tags for CPIC warfarin report ([3842c1f](https://github.com/PharmGKB/PharmCAT/commit/3842c1fcf2dcad71ea5d6252e12601f15510b1bb))
+
 ## [2.11.0](https://github.com/PharmGKB/PharmCAT/compare/v2.10.0...v2.11.0) (2024-3-26)
 
 
