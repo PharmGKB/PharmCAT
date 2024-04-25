@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,7 +11,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
-import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -136,22 +134,10 @@ public class ResultBuilder {
         .map(NamedAllele::getName)
         .filter(n -> !matchableHaps.contains(n))
         .collect(Collectors.toSet());
-    Set<String> ignoredHaplotypes;
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
-    if (exemption != null) {
-      uncallableHaplotypes = uncallableHaplotypes.stream()
-          .filter(h -> !exemption.shouldIgnoreAllele(h))
-          .collect(Collectors.toSet());
-      ignoredHaplotypes = exemption.getIgnoredAlleles().stream()
-          .map(String::toUpperCase)
-          .collect(Collectors.toSet());
-    } else {
-      ignoredHaplotypes = new HashSet<>();
-    }
 
     DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
     GeneCall geneCall = new GeneCall(definitionFile.getSource(), definitionFile.getVersion(),
-        definitionFile.getChromosome(), gene, matchData, uncallableHaplotypes, ignoredHaplotypes, warnings);
+        definitionFile.getChromosome(), gene, matchData, uncallableHaplotypes, warnings);
 
     // get position info
     for (VariantLocus variant : matchData.getPositions()) {

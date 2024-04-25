@@ -1,7 +1,17 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.lang.invoke.MethodHandles;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -62,7 +72,7 @@ public class MatchData {
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
    * @param allPositions all {@link VariantLocus} positions of interest for the gene
    * @param extraPositions extra positions to track sample alleles for
-   * @param ignoredPositions ignored positions due to ignored named alleles
+   * @param ignoredPositions ignored positions to remove from matching (used for special cases like DPYD)
    */
   public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
       @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions) {
@@ -84,7 +94,7 @@ public class MatchData {
       if (m_ignoredPositions.contains(variant)) {
         continue;
       }
-      if (allele.getUndocumentedVariations().size() > 0) {
+      if (!allele.getUndocumentedVariations().isEmpty()) {
         m_positionsWithUndocumentedVariations.add(variant);
         if (allele.isTreatUndocumentedVariationsAsReference()) {
           m_treatUndocumentedVariationsAsReference = true;
@@ -175,11 +185,8 @@ public class MatchData {
   void defaultMissingAllelesToReference() {
 
     SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
-    Optional<NamedAllele> refHapOpt = m_haplotypes.stream().filter(NamedAllele::isReference).findAny();
-    if (refHapOpt.isEmpty()) {
-      throw new IllegalStateException(m_gene + " does not have a reference");
-    }
-    NamedAllele referenceHaplotype = refHapOpt.get();
+    NamedAllele referenceHaplotype = m_haplotypes.stream().filter(NamedAllele::isReference).findAny()
+        .orElseThrow(() -> new IllegalStateException(m_gene + " does not have a reference"));
     int numAlleles = referenceHaplotype.getAlleles().length;
     for (NamedAllele hap : m_haplotypes) {
       if (referenceHaplotype == hap) {
@@ -319,7 +326,7 @@ public class MatchData {
    */
   public SortedSet<NamedAllele> getHaplotypes() {
     if (m_haplotypes == null) {
-      if (m_sampleMap.size() == 0) {
+      if (m_sampleMap.isEmpty()) {
         return Collections.emptySortedSet();
       }
       throw new IllegalStateException("Not initialized - call marshallHaplotypes()");

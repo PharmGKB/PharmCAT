@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -56,6 +57,11 @@ public class DefinitionFile {
   @Expose
   @SerializedName("namedAlleles")
   private SortedSet<NamedAllele> m_namedAlleles;
+
+  //-- cache
+  private Map<String, NamedAllele> m_namedalleleMap;
+  private NamedAllele m_referenceNamedAllele;
+
 
 
   /**
@@ -145,6 +151,39 @@ public class DefinitionFile {
     return m_namedAlleles;
   }
 
+  public @Nullable NamedAllele getNamedAllele(String name) {
+    if (m_namedalleleMap == null) {
+      mapNamedAlleles();
+    }
+    return m_namedalleleMap.get(name);
+  }
+
+  public NamedAllele getReferenceNamedAllele() {
+    if (m_referenceNamedAllele == null) {
+      mapNamedAlleles();
+    }
+    return m_referenceNamedAllele;
+  }
+
+  private void mapNamedAlleles() {
+    if (m_namedalleleMap == null) {
+      m_namedalleleMap = new HashMap<>();
+      for (NamedAllele allele : getNamedAlleles()) {
+        m_namedalleleMap.put(allele.getName(), allele);
+        if (allele.isReference()) {
+          if (m_referenceNamedAllele != null) {
+            throw new IllegalStateException("Multiple reference named alleles: " + allele.getName() + " and " +
+                m_referenceNamedAllele.getName());
+          }
+          m_referenceNamedAllele = allele;
+        }
+      }
+      if (m_referenceNamedAllele == null) {
+        throw new IllegalStateException(m_geneSymbol + " has no reference named allele!");
+      }
+    }
+  }
+
 
   @Override
   public String toString() {
@@ -191,44 +230,81 @@ public class DefinitionFile {
 
 
   /**
-   * Remove ignored positions specified in {@link DefinitionExemption}.
+   * Remove ignored positions specified in {@link DefinitionExemption} and any unused positions.
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredPositions(DefinitionExemption exemption) {
-    // find ignored positions
-    Set<Integer> ignoredPositions = new HashSet<>();
+
+    // cannot use helper methods on NamedAlleles because they're not initialized yet
+    // must loop through elements manually
+
+    // find unused positions due to ignored NamedAlleles
+    SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
+    for (int x = 0; x < m_variants.length; x += 1) {
+      boolean inUse = false;
+      for (NamedAllele na : m_namedAlleles) {
+        if (na.getCpicAlleles()[x] != null) {
+          inUse = true;
+          break;
+        }
+      }
+      if (!inUse) {
+        System.out.println("  Found unused position: " + m_variants[x]);
+        unusedPositions.add(m_variants[x]);
+      }
+    }
+
+    // remove unused/ignored positions
+    int numIgnored = 0;
+    int numUnused = 0;
+    Set<Integer> skipPositions = new HashSet<>();
     List<VariantLocus> newVariants = new ArrayList<>();
     for (int x = 0; x < m_variants.length; x += 1) {
       if (exemption.shouldIgnorePosition(m_variants[x])) {
-        System.out.println("  Removing position " + x + " (" + m_variants[x] + ")");
-        ignoredPositions.add(x);
+        System.out.println("  Removing ignored position " + x + " (" + m_variants[x] + ")");
+        skipPositions.add(x);
+        numIgnored += 1;
+      } else if (unusedPositions.contains(m_variants[x])) {
+        System.out.println("  Removing unused position " + x + " (" + m_variants[x] + ")");
+        skipPositions.add(x);
+        numUnused += 1;
       } else {
         newVariants.add(m_variants[x]);
       }
     }
-    if (exemption.getIgnoredPositions().size() != ignoredPositions.size()) {
+    if (exemption.getIgnoredPositions().size() != numIgnored) {
       throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
-          "but only found " + ignoredPositions.size());
+          "but only found " + numIgnored);
+    }
+    if (unusedPositions.size() != numUnused) {
+      throw new IllegalStateException("Should have " + unusedPositions.size() + " unused positions, but only found " +
+          numUnused);
     }
     // update variants
     m_variants = newVariants.toArray(new VariantLocus[0]);
 
     SortedSet<NamedAllele> updatedNamedAlleles = new TreeSet<>();
     for (NamedAllele namedAllele : m_namedAlleles) {
-      String[] cpicAlleles = new String[namedAllele.getCpicAlleles().length - ignoredPositions.size()];
-      if (m_variants.length != cpicAlleles.length) {
+      // sanity check
+      int totalAlleles = namedAllele.getCpicAlleles().length - skipPositions.size();
+      if (m_variants.length != namedAllele.getCpicAlleles().length - skipPositions.size()) {
         throw new IllegalStateException("Number of variants (" + m_variants.length + ") and number of CPIC alleles (" +
-            cpicAlleles.length + ") don't match up for " + namedAllele.getName());
+            totalAlleles + ") don't match up for " + namedAllele.getName());
       }
+      String[] cpicAlleles = new String[totalAlleles];
       for (int x = 0, y = 0; x < namedAllele.getCpicAlleles().length; x += 1) {
-        if (ignoredPositions.contains(x)) {
+        if (skipPositions.contains(x)) {
           continue;
         }
         cpicAlleles[y] = namedAllele.getCpicAlleles()[x];
         y += 1;
       }
-      // if there's nothing left that differs from reference allele then don't include this named allele in output
-      if (!Arrays.stream(cpicAlleles).allMatch(Objects::isNull)) {
+
+      // if there's nothing left that differs from reference allele, then don't include this named allele in output
+      if (Arrays.stream(cpicAlleles).allMatch(Objects::isNull)) {
+        System.out.println("WARNING: Removing " + namedAllele.getName() +
+            " because it has no alleles after removing unused/ignored positions");
+      } else {
         updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), null, cpicAlleles,
             namedAllele.isReference()));
       }
@@ -239,6 +315,7 @@ public class DefinitionFile {
 
   /**
    * Translate variants from CPIC to VCF (i.e. {@code cpicAlleles} to {@code alleles}).
+   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void doVcfTranslation(VcfHelper vcfHelper) throws IOException {
 
@@ -332,7 +409,7 @@ public class DefinitionFile {
         altAlleles.add(allele);
       }
     }
-    if (repeats.size() > 0 && repeats.size() != vl.getCpicAlleles().size()) {
+    if (!repeats.isEmpty() && repeats.size() != vl.getCpicAlleles().size()) {
       boolean haveSingle = false;
       if (nonRepeats.size() == 1) {
         String repeatedSequence = repeats.get(0);
@@ -347,7 +424,7 @@ public class DefinitionFile {
 
     List<String> hgvsNames = VariantLocus.HGVS_NAME_SPLITTER.splitToList(vl.getChromosomeHgvsName());
 
-    if (!isSnp && repeats.size() == 0 && altAlleles.size() != 1) {
+    if (!isSnp && repeats.isEmpty() && altAlleles.size() != 1) {
       // in/dels - must have HGVS to represent each change
       throw new IllegalStateException(errorLocation + ": has " + altAlleles.size() + " alt alleles; max is 1");
     }
@@ -392,7 +469,7 @@ public class DefinitionFile {
             " vs. " + vcfPosition);
       }
 
-    } else if (repeats.size() > 0) {
+    } else if (!repeats.isEmpty()) {
       Map<String, VcfHelper.VcfData> firstPass = new HashMap<>();
       for (String h : hgvsNames) {
         String repeatAlt;
@@ -467,12 +544,12 @@ public class DefinitionFile {
       }
     }
 
-    if (missingAlts.size() > 0) {
+    if (!missingAlts.isEmpty()) {
       if (altAlleles.size() == 1) {
         throw new IllegalStateException(errorLocation + ": Missing alts " + missingAlts);
       } else {
         if (!vcfMap.entrySet().stream().allMatch((e) -> e.getKey().equals(e.getValue()))) {
-          // CPIC alleles needs to be translated
+          // CPIC alleles need to be translated
           throw new IllegalStateException(errorLocation + ": Don't know how to translate " + missingAlts);
         } else {
           // no translation, use as is

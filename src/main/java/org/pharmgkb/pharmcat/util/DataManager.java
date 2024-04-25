@@ -367,14 +367,8 @@ public class DataManager {
    */
   private void fixCyp2c19(DefinitionFile definitionFile) {
     Preconditions.checkNotNull(definitionFile);
-    NamedAllele star1 = definitionFile.getNamedAlleles().stream()
-        .filter(na -> na.getName().equals("*1"))
-        .findFirst()
-        .orElseThrow(() -> new IllegalStateException("Cannot find CYP2C19*1"));
-    NamedAllele star38 = definitionFile.getNamedAlleles().stream()
-        .filter(na -> na.getName().equals("*38"))
-        .findFirst()
-        .orElseThrow(() -> new IllegalStateException("Cannot find CYP2C19*38"));
+    NamedAllele star1 = Objects.requireNonNull(definitionFile.getNamedAllele("*1"));
+    NamedAllele star38 = Objects.requireNonNull(definitionFile.getNamedAllele("*38"));
     star1.initialize(definitionFile.getVariants());
     star38.initialize(definitionFile.getVariants());
     for (int x = 0; x < star38.getAlleles().length; x += 1) {

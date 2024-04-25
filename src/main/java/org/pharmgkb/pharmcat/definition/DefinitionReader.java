@@ -84,7 +84,7 @@ public class DefinitionReader {
    * This should be called <em>after</em> all allele definitions have been read.
    */
   public String getGenomeBuild() {
-    Preconditions.checkState(m_definitionFiles.size() > 0);
+    Preconditions.checkState(!m_definitionFiles.isEmpty());
 
     if (m_genomeBuild == null) {
       for (DefinitionFile definitionFile : m_definitionFiles.values()) {
@@ -141,6 +141,10 @@ public class DefinitionReader {
   public SortedSet<NamedAllele> getHaplotypes(String gene) {
     Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
     return m_definitionFiles.get(gene).getNamedAlleles();
+  }
+
+  public NamedAllele getReferenceHaplotype(String gene) {
+    return m_definitionFiles.get(gene).getReferenceNamedAllele();
   }
 
   public @Nullable DefinitionExemption getExemption(String gene) {

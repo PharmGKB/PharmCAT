@@ -49,7 +49,9 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
       m_ignoredAllelesLc = m_ignoredAlleles;
     } else {
       m_ignoredAlleles = ignoredAlleles;
-      m_ignoredAllelesLc = ignoredAlleles.stream().map(String::toLowerCase).collect(Collectors.toCollection(TreeSet::new));
+      m_ignoredAllelesLc = ignoredAlleles.stream()
+          .map(String::toLowerCase)
+          .collect(Collectors.toCollection(TreeSet::new));
     }
     m_allHits = allHits;
   }
@@ -61,7 +63,9 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
 
 
   /**
-   * Gets the positions from definition that to ignore.
+   * Gets the positions from original definition that should be ignored.
+   * These get removed by the {@link org.pharmgkb.pharmcat.util.DataManager} when definitions are first pulled back from
+   * PharmGKB.
    */
   public SortedSet<VariantLocus> getIgnoredPositions() {
     return m_ignoredPositions;
@@ -72,7 +76,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
    * <p>
    * <b>Currently only checks based on RSID!</b>
    */
-  public boolean shouldIgnorePosition(VariantLocus position) {
+  boolean shouldIgnorePosition(VariantLocus position) {
     return m_ignoredPositions.stream()
         .anyMatch(vl -> {
           if (vl.getRsid() != null) {
@@ -92,7 +96,9 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
 
 
   /**
-   * Gets the named alleles to ignore.
+   * Gets the named alleles from the original definition that should be ignored.
+   * These get removed by the {@link org.pharmgkb.pharmcat.util.DataManager} when definitions are first pulled back
+   * from PharmGKB.
    */
   public SortedSet<String> getIgnoredAlleles() {
     return m_ignoredAlleles;
@@ -101,7 +107,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   /**
    * Checks if the given named allele should be ignored.
    */
-  public boolean shouldIgnoreAllele(String allele) {
+  boolean shouldIgnoreAllele(String allele) {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
   }
 

@@ -14,6 +14,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -249,7 +250,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_alleles[idx];
   }
 
-  public String getAllele(VariantLocus variantLocus) {
+  public @Nullable String getAllele(VariantLocus variantLocus) {
     Preconditions.checkState(m_isInitialized, "This NamedAllele has not been initialized()");
     return m_alleleMap.get(variantLocus);
   }
@@ -263,7 +264,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_cpicAlleles[x];
   }
 
-  public String getCpicAllele(VariantLocus variantLocus) {
+  public @Nullable String getCpicAllele(VariantLocus variantLocus) {
     Preconditions.checkState(m_isInitialized, "This NamedAllele has not been initialized()");
     return m_cpicAlleleMap.get(variantLocus);
   }

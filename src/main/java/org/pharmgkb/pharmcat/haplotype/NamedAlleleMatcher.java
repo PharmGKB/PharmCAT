@@ -488,27 +488,21 @@ public class NamedAlleleMatcher {
   private MatchData initializeCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       boolean assumeReference, boolean findCombinations) {
 
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
-    SortedSet<VariantLocus> extraPositions = null;
     SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene);
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
-    SortedSet<VariantLocus> unusedPositions = null;
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+
+    SortedSet<VariantLocus> extraPositions = null;
     if (exemption != null) {
       extraPositions = exemption.getExtraPositions();
-      unusedPositions = findUnusedPositions(exemption, allPositions, alleles);
     }
 
     // grab SampleAlleles for all positions related to the current gene
-    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
+    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, null);
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
 
-    if (exemption != null) {
-      alleles = alleles.stream()
-          .filter(a -> !exemption.shouldIgnoreAllele(a.getName()))
-          .collect(Collectors.toCollection(TreeSet::new));
-    }
     // handle missing positions (if any)
     data.marshallHaplotypes(gene, alleles, findCombinations);
 
@@ -521,82 +515,27 @@ public class NamedAlleleMatcher {
   }
 
 
-  /**
-   * Find positions that are only used by ignored alleles (and therefore should be eliminated from consideration).
-   */
-  private SortedSet<VariantLocus> findUnusedPositions(DefinitionExemption exemption, VariantLocus[] allPositions,
-      SortedSet<NamedAllele> namedAlleles) {
-
-    SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
-    if (exemption.getIgnoredAlleles().isEmpty()) {
-      return unusedPositions;
-    }
-
-    List<NamedAllele> allAlleles = new ArrayList<>(namedAlleles);
-    List<NamedAllele> variantNamedAlleles = allAlleles.subList(1, namedAlleles.size() - 1);
-    Set<VariantLocus> ignorablePositions = new HashSet<>();
-    for (NamedAllele namedAllele : variantNamedAlleles) {
-      if (exemption.shouldIgnoreAllele(namedAllele.getName())) {
-        ignorablePositions.addAll(findIgnorablePositions(allPositions, namedAllele));
-      }
-    }
-
-    for (VariantLocus vl : ignorablePositions) {
-      boolean isUnused = true;
-      for (NamedAllele namedAllele : variantNamedAlleles) {
-        if (!exemption.shouldIgnoreAllele(namedAllele.getName())) {
-          if (namedAllele.getAllele(vl) != null) {
-            isUnused = false;
-            break;
-          }
-        }
-      }
-      if (isUnused) {
-        unusedPositions.add(vl);
-      }
-    }
-    return unusedPositions;
-  }
-
-  /**
-   * Find positions that are used by ignored alleles (and are therefore potentially ignorable).
-   */
-  private Set<VariantLocus> findIgnorablePositions(VariantLocus[] allPositions, NamedAllele namedAllele)  {
-    Set<VariantLocus> ignorablePositions = new HashSet<>();
-    int x = 0;
-    for (String allele : namedAllele.getAlleles()) {
-      if (allele != null) {
-        ignorablePositions.add(allPositions[x]);
-      }
-      x += 1;
-    }
-    return ignorablePositions;
-  }
-
-
   private MatchData initializeDpydCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap,
       boolean assumeReference, boolean findCombinations) {
 
     String gene = "DPYD";
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
-    SortedSet<VariantLocus> extraPositions = null;
     // remove HapB3 and HapB3Intron
     SortedSet<NamedAllele> alleles = m_definitionReader.getHaplotypes(gene).stream()
         .filter(a -> !a.getName().equals(DpydHapB3Matcher.HAPB3_ALLELE) &&
             !a.getName().equals(DpydHapB3Matcher.HAPB3_INTRONIC_ALLELE))
         .collect(Collectors.toCollection(TreeSet::new));
     VariantLocus[] allPositions = m_definitionReader.getPositions(gene);
+    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
+
+    SortedSet<VariantLocus> extraPositions = null;
+    if (exemption != null) {
+      extraPositions = exemption.getExtraPositions();
+    }
     SortedSet<VariantLocus> unusedPositions = new TreeSet<>();
     // add HapB3 positions to ignore
     for (VariantLocus vl : allPositions) {
       if (DpydHapB3Matcher.isHapB3Rsid(vl.getRsid())) {
         unusedPositions.add(vl);
-      }
-    }
-    if (exemption != null) {
-      extraPositions = exemption.getExtraPositions();
-      if (!exemption.getIgnoredAlleles().isEmpty()) {
-        throw new IllegalStateException("Not expecting DPYD to have ignored alleles");
       }
     }
 

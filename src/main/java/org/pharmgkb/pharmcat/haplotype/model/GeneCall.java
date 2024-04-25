@@ -61,23 +61,18 @@ public class GeneCall {
   @SerializedName("uncallableHaplotypes")
   private final Set<String> m_uncallableHaplotypes;
   @Expose
-  @SerializedName("ignoredHaplotypes")
-  private final Set<String> m_ignoredHaplotypes;
-  @Expose
   @SerializedName("warnings")
   private final List<MessageAnnotation> m_warnings;
 
 
   public GeneCall(DataSource source, String version, String chromosome, String gene,
-      MatchData matchData, Set<String> uncallableHaplotypes, Set<String> ignoredHaplotypes,
-      @Nullable List<MessageAnnotation> warnings) {
+      MatchData matchData, Set<String> uncallableHaplotypes, @Nullable List<MessageAnnotation> warnings) {
     m_source = source;
     m_version = version;
     m_chromosome = chromosome;
     m_gene = gene;
     m_matchData = matchData;
     m_uncallableHaplotypes = uncallableHaplotypes;
-    m_ignoredHaplotypes = ignoredHaplotypes;
     m_variantsOfInterest = matchData.getExtraPositions();
     m_warnings = warnings;
   }
@@ -111,10 +106,6 @@ public class GeneCall {
 
   public Set<String> getUncallableHaplotypes() {
     return m_uncallableHaplotypes;
-  }
-
-  public Set<String> getIgnoredHaplotypes() {
-    return m_ignoredHaplotypes;
   }
 
 
