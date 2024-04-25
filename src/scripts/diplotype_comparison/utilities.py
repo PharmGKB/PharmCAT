@@ -4,8 +4,7 @@ __author__ = 'BinglanLi'
 import json
 import sys
 from pathlib import Path
-from typing import List, Set, Optional
-
+from typing import Set, Optional
 import numpy as np
 
 
@@ -59,9 +58,11 @@ def get_allele_defining_variants(json_data: dict) -> dict[str, dict[str, str]]:
     """
     # extract desirable information of allele-defining positions from the json data
     try:
-        hgvs_names: List[str] = [entry['chromosomeHgvsName'] for entry in json_data['variants']]
-        positions: List[str] = [entry['position'] for entry in json_data['variants']]
-        reference_genotypes: List[str] = [entry['ref'] for entry in json_data['variants']]
+        hgvs_names: list[str] = [entry['chromosomeHgvsName'] for entry in json_data['variants']]
+        chromosomes: list[str] = [entry['chromosome'] for entry in json_data['variants']]
+        positions: list[str] = [entry['position'] for entry in json_data['variants']]
+        reference_genotypes: list[str] = [entry['ref'] for entry in json_data['variants']]
+        alternative_genotypes: list[list[str]] = [entry['alts'] for entry in json_data['variants']]
 
         # check whether there are any empty values
         if None in hgvs_names:
@@ -74,9 +75,11 @@ def get_allele_defining_variants(json_data: dict) -> dict[str, dict[str, str]]:
         # generate a dictionary of all allele-defining positions and its reference genotypes
         allele_defining_variants: dict[str, dict[str, str]] = {
             h: {
+                'chromosome': c,
                 'position': p,
-                'ref': r
-            } for h, p, r in zip(hgvs_names, positions, reference_genotypes)}
+                'ref': r,
+                'alt': a
+            } for h, c, p, r, a in zip(hgvs_names, chromosomes, positions, reference_genotypes, alternative_genotypes)}
 
         return allele_defining_variants
 
@@ -87,7 +90,7 @@ def get_allele_defining_variants(json_data: dict) -> dict[str, dict[str, str]]:
 
 
 def get_allele_definitions(json_data: dict,
-                           variants: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
+                           variants: dict[str, dict[str, str]]) -> dict[str, dict[str, set[str]]]:
     """
     Extract allele definitions
     :param json_data: a dictionary of allele-defining variants and named alleles from PharmCAT JSON
@@ -119,7 +122,7 @@ def get_allele_definitions(json_data: dict,
         for i in range(n_alleles):
             allele_definitions[alleles[i]] = {}
             for j in range(n_variants):
-                allele_definitions[alleles[i]][hgvs_names[j]] = genotypes[i][j]
+                allele_definitions[alleles[i]][hgvs_names[j]] = {genotypes[i][j]}
 
         return allele_definitions
 
@@ -164,50 +167,54 @@ def count_diplotype_scores(allele_scores: dict[str, int]) -> dict[str, int]:
     return diplotype_scores
 
 
-def fill_definitions_with_references(dict_allele_definitions: dict[str, dict[str, str]],
+def fill_definitions_with_references(dict_allele_definitions: dict[str, dict[str, set[str]]],
                                      dict_allele_defining_variants: dict[str, dict[str, str]]) \
-        -> dict[str, dict[str, str]]:
+        -> dict[str, dict[str, set[str]]]:
     """
     fill up empty allele-defining positions with the reference genotype
     :return: a list of genotypes where empty/None genotypes have been filled with reference genotypes at the position
     """
     # initialize the return variable
-    dict_allele_definitions_filled: dict[str, dict[str, str]] = dict()
+    dict_allele_definitions_filled: dict[str, dict[str, set[str]]] = dict()
 
     # iterate over each allele's definition
     for allele, dict_defining_genotypes in dict_allele_definitions.items():
         # initialize an empty dictionary for an allele
         dict_allele_definitions_filled[allele] = {}
         # find the allele-defining genotype at each position
-        for position, genotype in dict_defining_genotypes.items():
-            # if the genotype at this position is None, use the reference genotype
-            updated_genotype: str = dict_allele_defining_variants[position]['ref'] if genotype is None else genotype
-            # add the update genotype to dict_allele_definitions_filled
-            dict_allele_definitions_filled[allele][position] = updated_genotype
+        for position, genotype_set in dict_defining_genotypes.items():
+            if len(genotype_set) > 1:
+                print(f'\tPosition {position} has more than one defining genotype {genotype_set}')
+            else:
+                # if the genotype at this position is None, use the reference genotype
+                genotype = list(genotype_set)[0]
+                updated_genotype: str = dict_allele_defining_variants[position]['ref'] if genotype is None else genotype
+                # add the update genotype to dict_allele_definitions_filled
+                dict_allele_definitions_filled[allele][position] = set([updated_genotype])
 
     return dict_allele_definitions_filled
 
 
-def replace_wobble(wobl_genotype: str) -> Set[str]:
+def replace_wobble(genotype: str) -> set[str]:
     """
     replace wobble genotypes with basic base pairs A/T/C/G
-    :param wobl_genotype: an allele-defining genotype
+    :param genotype: an allele-defining genotype
     :return: a list of genotypes with only A, T, C, G, or indels
     """
-    g_flat = _wobble_match_table[wobl_genotype]
+    g_flat = _wobble_match_table[genotype] if genotype in _wobble_genotype_list else {genotype}
     return g_flat
 
 
-def get_unique_combinations(g1: str, g2: str) -> set[str]:
+def get_unique_combinations(g1: set[str], g2: set[str]) -> set[str]:
     """
-    get all possible combinations of genotypes at an allele-defining positions
-    :param g1: an allele-defining genotypes from allele 1
-    :param g2: an allele-defining genotypes from allele 2
+    get all possible combinations of genotypes at an allele-defining position
+    :param g1: allele-defining genotypes of allele 1
+    :param g2: allele-defining genotypes of allele 2
     :return: a set of unique combinations of genotypes
     """
     # replace wobbles
-    g1_: list[str] = replace_wobble(g1) if g1 in _wobble_genotype_list else [g1]
-    g2_: list[str] = replace_wobble(g2) if g2 in _wobble_genotype_list else [g2]
+    g1_: list[str] = [y for x in g1 for y in replace_wobble(x)]
+    g2_: list[str] = [y for x in g2 for y in replace_wobble(x)]
 
     # get all possible genotype combinations at this positions
     if None in g1_ and None in g2_:
@@ -222,13 +229,13 @@ def get_unique_combinations(g1: str, g2: str) -> set[str]:
     return uniq_comb
 
 
-def get_diplotype_definition_dictionary(dict_allele_definitions: dict[str, dict[str, str]],
-                                        alleles_to_test: list[str]) -> dict[str, dict[str, Set[str]]]:
+def get_diplotype_definition_dictionary(dict_allele_definitions: dict[str, dict[str, str]], alleles_to_test: list[str])\
+        -> dict[str, dict[str, Set[str]]]:
     """
     obtain a dictionary of diplotype definitions
     :param dict_allele_definitions: a dictionary of allele definitions
     :param alleles_to_test: list of alleles that share allele-defining positions with other alleles
-    :return: a dictionary {diplotype_name: {position: {unique combinations of genotypes at a position} } }
+    :return: a dictionary {diplotype_name: {position: {a python set of unique genotypes at a position} } }
     """
     # initialize variables
     # set up an empty dictionary that stores each diplotype's definition
@@ -247,7 +254,7 @@ def get_diplotype_definition_dictionary(dict_allele_definitions: dict[str, dict[
             # get the allele names
             a2: str = allele_names[j]
 
-            # skip if both alleles are defined by exclusive positions
+            # skip if both alleles don't share any allele-defining positions with other alleles
             if (a1 not in alleles_to_test) and (a2 not in alleles_to_test):
                 continue
 
@@ -344,7 +351,7 @@ def find_missingness_combinations(allele_array: np.ndarray,
     return missing_position_combinations
 
 
-def convert_dictionary_to_numpy_array(dict_definitions: dict[str, dict]) -> np.ndarray:
+def convert_dictionary_to_numpy_array(dict_definitions: dict[str, dict[str, set[str]]]) -> np.ndarray:
     """
     convert the diplotype definition dictionary to a numpy array
     :param dict_definitions:
@@ -398,17 +405,17 @@ def convert_dictionary_to_numpy_array(dict_definitions: dict[str, dict]) -> np.n
             # get the position index for the numpy array
             position_idx = hgvs_names.index(position)
 
-            # skip None
-            if genotypes is None:
-                continue
-            # otherwise, denote the corresponding genotype-position as '1' in the matrix
-            else:
-                for g in genotypes:
-                    # get the genotype index for the numpy array
-                    genotype_idx = genotype_list.index(g)
+            # denote the corresponding genotype-position as '1' in the matrix
+            for g in genotypes:
+                # skip None
+                if g is None:
+                    continue
 
-                    # fill the corresponding cell in the numpy array with 1 to denote the definition
-                    definition_arrays[idx_definition, genotype_idx, position_idx] = 1
+                # get the genotype index for the numpy array
+                genotype_idx = genotype_list.index(g)
+
+                # fill the corresponding cell in the numpy array with 1 to denote the definition
+                definition_arrays[idx_definition, genotype_idx, position_idx] = 1
 
     return definition_arrays
 
@@ -705,7 +712,7 @@ def find_all_possible_calls(definition_arrays: np.ndarray, diplotype_names: np.n
 
 def find_predicted_calls(possible_call_sets: set[frozenset[str]],
                          diplotype_scores: dict[str, int],
-                         missing_positions: list[str] = None) -> dict[list[str], list[str], list[str]]:
+                         missing_positions: list[str] = None) -> dict[str, list[str]]:
     """
     for a diplotype that have alternative calls, find the call with the highest score that PharmCAT will return
     :param possible_call_sets: sets of possible calls.
@@ -719,7 +726,7 @@ def find_predicted_calls(possible_call_sets: set[frozenset[str]],
     """
     # initialize the return dictionary
     predict_calls_cols = ['expected', 'actual', 'alternative', 'missing_positions']
-    predicted_calls: dict[list[str], list[str], list[str]] = {key: [] for key in predict_calls_cols}
+    predicted_calls: dict[str, list[str]] = {key: [] for key in predict_calls_cols}
 
     # iterate over possible_call_set
     for possible_call_set in possible_call_sets:
@@ -752,8 +759,8 @@ def find_predicted_calls(possible_call_sets: set[frozenset[str]],
 
 def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, str]],
                            dict_allele_definitions: dict[str, dict[str, set[str]]],
-                           alleles_to_test: list[str],
-                           missing_positions: Optional[list[str]] = None) -> dict[list[str], list[str], list[str]]:
+                           alleles_to_test: list[str], missing_positions: Optional[list[str]] = None,
+                           phased: Optional[bool] = False) -> dict[str, list[str]]:
     # initialize values
     definitions = dict()
     defining_variants = dict()
@@ -774,43 +781,55 @@ def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, st
     for allele, dict_defining_genotypes in dict_allele_definitions.items():
         if missing_positions:
             # get the hgvs names of allele-defining positions, excluding missing positions
-            p: list[str] = [k for k in dict_defining_genotypes if k not in missing_positions]
+            position: list[str] = [k for k in dict_defining_genotypes if k not in missing_positions]
             # get genotypes at each allele-defining position, excluding missing positions
-            g: list[str] = [dict_defining_genotypes[hgvs_name] for hgvs_name in p]
+            genotype: list[set[str]] = [dict_defining_genotypes[hgvs_name] for hgvs_name in position]
+            genotype_flattened: list[str] = [y for x in genotype for y in x]
             # if definitions are not empty for this allele, add to the definitions dictionary
-            if any(g):
-                definitions[allele] = {k: v for k, v in zip(p, g)}
+            if any(genotype_flattened):
+                definitions[allele] = {k: v for k, v in zip(position, genotype)}
         else:
             definitions[allele] = dict_defining_genotypes
 
     # update the allele_definitions and fill empty cells with reference genotypes
-    allele_definitions_filled: dict[str, dict[str, str]] = fill_definitions_with_references(definitions,
-                                                                                            defining_variants)
+    allele_definitions_filled: dict[str, dict[str, str]] = fill_definitions_with_references(
+        definitions, defining_variants)
 
-    # get a dictionary of diplotype definitions for comparison
-    # {diplotype_name: {position: {unique combinations of genotypes at a position} } }
-    diplotype_definitions = get_diplotype_definition_dictionary(allele_definitions_filled, alleles_to_test)
+    # get definition arrays
+    definition_arrays: np.ndarray
+    call_names: np.ndarray[str]
+    if phased:
+        # get allele definition arrays
+        definition_arrays: np.ndarray = convert_dictionary_to_numpy_array(allele_definitions_filled)
+        # get allele names
+        call_names = np.array([*definitions])
+    else:
+        # get a dictionary of diplotype definitions for comparison
+        # {diplotype_name: {position: {unique combinations of genotypes at a position} } }
+        diplotype_definitions = get_diplotype_definition_dictionary(allele_definitions_filled, alleles_to_test)
+        # get diplotype definition arrays
+        # vectorized computation by numpy arrays speeds up diplotype comparison
+        definition_arrays = convert_dictionary_to_numpy_array(diplotype_definitions)
+        # get diplotype names
+        call_names = np.array([*diplotype_definitions])
 
-    # get diplotype definition arrays
-    # vectorized computation by numpy arrays speeds up diplotype comparison
-    diplotype_definition_arrays: np.ndarray = convert_dictionary_to_numpy_array(diplotype_definitions)
-    # get diplotype names
-    diplotype_names: np.ndarray[str] = np.array([*diplotype_definitions])
-    # initialize a possible call sets
-    possible_call_sets: set[frozenset[str]] = {frozenset(diplotype_names)}
-    # find possible calls for each diplotype
-    possible_call_sets = find_all_possible_calls(diplotype_definition_arrays, diplotype_names, possible_call_sets)
+    # initialize a possible alternative call sets
+    possible_call_sets: set[frozenset[str]] = {frozenset(call_names)}
+    # find all possible alternative calls for each allele or diplotype
+    possible_call_sets = find_all_possible_calls(definition_arrays, call_names, possible_call_sets)
 
-    # get a dictionary of calculated diplotype scores based on the number of core allele-defining positions
-    # first, calculate the haplotype scores
+    # get a dictionary of calculated allele/diplotype scores based on the number of core allele-defining positions
+    # first, calculate the allele scores
     allele_scores = count_allele_scores(definitions)
-    # then, calculate the diplotype scores by adding up the allele scores
-    diplotype_scores = count_diplotype_scores(allele_scores)
-    # summarize expected vs actual calls
-    dict_predicted_calls = find_predicted_calls(possible_call_sets, diplotype_scores, missing_positions)
-
-    # compare diplotype pairs and identify pairwise relationships
-    # pairwise_comparisons = compare_diplotype_pairs(diplotype_definitions, allele_defining_variants)
+    # then, depending on the phasing status, summarize the expected and actual calls
+    if phased:
+        # summarize expected vs actual calls
+        dict_predicted_calls = find_predicted_calls(possible_call_sets, allele_scores, missing_positions)
+    else:
+        # then, calculate the diplotype scores by adding up the allele scores
+        diplotype_scores = count_diplotype_scores(allele_scores)
+        # summarize expected vs actual calls
+        dict_predicted_calls = find_predicted_calls(possible_call_sets, diplotype_scores, missing_positions)
 
     return dict_predicted_calls
 

@@ -32,10 +32,25 @@ The default output is a file also named `predicted_pharmcat_calls.tsv`. The file
 
 
 ### 2. with missing positions
-
+Find possible alternative calls for every possible combination of missing positions. Note, to spped up the tool, the script only focuses on positions whose missing will lead to ambiguous calls.
 ```shell
 python3 compare_diplotype_definition.py -m
 ```
+
+Use the following command if you want to find alternative calls when specific positions are missing. At the moment, the script takes a VCF file and regards all positions in the VCF missing.
+```shell
+python3 compare_diplotype_definition.py -m -M missing_position.vcf
+```
+
+### 3. for phased data
+
+Find alternative calls for phased data. This is specifically designed for phased data that have missing positions. Use `-M <missing_vcf>` if you want to specify the missing positions.
+
+```shell
+python3 compare_diplotype_definition.py -p
+```
+
+
 
 ### 3. filter failed tests
 
