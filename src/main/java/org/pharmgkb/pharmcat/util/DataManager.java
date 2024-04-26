@@ -379,7 +379,7 @@ public class DataManager {
   }
 
 
-  private void exportVcfData(Path definitionsDir) throws IOException {
+  public static void exportVcfData(Path definitionsDir) throws IOException {
 
     DefinitionReader definitionReader = new DefinitionReader(definitionsDir);
 

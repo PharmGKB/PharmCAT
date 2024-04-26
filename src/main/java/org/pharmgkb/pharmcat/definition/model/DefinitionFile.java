@@ -230,11 +230,27 @@ public class DefinitionFile {
 
 
   /**
-   * Remove ignored positions specified in {@link DefinitionExemption} and any unused positions.
+   * Removes any unused positions and ignored positions specified in {@link DefinitionExemption}.
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredPositions(DefinitionExemption exemption) {
 
+    SortedSet<VariantLocus> ignoredPositions = Arrays.stream(m_variants)
+        .filter(exemption::shouldIgnorePosition)
+        .collect(Collectors.toCollection(TreeSet::new));
+    if (exemption.getIgnoredPositions().size() != ignoredPositions.size()) {
+      throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
+          "but only found " + ignoredPositions.size());
+    }
+    removeIgnoredPositions(ignoredPositions, true);
+  }
+
+
+  /**
+   * Removes any unused positions and the specified {@code ignoredPositions}.
+   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   */
+  public void removeIgnoredPositions(SortedSet<VariantLocus> ignoredPositions, boolean verbose) {
     // cannot use helper methods on NamedAlleles because they're not initialized yet
     // must loop through elements manually
 
@@ -248,8 +264,10 @@ public class DefinitionFile {
           break;
         }
       }
-      if (!inUse) {
-        System.out.println("  Found unused position: " + m_variants[x]);
+      if (!inUse && !ignoredPositions.contains(m_variants[x])) {
+        if (verbose) {
+          System.out.println("  Found unused position: " + m_variants[x]);
+        }
         unusedPositions.add(m_variants[x]);
       }
     }
@@ -260,21 +278,21 @@ public class DefinitionFile {
     Set<Integer> skipPositions = new HashSet<>();
     List<VariantLocus> newVariants = new ArrayList<>();
     for (int x = 0; x < m_variants.length; x += 1) {
-      if (exemption.shouldIgnorePosition(m_variants[x])) {
-        System.out.println("  Removing ignored position " + x + " (" + m_variants[x] + ")");
+      if (ignoredPositions.contains(m_variants[x])) {
+        if (verbose) {
+          System.out.println("  Removing ignored position " + m_geneSymbol + " " + x + " (" + m_variants[x] + ")");
+        }
         skipPositions.add(x);
         numIgnored += 1;
       } else if (unusedPositions.contains(m_variants[x])) {
-        System.out.println("  Removing unused position " + x + " (" + m_variants[x] + ")");
+        if (verbose) {
+          System.out.println("  Removing unused position " + m_geneSymbol + " " + x + " (" + m_variants[x] + ")");
+        }
         skipPositions.add(x);
         numUnused += 1;
       } else {
         newVariants.add(m_variants[x]);
       }
-    }
-    if (exemption.getIgnoredPositions().size() != numIgnored) {
-      throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
-          "but only found " + numIgnored);
     }
     if (unusedPositions.size() != numUnused) {
       throw new IllegalStateException("Should have " + unusedPositions.size() + " unused positions, but only found " +
@@ -564,10 +582,7 @@ public class DefinitionFile {
     vl.setCpicToVcfAlleleMap(vcfMap);
     String vcfRef = vcfMap.get(refAllele);
     vl.setRef(vcfRef);
-    altAlleles.forEach((a) -> {
-      String vcfAlt = vcfMap.get(a);
-      vl.addAlt(vcfAlt);
-    });
+    vl.setAlts(altAlleles.stream().map(vcfMap::get).toList());
   }
 
   private long validateVcfPosition(long vcfPosition, VcfHelper.VcfData vcf, String errorLocation) {
