@@ -278,7 +278,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   public String getCpicAllele(int x) {
-    Preconditions.checkState(m_isInitialized, "This NamedAllele has not been initialized()");
     return m_cpicAlleles[x];
   }
 
