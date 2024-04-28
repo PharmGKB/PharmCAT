@@ -114,14 +114,12 @@ public class BaseMatch implements Comparable<BaseMatch> {
 
       NamedAllele partialHap = new NamedAllele(hap.getId(), builder.toString(), hap.getAlleles(),
           hap.getCpicAlleles(), hap.getMissingPositions(), false, hap.getNumCombinations(), partials.size());
-      partialHap.setPopFreqMap(hap.getPopFreqMap());
       partialHap.initialize(refVariants);
       m_haplotype = partialHap;
 
     } else {
       NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), hap.getAlleles(),
           hap.getCpicAlleles(), hap.getMissingPositions(), hap.isReference(), hap.getNumCombinations(), 0);
-      newHap.setPopFreqMap(hap.getPopFreqMap());
       newHap.initialize(refVariants);
       m_haplotype = newHap;
     }

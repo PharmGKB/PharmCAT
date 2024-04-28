@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.SortedSet;
 import java.util.regex.Pattern;
 import com.google.common.base.Objects;
@@ -38,9 +37,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName("cpicAlleles")
   private final String[] m_cpicAlleles;
-  @Expose
-  @SerializedName("populationFrequency")
-  private Map<String, String> m_popFreqMap;
   @Expose
   @SerializedName(value = "reference", alternate = {"matchesreferencesequence"})
   private final boolean m_isReference;
@@ -296,18 +292,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
 
-  /**
-   * A mapping of population name to allele frequency
-   */
-  public Map<String, String> getPopFreqMap() {
-    return m_popFreqMap;
-  }
-
-  public void setPopFreqMap(Map<String, String> popFreqMap) {
-    m_popFreqMap = popFreqMap;
-  }
-
-
   @Override
   public String toString() {
     return m_name + " [" + m_id + "]";
@@ -338,13 +322,12 @@ public class NamedAllele implements Comparable<NamedAllele> {
     }
     return Objects.equal(m_name, that.getName()) &&
         Objects.equal(m_id, that.getId()) &&
-        Arrays.equals(m_alleles, that.getAlleles()) &&
-        Objects.equal(m_popFreqMap, that.getPopFreqMap());
+        Arrays.equals(m_alleles, that.getAlleles());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(m_name, m_id, m_alleles, m_popFreqMap);
+    return Objects.hashCode(m_name, m_id, m_alleles);
   }
 
 

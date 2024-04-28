@@ -153,7 +153,6 @@ public class MatchData {
 
         NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, cpicAlleles,
             missingPositions, hap.isReference());
-        newHap.setPopFreqMap(hap.getPopFreqMap());
         newHap.initialize(m_positions);
         if (newHap.getScore() > 0) {
           m_haplotypes.add(newHap);
@@ -211,7 +210,6 @@ public class MatchData {
 
       NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, cpicAlleles,
           hap.getMissingPositions(), hap.isReference());
-      fixedHap.setPopFreqMap(hap.getPopFreqMap());
       fixedHap.initialize(m_positions, hap.getScore());
       updatedHaplotypes.add(fixedHap);
     }
