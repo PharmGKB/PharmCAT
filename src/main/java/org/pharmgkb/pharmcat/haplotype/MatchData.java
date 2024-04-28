@@ -201,7 +201,7 @@ public class MatchData {
       String[] cpicAlleles = new String[numAlleles];
       for (int x = 0; x < numAlleles; x += 1) {
         if (curAlleles[x] == null) {
-          // ref allele can be null if position is missing
+          // ref allele can be null if the position is missing
           String refAllele = referenceHaplotype.getAllele(x);
           if (refAllele != null && Iupac.isWobble(refAllele)) {
             newAlleles[x] = m_positions[x].getRef();
