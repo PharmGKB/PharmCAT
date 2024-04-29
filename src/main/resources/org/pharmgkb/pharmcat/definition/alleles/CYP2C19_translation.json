@@ -3380,5 +3380,9 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr10:94775106",
+    "chr10:94852765"
   ]
 }

@@ -273,5 +273,9 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr2:233760498",
+    "chr2:233760973"
   ]
 }

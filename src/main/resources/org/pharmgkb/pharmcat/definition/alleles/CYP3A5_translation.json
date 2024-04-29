@@ -238,5 +238,12 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr7:99652770",
+    "chr7:99660516",
+    "chr7:99665212",
+    "chr7:99672916",
+    "chr7:99676198"
   ]
 }

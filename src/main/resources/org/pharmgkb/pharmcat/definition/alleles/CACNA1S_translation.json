@@ -97,5 +97,9 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr1:201060815",
+    "chr1:201091993"
   ]
 }
