@@ -110,7 +110,7 @@ By default, only genetic variations that are defined in the allele definitions c
 `Named Allele Matcher`. If the sample includes a variant call that is located at an allele-defining position but itself not included in the allele definitions, the `Named Allele Matcher` produces a "Not called" for the affected
 gene since the sample matches neither the reference nor any defined variant.
 
-A “Not called” output cannot be connected to guideline recommendations, even if the sample have other defined, actionable variants. The decision was made that, in the interest of providing recommendation guidance, these undocumented variants are set to reference for genes for which the defined variants affect drug toxicity. This applies to:
+A “Not called” output cannot be connected to guideline recommendations, even if the sample has other defined, actionable variants. The decision was made that, in the interest of providing recommendation guidance, these undocumented variants are set to reference for genes for which the defined variants affect drug toxicity. This applies to:
 
 * CACNA1S
 * DPYD
