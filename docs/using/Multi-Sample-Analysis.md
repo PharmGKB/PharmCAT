@@ -202,13 +202,13 @@ python3 json2tsv_pharmcat.py \
 
 **Optional** arguments:
 -a `</path/to/*_translation.json>`
-: Path to the PharmCAT allele definition JSON files. Directory path should be included. Pattern matching is acceptable to read more than one sample.
+: Path to the PharmCAT allele definition JSON files. Directory path should be included. Pattern matching is acceptable to read more than one allele definition JSON files.
 
 -G `gene1,gene2`
-: A list of genes separated by comma. The script will only process results for these genes.
+: A list of genes separated by comma. The script will only process results for the listed genes.
 
 -S `<txt_file>`
-: A file of samples. One sample per line. The script will only process results for samples listed in this file.
+: A file of samples. One sample per line. The script will only process results for the samples listed in this file.
 
 -c
 : Enable concurrent mode. 
