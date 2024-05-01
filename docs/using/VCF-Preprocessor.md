@@ -153,6 +153,12 @@ program.  Alternatively, set using the `BCFTOOLS_PATH` environment variable.
 If not, bgzip is a part of the [htslib](http://www.htslib.org/download/). You can download and compile it and provide
 the path to the bgzip program.  Alternatively, set using the `BGZIP_PATH` environment variable.
 
+-G <span class="altArg"><br />or --no-gvcf-check</span>
+: Bypass the check of the gVCF file format.
+    * This **SHOULD ONLY BE USED** if you are certain your data is not a gVCF.
+
+
+
 
 
 ### Output

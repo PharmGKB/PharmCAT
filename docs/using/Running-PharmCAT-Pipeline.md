@@ -36,7 +36,7 @@ Standard use case:
 
 ```
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
-                         [-0]
+                         [-0] [-G]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
                          [-reporter] [-rs <sources>] [-re] [-reporterJson]
@@ -61,6 +61,7 @@ Input arguments:
 
 Preprocessor arguments:
   -0, --missing-to-ref  Assume genotypes at missing PGx sites are 0/0. DANGEROUS!.
+  -G, --no-gvcf-check   Bypass the gVCF check for the input VCF. DANGEROUS!.
 
 Named allele matcher arguments:
   -matcher              Run named allele matcher independently.
