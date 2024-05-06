@@ -13,11 +13,14 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -40,7 +43,17 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Mark Woon
  */
-class NamedAlleleMatcherTest {
+public class NamedAlleleMatcherTest {
+
+  @BeforeAll
+  static void prepare() {
+    //TestUtils.setSaveTestOutput(true);
+  }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
+  }
 
 
   /**
@@ -50,7 +63,6 @@ class NamedAlleleMatcherTest {
    *   <li>{@code showUnmatched} = true</li>
    *   <li>{@code withExemptions} = true</li>
    * </ul>
-   *
    */
   static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile) throws Exception {
     return testMatchNamedAlleles(tsvFile, vcfFile, false, false, true, true);

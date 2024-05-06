@@ -4,9 +4,12 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.common.collect.Lists;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -18,13 +21,20 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.*;
  *
  * @author Lester Carter
  */
-class NamedAlleleMatcherUgt1a1Test {
-  private static Path m_definitionFile;
+public class NamedAlleleMatcherUgt1a1Test {
+  private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("UGT1A1_translation.json");
+
 
   @BeforeAll
-  static void before() {
-    m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("UGT1A1_translation.json");
+  static void prepare() {
+    //TestUtils.setSaveTestOutput(true);
   }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
+  }
+
 
   @Test
   void ugt1a1s1s1() throws Exception {
@@ -32,7 +42,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -42,7 +52,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s37.vcf");
     List<String> expectedMatches = Lists.newArrayList("*28/*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -52,7 +62,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s6s6.vcf");
     List<String> expectedMatches = Lists.newArrayList("*6/*6");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -63,7 +73,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -73,7 +83,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s28s60s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*28", "*28/*80");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -83,7 +93,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s60s80phased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
 
     assertPhasedOutput("*1/*80", result);
@@ -95,7 +105,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60phased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*6/*80+*28");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
 
     assertPhasedOutput("*6/*80+*28", result);
@@ -107,7 +117,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80s6s60unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*6/*80+*28");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -116,7 +126,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s6s60s80s28missingunphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*6/*80", "*6/*80+*28", "*6/*80+*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -125,7 +135,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*28", "*28/*80");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -134,7 +144,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80unphased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*28");
 
-     Result result = testMatchNamedAlleles(m_definitionFile, vcfFile, true, true, true);
+     Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -144,7 +154,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s28s80phased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*28");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -154,7 +164,7 @@ class NamedAlleleMatcherUgt1a1Test {
     // no match
     List<String> expectedMatches = new ArrayList<>();
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -163,7 +173,7 @@ class NamedAlleleMatcherUgt1a1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/UGT1A1/s1s37s80s60phased.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*80+*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 

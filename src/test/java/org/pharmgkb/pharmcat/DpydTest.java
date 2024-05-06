@@ -732,6 +732,7 @@ class DpydTest {
   @Test
   void hapB3(TestInfo testInfo) throws Exception {
 
+    // this file based on https://docs.google.com/spreadsheets/d/1M3XDbrCmgz7RCZFMvWgn7wYjiFufvi9JPtDhhqh_Bc8/
     Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/DPYD/hapb3.tsv");
     try (BufferedReader reader = Files.newBufferedReader(tsvFile)) {
       // header row
@@ -757,7 +758,7 @@ class DpydTest {
         if (row < 99) {
           //continue;
         }
-        String name = "row_" + row;
+        String name = String.format("row_%03d", row);
         data = line.split("\t");
 
         System.out.println("\n" + name);
@@ -887,7 +888,7 @@ class DpydTest {
     String warning = isPhased ? StringUtils.stripToNull(data[12]) : StringUtils.stripToNull(data[13]);
     if (warning != null) {
       assertTrue(cpicGeneReport.getMessages().stream()
-          .anyMatch(ma -> ma.getName().equals(warning)), "Should have warnings, but found none");
+          .anyMatch(ma -> ma.getName().equals(warning)), "Missing '" + warning + "' warning");
       assertEquals(1, dpydSection.getElementsByClass(warning).size());
     } else {
       List<String> warnings = cpicGeneReport.getMessages().stream()

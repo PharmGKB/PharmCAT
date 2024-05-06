@@ -3,9 +3,12 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -18,13 +21,20 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  *
  * @author Lester Carter
  */
-class NamedAlleleMatcherIfnl3Test {
-  private Path m_definitionFile;
+public class NamedAlleleMatcherIfnl3Test {
+  private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("IFNL3_translation.json");
 
-  @BeforeEach
-  void before() {
-    m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("IFNL3_translation.json");
+
+  @BeforeAll
+  static void prepare() {
+    //TestUtils.setSaveTestOutput(true);
   }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
+  }
+
 
   @Test
   void rs12979860CC() throws Exception {
@@ -33,7 +43,7 @@ class NamedAlleleMatcherIfnl3Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CC.vcf");
     List<String> expectedMatches = Lists.newArrayList("rs12979860 reference (C)/rs12979860 reference (C)");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -44,7 +54,7 @@ class NamedAlleleMatcherIfnl3Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860CT.vcf");
     List<String> expectedMatches = Lists.newArrayList("rs12979860 reference (C)/rs12979860 variant (T)");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -55,7 +65,7 @@ class NamedAlleleMatcherIfnl3Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/IFNL3/rs12979860TT.vcf");
     List<String> expectedMatches = Lists.newArrayList("rs12979860 variant (T)/rs12979860 variant (T)");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

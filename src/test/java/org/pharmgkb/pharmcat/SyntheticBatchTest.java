@@ -6,6 +6,8 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +22,7 @@ import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.haplotype.*;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
@@ -70,6 +73,8 @@ class SyntheticBatchTest {
           System.out.println("Must specify output directory (-o) when using -mega flag");
           System.exit(1);
         }
+
+        dir = dir.resolve(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm")));
 
         List<DataSource> sources = Lists.newArrayList(DataSource.CPIC, DataSource.DPWG);
         doRun(dir.resolve("default"), true, sources, true);
@@ -129,7 +134,19 @@ class SyntheticBatchTest {
               selectClass(PipelineTest.class),
               selectClass(Cacna1sTest.class),
               selectClass(DpydTest.class),
-              selectClass(Ryr1Test.class)
+              selectClass(Ryr1Test.class),
+              selectClass(NamedAlleleMatcherCftrTest.class),
+              selectClass(NamedAlleleMatcherCyp2c9Test.class),
+              selectClass(NamedAlleleMatcherCyp2c19Test.class),
+              selectClass(NamedAlleleMatcherCyp3a5Test.class),
+              selectClass(NamedAlleleMatcherCyp4f2Test.class),
+              selectClass(NamedAlleleMatcherIfnl3Test.class),
+              selectClass(NamedAlleleMatcherRyr1Test.class),
+              selectClass(NamedAlleleMatcherSlco1b1Test.class),
+              selectClass(NamedAlleleMatcherTest.class),
+              selectClass(NamedAlleleMatcherTpmtTest.class),
+              selectClass(NamedAlleleMatcherUgt1a1Test.class),
+              selectClass(NamedAlleleMatcherVkorc1Test.class)
           )
           .build();
       Launcher launcher = LauncherFactory.create();

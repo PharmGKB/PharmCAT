@@ -3,9 +3,12 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -18,13 +21,20 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  *
  * @author Lester Carter
  */
-class NamedAlleleMatcherSlco1b1Test {
-  private Path m_definitionFile;
+public class NamedAlleleMatcherSlco1b1Test {
+  private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("SLCO1B1_translation.json");
 
-  @BeforeEach
-  void before() {
-    m_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("SLCO1B1_translation.json");
+
+  @BeforeAll
+  static void prepare() {
+    //TestUtils.setSaveTestOutput(true);
   }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
+  }
+
 
   @Test
   void slco1b1s1s1() throws Exception {
@@ -33,7 +43,7 @@ class NamedAlleleMatcherSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -44,7 +54,7 @@ class NamedAlleleMatcherSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s5s15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*5/*15");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -55,7 +65,7 @@ class NamedAlleleMatcherSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1s15.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*15","*5/*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -75,7 +85,7 @@ class NamedAlleleMatcherSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -95,7 +105,7 @@ class NamedAlleleMatcherSlco1b1Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
 
-    Result result = testMatchNamedAlleles(m_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

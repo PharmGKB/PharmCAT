@@ -1,8 +1,11 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.nio.file.Path;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -15,8 +18,19 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  *
  * @author Mark Woon
  */
-class NamedAlleleMatcherCftrTest {
+public class NamedAlleleMatcherCftrTest {
   private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CFTR_translation.json");
+
+
+  @BeforeAll
+  static void prepare() {
+    //TestUtils.setSaveTestOutput(true);
+  }
+
+  @AfterEach
+  void deleteDirectory(TestInfo testInfo) {
+    TestUtils.deleteTestOutputDirectory(testInfo);
+  }
 
 
   @Test
