@@ -757,13 +757,27 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
 def _is_phased(gt_field) -> bool:
     """
     Determines the phasing status of a position.
-    If the GT fields can be split by '/', this means at least one sample is unphased.
+    If any GT fields has '/', this means at least one sample is unphased.
     """
     for x in gt_field:
-        if len(x.split('/')) > 1:
+        if '/' in x:
             return False
         else:
             return True
+
+
+def _is_haploid(gt_field) -> bool:
+    """
+    Determine whether the genotypes are haploid or diploid
+    :param gt_field: genotype field of a sample
+    :return:
+    """
+    if '/' in gt_field:
+        return False
+    elif '|' in gt_field:
+        return False
+    else:
+        return True
 
 
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
@@ -854,11 +868,19 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         line = line.rstrip('\n')
                         fields: List[str] = line.split('\t')
                         n_sample = len(fields) - 9
+                        # set up a list to denote the number chrX in samples
+                        sample_is_chrx_haploid: list[bool] = list()
+                        check_chrx_number: bool = False
                     # scan the genotype data
                     else:
                         line = line.rstrip('\n')
                         fields = line.split('\t')
                         input_chr_pos = (fields[0], fields[1])
+
+                        # check the number of chrX in samples
+                        if input_chr_pos[0] == 'chrX' and not check_chrx_number:
+                            sample_is_chrx_haploid = [_is_haploid(x) for x in fields[9:]]
+                            check_chrx_number = True
 
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
@@ -1011,7 +1033,12 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         out_f.write(line + '\n')
                     # if missing_to_ref is true, output lines of missing positions as homozygous reference
                     elif missing_to_ref:
-                        line = '\t'.join(val + ['0|0'] * n_sample)
+                        # differentiate autosomes and sex chromosomes
+                        if key_chr_pos[0] == 'chrX' and check_chrx_number:
+                            chrx_genotypes: list[str] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
+                            line = '\t'.join(val + chrx_genotypes)
+                        else:
+                            line = '\t'.join(val + ['0|0'] * n_sample)
                         out_f.write(line + '\n')
                     else:
                         continue
