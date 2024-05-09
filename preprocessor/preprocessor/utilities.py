@@ -881,6 +881,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         if input_chr_pos[0] == 'chrX' and not check_chrx_number:
                             sample_is_chrx_haploid = [_is_haploid(x) for x in fields[9:]]
                             check_chrx_number = True
+                        print(sample_is_chrx_haploid)
 
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
@@ -1022,11 +1023,18 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 # save the line in the dictionary for non-PGx variants
                                 dict_non_pgx_records[input_chr_pos] = '\t'.join(fields)
             # complete lines of multi-allelic loci or missing positions
+            # ref_pos_dynamic dictionary contains the PGx positions that are not present in the input VCF
             for key_chr_pos in ref_pos_dynamic:
                 for val in ref_pos_dynamic[key_chr_pos].values():
                     # complete multi-allelic loci
                     if key_chr_pos in input_pos:
-                        if input_pos_phased[key_chr_pos]:
+                        if key_chr_pos[0] == 'chrX' and input_pos_phased[key_chr_pos]:
+                            chrx_genotypes: list[str] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
+                            line = '\t'.join(val + chrx_genotypes)
+                        elif key_chr_pos[0] == 'chrX':
+                            chrx_genotypes: list[str] = ['0' if x else '0/0' for x in sample_is_chrx_haploid]
+                            line = '\t'.join(val + chrx_genotypes)
+                        elif input_pos_phased[key_chr_pos]:
                             line = '\t'.join(val + ['0|0'] * n_sample)
                         else:
                             line = '\t'.join(val + ['0/0'] * n_sample)
