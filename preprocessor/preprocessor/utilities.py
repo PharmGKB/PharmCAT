@@ -881,7 +881,6 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         if input_chr_pos[0] == 'chrX' and not check_chrx_number:
                             sample_is_chrx_haploid = [_is_haploid(x) for x in fields[9:]]
                             check_chrx_number = True
-                        print(sample_is_chrx_haploid)
 
                         # match chromosome positions
                         if input_chr_pos in ref_pos_static:
