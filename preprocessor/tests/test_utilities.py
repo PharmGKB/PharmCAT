@@ -339,13 +339,13 @@ def test_download_pharmcat_positions():
     with pytest.raises(ReportableException) as context:
         with tempfile.TemporaryDirectory() as td:
             tmp_dir: Path = Path(td)
-            utils.download_pharmcat_positions(tmp_dir, verbose=1)
+            utils.download_pharmcat_accessory_files(tmp_dir, verbose=1)
     assert 'Cannot find pharmcat_positions file' in context.value.msg
     common.PHARMCAT_VERSION = orig_version
 
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
-        utils.download_pharmcat_positions(tmp_dir, verbose=1)
+        utils.download_pharmcat_accessory_files(tmp_dir, verbose=1)
         files = os.listdir(tmp_dir)
         assert common.PHARMCAT_POSITIONS_FILENAME in files
         assert ('%s.csi' % common.PHARMCAT_POSITIONS_FILENAME) in files

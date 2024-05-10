@@ -18,7 +18,6 @@ from pathlib import Path
 from typing import Optional, Union, List
 from urllib.error import HTTPError
 
-import allel
 import pandas as pd
 from packaging import version
 
@@ -496,15 +495,20 @@ def download_from_url(url: str, download_dir: Path, force_update: bool = False, 
         raise InvalidURL(url)
 
 
-def download_pharmcat_positions(download_dir: Union[Path, str], force_update: bool = False, verbose: int = 0):
+def download_pharmcat_accessory_files(download_dir: Union[Path, str], force_update: bool = False,
+                                      download_region_bed: bool = False, verbose: int = 0):
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
     pos_file = download_dir / common.PHARMCAT_POSITIONS_FILENAME
     if pos_file.exists() and not force_update:
         return pos_file
 
-    url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_positions_%s.vcf.bgz' %\
-        (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
+    if download_region_bed:
+        url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_regions_%s.bed' % \
+              (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
+    else:
+        url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_positions_%s.vcf.bgz' %\
+            (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
     try:
         dl_file = download_from_url(url, download_dir, force_update, verbose)
         # use shutil.move instead of rename to deal with cross-device issues
@@ -621,6 +625,7 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
                         output_dir: Path, output_basename: str,
+                        retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
                         concurrent_mode: bool = False, max_processes: int = 1,
                         verbose: int = 0) -> Path:
     """
@@ -642,7 +647,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
         if len(vcf_files) == 1:
             # this should create pgx_region_vcf_file
             _extract_pgx_regions(pharmcat_positions, vcf_files[0], tmp_sample_file, output_dir, output_basename,
-                                 verbose)
+                                 retain_specific_regions, reference_regions_to_retain, verbose)
         else:
             # generate files to be concatenated
             tmp_files: List[Path] = []
@@ -652,14 +657,16 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
                     futures = []
                     for vcf_file in vcf_files:
                         futures.append(e.submit(_extract_pgx_regions, pharmcat_positions, vcf_file, tmp_sample_file,
-                                                output_dir, get_vcf_basename(vcf_file), verbose))
+                                                output_dir, get_vcf_basename(vcf_file), retain_specific_regions,
+                                                reference_regions_to_retain, verbose))
                     concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
                     for future in futures:
                         tmp_files.append(future.result())
             else:
                 for vcf_file in vcf_files:
                     tmp_files.append(_extract_pgx_regions(pharmcat_positions, vcf_file, tmp_sample_file, output_dir,
-                                                          get_vcf_basename(vcf_file), verbose))
+                                                          get_vcf_basename(vcf_file), retain_specific_regions,
+                                                          reference_regions_to_retain, verbose))
             # write file names to txt file for bcftools
             tmp_file_list = tmp_dir / 'regions.txt'
             with open(tmp_file_list, 'w+') as w:
@@ -679,7 +686,9 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
 
 
 def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: Path, output_dir: Path,
-                         output_basename: Optional[str], verbose: int = 0) -> Path:
+                         output_basename: Optional[str],
+                         retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+                         verbose: int = 0) -> Path:
     """
     Does the actual work to extract PGx regions from input VCF file(s) into a single VCF file and
     rename chromosomes to match PharmCAT expectations.
@@ -694,16 +703,27 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
     if idx_file is None:
         index_vcf(bgz_file, verbose)
 
-    # obtain PGx regions to be extracted
-    df_ref_pgx_pos = allel.vcf_to_dataframe(str(pharmcat_positions))
-    df_ref_pgx_pos['CHROM'] = df_ref_pgx_pos['CHROM'].astype('category').cat.set_categories(_chr_valid_sorter)
-    ref_pgx_regions = df_ref_pgx_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
-    # add a special case for 'chrMT'
-    idx_chr_m = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
-    # pandas will no longer exclude empty columns when concatenating two DataFrames
-    # thus, do not concatenate when idx_chr_m is empty, which means the 2nd DataFrame is empty
-    if len(idx_chr_m > 0):
-        ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chr_m].assign(**{'CHROM': 'chrMT'})])
+    if retain_specific_regions:
+        df_regions_to_retain = pd.read_csv(reference_regions_to_retain, sep="\t", header=None)
+        df_regions_to_retain = df_regions_to_retain[[0, 1, 2]]
+        df_regions_to_retain.columns = ['CHROM', 'chromStart', 'chromEnd']
+        df_regions_to_retain.chromStart = df_regions_to_retain.chromStart.astype(str)
+        df_regions_to_retain.chromEnd = df_regions_to_retain.chromEnd.astype(str)
+        df_regions_to_retain['POS'] = df_regions_to_retain['chromStart'] + '-' + df_regions_to_retain['chromEnd']
+        ref_pgx_regions = df_regions_to_retain[['CHROM', 'POS']]
+    else:
+        # obtain PGx regions to be extracted
+        df_pcat_pos = pd.read_csv(str(pharmcat_positions), compression='gzip', sep="\t", comment='#', header=None)
+        df_pcat_pos = df_pcat_pos[[0, 1]]
+        df_pcat_pos.columns = ['CHROM', 'POS']
+        df_pcat_pos['CHROM'] = df_pcat_pos['CHROM'].astype('category').cat.set_categories(_chr_valid_sorter)
+        ref_pgx_regions = df_pcat_pos.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
+        # add a special case for 'chrMT'
+        idx_chr_m = ref_pgx_regions.index[ref_pgx_regions['CHROM'] == 'chrM']
+        # pandas will no longer exclude empty columns when concatenating two DataFrames
+        # thus, do not concatenate when idx_chr_m is empty, which means the 2nd DataFrame is empty
+        if len(idx_chr_m > 0):
+            ref_pgx_regions = pd.concat([ref_pgx_regions, ref_pgx_regions.loc[idx_chr_m].assign(**{'CHROM': 'chrMT'})])
 
     # validate chromosome formats
     if _is_valid_chr(bgz_file):
@@ -782,7 +802,7 @@ def _is_haploid(gt_field) -> bool:
 
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
                          output_dir: Path, output_basename: str, missing_to_ref: bool = False,
-                         verbose: int = 0) -> Path:
+                         retain_specific_regions: bool = False, verbose: int = 0) -> Path:
     """
     Extract specific pgx positions that are present in the reference PGx VCF.
     Generate a report of PGx positions that are missing in the input VCF.
@@ -800,13 +820,16 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         tmp_dir = Path(td)
         uniallelic_positions_vcf: Path = find_uniallelic_file(pharmcat_positions)
 
-        # extracting PGx positions from input using "bcftools view"
-        pgx_pos_only_bgz: Path = tmp_dir / (output_basename + '.pgx_pos_only.vcf.bgz')
         if verbose:
             print('  * Retaining PGx positions, regardless of alleles')
-        run([common.BCFTOOLS_PATH, 'view', '--no-version', '-T', str(uniallelic_positions_vcf), '-Oz',
-             '-o', str(pgx_pos_only_bgz), str(vcf_file)])
-        index_vcf(pgx_pos_only_bgz, verbose)
+        if retain_specific_regions:
+            selected_positions_only_bgz: Path = vcf_file
+        else:
+            # extracting PGx positions from input using "bcftools view"
+            selected_positions_only_bgz: Path = tmp_dir / (output_basename + '.selected_positions_or_regions.vcf.bgz')
+            run([common.BCFTOOLS_PATH, 'view', '--no-version', '-T', str(uniallelic_positions_vcf), '-Oz',
+                 '-o', str(selected_positions_only_bgz), str(vcf_file)])
+            index_vcf(selected_positions_only_bgz, verbose)
 
         # add in missing multi-allelic variants as '0|0'
         # bcftools will take care of the rest (sorting, normalization, etc.)
@@ -839,10 +862,10 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         dict_non_pgx_records = {}
         if verbose:
             print('* Updating VCF header and PGx position annotations')
-        updated_pgx_pos_vcf: Path = tmp_dir / (output_basename + '.updated_pgx_pos_only.vcf')
+        updated_pgx_pos_vcf: Path = tmp_dir / (output_basename + '.updated_pgx_positions.vcf')
         with open(updated_pgx_pos_vcf, 'w') as out_f:
             # get header of samples from merged vcf, add in new contig info
-            with gzip.open(pgx_pos_only_bgz, mode='rt', encoding='utf-8') as in_f:
+            with gzip.open(selected_positions_only_bgz, mode='rt', encoding='utf-8') as in_f:
                 for line in in_f:
                     # process header lines, skip contig
                     if line[0:8] == '##contig':
@@ -1021,6 +1044,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 fields[6] = 'PCATxREF'
                                 # save the line in the dictionary for non-PGx variants
                                 dict_non_pgx_records[input_chr_pos] = '\t'.join(fields)
+                        elif retain_specific_regions:
+                            out_f.write(line + '\n')
             # complete lines of multi-allelic loci or missing positions
             # ref_pos_dynamic dictionary contains the PGx positions that are not present in the input VCF
             for key_chr_pos in ref_pos_dynamic:

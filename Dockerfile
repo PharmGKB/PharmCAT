@@ -74,6 +74,7 @@ COPY preprocessor/pharmcat_vcf_preprocessor.py \
      bin/pharmcat \
      build/pharmcat.jar \
      pharmcat_positions.vcf* \
+     pharmcat_regions.bed \
      ./
 RUN mkdir preprocessor
 COPY preprocessor/preprocessor/*.py \

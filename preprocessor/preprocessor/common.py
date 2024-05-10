@@ -11,6 +11,7 @@ MIN_JAVA_VERSION = '17'
 
 # default filenames
 PHARMCAT_POSITIONS_FILENAME = 'pharmcat_positions.vcf.bgz'
+PHARMCAT_REGIONS_FILENAME = 'pharmcat_regions.bed'
 PHARMCAT_JAR_FILENAME = 'pharmcat.jar'
 REFERENCE_FASTA_FILENAME = 'reference.fna.bgz'
 UNIALLELIC_VCF_SUFFIX = '.uniallelic.vcf.bgz'
