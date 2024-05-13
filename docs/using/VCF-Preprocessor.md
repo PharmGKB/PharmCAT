@@ -31,7 +31,7 @@ By default, the PharmCAT VCF preprocessing produces two types of **output**:
 
 You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
 
-1. You will need python 3.9.4 or higher
+1. You will need python 3.10.14 or higher
 2. You will need the following bioinformatic tools:
     * [bcftools >= v1.18](http://www.htslib.org/download/)
     * [htslib >= v1.18](http://www.htslib.org/download/)
