@@ -73,16 +73,16 @@ class CombinationUtilTest {
     SortedSet<NamedAllele> haplotypes = new TreeSet<>();
     String[] alleles = new String[] { "T" };
 
-    NamedAllele hap = new NamedAllele("*1", "*1", alleles, alleles, true);
+    NamedAllele hap = new NamedAllele("*1", "*1", alleles, alleles, true, false);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*4", "*4", alleles, alleles, false);
+    hap = new NamedAllele("*4", "*4", alleles, alleles, false, false);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*3", "*3", alleles, alleles, false);
+    hap = new NamedAllele("*3", "*3", alleles, alleles, false, false);
     haplotypes.add(hap);
 
-    hap = new NamedAllele("*2", "*2", alleles, alleles, false);
+    hap = new NamedAllele("*2", "*2", alleles, alleles, false, false);
     haplotypes.add(hap);
 
     assertEquals(4, haplotypes.size());

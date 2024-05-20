@@ -40,11 +40,8 @@ public class ReportContext {
   @SerializedName("pharmcatVersion")
   private final String f_pharmcatVersion = CliUtils.getVersion();
   @Expose
-  @SerializedName("cpicVersion")
-  private String m_cpicVersion;
-  @Expose
-  @SerializedName("dpwgVersion")
-  private String m_dpwgVersion;
+  @SerializedName("dataVersion")
+  private String m_dataVersion;
   @Expose
   @SerializedName("genes")
   private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports;
@@ -65,8 +62,7 @@ public class ReportContext {
     f_title = title;
     m_geneReports = geneReports;
 
-    m_cpicVersion = validateVersions(env.getDrugs(), DataSource.CPIC);
-    m_dpwgVersion = validateVersions(env.getDrugs(), DataSource.DPWG);
+    m_dataVersion = validateVersions(env.getDrugs());
 
     for (PrescribingGuidanceSource dataSourceType : PrescribingGuidanceSource.values()) {
       Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSourceType, (s) -> new TreeMap<>());
@@ -105,19 +101,17 @@ public class ReportContext {
     }
   }
 
-  private String validateVersions(PgkbGuidelineCollection guidelineCollection, DataSource dataSource) {
+  private String validateVersions(PgkbGuidelineCollection guidelineCollection) {
     Set<String> observedVersions = new HashSet<>();
-    for (GeneReport geneReport : m_geneReports.get(dataSource).values()) {
-      if (geneReport.getAlleleDefinitionSource() == dataSource) {
+    List<GeneReport> ungroupedGeneReports = m_geneReports.values().stream().flatMap((m) -> m.values().stream()).toList();
+
+    for (GeneReport geneReport : ungroupedGeneReports) {
         if (geneReport.getAlleleDefinitionVersion() != null) {
           observedVersions.add(geneReport.getAlleleDefinitionVersion());
         }
-        // NOTE: CPIC phenotypes are pulled from PharmGKB DB, not CPIC DB so their version will not match the allele
-        // definition, so let's exclude the check for CPIC
-        if (dataSource != DataSource.CPIC && geneReport.getPhenotypeVersion() != null) {
+        if (geneReport.getPhenotypeVersion() != null) {
           observedVersions.add(geneReport.getPhenotypeVersion());
         }
-      }
     }
 
     // check drug data
@@ -128,12 +122,6 @@ public class ReportContext {
     if (observedVersions.isEmpty()) {
       return TextConstants.NA;
     } else {
-      // TODO: the CPIC check is temporary until we stop pulling allele definitions from CPIC and replace it with PharmGKB
-      if (observedVersions.size() > 1 && dataSource != DataSource.CPIC) {
-        addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-" + dataSource.getPharmgkbName().toLowerCase() + "-versions",
-            "Multiple " + dataSource.getPharmgkbName() + " versions used to generate gene and drug reports: " + observedVersions + "."
-        ));
-      }
       return String.join(", ", observedVersions);
     }
   }
@@ -207,12 +195,8 @@ public class ReportContext {
     return f_pharmcatVersion;
   }
 
-  public String getCpicVersion() {
-    return m_cpicVersion;
-  }
-
-  public String getDpwgVersion() {
-    return m_dpwgVersion;
+  public String getDataVersion() {
+    return m_dataVersion;
   }
 
   public List<MessageAnnotation> getMessages() {

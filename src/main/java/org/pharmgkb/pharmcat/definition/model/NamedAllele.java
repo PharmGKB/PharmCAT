@@ -41,6 +41,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName(value = "reference", alternate = {"matchesreferencesequence"})
   private final boolean m_isReference;
+  @Expose
+  @SerializedName("structuralVariant")
+  private final boolean m_isStructuralVariant;
   //-- variables after this point are used by NamedAlleleMatcher --//
   /** The set of positions that are missing from this copy of the NamedAllele **/
   private final SortedSet<VariantLocus> m_missingPositions;
@@ -66,20 +69,20 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles, boolean isReference) {
-    this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0);
+  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles, boolean isReference, boolean isStructuralVariant) {
+    this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0, isStructuralVariant);
   }
 
   public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
-      SortedSet<VariantLocus> missingPositions, boolean isReference) {
-    this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0);
+      SortedSet<VariantLocus> missingPositions, boolean isReference, boolean isStructuralVariant) {
+    this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0, isStructuralVariant);
   }
 
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
   public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
-      SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials) {
+      SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials, boolean isStructuralVariant) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(cpicAlleles);
@@ -90,6 +93,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     m_cpicAlleles = cpicAlleles;
     m_missingPositions = missingPositions;
     m_isReference = isReference;
+    m_isStructuralVariant = isStructuralVariant;
     m_numCombinations = numCombinations;
     m_numPartials = numPartials;
 
@@ -217,6 +221,10 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
   public boolean isReference() {
     return m_isReference;
+  }
+
+  public boolean isStructuralVariant() {
+    return m_isStructuralVariant;
   }
 
 

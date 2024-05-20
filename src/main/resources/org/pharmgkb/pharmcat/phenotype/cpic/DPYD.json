@@ -42956,6 +42956,12 @@
       "lookupKey": "1.0"
     },
     {
+      "name": "c.295_298delTCAT (*7)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
       "name": "c.313G>A",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -43010,6 +43016,42 @@
       "lookupKey": "0.0"
     },
     {
+      "name": "c.1003G>T (*11)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.1156G>T (*12)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.1601G>A (*4)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.1627A>G (*5)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.703C>T (*8)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.85T>C (*9A)",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
       "name": "c.775A>G",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -43035,12 +43077,6 @@
     },
     {
       "name": "c.967G>A",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
-    },
-    {
-      "name": "c.1003G>T (*11)",
       "activityValue": "1.0",
       "functionValue": "Normal function",
       "lookupKey": "1.0"
@@ -43074,12 +43110,6 @@
       "activityValue": "0.5",
       "functionValue": "Decreased function",
       "lookupKey": "0.5"
-    },
-    {
-      "name": "c.1156G>T (*12)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
     },
     {
       "name": "c.1180C>T",
@@ -43178,19 +43208,7 @@
       "lookupKey": "1.0"
     },
     {
-      "name": "c.1601G>A (*4)",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
-    },
-    {
       "name": "c.1615G>A",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
-    },
-    {
-      "name": "c.1627A>G (*5)",
       "activityValue": "1.0",
       "functionValue": "Normal function",
       "lookupKey": "1.0"
@@ -43200,48 +43218,6 @@
       "activityValue": "0.0",
       "functionValue": "No function",
       "lookupKey": "0.0"
-    },
-    {
-      "name": "c.1898delC (*3)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.1905+1G>A (*2A)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.2194G>A (*6)",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
-    },
-    {
-      "name": "c.295_298delTCAT (*7)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.2983G>T (*10)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.703C>T (*8)",
-      "activityValue": "0.0",
-      "functionValue": "No function",
-      "lookupKey": "0.0"
-    },
-    {
-      "name": "c.85T>C (*9A)",
-      "activityValue": "1.0",
-      "functionValue": "Normal function",
-      "lookupKey": "1.0"
     },
     {
       "name": "c.1682G>T",
@@ -43280,6 +43256,18 @@
       "lookupKey": "1.0"
     },
     {
+      "name": "c.1898delC (*3)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
+      "name": "c.1905+1G>A (*2A)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
       "name": "c.1905C>G",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -43311,6 +43299,12 @@
     },
     {
       "name": "c.2186C>T",
+      "activityValue": "1.0",
+      "functionValue": "Normal function",
+      "lookupKey": "1.0"
+    },
+    {
+      "name": "c.2194G>A (*6)",
       "activityValue": "1.0",
       "functionValue": "Normal function",
       "lookupKey": "1.0"
@@ -43418,6 +43412,12 @@
       "lookupKey": "1.0"
     },
     {
+      "name": "c.2983G>T (*10)",
+      "activityValue": "0.0",
+      "functionValue": "No function",
+      "lookupKey": "0.0"
+    },
+    {
       "name": "c.3049G>A",
       "activityValue": "1.0",
       "functionValue": "Normal function",
@@ -43436,5 +43436,5 @@
       "lookupKey": "1.0"
     }
   ],
-  "version": "2024-07-11-16-10"
+  "version": "2024-07-15-21-58"
 }

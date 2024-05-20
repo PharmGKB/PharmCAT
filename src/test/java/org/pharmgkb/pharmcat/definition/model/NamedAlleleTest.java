@@ -29,20 +29,20 @@ class NamedAlleleTest {
 
 
     String[] alleles = new String[] { "T", "A", "G", "C" };
-    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true);
+    NamedAllele ref = new NamedAllele("*1", "*1", alleles, alleles, true, false);
     ref.initialize(variants);
 
     alleles = new String[] { "C", "T", null, null };
-    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
+    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false, false);
     hap2.initialize(variants);
 
     alleles = new String[] { "C", null, null, "Y" };
-    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
+    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false, false);
     hap3.initialize(variants);
 
     // permutations should be consistent even if positions are out-of-order
     alleles = new String[] { "Y", null, null, "C" };
-    NamedAllele hap4 = new NamedAllele("*4", "*4", alleles, alleles, false);
+    NamedAllele hap4 = new NamedAllele("*4", "*4", alleles, alleles, false, false);
     Arrays.sort(variants, Collections.reverseOrder());
     hap4.initialize(variants);
 
@@ -66,8 +66,8 @@ class NamedAlleleTest {
   void testSorting() {
 
     String[] alleles = new String[] {"A"};
-    NamedAllele nonRef = new NamedAllele("1", "*1", alleles, alleles, false);
-    NamedAllele ref    = new NamedAllele("2", "*2", alleles, alleles, true);
+    NamedAllele nonRef = new NamedAllele("1", "*1", alleles, alleles, false, false);
+    NamedAllele ref    = new NamedAllele("2", "*2", alleles, alleles, true, false);
     SortedSet<NamedAllele> set = new TreeSet<>();
     set.add(nonRef);
     set.add(ref);

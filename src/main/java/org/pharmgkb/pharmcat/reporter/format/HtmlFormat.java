@@ -104,7 +104,7 @@ public class HtmlFormat extends AbstractFormat {
     if (!f_testMode) {
       result.put("timestamp", new SimpleDateFormat("MMMM dd, yyyy").format(reportContext.timestamp()));
       result.put("pharmcatVersion", reportContext.getPharmcatVersion());
-      result.put("cpicVersion", reportContext.getCpicVersion());
+      result.put("dataVersion", reportContext.getDataVersion());
     }
     result.put("compact", m_compact);
 

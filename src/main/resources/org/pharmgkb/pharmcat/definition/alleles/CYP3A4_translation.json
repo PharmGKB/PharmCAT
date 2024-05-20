@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-07-11-16-10",
+  "version": "2024-07-15-21-58",
   "modificationDate": "2023-10-01T23:03:51.828Z",
   "gene": "CYP3A4",
   "orientation": null,
@@ -222,7 +222,7 @@
       "chromosome": "chr7",
       "position": 99762234,
       "cpicPosition": 99762234,
-      "rsid": null,
+      "rsid": "rs1318364992",
       "chromosomeHgvsName": "g.99762234C>T",
       "cpicAlleles": [
         "C",
@@ -279,7 +279,7 @@
       "chromosome": "chr7",
       "position": 99763925,
       "cpicPosition": 99763925,
-      "rsid": null,
+      "rsid": "rs201821708",
       "chromosomeHgvsName": "g.99763925T>C",
       "cpicAlleles": [
         "C",
@@ -336,7 +336,7 @@
       "chromosome": "chr7",
       "position": 99766424,
       "cpicPosition": 99766424,
-      "rsid": null,
+      "rsid": "rs1429705359",
       "chromosomeHgvsName": "g.99766424T>C",
       "cpicAlleles": [
         "C",
@@ -355,7 +355,7 @@
       "chromosome": "chr7",
       "position": 99766439,
       "cpicPosition": 99766439,
-      "rsid": null,
+      "rsid": "rs145582851",
       "chromosomeHgvsName": "g.99766439C>T",
       "cpicAlleles": [
         "C",
@@ -450,7 +450,7 @@
       "chromosome": "chr7",
       "position": 99768447,
       "cpicPosition": 99768447,
-      "rsid": null,
+      "rsid": "rs3208361",
       "chromosomeHgvsName": "g.99768447T>C",
       "cpicAlleles": [
         "C",
@@ -792,7 +792,7 @@
       "chromosome": "chr7",
       "position": 99784078,
       "cpicPosition": 99784078,
-      "rsid": null,
+      "rsid": "rs1226205448",
       "chromosomeHgvsName": "g.99784078C>T",
       "cpicAlleles": [
         "C",
@@ -901,6 +901,7 @@
         "C"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -996,6 +997,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1091,6 +1093,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1186,6 +1189,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1281,6 +1285,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1376,6 +1381,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1471,6 +1477,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1566,6 +1573,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1661,6 +1669,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1756,6 +1765,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1851,6 +1861,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1946,6 +1957,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2041,6 +2053,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2136,6 +2149,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2231,6 +2245,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2326,6 +2341,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2421,6 +2437,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2516,6 +2533,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2611,6 +2629,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2706,6 +2725,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2801,6 +2821,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2896,6 +2917,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2991,6 +3013,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3086,6 +3109,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3181,6 +3205,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3276,6 +3301,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3371,6 +3397,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3466,6 +3493,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3561,6 +3589,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3656,6 +3685,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3751,6 +3781,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3846,6 +3877,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3941,6 +3973,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4036,6 +4069,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4131,6 +4165,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4226,6 +4261,7 @@
         "T"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4321,6 +4357,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4416,6 +4453,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4511,6 +4549,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4606,6 +4645,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4701,6 +4741,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4796,6 +4837,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4891,6 +4933,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4986,6 +5029,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5081,6 +5125,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

@@ -68,7 +68,7 @@ public class DrugReport implements Comparable<DrugReport> {
         .orElseThrow(() -> new IllegalStateException("DPWG guideline " +
             guidelinePackages.get(0).getGuideline().getId() + " is supposed to be related to " + name + " but is not"))
         .getId();
-    m_version = reportContext.getCpicVersion();
+    m_version = reportContext.getDataVersion();
 
     // DPWG drug can have multiple guideline reports
     for (GuidelinePackage guidelinePackage : guidelinePackages) {

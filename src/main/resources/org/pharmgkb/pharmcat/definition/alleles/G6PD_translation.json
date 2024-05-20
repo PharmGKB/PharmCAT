@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:07:10.619Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2023-09-26T20:24:28.185Z",
   "gene": "G6PD",
   "orientation": null,
   "chromosome": "chrX",
@@ -204,7 +204,7 @@
       "position": 154532258,
       "cpicPosition": 154532258,
       "rsid": null,
-      "chromosomeHgvsName": "g.154532258G>T;g.154532258G>A",
+      "chromosomeHgvsName": "g.154532258G>T; g.154532258G>A",
       "cpicAlleles": [
         "A",
         "G",
@@ -264,7 +264,7 @@
       "position": 154532269,
       "cpicPosition": 154532269,
       "rsid": "rs72554665",
-      "chromosomeHgvsName": "g.154532269C>A;g.154532269C>G",
+      "chromosomeHgvsName": "g.154532269C>A; g.154532269C>G",
       "cpicAlleles": [
         "A",
         "C",
@@ -590,7 +590,7 @@
       "position": 154532625,
       "cpicPosition": 154532625,
       "rsid": "rs137852336",
-      "chromosomeHgvsName": "g.154532625C>T;g.154532625C>G",
+      "chromosomeHgvsName": "g.154532625C>T; g.154532625C>G",
       "cpicAlleles": [
         "C",
         "G",
@@ -1125,7 +1125,7 @@
       "position": 154532765,
       "cpicPosition": 154532765,
       "rsid": "rs137852329",
-      "chromosomeHgvsName": "g.154532765G>C;g.154532765G>T",
+      "chromosomeHgvsName": "g.154532765G>C; g.154532765G>T",
       "cpicAlleles": [
         "C",
         "G",
@@ -1660,7 +1660,7 @@
       "position": 154533596,
       "cpicPosition": 154533596,
       "rsid": "rs137852318",
-      "chromosomeHgvsName": "g.154533596C>A;g.154533596C>G",
+      "chromosomeHgvsName": "g.154533596C>A; g.154533596C>G",
       "cpicAlleles": [
         "A",
         "C",
@@ -1682,7 +1682,7 @@
       "position": 154533605,
       "cpicPosition": 154533605,
       "rsid": null,
-      "chromosomeHgvsName": "g.154533605T>C;g.154533605T>A",
+      "chromosomeHgvsName": "g.154533605T>C; g.154533605T>A",
       "cpicAlleles": [
         "A",
         "C",
@@ -1970,7 +1970,7 @@
       "position": 154534125,
       "cpicPosition": 154534125,
       "rsid": "rs137852328",
-      "chromosomeHgvsName": "g.154534125C>T;g.154534125C>A",
+      "chromosomeHgvsName": "g.154534125C>T; g.154534125C>A",
       "cpicAlleles": [
         "A",
         "C",
@@ -2087,7 +2087,7 @@
       "position": 154534389,
       "cpicPosition": 154534389,
       "rsid": "rs137852332",
-      "chromosomeHgvsName": "g.154534389C>T;g.154534389C>G",
+      "chromosomeHgvsName": "g.154534389C>T; g.154534389C>G",
       "cpicAlleles": [
         "C",
         "G",
@@ -2603,7 +2603,7 @@
       "position": 154535270,
       "cpicPosition": 154535270,
       "rsid": "rs78365220",
-      "chromosomeHgvsName": "g.154535270A>C;g.154535270A>G",
+      "chromosomeHgvsName": "g.154535270A>C; g.154535270A>G",
       "cpicAlleles": [
         "A",
         "C",
@@ -2948,7 +2948,7 @@
       "position": 154536019,
       "cpicPosition": 154536019,
       "rsid": null,
-      "chromosomeHgvsName": "g.154536019G>A;g.154536019G>T",
+      "chromosomeHgvsName": "g.154536019G>A; g.154536019G>T",
       "cpicAlleles": [
         "A",
         "G",
@@ -3292,7 +3292,7 @@
   "namedAlleles": [
     {
       "name": "B (reference)",
-      "id": "778666",
+      "id": "PA165947826",
       "alleles": [
         "A",
         "CTCT",
@@ -3640,12 +3640,13 @@
         "G"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "202G>A_376A>G_1264C>G",
-      "id": "778714",
+      "id": "PA166121206",
       "alleles": [
         null,
         null,
@@ -3993,12 +3994,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "A",
-      "id": "778752",
+      "id": "PA166121247",
       "alleles": [
         null,
         null,
@@ -4346,12 +4348,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "A- 202A_376G",
-      "id": "778712",
+      "id": "PA165947827",
       "alleles": [
         null,
         null,
@@ -4699,12 +4702,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "A- 680T_376G",
-      "id": "778748",
+      "id": "PA165947828",
       "alleles": [
         null,
         null,
@@ -5052,12 +5056,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "A- 968C_376G",
-      "id": "778750",
+      "id": "PA165947829",
       "alleles": [
         null,
         null,
@@ -5405,12 +5410,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Aachen",
-      "id": "778916",
+      "id": "PA166121163",
       "alleles": [
         null,
         null,
@@ -5758,12 +5764,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Abeno",
-      "id": "778962",
+      "id": "PA166121144",
       "alleles": [
         null,
         null,
@@ -6111,12 +6118,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Acrokorinthos",
-      "id": "778742",
+      "id": "PA166121114",
       "alleles": [
         null,
         null,
@@ -6464,12 +6472,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Alhambra",
-      "id": "778950",
+      "id": "PA166121180",
       "alleles": [
         null,
         null,
@@ -6817,12 +6826,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Amazonia",
-      "id": "778702",
+      "id": "PA166121108",
       "alleles": [
         null,
         null,
@@ -7170,12 +7180,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Amiens",
-      "id": "779006",
+      "id": "PA166121197",
       "alleles": [
         null,
         null,
@@ -7523,12 +7534,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Amsterdam",
-      "id": "778700",
+      "id": "PA166121205",
       "alleles": [
         null,
         null,
@@ -7876,12 +7888,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Anadia",
-      "id": "778956",
+      "id": "PA166121143",
       "alleles": [
         null,
         null,
@@ -8229,12 +8242,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Ananindeua",
-      "id": "778746",
+      "id": "PA166121116",
       "alleles": [
         null,
         null,
@@ -8582,12 +8596,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Andalus",
-      "id": "779002",
+      "id": "PA166121151",
       "alleles": [
         null,
         null,
@@ -8935,12 +8950,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Arakawa",
-      "id": "779036",
+      "id": "PA166121202",
       "alleles": [
         null,
         null,
@@ -9288,12 +9304,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Asahi",
-      "id": "778708",
+      "id": "PA166121085",
       "alleles": [
         null,
         null,
@@ -9641,12 +9658,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Asahikawa",
-      "id": "778826",
+      "id": "PA166121222",
       "alleles": [
         null,
         null,
@@ -9994,12 +10012,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Aures",
-      "id": "778686",
+      "id": "PA166121079",
       "alleles": [
         null,
         null,
@@ -10347,12 +10366,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Aveiro",
-      "id": "778836",
+      "id": "PA166121226",
       "alleles": [
         null,
         null,
@@ -10700,12 +10720,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Bajo Maumere",
-      "id": "778858",
+      "id": "PA166121102",
       "alleles": [
         null,
         null,
@@ -11053,12 +11074,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Bangkok",
-      "id": "778844",
+      "id": "PA166121229",
       "alleles": [
         null,
         null,
@@ -11406,12 +11428,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Bangkok Noi",
-      "id": "779008",
+      "id": "PA166121198",
       "alleles": [
         "C",
         null,
@@ -11759,12 +11782,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Bao Loc",
-      "id": "778738",
+      "id": "PA166121112",
       "alleles": [
         null,
         null,
@@ -12112,12 +12136,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Bari",
-      "id": "778952",
+      "id": "PA166121181",
       "alleles": [
         null,
         null,
@@ -12465,12 +12490,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Belem",
-      "id": "778766",
+      "id": "PA166121119",
       "alleles": [
         null,
         null,
@@ -12818,12 +12844,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Beverly Hills, Genova, Iwate, Niigata, Yamaguchi",
-      "id": "778938",
+      "id": "PA166121174",
       "alleles": [
         null,
         null,
@@ -13171,12 +13198,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Brighton",
-      "id": "779038",
+      "id": "PA166121203",
       "alleles": [
         null,
         "C",
@@ -13524,12 +13552,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Buenos Aires",
-      "id": "779034",
+      "id": "PA166121201",
       "alleles": [
         null,
         null,
@@ -13877,12 +13906,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Cairo",
-      "id": "778762",
+      "id": "PA166287151",
       "alleles": [
         null,
         null,
@@ -14230,12 +14260,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Calvo Mackenna",
-      "id": "778922",
+      "id": "PA166121166",
       "alleles": [
         null,
         null,
@@ -14583,12 +14614,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Campinas",
-      "id": "779032",
+      "id": "PA166121200",
       "alleles": [
         null,
         null,
@@ -14936,12 +14968,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like",
-      "id": "779012",
+      "id": "PA166121153",
       "alleles": [
         null,
         null,
@@ -15289,12 +15322,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Cassano",
-      "id": "778994",
+      "id": "PA166121148",
       "alleles": [
         null,
         null,
@@ -15642,12 +15676,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Chatham",
-      "id": "778894",
+      "id": "PA166121139",
       "alleles": [
         null,
         null,
@@ -15995,12 +16030,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Chikugo",
-      "id": "778794",
+      "id": "PA166121214",
       "alleles": [
         null,
         null,
@@ -16348,12 +16384,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Chinese-1",
-      "id": "778854",
+      "id": "PA166121133",
       "alleles": [
         null,
         null,
@@ -16701,12 +16738,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Chinese-5",
-      "id": "778900",
+      "id": "PA166121073",
       "alleles": [
         null,
         null,
@@ -17054,12 +17092,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Cincinnati",
-      "id": "778816",
+      "id": "PA166121219",
       "alleles": [
         null,
         null,
@@ -17407,12 +17446,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Cleveland Corum",
-      "id": "778840",
+      "id": "PA166121227",
       "alleles": [
         null,
         null,
@@ -17760,12 +17800,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Clinic",
-      "id": "778960",
+      "id": "PA166121184",
       "alleles": [
         null,
         null,
@@ -18113,12 +18154,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Coimbra Shunde",
-      "id": "778804",
+      "id": "PA166121128",
       "alleles": [
         null,
         null,
@@ -18466,12 +18508,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Cosenza",
-      "id": "779010",
+      "id": "PA166121152",
       "alleles": [
         null,
         null,
@@ -18819,12 +18862,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Costanzo",
-      "id": "778698",
+      "id": "PA166121107",
       "alleles": [
         null,
         null,
@@ -19172,12 +19216,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Covao do Lobo",
-      "id": "778958",
+      "id": "PA166121183",
       "alleles": [
         null,
         null,
@@ -19525,12 +19570,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Crispim",
-      "id": "778740",
+      "id": "PA166121113",
       "alleles": [
         null,
         null,
@@ -19878,12 +19924,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Dagua",
-      "id": "778810",
+      "id": "PA166287152",
       "alleles": [
         null,
         null,
@@ -20231,12 +20278,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Durham",
-      "id": "778830",
+      "id": "PA166121223",
       "alleles": [
         null,
         null,
@@ -20584,12 +20632,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Farroupilha",
-      "id": "778888",
+      "id": "PA166121249",
       "alleles": [
         null,
         null,
@@ -20937,12 +20986,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Figuera da Foz",
-      "id": "779004",
+      "id": "PA166121196",
       "alleles": [
         null,
         null,
@@ -21290,12 +21340,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Flores",
-      "id": "779018",
+      "id": "PA166121154",
       "alleles": [
         null,
         null,
@@ -21643,12 +21694,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Fukaya",
-      "id": "779030",
+      "id": "PA166121199",
       "alleles": [
         null,
         null,
@@ -21996,12 +22048,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Fushan",
-      "id": "778896",
+      "id": "PA166121140",
       "alleles": [
         null,
         null,
@@ -22349,12 +22402,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Gaohe",
-      "id": "778674",
+      "id": "PA166121105",
       "alleles": [
         null,
         null,
@@ -22702,12 +22756,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Georgia",
-      "id": "778978",
+      "id": "PA166121191",
       "alleles": [
         null,
         null,
@@ -23055,12 +23110,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Gidra",
-      "id": "778680",
+      "id": "PA166287153",
       "alleles": [
         null,
         null,
@@ -23408,12 +23464,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Gond",
-      "id": "778774",
+      "id": "PA166287154",
       "alleles": [
         null,
         null,
@@ -23761,12 +23818,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Guadalajara",
-      "id": "778936",
+      "id": "PA166121173",
       "alleles": [
         null,
         null,
@@ -24114,12 +24172,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Guangzhou",
-      "id": "778726",
+      "id": "PA166121089",
       "alleles": [
         null,
         null,
@@ -24467,12 +24526,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Haikou",
-      "id": "778852",
+      "id": "PA166121132",
       "alleles": [
         null,
         null,
@@ -24820,12 +24880,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Hammersmith",
-      "id": "778734",
+      "id": "PA166121090",
       "alleles": [
         null,
         null,
@@ -25173,12 +25234,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Harilaou",
-      "id": "778818",
+      "id": "PA166121220",
       "alleles": [
         null,
         null,
@@ -25526,12 +25588,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Harima",
-      "id": "778998",
+      "id": "PA166121195",
       "alleles": [
         null,
         null,
@@ -25879,12 +25942,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Hartford",
-      "id": "778940",
+      "id": "PA166121175",
       "alleles": [
         null,
         null,
@@ -26232,12 +26296,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Hechi",
-      "id": "778710",
+      "id": "PA166121110",
       "alleles": [
         null,
         null,
@@ -26585,12 +26650,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Hermoupolis",
-      "id": "778996",
+      "id": "PA166121149",
       "alleles": [
         null,
         null,
@@ -26938,12 +27004,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Honiara",
-      "id": "778676",
+      "id": "PA166121239",
       "alleles": [
         null,
         null,
@@ -27291,12 +27358,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Ierapetra",
-      "id": "778906",
+      "id": "PA166121142",
       "alleles": [
         null,
         null,
@@ -27644,12 +27712,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Ilesha",
-      "id": "778770",
+      "id": "PA166121095",
       "alleles": [
         null,
         null,
@@ -27997,12 +28066,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Insuli",
-      "id": "778890",
+      "id": "PA166121072",
       "alleles": [
         null,
         null,
@@ -28350,12 +28420,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Iowa, Walter Reed, Springfield",
-      "id": "778934",
+      "id": "PA166121172",
       "alleles": [
         null,
         null,
@@ -28703,12 +28774,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Iwatsuki",
-      "id": "778908",
+      "id": "PA166121159",
       "alleles": [
         null,
         null,
@@ -29056,12 +29128,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Japan, Shinagawa",
-      "id": "778970",
+      "id": "PA166121188",
       "alleles": [
         null,
         null,
@@ -29409,12 +29482,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kaiping, Anant, Dhon, Sapporo-like, Wosera",
-      "id": "779022",
+      "id": "PA166121155",
       "alleles": [
         null,
         null,
@@ -29762,12 +29836,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kalyan-Kerala, Jamnaga, Rohini",
-      "id": "778880",
+      "id": "PA166121104",
       "alleles": [
         null,
         null,
@@ -30115,12 +30190,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kambos",
-      "id": "778688",
+      "id": "PA166121081",
       "alleles": [
         null,
         null,
@@ -30468,12 +30544,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kamiube, Keelung",
-      "id": "779016",
+      "id": "PA166121077",
       "alleles": [
         null,
         null,
@@ -30821,12 +30898,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kamogawa",
-      "id": "778692",
+      "id": "PA166121106",
       "alleles": [
         null,
         null,
@@ -31174,12 +31252,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kawasaki",
-      "id": "778972",
+      "id": "PA166121189",
       "alleles": [
         null,
         null,
@@ -31527,12 +31606,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Kozukata",
-      "id": "778690",
+      "id": "PA166121204",
       "alleles": [
         null,
         null,
@@ -31880,12 +31960,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Krakow",
-      "id": "778944",
+      "id": "PA166121177",
       "alleles": [
         null,
         null,
@@ -32233,12 +32314,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "La Jolla",
-      "id": "778848",
+      "id": "PA166121231",
       "alleles": [
         null,
         null,
@@ -32586,12 +32668,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Lages",
-      "id": "778672",
+      "id": "PA166121094",
       "alleles": [
         null,
         null,
@@ -32939,12 +33022,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Lagosanto",
-      "id": "778724",
+      "id": "PA166121088",
       "alleles": [
         null,
         null,
@@ -33292,12 +33376,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Laibin",
-      "id": "779026",
+      "id": "PA166287155",
       "alleles": [
         null,
         null,
@@ -33645,12 +33730,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Lille",
-      "id": "778842",
+      "id": "PA166121228",
       "alleles": [
         null,
         null,
@@ -33998,12 +34084,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Liuzhou",
-      "id": "778768",
+      "id": "PA166121120",
       "alleles": [
         null,
         null,
@@ -34351,12 +34438,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Loma Linda",
-      "id": "778914",
+      "id": "PA166121162",
       "alleles": [
         null,
         null,
@@ -34704,12 +34792,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Ludhiana",
-      "id": "778878",
+      "id": "PA166121138",
       "alleles": [
         null,
         null,
@@ -35057,12 +35146,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Lynwood",
-      "id": "778930",
+      "id": "PA166121170",
       "alleles": [
         null,
         null,
@@ -35410,12 +35500,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Madrid",
-      "id": "778932",
+      "id": "PA166121171",
       "alleles": [
         null,
         null,
@@ -35763,12 +35854,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mahidol",
-      "id": "778776",
+      "id": "PA166121096",
       "alleles": [
         null,
         null,
@@ -36116,12 +36208,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Malaga",
-      "id": "778796",
+      "id": "PA166121097",
       "alleles": [
         null,
         null,
@@ -36469,12 +36562,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Manhattan",
-      "id": "778884",
+      "id": "PA166121237",
       "alleles": [
         null,
         null,
@@ -36822,12 +36916,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham",
-      "id": "778800",
+      "id": "PA166121127",
       "alleles": [
         null,
         null,
@@ -37175,12 +37270,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Metaponto",
-      "id": "778696",
+      "id": "PA166121083",
       "alleles": [
         null,
         null,
@@ -37528,12 +37624,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mexico City",
-      "id": "778822",
+      "id": "PA166121099",
       "alleles": [
         null,
         null,
@@ -37881,12 +37978,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Miaoli",
-      "id": "778790",
+      "id": "PA166121126",
       "alleles": [
         null,
         null,
@@ -38234,12 +38332,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Minnesota, Marion, Gastonia, LeJeune",
-      "id": "778814",
+      "id": "PA166121218",
       "alleles": [
         null,
         null,
@@ -38587,12 +38686,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mira d'Aire",
-      "id": "778902",
+      "id": "PA166121070",
       "alleles": [
         null,
         null,
@@ -38940,12 +39040,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mizushima",
-      "id": "778860",
+      "id": "PA166121134",
       "alleles": [
         null,
         null,
@@ -39293,12 +39394,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Montalbano",
-      "id": "778868",
+      "id": "PA166121103",
       "alleles": [
         null,
         null,
@@ -39646,12 +39748,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Montpellier",
-      "id": "778920",
+      "id": "PA166121165",
       "alleles": [
         null,
         null,
@@ -39999,12 +40102,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Mt Sinai",
-      "id": "778754",
+      "id": "PA166121210",
       "alleles": [
         null,
         null,
@@ -40352,12 +40456,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Munich",
-      "id": "778974",
+      "id": "PA166121190",
       "alleles": [
         null,
         null,
@@ -40705,12 +40810,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Murcia Oristano",
-      "id": "778718",
+      "id": "PA166121086",
       "alleles": [
         null,
         null,
@@ -41058,12 +41164,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Musashino",
-      "id": "778704",
+      "id": "PA166121084",
       "alleles": [
         null,
         null,
@@ -41411,12 +41518,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Namouru",
-      "id": "778716",
+      "id": "PA166121111",
       "alleles": [
         null,
         null,
@@ -41764,12 +41872,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nankang",
-      "id": "778788",
+      "id": "PA166121125",
       "alleles": [
         null,
         null,
@@ -42117,12 +42226,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nanning",
-      "id": "778828",
+      "id": "PA166121100",
       "alleles": [
         null,
         null,
@@ -42470,12 +42580,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Naone",
-      "id": "778784",
+      "id": "PA166121124",
       "alleles": [
         null,
         null,
@@ -42823,12 +42934,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nara",
-      "id": "778882",
+      "id": "PA166121236",
       "alleles": [
         null,
         null,
@@ -43176,12 +43288,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nashville, Anaheim, Portici",
-      "id": "778948",
+      "id": "PA166121179",
       "alleles": [
         null,
         null,
@@ -43529,12 +43642,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Neapolis",
-      "id": "779024",
+      "id": "PA166121078",
       "alleles": [
         null,
         null,
@@ -43882,12 +43996,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nice",
-      "id": "779014",
+      "id": "PA166121076",
       "alleles": [
         null,
         null,
@@ -44235,12 +44350,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Nilgiri",
-      "id": "778808",
+      "id": "PA166121129",
       "alleles": [
         null,
         null,
@@ -44588,12 +44704,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "No name",
-      "id": "778668",
+      "id": "PA166287156",
       "alleles": [
         null,
         null,
@@ -44941,12 +45058,13 @@
         "A"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "North Dallas",
-      "id": "778824",
+      "id": "PA166121221",
       "alleles": [
         null,
         null,
@@ -45294,12 +45412,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Olomouc",
-      "id": "778926",
+      "id": "PA166121168",
       "alleles": [
         null,
         null,
@@ -45647,12 +45766,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Omiya",
-      "id": "778876",
+      "id": "PA166121235",
       "alleles": [
         null,
         null,
@@ -46000,12 +46120,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Orissa",
-      "id": "778684",
+      "id": "PA166121075",
       "alleles": [
         null,
         null,
@@ -46353,12 +46474,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Osaka",
-      "id": "778866",
+      "id": "PA166121135",
       "alleles": [
         null,
         null,
@@ -46706,12 +46828,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Palestrina",
-      "id": "778694",
+      "id": "PA166121082",
       "alleles": [
         null,
         null,
@@ -47059,12 +47182,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Papua",
-      "id": "778862",
+      "id": "PA166287157",
       "alleles": [
         null,
         null,
@@ -47412,12 +47536,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Partenope",
-      "id": "778904",
+      "id": "PA166121141",
       "alleles": [
         null,
         null,
@@ -47765,12 +47890,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Pawnee",
-      "id": "778986",
+      "id": "PA166121146",
       "alleles": [
         null,
         null,
@@ -48118,12 +48244,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Pedoplis-Ckaro",
-      "id": "778802",
+      "id": "PA166121216",
       "alleles": [
         null,
         null,
@@ -48471,12 +48598,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Piotrkow",
-      "id": "778864",
+      "id": "PA166121233",
       "alleles": [
         null,
         null,
@@ -48824,12 +48952,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Plymouth",
-      "id": "778778",
+      "id": "PA166121211",
       "alleles": [
         null,
         null,
@@ -49177,12 +49306,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Praha",
-      "id": "778942",
+      "id": "PA166121176",
       "alleles": [
         null,
         null,
@@ -49530,12 +49660,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Puerto Limon",
-      "id": "778954",
+      "id": "PA166121182",
       "alleles": [
         null,
         null,
@@ -49883,12 +50014,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Quing Yan",
-      "id": "778760",
+      "id": "PA166121093",
       "alleles": [
         null,
         null,
@@ -50236,12 +50368,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Radlowo",
-      "id": "778820",
+      "id": "PA166121130",
       "alleles": [
         null,
         null,
@@ -50589,12 +50722,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Rehevot",
-      "id": "778886",
+      "id": "PA166121238",
       "alleles": [
         null,
         null,
@@ -50942,12 +51076,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Rignano",
-      "id": "778682",
+      "id": "PA166121074",
       "alleles": [
         null,
         null,
@@ -51295,12 +51430,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Riley",
-      "id": "778924",
+      "id": "PA166121167",
       "alleles": [
         null,
         null,
@@ -51648,12 +51784,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Riverside",
-      "id": "778968",
+      "id": "PA166121187",
       "alleles": [
         null,
         null,
@@ -52001,12 +52138,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Roubaix",
-      "id": "778838",
+      "id": "PA166121131",
       "alleles": [
         null,
         null,
@@ -52354,12 +52492,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "S. Antioco",
-      "id": "778992",
+      "id": "PA166121147",
       "alleles": [
         null,
         null,
@@ -52707,12 +52846,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Salerno Pyrgos",
-      "id": "778758",
+      "id": "PA166121092",
       "alleles": [
         null,
         null,
@@ -53060,12 +53200,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Santa Maria",
-      "id": "778744",
+      "id": "PA166121115",
       "alleles": [
         null,
         null,
@@ -53413,12 +53554,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Santiago",
-      "id": "778806",
+      "id": "PA166121217",
       "alleles": [
         null,
         null,
@@ -53766,12 +53908,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Santiago de Cuba, Morioka",
-      "id": "778990",
+      "id": "PA166121194",
       "alleles": [
         null,
         null,
@@ -54119,12 +54262,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sao Borja",
-      "id": "778736",
+      "id": "PA166121071",
       "alleles": [
         null,
         null,
@@ -54472,12 +54616,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Seattle, Lodi, Modena, Ferrara II, Athens-like",
-      "id": "778856",
+      "id": "PA166121101",
       "alleles": [
         null,
         null,
@@ -54825,12 +54970,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Seoul",
-      "id": "778874",
+      "id": "PA166121137",
       "alleles": [
         null,
         null,
@@ -55178,12 +55324,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Serres",
-      "id": "778910",
+      "id": "PA166121160",
       "alleles": [
         null,
         null,
@@ -55531,12 +55678,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Shenzen",
-      "id": "778772",
+      "id": "PA166121121",
       "alleles": [
         null,
         null,
@@ -55884,12 +56032,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Shinshu",
-      "id": "778792",
+      "id": "PA166121213",
       "alleles": [
         null,
         null,
@@ -56237,12 +56386,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sibari",
-      "id": "778812",
+      "id": "PA166121098",
       "alleles": [
         null,
         null,
@@ -56590,12 +56740,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sierra Leone",
-      "id": "778730",
+      "id": "PA166287158",
       "alleles": [
         null,
         null,
@@ -56943,12 +57094,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sinnai",
-      "id": "778670",
+      "id": "PA166121091",
       "alleles": [
         null,
         null,
@@ -57296,12 +57448,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Songklanagarind",
-      "id": "778706",
+      "id": "PA166121109",
       "alleles": [
         null,
         null,
@@ -57649,12 +57802,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Split",
-      "id": "779028",
+      "id": "PA166121080",
       "alleles": [
         null,
         null,
@@ -58002,12 +58156,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Stonybrook",
-      "id": "778832",
+      "id": "PA166121224",
       "alleles": [
         null,
         null,
@@ -58355,12 +58510,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sugao",
-      "id": "778846",
+      "id": "PA166121230",
       "alleles": [
         null,
         null,
@@ -58708,12 +58864,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sumare",
-      "id": "778982",
+      "id": "PA166121192",
       "alleles": [
         null,
         null,
@@ -59061,12 +59218,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Sunderland",
-      "id": "778678",
+      "id": "PA166121158",
       "alleles": [
         null,
         null,
@@ -59414,12 +59572,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Surabaya",
-      "id": "778980",
+      "id": "PA166121145",
       "alleles": [
         null,
         null,
@@ -59767,12 +59926,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Suwalki",
-      "id": "778966",
+      "id": "PA166121186",
       "alleles": [
         null,
         null,
@@ -60120,12 +60280,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Swansea",
-      "id": "778720",
+      "id": "PA166121207",
       "alleles": [
         null,
         null,
@@ -60473,12 +60634,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Taipei, Chinese-3",
-      "id": "778780",
+      "id": "PA166121122",
       "alleles": [
         null,
         null,
@@ -60826,12 +60988,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Telti, Kobe",
-      "id": "3564276",
+      "id": "PA166121193",
       "alleles": [
         null,
         null,
@@ -61179,12 +61342,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Tenri",
-      "id": "778918",
+      "id": "PA166121164",
       "alleles": [
         null,
         null,
@@ -61532,12 +61696,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Tokyo, Fukushima",
-      "id": "778976",
+      "id": "PA166121248",
       "alleles": [
         null,
         null,
@@ -61885,12 +62050,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Toledo",
-      "id": "778782",
+      "id": "PA166121123",
       "alleles": [
         null,
         null,
@@ -62238,12 +62404,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Tomah",
-      "id": "778928",
+      "id": "PA166121169",
       "alleles": [
         null,
         null,
@@ -62591,12 +62758,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Tondela",
-      "id": "778912",
+      "id": "PA166121161",
       "alleles": [
         null,
         null,
@@ -62944,12 +63112,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Torun",
-      "id": "778898",
+      "id": "PA166121157",
       "alleles": [
         null,
         null,
@@ -63297,12 +63466,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Tsukui",
-      "id": "778798",
+      "id": "PA166121215",
       "alleles": [
         null,
         null,
@@ -63650,12 +63820,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Ube Konan",
-      "id": "778722",
+      "id": "PA166121087",
       "alleles": [
         null,
         null,
@@ -64003,12 +64174,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Union,Maewo, Chinese-2, Kalo",
-      "id": "779000",
+      "id": "PA166121150",
       "alleles": [
         null,
         null,
@@ -64356,12 +64528,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Urayasu",
-      "id": "778728",
+      "id": "PA166121208",
       "alleles": [
         null,
         null,
@@ -64709,12 +64882,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Utrecht",
-      "id": "778964",
+      "id": "PA166121185",
       "alleles": [
         null,
         null,
@@ -65062,12 +65236,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Valladolid",
-      "id": "778764",
+      "id": "PA166121118",
       "alleles": [
         null,
         null,
@@ -65415,12 +65590,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Vancouver",
-      "id": "778732",
+      "id": "PA166121209",
       "alleles": [
         null,
         null,
@@ -65768,12 +65944,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Vanua Lava",
-      "id": "778756",
+      "id": "PA166121117",
       "alleles": [
         null,
         null,
@@ -66121,12 +66298,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Viangchan, Jammu",
-      "id": "778870",
+      "id": "PA166121136",
       "alleles": [
         null,
         null,
@@ -66474,12 +66652,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Volendam",
-      "id": "778786",
+      "id": "PA166121212",
       "alleles": [
         null,
         null,
@@ -66827,12 +67006,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Wayne",
-      "id": "778834",
+      "id": "PA166121225",
       "alleles": [
         null,
         null,
@@ -67180,12 +67360,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "West Virginia",
-      "id": "778872",
+      "id": "PA166121234",
       "alleles": [
         null,
         null,
@@ -67533,12 +67714,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Wexham",
-      "id": "778850",
+      "id": "PA166121232",
       "alleles": [
         null,
         null,
@@ -67886,12 +68068,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Wisconsin",
-      "id": "778946",
+      "id": "PA166121178",
       "alleles": [
         null,
         null,
@@ -68239,12 +68422,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "Yunan",
-      "id": "779020",
+      "id": "PA166287159",
       "alleles": [
         null,
         null,
@@ -68592,6 +68776,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

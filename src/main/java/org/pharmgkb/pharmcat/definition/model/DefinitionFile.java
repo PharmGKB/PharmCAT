@@ -30,7 +30,7 @@ public class DefinitionFile {
   @SerializedName(value = "source")
   private DataSource m_source;
   @Expose
-  @SerializedName(value = "version", alternate = {"cpicVersion"})
+  @SerializedName(value = "version")
   private String m_version;
   @Expose
   @SerializedName("modificationDate")
@@ -228,6 +228,15 @@ public class DefinitionFile {
         .collect(Collectors.toCollection(TreeSet::new));
   }
 
+  /**
+   * Filter out structural variant alleles, they have no definition to match against
+   */
+  public void removeStructuralVariants() {
+    m_namedAlleles = m_namedAlleles.stream()
+        .filter((a) -> !a.isStructuralVariant())
+        .collect(Collectors.toCollection(TreeSet::new));
+  }
+
 
   /**
    * Removes any unused positions and ignored positions specified in {@link DefinitionExemption}.
@@ -324,7 +333,7 @@ public class DefinitionFile {
             " because it has no alleles after removing unused/ignored positions");
       } else {
         updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), null, cpicAlleles,
-            namedAllele.isReference()));
+            namedAllele.isReference(), namedAllele.isStructuralVariant()));
       }
     }
     m_namedAlleles = updatedNamedAlleles;
@@ -380,7 +389,7 @@ public class DefinitionFile {
       if (mustResort) {
         updated = reorderHaplotypeAlleles(na, m_variants, sortedVariants, fixedAlleles);
       } else {
-        updated = new NamedAllele(na.getId(), na.getName(), fixedAlleles, na.getCpicAlleles(), na.isReference());
+        updated = new NamedAllele(na.getId(), na.getName(), fixedAlleles, na.getCpicAlleles(), na.isReference(), na.isStructuralVariant());
       }
       updatedNamedAlleles.add(updated);
     }
@@ -641,6 +650,6 @@ public class DefinitionFile {
     }
 
     return new NamedAllele(hap.getId(), hap.getName(), alleles, cpicAlleles, hap.getMissingPositions(),
-        hap.isReference(), hap.getNumCombinations(), hap.getNumPartials());
+        hap.isReference(), hap.getNumCombinations(), hap.getNumPartials(), hap.isStructuralVariant());
   }
 }

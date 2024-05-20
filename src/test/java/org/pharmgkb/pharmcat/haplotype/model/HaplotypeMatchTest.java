@@ -21,9 +21,9 @@ class HaplotypeMatchTest {
     SortedSet<HaplotypeMatch> sortedSet = new TreeSet<>();
     String[] alleles = new String[] { "T" };
 
-    HaplotypeMatch hm1 = new HaplotypeMatch(new NamedAllele("*4", "*4", alleles, alleles, false));
+    HaplotypeMatch hm1 = new HaplotypeMatch(new NamedAllele("*4", "*4", alleles, alleles, false, false));
     sortedSet.add(hm1);
-    HaplotypeMatch hm2 = new HaplotypeMatch(new NamedAllele("*1", "*1", alleles, alleles, true));
+    HaplotypeMatch hm2 = new HaplotypeMatch(new NamedAllele("*1", "*1", alleles, alleles, true, false));
     sortedSet.add(hm2);
     assertEquals(hm2, sortedSet.first());
   }

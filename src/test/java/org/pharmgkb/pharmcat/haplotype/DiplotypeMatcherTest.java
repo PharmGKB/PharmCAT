@@ -51,19 +51,19 @@ class DiplotypeMatcherTest {
 
     // initialize test haplotypes
     String[] alleles = new String[] { "A", "C", "C" };
-    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true, false);
     hap1.initialize(s_positions);
 
     alleles = new String[] { "G", null, null };
-    NamedAllele hap2 = new NamedAllele("*4a", "*4a", alleles, alleles, false);
+    NamedAllele hap2 = new NamedAllele("*4a", "*4a", alleles, alleles, false, false);
     hap2.initialize(s_positions);
 
     alleles = new String[] { "G", "T", "T" };
-    NamedAllele hap3 = new NamedAllele("*4b", "*4b", alleles, alleles, false);
+    NamedAllele hap3 = new NamedAllele("*4b", "*4b", alleles, alleles, false, false);
     hap3.initialize(s_positions);
 
     alleles = new String[] { null, "T", "T" };
-    NamedAllele hap4 = new NamedAllele("*17", "*17", alleles, alleles, false);
+    NamedAllele hap4 = new NamedAllele("*17", "*17", alleles, alleles, false, false);
     hap4.initialize(s_positions);
 
     s_haplotypes.add(hap1);
@@ -198,15 +198,15 @@ class DiplotypeMatcherTest {
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3, var4 };
 
     String[] alleles = new String[] { "T", "A", "C", "C" };
-    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true, false);
     hap1.initialize(variants);
 
     alleles = new String[] { null, "T", "C", null };
-    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false);
+    NamedAllele hap2 = new NamedAllele("*2", "*2", alleles, alleles, false, false);
     hap2.initialize(variants);
 
     alleles = new String[] { null, null, "GG", null };
-    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
+    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false, false);
     hap3.initialize(variants);
 
     Set<String> permutations = Sets.newHashSet(

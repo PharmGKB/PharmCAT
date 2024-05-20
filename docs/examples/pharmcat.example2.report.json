@@ -2,8 +2,7 @@
   "title": "pharmcat.example2",
   "timestamp": "2024-07-12T16:50:23.982Z",
   "pharmcatVersion": "v2.13.0-14-ge4b8fc22",
-  "cpicVersion": "v1.40.1-1-gf95ca46, 2024-05-23-09-04",
-  "dpwgVersion": "2024-05-23-09-04",
+  "dataVersion": "2024-05-23-09-04",
   "genes": {
     "CPIC": {
       "ABCG2": {

@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:07:10.745Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2023-06-27T18:23:26Z",
   "gene": "IFNL3",
   "orientation": null,
   "chromosome": "chr19",
@@ -32,7 +32,7 @@
   "namedAlleles": [
     {
       "name": "rs12979860 reference (C)",
-      "id": "779041",
+      "id": "PA166129427",
       "alleles": [
         "C"
       ],
@@ -40,12 +40,13 @@
         "C"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "rs12979860 variant (T)",
-      "id": "779043",
+      "id": "PA166129428",
       "alleles": [
         "T"
       ],
@@ -53,6 +54,7 @@
         "T"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

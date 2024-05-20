@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:06:42.624Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2021-10-22T20:00:04.974Z",
   "gene": "CACNA1S",
   "orientation": null,
   "chromosome": "chr1",
@@ -51,7 +51,7 @@
   "namedAlleles": [
     {
       "name": "Reference",
-      "id": "777262",
+      "id": "PA166180429",
       "alleles": [
         "C",
         "G"
@@ -61,12 +61,13 @@
         "G"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "c.520C>T",
-      "id": "777264",
+      "id": "PA166180430",
       "alleles": [
         null,
         "A"
@@ -76,12 +77,13 @@
         "A"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "c.3257G>A",
-      "id": "777266",
+      "id": "PA166180431",
       "alleles": [
         "T",
         null
@@ -91,6 +93,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

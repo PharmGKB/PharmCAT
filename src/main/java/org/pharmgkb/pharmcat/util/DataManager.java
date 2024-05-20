@@ -48,7 +48,6 @@ public class DataManager {
   public static final Path DEFAULT_EXEMPTIONS_FILE = DEFAULT_DEFINITION_DIR.resolve(EXEMPTIONS_JSON_FILE_NAME);
   public static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
-  private static final String CPIC_ALLELES_FILE_NAME = "allele_definitions.json";
   private static final String PRESCRIBING_GUIDANCE_FILE_NAME = "prescribing_guidance.json";
   private static final String sf_zipFileName = "pharmcat.zip";
   private static final String sf_googleDocUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
@@ -176,13 +175,6 @@ public class DataManager {
           Path exemptionsJson = allelesDir.resolve(EXEMPTIONS_JSON_FILE_NAME);
           Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
 
-          if (!skipDownload) {
-            // download allele definitions
-            // use S3 link to avoid caching problems
-            FileUtils.copyURLToFile(
-                new URL("http://files.cpicpgx.org.s3-us-west-2.amazonaws.com/data/report/current/allele_definitions.json"),
-                downloadDir.resolve(CPIC_ALLELES_FILE_NAME).toFile());
-          }
           // transform allele definitions
           definitionReader = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
 
@@ -218,8 +210,8 @@ public class DataManager {
   }
 
 
-  private DefinitionFile[] parseDefinitionFiles(Path downloadDir, String fileName) throws IOException {
-    Path definitionsFile = downloadDir.resolve(fileName);
+  private DefinitionFile[] parseDefinitionFiles(Path downloadDir) throws IOException {
+    Path definitionsFile = downloadDir.resolve(ALLELES_FILE_NAME);
     if (!Files.exists(definitionsFile)) {
       throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
     }
@@ -236,12 +228,7 @@ public class DataManager {
 
     System.out.println("Generating allele definitions...");
     List<DefinitionFile> definitionFiles = new ArrayList<>();
-    for (DefinitionFile df : parseDefinitionFiles(downloadDir, CPIC_ALLELES_FILE_NAME)) {
-      df.setSource(DataSource.CPIC);
-      df.validateAlleleNames();
-      definitionFiles.add(df);
-    }
-    for (DefinitionFile df : parseDefinitionFiles(downloadDir, ALLELES_FILE_NAME)) {
+    for (DefinitionFile df : parseDefinitionFiles(downloadDir)) {
       df.setSource(DataSource.PHARMGKB);
       df.validateAlleleNames();
       definitionFiles.add(df);
@@ -251,13 +238,10 @@ public class DataManager {
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : definitionFiles) {
         String gene = df.getGeneSymbol();
-        if (definitionFileMap.containsKey(gene)) {
-          // this will prefer CPIC allele definitions over PharmGKB ones
-          continue;
-        }
-        if (gene.equals("MT-RNR1")) {
-          continue;
-        }
+
+        // always strip structural variants since they are unmatchable
+        df.removeStructuralVariants();
+
         DefinitionExemption exemption = exemptionsMap.get(gene);
         if (exemption != null) {
           if (!exemption.getIgnoredAlleles().isEmpty()) {

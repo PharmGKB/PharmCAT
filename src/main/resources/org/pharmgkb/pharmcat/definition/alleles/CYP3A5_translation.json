@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:06:59.312Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2022-02-18T18:47:52.807Z",
   "gene": "CYP3A5",
   "orientation": null,
   "chromosome": "chr7",
@@ -108,7 +108,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "778218",
+      "id": "PA166128213",
       "alleles": [
         "T",
         "C",
@@ -124,12 +124,13 @@
         "G"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*3",
-      "id": "778222",
+      "id": "PA166128219",
       "alleles": [
         null,
         null,
@@ -145,12 +146,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*6",
-      "id": "778228",
+      "id": "PA166128233",
       "alleles": [
         null,
         null,
@@ -166,12 +168,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*7",
-      "id": "778230",
+      "id": "PA166128234",
       "alleles": [
         "TA",
         null,
@@ -187,12 +190,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*8",
-      "id": "778232",
+      "id": "PA166128235",
       "alleles": [
         null,
         null,
@@ -208,12 +212,13 @@
         "A"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*9",
-      "id": "778234",
+      "id": "PA166128236",
       "alleles": [
         null,
         "T",
@@ -229,6 +234,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

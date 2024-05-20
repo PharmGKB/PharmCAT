@@ -38,7 +38,7 @@ public class GenePhenotype {
   @SerializedName("namedAlleles")
   @Expose
   private List<HaplotypeRecord> m_namedAlleles;
-  @SerializedName(value = "version", alternate = {"cpicVersion"})
+  @SerializedName(value = "version")
   @Expose
   private String m_version;
 

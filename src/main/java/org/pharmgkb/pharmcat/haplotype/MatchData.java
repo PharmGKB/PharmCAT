@@ -162,7 +162,7 @@ public class MatchData {
             .collect(Collectors.toCollection(TreeSet::new));
 
         NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), availableAlleles, cpicAlleles,
-            missingPositions, hap.isReference());
+            missingPositions, hap.isReference(), hap.isStructuralVariant());
         newHap.initialize(m_positions);
         if (newHap.getScore() > 0) {
           m_haplotypes.add(newHap);
@@ -216,7 +216,7 @@ public class MatchData {
       }
 
       NamedAllele fixedHap = new NamedAllele(hap.getId(), hap.getName(), newAlleles, cpicAlleles,
-          hap.getMissingPositions(), hap.isReference());
+          hap.getMissingPositions(), hap.isReference(), hap.isStructuralVariant());
       fixedHap.initialize(m_positions, hap.getScore());
       updatedHaplotypes.add(fixedHap);
     }

@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:06:59.890Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2024-01-31T01:10:40.916Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -279,7 +279,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "778238",
+      "id": "PA165860685",
       "alleles": [
         "G",
         "T",
@@ -313,12 +313,13 @@
         "A"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*2",
-      "id": "778240",
+      "id": "PA165860686",
       "alleles": [
         null,
         null,
@@ -352,12 +353,13 @@
         "C"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*3",
-      "id": "778242",
+      "id": "PA165860687",
       "alleles": [
         null,
         null,
@@ -391,12 +393,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*4",
-      "id": "2784572",
+      "id": "PA166287623",
       "alleles": [
         null,
         null,
@@ -430,12 +433,13 @@
         "C"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*5",
-      "id": "2784574",
+      "id": "PA166287624",
       "alleles": [
         "T",
         null,
@@ -469,12 +473,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*6",
-      "id": "2784576",
+      "id": "PA166287625",
       "alleles": [
         null,
         null,
@@ -508,12 +513,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*7",
-      "id": "2784578",
+      "id": "PA166287626",
       "alleles": [
         null,
         null,
@@ -547,12 +553,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*8",
-      "id": "3318585",
+      "id": "PA166304149",
       "alleles": [
         null,
         null,
@@ -586,12 +593,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*9",
-      "id": "3318587",
+      "id": "PA166304150",
       "alleles": [
         null,
         null,
@@ -625,12 +633,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*10",
-      "id": "3318589",
+      "id": "PA166304151",
       "alleles": [
         null,
         null,
@@ -664,12 +673,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*11",
-      "id": "3318591",
+      "id": "PA166304152",
       "alleles": [
         null,
         null,
@@ -703,12 +713,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*12",
-      "id": "3318593",
+      "id": "PA166304153",
       "alleles": [
         null,
         null,
@@ -742,12 +753,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*13",
-      "id": "3318595",
+      "id": "PA166304154",
       "alleles": [
         null,
         null,
@@ -781,12 +793,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*14",
-      "id": "3318597",
+      "id": "PA166304155",
       "alleles": [
         null,
         null,
@@ -820,12 +833,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*15",
-      "id": "3318599",
+      "id": "PA166304156",
       "alleles": [
         null,
         null,
@@ -859,12 +873,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*17",
-      "id": "4058604",
+      "id": "PA166326262",
       "alleles": [
         null,
         "C",
@@ -898,6 +913,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

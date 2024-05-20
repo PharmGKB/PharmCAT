@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:06:42.472Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2023-02-03T16:20:52.044Z",
   "gene": "ABCG2",
   "orientation": null,
   "chromosome": "chr4",
@@ -32,7 +32,7 @@
   "namedAlleles": [
     {
       "name": "rs2231142 reference (G)",
-      "id": "1508724",
+      "id": "PA166287823",
       "alleles": [
         "G"
       ],
@@ -40,12 +40,13 @@
         "G"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "rs2231142 variant (T)",
-      "id": "1508726",
+      "id": "PA166287824",
       "alleles": [
         "T"
       ],
@@ -53,6 +54,7 @@
         "T"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

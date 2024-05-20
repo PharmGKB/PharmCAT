@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "CPIC",
-  "version": "v1.40.1-1-gf95ca46",
-  "modificationDate": "2024-07-11T23:07:29.073Z",
+  "source": "PHARMGKB",
+  "version": "2024-07-15-21-58",
+  "modificationDate": "2023-06-29T22:31:18.415Z",
   "gene": "UGT1A1",
   "orientation": null,
   "chromosome": "chr2",
@@ -95,7 +95,7 @@
   "namedAlleles": [
     {
       "name": "*1",
-      "id": "779488",
+      "id": "PA166115841",
       "alleles": [
         "C",
         "CAT",
@@ -109,12 +109,13 @@
         "C"
       ],
       "reference": true,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*6",
-      "id": "779490",
+      "id": "PA166115858",
       "alleles": [
         null,
         null,
@@ -128,12 +129,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*27",
-      "id": "779492",
+      "id": "PA166115865",
       "alleles": [
         null,
         null,
@@ -147,12 +149,13 @@
         "A"
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*28",
-      "id": "779494",
+      "id": "PA166115842",
       "alleles": [
         null,
         "CATAT",
@@ -166,12 +169,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*36",
-      "id": "779496",
+      "id": "PA166115843",
       "alleles": [
         null,
         "C",
@@ -185,12 +189,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*37",
-      "id": "779498",
+      "id": "PA166115844",
       "alleles": [
         null,
         "CATATAT",
@@ -204,12 +209,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*80",
-      "id": "779500",
+      "id": "PA166115850",
       "alleles": [
         "T",
         null,
@@ -223,12 +229,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*80+*28",
-      "id": "779502",
+      "id": "PA166220483",
       "alleles": [
         "T",
         "CATAT",
@@ -242,12 +249,13 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     },
     {
       "name": "*80+*37",
-      "id": "779504",
+      "id": "PA166220484",
       "alleles": [
         "T",
         "CATATAT",
@@ -261,6 +269,7 @@
         null
       ],
       "reference": false,
+      "structuralVariant": false,
       "numCombinations": 0,
       "numPartials": 0
     }

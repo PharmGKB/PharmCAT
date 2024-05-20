@@ -32,15 +32,15 @@ class DiplotypeMatchTest {
     VariantLocus[] variants = new VariantLocus[] { var1, var2, var3 };
 
     String[] alleles = new String[] { "T", "T", "T" };
-    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true);
+    NamedAllele hap1 = new NamedAllele("*1", "*1", alleles, alleles, true, false);
     hap1.initialize(variants);
 
     alleles = new String[] { "A", "A", "A" };
-    NamedAllele hap2 = new NamedAllele("*4", "*4", alleles, alleles, false);
+    NamedAllele hap2 = new NamedAllele("*4", "*4", alleles, alleles, false, false);
     hap2.initialize(variants);
 
     alleles = new String[] { "T", "A", null };
-    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false);
+    NamedAllele hap3 = new NamedAllele("*3", "*3", alleles, alleles, false, false);
     hap3.initialize(variants);
 
     HaplotypeMatch hm1 = new HaplotypeMatch(hap1);
@@ -74,10 +74,10 @@ class DiplotypeMatchTest {
    */
   @Test
   void testSorting() {
-    NamedAllele na1 = new NamedAllele("na1", "c.1371C>T", new String[0], new String[0], false);
-    NamedAllele na2 = new NamedAllele("na2", "c.557A>G", new String[0], new String[0], false);
-    NamedAllele na3 = new NamedAllele("na3", "c.1627A>G (*5)", new String[0], new String[0], false);
-    NamedAllele na4 = new NamedAllele("na4", "c.85T>C (*9A)", new String[0], new String[0], false);
+    NamedAllele na1 = new NamedAllele("na1", "c.1371C>T", new String[0], new String[0], false, false);
+    NamedAllele na2 = new NamedAllele("na2", "c.557A>G", new String[0], new String[0], false, false);
+    NamedAllele na3 = new NamedAllele("na3", "c.1627A>G (*5)", new String[0], new String[0], false, false);
+    NamedAllele na4 = new NamedAllele("na4", "c.85T>C (*9A)", new String[0], new String[0], false, false);
     MatchData dataset =  new MatchData("Sample1", "GENE", new TreeMap<>(), new VariantLocus[0], null, null);
 
     // c.1371C>T
