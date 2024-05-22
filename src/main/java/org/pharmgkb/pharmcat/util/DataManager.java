@@ -344,9 +344,9 @@ public class DataManager {
       }
     }
 
+    deleteObsoleteFiles(definitionsDir, currentFiles);
     exportVcfData(definitionsDir);
 
-    deleteObsoleteFiles(definitionsDir, currentFiles);
     return new DefinitionReader(definitionsDir);
   }
 
