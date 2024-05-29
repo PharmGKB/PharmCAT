@@ -29,29 +29,33 @@ def get_names_and_genotypes(json_entry: dict, reference_genotypes: list[str]) ->
     haplotype_names: list[str] = []
     alternative_genotypes: list[str] = []
 
-    # identify whether the json entry has component haplotypes
-    has_component_haplotypes: bool = True if 'componentHaplotypes' in json_entry else False
+    if json_entry:
+        # identify whether the json entry has component haplotypes
+        has_component_haplotypes: bool = True if 'componentHaplotypes' in json_entry else False
 
-    # get the list of alternative genotypes
-    tmp_genotypes: set[str] = {y for x in json_entry['sequences'] for y in x.split(';')
-                               if y != '' and y not in reference_genotypes}
+        # get the list of alternative genotypes
+        tmp_genotypes: set[str] = {y for x in json_entry['sequences'] for y in x.split(';')
+                                   if y != '' and y not in reference_genotypes}
 
-    # append variant/haplotype names and alternative genotypes to return variables
-    if has_component_haplotypes:
-        # get names
-        for component_entry in json_entry['componentHaplotypes']:
-            haplotype_names.append(component_entry['name'])
-        # append alternative genotypes
-        for i in range(len(haplotype_names)):
-            if i == 0:
-                alternative_genotypes.append(','.join(tmp_genotypes))
-            else:
-                alternative_genotypes.append('')
+        # append variant/haplotype names and alternative genotypes to return variables
+        if has_component_haplotypes:
+            # get names
+            for component_entry in json_entry['componentHaplotypes']:
+                haplotype_names.append(component_entry['name'])
+            # append alternative genotypes
+            for i in range(len(haplotype_names)):
+                if i == 0:
+                    alternative_genotypes.append(','.join(tmp_genotypes))
+                else:
+                    alternative_genotypes.append('')
+        else:
+            # get names
+            haplotype_names.append(json_entry['name'])
+            # append alternative genotypes
+            alternative_genotypes.append(','.join(tmp_genotypes))
     else:
-        # get names
-        haplotype_names.append(json_entry['name'])
-        # append alternative genotypes
-        alternative_genotypes.append(','.join(tmp_genotypes))
+        haplotype_names.append('')
+        alternative_genotypes.append('')
 
     return haplotype_names, alternative_genotypes
 
@@ -228,9 +232,14 @@ def extract_pcat_json(matcher_json: str, phenotyper_json: str, genes: list[str],
                 pcat_summary['dpyd_ryr1_variant_functions'].append('')
                 pcat_summary['dpyd_ryr1_variant_genotypes'].append('')
                 pcat_summary['haplotype_1'].append(p_entry['allele1']['name'])
-                pcat_summary['haplotype_2'].append(p_entry['allele2']['name'])
                 pcat_summary['haplotype_1_functions'].append(p_entry['allele1']['function'])
-                pcat_summary['haplotype_2_functions'].append(p_entry['allele2']['function'])
+                # account for empty allele2 due to, for example, haploids in G6PD
+                if p_entry['allele2']:
+                    pcat_summary['haplotype_2'].append(p_entry['allele2']['name'])
+                    pcat_summary['haplotype_2_functions'].append(p_entry['allele2']['function'])
+                else:
+                    pcat_summary['haplotype_2'].append('')
+                    pcat_summary['haplotype_2_functions'].append('')
                 pcat_summary['missing_positions'].append(missing_positions)
                 pcat_summary['uncallable_haplotypes'].append(uncallable_haplotypes)
 
