@@ -141,8 +141,8 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
    [outside calls](https://pharmcat.org/using/Outside-Call-Format/) but not be determined from the VCF file by the
    Named Allele Matcher.
 
- ## D. FDA drug-label and Table of Pharmacogenetic Associations recommendations
- 
+## D. FDA drug-label and Table of Pharmacogenetic Associations recommendations
+
 PharmCAT includes recommendations from PharmGKB-annotated FDA drug labels and the FDA Table of Pharmacogenetic Associations. 
 It only contains FDA information for genes with CPIC or DPWG guidelines because the FDA does not offer any genotype-to-phenotype mapping information. PharmCAT uses CPIC genotype-to-phenotype mappings when they exist, and DPWG genotype-to-phenotype mappings when no CPIC mappings exist, to determine the phenotypes to use with FDA label annotations and Table of Pharmacogenetic Associations entries. Results presented for [FDA Table of Pharmacogenetic Associations](https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations) use wording and “Affected Subgroups” taken directly from the Table. Results presented from PharmGKB-annotated drug labels present wording from the specific label that was curated. In many cases, multiple FDA labels may exist for a particular medication. Typically, PharmGKB annotates the label linked to from the FDA [Table of Pharmacogenomic Biomarkers in Drug Labeling](https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling) but in some cases a different label may be annotated. Follow the “FDA Label Annotation” link in section II of the report to access the annotated label and more information.
 
