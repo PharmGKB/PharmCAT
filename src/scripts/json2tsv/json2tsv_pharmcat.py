@@ -24,10 +24,10 @@ if __name__ == "__main__":
                         help="Directory path to PharmCAT JSONs.")
     parser.add_argument('-S', '--sample-file', type=str, metavar='<txt_file>',
                         help='(Optional) a file containing a list of sample IDs, one sample at a line.')
-    parser.add_argument("-m", "--matcher-json-pattern", type=str, metavar='.*match.json',
+    parser.add_argument("-m", "--matcher-json-pattern", type=str, metavar='*.match.json',
                         default='*match.json',
                         help="(Optional) file name pattern of the Named Allele Matcher JSON files.")
-    parser.add_argument("-p", "--phenotyper-json-pattern", type=str, metavar='.*phenotype.json',
+    parser.add_argument("-p", "--phenotyper-json-pattern", type=str, metavar='*.phenotype.json',
                         default='*phenotype.json',
                         help="(Optional) file name pattern of the Phenotyper JSON files.")
     parser.add_argument("-a", "--allele-definition-files", type=str,
