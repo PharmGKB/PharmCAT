@@ -218,7 +218,11 @@ def extract_pcat_json(matcher_json: str, phenotyper_json: str, genes: list[str],
             for idx_diplotype in range(n_diploids):
                 # get the matcher and phenotyper entries
                 # matcher and phenotyper jsons have sorted and listed diplotypes in the same order
-                p_entry: dict = phenotyper_data[i_gene]['recommendationDiplotypes'][idx_diplotype]
+                # todo: remove the if condition when duplicate cyp2d6 diplotypes are fixed in the research mode
+                if len(phenotyper_data[i_gene]['recommendationDiplotypes']) - 1 >= idx_diplotype:
+                    p_entry: dict = phenotyper_data[i_gene]['recommendationDiplotypes'][idx_diplotype]
+                else:
+                    continue
                 ma_entry: dict = matcher_data[idx_ma_gene]['diplotypes'][idx_diplotype]
 
                 # append the extracted phenotyper data into the summary dictionary
