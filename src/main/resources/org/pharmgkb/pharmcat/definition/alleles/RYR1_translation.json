@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.38.0-1-g39f50e7",
-  "modificationDate": "2024-02-15T19:05:08.335Z",
+  "version": "v1.39.0",
+  "modificationDate": "2024-03-28T20:42:58.351Z",
   "gene": "RYR1",
   "orientation": null,
   "chromosome": "chr19",
@@ -6666,7 +6666,6 @@
         "G",
         "G"
       ],
-      "populationFrequency": null,
       "reference": true,
       "numCombinations": 0,
       "numPartials": 0
@@ -7304,7 +7303,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -7942,7 +7940,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -8580,7 +8577,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -9218,7 +9214,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -9856,7 +9851,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -10494,7 +10488,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -11132,7 +11125,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -11770,7 +11762,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -12408,7 +12399,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -13046,7 +13036,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -13684,7 +13673,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -14322,7 +14310,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -14960,7 +14947,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -15598,7 +15584,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -16236,7 +16221,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -16874,7 +16858,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -17512,7 +17495,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -18150,7 +18132,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -18788,7 +18769,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -19426,7 +19406,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -20064,7 +20043,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -20702,7 +20680,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -21340,7 +21317,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -21978,7 +21954,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -22616,7 +22591,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -23254,7 +23228,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -23892,7 +23865,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -24530,7 +24502,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -25168,7 +25139,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -25806,7 +25776,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -26444,7 +26413,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -27082,7 +27050,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -27720,7 +27687,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -28358,7 +28324,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -28996,7 +28961,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -29634,7 +29598,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -30272,7 +30235,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -30910,7 +30872,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -31548,7 +31509,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -32186,7 +32146,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -32824,7 +32783,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -33462,7 +33420,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -34100,7 +34057,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -34738,7 +34694,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -35376,7 +35331,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -36014,7 +35968,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -36652,7 +36605,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -37290,7 +37242,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -37928,7 +37879,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -38566,7 +38516,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -39204,7 +39153,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -39842,7 +39790,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -40480,7 +40427,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -41118,7 +41064,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -41756,7 +41701,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -42394,7 +42338,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -43032,7 +42975,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -43670,7 +43612,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -44308,7 +44249,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -44946,7 +44886,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -45584,7 +45523,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -46222,7 +46160,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -46860,7 +46797,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -47498,7 +47434,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -48136,7 +48071,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -48774,7 +48708,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -49412,7 +49345,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -50050,7 +49982,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -50688,7 +50619,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -51326,7 +51256,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -51964,7 +51893,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -52602,7 +52530,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -53240,7 +53167,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -53878,7 +53804,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -54516,7 +54441,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -55154,7 +55078,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -55792,7 +55715,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -56430,7 +56352,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -57068,7 +56989,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -57706,7 +57626,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -58344,7 +58263,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -58982,7 +58900,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -59620,7 +59537,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -60258,7 +60174,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -60896,7 +60811,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -61534,7 +61448,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -62172,7 +62085,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -62810,7 +62722,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -63448,7 +63359,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -64086,7 +63996,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -64724,7 +64633,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -65362,7 +65270,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -66000,7 +65907,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -66638,7 +66544,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -67276,7 +67181,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -67914,7 +67818,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -68552,7 +68455,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -69190,7 +69092,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -69828,7 +69729,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -70466,7 +70366,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -71104,7 +71003,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -71742,7 +71640,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -72380,7 +72277,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -73018,7 +72914,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -73656,7 +73551,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -74294,7 +74188,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -74932,7 +74825,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -75570,7 +75462,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -76208,7 +76099,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -76846,7 +76736,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -77484,7 +77373,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -78122,7 +78010,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -78760,7 +78647,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -79398,7 +79284,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -80036,7 +79921,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -80674,7 +80558,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -81312,7 +81195,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -81950,7 +81832,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -82588,7 +82469,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -83226,7 +83106,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -83864,7 +83743,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -84502,7 +84380,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -85140,7 +85017,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -85778,7 +85654,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -86416,7 +86291,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -87054,7 +86928,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -87692,7 +87565,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -88330,7 +88202,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -88968,7 +88839,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -89606,7 +89476,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -90244,7 +90113,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -90882,7 +90750,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -91520,7 +91387,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -92158,7 +92024,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -92796,7 +92661,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -93434,7 +93298,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -94072,7 +93935,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -94710,7 +94572,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -95348,7 +95209,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -95986,7 +95846,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -96624,7 +96483,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -97262,7 +97120,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -97900,7 +97757,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -98538,7 +98394,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -99176,7 +99031,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -99814,7 +99668,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -100452,7 +100305,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -101090,7 +100942,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -101728,7 +101579,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -102366,7 +102216,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -103004,7 +102853,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -103642,7 +103490,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -104280,7 +104127,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -104918,7 +104764,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -105556,7 +105401,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -106194,7 +106038,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -106832,7 +106675,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -107470,7 +107312,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -108108,7 +107949,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -108746,7 +108586,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -109384,7 +109223,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -110022,7 +109860,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -110660,7 +110497,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -111298,7 +111134,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -111936,7 +111771,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -112574,7 +112408,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -113212,7 +113045,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -113850,7 +113682,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -114488,7 +114319,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -115126,7 +114956,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -115764,7 +115593,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -116402,7 +116230,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -117040,7 +116867,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -117678,7 +117504,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -118316,7 +118141,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -118954,7 +118778,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -119592,7 +119415,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -120230,7 +120052,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -120868,7 +120689,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -121506,7 +121326,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -122144,7 +121963,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -122782,7 +122600,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -123420,7 +123237,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -124058,7 +123874,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -124696,7 +124511,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -125334,7 +125148,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -125972,7 +125785,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -126610,7 +126422,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -127248,7 +127059,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -127886,7 +127696,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -128524,7 +128333,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -129162,7 +128970,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -129800,7 +129607,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -130438,7 +130244,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -131076,7 +130881,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -131714,7 +131518,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -132352,7 +132155,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -132990,7 +132792,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -133628,7 +133429,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -134266,7 +134066,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -134904,7 +134703,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -135542,7 +135340,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -136180,7 +135977,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -136818,7 +136614,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -137456,7 +137251,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -138094,7 +137888,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -138732,7 +138525,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -139370,7 +139162,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -140008,7 +139799,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -140646,7 +140436,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -141284,7 +141073,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -141922,7 +141710,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -142560,7 +142347,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -143198,7 +142984,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -143836,7 +143621,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -144474,7 +144258,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -145112,7 +144895,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -145750,7 +145532,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -146388,7 +146169,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -147026,7 +146806,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -147664,7 +147443,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -148302,7 +148080,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -148940,7 +148717,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -149578,7 +149354,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -150216,7 +149991,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -150854,7 +150628,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -151492,7 +151265,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -152130,7 +151902,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -152768,7 +152539,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -153406,7 +153176,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -154044,7 +153813,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -154682,7 +154450,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -155320,7 +155087,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -155958,7 +155724,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -156596,7 +156361,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -157234,7 +156998,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -157872,7 +157635,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -158510,7 +158272,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -159148,7 +158909,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -159786,7 +159546,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -160424,7 +160183,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -161062,7 +160820,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -161700,7 +161457,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -162338,7 +162094,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -162976,7 +162731,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -163614,7 +163368,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -164252,7 +164005,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -164890,7 +164642,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -165528,7 +165279,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -166166,7 +165916,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -166804,7 +166553,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -167442,7 +167190,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -168080,7 +167827,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -168718,7 +168464,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -169356,7 +169101,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -169994,7 +169738,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -170632,7 +170375,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -171270,7 +171012,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -171908,7 +171649,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -172546,7 +172286,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -173184,7 +172923,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -173822,7 +173560,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -174460,7 +174197,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -175098,7 +174834,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -175736,7 +175471,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -176374,7 +176108,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -177012,7 +176745,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -177650,7 +177382,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -178288,7 +178019,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -178926,7 +178656,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -179564,7 +179293,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -180202,7 +179930,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -180840,7 +180567,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -181478,7 +181204,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -182116,7 +181841,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -182754,7 +182478,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -183392,7 +183115,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -184030,7 +183752,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -184668,7 +184389,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -185306,7 +185026,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -185944,7 +185663,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -186582,7 +186300,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -187220,7 +186937,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -187858,7 +187574,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -188496,7 +188211,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -189134,7 +188848,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -189772,7 +189485,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -190410,7 +190122,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -191048,7 +190759,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -191686,7 +191396,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -192324,7 +192033,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -192962,7 +192670,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -193600,7 +193307,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -194238,7 +193944,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -194876,7 +194581,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -195514,7 +195218,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -196152,7 +195855,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -196790,7 +196492,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -197428,7 +197129,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -198066,7 +197766,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -198704,7 +198403,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -199342,7 +199040,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -199980,7 +199677,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -200618,7 +200314,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -201256,7 +200951,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -201894,7 +201588,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -202532,7 +202225,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -203170,7 +202862,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -203808,7 +203499,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -204446,7 +204136,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -205084,7 +204773,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -205722,7 +205410,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -206360,7 +206047,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -206998,7 +206684,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -207636,7 +207321,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -208274,7 +207958,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -208912,7 +208595,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -209550,7 +209232,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -210188,7 +209869,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -210826,7 +210506,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -211464,7 +211143,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -212102,7 +211780,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -212740,7 +212417,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -213378,7 +213054,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -214016,7 +213691,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -214654,7 +214328,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -215292,7 +214965,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -215930,7 +215602,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -216568,7 +216239,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -217206,7 +216876,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -217844,7 +217513,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -218482,7 +218150,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -219120,7 +218787,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -219758,7 +219424,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -220396,7 +220061,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -221034,7 +220698,6 @@
         null,
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -221672,7 +221335,6 @@
         "C",
         null
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0
@@ -222310,7 +221972,6 @@
         null,
         "C"
       ],
-      "populationFrequency": null,
       "reference": false,
       "numCombinations": 0,
       "numPartials": 0

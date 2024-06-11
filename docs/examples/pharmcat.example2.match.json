@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2024-03-26T04:55:50.267Z",
+    "timestamp": "2024-06-10T22:43:20.638Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -11,7 +11,7 @@
   "results": [
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -28,7 +28,6 @@
               "cpicAlleles": [
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -48,7 +47,6 @@
               "cpicAlleles": [
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -72,7 +70,6 @@
             "cpicAlleles": [
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -102,12 +99,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -126,7 +122,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -148,7 +143,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -174,7 +168,6 @@
               "C",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -210,12 +203,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -308,7 +300,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -404,7 +395,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -504,7 +494,6 @@
               "G",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -762,12 +751,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -876,7 +864,6 @@
                 "A",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -988,7 +975,6 @@
                 "A",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": false,
               "numCombinations": 0,
               "numPartials": 0
@@ -1104,7 +1090,6 @@
               "A",
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -1216,7 +1201,6 @@
               "A",
               "C"
             ],
-            "populationFrequency": null,
             "reference": false,
             "numCombinations": 0,
             "numPartials": 0
@@ -1522,12 +1506,11 @@
         "effectivelyPhased": false
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1610,7 +1593,6 @@
                 "C",
                 "A"
               ],
-              "populationFrequency": null,
               "reference": false,
               "numCombinations": 0,
               "numPartials": 0
@@ -1696,7 +1678,6 @@
                 "C",
                 "A"
               ],
-              "populationFrequency": null,
               "reference": false,
               "numCombinations": 0,
               "numPartials": 0
@@ -1786,7 +1767,6 @@
               "C",
               "A"
             ],
-            "populationFrequency": null,
             "reference": false,
             "numCombinations": 0,
             "numPartials": 0
@@ -2014,12 +1994,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -2194,7 +2173,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -2372,7 +2350,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -2554,7 +2531,6 @@
               "C",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -3065,12 +3041,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-03-25-16-13",
+      "version": "2024-06-10-15-26",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -3169,7 +3144,6 @@
                 "G",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3271,7 +3245,6 @@
                 "G",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3377,7 +3350,6 @@
               "G",
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -3653,12 +3625,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3683,7 +3654,6 @@
                 "T",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3711,7 +3681,6 @@
                 "T",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3743,7 +3712,6 @@
               "T",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -3797,12 +3765,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3845,7 +3812,6 @@
                 "C",
                 "A"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3891,7 +3857,6 @@
                 "C",
                 "A"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -3941,7 +3906,6 @@
               "C",
               "A"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -4049,12 +4013,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -4231,7 +4194,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -4411,7 +4373,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -4595,7 +4556,6 @@
               "G",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -5117,12 +5077,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": []
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -5479,7 +5438,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -5839,7 +5797,6 @@
                 "C",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -6203,7 +6160,6 @@
               "C",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -7253,14 +7209,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [
-        "MEDITERRANEAN HAPLOTYPE"
-      ],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -7277,7 +7230,6 @@
               "cpicAlleles": [
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -7297,7 +7249,6 @@
               "cpicAlleles": [
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -7321,7 +7272,6 @@
             "cpicAlleles": [
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -7351,12 +7301,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7405,7 +7354,6 @@
                 "G",
                 "T"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -7457,7 +7405,6 @@
                 "G",
                 "T"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -7513,7 +7460,6 @@
               "G",
               "T"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -7639,12 +7585,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -8285,7 +8230,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -8929,7 +8873,6 @@
                 "G",
                 "G"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -9577,7 +9520,6 @@
               "G",
               "G"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -11479,12 +11421,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -11561,7 +11502,6 @@
                 "C",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -11641,7 +11581,6 @@
                 "C",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -11725,7 +11664,6 @@
               "C",
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -11935,12 +11873,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -12041,7 +11978,6 @@
                 "A",
                 "T"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12145,7 +12081,6 @@
                 "A",
                 "T"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12253,7 +12188,6 @@
               "A",
               "T"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -12535,12 +12469,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -12563,7 +12496,6 @@
                 "G",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12589,7 +12521,6 @@
                 "G",
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12619,7 +12550,6 @@
               "G",
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -12667,12 +12597,11 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     },
     {
       "source": "CPIC",
-      "version": "v1.38.0-1-g39f50e7",
+      "version": "v1.39.0",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
@@ -12689,7 +12618,6 @@
               "cpicAlleles": [
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12709,7 +12637,6 @@
               "cpicAlleles": [
                 "C"
               ],
-              "populationFrequency": null,
               "reference": true,
               "numCombinations": 0,
               "numPartials": 0
@@ -12733,7 +12660,6 @@
             "cpicAlleles": [
               "C"
             ],
-            "populationFrequency": null,
             "reference": true,
             "numCombinations": 0,
             "numPartials": 0
@@ -12763,7 +12689,6 @@
         "effectivelyPhased": true
       },
       "uncallableHaplotypes": [],
-      "ignoredHaplotypes": [],
       "warnings": null
     }
   ],

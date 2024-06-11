@@ -950,12 +950,7 @@
       "variantsMissing": [],
       "variant": null,
       "dips": [],
-      "drugs": [
-        "capecitabine",
-        "fluorouracil",
-        "tegafur",
-        "flucytosine"
-      ]
+      "drugs": []
     },
     "exception_type": "note",
     "message": "The two lowest activity values (variant activity scores, see CPIC guideline PMID:29152729) are used for unphased data and the lowest activity value per allele is used for phased data to determine the gene activity score and phenotype to retrieve prescribing recommendations. "
