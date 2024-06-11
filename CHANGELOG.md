@@ -1,3 +1,23 @@
+## [2.13.0](https://github.com/PharmGKB/PharmCAT/compare/v2.12.0...v2.13.0) (2024-06-11)
+
+
+### Features
+
+* **diplotype-comparator:** find equivalent phased alleles ([a8a786c](https://github.com/PharmGKB/PharmCAT/commit/a8a786c84af36591ef884de1037eed3e57fd2c5d))
+* **pharmcat:** add FDA drug guidance ([ae6ea63](https://github.com/PharmGKB/PharmCAT/commit/ae6ea63ad23f4e5e590938e6f3d0f5a28a866b96))
+* **preprocessor:** retain genomic regions specified in a bed file ([d017be5](https://github.com/PharmGKB/PharmCAT/commit/d017be550ba315547aec89445568ee4199359b2c))
+
+
+### Bug Fixes
+
+* remove non-existent test class ([1a91885](https://github.com/PharmGKB/PharmCAT/commit/1a9188540e885fb4efe064c3826a89e0824c83a3))
+* **data:** delete obsolete files before exporting positions ([8acb549](https://github.com/PharmGKB/PharmCAT/commit/8acb5490ae4b76bfdd92c25cac6dace693f18ed2))
+* **datamanager:** add support for subsetting allele definitions ([79fb6ea](https://github.com/PharmGKB/PharmCAT/commit/79fb6eaced6f783194945be4dc9e99fc7fb8b4bf))
+* **datamanager:** handle all allele/position removal during data ingestion phase ([85a770f](https://github.com/PharmGKB/PharmCAT/commit/85a770f89cf1985a28a11667cf88264932b26fa8))
+* **datamanager:** remove populationFrequency from named allele (never used) ([5ecaa74](https://github.com/PharmGKB/PharmCAT/commit/5ecaa74afff8e25fa451bea72799bb1b2f656d9d))
+* **preprocessor:** ploidy at multiallelic positions ([8805275](https://github.com/PharmGKB/PharmCAT/commit/880527525a726d293cdbd89ee83db14f7a8bf181))
+* **preprocessor:** ploidy in X chromosomes for -0/--missing-to-ref ([9f83767](https://github.com/PharmGKB/PharmCAT/commit/9f837674e277d5a59cbc72b8e891cc3d4c7789c7))
+
 ## [2.12.0](https://github.com/PharmGKB/PharmCAT/compare/v2.11.0...v2.12.0) (2024-4-23)
 
 
