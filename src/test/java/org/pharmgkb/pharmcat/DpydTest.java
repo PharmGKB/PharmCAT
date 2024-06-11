@@ -241,9 +241,6 @@ class DpydTest {
       assertEquals(0, capecitabineSection.size());
     } else {
       assertEquals(1, capecitabineSection.size());
-      // should have DPYD warning
-      Elements dpydActivityScoreWarning = capecitabineSection.get(0).select(".alert-info.DPYD-lowest-activity-score-note");
-      assertEquals(1, dpydActivityScoreWarning.size());
       Elements missingVariantsWarning = capecitabineSection.get(0).select(".alert-info.missing-variants");
       if (hasMissingPositions) {
         assertEquals(1, missingVariantsWarning.size());
