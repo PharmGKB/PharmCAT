@@ -142,6 +142,12 @@ look for `pharmcat_positions.vcf.bgz` under the current working directory.  You 
 : The [GRCh38.p13](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39/) FASTA file. The FASTA file can be either decompressed or compressed but has to be indexed (.fai and, in addition, .gzi for the compressed file). We recommended the compressed reference genome FASTA file for the sake of storage. These mandatory files will be automatically downloaded (~0.9 GB) to the same directory
 as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#notes) for details).
 
+-R <span class="altArg"><br />or --retain-specific-regions</span>
+: Retain the genomic regions specified by \'-refRegion\'
+
+-refRegion `<bed_file>` <span class="altArg"><br />or --reference-regions-to-retain `<bed_file>`</span>
+: A sorted bed file of specific PGx regions to retain. Must be used with the `-R` argument.
+
 -bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
 : bcftools must be installed. This argument is optional if bcftools is available in your PATH.
 If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the bcftools

@@ -36,7 +36,7 @@ Standard use case:
 
 ```
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
-                         [-0] [-G]
+                         [-0] [-G] [-R] [-refRegion <bed_file>]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
                          [-reporter] [-rs <sources>] [-re] [-reporterJson]
@@ -60,8 +60,14 @@ Input arguments:
                         A file containing a list of samples, one sample per line.
 
 Preprocessor arguments:
-  -0, --missing-to-ref  Assume genotypes at missing PGx sites are 0/0. DANGEROUS!.
-  -G, --no-gvcf-check   Bypass the gVCF check for the input VCF. DANGEROUS!.
+  -0, --missing-to-ref               
+                        Assume genotypes at missing PGx sites are 0/0. DANGEROUS!.
+  -G, --no-gvcf-check                
+                        Bypass the gVCF check for the input VCF. DANGEROUS!.
+  -R, --retain-specific-regions      
+                        Retain the genomic regions specified by \'-refRegion\'
+  -refRegion `<bed_file>`, --reference-regions-to-retain `<bed_file>`
+                        A sorted bed file of specific PGx regions to retain. Must be used with the `-R` argument.
 
 Named allele matcher arguments:
   -matcher              Run named allele matcher independently.
