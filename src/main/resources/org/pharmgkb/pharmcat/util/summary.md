@@ -35,6 +35,6 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists drugs for which PharmCAT has recommendations for, along with their sources. 
+The following table lists the %d drugs for which PharmCAT has recommendations for, along with their sources. 
 
 %s

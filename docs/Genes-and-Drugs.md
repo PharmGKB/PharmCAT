@@ -61,7 +61,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists drugs for which PharmCAT has recommendations for, along with their sources. 
+The following table lists the 175 drugs for which PharmCAT has recommendations for, along with their sources. 
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |

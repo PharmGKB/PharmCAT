@@ -141,7 +141,8 @@ public class GeneDrugSummary {
     String phenotypesTemplate = FileUtils.readFileToString(PHENOTYPES_TEMPLATE_FILE.toFile(), Charsets.UTF_8);
     Path summaryFile = documentationDir.resolve(SUMMARY_FILE_NAME);
     try (BufferedWriter writer = Files.newBufferedWriter(summaryFile)) {
-      writer.write(String.format(summaryTemplate, matcherGeneList, outsideCallGeneList, drugList));
+      writer.write(String.format(summaryTemplate, matcherGeneList, outsideCallGeneList, drugSourceMap.keySet().size(),
+          drugList));
     }
     sf_logger.info("Saving summary to {}", summaryFile);
 
