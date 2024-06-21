@@ -65,3 +65,6 @@ git checkout development
 
 echo ""
 echo "Done."
+echo ""
+echo ""
+echo "DON'T FORGET TO UPDATE docs/Changelog.md IF THERE IS A MAJOR CHANGE!"

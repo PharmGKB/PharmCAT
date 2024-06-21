@@ -8,14 +8,18 @@ nav_order: 6
 
 Starting in March 2024, this page highlights the major content updates. For more detail, visit the [PharmCAT GitHub Releases page](https://github.com/PharmGKB/PharmCAT/releases).
 
-You can subscribe to the PharmCAT GitHub repository following [the instructions](https://github.blog/changelog/2018-11-27-watch-releases/). You will receive notifications of PharmCAT releases. You do need a GitHub account, which can be registered for free.
+You can subscribe to the PharmCAT GitHub repository by following [these instructions](https://github.blog/changelog/2018-11-27-watch-releases/). You will need a GitHub account to receive notifications of PharmCAT
+releases. 
+
+## v.2.13.0
+
+Added support for FDA drug guidance.
 
 
 ## v2.11.0
 
-#### _F5_
-
-DPWG removed the recommendation for _F5_ and the hormonal contraceptives for systemic use. The guideline annotation was retired on PharmGKB, which removes _F5_ from PharmCAT.
+DPWG removed the recommendation for _F5_ and hormonal contraceptives for systemic use.
+The guideline annotation was retired on PharmGKB, and resulted in the removal of _F5_ from PharmCAT.
 
 
 
