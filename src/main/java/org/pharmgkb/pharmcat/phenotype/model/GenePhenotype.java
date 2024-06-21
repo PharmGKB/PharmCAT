@@ -1,9 +1,11 @@
 package org.pharmgkb.pharmcat.phenotype.model;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
@@ -41,6 +43,10 @@ public class GenePhenotype {
   @SerializedName(value = "version")
   @Expose
   private String m_version;
+
+  // only used by Subsetter
+  private final transient Set<String> m_modifiedActivity = new HashSet<>();
+  private final transient Set<String> m_modifiedFunction = new HashSet<>();
 
 
   /**
@@ -155,5 +161,74 @@ public class GenePhenotype {
   @Override
   public String toString() {
     return m_gene;
+  }
+
+
+  public void addHaplotypeRecord(String name, @Nullable String activityValue, @Nullable String functionValue,
+      @Nullable String lookupKey) {
+    HaplotypeRecord hr = new HaplotypeRecord(name, activityValue, functionValue, lookupKey);
+    m_namedAlleles.add(hr);
+    // TODO: add to m_haplotypes
+    //m_haplotypes.put(name, ???)
+  }
+
+  public boolean update(String allele, @Nullable String activityScore, @Nullable String function, DataSource src) {
+    HaplotypeRecord hr = m_namedAlleles.stream()
+        .filter(na -> na.getName().equals(allele))
+        .findFirst()
+        .orElse(null);
+    if (hr == null) {
+      // not all haplotypes will have a phenotype associated with it
+      return false;
+    }
+    boolean gotChange = false;
+    boolean modified = false;
+    if (activityScore != null) {
+      if (hr.getActivityValue() == null) {
+        System.out.println("New " + src + " activity score for " + m_gene + " " + allele);
+        modified = true;
+      } else if (!hr.getActivityValue().equals(activityScore)){
+        System.out.println("Overwriting " + src + " activity score for " + m_gene + " " + allele +
+            " (" + hr.getActivityValue() + " to " + activityScore + ")");
+        modified = true;
+      }
+      hr.setActivityValue(activityScore);
+    } else if (hr.getActivityValue() != null){
+      System.out.println("Nulling out " + src + " activity score for " + m_gene + " " + allele);
+      modified = true;
+    }
+    if (modified) {
+      m_modifiedActivity.add(allele);
+      hr.setActivityValue(activityScore);
+      m_activityValues.put(allele, activityScore);
+      gotChange = true;
+    }
+
+    modified = false;
+    if (function != null) {
+      if (hr.getFunctionValue() == null) {
+        System.out.println("New " + src + " function for " + m_gene + " " + allele);
+        modified = true;
+      } else if (!hr.getFunctionValue().equals(function)){
+        System.out.println("Overwriting " + src + " function for " + m_gene + " " + allele + " (" +
+            hr.getFunctionValue() + " to " + function + ")");
+        modified = true;
+      }
+      hr.setFunctionValue(function);
+    } else if (hr.getFunctionValue() != null){
+      System.out.println("Nulling out " + src + " function for " + m_gene + " " + allele);
+      modified = true;
+    }
+    if (modified) {
+      m_modifiedFunction.add(allele);
+      hr.setFunctionValue(function);
+      m_haplotypes.put(allele, function);
+      gotChange = true;
+    }
+    return gotChange;
+  }
+
+  public boolean isModified(String allele) {
+    return m_modifiedActivity.contains(allele) || m_modifiedFunction.contains(allele);
   }
 }

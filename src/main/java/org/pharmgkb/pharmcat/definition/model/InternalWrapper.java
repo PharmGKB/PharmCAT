@@ -78,4 +78,23 @@ public class InternalWrapper {
   public static void doVcfTranslation(DefinitionFile definitionFile, VcfHelper vcfHelper) throws IOException {
     definitionFile.doVcfTranslation(vcfHelper);
   }
+
+
+  /**
+   * Resets this {@link DefinitionFile}'s named alleles to the specified set.
+   * <p>
+   * This should only be used during data ingestion/prep.
+   */
+  public static void resetNamedAlleles(DefinitionFile definitionFile, SortedSet<NamedAllele> namedAlleles) {
+    definitionFile.resetNamedAlleles(namedAlleles);
+  }
+
+  /**
+   * Adds a {@link NamedAllele} to this {@link DefinitionFile}.
+   * <p>
+   * This should only be used during data ingestion/prep.
+   */
+  public static void addNamedAllele(DefinitionFile definitionFile, NamedAllele namedAllele) {
+    definitionFile.addNamedAllele(namedAllele);
+  }
 }

@@ -186,11 +186,26 @@ public class DefinitionFile {
   /**
    * Resets this {@link DefinitionFile}'s named alleles to the specified set.
    * This helper method makes sure that dependent caches are deleted.
+   * <p>
+   * <b><i>Only call this if you know what you're doing!</i></b>
    */
-  private void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
+  void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
     m_namedAlleles = namedAlleles;
     m_namedAlleleMap = null;
     m_referenceNamedAllele = null;
+  }
+
+  /**
+   * Adds a {@link NamedAllele} to this {@link DefinitionFile}.
+   * This helper method makes sure that dependent caches are deleted.
+   * <p>
+   * <b><i>Only call this if you know what you're doing!</i></b>
+   */
+  void addNamedAllele(NamedAllele namedAllele) {
+    if (m_namedAlleles.add(namedAllele)) {
+      m_namedAlleleMap = null;
+      m_referenceNamedAllele = null;
+    }
   }
 
 

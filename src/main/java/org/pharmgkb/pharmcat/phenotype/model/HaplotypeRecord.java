@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.phenotype.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import static org.pharmgkb.pharmcat.reporter.TextConstants.isUnspecified;
 
@@ -19,6 +20,15 @@ public class HaplotypeRecord {
   @Expose
   @SerializedName("lookupKey")
   private String lookupKey;
+
+
+  public HaplotypeRecord(String name, @Nullable String activityValue, @Nullable String functionValue,
+      @Nullable String lookupKey) {
+    this.name = name;
+    this.activityValue = activityValue;
+    this.functionValue = functionValue;
+    this.lookupKey = lookupKey;
+  }
 
   public String getName() {
     return name;

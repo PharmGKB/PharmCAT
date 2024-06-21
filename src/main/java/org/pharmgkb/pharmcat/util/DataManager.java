@@ -48,6 +48,7 @@ public class DataManager {
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final Path DEFAULT_EXEMPTIONS_FILE = DEFAULT_DEFINITION_DIR.resolve(EXEMPTIONS_JSON_FILE_NAME);
   public static final String POSITIONS_VCF = "pharmcat_positions.vcf";
+  public static final String UNIALLELIC_POSITIONS_VCF = "pharmcat_positions.uniallelic.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
   private static final String PRESCRIBING_GUIDANCE_FILE_NAME = "prescribing_guidance.json";
   private static final String sf_zipFileName = "pharmcat.zip";
@@ -311,7 +312,7 @@ public class DataManager {
   /**
    * Copy any missing alleles from *1 from *38.
    */
-  private void fixCyp2c19(DefinitionFile definitionFile) {
+  public static void fixCyp2c19(DefinitionFile definitionFile) {
     Preconditions.checkNotNull(definitionFile);
     NamedAllele star1 = Objects.requireNonNull(definitionFile.getNamedAllele("*1"));
     NamedAllele star38 = Objects.requireNonNull(definitionFile.getNamedAllele("*38"));
