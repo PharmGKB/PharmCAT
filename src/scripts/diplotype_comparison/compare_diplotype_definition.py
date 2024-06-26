@@ -74,10 +74,7 @@ if __name__ == "__main__":
             print(f'Output directory is not specified.\n'
                   f'\tUse the current working directory: {m_output_dir}')
         # define output file name
-        if m_missing or args.missing_position_file:
-            m_output_file: Path = m_output_dir / (m_output_basename + '_missing.tsv')
-        else:
-            m_output_file: Path = m_output_dir / (m_output_basename + '.tsv')
+        m_output_file: Path = m_output_dir / (m_output_basename + '.tsv')
         # delete file
         m_output_file.unlink(missing_ok=True)
         print()

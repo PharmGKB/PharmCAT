@@ -118,7 +118,7 @@ def get_allele_definitions(json_data: dict,
             print('One of the alleles has a different number of allele-defining positions.')
 
         # generate a dictionary of allele definitions with the allele name and allele-defining genotypes
-        allele_definitions: dict[str, dict[str, str]] = {}
+        allele_definitions: dict[str, dict[str, set[str]]] = {}
         for i in range(n_alleles):
             allele_definitions[alleles[i]] = {}
             for j in range(n_variants):
@@ -132,7 +132,7 @@ def get_allele_definitions(json_data: dict,
               f'Check whether the attributes exist for all allele-defining positions.')
 
 
-def count_allele_scores(dict_allele_definitions: dict[str, dict[str, str]]) -> dict[str, int]:
+def count_allele_scores(dict_allele_definitions: dict[str, dict[str, set[str]]]) -> dict[str, int]:
     """
     calculate the haplotype scores by counting the number of non-empty allele-defining positions
     :param dict_allele_definitions: a dictionary of allele definitions
@@ -146,7 +146,7 @@ def count_allele_scores(dict_allele_definitions: dict[str, dict[str, str]]) -> d
     for allele, dict_defining_genotypes in dict_allele_definitions.items():
         # count the number of allele-defining genotypes
         genotypes = list(dict_defining_genotypes.values())
-        n_defining_genotypes: int = len(genotypes) - genotypes.count(None)
+        n_defining_genotypes: int = len(genotypes) - genotypes.count({None})
         # add the allele score to allele_scores
         allele_scores[allele] = n_defining_genotypes
 
@@ -229,7 +229,7 @@ def get_unique_combinations(g1: set[str], g2: set[str]) -> set[str]:
     return uniq_comb
 
 
-def get_diplotype_definition_dictionary(dict_allele_definitions: dict[str, dict[str, str]], alleles_to_test: list[str])\
+def get_diplotype_definition_dictionary(dict_allele_definitions: dict[str, dict[str, set[str]]], alleles_to_test: list[str]) \
         -> dict[str, dict[str, Set[str]]]:
     """
     obtain a dictionary of diplotype definitions
@@ -762,8 +762,8 @@ def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, st
                            alleles_to_test: list[str], missing_positions: Optional[list[str]] = None,
                            phased: Optional[bool] = False) -> dict[str, list[str]]:
     # initialize values
-    definitions = dict()
-    defining_variants = dict()
+    definitions: dict[str, dict[str, set[str]]] = dict()
+    defining_variants: dict[str, dict[str, str]] = dict()
 
     # remove missing positions from the list of allele defining positions
     for position in dict_allele_defining_variants:
@@ -792,7 +792,7 @@ def predict_pharmcat_calls(dict_allele_defining_variants: dict[str, dict[str, st
             definitions[allele] = dict_defining_genotypes
 
     # update the allele_definitions and fill empty cells with reference genotypes
-    allele_definitions_filled: dict[str, dict[str, str]] = fill_definitions_with_references(
+    allele_definitions_filled: dict[str, dict[str, set[str]]] = fill_definitions_with_references(
         definitions, defining_variants)
 
     # get definition arrays
