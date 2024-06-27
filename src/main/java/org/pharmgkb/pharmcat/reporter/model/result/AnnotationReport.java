@@ -16,6 +16,7 @@ import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.OntologyTerm;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.RecommendationAnnotation;
 
@@ -108,7 +109,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
    */
   public static AnnotationReport forCpicWarfarin(List<Genotype> genotypes) {
     AnnotationReport annotationReport = new AnnotationReport("warfarin-cpic-1-1");
-    genotypes.forEach(g -> annotationReport.addGenotype(g, true));
+    genotypes.forEach(g -> annotationReport.addGenotype(g, true, null));
     return annotationReport;
   }
 
@@ -117,7 +118,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     return m_genotypes;
   }
 
-  public void addGenotype(Genotype genotype, boolean forCpicWarfarin) {
+  public void addGenotype(Genotype genotype, boolean forCpicWarfarin, List<AccessionObject> alleles) {
     m_genotypes.add(genotype);
 
     // CPIC warfarin does not use phenotype/AS so don't get them (can lead to UnexpectedStateExceptions below)
@@ -127,10 +128,19 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
     for (Diplotype dip : genotype.getDiplotypes()) {
       String geneSymbol = dip.getGene();
-      for (String phenotype : dip.getPhenotypes()) {
-        String oldPhenotype = m_phenotypes.put(geneSymbol, phenotype);
-        if (!dip.isAllelePresenceType() && oldPhenotype != null && !oldPhenotype.equals(phenotype)) {
-          throw new UnexpectedStateException("Multiple phenotypes for gene " + geneSymbol);
+      if (dip.isAllelePresenceType()) {
+        List<String> relevantAlleles = alleles.stream().filter((a) -> a.getSymbol().startsWith(dip.getGene())).map(AccessionObject::getName).toList();
+        for (String phenotype : dip.getPhenotypes()) {
+          if (relevantAlleles.stream().anyMatch(phenotype::startsWith)) {
+            m_phenotypes.put(geneSymbol, phenotype);
+          }
+        }
+      } else {
+        for (String phenotype : dip.getPhenotypes()) {
+          String oldPhenotype = m_phenotypes.put(geneSymbol, phenotype);
+          if (!dip.isAllelePresenceType() && oldPhenotype != null && !oldPhenotype.equals(phenotype)) {
+            throw new UnexpectedStateException("Multiple phenotypes for gene " + geneSymbol);
+          }
         }
       }
       if (genotype.usesActivityScore()) {

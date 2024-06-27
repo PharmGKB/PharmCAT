@@ -35,6 +35,9 @@ public class DosingGuideline {
   @SerializedName("relatedGenes")
   private List<AccessionObject> relatedGenes = new ArrayList<>();
   @Expose
+  @SerializedName("relatedAlleles")
+  private List<AccessionObject> relatedAlleles = new ArrayList<>();
+  @Expose
   @SerializedName("recommendation")
   private boolean m_recommendation;
 
@@ -69,6 +72,10 @@ public class DosingGuideline {
 
   public List<AccessionObject> getRelatedGenes() {
     return relatedGenes;
+  }
+
+  public List<AccessionObject> getRelatedAlleles() {
+    return relatedAlleles;
   }
 
   public boolean isRecommendation() {

@@ -72,6 +72,10 @@ public class GuidelinePackage implements Comparable<GuidelinePackage> {
         .collect(Collectors.toSet());
   }
 
+  public List<AccessionObject> getAlleles() {
+    return guideline.getRelatedAlleles();
+  }
+
 
   public boolean isDataSourceType(PrescribingGuidanceSource type) {
     return guideline != null && type.matches(guideline);
