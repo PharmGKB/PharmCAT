@@ -625,7 +625,7 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
                         output_dir: Path, output_basename: str,
-                        retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+                        retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                         concurrent_mode: bool = False, max_processes: int = 1,
                         verbose: int = 0) -> Path:
     """
@@ -687,7 +687,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
 
 def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: Path, output_dir: Path,
                          output_basename: Optional[str],
-                         retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+                         retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                          verbose: int = 0) -> Path:
     """
     Does the actual work to extract PGx regions from input VCF file(s) into a single VCF file and
