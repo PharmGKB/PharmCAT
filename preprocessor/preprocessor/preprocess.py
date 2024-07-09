@@ -10,7 +10,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                vcf_files: List[Path], samples: Optional[List[str]], input_basename: str,
                output_dir: Path, output_basename: Optional[str] = '', split_samples: bool = False,
                keep_intermediate_files: bool = False, missing_to_ref: bool = False,
-               retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+               retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -54,7 +54,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
                               vcf_files: List[Path], samples: Optional[List[str]],
                               output_dir: Path, output_basename: Optional[str] = '',
                               keep_intermediate_files: bool = False, missing_to_ref: bool = False,
-                              retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+                              retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                               concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -93,7 +93,7 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                 vcf_files: List[Path], samples: Optional[List[str]],
                 output_dir: Path, output_basename: Optional[str] = '',
                 keep_intermediate_files: bool = False, missing_to_ref: bool = False,
-                retain_specific_regions: bool = False, reference_regions_to_retain: Path | None = None,
+                retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                 concurrent_mode=False, max_processes=1, verbose: int = 0) -> Path:
 
     # shrink input VCF down to PGx allele defining regions and selected samples
