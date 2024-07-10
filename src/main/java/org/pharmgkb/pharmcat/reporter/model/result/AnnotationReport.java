@@ -128,6 +128,12 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
     for (Diplotype dip : genotype.getDiplotypes()) {
       String geneSymbol = dip.getGene();
+
+      // only check genes that are used in lookup, some annotations may have related genes with no recommendation
+      if (!m_lookupKey.containsKey(geneSymbol)) {
+        continue;
+      }
+
       if (dip.isAllelePresenceType()) {
         List<String> relevantAlleles = alleles.stream().filter((a) -> a.getSymbol().startsWith(dip.getGene())).map(AccessionObject::getName).toList();
         for (String phenotype : dip.getPhenotypes()) {
