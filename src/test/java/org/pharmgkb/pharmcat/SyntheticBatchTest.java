@@ -157,6 +157,7 @@ class SyntheticBatchTest {
               selectClass(PharmCATTest.class),
               selectClass(PipelineTest.class),
               selectClass(Cacna1sTest.class),
+              selectClass(CftrTest.class),
               selectClass(DpydTest.class),
               selectClass(Ryr1Test.class),
               selectClass(NamedAlleleMatcherCftrTest.class),
