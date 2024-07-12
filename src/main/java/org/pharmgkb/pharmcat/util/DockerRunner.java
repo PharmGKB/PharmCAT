@@ -28,13 +28,13 @@ public class DockerRunner {
 
 
   /**
-   * Runs {@code bcftools norm} via Docker.
+   * Runs {@code bcftools norm} (multiallelic) via Docker.
    * Expects a container tagged "pcat" to be available.
    */
   public static void normalizeVcf(Path inFile, Path outFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
-    String toolCmd = "bcftools norm -m+ -c ws -Oz -f reference.fna.bgz -o data/" + PathUtils.getFilename(outFile) +
-        " data/" + PathUtils.getFilename(inFile);
+    String toolCmd = "bcftools norm --no-version -m+ -c ws -Oz -f reference.fna.bgz -o data/" +
+        PathUtils.getFilename(outFile) + " data/" + PathUtils.getFilename(inFile);
 
     runCmd(dockerCmd, toolCmd, inFile.getParent());
   }
@@ -66,10 +66,11 @@ public class DockerRunner {
 
 
   /**
-   * Runs {@code bcftools index} via Docker.
+   * Runs {@code preprocessor.prep_pharmcat_positions} via Docker.
+   * This will index the pharmcat_positions.vcf.bgz and generate the uniallelic positions.
    * Expects a container tagged "pcat" to be available.
    */
-  public static void indexVcf(Path inFile) throws IOException {
+  public static void prepPharmcatPositions(Path inFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
     String localPath = "data/" + PathUtils.getFilename(inFile);
 

@@ -46,7 +46,7 @@ public class DataManager {
   public static final Path DEFAULT_DEFINITION_DIR = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles");
   public static final String EXEMPTIONS_JSON_FILE_NAME = "exemptions.json";
   public static final Path DEFAULT_EXEMPTIONS_FILE = DEFAULT_DEFINITION_DIR.resolve(EXEMPTIONS_JSON_FILE_NAME);
-  private static final String POSITIONS_VCF = "pharmcat_positions.vcf";
+  public static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
   private static final String CPIC_ALLELES_FILE_NAME = "allele_definitions.json";
   private static final String PRESCRIBING_GUIDANCE_FILE_NAME = "prescribing_guidance.json";
@@ -339,7 +339,7 @@ public class DataManager {
     VcfHelper.extractPositions(genes, definitionReader, positionsFile);
     Path bgzFile = DockerRunner.bgzip(positionsFile);
     System.out.println("Saved bgzip'd positions VCF to " + bgzFile);
-    DockerRunner.indexVcf(bgzFile);
+    DockerRunner.prepPharmcatPositions(bgzFile);
   }
 
 
