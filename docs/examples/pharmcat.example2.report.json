@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example2",
-  "timestamp": "2024-07-12T04:04:31.442Z",
-  "pharmcatVersion": "v2.13.0-13-gb666953b",
+  "timestamp": "2024-07-12T16:50:23.982Z",
+  "pharmcatVersion": "v2.13.0-14-ge4b8fc22",
   "cpicVersion": "v1.40.1-1-gf95ca46, 2024-05-23-09-04",
   "dpwgVersion": "2024-05-23-09-04",
   "genes": {
@@ -23174,7 +23174,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "22378157",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for HLA-B genotype and abacavir dosing.",
             "authors": [
               "Martin M A",
@@ -23190,7 +23190,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3374459"
           },
           {
-            "pmid": null,
+            "pmid": "24561393",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for HLA-B Genotype and Abacavir Dosing: 2014 update.",
             "authors": [
               "Martin M A",
@@ -23233,7 +23233,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23232549",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for human leukocyte antigen-B genotype and allopurinol dosing.",
             "authors": [
               "Hershfield M S",
@@ -23249,7 +23249,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3564416"
           },
           {
-            "pmid": null,
+            "pmid": "26094938",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for human leukocyte antigen B (HLA-B) genotype and allopurinol dosing: 2015 update.",
             "authors": [
               "Saito Y",
@@ -23295,7 +23295,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -23339,7 +23339,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -23359,7 +23359,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -23504,7 +23504,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "26417955",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for UGT1A1 and Atazanavir Prescribing.",
             "authors": [
               "Gammal R S",
@@ -23612,7 +23612,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30801677",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Cytochrome P450 (CYP)2D6 Genotype and Atomoxetine Therapy.",
             "authors": [
               "Brown Jacob T",
@@ -23680,7 +23680,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -23793,7 +23793,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21270794",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing.",
             "authors": [
               "Relling M V",
@@ -23813,7 +23813,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3098761"
           },
           {
-            "pmid": null,
+            "pmid": "23422873",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing: 2013 update.",
             "authors": [
               "Relling M V",
@@ -23835,7 +23835,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3604643"
           },
           {
-            "pmid": null,
+            "pmid": "30447069",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2018 Update.",
             "authors": [
               "Relling Mary V",
@@ -23978,7 +23978,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23988873",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for dihydropyrimidine dehydrogenase genotype and fluoropyrimidine dosing.",
             "authors": [
               "Caudle K E",
@@ -23994,7 +23994,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3831181"
           },
           {
-            "pmid": null,
+            "pmid": "29152729",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update.",
             "authors": [
               "Amstutz Ursula",
@@ -24099,7 +24099,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23695185",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for HLA-B genotype and carbamazepine dosing.",
             "authors": [
               "Leckband S G",
@@ -24119,7 +24119,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3748365"
           },
           {
-            "pmid": null,
+            "pmid": "29392710",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.",
             "authors": [
               "Phillips Elizabeth J",
@@ -24165,7 +24165,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -24268,7 +24268,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25974703",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors.",
             "authors": [
               "Hicks J K",
@@ -24294,7 +24294,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512908"
           },
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -24404,7 +24404,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -24424,7 +24424,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -24569,7 +24569,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21716271",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450-2C19 (CYP2C19) genotype and clopidogrel therapy.",
             "authors": [
               "Scott S A",
@@ -24588,7 +24588,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3234301"
           },
           {
-            "pmid": null,
+            "pmid": "23698643",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for CYP2C19 genotype and clopidogrel therapy: 2013 update.",
             "authors": [
               "Scott S A",
@@ -24608,7 +24608,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3748366"
           },
           {
-            "pmid": null,
+            "pmid": "35034351",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2C19 Genotype and Clopidogrel Therapy: 2022 Update.",
             "authors": [
               "Lee Craig R",
@@ -24835,7 +24835,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "22205192",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for codeine therapy in the context of cytochrome P450 2D6 (CYP2D6) genotype.",
             "authors": [
               "Crews K R",
@@ -24853,7 +24853,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3289963"
           },
           {
-            "pmid": null,
+            "pmid": "24458010",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450 2D6 genotype and codeine therapy: 2014 update.",
             "authors": [
               "Crews K R",
@@ -24876,7 +24876,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3975212"
           },
           {
-            "pmid": null,
+            "pmid": "33387367",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6, OPRM1, and COMT Genotypes and Select Opioid Therapy.",
             "authors": [
               "Crews Kristine R",
@@ -24980,7 +24980,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -24998,7 +24998,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -25103,7 +25103,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -25245,7 +25245,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -25265,7 +25265,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -25311,7 +25311,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32770672",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Proton Pump Inhibitor Dosing.",
             "authors": [
               "Lima John J",
@@ -25423,7 +25423,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -25443,7 +25443,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -25608,7 +25608,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "31006110",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2B6 and Efavirenz-Containing Antiretroviral Therapy.",
             "authors": [
               "Desta Zeruesenay",
@@ -25717,7 +25717,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -25859,7 +25859,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25974703",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors.",
             "authors": [
               "Hicks J K",
@@ -25885,7 +25885,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512908"
           },
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -25995,7 +25995,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23988873",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for dihydropyrimidine dehydrogenase genotype and fluoropyrimidine dosing.",
             "authors": [
               "Caudle K E",
@@ -26011,7 +26011,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3831181"
           },
           {
-            "pmid": null,
+            "pmid": "29152729",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update.",
             "authors": [
               "Amstutz Ursula",
@@ -26116,7 +26116,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -26243,7 +26243,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -26395,7 +26395,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25974703",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors.",
             "authors": [
               "Hicks J K",
@@ -26421,7 +26421,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512908"
           },
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -26490,7 +26490,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25099164",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for CYP2C9 and HLA-B genotypes and phenytoin dosing.",
             "authors": [
               "Caudle K E",
@@ -26508,7 +26508,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4206662"
           },
           {
-            "pmid": null,
+            "pmid": "32779747",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.",
             "authors": [
               "Karnes Jason H",
@@ -26746,7 +26746,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -26790,7 +26790,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -26932,7 +26932,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "33387367",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6, OPRM1, and COMT Genotypes and Select Opioid Therapy.",
             "authors": [
               "Crews Kristine R",
@@ -26985,7 +26985,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -27088,7 +27088,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -27108,7 +27108,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -27253,7 +27253,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -27395,7 +27395,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24598717",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for ivacaftor therapy in the context of CFTR genotype.",
             "authors": [
               "Clancy J P",
@@ -27496,7 +27496,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -27540,7 +27540,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32770672",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Proton Pump Inhibitor Dosing.",
             "authors": [
               "Lima John J",
@@ -27652,7 +27652,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -27779,7 +27779,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -27892,7 +27892,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -27995,7 +27995,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21270794",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing.",
             "authors": [
               "Relling M V",
@@ -28015,7 +28015,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3098761"
           },
           {
-            "pmid": null,
+            "pmid": "23422873",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing: 2013 update.",
             "authors": [
               "Relling M V",
@@ -28037,7 +28037,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3604643"
           },
           {
-            "pmid": null,
+            "pmid": "30447069",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2018 Update.",
             "authors": [
               "Relling Mary V",
@@ -28180,7 +28180,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -28373,7 +28373,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -28391,7 +28391,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -28629,7 +28629,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -28649,7 +28649,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -28695,7 +28695,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32770672",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Proton Pump Inhibitor Dosing.",
             "authors": [
               "Lima John J",
@@ -28807,7 +28807,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "28002639",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for CYP2D6 genotype and use of ondansetron and tropisetron.",
             "authors": [
               "Bell G C",
@@ -28850,7 +28850,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "29392710",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for HLA Genotype and Use of Carbamazepine and Oxcarbazepine: 2017 Update.",
             "authors": [
               "Phillips Elizabeth J",
@@ -28896,7 +28896,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32770672",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C19 and Proton Pump Inhibitor Dosing.",
             "authors": [
               "Lima John J",
@@ -29008,7 +29008,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -29052,7 +29052,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25974703",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors.",
             "authors": [
               "Hicks J K",
@@ -29078,7 +29078,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512908"
           },
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -29128,7 +29128,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24096968",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and PEG interferon-alpha-based regimens.",
             "authors": [
               "Muir A J",
@@ -29169,7 +29169,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24096968",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and PEG interferon-alpha-based regimens.",
             "authors": [
               "Muir A J",
@@ -29261,7 +29261,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -29279,7 +29279,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -29403,7 +29403,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25099164",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for CYP2C9 and HLA-B genotypes and phenytoin dosing.",
             "authors": [
               "Caudle K E",
@@ -29421,7 +29421,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4206662"
           },
           {
-            "pmid": null,
+            "pmid": "32779747",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2C9 and HLA-B Genotypes and Phenytoin Dosing: 2020 Update.",
             "authors": [
               "Karnes Jason H",
@@ -29659,7 +29659,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -29786,7 +29786,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -29899,7 +29899,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -29967,7 +29967,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -30131,7 +30131,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -30287,7 +30287,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -30305,7 +30305,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -30410,7 +30410,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24096968",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for IFNL3 (IL28B) genotype and PEG interferon-alpha-based regimens.",
             "authors": [
               "Muir A J",
@@ -30475,7 +30475,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -30624,7 +30624,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25974703",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and CYP2C19 Genotypes and Dosing of Selective Serotonin Reuptake Inhibitors.",
             "authors": [
               "Hicks J K",
@@ -30650,7 +30650,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512908"
           },
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -30796,7 +30796,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -30962,7 +30962,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "22617227",
             "title": "The clinical pharmacogenomics implementation consortium: CPIC guideline for SLCO1B1 and simvastatin-induced myopathy.",
             "authors": [
               "Wilke R A",
@@ -30986,7 +30986,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3384438"
           },
           {
-            "pmid": null,
+            "pmid": "24918167",
             "title": "The clinical pharmacogenetics implementation consortium guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update.",
             "authors": [
               "Ramsey L B",
@@ -31011,7 +31011,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4169720"
           },
           {
-            "pmid": null,
+            "pmid": "35152405",
             "title": "The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.",
             "authors": [
               "Cooper-DeHoff Rhonda M",
@@ -31124,7 +31124,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -31168,7 +31168,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "30499100",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for the Use of Potent Volatile Anesthetic Agents and Succinylcholine in the Context of RYR1 or CACNA1S Genotypes.",
             "authors": [
               "Gonsalves Stephen G",
@@ -31310,7 +31310,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "25801146",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP3A5 Genotype and Tacrolimus Dosing.",
             "authors": [
               "Birdwell K A",
@@ -31469,7 +31469,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -31487,7 +31487,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -31592,7 +31592,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "29385237",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6 and Tamoxifen Therapy.",
             "authors": [
               "Goetz Matthew P",
@@ -31639,7 +31639,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "32189324",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.",
             "authors": [
               "Theken Katherine N",
@@ -31742,7 +31742,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21270794",
             "title": "Clinical Pharmacogenetics Implementation Consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing.",
             "authors": [
               "Relling M V",
@@ -31762,7 +31762,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3098761"
           },
           {
-            "pmid": null,
+            "pmid": "23422873",
             "title": "Clinical pharmacogenetics implementation consortium guidelines for thiopurine methyltransferase genotype and thiopurine dosing: 2013 update.",
             "authors": [
               "Relling M V",
@@ -31784,7 +31784,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3604643"
           },
           {
-            "pmid": null,
+            "pmid": "30447069",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for Thiopurine Dosing Based on TPMT and NUDT15 Genotypes: 2018 Update.",
             "authors": [
               "Relling Mary V",
@@ -31927,7 +31927,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "34032273",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for the Use of Aminoglycosides Based on MT-RNR1 Genotype.",
             "authors": [
               "McDermott John Henry",
@@ -32022,7 +32022,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "24787449",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.",
             "authors": [
               "Relling M V",
@@ -32040,7 +32040,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801"
           },
           {
-            "pmid": null,
+            "pmid": "36049896",
             "title": "Expanded Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Medication Use in the Context of G6PD Genotype.",
             "authors": [
               "Gammal Roseann S",
@@ -32145,7 +32145,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "33387367",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guideline for CYP2D6, OPRM1, and COMT Genotypes and Select Opioid Therapy.",
             "authors": [
               "Crews Kristine R",
@@ -32198,7 +32198,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "23486447",
             "title": "Clinical Pharmacogenetics Implementation Consortium guideline for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants.",
             "authors": [
               "Hicks J K",
@@ -32218,7 +32218,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3689226"
           },
           {
-            "pmid": null,
+            "pmid": "27997040",
             "title": "Clinical pharmacogenetics implementation consortium guideline (CPIC) for CYP2D6 and CYP2C19 genotypes and dosing of tricyclic antidepressants: 2016 update.",
             "authors": [
               "Hicks J K",
@@ -32363,7 +32363,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "28002639",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) guideline for CYP2D6 genotype and use of ondansetron and tropisetron.",
             "authors": [
               "Bell G C",
@@ -32406,7 +32406,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -32456,7 +32456,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "27981572",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines for CYP2C19 and Voriconazole Therapy.",
             "authors": [
               "Moriyama B",
@@ -32620,7 +32620,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "37032427",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for CYP2D6, CYP2C19, CYP2B6, SLC6A4, and HTR2A Genotypes and Serotonin Reuptake Inhibitor Antidepressants.",
             "authors": [
               "Bousman Chad A",
@@ -32705,7 +32705,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21900891",
             "title": "Clinical Pharmacogenetics Implementation Consortium Guidelines for CYP2C9 and VKORC1 genotypes and warfarin dosing.",
             "authors": [
               "Johnson J A",
@@ -32728,7 +32728,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3187550"
           },
           {
-            "pmid": null,
+            "pmid": "28198005",
             "title": "Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Pharmacogenetics-Guided Warfarin Dosing: 2017 Update.",
             "authors": [
               "Johnson J A",
@@ -32892,7 +32892,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -32938,7 +32938,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33045,7 +33045,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "36056234",
             "title": "Dutch pharmacogenetics working group guideline for the gene-drug interaction of ABCG2, HLA-B and Allopurinol, and MTHFR, folic acid and methotrexate.",
             "authors": [
               "van der Pol Karel H",
@@ -33160,7 +33160,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33206,7 +33206,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33229,7 +33229,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -33276,7 +33276,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33299,7 +33299,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "36509836",
             "title": "Dutch pharmacogenetics working group (DPWG) guideline for the gene-drug interaction of CYP2D6 and COMT with atomoxetine and methylphenidate.",
             "authors": [
               "Nijenhuis Marga",
@@ -33453,7 +33453,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33627,7 +33627,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -33674,7 +33674,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33697,7 +33697,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "31745289",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.",
             "authors": [
               "Lunenburg Carin A T C",
@@ -33837,7 +33837,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -33860,7 +33860,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34782755",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
             "authors": [
               "Brouwer Jurriaan M J L",
@@ -33968,7 +33968,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34082,7 +34082,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34188,7 +34188,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34211,7 +34211,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34267337",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).",
             "authors": [
               "Matic Maja",
@@ -34257,7 +34257,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34427,7 +34427,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34450,7 +34450,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34782755",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
             "authors": [
               "Brouwer Jurriaan M J L",
@@ -34557,7 +34557,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34709,7 +34709,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34732,7 +34732,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "31745289",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.",
             "authors": [
               "Lunenburg Carin A T C",
@@ -34841,7 +34841,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -34864,7 +34864,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -34912,7 +34912,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35044,7 +35044,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35067,7 +35067,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "36443464",
             "title": "Dutch pharmacogenetics working group (DPWG) guideline for the gene-drug interaction between UGT1A1 and irinotecan.",
             "authors": [
               "Hulshof Emma C",
@@ -35197,7 +35197,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35304,7 +35304,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35478,7 +35478,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35524,7 +35524,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35570,7 +35570,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35698,7 +35698,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35804,7 +35804,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -35827,7 +35827,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34782755",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
             "authors": [
               "Brouwer Jurriaan M J L",
@@ -35874,7 +35874,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36000,7 +36000,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36116,7 +36116,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -36163,7 +36163,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36227,7 +36227,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -36334,7 +36334,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36357,7 +36357,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",
@@ -36404,7 +36404,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36427,7 +36427,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34782755",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2C19 and CYP2D6 and SSRIs.",
             "authors": [
               "Brouwer Jurriaan M J L",
@@ -36724,7 +36724,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36830,7 +36830,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36876,7 +36876,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -36899,7 +36899,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "31745289",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction of DPYD and fluoropyrimidines.",
             "authors": [
               "Lunenburg Carin A T C",
@@ -37009,7 +37009,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -37183,7 +37183,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -37206,7 +37206,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "34267337",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6 and opioids (codeine, tramadol and oxycodone).",
             "authors": [
               "Matic Maja",
@@ -37252,7 +37252,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -37298,7 +37298,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -37557,7 +37557,7 @@
         ],
         "citations": [
           {
-            "pmid": null,
+            "pmid": "21412232",
             "title": "Pharmacogenetics: from bench to byte--an update of guidelines.",
             "authors": [
               "Swen J J",
@@ -37580,7 +37580,7 @@
             "_sameAs": "https://www.ncbi.nlm.nih.gov/pubmed/21412232"
           },
           {
-            "pmid": null,
+            "pmid": "37002327",
             "title": "Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between CYP2D6, CYP3A4 and CYP1A2 and antipsychotics.",
             "authors": [
               "Beunk Lianne",

@@ -17,6 +17,7 @@ import com.google.common.collect.TreeMultimap;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
+import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.PrescribingGuidanceDataset;
@@ -46,6 +47,7 @@ public class PgkbGuidelineCollection {
       f_guidelinePackages.addAll(dataset.getGuidelinePackages());
 
       for (GuidelinePackage guidelinePackage : dataset.getGuidelinePackages()) {
+        guidelinePackage.getCitations().forEach(Publication::normalize);
         for (AccessionObject chemical : guidelinePackage.getGuideline().getRelatedChemicals()) {
           f_guidelineMap.put(chemical.getName(), guidelinePackage);
         }

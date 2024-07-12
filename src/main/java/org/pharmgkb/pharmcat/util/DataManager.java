@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.Writer;
 import java.lang.invoke.MethodHandles;
 import java.net.URL;
@@ -19,7 +18,6 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Charsets;
@@ -37,8 +35,6 @@ import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
-import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 
 
 /**
@@ -219,32 +215,6 @@ public class DataManager {
       ex.printStackTrace();
       System.exit(1);
     }
-  }
-
-  private void transformGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
-    if (!Files.exists(guidelinesDir)) {
-      Files.createDirectories(guidelinesDir);
-    }
-    System.out.println("Saving guidelines to " + guidelinesDir);
-    AtomicInteger count = new AtomicInteger();
-    try (Stream<Path> stream = Files.list(downloadDir.resolve("guidelines"))) {
-      stream.forEach((file) -> {
-        try {
-          count.incrementAndGet();
-          try (Reader reader = Files.newBufferedReader(file)) {
-            GuidelinePackage guidelinePackage = DataSerializer.GSON.fromJson(reader, GuidelinePackage.class);
-            guidelinePackage.getCitations().forEach(Publication::normalize);
-
-            try (Writer writer = Files.newBufferedWriter(guidelinesDir.resolve(guidelinePackage.toString()))) {
-              DataSerializer.GSON.toJson(guidelinePackage, writer);
-            }
-          }
-        } catch (IOException ex) {
-          throw new RuntimeException("Error copying " + file.getFileName(), ex);
-        }
-      });
-    }
-    System.out.println("Found " + count.get() + " guidelines");
   }
 
 
