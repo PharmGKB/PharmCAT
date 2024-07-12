@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CPIC",
-  "version": "v1.39.0",
-  "modificationDate": "2024-03-28T20:42:57.469Z",
+  "version": "v1.40.1-1-gf95ca46",
+  "modificationDate": "2024-07-11T23:06:59.890Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
