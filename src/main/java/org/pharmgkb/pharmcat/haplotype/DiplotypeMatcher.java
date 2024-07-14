@@ -33,11 +33,11 @@ public class DiplotypeMatcher {
   }
 
 
-  public List<DiplotypeMatch> compute(boolean findCombinations) {
+  public SortedSet<DiplotypeMatch> compute(boolean findCombinations) {
     return compute(findCombinations, false);
   }
 
-  public List<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
+  public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
     return compute(findCombinations, findCombinations, topCandidateOnly, false);
   }
 
@@ -46,13 +46,13 @@ public class DiplotypeMatcher {
    * @param boostComboScores false by default, which means scoring will prefer fewer combos; if true, scoring will
    * prefer more combos
    */
-  public List<DiplotypeMatch> compute(boolean findCombinations, boolean findPartials, boolean topCandidateOnly,
+  public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean findPartials, boolean topCandidateOnly,
       boolean boostComboScores) {
 
     // compare sample permutations to haplotypes
     List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
-    if (haplotypeMatches.size() == 0 && !findCombinations) {
-      return Collections.emptyList();
+    if (haplotypeMatches.isEmpty() && !findCombinations) {
+      return Collections.emptySortedSet();
     }
 
     SortedSet<BaseMatch> matches = new TreeSet<>();
@@ -61,7 +61,7 @@ public class DiplotypeMatcher {
       for (int x = 0; x < haplotypeMatches.size(); x += 1) {
         HaplotypeMatch hm = haplotypeMatches.get(x);
         for (String seq : hm.getSequences()) {
-          // to support partial matching each HaplotypeMatch can only have 1 sequence
+          // to support partial matching, each HaplotypeMatch can only have 1 sequence
           HaplotypeMatch individualHapMatch = new HaplotypeMatch(hm.getHaplotype());
           individualHapMatch.addSequence(seq);
           individualHapMatch.finalizeCombinationHaplotype(m_dataset, findPartials);
@@ -134,15 +134,16 @@ public class DiplotypeMatcher {
         dm.setScore(m1.getHaplotype().scoreForSample(m_dataset, m1.getSequences()) + m2Score);
       }
     }
-    Collections.sort(pairs);
 
-    if (topCandidateOnly && pairs.size() > 1) {
-      int topScore = pairs.get(0).getScore();
-      return pairs.stream()
+    // using Collections.sort() throws an exception, so use SortedSet instead
+    SortedSet<DiplotypeMatch> sortedPairs = new TreeSet<>(pairs);
+    if (topCandidateOnly && sortedPairs.size() > 1) {
+      int topScore = sortedPairs.first().getScore();
+      return sortedPairs.stream()
           .filter(dm -> dm.getScore() == topScore)
-          .collect(Collectors.toList());
+          .collect(Collectors.toCollection(TreeSet::new));
     }
-    return pairs;
+    return sortedPairs;
   }
 
   private int maxComboBonus(@Nullable BaseMatch match, int curMax) {

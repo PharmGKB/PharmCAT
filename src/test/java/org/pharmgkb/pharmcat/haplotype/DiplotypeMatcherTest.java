@@ -84,13 +84,13 @@ class DiplotypeMatcherTest {
   @Test
   void test1() {
 
-    List<SampleAllele> alleles = Arrays.asList(
+    SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
         new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
         new SampleAllele("chr1", 2, "C", "C", false, Lists.newArrayList("C", "T")),
         new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "T"))
-    );
+    ));
 
-    List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
+    SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*4a");
     assertDiplotypePairs(expectedMatches, pairMatches);
   }
@@ -99,13 +99,13 @@ class DiplotypeMatcherTest {
   @Test
   void test2() {
 
-    List<SampleAllele> alleles = Arrays.asList(
+    SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
         new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
         new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
         new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
-    );
+    ));
 
-    List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
+    SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*4b", "*1/*17", "*1/*4a", "*4a/*17");
     assertDiplotypePairs(expectedMatches, pairMatches);
   }
@@ -114,13 +114,13 @@ class DiplotypeMatcherTest {
   @Test
   void test3() {
 
-    List<SampleAllele> alleles = Arrays.asList(
+    SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
         new SampleAllele("chr1", 1, "A", "A", false, Lists.newArrayList("A", "G")),
         new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
         new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
-    );
+    ));
 
-    List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
+    SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*1/*17");
     assertDiplotypePairs(expectedMatches, pairMatches);
   }
@@ -129,13 +129,13 @@ class DiplotypeMatcherTest {
   @Test
   void test4() {
 
-    List<SampleAllele> alleles = Arrays.asList(
+    SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
         new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
         new SampleAllele("chr1", 2, "T", "T", false, Lists.newArrayList("C", "T")),
         new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
-    );
+    ));
 
-    List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
+    SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");
     assertDiplotypePairs(expectedMatches, pairMatches);
   }
@@ -144,18 +144,18 @@ class DiplotypeMatcherTest {
   @Test
   void test5() {
 
-    List<SampleAllele> alleles = Arrays.asList(
+    SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
         new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
         new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
         new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
-    );
-    List<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
+    ));
+    SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");
     assertDiplotypePairs(expectedMatches, pairMatches);
   }
 
 
-  private List<DiplotypeMatch> computeHaplotypes(List<SampleAllele> alleles) {
+  private SortedSet<DiplotypeMatch> computeHaplotypes(SortedSet<SampleAllele> alleles) {
 
     SortedMap<String, SampleAllele> sampleAlleleMap = alleles.stream()
         .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
@@ -170,7 +170,7 @@ class DiplotypeMatcherTest {
 
 
 
-  private void assertDiplotypePairs(List<String> expectedPairs, List<DiplotypeMatch> matches) {
+  private void assertDiplotypePairs(List<String> expectedPairs, SortedSet<DiplotypeMatch> matches) {
 
     Preconditions.checkNotNull(expectedPairs);
     Preconditions.checkNotNull(matches);

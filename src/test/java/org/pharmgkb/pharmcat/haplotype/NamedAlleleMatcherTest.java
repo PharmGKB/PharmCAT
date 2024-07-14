@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -218,11 +219,41 @@ public class NamedAlleleMatcherTest {
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));
 
-    List<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute(false);
+    SortedSet<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute(false);
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
-    assertEquals("*1/*2", pairs.get(0).getName());
+    assertEquals("*1/*2", pairs.first().getName());
   }
+
+
+  /**
+   * This test triggers a
+   * <code>java.lang.IllegalArgumentException: Comparison method violates its general contract!</code>
+   * when using {@code Collections.sort()} in {@link DiplotypeMatcher#compute(boolean, boolean, boolean, boolean)}.
+   * <p>
+   * Fixed by using {@link TreeSet} instead.
+   */
+  @Test
+  void sortException() throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-sortError.vcf");
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+    assertNotNull(result.getVcfWarnings());
+
+    for (String key : result.getVcfWarnings().keySet()) {
+      System.out.println(key);
+      System.out.println("\t" + result.getVcfWarnings().get(key));
+    }
+
+    assertEquals(78, result.getVcfWarnings().size());
+    GeneCall rez = result.getGeneCalls().stream().filter(g -> g.getGene().equals("CYP2D6"))
+        .findAny()
+        .orElseThrow(() -> new IllegalStateException("CYP2D6 not called"));
+    assertEquals(2, rez.getDiplotypes().size());
+  }
+
 
 
   @Test

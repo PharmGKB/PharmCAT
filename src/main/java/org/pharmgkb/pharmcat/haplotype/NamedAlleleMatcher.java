@@ -219,7 +219,7 @@ public class NamedAlleleMatcher {
       return;
     }
 
-    List<DiplotypeMatch> matches = new DiplotypeMatcher(data)
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(data)
         .compute(false, getTopCandidateOnly(gene));
     if (matches.isEmpty()) {
       if (!m_findCombinations) {
@@ -241,7 +241,7 @@ public class NamedAlleleMatcher {
       return;
     }
 
-    List<DiplotypeMatch> matches = new DiplotypeMatcher(data)
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(data)
         .compute(true, getTopCandidateOnly(gene));
     resultBuilder.diplotypes(gene, data, matches);
   }
@@ -260,7 +260,7 @@ public class NamedAlleleMatcher {
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
       // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(origData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(origData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
         resultBuilder.diplotypes(gene, origData, diplotypeMatches);
@@ -283,23 +283,23 @@ public class NamedAlleleMatcher {
   }
 
 
-  private List<DiplotypeMatch> callPhasedLowestFunctionGeneWithCombination(MatchData comboData,
+  private SortedSet<DiplotypeMatch> callPhasedLowestFunctionGeneWithCombination(MatchData comboData,
       boolean isHomozygous) {
 
-    List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(comboData)
+    SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(comboData)
         .compute(true, false, false, true);
     if (!diplotypeMatches.isEmpty()) {
       DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
       for (int x = 0; x < matches.length; x += 1) {
         matches = removeSubCombos(matches, x);
       }
-      List<DiplotypeMatch> finalMatches = Arrays.asList(matches);
+      SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>(Arrays.asList(matches));
       if (matches.length > 1) {
         if (isHomozygous) {
           finalMatches = finalMatches.stream()
               .filter(m -> m.getHaplotype2() != null &&
                   m.getHaplotype1().getName().equals(m.getHaplotype2().getName()))
-              .toList();
+              .collect(Collectors.toCollection(TreeSet::new));
         }
       }
       if (finalMatches.size() > 1) {
@@ -317,7 +317,7 @@ public class NamedAlleleMatcher {
 
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
     // have to compute diplotypes so that we can check for homozygous and partials
-    List<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
         .compute(true, getTopCandidateOnly(gene));
     Set<String> homozygous = new HashSet<>();
     int numPartials = 0;
@@ -407,12 +407,12 @@ public class NamedAlleleMatcher {
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
      // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      List<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(workingData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(workingData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
         if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
           MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          List<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
+          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
           resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
         } else {
           resultBuilder.diplotypes(gene, workingData, diplotypeMatches);
@@ -425,7 +425,7 @@ public class NamedAlleleMatcher {
       if (!diplotypeMatches.isEmpty()) {
         if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
           MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, true);
-          List<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
+          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
           resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
         } else {
           resultBuilder.diplotypes(gene, comboData, diplotypeMatches);

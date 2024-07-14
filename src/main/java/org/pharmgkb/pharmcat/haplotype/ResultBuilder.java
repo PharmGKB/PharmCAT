@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -75,7 +76,7 @@ public class ResultBuilder {
   /**
    * Adds diplotype results for specified gene.
    */
-  protected ResultBuilder diplotypes(String gene, MatchData matchData, List<DiplotypeMatch> matches) {
+  protected ResultBuilder diplotypes(String gene, MatchData matchData, SortedSet<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
     return diplotypes(gene, matchData, matches, null);
   }
@@ -83,7 +84,7 @@ public class ResultBuilder {
   /**
    * Adds diplotype results for specified gene.
    */
-  protected ResultBuilder diplotypes(String gene, MatchData matchData, List<DiplotypeMatch> matches,
+  protected ResultBuilder diplotypes(String gene, MatchData matchData, SortedSet<DiplotypeMatch> matches,
       @Nullable List<MessageAnnotation> warnings) {
     Preconditions.checkNotNull(gene);
 

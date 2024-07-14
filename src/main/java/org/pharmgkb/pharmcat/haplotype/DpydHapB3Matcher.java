@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -227,7 +229,7 @@ public class DpydHapB3Matcher {
   }
 
 
-  public List<DiplotypeMatch> mergePhasedDiplotypeMatch(MatchData matchData, List<DiplotypeMatch> diplotypeMatches) {
+  public SortedSet<DiplotypeMatch> mergePhasedDiplotypeMatch(MatchData matchData, SortedSet<DiplotypeMatch> diplotypeMatches) {
 
     if (!m_isHapB3Present) {
       return diplotypeMatches;
@@ -235,7 +237,7 @@ public class DpydHapB3Matcher {
     if (diplotypeMatches.size() > 1) {
       throw new IllegalStateException("Should only have a single diplotype match!");
     }
-    DiplotypeMatch dm = diplotypeMatches.get(0);
+    DiplotypeMatch dm = diplotypeMatches.first();
     if (dm.getHaplotype2() == null) {
       // should never happen
       throw new IllegalStateException("Single stranded DPYD diplotype!");
@@ -250,11 +252,7 @@ public class DpydHapB3Matcher {
         // NamedAlleleMatcherTest.testDpydPhasedDouble tests this code path
         h2 = new CombinationMatch((CombinationMatch)h2);
       }
-      return List.of(new DiplotypeMatch(
-          updateHapB3Haplotype(matchData, h1, 0),
-          updateHapB3Haplotype(matchData, h2, 1),
-          matchData
-      ));
+      return buildDiplotype(matchData, h1, h2);
     }
 
     int h1s1 = checkStrand(matchData, h1, true);
@@ -282,11 +280,13 @@ public class DpydHapB3Matcher {
   /**
    * Build {@link DiplotypeMatch} for phased data.
    */
-  private List<DiplotypeMatch> buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
-    return List.of(new DiplotypeMatch(
+  private SortedSet<DiplotypeMatch> buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
+    SortedSet<DiplotypeMatch> dms = new TreeSet<>();
+    dms.add(new DiplotypeMatch(
         updateHapB3Haplotype(matchData, h1, 0),
         updateHapB3Haplotype(matchData, h2, 1),
         matchData));
+    return dms;
   }
 
 
