@@ -139,8 +139,8 @@ public class DataManager {
         PgkbGuidelineCollection pgkbGuidelineCollection;
         if (!skipGuidelines) {
           Path drugsDir = cliHelper.getValidDirectory("g", true);
-          Path guidanceFile = drugsDir.resolve(PRESCRIBING_GUIDANCE_FILE_NAME);
-          pgkbGuidelineCollection = new PgkbGuidelineCollection(guidanceFile);
+          Path updatedGuidancePath = manager.transformGuidelines(downloadDir, drugsDir);
+          pgkbGuidelineCollection = new PgkbGuidelineCollection(updatedGuidancePath);
         } else {
           // if we're skipping new drug data, then use the default data
           pgkbGuidelineCollection = new PgkbGuidelineCollection();
@@ -207,6 +207,19 @@ public class DataManager {
       ex.printStackTrace();
       System.exit(1);
     }
+  }
+
+  private Path transformGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
+    if (!Files.exists(guidelinesDir)) {
+      Files.createDirectories(guidelinesDir);
+    }
+
+    Path downloadedGuidanceFile = downloadDir.resolve(PRESCRIBING_GUIDANCE_FILE_NAME);
+    Path destinationGuidanceFile = guidelinesDir.resolve(PRESCRIBING_GUIDANCE_FILE_NAME);
+    System.out.println("Saving guidelines to " + destinationGuidanceFile);
+
+    FileUtils.copyFile(downloadedGuidanceFile.toFile(), destinationGuidanceFile.toFile());
+    return destinationGuidanceFile;
   }
 
 

@@ -425,7 +425,7 @@ class PipelineTest {
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(175, drugs.size());
+    assertEquals(177, drugs.size());
   }
 
   @Test
@@ -1843,7 +1843,8 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("MT-RNR1");
-    testWrapper.testMatchedAnnotations("amikacin", 1);
+    testWrapper.testMatchedAnnotations("amikacin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("amikacin", PrescribingGuidanceSource.FDA_LABEL, 1);
   }
 
 
