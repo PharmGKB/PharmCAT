@@ -289,6 +289,42 @@ class PharmCATTest {
     }
   }
 
+
+  @Test
+  void outsideCallsSuballeles(TestInfo testInfo) throws Exception {
+    Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsSuballeles.tsv");
+
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    Path matcherOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.match.json");
+    Path phenotyperOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.phenotype.json");
+    Path reporterOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.report.html");
+
+    try {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-o", outputDir.toString(),
+          "-phenotyper",
+          "-po", outsideCallFile.toString()
+      }));
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertTrue(systemOut.contains("WARNING: PharmCAT does not support sub-alleles for CYP2D6."));
+      assertTrue(systemOut.contains("WARNING: PharmCAT does not support sub-alleles for HLA-A."));
+      assertTrue(systemOut.contains("WARNING: Converting outside call for HLA-B from 'B*04:05', to '*04:05'."));
+
+      assertFalse(Files.exists(matcherOutput));
+      assertTrue(Files.exists(phenotyperOutput));
+      assertFalse(Files.exists(reporterOutput));
+
+      validateOutsideCallOutput(phenotyperOutput, "CYP2D6", "*1/*2");
+      validateOutsideCallOutput(phenotyperOutput, "HLA-A", "*02:02/*03:02");
+      validateOutsideCallOutput(phenotyperOutput, "HLA-B", "*02:01/*04:05");
+    } finally {
+      TestUtils.deleteTestFiles(outputDir);
+    }
+  }
+
+
+
   /**
    * This test is dependent on CYP2C19 definition.
    * It may fail if CYP2C19 definition changes too much.
@@ -496,13 +532,22 @@ class PharmCATTest {
 
 
   public static void validateCyp2d6OutsideCallOutput(Path phenotyperOutput) throws IOException {
+    validateOutsideCallOutput(phenotyperOutput, "CYP2D6", null);;
+  }
+
+
+  public static void validateOutsideCallOutput(Path phenotyperOutput, String gene, @Nullable String diplotype)
+      throws IOException {
     Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
         .values();
     Optional<GeneReport> grOpt = reports.stream()
-        .filter(gr -> gr.getGene().equals("CYP2D6"))
+        .filter(gr -> gr.getGene().equals(gene))
         .findFirst();
     assertTrue(grOpt.isPresent());
     assertTrue(grOpt.get().isCalled());
     assertTrue(grOpt.get().isOutsideCall());
+    if (diplotype != null) {
+      assertEquals(diplotype, grOpt.get().getSourceDiplotypes().first().getLabel());
+    }
   }
 }

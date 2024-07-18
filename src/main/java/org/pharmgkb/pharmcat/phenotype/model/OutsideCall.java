@@ -1,9 +1,12 @@
 package org.pharmgkb.pharmcat.phenotype.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
@@ -21,6 +24,8 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  * @author Ryan Whaley
  */
 public class OutsideCall implements Comparable<OutsideCall> {
+  public static final Pattern CYP2D6_SUBALLELE_PATTERN = Pattern.compile("(\\*\\d+)\\.\\d+");
+  public static final Pattern HLA_SUBALLELE_PATTERN = Pattern.compile("(\\*\\d+:\\d+)((?::\\d+)+)");
   private static final Splitter sf_lineSplitter = Splitter.on("\t").trimResults();
   private static final Splitter sf_diplotypeSplitter = Splitter.on("/").trimResults();
   private static final String sf_diplotypeSeparator = "/";
@@ -36,6 +41,7 @@ public class OutsideCall implements Comparable<OutsideCall> {
   private @Nullable String m_phenotype = null;
   private @Nullable String m_activityScore = null;
   private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
+  private final List<String> m_warnings = new ArrayList<>();
 
   /**
    * Constructor that expects a TSV formatted String with the gene symbol in the first field, the diplotype call
@@ -71,6 +77,50 @@ public class OutsideCall implements Comparable<OutsideCall> {
       List<String> alleles = sf_diplotypeSplitter.splitToList(diplotype).stream()
           .map(a -> a.replaceFirst("^" + m_gene + "\\s*", ""))
           .toList();
+
+      if (m_gene.equals("CYP2D6")) {
+        alleles = alleles.stream()
+            .map(a -> {
+              Matcher m = CYP2D6_SUBALLELE_PATTERN.matcher(a);
+              if (m.matches()) {
+                m_warnings.add("PharmCAT does not support sub-alleles for " + m_gene + ". Using '" + m.group(1) +
+                    "' instead of '" + a + "'.");
+                return m.group(1);
+              }
+              return a;
+            })
+            .toList();
+
+      } else if (m_gene.equals("HLA-A") || m_gene.equals("HLA-B")) {
+        String prefix = m_gene.substring(m_gene.length() - 1) + "*";
+        alleles = alleles.stream()
+            .map(a -> {
+              String orig = a;
+              if (!a.startsWith("*")) {
+                if (!a.startsWith(prefix)) {
+                  throw new BadOutsideCallException("Invalid " + m_gene + " allele: '" + orig + "'.");
+                }
+                a = a.substring(1);
+              }
+              Matcher m = HLA_SUBALLELE_PATTERN.matcher(a);
+              boolean isSuballele = false;
+              if (m.matches()) {
+                a = m.group(1);
+                isSuballele = true;
+              }
+              if (!orig.equals(a)) {
+                if (isSuballele) {
+                  m_warnings.add("PharmCAT does not support sub-alleles for " + m_gene + ". Using '" + a +
+                      "' instead of '" + orig + "'.");
+                } else {
+                  m_warnings.add("Converting outside call for " + m_gene + " from '" + orig + "', to '" + a + "'.");
+                }
+              }
+              return a;
+            })
+            .toList();
+      }
+
       // re-join alleles to eliminate white space when gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
       m_diplotypes = ImmutableList.of(m_diplotype);
@@ -128,6 +178,11 @@ public class OutsideCall implements Comparable<OutsideCall> {
 
   public @Nullable String getActivityScore() {
     return m_activityScore;
+  }
+
+
+  public List<String> getWarnings() {
+    return m_warnings;
   }
 
 

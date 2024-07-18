@@ -301,6 +301,7 @@ public class Pipeline implements Callable<PipelineResult> {
                 }
               }
               outsideCalls.add(call);
+              call.getWarnings().forEach(w -> output.add(AnsiConsole.styleWarning("WARNING: " + w)));
               outsideCallMap.computeIfAbsent(gene, g -> new HashSet<>()).add(call);
             }
           }
