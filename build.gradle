@@ -64,7 +64,7 @@ dependencies {
       [group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.23.1'],
       [group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'],
       [group: 'org.checkerframework', name: 'checker-qual', version: '3.39.0'],
-      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.7.0'],
+      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.7.2'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.3.1'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '2.0.13'],
   )
@@ -73,8 +73,8 @@ dependencies {
       [group: 'com.github.stefanbirkner', name: 'system-lambda', version: '1.2.1'],
       [group: 'org.hamcrest', name: 'hamcrest', version: '2.2'],
       [group: 'org.jsoup', name: 'jsoup', version: '1.16.2'],
-      [group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.2'],
-      [group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.10.2'],
+      [group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.3'],
+      [group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.10.3'],
   )
 }
 
