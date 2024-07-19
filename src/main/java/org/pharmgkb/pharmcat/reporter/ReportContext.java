@@ -122,6 +122,9 @@ public class ReportContext {
     if (observedVersions.isEmpty()) {
       return TextConstants.NA;
     } else {
+      addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "multiple-versions",
+          "Multiple versions used to generate gene and drug reports: " + observedVersions + "."
+      ));
       return String.join(", ", observedVersions);
     }
   }
