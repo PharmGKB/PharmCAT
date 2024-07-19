@@ -1,3 +1,24 @@
+## [2.14.0](https://github.com/PharmGKB/PharmCAT/compare/v2.13.0...v2.14.0) (2024-07-19)
+
+
+### Features
+
+* **data:** make all allele definitions import from PharmGKB ([47da939](https://github.com/PharmGKB/PharmCAT/commit/47da939f014e16fef32038c49e57ba0550cc42cb))
+* **data:** update to PharmVar v6.1.3 ([e4b8fc2](https://github.com/PharmGKB/PharmCAT/commit/e4b8fc22b06e9d838453a43143b2a9f4dd48ddd7))
+
+
+### Bug Fixes
+
+* **data:** fix downloading new guidance data ([a1007c0](https://github.com/PharmGKB/PharmCAT/commit/a1007c09a40db247032e2cbb9d58e7e98d68994a))
+* **diplotype-comparator:** update string delimiter ([e10a2ea](https://github.com/PharmGKB/PharmCAT/commit/e10a2ea83dbbce2511a91c6806959e9343c4ec88))
+* **namedallelematcher:** fix exception thrown while sorting diplotype matches ([093f5b2](https://github.com/PharmGKB/PharmCAT/commit/093f5b29d3f24799fd247a69807f454a173e8f88))
+* **namedallelematcher:** handle CYP2D6 and HLA outside calls with sub-alleles gracefully ([dcaa055](https://github.com/PharmGKB/PharmCAT/commit/dcaa05573400926573d5b02d84e30b043146a8e7))
+* **reporter:** fix how allele presence phenotypes are shown in final report ([2f00c6c](https://github.com/PharmGKB/PharmCAT/commit/2f00c6c53118c757010e54c0a0b074bf066cb358))
+* **reporter:** fix missing PMID in report citation data ([81a0df2](https://github.com/PharmGKB/PharmCAT/commit/81a0df250b59b12609075612d0bbe7af02dfe2c4)), closes [#187](https://github.com/PharmGKB/PharmCAT/issues/187)
+* **reporter:** fix multiple version check logic ([3af2726](https://github.com/PharmGKB/PharmCAT/commit/3af272650642a2dc15da080b1f92263d33b9fc46))
+* **reporter:** fix phenotype check by querying only phenotype-related genes in an annotation ([b666953](https://github.com/PharmGKB/PharmCAT/commit/b666953b5e2b52ee71cebb33ff045f3173db7b9c)), closes [#180](https://github.com/PharmGKB/PharmCAT/issues/180)
+* **reporter:** warn if multiple versions found ([9bb2a55](https://github.com/PharmGKB/PharmCAT/commit/9bb2a5558a32dd6c8119444f19799409c2593a3e))
+
 ## [2.13.0](https://github.com/PharmGKB/PharmCAT/compare/v2.12.0...v2.13.0) (2024-06-11)
 
 
