@@ -244,6 +244,9 @@ public class DataManager {
     for (DefinitionFile df : parseDefinitionFiles(downloadDir)) {
       df.setSource(DataSource.PHARMGKB);
       df.validateAlleleNames();
+      // strip structural variants since they are unmatchable
+      // do this immediately because everything else assumes no structural variants
+      df.removeStructuralVariants();
       definitionFiles.add(df);
     }
 
@@ -251,10 +254,6 @@ public class DataManager {
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (DefinitionFile df : definitionFiles) {
         String gene = df.getGeneSymbol();
-
-        // always strip structural variants since they are unmatchable
-        df.removeStructuralVariants();
-
         DefinitionExemption exemption = exemptionsMap.get(gene);
         if (exemption != null) {
           if (!exemption.getIgnoredAlleles().isEmpty()) {

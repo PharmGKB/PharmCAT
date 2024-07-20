@@ -349,7 +349,7 @@ public class DefinitionFile {
             " because it has no alleles after removing unused/ignored positions");
       } else {
         updatedNamedAlleles.add(new NamedAllele(namedAllele.getId(), namedAllele.getName(), null, cpicAlleles,
-            namedAllele.isReference(), namedAllele.isStructuralVariant()));
+            namedAllele.isReference()));
       }
     }
     resetNamedAlleles(updatedNamedAlleles);
@@ -406,7 +406,7 @@ public class DefinitionFile {
       if (mustResort) {
         updated = reorderHaplotypeAlleles(na, m_variants, sortedVariants, fixedAlleles);
       } else {
-        updated = new NamedAllele(na.getId(), na.getName(), fixedAlleles, na.getCpicAlleles(), na.isReference(), na.isStructuralVariant());
+        updated = new NamedAllele(na.getId(), na.getName(), fixedAlleles, na.getCpicAlleles(), na.isReference());
       }
       updatedNamedAlleles.add(updated);
     }
@@ -667,6 +667,6 @@ public class DefinitionFile {
     }
 
     return new NamedAllele(hap.getId(), hap.getName(), alleles, cpicAlleles, hap.getMissingPositions(),
-        hap.isReference(), hap.getNumCombinations(), hap.getNumPartials(), hap.isStructuralVariant());
+        hap.isReference(), hap.getNumCombinations(), hap.getNumPartials());
   }
 }

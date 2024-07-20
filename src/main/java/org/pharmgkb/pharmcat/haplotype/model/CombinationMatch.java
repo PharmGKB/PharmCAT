@@ -143,7 +143,7 @@ public class CombinationMatch extends BaseMatch {
       }
     }
     NamedAllele na = new NamedAllele(idBuilder.toString(), getName(), alleles, cpicAlleles, missingPositions,
-        false, m_componentHaplotypes.size(), numPartials, false);
+        false, m_componentHaplotypes.size(), numPartials);
     if (isOffReferencePartial) {
       na.initialize(m_refVariants, 0);
     } else {

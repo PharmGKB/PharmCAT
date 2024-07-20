@@ -41,6 +41,10 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName(value = "reference", alternate = {"matchesreferencesequence"})
   private final boolean m_isReference;
+  /**
+   * This should always be false. The only time it might be true is on initial data ingestion by
+   * {@link org.pharmgkb.pharmcat.util.DataManager}, after which they are immediately deleted.
+   */
   @Expose
   @SerializedName("structuralVariant")
   private final boolean m_isStructuralVariant;
@@ -69,20 +73,20 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Primary constructor.
    * Use this when reading in allele definitions.
    */
-  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles, boolean isReference, boolean isStructuralVariant) {
-    this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0, isStructuralVariant);
+  public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles, boolean isReference) {
+    this(id, name, alleles, cpicAlleles, Collections.emptySortedSet(), isReference, 0, 0);
   }
 
   public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
-      SortedSet<VariantLocus> missingPositions, boolean isReference, boolean isStructuralVariant) {
-    this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0, isStructuralVariant);
+      SortedSet<VariantLocus> missingPositions, boolean isReference) {
+    this(id, name, alleles, cpicAlleles, missingPositions, isReference, 0, 0);
   }
 
   /**
    * Constructor for duplicating/modifying a {@link NamedAllele}.
    */
   public NamedAllele(String id, String name, String[] alleles, String[] cpicAlleles,
-      SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials, boolean isStructuralVariant) {
+      SortedSet<VariantLocus> missingPositions, boolean isReference, int numCombinations, int numPartials) {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(cpicAlleles);
@@ -93,7 +97,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     m_cpicAlleles = cpicAlleles;
     m_missingPositions = missingPositions;
     m_isReference = isReference;
-    m_isStructuralVariant = isStructuralVariant;
+    m_isStructuralVariant = false;
     m_numCombinations = numCombinations;
     m_numPartials = numPartials;
 
@@ -223,7 +227,13 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_isReference;
   }
 
-  public boolean isStructuralVariant() {
+
+  /**
+   * Gets if this is a structural variant.
+   * This should always be false. The only time it might be true is on initial data ingestion by
+   * {@link org.pharmgkb.pharmcat.util.DataManager}, after which they are immediately deleted.
+   */
+  boolean isStructuralVariant() {
     return m_isStructuralVariant;
   }
 

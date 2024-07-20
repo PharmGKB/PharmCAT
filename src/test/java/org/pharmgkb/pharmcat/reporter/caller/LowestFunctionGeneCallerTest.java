@@ -135,10 +135,10 @@ class LowestFunctionGeneCallerTest {
     //  c.2582A>G   - normal
     //  c.2846A>T   - decreased, DPWG
     //  c.2933A>G   - no function
-    NamedAllele na1 = new NamedAllele("1", "c.498G>A", new String[0], new String[0], false, false);
-    NamedAllele na2 = new NamedAllele("2", "c.2582A>G", new String[0], new String[0], false, false);
-    NamedAllele na3 = new NamedAllele("3", "c.2846A>T", new String[0], new String[0], false, false);
-    NamedAllele na4 = new NamedAllele("4", "c.2933A>G", new String[0], new String[0], false, false);
+    NamedAllele na1 = new NamedAllele("1", "c.498G>A", new String[0], new String[0], false);
+    NamedAllele na2 = new NamedAllele("2", "c.2582A>G", new String[0], new String[0], false);
+    NamedAllele na3 = new NamedAllele("3", "c.2846A>T", new String[0], new String[0], false);
+    NamedAllele na4 = new NamedAllele("4", "c.2933A>G", new String[0], new String[0], false);
 
     List<HaplotypeMatch> matches = new ArrayList<>();
     matches.add(new HaplotypeMatch(na1));

@@ -21,8 +21,8 @@ class CombinationMatchTest {
   void compareWithHaplotypeMatch() {
 
     VariantLocus[] refVariants = new VariantLocus[0];
-    NamedAllele na1 = new NamedAllele("1", "*2", new String[0], new String[0], false, false);
-    NamedAllele na2 = new NamedAllele("2", "*3", new String[0], new String[0], false, false);
+    NamedAllele na1 = new NamedAllele("1", "*2", new String[0], new String[0], false);
+    NamedAllele na2 = new NamedAllele("2", "*3", new String[0], new String[0], false);
     CombinationMatch cm1 = new CombinationMatch(refVariants, na1, "123");
     cm1.merge(na2);
     HaplotypeMatch hapMatch = new HaplotypeMatch(na1);
@@ -52,7 +52,7 @@ class CombinationMatchTest {
     assertEquals(1, set.size());
 
 
-    NamedAllele na3 = new NamedAllele("3", "*4", new String[0], new String[0], false, false);
+    NamedAllele na3 = new NamedAllele("3", "*4", new String[0], new String[0], false);
     cm2.merge(na3);
     set.clear();
     set.add(cm1);
