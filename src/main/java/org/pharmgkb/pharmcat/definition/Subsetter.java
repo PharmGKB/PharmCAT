@@ -38,6 +38,7 @@ import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.InternalWrapper;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
@@ -424,9 +425,9 @@ public class Subsetter {
         SortedSet<VariantLocus> ignoredPositions = Arrays.stream(gd.definitionFile.getVariants())
             .filter(vl -> !gd.variants.contains(vl))
             .collect(Collectors.toCollection(TreeSet::new));
-        gd.definitionFile.removeIgnoredPositions(ignoredPositions, false);
+        InternalWrapper.removeIgnoredPositions(gd.definitionFile, ignoredPositions, false);
 
-        gd.definitionFile.doVcfTranslation(vcfHelper);
+        InternalWrapper.doVcfTranslation(gd.definitionFile, vcfHelper);
 
         // export
         Path jsonFile = dir.resolve(gd.gene + "_translation.json");

@@ -28,6 +28,7 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
+import org.pharmgkb.pharmcat.definition.model.InternalWrapper;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
@@ -246,7 +247,7 @@ public class DataManager {
       df.validateAlleleNames();
       // strip structural variants since they are unmatchable
       // do this immediately because everything else assumes no structural variants
-      df.removeStructuralVariants();
+      InternalWrapper.removeStructuralVariants(df);
       definitionFiles.add(df);
     }
 
@@ -258,15 +259,15 @@ public class DataManager {
         if (exemption != null) {
           if (!exemption.getIgnoredAlleles().isEmpty()) {
             System.out.println("Removing ignored named alleles in " + gene + "...");
-            df.removeIgnoredNamedAlleles(exemption);
+            InternalWrapper.removeIgnoredNamedAlleles(df, exemption);
           }
           if (!exemption.getIgnoredPositions().isEmpty()) {
             System.out.println("Removing ignored positions in " + gene + "...");
-            df.removeIgnoredPositions(exemption);
+            InternalWrapper.removeIgnoredPositions(df, exemption);
           }
         }
 
-        df.doVcfTranslation(vcfHelper);
+        InternalWrapper.doVcfTranslation(df, vcfHelper);
         definitionFileMap.put(gene, df);
       }
     }

@@ -11,7 +11,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.ParseException;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.VcfHelper;
 
 
@@ -187,10 +186,8 @@ public class DefinitionFile {
   /**
    * Resets this {@link DefinitionFile}'s named alleles to the specified set.
    * This helper method makes sure that dependent caches are deleted.
-   * <p>
-   * <b><i>Only call this if you know what you're doing!</i></b>
    */
-  public void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
+  private void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
     m_namedAlleles = namedAlleles;
     m_namedAlleleMap = null;
     m_referenceNamedAllele = null;
@@ -230,23 +227,11 @@ public class DefinitionFile {
 
 
   /**
-   * Remove ignored allele specified in {@link DefinitionExemption}.
+   * Filters out structural variant alleles, they have no definition to match against.
    * <p>
-   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
-  public void removeIgnoredNamedAlleles(DefinitionExemption exemption) {
-    System.out.println("  Removing " + exemption.getIgnoredAlleles());
-    resetNamedAlleles(m_namedAlleles.stream()
-        .filter((na) -> !exemption.shouldIgnoreAllele(na.getName()))
-        .collect(Collectors.toCollection(TreeSet::new)));
-  }
-
-  /**
-   * Filter out structural variant alleles, they have no definition to match against.
-   * <p>
-   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
-   */
-  public void removeStructuralVariants() {
+  void removeStructuralVariants() {
     resetNamedAlleles(m_namedAlleles.stream()
         .filter((a) -> !a.isStructuralVariant())
         .collect(Collectors.toCollection(TreeSet::new)));
@@ -254,28 +239,23 @@ public class DefinitionFile {
 
 
   /**
-   * Removes any unused positions and ignored positions specified in {@link DefinitionExemption}.
-   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   * Removes ignored allele specified in {@link DefinitionExemption}.
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
-  public void removeIgnoredPositions(DefinitionExemption exemption) {
-
-    SortedSet<VariantLocus> ignoredPositions = Arrays.stream(m_variants)
-        .filter(exemption::shouldIgnorePosition)
-        .collect(Collectors.toCollection(TreeSet::new));
-    if (exemption.getIgnoredPositions().size() != ignoredPositions.size()) {
-      throw new IllegalStateException("Should have " + exemption.getIgnoredPositions().size() + " ignored positions, " +
-          "but only found " + ignoredPositions.size());
-    }
-    removeIgnoredPositions(ignoredPositions, true);
+  void removeIgnoredNamedAlleles(DefinitionExemption exemption) {
+    resetNamedAlleles(m_namedAlleles.stream()
+        .filter((na) -> !exemption.shouldIgnoreAllele(na.getName()))
+        .collect(Collectors.toCollection(TreeSet::new)));
   }
 
 
   /**
    * Removes any unused positions and the specified {@code ignoredPositions}.
    * <p>
-   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
-  public void removeIgnoredPositions(SortedSet<VariantLocus> ignoredPositions, boolean verbose) {
+  void removeIgnoredPositions(SortedSet<VariantLocus> ignoredPositions, boolean verbose) {
     // cannot use helper methods on NamedAlleles because they're not initialized yet
     // must loop through elements manually
 
@@ -359,9 +339,9 @@ public class DefinitionFile {
   /**
    * Translate variants from CPIC to VCF (i.e. {@code cpicAlleles} to {@code alleles}).
    * <p>
-   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
-  public void doVcfTranslation(VcfHelper vcfHelper) throws IOException {
+  void doVcfTranslation(VcfHelper vcfHelper) throws IOException {
 
     NamedAllele referenceNamedAllele = null;
     for (NamedAllele na : m_namedAlleles) {
