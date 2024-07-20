@@ -59,8 +59,8 @@ public class DefinitionFile {
   private SortedSet<NamedAllele> m_namedAlleles;
 
   //-- cache
-  private Map<String, NamedAllele> m_namedalleleMap;
-  private NamedAllele m_referenceNamedAllele;
+  private transient Map<String, NamedAllele> m_namedAlleleMap;
+  private transient NamedAllele m_referenceNamedAllele;
 
 
 
@@ -152,10 +152,10 @@ public class DefinitionFile {
   }
 
   public @Nullable NamedAllele getNamedAllele(String name) {
-    if (m_namedalleleMap == null) {
+    if (m_namedAlleleMap == null) {
       mapNamedAlleles();
     }
-    return m_namedalleleMap.get(name);
+    return m_namedAlleleMap.get(name);
   }
 
   public NamedAllele getReferenceNamedAllele() {
@@ -166,10 +166,10 @@ public class DefinitionFile {
   }
 
   private void mapNamedAlleles() {
-    if (m_namedalleleMap == null) {
-      m_namedalleleMap = new HashMap<>();
+    if (m_namedAlleleMap == null) {
+      m_namedAlleleMap = new HashMap<>();
       for (NamedAllele allele : getNamedAlleles()) {
-        m_namedalleleMap.put(allele.getName(), allele);
+        m_namedAlleleMap.put(allele.getName(), allele);
         if (allele.isReference()) {
           if (m_referenceNamedAllele != null) {
             throw new IllegalStateException("Multiple reference named alleles: " + allele.getName() + " and " +
@@ -182,6 +182,18 @@ public class DefinitionFile {
         throw new IllegalStateException(m_geneSymbol + " has no reference named allele!");
       }
     }
+  }
+
+  /**
+   * Resets this {@link DefinitionFile}'s named alleles to the specified set.
+   * This helper method makes sure that dependent caches are deleted.
+   * <p>
+   * <b><i>Only call this if you know what you're doing!</i></b>
+   */
+  public void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
+    m_namedAlleles = namedAlleles;
+    m_namedAlleleMap = null;
+    m_referenceNamedAllele = null;
   }
 
 
@@ -219,22 +231,25 @@ public class DefinitionFile {
 
   /**
    * Remove ignored allele specified in {@link DefinitionExemption}.
+   * <p>
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredNamedAlleles(DefinitionExemption exemption) {
     System.out.println("  Removing " + exemption.getIgnoredAlleles());
-    m_namedAlleles = m_namedAlleles.stream()
+    resetNamedAlleles(m_namedAlleles.stream()
         .filter((na) -> !exemption.shouldIgnoreAllele(na.getName()))
-        .collect(Collectors.toCollection(TreeSet::new));
+        .collect(Collectors.toCollection(TreeSet::new)));
   }
 
   /**
-   * Filter out structural variant alleles, they have no definition to match against
+   * Filter out structural variant alleles, they have no definition to match against.
+   * <p>
+   * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeStructuralVariants() {
-    m_namedAlleles = m_namedAlleles.stream()
+    resetNamedAlleles(m_namedAlleles.stream()
         .filter((a) -> !a.isStructuralVariant())
-        .collect(Collectors.toCollection(TreeSet::new));
+        .collect(Collectors.toCollection(TreeSet::new)));
   }
 
 
@@ -257,6 +272,7 @@ public class DefinitionFile {
 
   /**
    * Removes any unused positions and the specified {@code ignoredPositions}.
+   * <p>
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void removeIgnoredPositions(SortedSet<VariantLocus> ignoredPositions, boolean verbose) {
@@ -336,12 +352,13 @@ public class DefinitionFile {
             namedAllele.isReference(), namedAllele.isStructuralVariant()));
       }
     }
-    m_namedAlleles = updatedNamedAlleles;
+    resetNamedAlleles(updatedNamedAlleles);
   }
 
 
   /**
    * Translate variants from CPIC to VCF (i.e. {@code cpicAlleles} to {@code alleles}).
+   * <p>
    * Should only be called during initial generation of this {@link DefinitionFile} by {@link DataManager}.
    */
   public void doVcfTranslation(VcfHelper vcfHelper) throws IOException {
@@ -393,7 +410,7 @@ public class DefinitionFile {
       }
       updatedNamedAlleles.add(updated);
     }
-    m_namedAlleles = Collections.unmodifiableSortedSet(updatedNamedAlleles);
+    resetNamedAlleles(Collections.unmodifiableSortedSet(updatedNamedAlleles));
     m_variants = sortedVariants;
   }
 
