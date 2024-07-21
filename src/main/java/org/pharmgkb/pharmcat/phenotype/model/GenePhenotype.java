@@ -1,17 +1,14 @@
 package org.pharmgkb.pharmcat.phenotype.model;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedSet;
+import java.util.*;
 import java.util.stream.Collectors;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.common.comparator.HaplotypeNameComparator;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -43,6 +40,9 @@ public class GenePhenotype {
   @SerializedName(value = "version")
   @Expose
   private String m_version;
+  @SerializedName("diplotypeFunctions")
+  @Expose
+  private List<DiplotypeFunction> m_diplotypeFunctions;
 
   // only used by Subsetter
   private final transient Set<String> m_modifiedActivity = new HashSet<>();
@@ -58,7 +58,7 @@ public class GenePhenotype {
 
 
   /**
-   * Map of haplotype name (e.g. *1) to a phenotype (e.g. Increased function)
+   * Map of haplotype name (e.g. *1) to a function (e.g. Increased function)
    */
   public Map<String, String> getHaplotypes() {
     return m_haplotypes;
@@ -69,6 +69,10 @@ public class GenePhenotype {
    */
   public Map<String,String> getActivityValues() {
     return m_activityValues;
+  }
+
+  private boolean isActivityGene() {
+    return !m_activityValues.isEmpty();
   }
 
   /**
@@ -129,6 +133,7 @@ public class GenePhenotype {
     return m_diplotypes;
   }
 
+
   public List<HaplotypeRecord> getNamedAlleles() {
     return m_namedAlleles;
   }
@@ -158,6 +163,11 @@ public class GenePhenotype {
   }
 
 
+  public List<DiplotypeFunction> getDiplotypeFunctions() {
+    return this.m_diplotypeFunctions;
+  }
+
+
   @Override
   public String toString() {
     return m_gene;
@@ -168,8 +178,7 @@ public class GenePhenotype {
       @Nullable String lookupKey) {
     HaplotypeRecord hr = new HaplotypeRecord(name, activityValue, functionValue, lookupKey);
     m_namedAlleles.add(hr);
-    // TODO: add to m_haplotypes
-    //m_haplotypes.put(name, ???)
+    m_haplotypes.put(name, hr.getLookupKey());
   }
 
   public boolean update(String allele, @Nullable String activityScore, @Nullable String function, DataSource src) {
@@ -230,5 +239,91 @@ public class GenePhenotype {
 
   public boolean isModified(String allele) {
     return m_modifiedActivity.contains(allele) || m_modifiedFunction.contains(allele);
+  }
+
+
+  /**
+   * Generates diplotypes based on {@link HaplotypeRecord}s.
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
+   */
+  public void generateDiplotypes() {
+    m_diplotypes = new TreeSet<>(makeDiplotypes(this));
+  }
+
+  private static Set<DiplotypeRecord> makeDiplotypes(GenePhenotype gp) {
+    Set<DiplotypeRecord> results = new HashSet<>();
+    Multimap<String,String> functionToAlleleMap = HashMultimap.create();
+    for (HaplotypeRecord haplotype : gp.getNamedAlleles()) {
+      functionToAlleleMap.put(haplotype.getLookupKey(), haplotype.getName());
+    }
+
+    for (DiplotypeFunction diplotypeFunction : gp.getDiplotypeFunctions()) {
+      results.addAll(makeDiplotypes(diplotypeFunction, functionToAlleleMap, gp.isActivityGene()));
+    }
+    return results;
+  }
+
+  private static Set<DiplotypeRecord> makeDiplotypes(
+      DiplotypeFunction diplotypeFunction,
+      Multimap<String, String> functionToAllelesMap,
+      boolean isActivityGene
+  ) {
+    Set<DiplotypeRecord> objects = new HashSet<>();
+    Stack<String> fns = new Stack<>();
+    String lookupKey = isActivityGene ? diplotypeFunction.activityScore : diplotypeFunction.phenotype;
+    String activityScoreNormalized = !isActivityGene && TextConstants.isUnspecified(diplotypeFunction.activityScore) ? null : diplotypeFunction.activityScore;
+
+    for (String key : diplotypeFunction.getLookupKey().keySet()) {
+      for (int i = 0; i < diplotypeFunction.getLookupKey().get(key); i++) {
+        fns.push(key);
+      }
+    }
+
+    if (fns.size() == 2) {
+      String fnKey1 = fns.pop();
+      String fnKey2 = fns.pop();
+      for (String allele1 : functionToAllelesMap.get(fnKey1)) {
+        for (String allele2 : functionToAllelesMap.get(fnKey2)) {
+          objects.add(makeDiplotype(diplotypeFunction.getPhenotype(), diplotypeFunction.getLookupKey(), allele1, allele2, activityScoreNormalized, lookupKey));
+        }
+      }
+    } else {
+      for (String allele : functionToAllelesMap.get(fns.pop())) {
+        objects.add(makeDiplotype(diplotypeFunction.getPhenotype(), diplotypeFunction.getLookupKey(), allele, null, activityScoreNormalized, lookupKey));
+      }
+    }
+
+    return objects;
+  }
+
+  private static DiplotypeRecord makeDiplotype(
+      String phenotype, Map<String,Integer> phenotypeKey,
+      String allele1, @Nullable String allele2, String activityScore, String lookupKey
+  ) {
+    String diplotypeName;
+    if (allele2 == null) {
+      diplotypeName = allele1;
+
+    } else {
+      diplotypeName = Arrays.stream(new String[]{ allele1, allele2 })
+          .sorted(org.pharmgkb.common.comparator.HaplotypeNameComparator.getComparator())
+          .collect(Collectors.joining("/"));
+    }
+
+    return new DiplotypeRecord(phenotype, diplotypeName, null, phenotype, makeDiplotypeKey(allele1, allele2), activityScore, lookupKey);
+  }
+
+  private static SortedMap<String, Integer> makeDiplotypeKey(String allele1, @Nullable String allele2) {
+    SortedMap<String, Integer> diplotypeKey = new TreeMap<>(HaplotypeNameComparator.getComparator());
+    if (Objects.equals(allele1, allele2)) {
+      diplotypeKey.put(allele1, 2);
+    } else {
+      diplotypeKey.put(allele1, 1);
+      if (allele2 != null) {
+        diplotypeKey.put(allele2, 1);
+      }
+    }
+    return diplotypeKey;
   }
 }

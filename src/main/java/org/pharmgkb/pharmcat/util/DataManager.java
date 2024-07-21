@@ -394,6 +394,10 @@ public class DataManager {
         if (!genes.add(gp.getGene())) {
           throw new IllegalStateException("Multiple " + source + " GenePhenotypes for " + gp.getGene());
         }
+
+        // generate diplotype data
+        gp.generateDiplotypes();
+
         String filename = sanitizeFilename(gp.getGene()) + ".json";
         try (Writer writer = Files.newBufferedWriter(outputDir.resolve(filename))) {
           DataSerializer.GSON.toJson(gp, writer);

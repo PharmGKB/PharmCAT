@@ -38,6 +38,18 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
   private String m_phenotype;
 
 
+  public DiplotypeRecord(String geneResult, String diplotype, String description, String phenotype, Map<String,Integer> diplotypeKey, String activityScore, String lookupKey) {
+    this.m_phenotype = phenotype;
+    this.m_geneResult = geneResult;
+
+    this.m_diplotype = diplotype;
+    this.m_description = description;
+    this.m_diplotypeKey = diplotypeKey;
+    this.m_activityScore = activityScore;
+    this.m_lookupKey = lookupKey;
+  }
+
+
   public String getGeneResult() {
     return m_geneResult;
   }
@@ -116,7 +128,12 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
     String[] dips1 = m_diplotype.split("/");
     String[] dips2 = o.getDiplotype().split("/");
 
-    int rez = HaplotypeNameComparator.getComparator().compare(dips1[0], dips2[0]);
+    int rez = dips1.length - dips2.length;
+    if (rez != 0) {
+      return rez;
+    }
+
+    rez = HaplotypeNameComparator.getComparator().compare(dips1[0], dips2[0]);
     if (rez != 0) {
       return rez;
     }
