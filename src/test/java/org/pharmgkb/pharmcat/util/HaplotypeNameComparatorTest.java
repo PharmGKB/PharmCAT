@@ -38,6 +38,12 @@ class HaplotypeNameComparatorTest {
     names.add("[*3 + *4]");
     names.add("[*2 + *3]");
     assertEquals("[*2 + *3]", names.first());
+
+
+    names = new TreeSet<>(new HaplotypeNameComparator());
+    names.add("[*2 + *4]");
+    names.add("[*2 + *3]");
+    assertEquals("[*2 + *3]", names.first());
   }
 
   @Test

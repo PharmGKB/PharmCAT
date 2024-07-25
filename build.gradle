@@ -64,7 +64,7 @@ dependencies {
       [group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.23.1'],
       [group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'],
       [group: 'org.checkerframework', name: 'checker-qual', version: '3.39.0'],
-      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.7.2'],
+      [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.7.3'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.3.1'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '2.0.13'],
   )
