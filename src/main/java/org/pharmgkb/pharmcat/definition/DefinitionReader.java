@@ -115,7 +115,7 @@ public class DefinitionReader {
 
 
   public DefinitionFile getDefinitionFile(String gene) {
-    Preconditions.checkArgument(m_definitionFiles.containsKey(gene));
+    Preconditions.checkArgument(m_definitionFiles.containsKey(gene), "No definition file for " + gene);
     return m_definitionFiles.get(gene);
   }
 

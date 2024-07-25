@@ -602,29 +602,6 @@ class PipelineTest {
         null);
   }
 
-  @Test
-  void testUndocumentedVariationsWithTreatAsReferenceFoo(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .allowUnknownAllele()
-        .variation("RYR1", "rs193922753", "G", "C");
-    Path vcfFile = testWrapper.execute();
-
-    List<String> ryr1ExpectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
-
-    testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", List.of(TextConstants.REFERENCE, TextConstants.REFERENCE));
-
-    Document document = readHtmlReport(vcfFile);
-    assertNotNull(document.getElementById("gs-undocVarAsRef-RYR1"));
-    htmlCheckGenes(document,
-        new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
-            .put("RYR1", ryr1ExpectedCalls)
-            .build(),
-        null);
-  }
-
 
   @Test
   void testUncallable(TestInfo testInfo) throws Exception {

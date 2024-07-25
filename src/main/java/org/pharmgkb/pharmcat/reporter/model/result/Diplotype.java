@@ -542,8 +542,8 @@ public class Diplotype implements Comparable<Diplotype> {
               (d) -> m_activityScore = d.getActivityScore(),
               () -> m_activityScore = ActivityUtils.normalize(lookupActivityByDiplotype(gp, lookupMap)));
         } else {
-          // leave activity score as NA but generate 1 lookupKey per activity score that matches phenotype below
-          // reporter will handle displaying correct activity score
+          // leave activity score as NA but generate 1 lookupKey per activity score that matches the phenotype below
+          // reporter will handle displaying the correct activity score
           m_activityScore = TextConstants.NA;
         }
       }

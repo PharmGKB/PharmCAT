@@ -22,7 +22,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  *
  * @author Mark Woon
  */
-public class BaseMatch implements Comparable<BaseMatch> {
+public abstract class BaseMatch implements Comparable<BaseMatch> {
   @Expose
   @SerializedName("name")
   private String m_name;
@@ -67,7 +67,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
 
 
   /**
-   * Checks if haplotype matches reference or has partials.
+   * Checks if haplotype matches the reference or has partials.
    * Only applicable when working with combinations and partials.
    */
   public void finalizeCombinationHaplotype(MatchData matchData, boolean findPartials) {
@@ -95,7 +95,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
         }
       }
     }
-    if (partials.size() > 0) {
+    if (!partials.isEmpty()) {
       if (hap.isReference()) {
         throw new IllegalStateException("Cannot create partial based on reference!");
       }

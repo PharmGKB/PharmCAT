@@ -9,7 +9,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
- * Model that represents a diplotype data in the PharmGKB database
+ * Model that represents the diplotype data in the PharmGKB database.
  *
  * @author Ryan Whaley
  */
@@ -108,10 +108,10 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
   }
 
   public boolean matchesKey(Map<String,Integer> otherKey) {
-    if (otherKey == null || otherKey.size() == 0) {
+    if (otherKey == null || otherKey.isEmpty()) {
       return false;
     }
-    if (m_diplotypeKey == null || m_diplotypeKey.size() == 0) {
+    if (m_diplotypeKey == null || m_diplotypeKey.isEmpty()) {
       return false;
     }
     return otherKey.keySet().size() == m_diplotypeKey.keySet().size() && otherKey.entrySet().containsAll(m_diplotypeKey.entrySet());
@@ -124,6 +124,9 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
 
   @Override
   public int compareTo(DiplotypeRecord o) {
+    if (this == o) {
+      return 0;
+    }
 
     String[] dips1 = m_diplotype.split("/");
     String[] dips2 = o.getDiplotype().split("/");

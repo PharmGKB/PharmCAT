@@ -105,7 +105,7 @@ public class CombinationMatch extends BaseMatch {
    * Builds a new {@link NamedAllele} based on component haplotypes.
    *
    * @param numPartials number of partials in this new {@link NamedAllele}
-   * @param isOffReferencePartial if true, will set score to 0
+   * @param isOffReferencePartial if true, will set the score to 0
    */
   private NamedAllele buildHaplotype(int numPartials, boolean isOffReferencePartial) {
     int length = m_refVariants.length;

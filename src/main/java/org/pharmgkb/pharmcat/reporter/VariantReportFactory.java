@@ -1,6 +1,5 @@
 package org.pharmgkb.pharmcat.reporter;
 
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -95,9 +94,6 @@ public class VariantReportFactory {
    * Fills in the named alleles that the given {@link VariantReport} is used to define
    */
   private void assignNamedAlleles(VariantReport variantReport) {
-    Collection<String> alleles = m_variantAlleleMap.get(variantReport.getPosition());
-    if (alleles != null) {
-      variantReport.setAlleles(alleles);
-    }
+    variantReport.setAlleles(m_variantAlleleMap.get(variantReport.getPosition()));
   }
 }

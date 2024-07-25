@@ -49,6 +49,7 @@ class PipelineWrapper {
   private final boolean m_callCyp2d6;
   private final boolean m_topCandidatesOnly;
   private boolean m_compactReport = m_compact;
+  private boolean m_deleteIntermediateFiles = m_compact;
   private ReportContext m_reportContext;
 
 
@@ -94,6 +95,11 @@ class PipelineWrapper {
     return this;
   }
 
+  PipelineWrapper saveIntermediateFiles() {
+    m_deleteIntermediateFiles = false;
+    return this;
+  }
+
   ReportContext getContext() {
     return m_reportContext;
   }
@@ -123,7 +129,7 @@ class PipelineWrapper {
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPaths,
         true, null, null, m_sources, m_compactReport, true, true,
-        m_outputPath, null, m_compactReport,
+        m_outputPath, null, m_deleteIntermediateFiles,
         Pipeline.Mode.TEST, null, false
     );
     pcat.call();
@@ -235,11 +241,11 @@ class PipelineWrapper {
 
   void testPrintCalls(DataSource source, String gene, List<String> calls) {
     GeneReport geneReport = getContext().getGeneReport(source, gene);
-    assertNotNull(geneReport);
+    assertNotNull(geneReport, "Missing report for " + gene);
     List<String> actualCalls = ReportHelpers.amdGeneCalls(geneReport);
     List<String> expectedCalls = stripHomozygousNotes(calls);
     try {
-      assertEquals(expectedCalls, actualCalls);
+      assertEquals(expectedCalls, actualCalls, "Mismatched calls for " + gene);
     } catch (AssertionError ex) {
       System.out.println(printDiagnostic(geneReport));
       throw ex;

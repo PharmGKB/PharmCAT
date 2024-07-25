@@ -298,7 +298,7 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Should only be used by tests!
    */
-  protected void addReporterDiplotype(Diplotype diplotype) {
+  void addReporterDiplotype(Diplotype diplotype) {
     m_recommendationDiplotypes.add(diplotype);
   }
 
