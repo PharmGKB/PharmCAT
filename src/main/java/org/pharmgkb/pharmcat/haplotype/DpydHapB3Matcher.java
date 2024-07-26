@@ -247,8 +247,8 @@ public class DpydHapB3Matcher {
     BaseMatch h2 = dm.getHaplotype2();
 
     boolean isHapB3homozygous = m_numHapB3Called == 2 && (
-        m_hapB3Call.stream().filter(c -> c.equals("1")).count() == 2 ||
-            m_hapB3IntronCall.stream().filter(c -> c.equals("1")).count() == 2
+        (m_hapB3Call == null || m_hapB3Call.stream().filter(c -> c.equals("1")).count() == 2) ||
+            (m_hapB3IntronCall == null || m_hapB3IntronCall.stream().filter(c -> c.equals("1")).count() == 2)
     );
 
     if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || isHapB3homozygous) {

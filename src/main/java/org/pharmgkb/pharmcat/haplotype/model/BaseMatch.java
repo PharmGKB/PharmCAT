@@ -22,7 +22,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  *
  * @author Mark Woon
  */
-public abstract class BaseMatch implements Comparable<BaseMatch> {
+public class BaseMatch implements Comparable<BaseMatch> {
   @Expose
   @SerializedName("name")
   private String m_name;

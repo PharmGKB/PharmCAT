@@ -732,6 +732,67 @@ class DpydTest {
 
 
   @Test
+  void hapB3AndIntronicC(TestInfo testInfo) throws Exception {
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // hapB3 exon C>T
+        .variation("DPYD", "rs56038477", "C", "T")
+        // hapB3 intron G>C
+        .variation("DPYD", "rs75017182", "C", "C")
+    ;
+
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of(
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1129-5923C>G, c.1236G>A (HapB3)", "c.1129-5923C>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+  @Test
+  void hapB3AndIntronicD(TestInfo testInfo) throws Exception {
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // hapB3 exon C>T
+        .variation("DPYD", "rs56038477", "T", "C")
+        // hapB3 intron G>C
+        .variation("DPYD", "rs75017182", "C", "C")
+    ;
+
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of(
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1129-5923C>G, c.1236G>A (HapB3)", "c.1129-5923C>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+
+  @Test
   void hapB3(TestInfo testInfo) throws Exception {
 
     // this file based on https://docs.google.com/spreadsheets/d/1M3XDbrCmgz7RCZFMvWgn7wYjiFufvi9JPtDhhqh_Bc8/
