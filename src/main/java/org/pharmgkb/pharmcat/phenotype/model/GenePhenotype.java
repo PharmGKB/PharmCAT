@@ -307,7 +307,7 @@ public class GenePhenotype {
 
     } else {
       diplotypeName = Arrays.stream(new String[]{ allele1, allele2 })
-          .sorted(org.pharmgkb.common.comparator.HaplotypeNameComparator.getComparator())
+          .sorted(HaplotypeNameComparator.getComparator())
           .collect(Collectors.joining("/"));
     }
 
