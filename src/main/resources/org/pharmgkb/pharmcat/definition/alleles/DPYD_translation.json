@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-07-15-21-58",
-  "modificationDate": "2024-01-31T01:22:46.249Z",
+  "version": "2024-07-25-21-55",
+  "modificationDate": "2024-07-09T22:17:49.647Z",
   "gene": "DPYD",
   "orientation": null,
   "chromosome": "chr1",

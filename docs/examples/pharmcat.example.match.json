@@ -3,15 +3,15 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2024-07-12T16:50:19.760Z",
+    "timestamp": "2024-07-26T09:58:14.155Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
   },
   "results": [
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -21,7 +21,7 @@
             "name": "rs2231142 reference (G)",
             "haplotype": {
               "name": "rs2231142 reference (G)",
-              "id": "1508724",
+              "id": "PA166287823",
               "alleles": [
                 "G"
               ],
@@ -29,6 +29,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -40,7 +41,7 @@
             "name": "rs2231142 reference (G)",
             "haplotype": {
               "name": "rs2231142 reference (G)",
-              "id": "1508724",
+              "id": "PA166287823",
               "alleles": [
                 "G"
               ],
@@ -48,6 +49,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -63,7 +65,7 @@
           "name": "rs2231142 reference (G)",
           "haplotype": {
             "name": "rs2231142 reference (G)",
-            "id": "1508724",
+            "id": "PA166287823",
             "alleles": [
               "G"
             ],
@@ -71,6 +73,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -102,8 +105,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -113,7 +116,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "777262",
+              "id": "PA166180429",
               "alleles": [
                 "C",
                 "G"
@@ -123,6 +126,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -134,7 +138,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "777262",
+              "id": "PA166180429",
               "alleles": [
                 "C",
                 "G"
@@ -144,6 +148,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -159,7 +164,7 @@
           "name": "Reference",
           "haplotype": {
             "name": "Reference",
-            "id": "777262",
+            "id": "PA166180429",
             "alleles": [
               "C",
               "G"
@@ -169,6 +174,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -206,8 +212,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -217,7 +223,7 @@
             "name": "ivacaftor non-responsive CFTR sequence",
             "haplotype": {
               "name": "ivacaftor non-responsive CFTR sequence",
-              "id": "777307",
+              "id": "PA166218381",
               "alleles": [
                 "G",
                 "C",
@@ -301,6 +307,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -312,7 +319,7 @@
             "name": "ivacaftor non-responsive CFTR sequence",
             "haplotype": {
               "name": "ivacaftor non-responsive CFTR sequence",
-              "id": "777307",
+              "id": "PA166218381",
               "alleles": [
                 "G",
                 "C",
@@ -396,6 +403,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -411,7 +419,7 @@
           "name": "ivacaftor non-responsive CFTR sequence",
           "haplotype": {
             "name": "ivacaftor non-responsive CFTR sequence",
-            "id": "777307",
+            "id": "PA166218381",
             "alleles": [
               "G",
               "C",
@@ -495,6 +503,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -754,8 +763,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -765,7 +774,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "777422",
+              "id": "PA165818750",
               "alleles": [
                 "T",
                 "A",
@@ -865,6 +874,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -876,7 +886,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "777422",
+              "id": "PA165818750",
               "alleles": [
                 "T",
                 "A",
@@ -976,6 +986,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -991,7 +1002,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "777422",
+            "id": "PA165818750",
             "alleles": [
               "T",
               "A",
@@ -1091,6 +1102,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -1398,8 +1410,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1409,7 +1421,7 @@
             "name": "*38",
             "haplotype": {
               "name": "*38",
-              "id": "777530",
+              "id": "PA166218473",
               "alleles": [
                 "C",
                 "A",
@@ -1483,6 +1495,7 @@
                 "A"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -1494,7 +1507,7 @@
             "name": "*38",
             "haplotype": {
               "name": "*38",
-              "id": "777530",
+              "id": "PA166218473",
               "alleles": [
                 "C",
                 "A",
@@ -1568,6 +1581,7 @@
                 "A"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -1583,7 +1597,7 @@
           "name": "*38",
           "haplotype": {
             "name": "*38",
-            "id": "777530",
+            "id": "PA166218473",
             "alleles": [
               "C",
               "A",
@@ -1657,6 +1671,7 @@
               "A"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -1886,8 +1901,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -1897,7 +1912,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "777668",
+              "id": "PA165816542",
               "alleles": [
                 "A",
                 "T",
@@ -2063,6 +2078,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -2074,7 +2090,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "777668",
+              "id": "PA165816542",
               "alleles": [
                 "A",
                 "T",
@@ -2240,6 +2256,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -2255,7 +2272,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "777668",
+            "id": "PA165816542",
             "alleles": [
               "A",
               "T",
@@ -2421,6 +2438,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -2934,7 +2952,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-07-11-16-10",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -3034,6 +3052,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3135,6 +3154,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3240,6 +3260,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -3319,7 +3340,7 @@
         },
         {
           "position": 99762234,
-          "rsid": null,
+          "rsid": "rs1318364992",
           "vcfCall": "C/C",
           "phased": false
         },
@@ -3337,7 +3358,7 @@
         },
         {
           "position": 99763925,
-          "rsid": null,
+          "rsid": "rs201821708",
           "vcfCall": "T/T",
           "phased": false
         },
@@ -3355,13 +3376,13 @@
         },
         {
           "position": 99766424,
-          "rsid": null,
+          "rsid": "rs1429705359",
           "vcfCall": "T/T",
           "phased": false
         },
         {
           "position": 99766439,
-          "rsid": null,
+          "rsid": "rs145582851",
           "vcfCall": "C/C",
           "phased": false
         },
@@ -3391,7 +3412,7 @@
         },
         {
           "position": 99768447,
-          "rsid": null,
+          "rsid": "rs3208361",
           "vcfCall": "T/T",
           "phased": false
         },
@@ -3499,7 +3520,7 @@
         },
         {
           "position": 99784078,
-          "rsid": null,
+          "rsid": "rs1226205448",
           "vcfCall": "C/C",
           "phased": false
         }
@@ -3517,8 +3538,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3528,7 +3549,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "778218",
+              "id": "PA166128213",
               "alleles": [
                 "T",
                 "C",
@@ -3544,6 +3565,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3555,7 +3577,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "778218",
+              "id": "PA166128213",
               "alleles": [
                 "T",
                 "C",
@@ -3571,6 +3593,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3586,7 +3609,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "778218",
+            "id": "PA166128213",
             "alleles": [
               "T",
               "C",
@@ -3602,6 +3625,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -3657,8 +3681,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3668,7 +3692,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "778238",
+              "id": "PA165860685",
               "alleles": [
                 "G",
                 "T",
@@ -3702,6 +3726,7 @@
                 "A"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3713,7 +3738,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "778238",
+              "id": "PA165860685",
               "alleles": [
                 "G",
                 "T",
@@ -3747,6 +3772,7 @@
                 "A"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -3762,7 +3788,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "778238",
+            "id": "PA165860685",
             "alleles": [
               "G",
               "T",
@@ -3796,6 +3822,7 @@
               "A"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -3905,8 +3932,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -3916,7 +3943,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "778327",
+              "id": "PA166171116",
               "alleles": [
                 "G",
                 "C",
@@ -4084,6 +4111,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -4095,7 +4123,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "778327",
+              "id": "PA166171116",
               "alleles": [
                 "G",
                 "C",
@@ -4263,6 +4291,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -4278,7 +4307,7 @@
           "name": "Reference",
           "haplotype": {
             "name": "Reference",
-            "id": "778327",
+            "id": "PA166171116",
             "alleles": [
               "G",
               "C",
@@ -4446,6 +4475,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -4969,8 +4999,8 @@
       "warnings": []
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -4980,7 +5010,7 @@
             "name": "B (reference)",
             "haplotype": {
               "name": "B (reference)",
-              "id": "778666",
+              "id": "PA165947826",
               "alleles": [
                 "A",
                 "CTCT",
@@ -5328,6 +5358,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -5339,7 +5370,7 @@
             "name": "B (reference)",
             "haplotype": {
               "name": "B (reference)",
-              "id": "778666",
+              "id": "PA165947826",
               "alleles": [
                 "A",
                 "CTCT",
@@ -5687,6 +5718,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -5702,7 +5734,7 @@
           "name": "B (reference)",
           "haplotype": {
             "name": "B (reference)",
-            "id": "778666",
+            "id": "PA165947826",
             "alleles": [
               "A",
               "CTCT",
@@ -6050,6 +6082,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -7101,8 +7134,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -7112,7 +7145,7 @@
             "name": "rs12979860 reference (C)",
             "haplotype": {
               "name": "rs12979860 reference (C)",
-              "id": "779041",
+              "id": "PA166129427",
               "alleles": [
                 "C"
               ],
@@ -7120,6 +7153,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -7131,7 +7165,7 @@
             "name": "rs12979860 reference (C)",
             "haplotype": {
               "name": "rs12979860 reference (C)",
-              "id": "779041",
+              "id": "PA166129427",
               "alleles": [
                 "C"
               ],
@@ -7139,6 +7173,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -7154,7 +7189,7 @@
           "name": "rs12979860 reference (C)",
           "haplotype": {
             "name": "rs12979860 reference (C)",
-            "id": "779041",
+            "id": "PA166129427",
             "alleles": [
               "C"
             ],
@@ -7162,6 +7197,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -7193,8 +7229,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7204,7 +7240,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779064",
+              "id": "PA166131619",
               "alleles": [
                 "T",
                 "G",
@@ -7244,6 +7280,7 @@
                 "T"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -7255,7 +7292,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779064",
+              "id": "PA166131619",
               "alleles": [
                 "T",
                 "G",
@@ -7295,6 +7332,7 @@
                 "T"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -7310,7 +7348,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "779064",
+            "id": "PA166131619",
             "alleles": [
               "T",
               "G",
@@ -7350,6 +7388,7 @@
               "T"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -7477,8 +7516,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -7488,7 +7527,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "779148",
+              "id": "PA166180377",
               "alleles": [
                 "T",
                 "CGAT",
@@ -8120,6 +8159,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -8131,7 +8171,7 @@
             "name": "Reference",
             "haplotype": {
               "name": "Reference",
-              "id": "779148",
+              "id": "PA166180377",
               "alleles": [
                 "T",
                 "CGAT",
@@ -8763,6 +8803,7 @@
                 "G"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -8778,7 +8819,7 @@
           "name": "Reference",
           "haplotype": {
             "name": "Reference",
-            "id": "779148",
+            "id": "PA166180377",
             "alleles": [
               "T",
               "CGAT",
@@ -9410,6 +9451,7 @@
               "G"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -11313,8 +11355,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -11324,7 +11366,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "1002623",
+              "id": "PA165981641",
               "alleles": [
                 "C",
                 "G",
@@ -11392,6 +11434,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -11403,7 +11446,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "1002623",
+              "id": "PA165981641",
               "alleles": [
                 "C",
                 "G",
@@ -11471,6 +11514,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -11486,7 +11530,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "1002623",
+            "id": "PA165981641",
             "alleles": [
               "C",
               "G",
@@ -11554,6 +11598,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -11765,8 +11810,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -11776,7 +11821,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779392",
+              "id": "PA165819268",
               "alleles": [
                 "T",
                 "T",
@@ -11868,6 +11913,7 @@
                 "T"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -11879,7 +11925,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779392",
+              "id": "PA165819268",
               "alleles": [
                 "T",
                 "T",
@@ -11971,6 +12017,7 @@
                 "T"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -11986,7 +12033,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "779392",
+            "id": "PA165819268",
             "alleles": [
               "T",
               "T",
@@ -12078,6 +12125,7 @@
               "T"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -12361,8 +12409,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -12372,7 +12420,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779488",
+              "id": "PA166115841",
               "alleles": [
                 "C",
                 "CAT",
@@ -12386,6 +12434,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -12397,7 +12446,7 @@
             "name": "*1",
             "haplotype": {
               "name": "*1",
-              "id": "779488",
+              "id": "PA166115841",
               "alleles": [
                 "C",
                 "CAT",
@@ -12411,6 +12460,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -12426,7 +12476,7 @@
           "name": "*1",
           "haplotype": {
             "name": "*1",
-            "id": "779488",
+            "id": "PA166115841",
             "alleles": [
               "C",
               "CAT",
@@ -12440,6 +12490,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
@@ -12489,8 +12540,8 @@
       "warnings": null
     },
     {
-      "source": "CPIC",
-      "version": "v1.40.1-1-gf95ca46",
+      "source": "PHARMGKB",
+      "version": "2024-07-25-21-55",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [
@@ -12500,7 +12551,7 @@
             "name": "rs9923231 reference (C)",
             "haplotype": {
               "name": "rs9923231 reference (C)",
-              "id": "779507",
+              "id": "PA166300422",
               "alleles": [
                 "C"
               ],
@@ -12508,6 +12559,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -12519,7 +12571,7 @@
             "name": "rs9923231 reference (C)",
             "haplotype": {
               "name": "rs9923231 reference (C)",
-              "id": "779507",
+              "id": "PA166300422",
               "alleles": [
                 "C"
               ],
@@ -12527,6 +12579,7 @@
                 "C"
               ],
               "reference": true,
+              "structuralVariant": false,
               "numCombinations": 0,
               "numPartials": 0
             },
@@ -12542,7 +12595,7 @@
           "name": "rs9923231 reference (C)",
           "haplotype": {
             "name": "rs9923231 reference (C)",
-            "id": "779507",
+            "id": "PA166300422",
             "alleles": [
               "C"
             ],
@@ -12550,6 +12603,7 @@
               "C"
             ],
             "reference": true,
+            "structuralVariant": false,
             "numCombinations": 0,
             "numPartials": 0
           },
