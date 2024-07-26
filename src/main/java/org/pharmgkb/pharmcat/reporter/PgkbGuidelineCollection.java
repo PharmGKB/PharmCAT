@@ -14,20 +14,25 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.AccessionObject;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.PrescribingGuidanceDataset;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Publication;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
 public class PgkbGuidelineCollection {
-  private static final Path GUIDANCE_DATA_PATH =
-      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/prescribing_guidance.json");
+  public static final String PRESCRIBING_GUIDANCE_FILE_NAME = "prescribing_guidance.json";
+  public static final Path GUIDANCE_DATA_PATH =
+      PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/" + PRESCRIBING_GUIDANCE_FILE_NAME);
 
+  @Expose
+  @SerializedName("guidelines")
   private final List<GuidelinePackage> f_guidelinePackages = new ArrayList<>();
   private final SortedSetMultimap<String,GuidelinePackage> f_guidelineMap = TreeMultimap.create(String::compareToIgnoreCase, Comparator.naturalOrder());
   private SortedSet<String> m_genes;
@@ -111,5 +116,10 @@ public class PgkbGuidelineCollection {
         .flatMap(p -> p.getGenes().stream())
         .filter(Objects::nonNull)
         .collect(Collectors.toCollection(TreeSet::new));
+  }
+
+
+  public void serializeToJson(Path file) throws IOException {
+    DataSerializer.serializeToJson(this, file);
   }
 }

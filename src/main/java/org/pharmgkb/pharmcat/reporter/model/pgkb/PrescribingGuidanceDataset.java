@@ -14,6 +14,7 @@ public class PrescribingGuidanceDataset {
   @SerializedName("guidelines")
   private List<GuidelinePackage> m_guidelinePackages;
 
+
   public String getVersion() {
     return m_version;
   }

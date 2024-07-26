@@ -16,8 +16,8 @@ import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Publication;
 
 
 /**

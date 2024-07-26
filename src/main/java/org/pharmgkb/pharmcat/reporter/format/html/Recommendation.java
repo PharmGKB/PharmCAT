@@ -13,7 +13,7 @@ import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.caller.LowestFunctionGeneCaller;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
+import org.pharmgkb.pharmcat.reporter.model.pgkb.Publication;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;

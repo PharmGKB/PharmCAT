@@ -46,7 +46,7 @@ public class DataSerializer {
 
 
 
-  public void serializeToJson(Object data, Path jsonFile) throws IOException {
+  public static void serializeToJson(Object data, Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
 

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
-import org.pharmgkb.pharmcat.reporter.model.cpic.Publication;
 
 
 /**

@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.reporter.model.cpic;
+package org.pharmgkb.pharmcat.reporter.model.pgkb;
 
 import java.util.List;
 import java.util.Map;
@@ -17,9 +17,6 @@ public class Publication implements Comparable<Publication> {
   @Expose
   @SerializedName("title")
   private String m_title;
-  @Expose
-  @SerializedName("authors")
-  private List<String> m_authors;
   @Expose
   @SerializedName("journal")
   private String m_journal;
@@ -41,10 +38,6 @@ public class Publication implements Comparable<Publication> {
 
   public String getTitle() {
     return m_title;
-  }
-
-  public List<String> getAuthors() {
-    return m_authors;
   }
 
   public String getJournal() {

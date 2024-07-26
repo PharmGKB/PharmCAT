@@ -22,26 +22,26 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 public class GenePhenotype {
   public static final String UNASSIGNED_FUNCTION = "Unassigned function";
 
+  @Expose
   @SerializedName("gene")
-  @Expose
   private String m_gene;
+  @Expose
   @SerializedName("haplotypes")
-  @Expose
   private Map<String, String> m_haplotypes;
+  @Expose
   @SerializedName("activityValues")
-  @Expose
   private Map<String,String> m_activityValues = new HashMap<>();
+  @Expose
   @SerializedName("diplotypes")
-  @Expose
   private SortedSet<DiplotypeRecord> m_diplotypes;
+  @Expose
   @SerializedName("namedAlleles")
-  @Expose
   private List<HaplotypeRecord> m_namedAlleles;
+  @Expose
   @SerializedName(value = "version")
-  @Expose
   private String m_version;
+  @Expose(serialize = false)
   @SerializedName("diplotypeFunctions")
-  @Expose
   private List<DiplotypeFunction> m_diplotypeFunctions;
 
   // only used by Subsetter
@@ -163,6 +163,9 @@ public class GenePhenotype {
   }
 
 
+  /**
+   * This is only available during data ingestion.
+   */
   public List<DiplotypeFunction> getDiplotypeFunctions() {
     return this.m_diplotypeFunctions;
   }

@@ -50,7 +50,6 @@ public class DataManager {
   public static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   public static final String UNIALLELIC_POSITIONS_VCF = "pharmcat_positions.uniallelic.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
-  private static final String PRESCRIBING_GUIDANCE_FILE_NAME = "prescribing_guidance.json";
   private static final String sf_zipFileName = "pharmcat.zip";
   private static final String sf_googleDocUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
 
@@ -216,11 +215,12 @@ public class DataManager {
       Files.createDirectories(guidelinesDir);
     }
 
-    Path downloadedGuidanceFile = downloadDir.resolve(PRESCRIBING_GUIDANCE_FILE_NAME);
-    Path destinationGuidanceFile = guidelinesDir.resolve(PRESCRIBING_GUIDANCE_FILE_NAME);
+    Path downloadedGuidanceFile = downloadDir.resolve(PgkbGuidelineCollection.PRESCRIBING_GUIDANCE_FILE_NAME);
+    Path destinationGuidanceFile = guidelinesDir.resolve(PgkbGuidelineCollection.PRESCRIBING_GUIDANCE_FILE_NAME);
     System.out.println("Saving guidelines to " + destinationGuidanceFile);
 
-    FileUtils.copyFile(downloadedGuidanceFile.toFile(), destinationGuidanceFile.toFile());
+    PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection(downloadedGuidanceFile);
+    pgkbGuidelineCollection.serializeToJson(destinationGuidanceFile);
     return destinationGuidanceFile;
   }
 
