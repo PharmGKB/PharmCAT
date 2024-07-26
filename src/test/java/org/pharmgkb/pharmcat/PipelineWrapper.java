@@ -455,7 +455,12 @@ class PipelineWrapper {
 
 
   private String printDiagnostic(GeneReport geneReport) {
-    return String.format("\nMatcher: %s\nReporter: %s\nPrint (displayCalls): %s",
+    return String.format("""
+        
+        Matcher:              %s
+        Reporter:             %s
+        Print (displayCalls): %s
+        """,
         geneReport.getSourceDiplotypes().toString(),
         geneReport.getRecommendationDiplotypes().toString(),
         ReportHelpers.amdGeneCalls(geneReport)
