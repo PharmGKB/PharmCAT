@@ -18,6 +18,7 @@ import com.google.common.collect.TreeMultimap;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -729,6 +730,7 @@ public class Subsetter {
     try (Workbook workbook = WorkbookFactory.create(xlsxFile.toFile())) {
       Sheet sheet = workbook.getSheetAt(0);
       for (Row row : sheet) {
+        System.out.println("Row " + row.getRowNum());
         Cell geneCell = row.getCell(0);
         String gene = StringUtils.stripToNull(geneCell.getStringCellValue());
         if (gene == null || gene.equalsIgnoreCase("gene")) {
@@ -748,7 +750,19 @@ public class Subsetter {
         Cell activityCell = row.getCell(2);
         String activity = null;
         if (activityCell != null) {
-          activity = StringUtils.stripToNull(activityCell.getStringCellValue());
+          if (activityCell.getCellType() == CellType.NUMERIC) {
+            double val = activityCell.getNumericCellValue();
+            if (val == 1) {
+              activity = "1";
+            } else if (val == 0) {
+              activity = "0";
+            } else {
+              activity = Double.toString(val);
+            }
+            System.out.println(activity);
+          } else {
+            activity = StringUtils.stripToNull(activityCell.getStringCellValue());
+          }
           if (activity != null && activity.startsWith("\"") && activity.endsWith("\"")) {
             activity = activity.substring(1, activity.length() - 1);
           }
