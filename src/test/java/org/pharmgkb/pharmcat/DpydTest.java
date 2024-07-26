@@ -966,4 +966,81 @@ class DpydTest {
       vcfBuilder.allowUnknownAllele();
     }
   }
+
+
+  /**
+   * This test and {@link #hapB3AndIntronicB(TestInfo)} are to make sure we call diplotypes with HapB3 on one strand and
+   * HapB3Intronic on the other correctly.
+   * <p>
+   * This test has GT calls on opposite strands from {@link #hapB3AndIntronicB(TestInfo)}.
+   */
+  @Test
+  void hapB3AndIntronicA(TestInfo testInfo) throws Exception {
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // hapB3 exon C>T
+        .variation("DPYD", "rs56038477", "T", "C")
+        // hapB3 intron G>C
+        .variation("DPYD", "rs75017182", "C", "C")
+        // *2A C>T
+        .variation("DPYD", "rs3918290", "T", "C")
+    ;
+
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of(
+        "c.1129-5923C>G/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1905+1G>A (*2A)]"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1905+1G>A (*2A)", "c.1129-5923C>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
+
+  /**
+   * This test and {@link #hapB3AndIntronicA(TestInfo)} are to make sure we call diplotypes with HapB3 on one strand and
+   * HapB3Intronic on the other correctly.
+   * <p>
+   * This test has GT calls on opposite strands from {@link #hapB3AndIntronicA(TestInfo)}.
+   */
+  @Test
+  void hapB3AndIntronicB(TestInfo testInfo) throws Exception {
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        // hapB3 exon C>T
+        .variation("DPYD", "rs56038477", "C", "T")
+        // hapB3 intron G>C
+        .variation("DPYD", "rs75017182", "C", "C")
+        // *2A C>T
+        .variation("DPYD", "rs3918290", "C", "T")
+    ;
+
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of(
+        "c.1129-5923C>G/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1905+1G>A (*2A)]"
+    );
+    RecPresence hasDpwgAnnotations = RecPresence.YES;
+
+    testWrapper.testCalledByMatcher("DPYD");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
+    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1905+1G>A (*2A)", "c.1129-5923C>G"));
+    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
+
+    dpydHasReports(testWrapper, hasDpwgAnnotations);
+
+    Document document = readHtmlReport(vcfFile);
+    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
+  }
 }

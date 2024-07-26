@@ -246,7 +246,12 @@ public class DpydHapB3Matcher {
     BaseMatch h1 = dm.getHaplotype1();
     BaseMatch h2 = dm.getHaplotype2();
 
-    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || m_numHapB3Called == 2) {
+    boolean isHapB3homozygous = m_numHapB3Called == 2 && (
+        m_hapB3Call.stream().filter(c -> c.equals("1")).count() == 2 ||
+            m_hapB3IntronCall.stream().filter(c -> c.equals("1")).count() == 2
+    );
+
+    if (dm.getHaplotype1().getName().equals(dm.getHaplotype2().getName()) || isHapB3homozygous) {
       // homozygous
       if (h1 == h2 && h2 instanceof CombinationMatch && m_numHapB3Called == 1) {
         // NamedAlleleMatcherTest.testDpydPhasedDouble tests this code path
