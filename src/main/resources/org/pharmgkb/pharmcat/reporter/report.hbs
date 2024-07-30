@@ -146,6 +146,11 @@
                   See <a href="#{{{sanitizeCssSelector symbol}}}">Section III</a> for details.
                 </p>
               {{/if}}
+              {{#if isReportAsReferenceOverride}}
+                <p class="tdNote" id="gs-reportAsReference-{{{sanitizeCssSelector symbol}}}">
+                  {{{reportAsReferenceOverrideMsg}}}
+                </p>
+              {{/if}}
             </td>
           </tr>
         {{/each}}

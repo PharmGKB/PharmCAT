@@ -41,7 +41,7 @@ public class GenePhenotype {
   @Expose
   @SerializedName(value = "version")
   private String m_version;
-  @Expose(serialize = false)
+  @Expose
   @SerializedName("diplotypeFunctions")
   private List<DiplotypeFunction> m_diplotypeFunctions;
 

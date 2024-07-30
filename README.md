@@ -1,24 +1,24 @@
 # PharmCAT
 
-[![PharmCAT CI](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-pharmcat.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-pharmcat.yml)
-[![Preprocessor CI](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml)
-[![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=development)
+This is a customized version of PharmCAT specifically for use by SHC.
 
-A tool to extract variants of pharmacogenomic interest from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, match to defined named alleles, find related prescribing guidance, and generate reports in various formats.
+For standard PharmCAT, see https://github.com/PharmGKB/PharmCAT. 
 
-For more details:
 
-1. Go to [PharmCAT website](https://pharmcat.org)
-2. Read the [PharmGKB blog post about PharmCAT](http://pharmgkb.blogspot.com/2016/04/pharmacogenomics-clinical-annotation.html)
-3. Read the [article on GenomeWeb](https://www.genomeweb.com/molecular-diagnostics/researchers-hope-pharmcat-tool-will-help-improve-clinical-implementation)
+## Building SHC PharmCAT
 
-## Status
+1. Run `make updateData`
+2. Run `make updateShc`
 
-PharmCAT is available for general use, but it is still under _active development_. New features, data updates, and bug fixes will be released. Watch this repo or check the [releases](../../releases) page for new releases.
 
-All technical requirements and documentation are available on [PharmCAT.org](https://pharmcat.org).
+## Update from standard PharmCAT
 
-PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077)
+1. Update either `main` or `development` branch to match upstream PharmCAT branch
+2. Rebase `shc_core` on top of this branch
+3. Update SHC inputs as appropriate
+4. Run `make updateData`
+5. Run `make updateShc`
+6. This becomes the new release
 
 
 ## Contact

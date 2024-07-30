@@ -23,6 +23,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
@@ -32,6 +33,7 @@ import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.VariantReportFactory;
 import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.caller.LowestFunctionGeneCaller;
+import org.pharmgkb.pharmcat.reporter.caller.ReportAsReferenceCaller;
 import org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -116,6 +118,9 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("treatUndocumentedVariationsAsReference")
   private final boolean m_treatUndocumentedVariationsAsReference;
+  @Expose
+  @SerializedName("reportAsReferenceOverride")
+  private String m_reportAsReferenceOverride;
 
   // used to cache message names
   private transient final List<String> m_messageKeys = new ArrayList<>();
@@ -182,8 +187,15 @@ public class GeneReport implements Comparable<GeneReport> {
       if (call.isEffectivelyPhased() && call.getDiplotypes().size() == 1) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+
+        Set<DiplotypeMatch> overrides = ReportAsReferenceCaller.override(env, m_gene, call.getDiplotypes());
+        if (overrides != call.getDiplotypes()) {
+              ReportAsReferenceCaller.addMessage(this, call.getDiplotypes(), overrides)
+                  .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+        }
         m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromDiplotypes(m_gene, env,
-            phenotypeSource, diplotypeFactory, call.getDiplotypes()));
+            phenotypeSource, diplotypeFactory, overrides));
+
       } else {
         List<HaplotypeMatch> uniqueMatches = new ArrayList<>();
         Map<String, Integer> counts = new HashMap<>();
@@ -196,8 +208,15 @@ public class GeneReport implements Comparable<GeneReport> {
           }
         });
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(uniqueMatches, m_phenotypeSource));
+
+        List<HaplotypeMatch> overrides = ReportAsReferenceCaller.override(env, m_gene, call.getHaplotypeMatches());
+        if (overrides != call.getHaplotypeMatches()) {
+          ReportAsReferenceCaller.addMessage(this, call.getHaplotypeMatches(), overrides)
+              .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+        }
         m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromHaplotypeMatches(m_gene, env, phenotypeSource,
-            diplotypeFactory, call.getHaplotypeMatches()));
+            diplotypeFactory, overrides));
+
         if (isLowestFunctionGene(m_gene)) {
           for (String h : counts.keySet()) {
             if (counts.get(h) > 1) {
@@ -212,9 +231,20 @@ public class GeneReport implements Comparable<GeneReport> {
       m_sourceDiplotypes.addAll(diplotypes);
 
       if (isSlco1b1(m_gene)) {
-        m_recommendationDiplotypes.addAll(Slco1b1CustomCaller.inferDiplotypes(this, env, phenotypeSource));
+        SortedSet<Diplotype> inferred = Slco1b1CustomCaller.inferDiplotypes(this, env, phenotypeSource);
+        Collection<Diplotype> overrides = ReportAsReferenceCaller.override(env, phenotypeSource, m_gene, inferred);
+        if (overrides != inferred) {
+          ReportAsReferenceCaller.addMessage(this, inferred, overrides)
+              .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+        }
+        m_recommendationDiplotypes.addAll(overrides);
       } else {
-        m_recommendationDiplotypes.addAll(diplotypes);
+        Collection<Diplotype> overrides = ReportAsReferenceCaller.override(env, phenotypeSource, m_gene, diplotypes);
+        if (overrides != diplotypes) {
+          ReportAsReferenceCaller.addMessage(this, diplotypes, overrides)
+              .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+        }
+        m_recommendationDiplotypes.addAll(overrides);
       }
     }
 
@@ -249,11 +279,29 @@ public class GeneReport implements Comparable<GeneReport> {
     Diplotype diplotype = new Diplotype(call, env, m_phenotypeSource);
     m_sourceDiplotypes.add(diplotype);
     if (isLowestFunctionGene(m_gene)) {
-      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env, m_phenotypeSource));
+      OutsideCall overrides = ReportAsReferenceCaller.override(env, call);
+      if (overrides != call) {
+        ReportAsReferenceCaller.addMessage(this, call.toString(), overrides.toString())
+            .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+      }
+      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(
+          overrides, env, m_phenotypeSource));
+
     } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
-      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env, m_phenotypeSource));
+      Diplotype overrides = ReportAsReferenceCaller.override(env, m_phenotypeSource, diplotype);
+      if (overrides != diplotype) {
+        ReportAsReferenceCaller.addMessage(this, diplotype.getLabel(), overrides.getLabel())
+            .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+      }
+      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, overrides, env, m_phenotypeSource));
+
     } else {
-      m_recommendationDiplotypes.add(diplotype);
+      Diplotype overrides = ReportAsReferenceCaller.override(env, m_phenotypeSource, diplotype);
+      if (overrides != diplotype) {
+        ReportAsReferenceCaller.addMessage(this, diplotype.getLabel(), overrides.getLabel())
+            .ifPresent((msg) -> m_reportAsReferenceOverride = msg.getMessage());
+      }
+      m_recommendationDiplotypes.add(overrides);
     }
   }
 
@@ -417,6 +465,10 @@ public class GeneReport implements Comparable<GeneReport> {
 
   public boolean isTreatUndocumentedVariationsAsReference() {
     return m_treatUndocumentedVariationsAsReference;
+  }
+
+  public String getReportAsReferenceOverride() {
+    return m_reportAsReferenceOverride;
   }
 
 

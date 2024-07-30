@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.subsetter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Writer;
 import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -35,6 +36,7 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
+import org.pharmgkb.pharmcat.reporter.caller.ReportAsReferenceCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -50,6 +52,7 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
 public class Subsetter {
   // inputs
   private final Multimap<String, String> m_allowList = HashMultimap.create();
+  private final SortedMap<String, SortedSet<String>> m_reportAsReference = new TreeMap<>();
   private final Multimap<String, FunctionData> m_functionOverrides = TreeMultimap.create();
   private final Map<String, Map<String, NamedAllele>> m_extraDefinitions = new HashMap<>();
 
@@ -232,7 +235,7 @@ public class Subsetter {
     if (!Files.exists(file.getParent())) {
       Files.createDirectories(file.getParent());
     }
-    new SummaryWriter(m_phenotypeMap, m_geneData).write(file);
+    new SummaryWriter(m_phenotypeMap, m_geneData, m_reportAsReference).write(file);
   }
 
 
@@ -338,6 +341,14 @@ public class Subsetter {
         dir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz"), StandardCopyOption.REPLACE_EXISTING);
     Files.move(defsDir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz.csi"),
         dir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz.csi"), StandardCopyOption.REPLACE_EXISTING);
+
+    if (!m_reportAsReference.isEmpty()) {
+      Path file = defsDir.resolve(ReportAsReferenceCaller.DATA_FILE_NAME);
+      System.out.println("Saving report-as-reference data in " + file);
+      try (Writer writer = Files.newBufferedWriter(file)) {
+        DataSerializer.GSON.toJson(m_reportAsReference, writer);
+      }
+    }
   }
 
   private void exportPhenotypes(Path dir) throws IOException {
@@ -667,7 +678,12 @@ public class Subsetter {
         if (data.length > 2) {
           String mod = StringUtils.stripToNull(data[2]);
           if (mod != null) {
-            System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
+            if (mod.equalsIgnoreCase("report as *1")) {
+              m_reportAsReference.computeIfAbsent(gene, g -> new TreeSet<>())
+                  .add(allele);
+            } else {
+              System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
+            }
           }
         }
 
@@ -717,7 +733,12 @@ public class Subsetter {
         if (modCell != null) {
         String mod = StringUtils.stripToNull(modCell.getStringCellValue());
           if (mod != null) {
-            System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
+            if (mod.equalsIgnoreCase("report as *1")) {
+              m_reportAsReference.computeIfAbsent(gene, g -> new TreeSet<>())
+                  .add(allele);
+            } else {
+              System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
+            }
           }
         }
       }

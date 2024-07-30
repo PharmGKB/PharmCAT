@@ -15,6 +15,8 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
@@ -305,7 +307,11 @@ public class HtmlFormat extends AbstractFormat {
             summary.put("diplotypes", report.getSourceDiplotypes().first());
             summary.put("componentDiplotypes", report.getMatcherComponentHaplotypes());
           } else {
-            summary.put("diplotypes", report.getSourceDiplotypes());
+            if (report.getReportAsReferenceOverride() != null) {
+              summary.put("diplotypes", report.getRecommendationDiplotypes());
+            } else {
+              summary.put("diplotypes", report.getSourceDiplotypes());
+            }
           }
         } else {
           summary.put("diplotypes", report.getRecommendationDiplotypes());
@@ -314,6 +320,17 @@ public class HtmlFormat extends AbstractFormat {
         summary.put("hasMissingVariants", report.isMissingVariants());
         summary.put("showUnphasedNote", showUnphasedNote(report));
         summary.put("hasUndocumentedVariants", report.isHasUndocumentedVariations());
+        summary.put("isReportAsReferenceOverride", report.getReportAsReferenceOverride() != null);
+        if (report.getReportAsReferenceOverride() != null) {
+          Matcher m = Pattern.compile("Rewriting (.+?) as (.+?)")
+                  .matcher(report.getReportAsReferenceOverride());
+          if (m.matches()) {
+            summary.put("reportAsReferenceOverrideMsg", "Rewriting <b><code style=\"color: #cc0000\">" + m.group(1) +
+                "</code></b> as <b><code style=\"color: #cc0000\">" + m.group(2) + "</code></b>.");
+          } else {
+            summary.put("reportAsReferenceOverrideMsg", report.getReportAsReferenceOverride());
+          }
+        }
         summary.put("treatUndocumentedVariationsAsReference", report.isTreatUndocumentedVariationsAsReference());
         summary.put("geneReport", report);
 

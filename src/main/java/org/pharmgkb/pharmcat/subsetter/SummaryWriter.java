@@ -40,13 +40,16 @@ public class SummaryWriter {
 
   private final PhenotypeMap m_phenotypeMap;
   private final SortedMap<String, GeneData> m_geneData;
+  private final SortedMap<String, SortedSet<String>> m_reportAsReference;
 
   private final List<CellStyle> m_cellStyles = new ArrayList<>();
 
 
-  public SummaryWriter(PhenotypeMap phenotypeMap, SortedMap<String, GeneData> geneData) {
+  public SummaryWriter(PhenotypeMap phenotypeMap, SortedMap<String, GeneData> geneData,
+      SortedMap<String, SortedSet<String>> reportAsReference) {
     m_phenotypeMap = phenotypeMap;
     m_geneData = geneData;
+    m_reportAsReference = reportAsReference;
   }
 
 
@@ -232,6 +235,9 @@ public class SummaryWriter {
 
   private void writeHaplotype(Row row, GeneData gd, NamedAllele hap) {
     CellStyle cellStyle = null;
+    if (m_reportAsReference.containsKey(gd.gene) && m_reportAsReference.get(gd.gene).contains(hap.getName())) {
+      cellStyle = m_cellStyles.get(CELL_STYLE_REPORT_AS_REF);
+    }
     writeCell(row, 0, hap.getName(), cellStyle);
     writeFunction(row, gd.gene, hap, DataSource.CPIC);
     writeFunction(row, gd.gene, hap, DataSource.DPWG);

@@ -35,18 +35,20 @@ quietTest = true
 updateData: clean
 	@echo "Updating data..."
 	@${GRADLE_CMD} updateData
-	@echo "Moving pharmcat_position files..."
-	mv -f src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
-	cp -f pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
-	cp -f pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
-	sed -e '/rs12769205/ s/0\/0/1\/1/g' pharmcat_positions.vcf | sed '/rs4244285/ s/0\/0/1\/1/g' | sed '/rs3758581/ s/0\/0/1\/1/g' | sed '/rs3745274/ s/0\/0/0\/1/g' | sed '/rs2279343/ s/0\/0/0\/1/g' > docs/examples/pharmcat.example2.vcf
-	@echo ""
-	@echo "Updating examples..."
-	@${GRADLE_CMD} updateExample
-	@${GRADLE_CMD} updateExample2
-	# this reverts files with only EOL changes
 	@git stash
 	@git stash pop
+	@git add base_data
+
+.PHONY: updateShc
+updateShc: clean
+	@echo "Updating SHC data..."
+	@${GRADLE_CMD} updateShc
+	@git checkout -- shc_inputs/allow_list.xlsx
+	@git checkout -- shc_inputs/function_overrides.xlsx
+	@git stash
+	@git stash pop
+	@git add src/main/resources/org/pharmgkb/pharmcat/definition/alleles/reportAsReference.json
+	@git add src/main/resources/org/pharmgkb/pharmcat/definition/alleles/summary.xlsx
 
 
 .PHONY: _dockerPrep
@@ -223,7 +225,7 @@ release:
 dockerRelease: _dockerPrep
 	version=`git describe --tags | sed -r s/^v//`
 	docker buildx inspect pcat-builder || docker buildx create --name pcat-builder --bootstrap --platform linux/amd64,linux/arm64
-	docker buildx build --builder pcat-builder --platform linux/amd64,linux/arm64 --push --tag pgkb/pharmcat:latest --tag pgkb/pharmcat:$${version} .
+	docker buildx build --builder pcat-builder --platform linux/amd64,linux/arm64 --tag pgkb/pharmcat:$${version} .
 
 .PHONEY: jekyllDocker
 jekyllDocker:

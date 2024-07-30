@@ -39,7 +39,16 @@ public class VariantReportFactory {
     m_gene = gene;
     m_chr = chr;
 
-    DefinitionFile definitionFile = env.getDefinitionReader().getDefinitionFile(gene);
+    DefinitionFile definitionFile = null;
+    try {
+      definitionFile = env.getDefinitionReader().getDefinitionFile(gene);
+    } catch (IllegalArgumentException ex) {
+      if (ex.getMessage().equals("No definition for " + gene)) {
+        // SHC-ONLY: ignore missing genes
+        return;
+      }
+      throw ex;
+    }
     VariantLocus[] allVariants = definitionFile.getVariants();
 
     for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {

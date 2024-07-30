@@ -158,7 +158,7 @@ public class CombinationMatch extends BaseMatch {
     return m_componentHaplotypes;
   }
 
-  private VariantLocus[] getRefVariants() {
+  public VariantLocus[] getRefVariants() {
     return m_refVariants;
   }
 

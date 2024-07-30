@@ -175,11 +175,25 @@ tasks.register('updateData', JavaExec) {
   mainClass = 'org.pharmgkb.pharmcat.util.DataManager'
   classpath = sourceSets.main.runtimeClasspath
   def argList = [
-      '-a', file('src/main/resources/org/pharmgkb/pharmcat/definition/alleles'),
-      '-p', file('src/main/resources/org/pharmgkb/pharmcat/phenotype'),
+      '-a', file('base_data/definition'),
+      '-p', file('base_data'),
       '-m', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
       '-g', file('src/main/resources/org/pharmgkb/pharmcat/reporter'),
       '-doc', file('docs'),
+  ]
+  args argList
+}
+
+tasks.register('updateShc', JavaExec) {
+  dependsOn 'classes'
+  mainClass = 'org.pharmgkb.pharmcat.subsetter.Subsetter'
+  classpath = sourceSets.main.runtimeClasspath
+  def argList = [
+      '-a', file('shc_inputs/allow_list.xlsx'),
+      '-d', file('shc_inputs/extra_definitions.json'),
+      '-pc', file('shc_inputs/function_overrides.xlsx'),
+      '-i', file('base_data'),
+      '-o', file('.'),
   ]
   args argList
 }
