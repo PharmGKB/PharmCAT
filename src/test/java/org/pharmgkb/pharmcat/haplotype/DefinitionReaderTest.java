@@ -14,12 +14,12 @@ class DefinitionReaderTest {
 
 
   @Test
-  void testVkorc1() throws Exception {
-    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/VKORC1_translation.json");
+  void testCyp3a4() throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/CYP3A4_translation.json");
     DefinitionReader dr = new DefinitionReader(definitionFile, null);
 
-    assertEquals(1, dr.getPositions("VKORC1").length);
-    assertEquals(2, dr.getHaplotypes("VKORC1").size());
+    assertEquals(2, dr.getPositions("CYP3A4").length);
+    assertEquals(3, dr.getHaplotypes("CYP3A4").size());
   }
 
 

@@ -118,65 +118,6 @@ class DpydTest {
 
 
   @Test
-  void testDpydPhased(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        .variation("DPYD", "rs3918290", "C", "T")
-        .variation("DPYD", "rs1801159", "C", "T")
-    ;
-    Path vcfFile = testWrapper.execute();
-
-    String gene = "DPYD";
-    List<String> expectedCalls = List.of("c.1627A>G (*5)/c.1905+1G>A (*2A)");
-    RecPresence hasDpwgAnnotations = RecPresence.YES;
-
-    GeneReport dpwgReport = testWrapper.getContext().getGeneReport(DataSource.DPWG, "DPYD");
-    assertNotNull(dpwgReport);
-    assertTrue(dpwgReport.getRecommendationDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream()).noneMatch(TextConstants::isUnspecified), "DPWG missing lookup key for DPYD");
-
-    testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
-
-    // DPWG does not include the 1627 allele in function definition so use Reference for lookup
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCallsToRecommendedDiplotypes(List.of("Reference/c.1905+1G>A (*2A)")));
-    // all other diplotype usage can use the alleles as called
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-
-  @Test
-  void testDpydUnphased(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs3918290", "C", "T")
-        .variation("DPYD", "rs1801159", "C", "T");
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.1627A>G (*5)", "c.1905+1G>A (*2A)");
-    RecPresence hasDpwgAnnotations = RecPresence.YES;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-
-  @Test
   void testDpydUndocumentedVariation(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -308,76 +249,6 @@ class DpydTest {
 
 
   @Test
-  void testDpydUnphasedMultiple1(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs183385770", "C", "T")  // 0 activity value
-        .variation("DPYD", "rs186169810", "A", "C") // 0.5 activity value
-        .variation("DPYD", "rs112766203", "G", "A") // c.2279C>T - 0.5 activity value
-        .variation("DPYD", "rs144395748", "G", "C"); // 1 activity value
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of(
-        "c.1024G>A",
-        "c.1314T>G",
-        "c.1358C>G",
-        "c.2279C>T"
-    );
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1024G>A", "c.1314T>G"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testLookupByActivity(DataSource.CPIC, "DPYD", "0.5");
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
-  void testDpydUnphasedMultiple2(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs183385770", "C", "T")  // 0 activity value
-        .variation("DPYD", "rs186169810", "A", "C") // 0.5 activity value
-        .variation("DPYD", "rs67376798", "T", "A") // c.2846A>T
-        .variation("DPYD", "rs144395748", "G", "C"); // 1 activity value
-
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of(
-        "c.1024G>A",
-        "c.1314T>G",
-        "c.1358C>G",
-        "c.2846A>T"
-    );
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.1024G>A", "c.2846A>T"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testLookupByActivity(DataSource.CPIC, "DPYD", "0.5");
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    // in this instance, tegafur should have only a DPWG annotation, but it has no matching guidance
-    DrugReport tegafur = testWrapper.getContext().getDrugReport(PrescribingGuidanceSource.DPWG_GUIDELINE, "tegafur");
-    assertNotNull(tegafur);
-    assertFalse(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.CPIC_GUIDELINE));
-    assertTrue(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.DPWG_GUIDELINE));
-    assertFalse(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.FDA_LABEL));
-    assertFalse(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.FDA_ASSOC));
-    assertFalse(tegafur.isMatched());
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
   void testDpydC2846het(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
@@ -458,90 +329,6 @@ class DpydTest {
     assertEquals(lowRec.split("\\(if available\\)")[0], highRec.split("\\(if available\\)")[0]);
   }
 
-  /**
-   * This test puts 2 alleles on each strand of a phased DPYD and then asserts that the
-   * lowest-function allele is used for lookup on each of the strands.
-   */
-  @Test
-  void testDpydPhasedMultiTrans(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        .variation("DPYD", "rs67376798", "A", "T") // Strand 1 decreased - c.2846A>T
-        .variation("DPYD", "rs72547601", "C", "T") // Strand 1 no function - c.2933A>G
-        .variation("DPYD", "rs60139309", "T", "C") // Strand 2 normal function - c.2582A>G
-        .variation("DPYD", "rs139834141", "C", "T") // Strand 2 normal function - c.498G>A
-    ;
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.498G>A", "c.2933A>G"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  /**
-   * This test is the same as the previous test, but DPYD is unphased instead of phased.
-   * This means the individual found alleles should be reported and then the two lowest-function
-   * alleles should be used for recommendation lookup.
-   */
-  @Test
-  void testDpydUnphasedMultiTrans(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs67376798", "A", "T") // decreased - c.2846A>T
-        .variation("DPYD", "rs72547601", "C", "T") // no function - c.2933A>G
-        .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
-        .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
-    ;
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.2933A>G", "c.2846A>T"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
-  void testDpydUnphasedMultiTrans_infer_homo(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs67376798", "A", "T") // decreased - c.2846A>T
-        .variation("DPYD", "rs72547601", "C", "C") // no function - c.2933A>G
-        .variation("DPYD", "rs60139309", "T", "C") // normal function - c.2582A>G
-        .variation("DPYD", "rs139834141", "C", "T") // normal function - c.498G>A
-    ;
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.2933A>G", "c.2933A>G"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
 
   @Test
   void testDpydS12het(TestInfo testInfo) throws Exception {
@@ -564,180 +351,6 @@ class DpydTest {
 
     Document document = readHtmlReport(vcfFile);
     dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, false, RecPresence.YES, hasDpwgAnnotations);
-  }
-
-  @Test
-  void testDpydHomNoFunctionEffectivelyPhased(TestInfo testInfo) throws Exception {
-    // effectively phased
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
-        .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.61C>T", "c.61C>T"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
-  void testDpydHomNoFunctionPhased(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        .variation("DPYD", "rs72549310", "A", "A")   // c.61C>T, hom variant (No function)
-        .variation("DPYD", "rs150385342", "C", "T"); // c.313G>A het variant (Normal function)
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.61C>T", "c.61C>T"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
-  void testDpydHomNoFunctionUnphased(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .variation("DPYD", "rs72547601", "C", "C") // c.2933A>G - no function
-        .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T - decreased
-        .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G - normal
-    ;
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of("c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
-    RecPresence hasDpwgAnnotations = RecPresence.NO;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.2933A>G", "c.2933A>G"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-
-  @Test
-  void test155(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        // chr1	97515865	1|0  C->T (*4) 1.0
-        .variation("DPYD", "rs1801158", "T", "C")
-        // chr1	97573863	0|1 C->T
-        .variation("DPYD", "rs56038477", "C", "T")
-        // chr1	97579893	0|1 G->C
-        .variation("DPYD", "rs75017182", "G", "C")
-        // chr1	97699535	1|0 T->C (c.496A>G) 1.0
-        .variation("DPYD", "rs2297595", "C", "T")
-        // chr1	97883329	1|1 A->G (*9A) 1.0
-        .variation("DPYD", "rs1801265", "G", "G")
-    ;
-
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of(
-        "[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.496A>G + c.1601G>A (*4)]"
-    );
-    RecPresence hasDpwgAnnotations = RecPresence.YES;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("c.85T>C (*9A)", DpydHapB3Matcher.HAPB3_ALLELE));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
-  }
-
-  @Test
-  void test156(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        // chr1	97305364	1|0  C->T
-        .variation("DPYD", "rs1801160", "T", "C")
-        // chr1	97515839	1|0 T->C
-        .variation("DPYD", "rs1801159", "C", "T")
-
-        // chr1	97573863	1|0 C->T
-        .variation("DPYD", "rs56038477", "T", "C")
-        // chr1	97579893	1|0 G->C
-        .variation("DPYD", "rs75017182", "C", "G")
-    ;
-
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of(
-        "Reference/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)]"
-    );
-    List<String> cpicStyleCalls = List.of(
-        "[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5) + c.2194G>A (*6)] (heterozygous)"
-    );
-    RecPresence hasDpwgAnnotations = RecPresence.YES;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", List.of("Reference", DpydHapB3Matcher.HAPB3_ALLELE));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, cpicStyleCalls, false, RecPresence.YES, hasDpwgAnnotations);
-  }
-
-
-  /**
-   * Check that DPYD matching isn't affected when "find-combinations" mode is enabled.
-   */
-  @Test
-  void testFindCombinations(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true, false, false);
-    testWrapper.getVcfBuilder()
-        .phased()
-        .allowUnknownAllele()
-        .variation("DPYD", "rs114096998", "G", "A")
-    ;
-
-    Path vcfFile = testWrapper.execute();
-
-    List<String> expectedCalls = List.of(
-        "Reference/Reference"
-    );
-    RecPresence hasDpwgAnnotations = RecPresence.YES;
-
-    testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", expectedCalls);
-
-    dpydHasReports(testWrapper, hasDpwgAnnotations);
-
-    Document document = readHtmlReport(vcfFile);
-    dpydHtmlChecks(document, expectedCalls, false, hasDpwgAnnotations);
   }
 
 
@@ -822,13 +435,13 @@ class DpydTest {
       assertEquals("rs75017182", data[1]);
       assertEquals("rs72549310", data[2]);
       assertEquals("rs67376798", data[3]);
-      assertEquals("rs1801265", data[4]);
+      assertEquals("rs1801266", data[4]);
       assertEquals("rs186169810", data[5]);
       assertEquals("rs115232898", data[6]);
       int row = 3;
       while ((line = reader.readLine()) != null) {
         row += 1;
-        if (row < 99) {
+        if (row < 107) {
           //continue;
         }
         String name = String.format("row_%03d", row);
@@ -860,7 +473,7 @@ class DpydTest {
     setVariation(testWrapper, vcfBuilder, "rs75017182", data[1]);
     setVariation(testWrapper, vcfBuilder, "rs72549310", data[2]);
     setVariation(testWrapper, vcfBuilder, "rs67376798", data[3]);
-    setVariation(testWrapper, vcfBuilder, "rs1801265", data[4]);
+    setVariation(testWrapper, vcfBuilder, "rs1801266", data[4]);
     setVariation(testWrapper, vcfBuilder, "rs186169810", data[5], "G");
     setVariation(testWrapper, vcfBuilder, "rs115232898", data[6]);
     assertFalse(data[7].isEmpty());

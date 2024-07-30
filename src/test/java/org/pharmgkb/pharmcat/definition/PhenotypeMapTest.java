@@ -37,7 +37,7 @@ class PhenotypeMapTest {
 
     assertNotNull(phenotypeMap);
 
-    assertEquals(17, phenotypeMap.getCpicGenes().size());
+    assertEquals(11, phenotypeMap.getCpicGenes().size());
 
     // HLA's are not part of the Phenotype map, they use allele status instead
     assertTrue(phenotypeMap.getCpicGenes().stream().noneMatch((gene) -> gene.getGene().startsWith("HLA")));

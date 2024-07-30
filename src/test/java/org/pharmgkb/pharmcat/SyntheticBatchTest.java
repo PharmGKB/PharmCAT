@@ -23,17 +23,13 @@ import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherCftrTest;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherCyp2c19Test;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherCyp2c9Test;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherCyp3a5Test;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherCyp4f2Test;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherIfnl3Test;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherSlco1b1Test;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTpmtTest;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherUgt1a1Test;
-import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherVkorc1Test;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.slf4j.Logger;
@@ -156,21 +152,14 @@ class SyntheticBatchTest {
           .selectors(
               selectClass(PharmCATTest.class),
               selectClass(PipelineTest.class),
-              selectClass(Cacna1sTest.class),
-              selectClass(CftrTest.class),
               selectClass(DpydTest.class),
-              selectClass(Ryr1Test.class),
-              selectClass(NamedAlleleMatcherCftrTest.class),
               selectClass(NamedAlleleMatcherCyp2c9Test.class),
               selectClass(NamedAlleleMatcherCyp2c19Test.class),
               selectClass(NamedAlleleMatcherCyp3a5Test.class),
-              selectClass(NamedAlleleMatcherCyp4f2Test.class),
-              selectClass(NamedAlleleMatcherIfnl3Test.class),
               selectClass(NamedAlleleMatcherSlco1b1Test.class),
               selectClass(NamedAlleleMatcherTest.class),
               selectClass(NamedAlleleMatcherTpmtTest.class),
-              selectClass(NamedAlleleMatcherUgt1a1Test.class),
-              selectClass(NamedAlleleMatcherVkorc1Test.class)
+              selectClass(NamedAlleleMatcherUgt1a1Test.class)
           )
           .build();
       Launcher launcher = LauncherFactory.create();

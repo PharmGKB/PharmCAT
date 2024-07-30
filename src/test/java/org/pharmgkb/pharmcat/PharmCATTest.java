@@ -17,15 +17,10 @@ import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
-import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
-import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
-import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -87,7 +82,6 @@ class PharmCATTest {
       assertNotNull(document.getElementById("section-i"));
       assertNotNull(document.getElementById("ABCG2"));
       assertNull(document.getElementById("CYP2D6"));
-      assertNotNull(document.getElementById("desflurane"));
       assertNull(document.getElementById("aripiprazole"));
 
     } finally {
@@ -160,91 +154,6 @@ class PharmCATTest {
 
 
   @Test
-  void reference_cpicAndDpwgOnly(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    doReference(testInfo, new String[]{
-        "-vcf", vcfFile.toString(),
-        "-o", outputDir.toString(),
-        "-rs", "CPIC,DPWG"
-    }, document -> {
-      assertNotNull(document.getElementById("desflurane"));
-      assertEquals(1, document.getElementsByClass("cpic-guideline-desflurane").size());
-      assertEquals(0, document.getElementsByClass("fda-label-desflurane").size());
-      assertNotNull(document.getElementById("atorvastatin"));
-      assertEquals(1, document.getElementsByClass("cpic-guideline-atorvastatin").size());
-      assertEquals(1, document.getElementsByClass("dpwg-guideline-atorvastatin").size());
-      assertEquals(0, document.getElementsByClass("fda-assoc-atorvastatin").size());
-    });
-  }
-
-
-  @Test
-  void reference_fdaOnly(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    doReference(testInfo, new String[]{
-        "-vcf", vcfFile.toString(),
-        "-o", outputDir.toString(),
-        "-rs", "FDA"
-    }, document -> {
-      assertNotNull(document.getElementById("desflurane"));
-      assertEquals(0, document.getElementsByClass("cpic-guideline-desflurane").size());
-      assertEquals(1, document.getElementsByClass("fda-label-desflurane").size());
-      assertNull(document.getElementById("atorvastatin"));
-    });
-  }
-
-
-  /**
-   * An example run with CYP2D6 research mode enabled.
-   * <p>NOTE: since research mode is enabled you will not get output from the reporter.</p>
-   */
-  @Test
-  void callCyp2d6(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
-
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path refMatcherOutput = outputDir.resolve("reference.match.json");
-    Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
-    Path refReporterOutput = outputDir.resolve("reference.report.html");
-
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[]{
-          "-vcf", vcfFile.toString(),
-          "-o", outputDir.toString(),
-          "-research", "cyp2d6"
-      }));
-      //System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertTrue(Files.exists(refMatcherOutput));
-      assertTrue(Files.exists(refPhenotyperOutput));
-      assertTrue(Files.notExists(refReporterOutput));
-
-      ResultSerializer resultSerializer = new ResultSerializer();
-      Result result = resultSerializer.fromJson(refMatcherOutput);
-      Optional<GeneCall> opt = result.getGeneCalls().stream()
-          .filter(gc -> gc.getGene().equals("CYP2D6"))
-          .findFirst();
-      assertTrue(opt.isPresent());
-      assertEquals(1, opt.get().getDiplotypes().size());
-      assertEquals("*1/*1", opt.get().getDiplotypes().iterator().next().getName());
-
-      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
-      Optional<GeneReport> grOpt = reports.stream()
-          .filter(gr -> gr.getGene().equals("CYP2D6"))
-          .findFirst();
-      assertTrue(grOpt.isPresent());
-      assertTrue(grOpt.get().isCalled());
-      assertFalse(grOpt.get().isOutsideCall());
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-  }
-
-  @Test
   void callCyp2d6WithOverlappingOutsideCall(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
     Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
@@ -293,152 +202,6 @@ class PharmCATTest {
       assertFalse(Files.exists(reporterOutput));
 
       validateCyp2d6OutsideCallOutput(phenotyperOutput);
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-  }
-
-  @Test
-  void outsideCallsNoRecs(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
-    Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv");
-
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path matcherOutput = outputDir.resolve("reference.match.json");
-    Path phenotyperOutput = outputDir.resolve("reference.phenotype.json");
-    Path reporterOutput = outputDir.resolve("reference.report.html");
-
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-po", outsideCallFile.toString(),
-          "-o", outputDir.toString(),
-      }));
-      System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertTrue(Files.exists(matcherOutput));
-      assertTrue(Files.exists(phenotyperOutput));
-      assertTrue(Files.exists(reporterOutput));
-
-      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
-      Optional<GeneReport> grOpt = reports.stream()
-          .filter(gr -> gr.getGene().equals("IFNL3"))
-          .findFirst();
-      assertTrue(grOpt.isPresent());
-      assertTrue(grOpt.get().isCalled());
-      assertTrue(grOpt.get().isOutsideCall());
-
-      Document document = Jsoup.parse(reporterOutput.toFile());
-      assertEquals(1,
-          document.select(".gene.IFNL3_4 .alert-warning." + MessageHelper.MSG_OUTSIDE_CALL).size());
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-  }
-
-
-  @Test
-  void outsideCallsSuballeles(TestInfo testInfo) throws Exception {
-    Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsSuballeles.tsv");
-
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path matcherOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.match.json");
-    Path phenotyperOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.phenotype.json");
-    Path reporterOutput = outputDir.resolve("PharmCATTest-outsideCallsSuballeles.report.html");
-
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-o", outputDir.toString(),
-          "-phenotyper",
-          "-po", outsideCallFile.toString()
-      }));
-      System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertTrue(systemOut.contains("WARNING: PharmCAT does not support sub-alleles for CYP2D6."));
-      assertTrue(systemOut.contains("WARNING: PharmCAT does not support sub-alleles for HLA-A."));
-      assertTrue(systemOut.contains("WARNING: Converting outside call for HLA-B from 'B*04:05', to '*04:05'."));
-
-      assertFalse(Files.exists(matcherOutput));
-      assertTrue(Files.exists(phenotyperOutput));
-      assertFalse(Files.exists(reporterOutput));
-
-      validateOutsideCallOutput(phenotyperOutput, "CYP2D6", "*1/*2");
-      validateOutsideCallOutput(phenotyperOutput, "HLA-A", "*02:02/*03:02");
-      validateOutsideCallOutput(phenotyperOutput, "HLA-B", "*02:01/*04:05");
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-  }
-
-
-
-  /**
-   * This test is dependent on CYP2C19 definition.
-   * It may fail if CYP2C19 definition changes too much.
-   */
-  @Test
-  void matchAllFlag(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
-
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    String baseFilename = TestUtils.getTestName(testInfo);
-    Path matcherOutput = outputDir.resolve(baseFilename + BaseConfig.MATCHER_SUFFIX + ".json");
-    Path phenotyperOutput = outputDir.resolve(baseFilename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
-    Path reporterOutput = outputDir.resolve(baseFilename + BaseConfig.REPORTER_SUFFIX + ".html");
-
-    // matcher only, expecting 1 CYP2C19 matches
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-matcher",
-          "-o", outputDir.toString(),
-          "-bf", baseFilename,
-      }));
-      //System.out.println(systemOut);
-      assertThat(systemOut, containsString("Done"));
-      assertTrue(Files.exists(matcherOutput));
-      assertFalse(Files.exists(phenotyperOutput));
-      assertFalse(Files.exists(reporterOutput));
-
-      ResultSerializer resultSerializer = new ResultSerializer();
-      Result result = resultSerializer.fromJson(matcherOutput);
-      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
-          .filter(gc -> gc.getGene().equals("CYP2C19"))
-          .findFirst();
-      assertTrue(gcOpt.isPresent());
-      GeneCall gc = gcOpt.get();
-      assertEquals(1, gc.getDiplotypes().size());
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-
-    // matcher only, expecting many CYP2C19 matches
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-matcher",
-          "-ma",
-          "-o", outputDir.toString(),
-          "-bf", baseFilename,
-      }));
-      //System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertTrue(Files.exists(matcherOutput));
-      assertFalse(Files.exists(phenotyperOutput));
-      assertFalse(Files.exists(reporterOutput));
-
-      ResultSerializer resultSerializer = new ResultSerializer();
-      Result result = resultSerializer.fromJson(matcherOutput);
-      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
-          .filter(gc -> gc.getGene().equals("CYP2C19"))
-          .findFirst();
-      assertTrue(gcOpt.isPresent());
-      GeneCall gc = gcOpt.get();
-      assertTrue(gc.getDiplotypes().size() > 50);
 
     } finally {
       TestUtils.deleteTestFiles(outputDir);
@@ -527,57 +290,6 @@ class PharmCATTest {
     } finally {
       TestUtils.deleteTestFiles(outputDir);
     }
-  }
-
-  @Test
-  void multipleOutsideCallFiles(TestInfo testInfo) throws Exception {
-    Path outsideCallFile1 = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
-    Path outsideCallFile2 = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv");
-    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-phenotyper",
-          "-reporter",
-          "-reporterJson",
-          "-po", outsideCallFile1.toString(),
-          "-po", outsideCallFile2.toString(),
-          "-o", outputDir.toString(),
-      }));
-      assertTrue(systemOut.contains("Done."));
-
-      // file names should be based on the first outside call file
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json")));
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.json")));
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.html")));
-
-      // file names should NOT be based on the second outside call file
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.phenotype.json")));
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.json")));
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.html")));
-
-      Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
-          "*3", "*4");
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
-          "*1", "*3");
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
-          "rs12979860 variant (T)", "rs12979860 variant (T)");
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
-  }
-
-  public static void checkOutsideDiplotype(@Nullable GeneReport report, String allele1, String allele2) {
-    assertNotNull(report);
-    assertEquals(CallSource.OUTSIDE, report.getCallSource());
-    Haplotype haplotype = report.getSourceDiplotypes().first().getAllele1();
-    assertNotNull(haplotype);
-    assertEquals(allele1, haplotype.getName());
-    haplotype = report.getSourceDiplotypes().first().getAllele2();
-    assertNotNull(haplotype);
-    assertEquals(allele2, haplotype.getName());
   }
 
 

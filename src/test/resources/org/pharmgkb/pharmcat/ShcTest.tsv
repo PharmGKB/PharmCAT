@@ -1,0 +1,163 @@
+What to test	Gene	Variants/genotype	Variants in VCF 	Non-PGx	What to expect			
+In addition, could we modify the DPYD HapB3-c.1129-5923C>G senario tests we have to the limited allow list of variants and test these in addition as individual reports?			All other variants from the SHC allow list included as reference.		Genotype	Phenotype	Notes section 1	Notes section 3
+SHC-PharmCAT_Report 1								
+No input	ABCG2							
+Other tests	CYP2B6	*6	rs3745274 G>T (1|0), rs2279343 A>G (1|0)		*1/*6	IM		
+Non-PGX nucleotide (CYP)	CYP2C19	rs12248560 (definition C>T)	rs28399504 A>G (1|0), rs3758581 A>G (1|1)	rs12248560 C A	*1/*4	IM	Use notes as already established (There are genetic variations in this gene that do not match what is in the allele definition. These undocumented variations were replaced with reference. See Section III for details.)	Use notes as already established (Highlight the variant as "Undocumented variation" in column Call in VCF and "The genetic variation at this position does not match what is in the allele definition (expected T, found A in VCF). Undocumented variations will be replaced with reference." in Warnings column)
+No input	CYP2C9							
+No input	CYP3A4							
+No input	CYP3A5							
+Non-PGX nucleotide 	DPYD	rs3918290 C>G	rs55886062 A>C (0|1)	rs3918290 C G	c.1679T>G (*13) (heterozygous)	IM AS 1	Use notes as already established (There are genetic variations in this gene that do not match what is in the allele definition. These undocumented variations were replaced with reference. See Section III for details.)	Use notes as already established (Highlight the variant as "Undocumented variation" in column Call in VCF and "The genetic variation at this position does not match what is in the allele definition (expected T, found G in VCF). Undocumented variations will be replaced with reference." in Warnings column)
+No input	NUDT15							
+Other tests (normal function allele)	SLCO1B1	*37	rs2306283 A>G (1|1), rs4149056 T>C (0|1)		*15/*37	Decreased Function		
+Additional alleles/function	TPMT	*42	rs759836180 insT (0|1), rs1142345 T>G (2|0)		*41/*42	PM		
+Additional alleles/function	UGT1A1	*28*+*6	rs3064744 TA[8] (0|2), rs4148323 G>A (0|1)		*1/*28+*6	IM		
+Outside call	CYP2D6	*1/*68+*4			*1/*68+*4	IM AS 1		
+Outside call (strip out digits)	HLA-B	*57:01:01/*15:02:01:01			*15:02/*57:01			
+No input	HLA-A							
+								
+SHC-PharmCAT_Report 2								
+No input	ABCG2							
+No input	CYP2B6							
+No input	CYP2C19							 
+Non-PGX nucleotide (CYP)	CYP2C9	rs1057910 A>G	rs1799853 C>T (1|1), rs72558189 G>T (0|2)	rs1057910 A G	*2/*35	PM AS 0.5	Use notes as already established (There are genetic variations in this gene that do not match what is in the allele definition. These undocumented variations were replaced with reference. See Section III for details.)	Use notes as already established (Highlight the variant as "Undocumented variation" in column Call in VCF and "The genetic variation at this position does not match what is in the allele definition (expected C, found G in VCF). Undocumented variations will be replaced with reference." in Warnings column)
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	c.1024G>A, c.1057C>T	rs183385770 C>T (1|0), rs143154602 G>A (0|1)		c.1024G>A/c.1057C>T	PM AS 0		
+Additional alleles/function	NUDT15	*6	rs746071566 [2], rs746071566 [4] (1|2)		*6/*9	PM		
+Set to *1	SLCO1B1	*45	rs71581941 C>T (1|1), rs2306283 A>G (0|1), rs4149056 T>C (0|1)		*1/*46	Decreased Function	Uncertain function allele set to *1	Highlight *45 in the position list with variant call, note that "Set to *1 for diplotype output" in Warnings column
+Non-PGX nucleotide 	TPMT	rs1142345 7T>A		rs1142345 T A	*1/*1	NM	Use notes as already established (There are genetic variations in this gene that do not match what is in the allele definition. These undocumented variations were replaced with reference. See Section III for details.)	Use notes as already established (Highlight the variant as "Undocumented variation" in column Call in VCF and "The genetic variation at this position does not match what is in the allele definition (expected C or G, found A in VCF). Undocumented variations will be replaced with reference." in Warnings column)
+Additional alleles/function	UGT1A1	*37+*27	rs3064744 TA[9] (0|3), rs35350960 C>A (0|1)		*1/*37+*27	IM		
+Outside call	CYP2D6	*36+*10/*36+*10x2			*36+*10/*36+*10x2	IM AS 0.75		
+Outside call	HLA-B	*58:01			*58:01			
+No input	HLA-A							
+								
+SHC-PharmCAT_Report 3								
+No input	ABCG2							
+No input	CYP2B6							
+Novel combination	CYP2C19	*1+*16	rs3758581 A>G (1|1), rs192154563 C>T (0|1), rs12769205 A>G (1|0), rs4244285 G>A (1|0)		Not called		Use notes as already established (The following gene could not be called because there were genetic variations that do not match the allele definition. There could still be actionable variants in these genes. See Section III for details. CYP2C19)	 
+No input	CYP2C9							
+Other tests	CYP3A4	*20, 22	rs67666821 dup (0|1), rs35599367 G>A (1|0)		*20/*22	PM		
+No input	CYP3A5							
+Other tests	DPYD	c.601A>C, c.1129-5923C>G	rs72549308 T>G (1|0), rs75017182 G>C (1|0)		[c.601A>C + c.1129-5923C>G] (heterozygous)	IM AS 1		Notes already established
+Other tests	NUDT15	*3, *14	rs777311140 insCGGG (0|1), rs116855232 C>T (1|0)		*3/*14	PM		
+No input	SLCO1B1							
+Other tests	TPMT	*3B, *3C	rs1142345 T>C (1|0), rs1800460 C>T (0|1)		*3B/*3C	PM		
+Additional alleles/function	UGT1A1	*6+*27	rs4148323 G>A (0|1), rs35350960 C>A (0|1)		*1/*6+*27	IM		
+Outside call	CYP2D6	*2x4/*13+*1			*2x4/*13+*1	UM AS 4		
+Outside call	HLA-B	*15:02			*15:02			
+No input	HLA-A							
+								
+SHC-PharmCAT_Report 4								
+No input	ABCG2							
+No input	CYP2B6							
+No input	CYP2C19							
+Novel combination	CYP2C9	*2+*33	rs1799853 C>T (0|1), rs200183364 G>A (0|1)		Not called		Use notes as already established (The following gene could not be called because there were genetic variations that do not match the allele definition. There could still be actionable variants in these genes. See Section III for details. CYP2C9)	 
+No input	CYP3A4							
+Other tests	CYP3A5	*3, 7	rs776746 T>C (0|1),  rs41303343 dup (1|0)		*3/*7	PM		
+Other tests	DPYD	c.632A>G, c.1129-5923C>G, c.703C>T (*8)	rs72549307 T>C (0|1), rs75017182 G>C (1|0), rs1801266 G>A (1|0)		c.632A>G/[c.703C>T (*8) + c.1129-5923C>G]	PM AS 0		Notes already established
+No input	NUDT15							
+Other tests (unphased)	SLCO1B1	*5, *37, *9	rs4149056 T>C (0/1), rs2306283 A>G (0/1), rs59502379 G>C (0/1)		*5/*31 or *9/*15	Poor Function		
+No input	TPMT							
+Additional alleles/function	UGT1A1	*36+*6	rs3064744 TA[6] (0|1), rs4148323 G>A (0|1)		*1/*36+*6	IM		
+Outside call	CYP2D6	*1x≥3/*17			*1x≥3/*17	UM AS ≥3.5		
+Outside call	HLA-B	*57:01/*15:02			*15:02/*57:01			
+Outside call	HLA-A	*31:01			*31:01			
+								
+SHC-PharmCAT_Report 5								
+Other tests	ABCG2	rs2231142	rs2231142 G>T (0|1)		rs2231142 reference (G)/rs2231142 variant (T)	IM		
+Other tests (unphased) (now set to *1)	CYP2B6	with CPIC update should be *22 set to *1	rs12721655 A>G (0/1), rs3745274 G>T (0/1), rs2279343 A>G (0/1), rs34223104 T>C (0/1)		*8/*36 or *1/*13	IM or PM	note about *22 to *1	note about *22 to *1
+No input	CYP2C19							
+Set to *1	CYP2C9	*27	rs7900194 G>T (0|2), rs1057910 A>C (1|0)		*1/*3	IM	Uncertain function allele set to *1	Highlight *27 in the position list with variant call, note that "Set to *1 for diplotype output" in Warnings column
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	c.1314T>G, c.1156G>T (*12), c.557A>G	rs186169810 A>C (1|0), rs78060119 C>A (0|1), rs115232898 T>C (0|1)		c.1314T>G/[c.557A>G + c.1156G>T (*12)]	PM AS 0.5		
+Additional alleles/function	NUDT15	*4, *5	rs147390019 G>A (0|1), rs186364861 G>A (1|0)		*4/*5	PM		
+No input	SLCO1B1							
+No input	TPMT							
+Other tests	UGT1A1	*28	rs3064744 TA[8] (0|2), rs4148323 G>A (1|0)		*6/*28	PM		
+Outside call (uncertain function allele)	CYP2D6	*4/*112			*4/*112	Indeterminate		
+Outside call	HLA-B	*57:01			*57:01			
+No input	HLA-A							
+								
+SHC-PharmCAT_Report 6								
+Other tests	ABCG2	rs2231142	rs2231142 G>T (1|1)		rs2231142 variant (T)/rs2231142 variant (T)	PM		
+Set to *1	CYP2B6	*33	rs3211371 C>A (1|1), rs34223104 T>C (1|0), rs3745274 G>T (1|0), rs2279343 A>G (1|0)		*1/*34	IM	Uncertain function allele set to *1	Highlight *33 in the position list with variant call, note that "Set to *1 for diplotype output" in Warnings column
+Not compelete definition	CYP2C19	*2, *35	rs12769205 A>G (0|1), rs4244285 G>A (1|1), rs3758581 A>G (1|1)		Not called		Use notes as already established (The following gene could not be called because there were genetic variations that do not match the allele definition. There could still be actionable variants in these genes. See Section III for details. CYP2C19)	 
+Non-PGX nucleotide (CYP)	CYP2C9	rs1057910 A>G		rs1057910 A G	*1/*1	NM AS 2	Use notes as already established (There are genetic variations in this gene that do not match what is in the allele definition. These undocumented variations were replaced with reference. See Section III for details.)	Use notes as already established (Highlight the variant as "Undocumented variation" in column Call in VCF and "The genetic variation at this position does not match what is in the allele definition (expected C, found G in VCF). Undocumented variations will be replaced with reference." in Warnings column)
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	c.2983G>T (*10), c.2279C>T	rs1801268 C>A (1|1), rs112766203 G>A (0|1)		c.2983G>T (*10)/[c.2279C>T + c.2983G>T (*10)]	PM AS 0		
+No input	NUDT15							
+No input	SLCO1B1							
+No input	TPMT							
+Novel combination	UGT1A1	*28+*6+*27	rs3064744 TA[8] (0|2), rs4148323 G>A (0|1), rs35350960 C>A (0|1)		Not called		Use notes as already established (The following gene could not be called because there were genetic variations that do not match the allele definition. There could still be actionable variants in these genes. See Section III for details. UGT1A1)	 
+Outside call (not in CYP2D6 function file)	CYP2D6	*3/*68x2			*3/*68x2	n/a		
+Outside call (enter phenotype to test)	HLA-B	*57:01 positive			*57:01 positive			
+No input	HLA-A							
+								
+SHC-PharmCAT_Report 7								
+No input	ABCG2							
+Set to *1	CYP2B6	with CPIC update should be *22 set to *1	rs34223104 T>C (1|0), rs12721655 A>G (0|1), rs3745274 G>T (0|1), rs2279343 A>G (0|1)		*1/*13	IM	note about *22 to *1	note about *22 to *1
+Other tests	CYP2C19	*4, *17	rs28399504 A>G (1|0), rs12248560 C>T (0|1), rs3758581 (1|1)		*4/*17	IM		
+No input	CYP2C9							
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	c.2846A>T, c.1905+1G>A (*2A)	rs67376798 T>A (1|1), rs3918290 C>T (0|1)		c.2846A>T/[c.1905+1G>A (*2A) + c.2846A>T]	PM, AS 0.5		
+No input	NUDT15							
+Other tests	SLCO1B1	*5, *37, *9	rs4149056 T>C (0|1), rs2306283 A>G (0|1), rs59502379 G>C (1|0)		*9/*15	Poor Function		
+No input	TPMT							
+Additional alleles/function	UGT1A1	*37+*6	rs3064744 TA[8] (1|3), rs4148323 G>A (0|1)		*36/*37+*6	IM		
+Outside call	CYP2D6	*1x2+*83/*13+*68x2+*4			*1x2+*83/*13+*68x2+*4	NM AS 2		
+No input	HLA-B							
+Outside call (enter phenotype to test)	HLA-A	*31:01 positive			*31:01 positive			
+								
+SHC-PharmCAT_Report 8								
+Other tests	ABCG2	rs2231142	rs2231142 G>T (0|0)		rs2231142 reference (G)/rs2231142 reference (G)	NM		
+CPIC update	CYP2B6	*37, *41	rs3745274 G>T (1|1), rs373489637 T>G (1|0), rs2279343 A>G (1|1), rs201500445 T>C (0|1)		*37/*41	PM		
+No input	CYP2C19							
+No input	CYP2C9							
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	HapB3, c.1905+1G>A (*2A)	rs75017182 C>G (1|1), rs56038477 (1|0), rs3918290 C>T (1|0)		c.1129-5923C>G/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1905+1G>A (*2A)]	PM AS 0.5		
+No input	NUDT15							
+No input	SLCO1B1							
+No input	TPMT							
+Other tests	UGT1A1	*28	rs3064744 TA[8] (0|2)		*1/*28	IM		
+Outside call	CYP2D6	*13+*1x2/*13+*2			*13+*1x2/*13+*2	UM AS 3		
+Outside call 	HLA-B	*15:02			*15:02			
+Outside call 	HLA-A	*31:01			*31:01			
+								
+								
+SHC-PharmCAT_Report 9								
+No input	ABCG2							
+CPIC update	CYP2B6	*42, *43	rs3745274 G>T (1|1), rs2279343 A>G (1|1), rs374099483 G>A (0|1), rs117872433 G>A (1|0)		*42/*43	PM		
+No input	CYP2C19							
+No input	CYP2C9							
+No input	CYP3A4							
+No input	CYP3A5							
+Other tests	DPYD	HapB3	rs75017182 C>G (0|1), rs56038477 (1|1)		c.1129-5923C>G, c.1236G>A (HapB3) (heterozygous)	IM AS 1.5		
+No input	NUDT15							
+No input	SLCO1B1							
+No input	TPMT							
+Other tests	UGT1A1	*6, *27	rs4148323 G>A (1|0), rs35350960 C>A (0|1)		*6/*27	PM		
+Outside call	CYP2D6	*36x2+*10/*57+*10			*36x2+*10/*57+*10	IM AS 0.5		
+Outside call (one allele not in CPIC)	HLA-B	*15:02/*15:11			*15:02/*15:11			
+Outside call (not HLA-A allele)	HLA-A	*15:07			*15:07			
+								
+								
+SHC-PharmCAT_Report 10								
+No input	ABCG2							
+Other tests	CYP2B6		rs2279343 A>G (1|0), rs3211371 C>T (0|2)		*4/*5	NM		
+No input	CYP2C19							
+No input	CYP2C9							
+No input	CYP3A4							
+No input	CYP3A5							
+No input	DPYD							
+No input	NUDT15							
+No input	SLCO1B1							
+No input	TPMT							
+No input	UGT1A1							
+Outside call	CYP2D6	*1x4/*41x3			*1x4/*41x3			
+No input	HLA-B							
+No input	HLA-A							

@@ -120,22 +120,4 @@ public class NamedAlleleMatcherCyp2c9Test {
     assertEquals(0, call.getMatchData().getMissingPositions().size());
     assertEquals(0, call.getMatchData().getPositionsWithUndocumentedVariations().size());
   }
-
-
-  @Test
-  void extraPosition(TestInfo testInfo) throws Exception {
-    Path vcfFile = new TestVcfBuilder(testInfo, "*1/*1")
-        .reference("CYP2C9")
-        .extraPosition("CYP2C9", "rs12777823", "G", "A")
-        .generate();
-
-    DefinitionReader definitionReader = new DefinitionReader(sf_definitionFile, DataManager.DEFAULT_EXEMPTIONS_FILE);
-
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, false, false, true);
-    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile, false), null);
-    SortedSet<Variant> extraPositions = result.getGeneCalls().get(0).getVariantsOfInterest();
-    assertEquals(1, extraPositions.size());
-    assertEquals("rs12777823", extraPositions.first().getRsid());
-    assertEquals("G/A", extraPositions.first().getVcfCall());
-  }
 }

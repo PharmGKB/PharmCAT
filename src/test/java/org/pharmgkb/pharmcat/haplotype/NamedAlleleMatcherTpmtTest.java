@@ -83,16 +83,6 @@ public class NamedAlleleMatcherTpmtTest {
     assertDiplotypePairs(expectedMatches, result);
   }
 
-  @Test
-  void tpmts16s22() throws Exception {
-    // Test *16/*22. rs144041067 is bi-allelic
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s16s22.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*16/*22");
-
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
   /**
    * Test to make sure homo *1S alleles are ignored and that other present alleles will be called properly
    */

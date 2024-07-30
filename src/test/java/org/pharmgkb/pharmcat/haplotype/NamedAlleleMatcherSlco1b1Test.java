@@ -68,44 +68,4 @@ public class NamedAlleleMatcherSlco1b1Test {
     Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
-
-  @Test
-  void slco1b1s1as15s1bs5Missing() throws Exception {
-    /* Test *1/*15. Except we can't distinguish *5/*37.
-
-    However, in this case we are missing the final position in the file:
-    chr12	21239158	rs140790673	C	T	.	PASS	assume-default	GT	0/0
-
-    which forms part of the *29 definition, so we also get:
-    *5/*29
-
-    Output should report that *29 is only partially called.
-     */
-
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5missing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
-
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-  @Test
-  void slco1b1s1as15s1bs5TwoMissing() throws Exception {
-    /* Test two positions missing:
-      chr12	21239145	rs200995543	C	T	.	PASS	only--star-3-4	GT	0/0
-      chr12	21239158	rs140790673	C	T	.	PASS	second-star-29	GT	0/0
-
-
-    *1/*15. Except we can't distinguish *5/*37. *5/*29 Matches as well,
-     because the first position matches.  However, this shows difference from
-     single missing position. This time *34 should be reported as 'can't call'
-     while *29 should be reported as ony partially called.
-     */
-
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/SLCO1B1/s1as15s1bs5twomissing.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*1/*15", "*5/*29", "*5/*37");
-
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
 }

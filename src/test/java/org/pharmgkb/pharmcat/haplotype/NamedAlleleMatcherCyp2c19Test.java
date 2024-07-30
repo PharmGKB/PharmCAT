@@ -84,43 +84,6 @@ public class NamedAlleleMatcherCyp2c19Test {
 
 
   @Test
-  void s1s17s1s4bMissingMoreCalls(TestInfo testInfo) throws Exception {
-    // Test *1/*4 - but many calls deleted from the vcf.
-    // TODO: returned results are correct.  In the html report *4 A and *15 are reported as excluded.
-    //  However as far as I can tell all positions for *28 are also excluded, so why doesn't this make the list?
-    //  Presume this is becuase it's multi position, so similar to *1, but may be worth discussing.
-    assertDiplotypePairs(Lists.newArrayList("*1/*4", "*1/*17"), testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder(testInfo, "*1/*4 and *1/*17")
-            .variation("CYP2C19", "rs12248560", "C", "T")
-            .variation("CYP2C19", "rs3758581", "G", "G")
-            .missing("CYP2C19", "rs28399504")
-            .missing("CYP2C19", "rs17882687")
-            .missing("CYP2C19", "rs1564656981")
-            .missing("CYP2C19", "rs1564657013")
-            .missing("CYP2C19", "rs1564660997")
-            .missing("CYP2C19", "rs1288601658")
-            .missing("CYP2C19", "rs17885179")
-            .missing("CYP2C19", "rs375781227")
-            .missing("CYP2C19", "rs72558186")
-            .missing("CYP2C19", "rs113934938")
-            .generate(),
-        true));
-  }
-
-
-  @Test
-  void s1s28(TestInfo testInfo) throws Exception {
-    // Test *1 *28. The longest possible match should win.
-    assertDiplotypePairs("*1/*28", testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder(testInfo, "*1/*28")
-            .variation("CYP2C19", "rs17882687", "A", "C")
-            .variation("CYP2C19", "rs3758581", "G", "G")
-            .variation("CYP2C19", "rs113934938", "G", "A")
-            .generate()));
-  }
-
-
-  @Test
   void s2s2(TestInfo testInfo) throws Exception {
     // Test simple case of one homozygous snp
     // TODO: description of test no longer matches data (have to add missing position for this to pass)
@@ -172,21 +135,6 @@ public class NamedAlleleMatcherCyp2c19Test {
             .variation("CYP2C19", "rs12248560", "T", "T")
             .variation("CYP2C19", "rs28399504", "A", "G")
             .missing("CYP2C19", "rs3758581")
-            .generate()));
-  }
-
-
-  @Test
-  void s15s28(TestInfo testInfo) throws Exception {
-    // Test *15 *28. The shared position is homo
-    // TODO: description of test no longer matches data (have to add missing position for this to pass)
-    //  should we update data to specify missing position(s) instead?
-    assertDiplotypePairs(Lists.newArrayList("*15/*28", "*28/*39"), testMatchNamedAlleles(sf_definitionFile,
-        new TestVcfBuilder(testInfo, "*15/*28 and *28/*39")
-            .variation("CYP2C19", "rs17882687", "C", "C")
-            .variation("CYP2C19", "rs113934938", "G", "A")
-            .missing("CYP2C19", "rs3758581")
-            .missing("CYP2C19", "rs17885179")
             .generate()));
   }
 

@@ -37,32 +37,11 @@ public class NamedAlleleMatcherCyp3a5Test {
 
 
   @Test
-  void cyp3a5s3s9() throws Exception {
-    // Test *3/*9.
-
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*3/*9");
-
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-  @Test
   void cyp3a5s1s7() throws Exception {
     // Test *1/*7.  Het in rs41303343 position, a single insertion.
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*7");
-
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
-    assertDiplotypePairs(expectedMatches, result);
-  }
-
-
-  @Test
-  void cyp3a5s3s9Homozygous() throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
-    List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
     Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);

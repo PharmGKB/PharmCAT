@@ -54,26 +54,18 @@ class LowestFunctionGeneCallerTest {
 
   @Test
   void inferPhased() {
-    //  c.498G>A    - normal
-    //  c.2582A>G   - normal
-    String diplotype = "c.498G>A/c.2582A>G";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A", "c.2582A>G",
-        "Normal function", "Normal function");
-    checkInferred(diplotype, DPWG, "Reference", "Reference",
-        "Normal function", "Normal function");
-
-    //  c.2582A>G   - normal
+    //  Reference   - normal
     //  c.2846A>T   - decreased, DPWG
-    diplotype = "c.2582A>G/c.2846A>T";
-    checkInferred(diplotype, DataSource.CPIC, "c.2582A>G", "c.2846A>T",
+    String diplotype = "Reference/c.2846A>T";
+    checkInferred(diplotype, DataSource.CPIC, "Reference", "c.2846A>T",
         "Normal function", "Decreased function");
     checkInferred(diplotype, DPWG, "Reference", "c.2846A>T",
         "Normal function", "Decreased function");
 
-    //  c.2582A>G   - normal
+    //  Reference   - normal
     //  c.2933A>G   - no function
-    diplotype = "c.2582A>G/c.2933A>G";
-    checkInferred(diplotype, DataSource.CPIC, "c.2582A>G", "c.2933A>G",
+    diplotype = "Reference/c.2933A>G";
+    checkInferred(diplotype, DataSource.CPIC, "Reference", "c.2933A>G",
         "Normal function", "No function");
     checkInferred(diplotype, DPWG, "Reference", "c.2933A>G",
         "Normal function", GenePhenotype.UNASSIGNED_FUNCTION);
@@ -85,30 +77,29 @@ class LowestFunctionGeneCallerTest {
     checkInferred(diplotype, DPWG, "c.2933A>G", "c.2933A>G",
         GenePhenotype.UNASSIGNED_FUNCTION, GenePhenotype.UNASSIGNED_FUNCTION);
 
-    //  c.498G>A    - normal
+    //  Reference    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
-    diplotype = "c.498G>A/[c.2933A>G + c.1905+1G>A (*2A)]";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A","c.1905+1G>A (*2A)",
+    diplotype = "Reference/[c.2933A>G + c.1905+1G>A (*2A)]";
+    checkInferred(diplotype, DataSource.CPIC, "Reference","c.1905+1G>A (*2A)",
         "Normal function", "No function");
     checkInferred(diplotype, DPWG, "Reference", "c.1905+1G>A (*2A)",
         "Normal function", "No function");
 
-    //  c.498G>A    - normal
+    //  Reference    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
-    diplotype = "c.1905+1G>A (*2A)/[c.498G>A + c.2933A>G]";
+    diplotype = "c.1905+1G>A (*2A)/[Reference + c.2933A>G]";
     checkInferred(diplotype, DataSource.CPIC, "c.1905+1G>A (*2A)", "c.2933A>G",
         "No function", "No function");
     checkInferred(diplotype, DPWG, "c.1905+1G>A (*2A)", "c.2933A>G",
         "No function", GenePhenotype.UNASSIGNED_FUNCTION);
 
-    //  c.498G>A    - normal
-    //  c.2582A>G   - normal
+    //  Reference    - normal
     //  c.2846A>T   - decreased, DPWG
     //  c.2933A>G   - no function
-    diplotype = "[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A", "c.2933A>G",
+    diplotype = "Reference/[c.2846A>T + c.2933A>G]";
+    checkInferred(diplotype, DataSource.CPIC, "Reference", "c.2933A>G",
         "Normal function", "No function");
     checkInferred(diplotype, DPWG, "Reference", "c.2933A>G",
         "Normal function", GenePhenotype.UNASSIGNED_FUNCTION);
@@ -131,18 +122,15 @@ class LowestFunctionGeneCallerTest {
 
   @Test
   void inferDiplotypes_matcherUnphased() {
-    //  c.498G>A    - normal
-    //  c.2582A>G   - normal
+    //  Reference    - normal
     //  c.2846A>T   - decreased, DPWG
     //  c.2933A>G   - no function
-    NamedAllele na1 = new NamedAllele("1", "c.498G>A", new String[0], new String[0], false);
-    NamedAllele na2 = new NamedAllele("2", "c.2582A>G", new String[0], new String[0], false);
+    NamedAllele na1 = new NamedAllele("1", "Reference", new String[0], new String[0], false);
     NamedAllele na3 = new NamedAllele("3", "c.2846A>T", new String[0], new String[0], false);
     NamedAllele na4 = new NamedAllele("4", "c.2933A>G", new String[0], new String[0], false);
 
     List<HaplotypeMatch> matches = new ArrayList<>();
     matches.add(new HaplotypeMatch(na1));
-    matches.add(new HaplotypeMatch(na2));
     matches.add(new HaplotypeMatch(na3));
     matches.add(new HaplotypeMatch(na4));
 
@@ -174,8 +162,6 @@ class LowestFunctionGeneCallerTest {
     LowestFunctionGeneCaller.DpydActivityComparator comparator = new LowestFunctionGeneCaller.DpydActivityComparator(s_env);
 
     Haplotype hapRef = new Haplotype("DPYD", "Reference");  // normal, DPWG
-    Haplotype hap498 = new Haplotype("DPYD", "c.498G>A");   // normal
-    Haplotype hap2582 = new Haplotype("DPYD", "c.2582A>G"); // normal
     Haplotype hap2846 = new Haplotype("DPYD", "c.2846A>T");  // decreased, DPWG
     Haplotype hap2933 = new Haplotype("DPYD", "c.2933A>G");  // no function
 
@@ -185,13 +171,5 @@ class LowestFunctionGeneCallerTest {
     assertEquals(1, comparator.compare(hap2846, hap2933));
     // no func before normal
     assertEquals(-1, comparator.compare(hap2933, hapRef));
-
-    // prefer DPWG
-    assertEquals(1, comparator.compare(hap498, hapRef));
-    assertEquals(-1, comparator.compare(hapRef, hap498));
-
-    // order by name
-    assertEquals(1, comparator.compare(hap2582, hap498));
-    assertEquals(-1, comparator.compare(hap498, hap2582));
   }
 }

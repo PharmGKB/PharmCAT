@@ -100,7 +100,7 @@ class VcfReaderTest {
 
     assertNotNull(reader.getWarnings().get("chr10:94938828"));
     assertEquals(1, reader.getWarnings().get("chr10:94938828").size());
-    assertEquals("The genetic variation at this position does not match what is in the allele definition (expected G, found T in VCF)",
+    assertEquals("The genetic variation at this position does not match what is in the allele definition (expected G, found T in VCF).  Undocumented variations will be replaced with reference.",
         reader.getWarnings().get("chr10:94938828").iterator().next());
 
     assertNotNull(reader.getWarnings().get("chr10:94938683"));
