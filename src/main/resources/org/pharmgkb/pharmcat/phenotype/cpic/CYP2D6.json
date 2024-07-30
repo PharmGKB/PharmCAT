@@ -38,7 +38,7 @@
     "*25": "n/a",
     "*26": "n/a",
     "*27": "1.0",
-    "*27x2": "2",
+    "*27x2": "2.0",
     "*28": "n/a",
     "*28x2": "n/a",
     "*29": "0.5",
@@ -213,7 +213,7 @@
     "*25": "n/a",
     "*26": "n/a",
     "*27": "1.0",
-    "*27x2": "2",
+    "*27x2": "2.0",
     "*28": "n/a",
     "*28x2": "n/a",
     "*29": "0.5",
@@ -793,6 +793,18 @@
       },
       "activityScore": "2.0",
       "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*1/*27x2",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*1": 1,
+        "*27x2": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
     },
     {
       "generesult": "Indeterminate",
@@ -2846,6 +2858,18 @@
       "phenotype": "Ultrarapid Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*1x2/*27x2",
+      "description": null,
+      "lookupkey": "4.0",
+      "diplotypekey": {
+        "*1x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "4.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*1x2/*28",
       "description": null,
@@ -4885,6 +4909,18 @@
       "phenotype": "Ultrarapid Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*1x≥3/*27x2",
+      "description": null,
+      "lookupkey": "≥5.0",
+      "diplotypekey": {
+        "*1x≥3": 1,
+        "*27x2": 1
+      },
+      "activityScore": "≥5.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*1x≥3/*28",
       "description": null,
@@ -6912,6 +6948,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*2/*27x2",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*2/*28",
       "description": null,
@@ -8927,6 +8975,18 @@
       "phenotype": "Ultrarapid Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*2x2/*27x2",
+      "description": null,
+      "lookupkey": "4.0",
+      "diplotypekey": {
+        "*2x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "4.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*2x2/*28",
       "description": null,
@@ -10930,6 +10990,18 @@
       "phenotype": "Ultrarapid Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*2x≥3/*27x2",
+      "description": null,
+      "lookupkey": "≥5.0",
+      "diplotypekey": {
+        "*2x≥3": 1,
+        "*27x2": 1
+      },
+      "activityScore": "≥5.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*2x≥3/*28",
       "description": null,
@@ -12921,6 +12993,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*3/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*3": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*3/*28",
       "description": null,
@@ -14900,6 +14984,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*3x2/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*3x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*3x2/*28",
       "description": null,
@@ -16867,6 +16963,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*4/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*4": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*4/*28",
       "description": null,
@@ -18822,6 +18930,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*4x2/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*4x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*4x2/*28",
       "description": null,
@@ -20765,6 +20885,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*4x≥3/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*4x≥3": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*4x≥3/*28",
       "description": null,
@@ -22696,6 +22828,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*5/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*5": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*5/*28",
       "description": null,
@@ -24615,6 +24759,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*6/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*6": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*6/*28",
       "description": null,
@@ -26522,6 +26678,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*6x2/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*6x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*6x2/*28",
       "description": null,
@@ -28417,6 +28585,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*7/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*7": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*7/*28",
       "description": null,
@@ -30300,6 +30480,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*8/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*8": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*8/*28",
       "description": null,
@@ -32171,6 +32363,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*9/*27x2",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*9": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*9/*28",
       "description": null,
@@ -34030,6 +34234,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*9x2/*27x2",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*9x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*9x2/*28",
       "description": null,
@@ -35877,6 +36093,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*10/*27x2",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*10": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*10/*28",
       "description": null,
@@ -37712,6 +37940,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*10x2/*27x2",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*10x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*10x2/*28",
       "description": null,
@@ -39535,6 +39775,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*11/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*11": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*11/*28",
       "description": null,
@@ -41346,6 +41598,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*12/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*12": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*12/*28",
       "description": null,
@@ -43145,6 +43409,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*13/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*13": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*13/*28",
       "description": null,
@@ -44932,6 +45208,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*14/*27x2",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*14": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*14/*28",
       "description": null,
@@ -46707,6 +46995,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*15/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*15": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*15/*28",
       "description": null,
@@ -48470,6 +48770,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*17/*27x2",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*17": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*17/*28",
       "description": null,
@@ -50221,6 +50533,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*17x2/*27x2",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*17x2": 1,
+        "*27x2": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*17x2/*28",
       "description": null,
@@ -51960,6 +52284,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*18/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*18": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*18/*28",
       "description": null,
@@ -53687,6 +54023,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*19/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*19": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*19/*28",
       "description": null,
@@ -55402,6 +55750,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*20/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*20": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*20/*28",
       "description": null,
@@ -57105,6 +57465,18 @@
       "phenotype": "Intermediate Metabolizer"
     },
     {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*21/*27x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*21": 1,
+        "*27x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*21/*28",
       "description": null,
@@ -58797,6 +59169,18 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*22/*27x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*22": 1,
+        "*27x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*22/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -60476,6 +60860,18 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*23/*27x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*23": 1,
+        "*27x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*23/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -62143,6 +62539,18 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*24/*27x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*24": 1,
+        "*27x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*24/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -63798,6 +64206,18 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*25/*27x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*25": 1,
+        "*27x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*25/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -65441,6 +65861,18 @@
     },
     {
       "generesult": "Indeterminate",
+      "diplotype": "*26/*27x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*26": 1,
+        "*27x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
       "diplotype": "*26/*28",
       "description": null,
       "lookupkey": "n/a",
@@ -67071,6 +67503,18 @@
       "phenotype": "Normal Metabolizer"
     },
     {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27/*27x2",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27": 1,
+        "*27x2": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
       "generesult": "Indeterminate",
       "diplotype": "*27/*28",
       "description": null,
@@ -68685,6 +69129,1637 @@
       "lookupkey": "n/a",
       "diplotypekey": {
         "*27": 1,
+        "*163": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*27x2",
+      "description": null,
+      "lookupkey": "4.0",
+      "diplotypekey": {
+        "*27x2": 2
+      },
+      "activityScore": "4.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*28",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*28": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*28x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*28x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*29",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*29": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*29x2",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*29x2": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*30",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*30": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*31",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*31": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*32",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*32": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*33",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*33": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*34",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*34": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*35",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*35": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*35x2",
+      "description": null,
+      "lookupkey": "4.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*35x2": 1
+      },
+      "activityScore": "4.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*36",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*36": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*36x2",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*36x2": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*37",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*37": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*38",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*38": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*39",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*39": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*40",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*40": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*41",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*41": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*41x2",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*41x2": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*41x3",
+      "description": null,
+      "lookupkey": "2.75",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*41x3": 1
+      },
+      "activityScore": "2.75",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*42",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*42": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*43",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*43": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*43x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*43x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*44",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*44": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*45",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*45": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*45x2",
+      "description": null,
+      "lookupkey": "4.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*45x2": 1
+      },
+      "activityScore": "4.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*46",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*46": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*47",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*47": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*48",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*48": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*49",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*49": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*50",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*50": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*51",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*51": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*52",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*52": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*53",
+      "description": null,
+      "lookupkey": "3.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*53": 1
+      },
+      "activityScore": "3.0",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*54",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*54": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*55",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*55": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*56",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*56": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*58",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*58": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Ultrarapid Metabolizer",
+      "diplotype": "*27x2/*59",
+      "description": null,
+      "lookupkey": "2.5",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*59": 1
+      },
+      "activityScore": "2.5",
+      "phenotype": "Ultrarapid Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*60",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*60": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*61",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*61": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*62",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*62": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*63",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*63": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*64",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*64": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*65",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*65": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*68",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*68": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*69",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*69": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*70",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*70": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*71",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*71": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*72",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*72": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*73",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*73": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*74",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*74": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*75",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*75": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*81",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*81": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*82",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*82": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*83",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*83": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*84",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*84": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*85",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*85": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*86",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*86": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*87",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*87": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*88",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*88": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*89",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*89": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*90",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*90": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*91",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*91": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*92",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*92": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*93",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*93": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*94",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*94": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*95",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*95": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*96",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*96": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*97",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*97": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*98",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*98": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*99",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*99": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*100",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*100": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*101",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*101": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*102",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*102": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*103",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*103": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*104",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*104": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*105",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*105": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*106",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*106": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*107",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*107": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*108",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*108": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*109",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*109": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*110",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*110": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*111",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*111": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*112",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*112": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*113",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*113": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*114",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*114": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*115",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*115": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*116",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*116": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*117",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*117": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*118",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*118": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*119",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*119": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*120",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*120": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*121",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*121": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*122",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*122": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*123",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*123": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*124",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*124": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*125",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*125": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*126",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*126": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*127",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*127": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*128",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*128": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*129",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*129": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*130",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*130": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*131",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*131": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*132",
+      "description": null,
+      "lookupkey": "2.25",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*132": 1
+      },
+      "activityScore": "2.25",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*133",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*133": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*134",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*134": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*135",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*135": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*136",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*136": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*137",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*137": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*138",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*138": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*139",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*139": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*140",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*140": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*141",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*141": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*142",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*142": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*143",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*143": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*144",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*144": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*145",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*145": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*146",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*146": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*146x2",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*146x2": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*147",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*147": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*148",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*148": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*149",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*149": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*152",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*152": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*153",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*153": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*154",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*154": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*155",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*155": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*156",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*156": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*157",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*157": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*158",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*158": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*159",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*159": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*160",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*160": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Normal Metabolizer",
+      "diplotype": "*27x2/*161",
+      "description": null,
+      "lookupkey": "2.0",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*161": 1
+      },
+      "activityScore": "2.0",
+      "phenotype": "Normal Metabolizer"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*162",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
+        "*162": 1
+      },
+      "activityScore": "n/a",
+      "phenotype": "Indeterminate"
+    },
+    {
+      "generesult": "Indeterminate",
+      "diplotype": "*27x2/*163",
+      "description": null,
+      "lookupkey": "n/a",
+      "diplotypekey": {
+        "*27x2": 1,
         "*163": 1
       },
       "activityScore": "n/a",
@@ -178941,9 +181016,9 @@
     },
     {
       "name": "*27x2",
-      "activityValue": "2",
+      "activityValue": "2.0",
       "functionValue": "Increased function",
-      "lookupKey": "2"
+      "lookupKey": "2.0"
     },
     {
       "name": "*28",
@@ -179756,5 +181831,5 @@
       "lookupKey": "n/a"
     }
   ],
-  "version": "2024-07-25-21-55"
+  "version": "2024-07-30-09-20"
 }

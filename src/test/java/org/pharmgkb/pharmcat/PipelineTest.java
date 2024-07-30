@@ -425,7 +425,7 @@ class PipelineTest {
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(177, drugs.size());
+    assertEquals(184, drugs.size());
   }
 
   @Test
