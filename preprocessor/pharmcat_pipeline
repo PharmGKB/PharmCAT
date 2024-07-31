@@ -50,6 +50,10 @@ if __name__ == '__main__':
     import argparse
     import colorama
 
+    #####
+    # CHANGES TO args HERE NEED TO BE REFLECTED IN /docs AND /dockstore/pipeline
+    #####
+
     # describe the tool
     parser = argparse.ArgumentParser(description='Runs PharmCAT pipeline.')
     # input arguments

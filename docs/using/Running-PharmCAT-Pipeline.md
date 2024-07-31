@@ -7,9 +7,11 @@ render_with_liquid: false
 ---
 # Running the PharmCAT Pipeline
 
-For convenience, we have a single script (`pharmcat_pipeline`) that simplifies the process of running the entire PharmCAT pipeline (the [VCF Preprocessor](/using/VCF-Preprocessor) and the [core PharmCAT tool](/using/Running-PharmCAT)).
+For convenience, we have a single script (`pharmcat_pipeline`) that simplifies the process of running the entire 
+PharmCAT pipeline (the [VCF Preprocessor](/using/VCF-Preprocessor) and the [core PharmCAT tool](/using/Running-PharmCAT)).
 
-This script tries to keep things as simple as possible.  If you need advanced features, you will need to run the individual parts of the pipeline directly.
+This script tries to keep things as simple as possible.  If you need advanced features, you will need to run the
+individual parts of the pipeline directly.
 
 
 ## Prerequisites
