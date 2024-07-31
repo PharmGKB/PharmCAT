@@ -1,0 +1,22 @@
+{
+    "pharmcat_pipeline.vcf_file": "/Users/andrerico/Works/Projects/PharmCAT/PharmCAT_Dockstore/test_wdl/sample.vcf"
+    // "pharmcat_pipeline.sample_ids": "",  // Padrão é ""
+    // "pharmcat_pipeline.sample_file": null,  // Padrão é null
+    // "pharmcat_pipeline.missing_to_ref": false,  // Padrão é false
+    // "pharmcat_pipeline.no_gvcf_check": false,  // Padrão é false
+    // "pharmcat_pipeline.retain_specific_regions": false,  // Padrão é false
+    // "pharmcat_pipeline.reference_regions": null,  // Padrão é null
+    // "pharmcat_pipeline.run_matcher": false,  // Padrão é false
+    // "pharmcat_pipeline.matcher_all_results": false,  // Padrão é false
+    // "pharmcat_pipeline.matcher_save_html": false,  // Padrão é false
+    // "pharmcat_pipeline.research_mode": "",  // Padrão é ""
+    // "pharmcat_pipeline.run_phenotyper": false,  // Padrão é false
+    // "pharmcat_pipeline.run_reporter": false,  // Padrão é false
+    // "pharmcat_pipeline.reporter_sources": "",  // Padrão é ""
+    // "pharmcat_pipeline.reporter_extended": false,  // Padrão é false
+    // "pharmcat_pipeline.reporter_save_json": false,  // Padrão é false
+    // "pharmcat_pipeline.base_filename": "",  // Padrão é ""
+    // "pharmcat_pipeline.delete_intermediate_files": false,  // Padrão é false
+    // "pharmcat_pipeline.max_concurrent_processes": 1,  // Padrão é 1
+    // "pharmcat_pipeline.max_memory": "4G"  // Padrão é "4G"
+}
