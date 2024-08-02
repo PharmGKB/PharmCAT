@@ -32,10 +32,9 @@ if __name__ == "__main__":
                         help="(Optional) file name pattern of the Phenotyper JSON files.")
     parser.add_argument("-a", "--allele-definition-files", type=str,
                         metavar='</path/to/*_translation.json>',
-                        default='../../main/resources/org/pharmgkb/pharmcat/definition/alleles/*_translation.json',
+                        default=None,
                         help="(Optional) Path to PharmCAT allele definition JSON files. "
-                             "Directory path should be included. "
-                             "Pattern matching strings are acceptable.")
+                             "Pattern matching strings should be included.")
     parser.add_argument("-gs", "--guideline-source", type=str, metavar='CPIC/DPWG',
                         default='CPIC',
                         help="(Optional) Guideline source to extract, default = CPIC.")
@@ -124,11 +123,22 @@ if __name__ == "__main__":
             m_genes = m_selected_genes
 
         # read allele definition json files
-        print(f'Looking for the allele definition JSON files: {args.allele_definition_files}')
-        m_allele_definition_jsons: list[str] = glob(args.allele_definition_files)
+        if args.allele_definition_files is None:
+            script_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
+            allele_definition_dir: Path = script_dir.parent.parent / ('main/resources/org/pharmgkb/pharmcat/definition'
+                                                                      '/alleles')
+            allele_definition_pattern: str = str(allele_definition_dir) + '/*_translation.json'
+        else:
+            m_allele_definition_jsons: Path = Path(args.allele_definition_files).resolve()
+            if m_allele_definition_jsons.is_dir():
+                allele_definition_pattern: str = str(m_allele_definition_jsons) + '/*_translation.json'
+            else:
+                allele_definition_pattern = str(m_allele_definition_jsons)
+        print(f'Looking for the allele definition JSON files: {allele_definition_pattern}')
+        allele_definition_jsons: list[str] = glob(allele_definition_pattern)
         # read reference alleles at each allele-defining position
         allele_definition_references: dict[str, list[str]] = {}
-        for json_file in m_allele_definition_jsons:
+        for json_file in allele_definition_jsons:
             print(f'\tReading {json_file}')
             # get the gene name
             gene: str = json_file.split('/')[-1].split('_')[0]
