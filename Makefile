@@ -36,9 +36,9 @@ updateData: clean
 	@echo "Updating data..."
 	@${GRADLE_CMD} updateData
 	@echo "Moving pharmcat_position files..."
-	mv src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
-	cp pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
-	cp pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
+	mv -f src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
+	cp -f pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
+	cp -f pharmcat_positions.vcf docs/examples/pharmcat.example.vcf
 	sed -e '/rs12769205/ s/0\/0/1\/1/g' pharmcat_positions.vcf | sed '/rs4244285/ s/0\/0/1\/1/g' | sed '/rs3758581/ s/0\/0/1\/1/g' | sed '/rs3745274/ s/0\/0/0\/1/g' | sed '/rs2279343/ s/0\/0/0\/1/g' > docs/examples/pharmcat.example2.vcf
 	@echo ""
 	@echo "Updating examples..."
@@ -52,7 +52,7 @@ updateData: clean
 .PHONY: _dockerPrep
 _dockerPrep: clean
 	${GRADLE_CMD} shadowJar
-	mv build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pharmcat.jar
+	mv -f build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pharmcat.jar
 
 .PHONY: docker
 docker: _dockerPrep
@@ -63,14 +63,14 @@ docker: _dockerPrep
 scriptPkg:
 	rm -rf build/preprocessor
 	mkdir -p build/preprocessor
-	cp preprocessor/requirements.txt build/preprocessor
-	cp preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor
-	cp preprocessor/pharmcat_pipeline build/preprocessor
+	cp -f preprocessor/requirements.txt build/preprocessor
+	cp -f preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor
+	cp -f preprocessor/pharmcat_pipeline build/preprocessor
 	mkdir build/preprocessor/preprocessor
-	cp preprocessor/preprocessor/*.py build/preprocessor/preprocessor
-	cp preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor
-	cp pharmcat_positions.vcf* build/preprocessor
-	cp docs/using/VCF-Preprocessor.md build/preprocessor/README.md
+	cp -f preprocessor/preprocessor/*.py build/preprocessor/preprocessor
+	cp -f preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor
+	cp -f pharmcat_positions.vcf* build/preprocessor
+	cp -f docs/using/VCF-Preprocessor.md build/preprocessor/README.md
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
 
 
