@@ -136,6 +136,10 @@ if __name__ == "__main__":
                 allele_definition_pattern = str(m_allele_definition_jsons)
         print(f'Looking for the allele definition JSON files: {allele_definition_pattern}')
         allele_definition_jsons: list[str] = glob(allele_definition_pattern)
+        # error out if no allele definition json is found
+        if len(allele_definition_jsons) == 0:
+            print('No allele definition JSON files found.\n')
+            sys.exit(1)
         # read reference alleles at each allele-defining position
         allele_definition_references: dict[str, list[str]] = {}
         for json_file in allele_definition_jsons:
