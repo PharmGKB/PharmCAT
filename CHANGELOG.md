@@ -1,3 +1,29 @@
+## [2.15.0](https://github.com/PharmGKB/PharmCAT/compare/v2.14.0...v2.15.0) (2024-08-06)
+
+
+### Features
+
+* **json2tsv:** report error when no allele definition json can be found ([03a8b1f](https://github.com/PharmGKB/PharmCAT/commit/03a8b1f63b2e42595b8cdefd7704848bb332c4f9))
+* **phenotyper:** generate diplotype data ([ed4d03f](https://github.com/PharmGKB/PharmCAT/commit/ed4d03f57455e41023c23fc7ef9032fcdd2d381e))
+
+
+### Bug Fixes
+
+* fix haplotype name sorting ([f9888b0](https://github.com/PharmGKB/PharmCAT/commit/f9888b0efeb15b74956f3cc7656a8bdf7e2343a5))
+* improve Subsetter ([971ba16](https://github.com/PharmGKB/PharmCAT/commit/971ba16b084b6e868c37df4e73412214e5492150))
+* reduce data size ([5bdcc49](https://github.com/PharmGKB/PharmCAT/commit/5bdcc4907614f740c538185dea78f95407d19a21))
+* **data:** update data ([a57b955](https://github.com/PharmGKB/PharmCAT/commit/a57b955b3f42e0786154093a437e74393f89b4c0))
+* **json2tsv:** allow the script to find the allele definition jsons from wherever it is run ([03151ba](https://github.com/PharmGKB/PharmCAT/commit/03151ba667e4c8f3ef2e979466d0f2722a840972))
+* **namedallelematcher:** avoid exceptions ([f4fe35a](https://github.com/PharmGKB/PharmCAT/commit/f4fe35ae5647af6b52c87aa4028e1d3c42f40cd6))
+* **namedallelematcher:** fix handling of phased DPYD HapB3 alleles ([286b76d](https://github.com/PharmGKB/PharmCAT/commit/286b76d5c45b417d595593c317c1817b231742ee))
+* **namedallelematcher:** make NamedAllele.structuralVariant a private property ([df68105](https://github.com/PharmGKB/PharmCAT/commit/df681056863284552f4408d678d0afc286de38f1))
+* **namedallelematcher:** make sure cached properties are updated correctly ([ab1e194](https://github.com/PharmGKB/PharmCAT/commit/ab1e194bece9dedfde3c12e8abb15a292d7a83d5))
+* **phenotyper:** fix typo in CYP2D6 activity value assignment and drug count ([36cc688](https://github.com/PharmGKB/PharmCAT/commit/36cc6882d00f1d0054c91815ab1f23f12bb30285))
+* **phenotyper:** fix typo in two specific CYP2D6 diplotype activity score assignment ([cae0f8c](https://github.com/PharmGKB/PharmCAT/commit/cae0f8c6da998b0abc5ca2fc78aa7fa69767d600))
+* **phenotyper:** use correct comparator ([4cf8cb2](https://github.com/PharmGKB/PharmCAT/commit/4cf8cb2540e1be2059f58646304f2b101e6ff8e3))
+* **preprocessor:** resolve errors caused by similar sample names ([905b2c3](https://github.com/PharmGKB/PharmCAT/commit/905b2c38fca45643cc8bbf24adbf6b489de5cefe))
+* **subsetter:** fix how numeric cells are handled in Excel ([bbaa135](https://github.com/PharmGKB/PharmCAT/commit/bbaa1356497c3bcb56ad874251b720a841f234ab))
+
 ## [2.14.0](https://github.com/PharmGKB/PharmCAT/compare/v2.13.0...v2.14.0) (2024-07-19)
 
 
