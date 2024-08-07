@@ -9,9 +9,9 @@ import pandas as pd
 def get_json_file_names(sample_id: str, matcher_json_list: list[str], phenotyper_json_list: list[str]) \
         -> tuple[str, str]:
     # get the matcher and phenotyper json names for the sample
-    matcher_pattern: str = f".{sample_id}.match.json"
+    matcher_pattern: str = f"{sample_id}.match.json"
     matcher_match_list: list[str] = [x for x in matcher_json_list if matcher_pattern in x]
-    phenotyper_pattern: str = f".{sample_id}.phenotype.json"
+    phenotyper_pattern: str = f"{sample_id}.phenotype.json"
     phenotyper_match_list: list[str] = [x for x in phenotyper_json_list if phenotyper_pattern in x]
 
     matcher_file: str = ''
