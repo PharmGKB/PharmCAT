@@ -411,6 +411,18 @@ def test_prep_pharmcat_positions():
         assert tmp_uniallelic.is_file()
         assert uniallelic_mtime == tmp_uniallelic.stat().st_mtime
 
+        # check whether the uniallelic position file has the same number of positions as the position file
+        uniallelic_file_lines = helpers.read_vcf(helpers.uniallelic_pharmcat_positions_file, bgzipped=True).split('\n')
+        n_uniallelic_file_lines: int = len(uniallelic_file_lines)
+        # note that tmp_uniallelic is the equivalent uniallelic file generated from the pharmcat position file
+        tmp_uniallelic_lines = helpers.read_vcf(tmp_uniallelic, bgzipped=True).split('\n')
+        n_tmp_uniallelic_lines: int = len(tmp_uniallelic_lines)
+        # uniallelic_pharmcat_positions_file should
+        # have the same number of lines as its equivalent file generated from the pharmcat position file
+        assert n_uniallelic_file_lines == n_tmp_uniallelic_lines, \
+            'mismatching numbers of positions between %s and %s' % \
+            (helpers.uniallelic_pharmcat_positions_file.name, helpers.pharmcat_positions_file.name)
+
 
 def test_extract_pgx_regions():
     vcf_file = helpers.test_dir / 'raw.vcf.bgz'

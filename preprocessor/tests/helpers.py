@@ -1,6 +1,7 @@
 import hashlib
 import shutil
 import urllib.request
+import gzip
 from pathlib import Path
 from typing import Optional, List
 
@@ -21,6 +22,7 @@ except:
 test_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 src_dir: Path = test_dir / '../preprocessor'
 pharmcat_positions_file: Path = test_dir / '../../pharmcat_positions.vcf.bgz'
+uniallelic_pharmcat_positions_file: Path = test_dir / '../../pharmcat_positions.uniallelic.vcf.bgz'
 
 
 def get_reference_fasta(pharmcat_positions: Path) -> Path:
@@ -51,17 +53,25 @@ def md5hash(file: Path):
         return file_hash.hexdigest()
 
 
-def read_vcf(file: Path, skip_comments: bool = True):
+def read_vcf(file: Path, bgzipped: bool = False, skip_comments: bool = True):
+    if bgzipped:
+        with gzip.open(file, mode='rt', encoding='utf-8') as in_f:
+            return _read_vcf(in_f, skip_comments=skip_comments)
+    else:
+        with open(file, mode='r', encoding='utf-8') as in_f:
+            return _read_vcf(in_f, skip_comments=skip_comments)
+
+
+def _read_vcf(in_f, skip_comments: bool = True):
     """Reads VCF file and (1) strips trailing spaces, (2) removes empty lines and (3) normalizes line endings."""
-    with open(file, 'r') as f:
-        lines = []
-        for line in f:
-            line = line.rstrip()
-            if line.startswith('##') and skip_comments:
-                continue
-            if line:
-                lines.append(line)
-        return '\n'.join(lines)
+    lines = []
+    for line in in_f:
+        line = line.rstrip()
+        if line.startswith('##') and skip_comments:
+            continue
+        if line:
+            lines.append(line)
+    return '\n'.join(lines)
 
 
 def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str = None, split_sample: bool = False,
