@@ -176,7 +176,8 @@ public class ReportContext {
   }
 
   /**
-   * The user-freindly title for the report
+   * The user-friendly title for the report.
+   *
    * @return the title string
    */
   public String getTitle() {

@@ -146,8 +146,9 @@ public class DiplotypeFactory {
   /**
    * Make a list of phenotype strings based on what diplotypes are specified.
    * <p>
-   * <em>Note:</em> This only applies when diplotypes are available in the {@link Diplotype} object. If only phenotype is supplied
-   * then this will return an empty list.
+   * <em>Note:</em> This only applies when diplotypes are available in the {@link Diplotype} object.
+   * If only phenotype is supplied, then this will return an empty list.
+   *
    * @param diplotype the diplotype to analyze
    * @return a List of all applicable phenotype strings for this diplotype
    */

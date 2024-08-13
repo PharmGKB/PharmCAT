@@ -94,7 +94,7 @@ public class Subsetter {
 
     if (!m_extraDefinitions.isEmpty()) {
       if (m_geneData.isEmpty()) {
-        allowAll();;
+        allowAll();
       }
 
       addExtraDefinitions();
@@ -131,7 +131,7 @@ public class Subsetter {
   private void buildSubset() {
     Preconditions.checkState(m_definitionReader != null);
 
-    // make sure each gene has reference because we require it
+    // make sure each gene has a reference haplotype because we require it
     for (String gene : m_allowList.keySet()) {
       m_allowList.put(gene, m_definitionReader.getReferenceHaplotype(gene).getName());
     }
@@ -259,7 +259,7 @@ public class Subsetter {
     Set<DefinitionExemption> exemptions = new HashSet<>();
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (GeneData gd : m_geneData.values()) {
-        // replace all haplotypes in definition file with allowed haplotypes
+        // replace all haplotypes in the definition file with allowed haplotypes
         InternalWrapper.resetNamedAlleles(gd.definitionFile, gd.haplotypes);
 
         // remove ignored positions
@@ -541,7 +541,7 @@ public class Subsetter {
         }
         subsetter.exportPhenotypes(phenoDir);
 
-        // write summary after exporting everything
+        // write a summary after exporting everything
         subsetter.writeSummary(defDir.resolve("summary.xlsx"));
       }
 
@@ -730,7 +730,7 @@ public class Subsetter {
     try (Workbook workbook = WorkbookFactory.create(xlsxFile.toFile())) {
       Sheet sheet = workbook.getSheetAt(0);
       for (Row row : sheet) {
-        System.out.println("Row " + row.getRowNum());
+        //System.out.println("Row " + row.getRowNum());
         Cell geneCell = row.getCell(0);
         String gene = StringUtils.stripToNull(geneCell.getStringCellValue());
         if (gene == null || gene.equalsIgnoreCase("gene")) {
@@ -759,7 +759,6 @@ public class Subsetter {
             } else {
               activity = Double.toString(val);
             }
-            System.out.println(activity);
           } else {
             activity = StringUtils.stripToNull(activityCell.getStringCellValue());
           }
