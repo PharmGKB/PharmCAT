@@ -42,16 +42,20 @@ public class HaplotypeRecord {
     return activityValue;
   }
 
+  // needed to support subsetting
   public void setActivityValue(String activityValue) {
     this.activityValue = activityValue;
+    this.updateLookupKey();
   }
 
   public String getFunctionValue() {
     return functionValue;
   }
 
+  // needed to support subsetting
   public void setFunctionValue(String functionValue) {
     this.functionValue = functionValue;
+    this.updateLookupKey();
   }
 
   public String getLookupKey() {
@@ -60,6 +64,10 @@ public class HaplotypeRecord {
 
   public void setLookupKey(String lookupKey) {
     this.lookupKey = lookupKey;
+  }
+
+  private void updateLookupKey() {
+    this.lookupKey = this.activityValue == null ? this.functionValue : this.activityValue;
   }
 
   public String toFormattedFunction() {

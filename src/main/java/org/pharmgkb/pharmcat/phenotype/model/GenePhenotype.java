@@ -30,7 +30,7 @@ public class GenePhenotype {
   private Map<String, String> m_haplotypes;
   @Expose
   @SerializedName("activityValues")
-  private Map<String,String> m_activityValues = new HashMap<>();
+  private Map<String, String> m_activityValues = new HashMap<>();
   @Expose
   @SerializedName("diplotypes")
   private SortedSet<DiplotypeRecord> m_diplotypes;
@@ -179,9 +179,27 @@ public class GenePhenotype {
 
   public void addHaplotypeRecord(String name, @Nullable String activityValue, @Nullable String functionValue,
       @Nullable String lookupKey) {
+    if (lookupKey == null) {
+      lookupKey = isActivityGene() ? activityValue : functionValue;
+    }
+    if (isActivityGene()) {
+      if (activityValue == null) {
+        throw new IllegalStateException("Cannot add activity gene haplotype without activity value");
+      }
+    } else {
+      if (functionValue == null) {
+        throw new IllegalStateException("Cannot add function gene haplotype without function value");
+      }
+    }
+    if (lookupKey == null) {
+      throw new IllegalStateException("Cannot add haplotype without lookupKey");
+    }
     HaplotypeRecord hr = new HaplotypeRecord(name, activityValue, functionValue, lookupKey);
     m_namedAlleles.add(hr);
     m_haplotypes.put(name, hr.getLookupKey());
+    if (hr.getActivityValue() != null) {
+      m_activityValues.put(name, hr.getActivityValue());
+    }
   }
 
   public boolean update(String allele, @Nullable String activityScore, @Nullable String function, DataSource src) {
@@ -191,7 +209,9 @@ public class GenePhenotype {
         .orElse(null);
     if (hr == null) {
       // not all haplotypes will have a phenotype associated with it
-      return false;
+      System.out.println("Adding phenotype for " + m_gene + " " + allele);
+      addHaplotypeRecord(allele, activityScore, function, null);
+      return true;
     }
     boolean gotChange = false;
     boolean modified = false;
@@ -200,11 +220,12 @@ public class GenePhenotype {
         System.out.println("New " + src + " activity score for " + m_gene + " " + allele);
         modified = true;
       } else if (!hr.getActivityValue().equals(activityScore)){
-        System.out.println("Overwriting " + src + " activity score for " + m_gene + " " + allele +
-            " (" + hr.getActivityValue() + " to " + activityScore + ")");
-        modified = true;
+        if (Double.parseDouble(hr.getActivityValue()) != Double.parseDouble(activityScore)) {
+          System.out.println("Overwriting " + src + " activity score for " + m_gene + " " + allele +
+              " (" + hr.getActivityValue() + " to " + activityScore + ")");
+          modified = true;
+        }
       }
-      hr.setActivityValue(activityScore);
     } else if (hr.getActivityValue() != null){
       System.out.println("Nulling out " + src + " activity score for " + m_gene + " " + allele);
       modified = true;
@@ -221,12 +242,11 @@ public class GenePhenotype {
       if (hr.getFunctionValue() == null) {
         System.out.println("New " + src + " function for " + m_gene + " " + allele);
         modified = true;
-      } else if (!hr.getFunctionValue().equals(function)){
+      } else if (!hr.getFunctionValue().equals(function)) {
         System.out.println("Overwriting " + src + " function for " + m_gene + " " + allele + " (" +
             hr.getFunctionValue() + " to " + function + ")");
         modified = true;
       }
-      hr.setFunctionValue(function);
     } else if (hr.getFunctionValue() != null){
       System.out.println("Nulling out " + src + " function for " + m_gene + " " + allele);
       modified = true;

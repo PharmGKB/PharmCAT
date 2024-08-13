@@ -2,7 +2,6 @@ package org.pharmgkb.pharmcat.subsetter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Writer;
 import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -51,7 +50,6 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
 public class Subsetter {
   // inputs
   private final Multimap<String, String> m_allowList = HashMultimap.create();
-  private final SortedMap<String, SortedSet<String>> m_reportAsReference = new TreeMap<>();
   private final Multimap<String, FunctionData> m_functionOverrides = TreeMultimap.create();
   private final Map<String, Map<String, NamedAllele>> m_extraDefinitions = new HashMap<>();
 
@@ -234,7 +232,7 @@ public class Subsetter {
     if (!Files.exists(file.getParent())) {
       Files.createDirectories(file.getParent());
     }
-    new SummaryWriter(m_phenotypeMap, m_geneData, m_reportAsReference).write(file);
+    new SummaryWriter(m_phenotypeMap, m_geneData).write(file);
   }
 
 
@@ -252,10 +250,12 @@ public class Subsetter {
     if (!Files.exists(defsDir)) {
       Files.createDirectories(defsDir);
     } else {
-      deleteObsoleteFiles(defsDir, "_translation.json", m_allowList.keySet(), "definitions");
+      deleteObsoleteFiles(defsDir, ".json", m_allowList.keySet(), "definition");
+      deleteObsoleteFiles(defsDir, ".vcf", m_allowList.keySet(), "definition");
+      deleteObsoleteFiles(defsDir, ".bgz", m_allowList.keySet(), "definition");
+      deleteObsoleteFiles(defsDir, ".csi", m_allowList.keySet(), "definition");
     }
 
-    DataSerializer dataSerializer = new DataSerializer();
     Set<DefinitionExemption> exemptions = new HashSet<>();
     try (VcfHelper vcfHelper = new VcfHelper()) {
       for (GeneData gd : m_geneData.values()) {
@@ -303,40 +303,41 @@ public class Subsetter {
 
         // export
         Path jsonFile = defsDir.resolve(gd.gene + "_translation.json");
-        dataSerializer.serializeToJson(gd.definitionFile, jsonFile);
+        DataSerializer.serializeToJson(gd.definitionFile, jsonFile);
         //System.out.println("\tWrote " + jsonFile);
 
         DefinitionExemption exemption = m_definitionReader.getExemption(gd.gene);
         if (exemption != null) {
+          if (exemption.getGene().equals("CYP2C9")) {
+            if (!m_geneData.containsKey("CYP4F2") || !m_geneData.containsKey("VKORC1")) {
+              // remove extra position only used for warfarin
+              exemption.getExtraPositions().stream()
+                  .filter(p -> "rs12777823".equals(p.getRsid()))
+                  .findAny()
+                  .ifPresent(p -> exemption.getExtraPositions().remove(p));
+            }
+          }
           exemptions.add(exemption);
         }
       }
     }
 
     // write definitions
-    Path exemptionsFile = defsDir.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME);;
-    dataSerializer.serializeToJson(exemptions, exemptionsFile);
+    Path exemptionsFile = defsDir.resolve(DataManager.EXEMPTIONS_JSON_FILE_NAME);
+    DataSerializer.serializeToJson(exemptions, exemptionsFile);
     // generate positions.vcf
     DataManager.exportVcfData(defsDir);
-    Files.copy(defsDir.resolve(DataManager.POSITIONS_VCF),
+    Files.move(defsDir.resolve(DataManager.POSITIONS_VCF),
         dir.resolve(DataManager.POSITIONS_VCF), StandardCopyOption.REPLACE_EXISTING);
-    Files.copy(defsDir.resolve(DataManager.POSITIONS_VCF + ".bgz"),
+    Files.move(defsDir.resolve(DataManager.POSITIONS_VCF + ".bgz"),
         dir.resolve(DataManager.POSITIONS_VCF + ".bgz"), StandardCopyOption.REPLACE_EXISTING);
-    Files.copy(defsDir.resolve(DataManager.POSITIONS_VCF + ".bgz.csi"),
+    Files.move(defsDir.resolve(DataManager.POSITIONS_VCF + ".bgz.csi"),
         dir.resolve(DataManager.POSITIONS_VCF + ".bgz.csi"), StandardCopyOption.REPLACE_EXISTING);
 
-    Files.copy(defsDir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz"),
+    Files.move(defsDir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz"),
         dir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz"), StandardCopyOption.REPLACE_EXISTING);
-    Files.copy(defsDir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz.csi"),
+    Files.move(defsDir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz.csi"),
         dir.resolve(DataManager.UNIALLELIC_POSITIONS_VCF + ".bgz.csi"), StandardCopyOption.REPLACE_EXISTING);
-
-    if (!m_reportAsReference.isEmpty()) {
-      Path file = defsDir.resolve("reportAsReference.json");
-      System.out.println("Saving report-as-reference data in " + file);
-      try (Writer writer = Files.newBufferedWriter(file)) {
-        DataSerializer.GSON.toJson(m_reportAsReference, writer);
-      }
-    }
   }
 
   private void exportPhenotypes(Path dir) throws IOException {
@@ -365,8 +366,8 @@ public class Subsetter {
       deleteObsoleteFiles(cpicDir, ".json", genes, "CPIC phenotypes");
     }
 
-    DataSerializer dataSerializer = new DataSerializer();
-    SortedSet<String> modified = new TreeSet<>(writePhenotypes(genes, m_phenotypeMap.getCpicGenes(), cpicDir, dataSerializer, DataSource.CPIC));
+    SortedSet<String> modified = new TreeSet<>(writePhenotypes(genes, m_phenotypeMap.getCpicGenes(), cpicDir,
+        DataSource.CPIC));
 
     /*
     Path dpwgDir = dir.resolve("dpwg");
@@ -385,10 +386,11 @@ public class Subsetter {
   }
 
   private Set<String> writePhenotypes(Collection<String> genes, Collection<GenePhenotype> phenotypes, Path dir,
-      DataSerializer dataSerializer, DataSource src) throws IOException {
+      DataSource src) throws IOException {
     Set<String> changed = new HashSet<>();
     for (GenePhenotype gp : phenotypes) {
       if (genes.contains(gp.getGene())) {
+        boolean updatedFunctions = false;
         if (m_functionOverrides.containsKey(gp.getGene())) {
           GeneData geneData = m_geneData.get(gp.getGene());
           // geneData can be null for outside-call only genes (e.g. CYP2D6)
@@ -403,18 +405,25 @@ public class Subsetter {
                 System.out.println("WARNING: extra definition for " + na.getName() + " but no function was specified");
                 continue;
               }
+              System.out.println("New named allele: " + gp.getGene() + " " + na.getName());
+              updatedFunctions = true;
               gp.addHaplotypeRecord(na.getName(), fd.activityScore, fd.function, null);
             }
           }
 
           for (FunctionData fd : m_functionOverrides.get(gp.getGene())) {
-            gp.update(fd.allele, fd.activityScore, fd.function, src);
+            if (gp.update(fd.allele, fd.activityScore, fd.function, src)) {
+              updatedFunctions = true;
+            }
           }
           changed.add(gp.getGene());
         }
         // export
         Path jsonFile = dir.resolve(gp.getGene() + ".json");
-        dataSerializer.serializeToJson(gp, jsonFile);
+        if (updatedFunctions) {
+          gp.generateDiplotypes();
+        }
+        DataSerializer.serializeToJson(gp, jsonFile);
         //System.out.println("\tWrote " + jsonFile);
       }
     }
@@ -478,13 +487,13 @@ public class Subsetter {
       }
 
       Path dataDir = cliHelper.getValidDirectory("i", true);
-      Path baseDefDir = dataDir.resolve("definitions");
+      Path baseDefDir = dataDir.resolve("definition");
       if (cliHelper.hasOption("d") || cliHelper.hasOption("pos") || cliHelper.hasOption("a")) {
         if (!Files.isDirectory(baseDefDir)) {
           System.out.println("Cannot find 'definitions' subdirectory in " + dataDir);
         }
       }
-      Path basePhenoDir = dataDir.resolve("phenotypes");
+      Path basePhenoDir = dataDir.resolve("phenotype");
       if (cliHelper.hasOption("pc")) {
         if (!Files.isDirectory(basePhenoDir)) {
           System.out.println("Cannot find 'phenotypes' subdirectory in " + dataDir);
@@ -524,7 +533,9 @@ public class Subsetter {
         subsetter.parseFunctionOverrides(file);
       }
 
-      boolean updatedDefinitions = subsetter.updateDefinitions();
+      if (!subsetter.updateDefinitions()) {
+        System.out.println("No definitions updated.");
+      }
 
       if (cliHelper.hasOption("o")) {
         Path outDir = cliHelper.getValidDirectory("o", true);
@@ -656,12 +667,7 @@ public class Subsetter {
         if (data.length > 2) {
           String mod = StringUtils.stripToNull(data[2]);
           if (mod != null) {
-            if (mod.equalsIgnoreCase("report as *1")) {
-              m_reportAsReference.computeIfAbsent(gene, g -> new TreeSet<>())
-                  .add(allele);
-            } else {
-              System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
-            }
+            System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
           }
         }
 
@@ -711,12 +717,7 @@ public class Subsetter {
         if (modCell != null) {
         String mod = StringUtils.stripToNull(modCell.getStringCellValue());
           if (mod != null) {
-            if (mod.equalsIgnoreCase("report as *1")) {
-              m_reportAsReference.computeIfAbsent(gene, g -> new TreeSet<>())
-                  .add(allele);
-            } else {
-              System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
-            }
+            System.out.println("Don't know what to do with '" + mod + "' for " + gene + " " + allele);
           }
         }
       }
@@ -753,9 +754,11 @@ public class Subsetter {
           if (activityCell.getCellType() == CellType.NUMERIC) {
             double val = activityCell.getNumericCellValue();
             if (val == 1) {
-              activity = "1";
+              activity = "1.0";
             } else if (val == 0) {
-              activity = "0";
+              activity = "0.0";
+            } else if (val == 2) {
+              activity = "2.0";
             } else {
               activity = Double.toString(val);
             }

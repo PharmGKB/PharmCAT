@@ -151,7 +151,10 @@ public class HtmlFormat extends AbstractFormat {
         }
 
         if (geneReport.isNoData()) {
-          noDataGenes.add(symbol);
+          // checking if allele definition exists for this gene because of subsetting
+          if (getEnv().getDefinitionReader().getGenes().contains(symbol)) {
+            noDataGenes.add(symbol);
+          }
           continue;
         }
 
