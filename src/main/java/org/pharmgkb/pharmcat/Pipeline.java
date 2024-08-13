@@ -300,6 +300,11 @@ public class Pipeline implements Callable<PipelineResult> {
                   output.add(AnsiConsole.styleWarning(msg));
                 }
               }
+              for (String hap : call.getHaplotypes()) {
+                if (!m_env.isValidNamedAllele(gene, hap)) {
+                  call.addWarning("Undocumented " + gene + " named allele in outside call: " + hap);
+                }
+              }
               outsideCalls.add(call);
               call.getWarnings().forEach(w -> output.add(AnsiConsole.styleWarning("WARNING: " + w)));
               outsideCallMap.computeIfAbsent(gene, g -> new HashSet<>()).add(call);

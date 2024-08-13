@@ -87,24 +87,31 @@ public class Cyp2d6CopyNumberCaller {
     if (haplotype == null) {
       return new Object[] {false, null};
     }
-    Matcher m = sf_copyNumberPattern.matcher(haplotype.getName());
+    String name = inferHaplotypeName(haplotype.getName());
+    return new Object[] {!name.equals(haplotype.getName()), name};
+  }
+
+
+  public static String inferHaplotypeName(String haplotypeName) {
+
+    Matcher m = sf_copyNumberPattern.matcher(haplotypeName);
     if (!m.matches()) {
-      return new Object[] {false, haplotype.getName()};
+      return haplotypeName;
     }
     Integer hap = Integer.parseInt(m.group(1));
     if (!m_gteThree.contains(hap)) {
-      return new Object[] {false, haplotype.getName()};
+      return haplotypeName;
     }
     int cn = Integer.parseInt(m.group(3));
     if (cn <= 2) {
-      return new Object[] {false, haplotype.getName()};
+      return haplotypeName;
     }
-    if (haplotype.getName().contains(TextConstants.GTE)) {
+    if (haplotypeName.contains(TextConstants.GTE)) {
       if (cn == 3) {
         // ignore >= 3
-        return new Object[] {false, haplotype.getName()};
+        return haplotypeName;
       }
     }
-    return new Object[] {true, "*" + hap + "x" + TextConstants.GTE + "3"};
+    return "*" + hap + "x" + TextConstants.GTE + "3";
   }
 }

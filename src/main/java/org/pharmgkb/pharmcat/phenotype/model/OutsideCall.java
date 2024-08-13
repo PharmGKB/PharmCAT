@@ -77,6 +77,9 @@ public class OutsideCall implements Comparable<OutsideCall> {
       List<String> alleles = sf_diplotypeSplitter.splitToList(diplotype).stream()
           .map(a -> a.replaceFirst("^" + m_gene + "\\s*", ""))
           .toList();
+      if (alleles.size() > 2) {
+        throw new BadOutsideCallException("Line " + lineNumber + ": Too many alleles specified in " + diplotype);
+      }
 
       if (m_gene.equals("CYP2D6")) {
         alleles = alleles.stream()
@@ -121,12 +124,10 @@ public class OutsideCall implements Comparable<OutsideCall> {
             .toList();
       }
 
-      // re-join alleles to eliminate white space when gene symbol is used in diplotype
+      // re-join alleles to eliminate white space when a gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
       m_diplotypes = ImmutableList.of(m_diplotype);
-      if (alleles.size() > 2) {
-        throw new BadOutsideCallException("Line " + lineNumber + ": Too many alleles specified in " + m_diplotype);
-      }
+
       m_haplotypes.add(alleles.get(0));
       if (alleles.size() == 2) {
         m_haplotypes.add(alleles.get(1));
@@ -144,6 +145,10 @@ public class OutsideCall implements Comparable<OutsideCall> {
     if (m_phenotype == null && m_activityScore == null && m_diplotype == null) {
       throw new BadOutsideCallException("Specify a diplotype, phenotype, or activity score for " + m_gene);
     }
+  }
+
+  public void addWarning(String warning) {
+    m_warnings.add(warning);
   }
 
   @Override

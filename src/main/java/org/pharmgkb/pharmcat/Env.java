@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
@@ -28,6 +32,7 @@ public class Env {
   private final PgkbGuidelineCollection m_drugs;
   private MessageHelper m_messageHelper;
   private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
+  private final Multimap<String, String> m_validHaplotypes = HashMultimap.create();
 
 
   public Env() throws IOException, ReportableException {
@@ -71,6 +76,50 @@ public class Env {
 
   public @Nullable GenePhenotype getPhenotype(String gene, PrescribingGuidanceSource source) {
     return m_phenotypeMap.getPhenotype(gene, source.getPhenoSource());
+  }
+
+
+  /**
+   * Checks if the specified allele is used in either definition files or phenotype.
+   */
+  public boolean isValidNamedAllele(String gene, String allele) {
+
+    if (m_validHaplotypes.containsEntry(gene, allele)) {
+      return true;
+    }
+
+    if (gene.startsWith("HLA-")) {
+      // HLA's are a special case
+      m_validHaplotypes.put(gene, allele);
+      return true;
+    }
+
+    Optional<DefinitionFile> opt = m_definitionReader.lookupDefinitionFile(gene);
+    if (opt.isPresent() && opt.get().getNamedAllele(allele) != null) {
+      m_validHaplotypes.put(gene, allele);
+      return true;
+    }
+
+    String inferredAllele = allele;
+    if (gene.equals("CYP2D6")) {
+      inferredAllele = Cyp2d6CopyNumberCaller.inferHaplotypeName(allele);
+    }
+    GenePhenotype gp = m_phenotypeMap.getPhenotype(gene, DataSource.CPIC);
+    if (gp != null) {
+      if (gp.getHaplotypes().containsKey(inferredAllele) || gp.getActivityValues().containsKey(inferredAllele)) {
+        m_validHaplotypes.put(gene, allele);
+        return true;
+      }
+    }
+    gp = m_phenotypeMap.getPhenotype(gene, DataSource.DPWG);
+    if (gp != null) {
+      boolean rez = gp.getHaplotypes().containsKey(inferredAllele) || gp.getActivityValues().containsKey(inferredAllele);
+      if (rez) {
+        m_validHaplotypes.put(gene, allele);
+      }
+      return rez;
+    }
+    return false;
   }
 
 
