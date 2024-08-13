@@ -21,7 +21,9 @@ public class Constants {
    * cannot make a call.
    */
   private static final Set<String> SINGLE_PLOIDY = ImmutableSet.of("G6PD", "MT-RNR1");
-  private static final List<String> VARIANT_GENES = List.of("ABCG2", "CACNA1S", "DPYD", "INFL3", "MT-RNR1", "RYR1", "VKORC1");
+  private static final List<String> VARIANT_GENES = List.of("ABCG2", "CACNA1S", "DPYD", "INFL3", "MT-RNR1", "RYR1",
+      "VKORC1");
+  public static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "HLA-A", "HLA-B", "MT-RNR1");
 
 
   /**

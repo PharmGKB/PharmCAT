@@ -6,19 +6,18 @@ import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
@@ -43,7 +42,6 @@ public class GeneDrugSummary {
   private static final String PHENOTYPES_MD_FILE_NAME = "Phenotypes-List.md";
   private static final String PHENOTYPES_TSV_FILE_NAME = "phenotypes.tsv";
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  private static final Set<String> PREFER_OUTSIDE_CALL = ImmutableSet.of("CYP2D6", "HLA-A", "HLA-B", "MT-RNR1");
   private static final Pattern sf_globCopyNumberPattern = Pattern.compile("\\*\\d+xN");
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
@@ -98,14 +96,14 @@ public class GeneDrugSummary {
         .append("| Gene | CPIC | DPWG |\n")
         .append("| :--- | :---: | :---: |\n");
     m_definitionReader.getGenes().stream()
-        .filter(g -> !PREFER_OUTSIDE_CALL.contains(g))
+        .filter(g -> !Constants.PREFER_OUTSIDE_CALL.contains(g))
         .sorted()
         .forEach(g -> appendGene(matcherGeneList, g));
     // outside call gene list
     StringBuilder outsideCallGeneList = new StringBuilder()
         .append("| Gene | CPIC | DPWG |\n")
         .append("| :--- | :---: | :---: |\n");
-    PREFER_OUTSIDE_CALL.stream()
+    Constants.PREFER_OUTSIDE_CALL.stream()
         .sorted()
         .forEach(g -> appendGene(outsideCallGeneList, g));
 
@@ -162,7 +160,7 @@ public class GeneDrugSummary {
         GenePhenotype dpwgGp = m_phenotypeMap.getPhenotype(gene, DataSource.DPWG);
 
         SortedSet<String> haplotypes = new TreeSet<>(new HaplotypeNameComparator());
-        if (PREFER_OUTSIDE_CALL.contains(gene)) {
+        if (Constants.PREFER_OUTSIDE_CALL.contains(gene)) {
           if (cpicGp != null) {
             haplotypes.addAll(cpicGp.getHaplotypes().keySet());
           }
