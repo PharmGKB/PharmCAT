@@ -1,0 +1,88 @@
+{
+  "UGT1A1": [
+    {
+      "name": "*6+*27",
+      "id": "shc627",
+      "cpicAlleles": [
+        null,
+        "A",
+        "A"
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*28+*6",
+      "id": "shc628",
+      "cpicAlleles": [
+        "TA(8)",
+        "A",
+        null
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*36+*6",
+      "id": "shc636",
+      "cpicAlleles": [
+        "TA(6)",
+        "A",
+        null
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*37+*6",
+      "id": "shc637",
+      "cpicAlleles": [
+        "TA(9)",
+        "A",
+        null
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*28+*27",
+      "id": "shc2728",
+      "cpicAlleles": [
+        "TA(8)",
+        null,
+        "A"
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*36+*27",
+      "id": "shc2736",
+      "cpicAlleles": [
+        "TA(6)",
+        null,
+        "A"
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*37+*27",
+      "id": "shc2737",
+      "cpicAlleles": [
+        "TA(9)",
+        null,
+        "A"
+      ],
+      "reference": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    }
+  ]
+}
