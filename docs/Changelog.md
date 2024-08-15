@@ -11,7 +11,7 @@ Starting in March 2024, this page highlights the major content updates. For more
 You can subscribe to the PharmCAT GitHub repository by following [these instructions](https://github.blog/changelog/2018-11-27-watch-releases/). You will need a GitHub account to receive notifications of PharmCAT
 releases. 
 
-## v.2.13.0
+## v2.13.0
 
 Added support for FDA drug guidance.
 

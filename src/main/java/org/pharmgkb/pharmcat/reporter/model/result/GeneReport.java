@@ -18,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
+import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -47,9 +48,6 @@ import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES = ImmutableSet.of("IFNL4");
-  private static final Set<String> CHROMO_X = ImmutableSet.of("G6PD");
-  private static final Set<String> ALLELE_PRESENCE = ImmutableSet.of("HLA-A", "HLA-B");
-  private static final Set<String> ACTIVITY_SCORE = ImmutableSet.of("CYP2C9", "CYP2D6", "DPYD");
   public static final String YES = "Yes";
   public static final String NO = "No";
 
@@ -449,30 +447,12 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * True if this gene does not use allele function to assign phenotype but instead relies on the presence or absense of
-   * alleles for its phenotypes (e.g. HLA's)
+   * alleles for its phenotypes (e.g. HLA's).
+   *
    * @return true if this gene assigns phenotype based on allele presence
    */
   public boolean isAllelePresenceType() {
-    return isAllelePresenceType(m_gene);
-  }
-
-  /**
-   * True if the gene does not use allele function to assign phenotype but instead relies on the presence or absense of
-   * alleles for its phenotypes (e.g. HLA's)
-   * @param gene the gene symbol
-   * @return true if this gene assigns phenotype based on allele presence
-   */
-  public static boolean isAllelePresenceType(String gene) {
-    return ALLELE_PRESENCE.contains(gene);
-  }
-
-  /**
-   * True if the gene uses activity score to assign phenotype and match to recommendations
-   * @param gene the gene symbol
-   * @return true if this gene is an activity score gene
-   */
-  public static boolean isActivityScoreType(String gene) {
-    return gene != null && ACTIVITY_SCORE.contains(gene.toUpperCase());
+    return Constants.isAllelePresenceGene(m_gene);
   }
 
   /**
@@ -544,10 +524,6 @@ public class GeneReport implements Comparable<GeneReport> {
     return StringUtils.isNotBlank(gene) && IGNORED_GENES.contains(gene);
   }
 
-
-  public static boolean isXChromo(String gene) {
-    return StringUtils.isNotBlank(gene) && CHROMO_X.contains(gene);
-  }
 
   /**
    * This will test whether this has a called haplotype at the reporter level, so this will not be just matched

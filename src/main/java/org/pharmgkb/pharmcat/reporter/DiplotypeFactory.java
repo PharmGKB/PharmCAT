@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
+import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
@@ -18,7 +19,6 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
-import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static org.pharmgkb.pharmcat.Constants.isSinglePloidy;
@@ -100,7 +100,7 @@ public class DiplotypeFactory {
 
   public static String[] splitDiplotype(String gene, String diplotypeText) {
     if (diplotypeText.contains("/")) {
-      if (isSinglePloidy(gene) && !GeneReport.isXChromo(gene)) {
+      if (isSinglePloidy(gene) && !Constants.isXChromo(gene)) {
         throw new BadOutsideCallException("Cannot specify two genotypes [" + diplotypeText +
             "] for single chromosome gene " + gene);
       }

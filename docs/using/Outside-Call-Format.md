@@ -7,7 +7,7 @@ nav_order: 3
 # Outside Call Format
 
 Typically, PharmCAT uses variant call data to match diplotypes used to find annotations. However, you can also give
-diplotypes, phenotypes, or other allele calls to PharmCAT that were called by other tools.
+diplotypes, phenotypes or other allele calls to PharmCAT that were called by other tools.
 
 These **outside call files** can be supplied to the [PharmCAT](/using/Running-PharmCAT#outside-calls) tool using the
 `-po` flag.
@@ -23,13 +23,13 @@ The **outside call file** format is a tab-separated file. Lines starting with `#
 Each line has up to 4 fields, separated by tabs:
 
 1. HGNC gene symbol (_required_)
-2. Diplotype or single allele call (_required if third and fourth columns not specified_)
-3. Phenotype or other gene result (_required if second and fourth columns not specified_)
-4. Activity score (_required if second and third columns not specified_)
+2. Diplotype or single allele call (_required if third and fourth columns are not specified_)
+3. Phenotype or another gene result (_required if second and fourth columns are not specified_)
+4. Activity score (_required if second and third columns are not specified_)
 
-The second, third, and fourth fields can be used individually or together.
+The second, third and fourth fields can be used individually or together.
 
-Different genes on different lines can mix whether they give the diplotype, phenotype, or activity values.
+Different genes on different lines can mix whether they give the diplotype, phenotype or activity values.
 
 
 ### Activity score genes
@@ -41,14 +41,14 @@ will be issued because CPIC expects an activity score of `1.0` for `*1/*6`.
 
 If you don't specify an activity score, PharmCAT will look up the activity score based on the phenotype (if provided)
 and then diplotype (if phenotype is not provided).  Once again, PharmCAT will issue a warning if both phenotype and 
-diplotype is provided, and they do not match the expected values. 
+diplotype are provided, and they do not match the expected values. 
 
-### Non activity score genes
+### Non-activity score genes
 
 For non-activity score genes, the activity score is ignored (although it may be displayed in the final report).
 
-If you specify both a diplotype and a phenotype then PharmCAT will _rely on your phenotype_. PharmCAT will issue a
-warning if your phenotype does not match the expected phenotype for the given diplotype.
+If you specify both a diplotype and a phenotype, then PharmCAT will _rely on your phenotype_.
+PharmCAT will issue a warning if your phenotype does not match the expected phenotype for the given diplotype.
 
 
 ### Example
@@ -87,6 +87,12 @@ Named allele matching in diplotypes/single allele calls should be fairly straigh
 If the call is a combination call (e.g. `[*2 + *3]`), it needs to use PharmCAT's combination syntax: it has to be 
 wrapped in square brackets (`[` and `]`) and each named allele must be separated with a plus sign with a space on either
 side (` + `).  More examples: `*1/[*6 + *8]`, `[*3 + *4 + *5]/[*18 + *37]`.
+
+PharmCAT will automatically convert named alleles into a format usable by PharmCAT based on existing conventions for
+CYP2D6, HLA-A and HLA-B. For example:
+
+* `HLA-B *07:02:01:127` will be truncated to `*07:02`
+* `CYP2D6 *4.024` will be truncated to `*4`
 
 
 ##### Gene copy number

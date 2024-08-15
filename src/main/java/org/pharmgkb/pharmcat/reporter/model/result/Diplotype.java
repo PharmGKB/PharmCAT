@@ -16,6 +16,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
@@ -347,18 +348,19 @@ public class Diplotype implements Comparable<Diplotype> {
    * True if this diplotype does not use allele function to assign phenotype but instead relies on the presence or
    * absense of alleles for its phenotypes (e.g. HLA's).
    *
-   * @return true if this diplotype assigns phenotype based on allele presence
+   * @return true if this diplotype assigns phenotypes based on allele presence
    */
   public boolean isAllelePresenceType() {
-    return GeneReport.isAllelePresenceType(getGene());
+    return Constants.isAllelePresenceGene(m_gene);
   }
 
   /**
-   * True if the gene for this diplotype relies on activity score to assign phenotypes and match recommendations
+   * True if the gene for this diplotype relies on activity score to assign phenotypes and match recommendations.
+   *
    * @return true if this diplotype uses activity score
    */
   public boolean isActivityScoreType() {
-    return GeneReport.isActivityScoreType(getGene());
+    return Constants.isActivityScoreGene(m_gene);
   }
 
 

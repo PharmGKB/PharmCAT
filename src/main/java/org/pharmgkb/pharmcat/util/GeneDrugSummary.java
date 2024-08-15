@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
@@ -31,7 +30,7 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * Summary of all the genes and drugs used in PharmCAT. Expected output is a markdown file with lists of data.
+ * Summary of all the genes and drugs used in PharmCAT. The expected output is a Markdown file with lists of data.
  */
 public class GeneDrugSummary {
   private static final Path SUMMARY_TEMPLATE_FILE =
@@ -181,7 +180,7 @@ public class GeneDrugSummary {
         SortedSet<String> dpwgScores = new TreeSet<>();
         collectDiplotypeMetadata(dpwgGp, dpwgPhenotypes, dpwgScores);
 
-        // we use semicolon as separator so make sure it's not used in values
+        // we use semicolon as a separator so make sure it's not used in values
         if (haplotypes.stream().anyMatch(v -> v.contains(";"))) {
           throw new IllegalStateException(gene + " haplotypes has comma");
         }
@@ -212,8 +211,7 @@ public class GeneDrugSummary {
           }
         }
 
-        boolean isNamedAllele = haplotypes.first().startsWith("*") && !gene.equals("UGT1A1");
-        String type = isNamedAllele ? "Named Alleles" : "Variants";
+        String type = Constants.isVariantGene(gene) ? "Named Variants" : "Named Alleles";
         mdWriter.println("### " + gene);
         if (!m_guidelineCollection.getGenesWithRecommendations().contains(gene)) {
           mdWriter.println("<p>No recommendations available for this gene.</p>");
@@ -236,29 +234,29 @@ public class GeneDrugSummary {
         mdWriter.println("</tr>");
         mdWriter.println("<tr>");
         mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-        mdWriter.print(haplotypes.stream()
+        haplotypes.stream()
             .filter(v -> !sf_globCopyNumberPattern.matcher(v).matches())
-            .map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+            .forEach(v -> mdWriter.println("<li>" + v + "</li>"));
         mdWriter.println("</ul></td>");
 
         if (!cpicPhenotypes.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-          mdWriter.print(cpicPhenotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+          cpicPhenotypes.forEach(v -> mdWriter.println("<li>" + v + "</li>"));
           mdWriter.println("</ul></td>");
         }
         if (!cpicScores.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-          mdWriter.print(cpicScores.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+          cpicScores.forEach(v -> mdWriter.println("<li>" + v + "</li>"));
           mdWriter.println("</ul></td>");
         }
         if (!dpwgPhenotypes.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-          mdWriter.print(dpwgPhenotypes.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+          dpwgPhenotypes.forEach(v -> mdWriter.println("<li>" + v + "</li>"));
           mdWriter.println("</ul></td>");
         }
         if (!dpwgScores.isEmpty()) {
           mdWriter.print("<td style=\"vertical-align: top\"><ul style=\"padding-left: 1rem\">");
-          mdWriter.print(dpwgScores.stream().map(v -> "<li>" + v + "</li>").collect(Collectors.joining()));
+          dpwgScores.forEach(v -> mdWriter.println("<li>" + v + "</li>"));
           mdWriter.println("</ul></td>");
         }
         mdWriter.println("</tr>");
@@ -275,6 +273,37 @@ public class GeneDrugSummary {
         tsvWriter.print("\t");
         tsvWriter.print(String.join(";", dpwgPhenotypes));
         tsvWriter.println();
+      }
+
+
+      mdWriter.println("## Allele Presence Genes");
+      mdWriter.println();
+      mdWriter.println("""
+      PharmCAT provides recommendations for these genes based on the presence or absence of specific named alleles.
+      """);
+      mdWriter.println();
+
+      for (String gene : Constants.ALLELE_PRESENCE_GENES) {
+        mdWriter.println("### " + gene);
+
+        if (gene.equals("HLA-A")) {
+          Constants.HLA_A_ALLELES.forEach(a -> mdWriter.println("* " + a));
+
+        } else if (gene.equals("HLA-B")) {
+          Constants.HLA_B_ALLELES.forEach(a -> mdWriter.println("* " + a));
+        } else {
+          throw new IllegalStateException("Don't know how to handle " + gene);
+        }
+        mdWriter.println();
+
+        tsvWriter.print(gene);
+        tsvWriter.print("\t");
+        if (gene.equals("HLA-A")) {
+          tsvWriter.print(String.join(";", Constants.HLA_A_ALLELES));
+        } else {
+          tsvWriter.print(String.join(";", Constants.HLA_B_ALLELES));
+        }
+        tsvWriter.println("\t\t\t");
       }
     }
     sf_logger.info("Saving allele data to {}", summaryFile);

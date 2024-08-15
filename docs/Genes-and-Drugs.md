@@ -171,7 +171,7 @@ The following table lists the 184 drugs for which PharmCAT has recommendations f
 | methoxyflurane | :heavy_check_mark: |  |  |  |
 | methylene blue | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | metoclopramide |  |  | :heavy_check_mark: | :heavy_check_mark: |
-| metoprolol |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| metoprolol | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | mirabegron |  |  |  | :heavy_check_mark: |
 | moviprep |  |  | :heavy_check_mark: |  |
 | nalidixic acid |  |  | :heavy_check_mark: |  |
@@ -180,7 +180,7 @@ The following table lists the 184 drugs for which PharmCAT has recommendations f
 | neomycin | :heavy_check_mark: |  |  |  |
 | netilmicin | :heavy_check_mark: |  |  |  |
 | nilotinib |  |  |  | :heavy_check_mark: |
-| nitrofurantoin | :heavy_check_mark: |  |  |  |
+| nitrofurantoin | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | nortriptyline | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | oliceridine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | omeprazole | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |

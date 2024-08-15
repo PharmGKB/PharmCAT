@@ -2,9 +2,9 @@
   "geneReports": {
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -107,9 +107,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -234,9 +234,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CFTR": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -871,9 +871,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1668,9 +1668,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -2311,9 +2311,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -3554,7 +3554,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3658,9 +3658,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -3827,7 +3827,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -4116,9 +4116,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -5406,9 +5406,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "G6PD": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -8132,9 +8132,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8239,7 +8239,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -8331,9 +8331,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -8671,9 +8671,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "RYR1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -13205,9 +13205,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -13782,9 +13782,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -14487,9 +14487,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -14648,7 +14648,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -14747,9 +14747,9 @@
     },
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -14852,9 +14852,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -15649,9 +15649,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -16292,9 +16292,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -17535,7 +17535,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -17639,9 +17639,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -18330,9 +18330,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -18499,9 +18499,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -20075,9 +20075,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -20415,9 +20415,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -20992,9 +20992,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -21697,9 +21697,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -21858,9 +21858,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "2024-07-25-21-55",
+        "alleleDefinitionVersion": "2024-08-15-11-35",
         "alleleDefinitionSource": "PHARMGKB",
-        "phenotypeVersion": "2024-07-25-21-55",
+        "phenotypeVersion": "2024-08-15-11-35",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
