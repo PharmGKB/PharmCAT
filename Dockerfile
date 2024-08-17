@@ -6,12 +6,12 @@ FROM python:3.12
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends apt-utils apt-transport-https gnupg && \
+    apt-get install -y --no-install-recommends apt-utils apt-transport-https gpg && \
     apt-get -y upgrade && \
     apt-get -y install bzip2 build-essential wget
 
 # install java (https://blog.adoptium.net/2021/12/eclipse-temurin-linux-installers-available/)
-RUN wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add -
+RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
 RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" \
     | tee /etc/apt/sources.list.d/adoptium.list
 RUN apt-get update && \
@@ -28,9 +28,9 @@ RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
 
-ENV BCFTOOLS_VERSION 1.20
-ENV HTSLIB_VERSION 1.20
-ENV SAMTOOLS_VERSION 1.20
+ENV BCFTOOLS_VERSION=1.20
+ENV HTSLIB_VERSION=1.20
+ENV SAMTOOLS_VERSION=1.20
 
 # download the suite of tools
 WORKDIR /usr/local/bin/
