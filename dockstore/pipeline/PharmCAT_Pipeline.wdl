@@ -60,7 +60,7 @@ task pharmcat_pipeline {
     }
 
     runtime {
-        docker: "pgkb/pharmcat:2.13.0"
+        docker: "pgkb/pharmcat:2.15.1"
         memory: max_memory
         cpu: max_concurrent_processes
     }

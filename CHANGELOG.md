@@ -1,3 +1,13 @@
+## [2.15.1](https://github.com/PharmGKB/PharmCAT/compare/v2.15.0...v2.15.1) (2024-08-17)
+
+
+### Bug Fixes
+
+* do not require any base filename before the sample IDs ([7250db4](https://github.com/PharmGKB/PharmCAT/commit/7250db4e5a7812c5c9f99c4f3a542c37aeea711e))
+* validate outside call diplotypes ([9c49fbc](https://github.com/PharmGKB/PharmCAT/commit/9c49fbc9ec7a81b8b314956574e59c1fea5ccd40))
+* **data:** include missing CPIC metoprolol guidance ([b117835](https://github.com/PharmGKB/PharmCAT/commit/b1178357c05f2b2e9859280a8a801bd3b9630add))
+* **subsetter:** fix bugs in subsetter ([683a361](https://github.com/PharmGKB/PharmCAT/commit/683a36100626f8bedbe9aa360adc0d16486e3955))
+
 ## [2.15.0](https://github.com/PharmGKB/PharmCAT/compare/v2.14.0...v2.15.0) (2024-08-06)
 
 
