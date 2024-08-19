@@ -360,7 +360,7 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return true if this diplotype uses activity score
    */
   public boolean isActivityScoreType() {
-    return Constants.isActivityScoreGene(m_gene);
+    return Constants.isActivityScoreGene(m_gene, m_phenotypeDataSource);
   }
 
 

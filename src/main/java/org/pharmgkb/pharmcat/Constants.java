@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 
 /**
@@ -32,7 +33,9 @@ public class Constants {
       "ABCG2", "CACNA1S", "CFTR", "DPYD", "G6PD", "INFL3", "MT-RNR1", "RYR1", "VKORC1");
 
   public static final Set<String> ALLELE_PRESENCE_GENES = ImmutableSortedSet.of("HLA-A", "HLA-B");
-  private static final Set<String> ACTIVITY_SCORE_GENES = ImmutableSortedSet.of("CYP2C9", "CYP2D6", "DPYD");
+  // activity score genes vary by data source
+  private static final Set<String> ACTIVITY_SCORE_GENES_CPIC = ImmutableSortedSet.of("CYP2C9", "CYP2D6", "DPYD");
+  private static final Set<String> ACTIVITY_SCORE_GENES_DPWG = ImmutableSortedSet.of("CYP2D6");
 
   public static final SortedSet<String> PREFER_OUTSIDE_CALL = ImmutableSortedSet.of("CYP2D6", "HLA-A", "HLA-B", "MT-RNR1");
 
@@ -83,12 +86,20 @@ public class Constants {
 
   /**
    * Returns true if the gene uses activity score to assign phenotype and match to recommendations.
-   *
+   * <p>
+   * <strong>NOTE:</strong> Some genes will be true for one phenotype source but false for another.
+   * </p>
    * @param gene the gene symbol
+   * @param dataSource the phenotyping source
    * @return true if this gene is an activity score gene
    */
-  public static boolean isActivityScoreGene(String gene) {
-    return gene != null && ACTIVITY_SCORE_GENES.contains(gene.toUpperCase());
+  public static boolean isActivityScoreGene(String gene, DataSource dataSource) {
+    Set<String> genes = switch (dataSource) {
+      case CPIC -> ACTIVITY_SCORE_GENES_CPIC;
+      case DPWG -> ACTIVITY_SCORE_GENES_DPWG;
+      default -> throw new RuntimeException("No genes specified for " + dataSource);
+    };
+    return gene != null && genes.contains(gene.toUpperCase());
   }
 
   public static boolean isXChromo(String gene) {

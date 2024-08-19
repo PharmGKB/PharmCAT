@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat.definition;
 
+import java.util.Collection;
 import java.util.Objects;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
+import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -46,6 +49,36 @@ class PhenotypeMapTest {
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("DPYD").orElseThrow(Exception::new);
     assertNotNull(genePhenotype);
     assertEquals("Normal function", genePhenotype.getHaplotypeFunction("Reference"));
+  }
+
+  /**
+   * Ensure all diplotype calculation gets assigned lookup keys where appropriate
+   */
+  @Test
+  void testLookupTranslation() {
+    DataSource[] sources = new DataSource[] {DataSource.CPIC, DataSource.DPWG};
+    PhenotypeMap phenotypeMap = new PhenotypeMap();
+
+    for (DataSource source : sources) {
+      Collection<GenePhenotype> allGenePhenotypes = source == DataSource.CPIC ? phenotypeMap.getCpicGenes() : phenotypeMap.getDpwgGenes();
+      for (GenePhenotype genePhenotype : allGenePhenotypes) {
+        boolean isScoreGene = Constants.isActivityScoreGene(genePhenotype.getGene(), source);
+        String unspecifiedString = isScoreGene ? "n/a" : "Indeterminate";
+        for (DiplotypeRecord diplotype : genePhenotype.getDiplotypes()) {
+          String description = source + " " + genePhenotype + " " + diplotype;
+          if (diplotype.getPhenotype().equals("Indeterminate")) {
+            assertEquals("Indeterminate", diplotype.getGeneResult(), "No gene result not set to Indeterminate for " + description);
+            assertEquals(unspecifiedString, diplotype.getLookupKey(), "Lookup key should be n/a for " + description);
+            assertTrue(!isScoreGene || TextConstants.isUnspecified(diplotype.getActivityScore()), "Activity score should be n/a for " + description);
+          } else {
+            assertFalse(TextConstants.isUnspecified(diplotype.getPhenotype()), "No phenotype for " + description);
+            assertFalse(TextConstants.isUnspecified(diplotype.getGeneResult()), "No gene result for " + description);
+            assertFalse(TextConstants.isUnspecified(diplotype.getLookupKey()), "No lookup key for " + description);
+            assertFalse(isScoreGene && TextConstants.isUnspecified(diplotype.getActivityScore()), "No activity score for " + description);
+          }
+        }
+      }
+    }
   }
 
   @Test

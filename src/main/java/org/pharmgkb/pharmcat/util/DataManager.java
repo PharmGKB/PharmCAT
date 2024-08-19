@@ -396,7 +396,7 @@ public class DataManager {
         }
 
         // generate diplotype data
-        gp.generateDiplotypes();
+        gp.generateDiplotypes(source);
 
         String filename = sanitizeFilename(gp.getGene()) + ".json";
         try (Writer writer = Files.newBufferedWriter(outputDir.resolve(filename))) {

@@ -131,10 +131,20 @@ class DpydTest {
     List<String> expectedCalls = List.of("c.1627A>G (*5)/c.1905+1G>A (*2A)");
     RecPresence hasDpwgAnnotations = RecPresence.YES;
 
+    GeneReport dpwgReport = testWrapper.getContext().getGeneReport(DataSource.DPWG, "DPYD");
+    assertNotNull(dpwgReport);
+    assertTrue(dpwgReport.getRecommendationDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream()).noneMatch(TextConstants::isUnspecified), "DPWG missing lookup key for DPYD");
+
     testWrapper.testCalledByMatcher(gene);
     testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+
+    // DPWG does not include the 1627 allele in function definition so use Reference for lookup
+    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCallsToRecommendedDiplotypes(List.of("Reference/c.1905+1G>A (*2A)")));
+    // all other diplotype usage can use the alleles as called
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
+    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 

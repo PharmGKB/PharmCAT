@@ -421,7 +421,7 @@ public class Subsetter {
         // export
         Path jsonFile = dir.resolve(gp.getGene() + ".json");
         if (updatedFunctions) {
-          gp.generateDiplotypes();
+          gp.generateDiplotypes(src);
         }
         DataSerializer.serializeToJson(gp, jsonFile);
         //System.out.println("\tWrote " + jsonFile);
