@@ -3683,7 +3683,7 @@ __metadata:
     "@semantic-release/changelog": 6.0.3
     "@semantic-release/git": 10.0.1
     conventional-changelog-conventionalcommits: 8.0.0
-    semantic-release: 24.0.0
+    semantic-release: 24.1.0
     showdown: 2.1.0
   languageName: unknown
   linkType: soft
@@ -4015,9 +4015,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:24.0.0":
-  version: 24.0.0
-  resolution: "semantic-release@npm:24.0.0"
+"semantic-release@npm:24.1.0":
+  version: 24.1.0
+  resolution: "semantic-release@npm:24.1.0"
   dependencies:
     "@semantic-release/commit-analyzer": ^13.0.0-beta.1
     "@semantic-release/error": ^4.0.0
@@ -4050,7 +4050,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     semantic-release: bin/semantic-release.js
-  checksum: de304edba3fdffe8e2967446ac48a694ffb9d1cbaa27b3089c78742a6f9cb992d9cc3b952c38914963e26f973821fae988fadd7ef40802a6db7768005d42be84
+  checksum: 777384491f582806c97c55508ab3291f798cee48b458450a400bb57288917ae36fcdd383fc826c3ad3138871a2c6e49737ecbfbfee27051becc846f9b46d63fa
   languageName: node
   linkType: hard
 
