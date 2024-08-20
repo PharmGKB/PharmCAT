@@ -104,6 +104,12 @@ jobs:
           tar -xf GRCh38_reference_fasta.tar
           rm -f GRCh38_reference_fasta.tar
 
+      # wait a bit on a release commit to give release action time to upload the resources necessary for test
+      - name: Sleep for 60 seconds
+        run: sleep 60s
+        shell: bash
+        if: ${{ startsWith(github.event.head_commit.message, 'chore(release)') }}
+
       - name: Run preprocessor tests
         run: python3 -m pytest --cov-config=../.coveragerc --cov-report=xml --cov=preprocessor
         working-directory: preprocessor
