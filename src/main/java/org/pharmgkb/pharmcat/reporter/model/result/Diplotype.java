@@ -104,18 +104,18 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public Diplotype(String gene, Haplotype h1, @Nullable Haplotype h2, Env env, DataSource source) {
     m_gene = gene;
+    m_phenotypeDataSource = source;
     m_allele1 = h1;
     m_allele2 = h2;
-    m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel(false);
   }
 
   public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source) {
     m_gene = gene;
+    m_phenotypeDataSource = source;
     m_allele1 = env.makeHaplotype(gene, hap1, source);
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
-    m_phenotypeDataSource = source;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel(false);
   }
@@ -123,8 +123,9 @@ public class Diplotype implements Comparable<Diplotype> {
   /**
    * Constructor for tests.
    */
-  public Diplotype(String gene, String phenotype) {
+  public Diplotype(String gene, String phenotype, DataSource source) {
     m_gene = gene;
+    m_phenotypeDataSource = source;
     m_allele1 = null;
     m_allele2 = null;
     m_phenotypes.add(phenotype);
@@ -133,7 +134,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
-   * Constructor for a diplotype coming from an outside call that does not specify individual alleles but DOES give
+   * Constructor for a diplotype coming from an outside call that does not specify individual alleles but DOES have a
    * phenotype or activity score.
    *
    * @param outsideCall an {@link OutsideCall} object

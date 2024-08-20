@@ -72,7 +72,7 @@ class BatchPharmCATTest {
     System.out.println(systemOut);
     assertThat(systemOut, containsString("Done."));
     assertThat(systemOut, not(containsString("FAIL")));
-    // max processes is capped to number of samples, so capped to 1, which is not shown
+    // max processes value is capped to the number of samples, so capped to 1, which is not shown
     assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
     checkForOutputFiles(tmpDir, vcfFile);
   }

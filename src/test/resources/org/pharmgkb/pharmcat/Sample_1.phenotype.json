@@ -36,6 +36,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -71,6 +72,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -139,6 +141,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -174,6 +177,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -291,6 +295,7 @@
             "phenotypes": [
               "ivacaftor responsive in CF patients"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -326,6 +331,7 @@
             "phenotypes": [
               "ivacaftor responsive in CF patients"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -966,6 +972,7 @@
             "phenotypes": [
               "Normal Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -1001,6 +1008,7 @@
             "phenotypes": [
               "Normal Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -1608,6 +1616,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -1643,6 +1652,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -2329,6 +2339,7 @@
             "phenotypes": [
               "Intermediate Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "1.0",
@@ -2364,6 +2375,7 @@
             "phenotypes": [
               "Intermediate Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "1.0",
@@ -3558,6 +3570,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "n/a",
@@ -3593,6 +3606,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "n/a",
@@ -3649,6 +3663,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -3684,6 +3699,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -3806,6 +3822,7 @@
             },
             "gene": "CYP4F2",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -3837,6 +3854,7 @@
             },
             "gene": "CYP4F2",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -3987,6 +4005,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "n/a",
@@ -4013,6 +4032,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "n/a",
@@ -4048,6 +4068,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": "0.0",
@@ -5445,6 +5466,7 @@
             "phenotypes": [
               "Deficient with CNSHA"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -5480,6 +5502,7 @@
             "phenotypes": [
               "Deficient with CNSHA"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -7955,6 +7978,7 @@
             },
             "gene": "HLA-A",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -7986,6 +8010,7 @@
             },
             "gene": "HLA-A",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8031,6 +8056,7 @@
             },
             "gene": "HLA-B",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8062,6 +8088,7 @@
             },
             "gene": "HLA-B",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8110,6 +8137,7 @@
             },
             "gene": "IFNL3",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8141,6 +8169,7 @@
             },
             "gene": "IFNL3",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8197,6 +8226,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8226,6 +8256,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8291,6 +8322,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8326,6 +8358,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8666,6 +8699,7 @@
             "phenotypes": [
               "Malignant Hyperthermia Susceptibility"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -8701,6 +8735,7 @@
             "phenotypes": [
               "Malignant Hyperthermia Susceptibility"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -9414,6 +9449,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -9449,6 +9485,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10024,6 +10061,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10059,6 +10097,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10719,6 +10758,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10751,6 +10791,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10783,6 +10824,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10815,6 +10857,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10850,6 +10893,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10882,6 +10926,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10914,6 +10959,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -10946,6 +10992,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11059,6 +11106,7 @@
             },
             "gene": "VKORC1",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11090,6 +11138,7 @@
             },
             "gene": "VKORC1",
             "phenotypes": [],
+            "phenotypeDataSource": "CPIC",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11157,6 +11206,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11192,6 +11242,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11298,6 +11349,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11333,6 +11385,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11940,6 +11993,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -11975,6 +12029,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -12661,6 +12716,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -12696,6 +12752,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -13890,6 +13947,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -13925,6 +13983,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14010,6 +14069,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14045,6 +14105,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14576,6 +14637,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14611,6 +14673,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14805,6 +14868,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14831,6 +14895,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -14866,6 +14931,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16080,6 +16146,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16115,6 +16182,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16180,6 +16248,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16215,6 +16284,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16552,6 +16622,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -16587,6 +16658,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17162,6 +17234,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17197,6 +17270,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17857,6 +17931,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17889,6 +17964,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17921,6 +17997,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17953,6 +18030,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -17988,6 +18066,7 @@
             "phenotypes": [
               "Poor Metabolizer"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -18020,6 +18099,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -18052,6 +18132,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -18084,6 +18165,7 @@
             "phenotypes": [
               "n/a"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -18199,6 +18281,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
@@ -18234,6 +18317,7 @@
             "phenotypes": [
               "No Result"
             ],
+            "phenotypeDataSource": "DPWG",
             "outsidePhenotype": false,
             "outsidePhenotypeMismatch": null,
             "activityScore": null,
