@@ -117,7 +117,7 @@ Successfully tested on v53 and v87.
 
 ### PharmCAT Version
 
-PharmCAT v2.15.1.
+PharmCAT v2.15.2.
 
 
 ## Contact

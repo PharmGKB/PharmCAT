@@ -1,3 +1,11 @@
+## [2.15.2](https://github.com/PharmGKB/PharmCAT/compare/v2.15.1...v2.15.2) (2024-08-20)
+
+### Bug Fixes
+
+* **data:** fill in DPYD lookupkeys for DPWG ([90d587b](https://github.com/PharmGKB/PharmCAT/commit/90d587bc44215fce302dd64ef7b5a1d7f1ebd8f6))
+* **tools:** gene regions for F5, CYP2D6, VKORC1, IFNL4 for research purposes ([5f0e6dd](https://github.com/PharmGKB/PharmCAT/commit/5f0e6dd26c0a9c2868ff43e28f7174e12a9ee5d9))
+* **tools:** show the name of the sample whose result files are being processed ([8d6d1c8](https://github.com/PharmGKB/PharmCAT/commit/8d6d1c8f8201477fdf848f6db04bdae591832b0b))
+
 ## [2.15.1](https://github.com/PharmGKB/PharmCAT/compare/v2.15.0...v2.15.1) (2024-08-17)
 
 
