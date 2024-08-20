@@ -125,10 +125,12 @@ class ReporterTest {
     phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
     assertEquals(2, phenotype.size());
 
+    // CPIC guidance lookup for warfarin does not use phenotypes so no activity score will be there
     Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
+    // none of the DPWG genes for warfarin use activity score
     activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
-    assertEquals(1, activityScore.size());
+    assertEquals(0, activityScore.size());
   }
 
   @Test
@@ -179,7 +181,7 @@ class ReporterTest {
     Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
     activityScore = document.select(".dpwg-guideline-warfarin .rx-activity");
-    assertEquals(1, activityScore.size());
+    assertEquals(0, activityScore.size());
   }
 
   private Path printReport(TestInfo testInfo, ReportContext reportContext) throws Exception {
