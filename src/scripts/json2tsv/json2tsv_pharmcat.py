@@ -179,6 +179,8 @@ if __name__ == "__main__":
                 futures = []
                 print(f'Processing samples:')
                 for one_sample in json_samples:
+                    print(f'\t{one_sample}')
+
                     # get the matcher and phenotyper json names for the sample
                     matcher_file, phenotyper_file = get_json_file_names(one_sample, m_matcher_jsons, m_phenotyper_jsons)
                     futures.append(e.submit(extract_pcat_json, matcher_file, phenotyper_file, m_genes, one_sample,
@@ -190,8 +192,10 @@ if __name__ == "__main__":
                     for key in summary_results:
                         summary_results[key].extend(tmp_results[key])
         else:
-            print(f'Processing samples.')
+            print(f'Processing samples:')
             for one_sample in json_samples:
+                print(f'\t{one_sample}')
+
                 # get the matcher and phenotyper json names for the sample
                 matcher_file, phenotyper_file = get_json_file_names(one_sample, m_matcher_jsons, m_phenotyper_jsons)
 
