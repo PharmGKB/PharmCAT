@@ -21,7 +21,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
-import static org.pharmgkb.pharmcat.Constants.isSinglePloidy;
+import static org.pharmgkb.pharmcat.Constants.*;
 
 
 /**
@@ -160,13 +160,13 @@ public class DiplotypeFactory {
       return new ArrayList<>();
     }
     if (diplotype.getGene().equals("HLA-A")) {
-      return ImmutableList.of(hlaPhenotype(diplotype, "*31:01"));
+      return HLA_A_ALLELES.stream()
+          .map(a -> hlaPhenotype(diplotype, a))
+          .toList();
     } else {
-      List<String> phenotypes = new ArrayList<>();
-      phenotypes.add(hlaPhenotype(diplotype, "*15:02"));
-      phenotypes.add(hlaPhenotype(diplotype, "*57:01"));
-      phenotypes.add(hlaPhenotype(diplotype, "*58:01"));
-      return phenotypes;
+      return HLA_B_ALLELES.stream()
+          .map(a -> hlaPhenotype(diplotype, a))
+          .toList();
     }
   }
 

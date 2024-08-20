@@ -78,7 +78,7 @@ public class Genotype implements Comparable<Genotype> {
   }
 
   /**
-   * Does any diplotype in this genotype rely on activity score for phenotype assignment
+   * Does any diplotype in this genotype rely on activity score for phenotype assignment?
    * @return true if any diplotype in this genotype uses AS
    */
   public boolean usesActivityScore() {
