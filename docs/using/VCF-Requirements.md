@@ -99,17 +99,17 @@ All positions that are used to define alleles in PharmCAT must be present in the
 
 PharmCAT needs this level specificity because reference and missing alleles are interpreted differently by the allele matcher. When positions are missing from the input PharmCAT does not make assumptions about whether this is because they are reference or missing.
 
-Missing positions can be added in the following way using GATK to `EMIT_ALL_ACTIVE_SITES`:
+The following is an exemplary GATK command for generating VCF:
 
 ```console
 # gatk --java-options "-Xmx4g" HaplotypeCaller \
-     -R grc38.reference.fasta -I input.bam -O output.vcf \
-     -L pharmcat_positions.vcf -ip 20 --output-mode EMIT_ALL_ACTIVE_SITES
+     --alleles pharmcat_positions.vcf -R grc38.reference.fasta -I input.bam -O output.vcf \
+     -L pharmcat_positions.vcf -ip 20 --max-mnp-distance 1 --output-mode EMIT_ALL_ACTIVE_SITES
 ```
 
 The `pharmcat_positions.vcf` file is available on the [PharmCAT release page](https://github.com/PharmGKB/PharmCAT/releases) on GitHub.
 
-Please refer to the [HaplotypeCaller](https://gatk.broadinstitute.org/hc/en-us/articles/360037225632-HaplotypeCaller) documentation for details and tuning options.
+Please refer to the [HaplotypeCaller](https://gatk.broadinstitute.org/hc/en-us/articles/27007962724507-HaplotypeCaller) documentation for details and tuning options.
 
 
 ### Must normalize variant representation
