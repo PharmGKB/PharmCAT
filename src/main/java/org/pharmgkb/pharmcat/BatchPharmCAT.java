@@ -62,7 +62,7 @@ public class BatchPharmCAT {
 
           // reporter args
           .addOption("reporter", "reporter", "Run reporter independently")
-          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]", false, "sources")
           .addOption("re", "reporter-extended", "Output extended report")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 

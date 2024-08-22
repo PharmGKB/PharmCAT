@@ -86,7 +86,7 @@ Phenotyper arguments:
 Reporter arguments:
   -reporter             Run reporter independently.
   -rs <sources>, --reporter-sources <sources>
-                        Comma-separated list of sources to limit report to: [CPIC, DPWG]
+                        Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]
   -re, --reporter-extended
                         Output extended report.
   -reporterJson, --reporter-save-json

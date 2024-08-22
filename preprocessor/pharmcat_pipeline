@@ -98,7 +98,7 @@ if __name__ == '__main__':
     reporter_group.add_argument('-reporter', action='store_true',
                                 help='Run reporter independently.')
     reporter_group.add_argument('-rs', '--reporter-sources', type=str, metavar='<sources>',
-                                help='Comma-separated list of sources to limit report to: [CPIC, DPWG]')
+                                help='Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]')
     reporter_group.add_argument('-re', '--reporter-extended', action='store_true',
                                 help='Output extended report.')
     reporter_group.add_argument('-reporterJson', '--reporter-save-json', action='store_true',

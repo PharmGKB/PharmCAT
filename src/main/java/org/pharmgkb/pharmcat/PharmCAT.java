@@ -44,7 +44,7 @@ public class PharmCAT {
           .addOption("reporter", "reporter", "Run reporter independently")
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
           .addOption("rt", "reporter-title", "Text to add to the report title", false, "title")
-          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG]", false, "sources")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]", false, "sources")
           .addOption("re", "reporter-extended", "Output extended report")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 

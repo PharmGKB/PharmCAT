@@ -159,7 +159,7 @@ Each module has its own arguments to customize its behavior.
 -rt `<title>` <span class="altArg"><br />or --reporter-title `<title>`</span>
 : text to add to the report title
 
--rs `<CPIC or DPWG>` <span class="altArg"><br />or --reporter-sources `<CPIC or DPWG>`</span>
+-rs `<CPIC, DPWG or FDA>` <span class="altArg"><br />or --reporter-sources `<CPIC, DPWG or FDA>`</span>
 : comma-separated list of sources to limit recommendations to (defaults to both)
 
 -re <span class="altArg"><br />or --reporter-extended</span>

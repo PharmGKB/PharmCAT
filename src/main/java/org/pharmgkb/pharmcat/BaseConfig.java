@@ -16,6 +16,7 @@ import com.google.common.base.Splitter;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 
@@ -137,7 +138,21 @@ public class BaseConfig {
         reporterSources = new ArrayList<>();
         for (String src : sf_commaSplitter.splitToList(Objects.requireNonNull(cliHelper.getValue("rs")))) {
           try {
-            reporterSources.add(PrescribingGuidanceSource.valueOf(src));
+            DataSource ds = DataSource.valueOf(src);
+            switch (ds) {
+              case CPIC:
+                reporterSources.add(PrescribingGuidanceSource.CPIC_GUIDELINE);
+                break;
+              case DPWG:
+                reporterSources.add(PrescribingGuidanceSource.DPWG_GUIDELINE);
+                break;
+              case FDA:
+                reporterSources.add(PrescribingGuidanceSource.FDA_LABEL);
+                reporterSources.add(PrescribingGuidanceSource.FDA_ASSOC);
+                break;
+              default:
+                throw new ReportableException("Unsupported source: " + src);
+            }
           } catch (IllegalArgumentException ex) {
             throw new ReportableException("Unknown source: " + src);
           }

@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.function.Consumer;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -56,7 +57,7 @@ class PharmCATTest {
     assertTrue(systemOut.contains("-vcf"));
 
 
-    // standard full run, should output to same directory as VCF file
+    // standard full run - should output to the same directory as the VCF file
     try {
       systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
           "-vcf", vcfFile.toString(),
@@ -102,17 +103,29 @@ class PharmCATTest {
   @Test
   void reference(TestInfo testInfo) throws Exception {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    doReference(testInfo, new String[]{
+        "-vcf", vcfFile.toString(),
+        "-o", outputDir.toString(),
+    }, document -> {
+      assertNotNull(document.getElementById("desflurane"));
+      assertEquals(1, document.getElementsByClass("cpic-guideline-desflurane").size());
+      assertEquals(1, document.getElementsByClass("fda-label-desflurane").size());
+      assertNotNull(document.getElementById("atorvastatin"));
+      assertEquals(1, document.getElementsByClass("cpic-guideline-atorvastatin").size());
+      assertEquals(1, document.getElementsByClass("dpwg-guideline-atorvastatin").size());
+      assertEquals(1, document.getElementsByClass("fda-assoc-atorvastatin").size());
+    });
+  }
 
+  private void doReference(TestInfo testInfo, String[] args, Consumer<Document> docChecker) throws Exception{
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
     Path refMatcherOutput = outputDir.resolve("reference.match.json");
     Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
     Path refReporterOutput = outputDir.resolve("reference.report.html");
 
     try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-o", outputDir.toString(),
-      }));
+      String systemOut = tapSystemOut(() -> PharmCAT.main(args));
       //System.out.println(systemOut);
       assertTrue(systemOut.contains("Done."));
       assertTrue(Files.exists(refMatcherOutput));
@@ -138,11 +151,48 @@ class PharmCATTest {
       assertNotNull(document.getElementById("section-i"));
       assertNotNull(document.getElementById("ABCG2"));
       assertNull(document.getElementById("CYP2D6"));
-      assertNotNull(document.getElementById("desflurane"));
+      docChecker.accept(document);
 
     } finally {
       TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
     }
+  }
+
+
+  @Test
+  void reference_cpicAndDpwgOnly(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    doReference(testInfo, new String[]{
+        "-vcf", vcfFile.toString(),
+        "-o", outputDir.toString(),
+        "-rs", "CPIC,DPWG"
+    }, document -> {
+      assertNotNull(document.getElementById("desflurane"));
+      assertEquals(1, document.getElementsByClass("cpic-guideline-desflurane").size());
+      assertEquals(0, document.getElementsByClass("fda-label-desflurane").size());
+      assertNotNull(document.getElementById("atorvastatin"));
+      assertEquals(1, document.getElementsByClass("cpic-guideline-atorvastatin").size());
+      assertEquals(1, document.getElementsByClass("dpwg-guideline-atorvastatin").size());
+      assertEquals(0, document.getElementsByClass("fda-assoc-atorvastatin").size());
+    });
+  }
+
+
+  @Test
+  void reference_fdaOnly(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+    doReference(testInfo, new String[]{
+        "-vcf", vcfFile.toString(),
+        "-o", outputDir.toString(),
+        "-rs", "FDA"
+    }, document -> {
+      assertNotNull(document.getElementById("desflurane"));
+      assertEquals(0, document.getElementsByClass("cpic-guideline-desflurane").size());
+      assertEquals(1, document.getElementsByClass("fda-label-desflurane").size());
+      assertNull(document.getElementById("atorvastatin"));
+    });
   }
 
 
