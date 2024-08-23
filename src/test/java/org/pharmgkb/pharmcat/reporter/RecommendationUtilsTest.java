@@ -33,5 +33,13 @@ class RecommendationUtilsTest {
     // changing the value for key that exists in both maps should break containment
     mapA.put("key1", "valueChanged");
     assertFalse(RecommendationUtils.mapContains(mapA, mapB));
+
+    Map<String, Object> mapC = new HashMap<>();
+    Map<String, Object> mapD = new HashMap<>();
+    mapC.put("key1", Map.of("a1", 2));
+    mapC.put("key2", Map.of("a2", 2));
+    mapD.put("key1", Map.of("a1", 2));
+
+    assertTrue(RecommendationUtils.mapContains(mapC, mapD));
   }
 }

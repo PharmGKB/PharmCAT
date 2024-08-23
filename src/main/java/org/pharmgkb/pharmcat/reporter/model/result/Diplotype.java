@@ -1,16 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -90,6 +80,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("phenotypeDataSource")
   private DataSource m_phenotypeDataSource;
+  @Expose
+  @SerializedName("diplotypeKey")
+  private SortedMap<String,Double> m_diplotypeKey = new TreeMap<>(HaplotypeNameComparator.getComparator());
 
 
   /**
@@ -109,6 +102,10 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele2 = h2;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel(false);
+    addAlleleToDiplotypeKey(h1.getName());
+    if (h2 != null) {
+      addAlleleToDiplotypeKey(h2.getName());
+    }
   }
 
   public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source) {
@@ -118,6 +115,10 @@ public class Diplotype implements Comparable<Diplotype> {
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel(false);
+    addAlleleToDiplotypeKey(hap1);
+    if (hap2 != null) {
+      addAlleleToDiplotypeKey(hap2);
+    }
   }
 
   /**
@@ -342,6 +343,14 @@ public class Diplotype implements Comparable<Diplotype> {
 
   public List<String> getLookupKeys() {
     return m_lookupKeys;
+  }
+
+  public Map<String,Double> getDiplotypeKey() {
+    return m_diplotypeKey;
+  }
+
+  private void addAlleleToDiplotypeKey(String allele) {
+    m_diplotypeKey.compute(allele, (k, v) -> v == null ? 1 : v + 1);
   }
 
 

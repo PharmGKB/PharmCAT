@@ -182,4 +182,12 @@ public class RecommendationAnnotation implements Comparable<RecommendationAnnota
     }
     return genotype.getLookupKeys().stream().anyMatch(k -> RecommendationUtils.mapContains(k, getLookupKey()));
   }
+
+  public boolean matchesDiplotype(Genotype genotype) {
+    if (getLookupKey() == null) {
+      return false;
+    }
+
+    return RecommendationUtils.mapContains(genotype.getDiplotypeKey(), getLookupKey());
+  }
 }

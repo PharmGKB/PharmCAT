@@ -1701,8 +1701,11 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("flucloxacillin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
     testWrapper.testNoMatchFromSource("fluvoxamine", PrescribingGuidanceSource.CPIC_GUIDELINE);
     testWrapper.testNoMatchFromSource("fluvoxamine", PrescribingGuidanceSource.DPWG_GUIDELINE);
-    testWrapper.testMatchedAnnotations("siponimod", 1);
+
+    // siponimod has DPWG & FDA recs, DPWG uses traditional matching and FDA uses diplotype-specific matching
+    testWrapper.testMatchedAnnotations("siponimod", 2);
     testWrapper.testAnyMatchFromSource("siponimod", PrescribingGuidanceSource.DPWG_GUIDELINE);
+    testWrapper.testAnyMatchFromSource("siponimod", PrescribingGuidanceSource.FDA_LABEL);
 
     testWrapper.testMatchedAnnotations("carbamazepine", PrescribingGuidanceSource.CPIC_GUIDELINE, 3);
     testWrapper.testMatchedAnnotations("carbamazepine", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
@@ -2378,6 +2381,34 @@ class PipelineTest {
 
     testWrapper.testPrintCpicCalls( "IFNL3", "rs12979860 reference (C)/rs12979860 reference (C)");
     testWrapper.testPrintCpicCalls( "CYP4F2", "*1/*3");
+  }
+
+
+  /**
+   * This test ensures diplotype-specific recommendations override more generic phenotype-specific ones.
+   * Specifically, phenytoin has a recommendation for "poor metabolizers" which *2/*2 will match. However, it also has a
+   * recommendation for *2/*2 specifically which should "override" the poor metabolizer recommendation for this specific
+   * diplotype.
+   */
+  @Test
+  void testDiplotypeOverrideRecommendation(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9")
+        .variation("CYP2C9", "rs1799853", "T", "T");
+    testWrapper.execute();
+
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCpicCalls( "CYP2C9", "*2/*2");
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", List.of("*2/*2"));
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", List.of("*2/*2"));
+
+    DrugReport phenytoin = testWrapper.getContext().getDrugReport(PrescribingGuidanceSource.DPWG_GUIDELINE, "phenytoin");
+    assertNotNull(phenytoin);
+    List<AnnotationReport> recs = phenytoin.getGuidelines().stream().flatMap((g) -> g.getAnnotations().stream()).toList();
+    assertEquals(1, recs.size());
+    AnnotationReport matchingRec = recs.get(0);
+    assertEquals("DPWG-PA166299254", recs.get(0).getLocalId());
   }
 
 

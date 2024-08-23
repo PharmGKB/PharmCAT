@@ -146,11 +146,20 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private void matchAnnotations(GuidelinePackage guidelinePackage, String drugName) {
     HashMultimap<RecommendationAnnotation, Genotype> matchedGenotypes = HashMultimap.create();
     for (Genotype genotype : m_recommendationGenotypes) {
-      guidelinePackage.getRecommendations().stream()
-          .filter(Objects::nonNull)
-          .filter(rec -> rec.appliesToDrug(drugName))
-          .filter(rec -> rec.matchesGenotype(genotype))
-          .forEach(rec -> matchedGenotypes.put(rec, genotype));
+      boolean matchedDiplotype = false;
+      for (RecommendationAnnotation rec : guidelinePackage.getRecommendations()) {
+        if (rec != null && rec.appliesToDrug(drugName) && rec.matchesDiplotype(genotype)) {
+          matchedGenotypes.put(rec, genotype);
+          matchedDiplotype = true;
+        }
+      }
+      if (!matchedDiplotype) {
+        guidelinePackage.getRecommendations().stream()
+            .filter(Objects::nonNull)
+            .filter(rec -> rec.appliesToDrug(drugName))
+            .filter(rec -> rec.matchesGenotype(genotype))
+            .forEach(rec -> matchedGenotypes.put(rec, genotype));
+      }
     }
     if (drugName.equals("warfarin") && m_source == PrescribingGuidanceSource.CPIC_GUIDELINE) {
       AnnotationReport ann = AnnotationReport.forCpicWarfarin(m_recommendationGenotypes);

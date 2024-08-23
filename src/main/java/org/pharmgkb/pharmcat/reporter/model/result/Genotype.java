@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
@@ -21,6 +23,8 @@ public class Genotype implements Comparable<Genotype> {
   private final SortedSet<Diplotype> m_diplotypes = new TreeSet<>();
 
   private transient List<Map<String, Object>> m_lookupKeys;
+
+  private transient SortedMap<String, Object> m_diplotypeKey = new TreeMap<>();
 
 
   /**
@@ -51,6 +55,8 @@ public class Genotype implements Comparable<Genotype> {
       throw new RuntimeException("Genotype already has diplotype for " + diplotype.getGene());
     }
     m_diplotypes.add(diplotype);
+
+    m_diplotypeKey.put(diplotype.getGene(), diplotype.getDiplotypeKey());
 
     if (m_lookupKeys == null) {
       m_lookupKeys = diplotype.getLookupKeys().stream()
@@ -107,6 +113,10 @@ public class Genotype implements Comparable<Genotype> {
 
   public List<Map<String, Object>> getLookupKeys() {
     return m_lookupKeys;
+  }
+
+  public Map<String, Object> getDiplotypeKey() {
+    return m_diplotypeKey;
   }
 
 
