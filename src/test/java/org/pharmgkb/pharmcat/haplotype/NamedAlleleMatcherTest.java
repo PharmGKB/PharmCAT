@@ -971,6 +971,44 @@ public class NamedAlleleMatcherTest {
   }
 
 
+  /**
+   * This tests permutation generation works as expected when we get all phased data, all unphased data, and a mix of
+   * phased and unphased data.
+   */
+  @Test
+  void testPermutationGeneration(TestInfo testInfo) throws Exception {
+    Path definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP2C19_translation.json");
+
+    // all phased
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+        new TestVcfBuilder(testInfo, "*2/*17")
+            .phased()
+            .variation("CYP2C19", "rs12248560", "C", "T")
+            .variation("CYP2C19", "rs12769205", "G", "A")
+            .variation("CYP2C19", "rs4244285", "A", "G")
+            .variation("CYP2C19", "rs3758581", "G", "G")
+            .generate()));
+
+    // all unphased
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+        new TestVcfBuilder(testInfo, "*2/*17")
+            .variation("CYP2C19", "rs12248560", "C", "T")
+            .variation("CYP2C19", "rs12769205", "G", "A")
+            .variation("CYP2C19", "rs4244285", "A", "G")
+            .variation("CYP2C19", "rs3758581", "G", "G")
+            .generate()));
+
+    // mix of phased and unphased
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+        new TestVcfBuilder(testInfo, "*2/*17")
+            .variation("CYP2C19", "rs12248560", "C", "T")
+            .variation("CYP2C19", "rs12769205", true, "G", "A")
+            .variation("CYP2C19", "rs4244285", true, "A", "G")
+            .variation("CYP2C19", "rs3758581", "G", "G")
+            .generate()));
+  }
+
+
   @SuppressWarnings("unused")
   private static void printWarnings(Result result) {
     for (String key : result.getVcfWarnings().keySet()) {

@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -86,8 +87,24 @@ public class TestVcfBuilder {
     return this;
   }
 
+  public TestVcfBuilder variation(String gene, String rsid, boolean isPhased, String... cpicAlleles) {
+    VcfEdit edit = new VcfEdit(rsid, cpicAlleles);
+    edit.isPhased = isPhased;
+    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
+
   public TestVcfBuilder variation(String gene, String chrom, long position, String... cpicAlleles) {
     VcfEdit edit = new VcfEdit(chrom, position, cpicAlleles);
+    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
+
+  public TestVcfBuilder variation(String gene, String chrom, long position, boolean isPhased, String... cpicAlleles) {
+    VcfEdit edit = new VcfEdit(chrom, position, cpicAlleles);
+    edit.isPhased = isPhased;
     m_edits.computeIfAbsent(gene, g -> new HashMap<>())
         .put(edit.id, edit);
     return this;
@@ -318,7 +335,11 @@ public class TestVcfBuilder {
     StringBuilder builder = new StringBuilder();
     for (String cpicAllele : edit.cpicAlleles) {
       if (!builder.isEmpty()) {
-        builder.append(m_isPhased ? "|" : "/");
+        if (edit.isPhased == null) {
+          builder.append(m_isPhased ? "|" : "/");
+        } else {
+          builder.append(edit.isPhased ? "|" : "/");
+        }
       }
       String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
       if (vcfAllele == null) {
@@ -364,6 +385,7 @@ public class TestVcfBuilder {
     private String[] vcfAltAlleles;
     private String ref;
     private String gt;
+    private Boolean isPhased;
 
     private VcfEdit(String rsid, @Nullable String[] cpicAlleles) {
       this.id = rsid;

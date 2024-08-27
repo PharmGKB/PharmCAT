@@ -20,14 +20,14 @@ public class CombinationUtil {
    */
   public static Set<String> generatePermutations(List<SampleAllele> alleles) {
     Preconditions.checkNotNull(alleles);
-    Preconditions.checkArgument(alleles.size() > 0, "No alleles to generate permutations for");
+    Preconditions.checkArgument(!alleles.isEmpty(), "No alleles to generate permutations for");
 
     boolean isHaploid = alleles.stream().allMatch(sa -> sa.getAllele2() == null);
     Set<String> rez = generatePermutations(alleles, 0, isHaploid, true, "");
-    if (alleles.get(0).isEffectivelyPhased() && !isHaploid) {
+    if (!isHaploid) {
       rez.addAll(generatePermutations(alleles, 0, false, false, ""));
     }
-    if (rez.size() == 0) {
+    if (rez.isEmpty()) {
       throw new IllegalStateException("No permutations generated from " + alleles.size() + " alleles");
     }
     return rez;
