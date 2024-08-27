@@ -5,6 +5,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -56,6 +58,11 @@ public class DefinitionFile {
   @Expose
   @SerializedName("namedAlleles")
   private SortedSet<NamedAllele> m_namedAlleles;
+  @Expose
+  @SerializedName("singularVariants")
+  private SortedSet<String> m_singularVariants;
+
+
 
   //-- cache
   private transient Map<String, NamedAllele> m_namedAlleleMap;
@@ -136,10 +143,20 @@ public class DefinitionFile {
 
 
   /**
-   * The {@link VariantLocus} objects used to define {@link NamedAllele}s in this translation
+   * The {@link VariantLocus} objects used to define {@link NamedAllele}s in this translation.
    */
   public VariantLocus[] getVariants() {
     return m_variants;
+  }
+
+  /**
+   * All VCF chr:pos that are only used by a single {@link NamedAllele}s that only has 1 {@link VariantLocus}.
+   */
+  public SortedSet<String> getSingularVariants() {
+    if (m_singularVariants == null) {
+      return Collections.emptySortedSet();
+    }
+    return m_singularVariants;
   }
 
 
@@ -407,6 +424,34 @@ public class DefinitionFile {
     }
     resetNamedAlleles(Collections.unmodifiableSortedSet(updatedNamedAlleles));
     m_variants = sortedVariants;
+
+    m_singularVariants = new TreeSet<>();
+    // look for alleles with only 1 position
+    SortedSet<NamedAllele> allelesWith1Position = m_namedAlleles.stream()
+        .filter(na -> !na.isReference())
+        .filter(na -> Arrays.stream(na.getCpicAlleles()).filter(Objects::nonNull).count() == 1)
+        .collect(Collectors.toCollection(TreeSet::new));
+
+    if (!allelesWith1Position.isEmpty()) {
+      // check how frequently a position is used by an allele
+      SortedSetMultimap<VariantLocus, NamedAllele> locusMap = TreeMultimap.create();
+      for (int x = 0; x < m_variants.length; x += 1) {
+        for (NamedAllele na : m_namedAlleles) {
+          if (na.isReference()) {
+            continue;
+          }
+          if (na.getCpicAllele(x) != null) {
+            locusMap.put(m_variants[x], na);
+          }
+        }
+      }
+      // get positions only used by a single allele (that are only have a single position)
+      for (VariantLocus vl : locusMap.keySet()) {
+        if (locusMap.get(vl).size() == 1 && allelesWith1Position.contains(locusMap.get(vl).first())) {
+          m_singularVariants.add(vl.getVcfChrPosition());
+        }
+      }
+    }
   }
 
   private static final Pattern sf_hgvsRepeatPattern = Pattern.compile("g\\.[\\d_]+([ACGT]+\\[\\d+])$");
