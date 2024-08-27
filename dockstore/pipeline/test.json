@@ -1,6 +1,0 @@
-{
-    "pharmcat_pipeline.vcf_file": "example.vcf",
-    "pharmcat_pipeline.max_concurrent_processes": 2,
-    "pharmcat_pipeline.max_memory": "8G",
-    "pharmcat_pipeline.delete_intermediate_files": true
-}

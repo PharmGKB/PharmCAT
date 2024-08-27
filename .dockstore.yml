@@ -1,0 +1,9 @@
+version: 1.2
+workflows:
+  - subclass: WDL
+    name: PharmCAT-Pipeline
+    primaryDescriptorPath: /pipeline/PharmCAT_Pipeline.wdl
+    readMePath: /pipeline/README.md
+    filters:
+      tags:
+        - /v\d+.*/
