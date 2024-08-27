@@ -39,7 +39,7 @@ class GeneReportTest {
     String displayDiplotype = "*1/*6";
     String diplotypeString = "UGT1A1:*1/*6";
 
-    OutsideCall outsideCall = new OutsideCall(outsideCallData, 0);
+    OutsideCall outsideCall = new OutsideCall(s_env, outsideCallData, 0);
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     assertEquals(gene, geneReport.getGene());
@@ -60,7 +60,7 @@ class GeneReportTest {
     String outsideCallData = "CYP2C19\t*1/*6";
     String displayDiplotype = "*1/*6";
 
-    OutsideCall outsideCall = new OutsideCall(outsideCallData, 0);
+    OutsideCall outsideCall = new OutsideCall(s_env, outsideCallData, 0);
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     assertEquals(gene, geneReport.getGene());
@@ -73,7 +73,7 @@ class GeneReportTest {
 
   @Test
   void testNoFunctionCyp2D6() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*XXX", 0);
+    OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*XXX", 0);
 
     GeneReport geneReport = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
@@ -92,7 +92,7 @@ class GeneReportTest {
     GeneReport geneReport1 = new GeneReport("TEST", DataSource.CPIC, "test");
     GeneReport geneReport2 = new GeneReport("TEST", DataSource.DPWG, "test");
 
-    OutsideCall outsideCall = new OutsideCall("TEST\t*1/*1", 0);
+    OutsideCall outsideCall = new OutsideCall(s_env, "TEST\t*1/*1", 0);
     GeneReport geneReport3 = new GeneReport(outsideCall, s_env, DataSource.CPIC);
 
     SortedSet<GeneReport> set = new TreeSet<>();

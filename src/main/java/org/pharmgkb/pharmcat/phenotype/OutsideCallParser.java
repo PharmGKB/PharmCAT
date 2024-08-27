@@ -12,6 +12,7 @@ import java.util.function.Predicate;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 
 
@@ -41,7 +42,8 @@ import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 public class OutsideCallParser {
   private static final Predicate<String> sf_nonCommentLine = (l) -> StringUtils.isNotBlank(l) && !l.startsWith("#");
 
-  public static List<OutsideCall> parse(Path filePath) throws IOException {
+
+  public static List<OutsideCall> parse(Env env, Path filePath) throws IOException {
     Preconditions.checkNotNull(filePath);
 
     List<OutsideCall> calls = new ArrayList<>();
@@ -51,20 +53,20 @@ public class OutsideCallParser {
       while ((line = reader.readLine()) != null) {
         x += 1;
         if (sf_nonCommentLine.test(line)) {
-          calls.add(new OutsideCall(line, x));
+          calls.add(new OutsideCall(env, line, x));
         }
       }
     }
     return calls;
   }
 
-  public static Set<OutsideCall> parse(String outsideCallData) {
+  public static Set<OutsideCall> parse(Env env, String outsideCallData) {
     Set<OutsideCall> calls = new HashSet<>();
     String[] lines = StringUtils.stripToEmpty(outsideCallData).split("\n");
     for (int x = 0; x < lines.length; x += 1) {
       String line = lines[x];
       if (sf_nonCommentLine.test(line)) {
-        calls.add(new OutsideCall(line, x + 1));
+        calls.add(new OutsideCall(env, line, x + 1));
       }
     }
     return calls;

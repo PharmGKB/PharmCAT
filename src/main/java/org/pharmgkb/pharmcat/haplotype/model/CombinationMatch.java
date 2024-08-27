@@ -22,6 +22,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  */
 public class CombinationMatch extends BaseMatch {
   public static final String COMBINATION_JOINER = " + ";
+  public static final String COMBINATION_JOINER_REGEX = " \\+ ";
   public static final Splitter COMBINATION_NAME_SPLITTER = Splitter.on(COMBINATION_JOINER).trimResults();
   @Expose
   @SerializedName("componentHaplotypes")

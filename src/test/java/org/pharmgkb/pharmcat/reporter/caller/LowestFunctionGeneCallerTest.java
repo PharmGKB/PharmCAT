@@ -38,7 +38,7 @@ class LowestFunctionGeneCallerTest {
 
   @Test
   void infer_outsideCall_noMatch() {
-    OutsideCall call = new OutsideCall("DPYD\t*1/*5", 1);
+    OutsideCall call = new OutsideCall(s_env, "DPYD\t*1/*5", 1);
     List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, CPIC);
 
     assertEquals(1, dips.size());
@@ -115,7 +115,7 @@ class LowestFunctionGeneCallerTest {
   }
 
   private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
-    OutsideCall call = new OutsideCall("DPYD\t" + diplotype, 1);
+    OutsideCall call = new OutsideCall(s_env, "DPYD\t" + diplotype, 1);
     List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, source);
 
     assertEquals(1, dips.size());

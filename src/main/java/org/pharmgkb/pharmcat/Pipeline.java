@@ -286,24 +286,12 @@ public class Pipeline implements Callable<PipelineResult> {
         SortedSet<OutsideCall> outsideCalls = new TreeSet<>();
         if (m_phenotyperOutsideCallsFile != null && !m_phenotyperOutsideCallsFile.isEmpty()) {
           for (Path outsideCallPath : m_phenotyperOutsideCallsFile) {
-            for (OutsideCall call : OutsideCallParser.parse(outsideCallPath)) {
+            for (OutsideCall call : OutsideCallParser.parse(m_env, outsideCallPath)) {
               String gene = call.getGene();
               if (!m_env.hasGene(gene)) {
                 String msg = "Discarded outside call for " + gene + " because it is not supported by PharmCAT.";
                 output.add(AnsiConsole.styleWarning(msg));
                 continue;
-              }
-              if (!m_env.isActivityScoreGene(gene)) {
-                if (call.getDiplotype() == null && call.getPhenotype() == null) {
-                  String msg = gene + " is not an activity score gene but has outside call with only an " +
-                      "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.";
-                  output.add(AnsiConsole.styleWarning(msg));
-                }
-              }
-              for (String hap : call.getHaplotypes()) {
-                if (!m_env.isValidNamedAllele(gene, hap)) {
-                  call.addWarning("Undocumented " + gene + " named allele in outside call: " + hap);
-                }
               }
               outsideCalls.add(call);
               call.getWarnings().forEach(w -> output.add(AnsiConsole.styleWarning("WARNING: " + w)));

@@ -46,7 +46,7 @@ class PhenotyperTest {
 
     Phenotyper phenotyper = new Phenotyper(s_env,
         readMatchData("Cyp2C19Het.match.json"),
-        OutsideCallParser.parse("CYP2D6\t*1/*3"), warnings);
+        OutsideCallParser.parse(s_env, "CYP2D6\t*1/*3"), warnings);
 
     assertCalledByMatcher(phenotyper, "CYP2C19");
     assertReportable(phenotyper, "CYP2D6");
@@ -66,7 +66,7 @@ class PhenotyperTest {
   void testCyp2D6Only() throws Exception {
     Phenotyper phenotyper = new Phenotyper(s_env,
         new ArrayList<>(),
-        OutsideCallParser.parse("CYP2D6\t*1/*3"), null);
+        OutsideCallParser.parse(s_env, "CYP2D6\t*1/*3"), null);
 
     assertReportable(phenotyper, "CYP2D6");
 

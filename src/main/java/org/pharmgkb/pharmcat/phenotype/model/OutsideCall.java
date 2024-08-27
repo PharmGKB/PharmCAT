@@ -13,6 +13,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
+import org.pharmgkb.pharmcat.Constants;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeUtils;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -36,8 +39,8 @@ public class OutsideCall implements Comparable<OutsideCall> {
   private static final int IDX_ACTIVITY = 3;
 
   private final String m_gene;
-  private final @Nullable String m_diplotype;
-  private final List<String> m_diplotypes;
+  private @Nullable String m_diplotype;
+  private List<String> m_diplotypes;
   private @Nullable String m_phenotype = null;
   private @Nullable String m_activityScore = null;
   private final SortedSet<String> m_haplotypes = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -49,7 +52,7 @@ public class OutsideCall implements Comparable<OutsideCall> {
    * @param line a TSV-formatted string
    * @throws RuntimeException can occur if data not in expected format
    */
-  public OutsideCall(String line, int lineNumber) throws RuntimeException {
+  public OutsideCall(Env env, String line, int lineNumber) throws RuntimeException {
     List<String> fields = sf_lineSplitter.splitToList(line);
     if (fields.size() < 2) {
       throw new BadOutsideCallException("Line " + lineNumber + ": Expected at least 2 TSV fields, got " + fields.size());
@@ -59,9 +62,22 @@ public class OutsideCall implements Comparable<OutsideCall> {
     if (m_gene == null) {
       throw new BadOutsideCallException("Line " + lineNumber + ": No gene specified");
     }
+    m_diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
+    if (fields.size() >= 3) {
+      m_phenotype = PhenotypeUtils.normalize(fields.get(IDX_PHENO).replaceAll(m_gene, ""));
+    }
+    if (fields.size() >= 4) {
+      m_activityScore = StringUtils.stripToNull(fields.get(IDX_ACTIVITY));
+    }
 
-    String diplotype = StringUtils.stripToNull(fields.get(IDX_DIPS));
-    if (fields.size() == 2 && (diplotype == null || diplotype.equals(sf_diplotypeSeparator))) {
+    if (!env.hasGene(m_gene)) {
+      return;
+    }
+    if (m_phenotype == null && m_activityScore == null && m_diplotype == null) {
+      throw new BadOutsideCallException("Specify a diplotype, phenotype, or activity score for " + m_gene);
+    }
+
+    if (fields.size() == 2 && (m_diplotype == null || m_diplotype.equals(sf_diplotypeSeparator))) {
       if (StringUtils.isBlank(fields.get(IDX_DIPS))) {
         throw new BadOutsideCallException("Line " + lineNumber + ": No diplotype specified");
       } else {
@@ -69,16 +85,19 @@ public class OutsideCall implements Comparable<OutsideCall> {
       }
     }
 
-    if (diplotype == null) {
-      m_diplotype = null;
+    if (m_diplotype == null) {
       m_diplotypes = ImmutableList.of();
+      if (env.isActivityScoreGene(m_gene)) {
+        m_warnings.add(m_gene + " is not an activity score gene but has outside call with only an " +
+            "activity score.  PharmCAT will not be able to provide any recommendations based on this gene.");
+      }
     } else {
       // strip any prefix of the gene symbol
-      List<String> alleles = sf_diplotypeSplitter.splitToList(diplotype).stream()
+      List<String> alleles = sf_diplotypeSplitter.splitToList(m_diplotype).stream()
           .map(a -> a.replaceFirst("^" + m_gene + "\\s*", ""))
           .toList();
       if (alleles.size() > 2) {
-        throw new BadOutsideCallException("Line " + lineNumber + ": Too many alleles specified in " + diplotype);
+        throw new BadOutsideCallException("Line " + lineNumber + ": Too many alleles specified in " + m_diplotype);
       }
 
       if (m_gene.equals("CYP2D6")) {
@@ -124,6 +143,46 @@ public class OutsideCall implements Comparable<OutsideCall> {
             .toList();
       }
 
+      // convert alleles from combination format if applicable
+      alleles = alleles.stream()
+          .map(a -> {
+            if (!env.isValidNamedAllele(m_gene, a)) {
+              String fixedA;
+              if (a.startsWith("[") && a.endsWith("]")) {
+                // convert PharmCAT style combinations into combinations recognized by phenotyper
+                fixedA = a.substring(1, a.length() - 1);
+                if (env.isValidNamedAllele(m_gene, fixedA)) {
+                  m_warnings.add("Converting outside call for " + m_gene + " from '" + a + "', to '" + fixedA +
+                      "'.");
+                  return fixedA;
+                }
+              } else {
+                fixedA = a;
+              }
+              if (fixedA.contains(CombinationMatch.COMBINATION_JOINER)) {
+                fixedA = fixedA.replaceAll(CombinationMatch.COMBINATION_JOINER_REGEX, "+");
+                if (env.isValidNamedAllele(m_gene, fixedA)) {
+                  m_warnings.add("Converting outside call for " + m_gene + " from '" + a + "', to '" + fixedA +
+                      "'.");
+                  return fixedA;
+                }
+              }
+              StringBuilder builder = new StringBuilder().append("Undocumented ")
+                  .append(m_gene)
+                  .append(" named ");
+              if (Constants.isVariantGene(m_gene)) {
+                builder.append("variant");
+              } else {
+                builder.append("allele");
+              }
+              builder.append(" in outside call: ")
+                  .append(a);
+              m_warnings.add(builder.toString());
+            }
+            return a;
+          })
+          .toList();
+
       // re-join alleles to eliminate white space when a gene symbol is used in diplotype
       m_diplotype = String.join(sf_diplotypeSeparator, alleles);
       m_diplotypes = ImmutableList.of(m_diplotype);
@@ -140,10 +199,6 @@ public class OutsideCall implements Comparable<OutsideCall> {
 
     if (fields.size() >= 4) {
       m_activityScore = StringUtils.stripToNull(fields.get(IDX_ACTIVITY));
-    }
-
-    if (m_phenotype == null && m_activityScore == null && m_diplotype == null) {
-      throw new BadOutsideCallException("Specify a diplotype, phenotype, or activity score for " + m_gene);
     }
   }
 

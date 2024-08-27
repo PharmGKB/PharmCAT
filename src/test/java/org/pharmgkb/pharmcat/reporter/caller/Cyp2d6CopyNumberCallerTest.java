@@ -29,7 +29,7 @@ class Cyp2d6CopyNumberCallerTest {
 
   @Test
   void testWrongGene() {
-    OutsideCall outsideCall = new OutsideCall("ABCDE\t*1/*1x7", 1);
+    OutsideCall outsideCall = new OutsideCall(s_env, "ABCDE\t*1/*1x7", 1);
 
     GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
     assertEquals("ABCDE", report.getGene());
@@ -45,7 +45,7 @@ class Cyp2d6CopyNumberCallerTest {
 
   @Test
   void testInferred() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*1x7", 1);
+    OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1x7", 1);
 
     GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
     assertEquals("CYP2D6", report.getGene());
@@ -62,7 +62,7 @@ class Cyp2d6CopyNumberCallerTest {
 
   @Test
   void testNoInfer1() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*42x7", 1);
+    OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*42x7", 1);
 
     GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
     assertEquals("CYP2D6", report.getGene());
@@ -77,7 +77,7 @@ class Cyp2d6CopyNumberCallerTest {
 
   @Test
   void testNoInfer2() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t*1/*41x7", 1);
+    OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*41x7", 1);
 
     GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
     assertEquals("CYP2D6", report.getGene());

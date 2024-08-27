@@ -155,7 +155,7 @@ public class DiplotypeTest {
 
   @Test
   void testOutsideCall() {
-    OutsideCall outsideCall = new OutsideCall("CYP2D6\t\tNM\t4.0", 1);
+    OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t\tNM\t4.0", 1);
     Diplotype dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
@@ -165,7 +165,7 @@ public class DiplotypeTest {
     assertNotNull(dip.getOutsidePhenotypeMismatch());
     assertNotNull(dip.getOutsideActivityScoreMismatch());
 
-    outsideCall = new OutsideCall("CYP2D6\t\tNM", 1);
+    outsideCall = new OutsideCall(s_env, "CYP2D6\t\tNM", 1);
     dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
@@ -175,7 +175,7 @@ public class DiplotypeTest {
     assertNull(dip.getOutsidePhenotypeMismatch());
     assertNull(dip.getOutsideActivityScoreMismatch());
 
-    outsideCall = new OutsideCall("CYP2D6\t\t\t4.0", 1);
+    outsideCall = new OutsideCall(s_env, "CYP2D6\t\t\t4.0", 1);
     dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
@@ -186,9 +186,10 @@ public class DiplotypeTest {
     assertNull(dip.getOutsideActivityScoreMismatch());
 
 
-    outsideCall = new OutsideCall("CYP2D6\t*1/*1\tNM\t4.0", 1);
+    outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\tNM\t4.0", 1);
     dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
     //logDiplotype(dip);
+    assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
     assertNotNull(dip.getAllele2());
     assertEquals("*1", dip.getAllele2().getName());
@@ -198,9 +199,10 @@ public class DiplotypeTest {
     assertNotNull(dip.getOutsidePhenotypeMismatch());
     assertNotNull(dip.getOutsideActivityScoreMismatch());
 
-    outsideCall = new OutsideCall("CYP2D6\t*1/*1\tNM", 1);
+    outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\tNM", 1);
     dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
     //logDiplotype(dip);
+    assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
     assertNotNull(dip.getAllele2());
     assertEquals("*1", dip.getAllele2().getName());
@@ -211,9 +213,10 @@ public class DiplotypeTest {
     assertNull(dip.getOutsideActivityScoreMismatch());
 
 
-    outsideCall = new OutsideCall("CYP2D6\t*1/*1\t\t4.0", 1);
+    outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\t\t4.0", 1);
     //logDiplotype(dip);
     dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
     assertNotNull(dip.getAllele2());
     assertEquals("*1", dip.getAllele2().getName());
@@ -236,7 +239,7 @@ public class DiplotypeTest {
 
 
   /**
-   * Computes lookup map for this {@link Diplotype}.
+   * Computes the lookup map for this {@link Diplotype}.
    * Meant to be used internally.  This is only public for tests.
    */
   public static Map<String, Integer> computeLookupMap(Diplotype diplotype) {
