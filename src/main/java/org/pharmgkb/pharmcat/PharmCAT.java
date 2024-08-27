@@ -44,14 +44,14 @@ public class PharmCAT {
           .addOption("reporter", "reporter", "Run reporter independently")
           .addOption("ri", "reporter-input", "JSON results from phenotyper", false, "file")
           .addOption("rt", "reporter-title", "Text to add to the report title", false, "title")
-          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]", false, "sources")
-          .addOption("re", "reporter-extended", "Output extended report")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]", false, "sources")
+          .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
           .addOption("bf", "base-filename", "The base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
-          .addOption("del", "delete-intermediate-files", "Delete intermediate output files")
+          .addOption("del", "delete-intermediate-files", "Delete intermediate PharmCAT files")
           // controls
           .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");

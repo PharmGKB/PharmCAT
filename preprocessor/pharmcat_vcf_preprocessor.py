@@ -22,55 +22,58 @@ if __name__ == "__main__":
                              "sorted by chromosome position.")
     sample_group = parser.add_mutually_exclusive_group()
     sample_group.add_argument('-s', '--samples', type=str, metavar='<samples>',
-                              help='A comma-separated list of sample IDs.')
+                              help='A comma-separated list of sample IDs.  '
+                                   'Only applicable if you have multiple samples and only want to work on specific ones.')
     sample_group.add_argument('-S', '--sample-file', type=str, metavar='<txt_file>',
-                              help='A file containing a list of sample IDs, one sample at a line.')
+                              help='A file containing a list of sample IDs, one sample at a line.  '
+                                   'Only applicable if you have multiple samples and only want to work on specific ones.')
+
     parser.add_argument("-0", "--missing-to-ref", action='store_true',
-                        help="(Optional) assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.")
+                        help="Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!")
+    parser.add_argument("-G", "--no-gvcf-check", action="store_true",
+                        help="Bypass check if VCF file is in gVCF format.")
     # output args
     output_group = parser.add_argument_group('Output arguments')
     output_group.add_argument("-o", "--output-dir", type=str, metavar='<dir>',
-                              help="(Optional) directory for outputs.  Defaults to the directory of the input VCF.")
+                              help="Directory for outputs.  Defaults to the directory of the input VCF.")
     output_group.add_argument("-bf", "--base-filename", type=str, metavar='<name>',
-                              help="(Optional) output prefix (without file extensions), "
-                                   "by default the same base name as the input.")
+                              help="Prefix for output file names.  Defaults to the same base name as the input file.")
     output_group.add_argument("-ss", "--single-samples", action="store_true",
-                              help="(Optional) generate 1 VCF file per sample.")
+                              help="Generate 1 VCF file per sample.")
     output_group.add_argument("-k", "--keep-intermediate-files", action='store_true',
-                              help="(Optional) keep intermediate files, false by default.")
+                              help="Keep intermediate files, false by default.")
     # concurrency args
     concurrency_group = parser.add_argument_group('Concurrency arguments')
     concurrency_group.add_argument("-c", "--concurrent-mode", action="store_true",
-                                   help="(Optional) use multiple processes - maximum number of processes spawned will "
+                                   help="Use multiple processes - maximum number of processes spawned will "
                                         "default to to two less than the number of cpu cores.")
     concurrency_group.add_argument("-cp", "--max-concurrent-processes", type=int, metavar='<num processes>',
                                    default=None,
-                                   help='(Optional) the maximum number of processes to use when concurrent mode ' +
+                                   help='The maximum number of processes to use when concurrent mode ' +
                                         'is enabled.')
     # advanced args
     advanced_group = parser.add_argument_group('Advanced arguments')
     advanced_group.add_argument("-refVcf", "--reference-pgx-vcf", type=str, metavar='<vcf_file>',
-                                help='(Optional) a sorted, compressed VCF of PharmCAT PGx variants.  Defaults to "' +
+                                help='A sorted, compressed VCF of PharmCAT PGx variants.  Defaults to "' +
                                      preprocessor.PHARMCAT_POSITIONS_FILENAME + '" in the current working directory ' +
                                      'or the directory the preprocessor is in.')
     advanced_group.add_argument("-refFna", "--reference-genome", type=str, metavar='<fna_file>',
-                                help="(Optional) the Human Reference Genome GRCh38/hg38 in the fasta format.")
+                                help="The Human Reference Genome GRCh38/hg38 in the fasta format.")
     advanced_group.add_argument("-R", "--retain-specific-regions", action="store_true",
-                                help="(Optional) retain the genomic regions specified by \'-refRegion\', "
-                                     "false by default.")
+                                help='Retain all variants in genomic regions of interest in VCF. '
+                                     'Defaults to entire region of genes covered by PharmCAT. '
+                                     'For research use only. '
+                                     'Additional variants are not used by PharmCAT and will slow PharmCAT down.')
     advanced_group.add_argument("-refRegion", "--reference-regions-to-retain", type=str, metavar='<bed_file>',
-                                help='(Optional) a sorted bed file of PGx regions to retain.  Defaults to "' +
-                                     preprocessor.PHARMCAT_REGIONS_FILENAME + '" in the current working directory ' +
-                                     'or the directory the preprocessor is in.')
+                                help='A sorted .bed file of PGx regions to retain. '
+                                     'Use with "-R" to specify custom regions.')
     advanced_group.add_argument("-bcftools", "--path-to-bcftools", type=str, metavar='</path/to/bcftools>',
-                                help="(Optional) a path to the bcftools program.  Defaults to bcftools in PATH.")
+                                help="Path to the bcftools program.  Defaults to bcftools in PATH.")
     advanced_group.add_argument("-bgzip", "--path-to-bgzip", type=str, metavar='</path/to/bgzip>',
-                                help="(Optional) a path to the bgzip program.  Defaults to bgzip in PATH.")
-    advanced_group.add_argument("-G", "--no-gvcf-check", action="store_true",
-                                help="(Optional) do not check whether input is a gVCF, false by default.")
+                                help="Path to the bgzip program.  Defaults to bgzip in PATH.")
 
     parser.add_argument("-v", "--verbose", action="count", default=0,
-                        help="(Optional) print more verbose messages")
+                        help="print more verbose messages")
     parser.add_argument('-V', '--version', action='version',
                         version='PharmCAT VCF Preprocessor v%s' % preprocessor.PHARMCAT_VERSION)
 

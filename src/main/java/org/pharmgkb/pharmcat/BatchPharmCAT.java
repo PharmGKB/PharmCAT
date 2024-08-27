@@ -62,14 +62,14 @@ public class BatchPharmCAT {
 
           // reporter args
           .addOption("reporter", "reporter", "Run reporter independently")
-          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]", false, "sources")
-          .addOption("re", "reporter-extended", "Output extended report")
+          .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]", false, "sources")
+          .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
           .addOption("bf", "base-filename", "The base name (without file extensions) used for output files, will default to base filename of input if not specified", false, "name")
-          .addOption("del", "delete-intermediate-files", "Delete intermediate output files")
+          .addOption("del", "delete-intermediate-files", "Delete intermediate PharmCAT files")
           // controls
           .addOption("cp", "max-concurrent-processes", "Maximum number of processes to use", false, "num")
           .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")

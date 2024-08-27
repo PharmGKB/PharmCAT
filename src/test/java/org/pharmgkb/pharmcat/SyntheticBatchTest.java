@@ -62,14 +62,14 @@ class SyntheticBatchTest {
 
   public static void main(String[] args) {
     CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
-        .addOption("o", "output-dir", "directory to output to", false, "o")
-        .addOption("a", "all-tests", "run all tests for Katrin")
-        .addOption("re", "reporter-extended", "output extended report")
+        .addOption("o", "output-dir", "Directory to output to", false, "o")
+        .addOption("a", "all-tests", "Run all tests for Katrin")
+        .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
         .addOption("cpic", "cpic", "CPIC guideline annotation reports")
         .addOption("dpwg", "dpwg", "DPWG guideline annotation reports")
         .addOption("fdaLabel", "fda-label", "FDA label annotation reports")
         .addOption("fdaAssoc", "fda-assoc", "FDA PGx association reports")
-        .addOption("mega", "mega", "generate all variations in one run")
+        .addOption("mega", "mega", "Generate all variations in one run")
         ;
 
     try {

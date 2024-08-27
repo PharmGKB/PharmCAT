@@ -160,10 +160,10 @@ Each module has its own arguments to customize its behavior.
 : text to add to the report title
 
 -rs `<CPIC, DPWG or FDA>` <span class="altArg"><br />or --reporter-sources `<CPIC, DPWG or FDA>`</span>
-: comma-separated list of sources to limit recommendations to (defaults to both)
+: comma-separated list of sources to limit recommendations to (defaults to all)
 
 -re <span class="altArg"><br />or --reporter-extended</span>
-: generate extended report (includes all possible genes and drugs, even if no data is available)
+: write an extended report (includes all possible genes and drugs, even if no data is available)
 
 -reporterJson
 : save reporter results as JSON

@@ -56,29 +56,39 @@ if __name__ == '__main__':
 
     # describe the tool
     parser = argparse.ArgumentParser(description='Runs PharmCAT pipeline.')
+
     # input arguments
     input_group = parser.add_argument_group('Input arguments')
     input_group.add_argument('vcf', type=str, metavar='input file or directory',
                              help='Path to a VCF file or a file of paths to VCF files (one file per line), '
                                   'sorted by chromosome position.')
+
     sample_group = input_group.add_mutually_exclusive_group()
     sample_group.add_argument('-s', '--samples', type=str, metavar='<samples>',
-                              help='A comma-separated list of sample.')
+                              help='A comma-separated list of sample IDs.  '
+                                   'Only applicable if you have multiple samples and only want to work on specific ones.')
     sample_group.add_argument('-S', '--sample-file', type=str, metavar='<txt_file>',
-                              help='A file containing a list of samples, one sample per line.')
+                              help='A file containing a list of samples IDs, one sample per line.  '
+                                   'Only applicable if you have multiple samples and only want to work on specific ones.')
+
     # preprocessor args
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
     preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
-                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!.')
+                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!')
     preprocessor_group.add_argument("-G", "--no-gvcf-check", action="store_true",
-                                    help="(Optional) do not check whether input is a gVCF, false by default.")
-    preprocessor_group.add_argument("-R", "--retain-specific-regions", action="store_true",
-                                    help="(Optional) retain the genomic regions specified by \'-refRegion\', "
-                                         "false by default.")
-    preprocessor_group.add_argument("-refRegion", "--reference-regions-to-retain",
-                                    type=str, metavar='<bed_file>',
-                                    help='(Optional) a sorted bed file of PGx regions to retain.  '
-                                         'Defaults to "' + preprocessor.PHARMCAT_REGIONS_FILENAME)
+                                    help="Bypass check if VCF file is in gVCF format.")
+
+    adv_preprocessor_group = parser.add_argument_group('Advanced preprocessor arguments (research only)')
+    adv_preprocessor_group.add_argument("-R", "--retain-specific-regions", action="store_true",
+                                        help='Retain all variants in genomic regions of interest in VCF. '
+                                             'Defaults to entire region of genes covered by PharmCAT. '
+                                             'For research use only. '
+                                             'Additional variants are not used by PharmCAT and will slow PharmCAT down.')
+    adv_preprocessor_group.add_argument("-refRegion", "--reference-regions-to-retain",
+                                        type=str, metavar='<bed_file>',
+                                        help='A sorted .bed file of PGx regions to retain. '
+                                             'Use with "-R" to specify custom regions.')
+
     # matcher args
     matcher_group = parser.add_argument_group('Named allele matcher arguments')
     matcher_group.add_argument('-matcher', action='store_true',
@@ -98,9 +108,9 @@ if __name__ == '__main__':
     reporter_group.add_argument('-reporter', action='store_true',
                                 help='Run reporter independently.')
     reporter_group.add_argument('-rs', '--reporter-sources', type=str, metavar='<sources>',
-                                help='Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]')
+                                help='Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]')
     reporter_group.add_argument('-re', '--reporter-extended', action='store_true',
-                                help='Output extended report.')
+                                help='Write an extended report (includes all possible genes and drugs, even if no data is available).')
     reporter_group.add_argument('-reporterJson', '--reporter-save-json', action='store_true',
                                 help='Save reporter results as JSON.')
     # output args
@@ -108,11 +118,11 @@ if __name__ == '__main__':
     output_group.add_argument('-o', '--output-dir', type=str, metavar='<dir>',
                               help='Directory for outputs.  Defaults to the directory of the input VCF.')
     output_group.add_argument('-bf', '--base-filename', type=str, metavar='<name>',
-                              help='Prefix for output files.  Defaults to the same base name as the input.')
+                              help='Prefix for output file names.  Defaults to the same base name as the input file.')
     # output_group.add_argument('-k', '--keep-intermediate-preprocessor-files', action='store_true',
     #                           help='Keep intermediate preprocessor files (deleted by default).')
     output_group.add_argument('-del', '--delete-intermediate-pharmcat-files', action='store_true',
-                              help='Delete intermediate PharmCAT files (saved by default).')
+                              help='Delete intermediate PharmCAT files.  Defaults to saving all files.')
     # concurrency args
     concurrency_group = parser.add_argument_group('Concurrency/Memory arguments')
     concurrency_group.add_argument('-cp', '--max-concurrent-processes', type=int, metavar='<num processes>',
@@ -126,7 +136,7 @@ if __name__ == '__main__':
 
     # misc args
     parser.add_argument('-v', '--verbose', action='count', default=0,
-                        help='Print more verbose messages')
+                        help='print more verbose messages')
     parser.add_argument('-V', '--version', action='version',
                         version='PharmCAT v%s' % preprocessor.PHARMCAT_VERSION)
 

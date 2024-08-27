@@ -57,19 +57,24 @@ Input arguments:
                         Path to a VCF file or a file of paths to VCF files (one file per line), sorted by
                         chromosome position.
   -s <sample id>, --samples <samples>
-                        A comma-separated list of sample.
+                        A comma-separated list of sample IDs.
+                        Only applicable if you have multiple samples and only want to work on specific ones. 
   -S <txt_file>, --sample-file <txt_file>
                         A file containing a list of samples, one sample per line.
+                        Only applicable if you have multiple samples and only want to work on specific ones.
 
 Preprocessor arguments:
   -0, --missing-to-ref               
-                        Assume genotypes at missing PGx sites are 0/0. DANGEROUS!.
+                        Assume genotypes at missing PGx sites are 0/0. DANGEROUS!
   -G, --no-gvcf-check                
-                        Bypass the gVCF check for the input VCF. DANGEROUS!.
+                        Bypass the gVCF check for the input VCF.
   -R, --retain-specific-regions      
-                        Retain the genomic regions specified by \'-refRegion\'
+                        Retain all variants in genomic regions of interest in VCF.
+                        Defaults to entire region of genes covered by PharmCAT.
+                        For research use only. Additional variants are not used by PharmCAT and will slow PharmCAT down.
   -refRegion `<bed_file>`, --reference-regions-to-retain `<bed_file>`
-                        A sorted bed file of specific PGx regions to retain. Must be used with the `-R` argument.
+                        A sorted bed file of specific PGx regions to retain.
+                        Use with the `-R` to specify custom regions.
 
 Named allele matcher arguments:
   -matcher              Run named allele matcher independently.
@@ -86,9 +91,9 @@ Phenotyper arguments:
 Reporter arguments:
   -reporter             Run reporter independently.
   -rs <sources>, --reporter-sources <sources>
-                        Comma-separated list of sources to limit report to: [CPIC, DPWG, FDA]
+                        Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]
   -re, --reporter-extended
-                        Output extended report.
+                        Write an extended report (includes all possible genes and drugs, even if no data is available)
   -reporterJson, --reporter-save-json
                         Save reporter results as JSON.
 
@@ -98,7 +103,7 @@ Output arguments:
   -bf <name>, --base-filename <name>
                         Prefix for output files. Defaults to the same base name as the input.
   -del, --delete-intermediate-pharmcat-files
-                        Delete intermediate PharmCAT files (saved by default).
+                        Delete intermediate PharmCAT files. Defaults to saving all files.
 
 Concurrency/Memory arguments:
   -cp <num processes>, --max-concurrent-processes <num processes>
