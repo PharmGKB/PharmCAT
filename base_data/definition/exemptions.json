@@ -1,0 +1,109 @@
+[
+  {
+    "gene": "CYP2C9",
+    "ignoredPositions": [],
+    "extraPositions": [
+      {
+        "chromosome": "chr10",
+        "position": 94645745,
+        "cpicPosition": 94645745,
+        "rsid": "rs12777823",
+        "chromosomeHgvsName": "g.94645745G>A",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "G",
+        "alts": [
+          "A"
+        ]
+      }
+    ],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": null
+  },
+  {
+    "gene": "G6PD",
+    "ignoredPositions": [
+      {
+        "chromosome": "chrX",
+        "position": 154532439,
+        "cpicPosition": 154532439,
+        "rsid": "rs2230037",
+        "chromosomeHgvsName": "g.154532439A>G",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "A",
+        "alts": [
+          "G"
+        ]
+      },
+      {
+        "chromosome": "chrX",
+        "position": 154532990,
+        "cpicPosition": 154532990,
+        "rsid": null,
+        "chromosomeHgvsName": "g.154532991_154532993delGGT",
+        "cpicAlleles": [
+          "C",
+          "CGGT"
+        ],
+        "cpicToVcfAlleleMap": {
+          "C": "C",
+          "CGGT": "CGGT"
+        },
+        "ref": "CGGT",
+        "alts": [
+          "C"
+        ]
+      }
+    ],
+    "extraPositions": [],
+    "ignoredAlleles": [
+      "Mediterranean Haplotype"
+    ],
+    "ignoredAllelesLc": [
+      "mediterranean haplotype"
+    ],
+    "allHits": null
+  },
+  {
+    "gene": "RYR1",
+    "ignoredPositions": [
+      {
+        "chromosome": "chr19",
+        "position": 38580126,
+        "cpicPosition": 38580126,
+        "rsid": "rs193922877",
+        "chromosomeHgvsName": "g.38580127del",
+        "cpicAlleles": [
+          "C",
+          "CA"
+        ],
+        "cpicToVcfAlleleMap": {
+          "C": "C",
+          "CA": "CA"
+        },
+        "ref": "CA",
+        "alts": [
+          "C"
+        ]
+      }
+    ],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "allHits": null
+  }
+]

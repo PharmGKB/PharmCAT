@@ -1,0 +1,249 @@
+{
+  "formatVersion": "2",
+  "source": "PHARMGKB",
+  "version": "2024-08-27-21-12",
+  "modificationDate": "2022-02-18T18:47:52.807Z",
+  "gene": "CYP3A5",
+  "orientation": null,
+  "chromosome": "chr7",
+  "genomeBuild": "GRCh38.p13",
+  "refSeqChromosomeId": "NC_000007.14",
+  "variants": [
+    {
+      "chromosome": "chr7",
+      "position": 99652770,
+      "cpicPosition": 99652771,
+      "rsid": "rs41303343",
+      "chromosomeHgvsName": "g.99652771dup",
+      "cpicAlleles": [
+        "A",
+        "AA"
+      ],
+      "cpicToVcfAlleleMap": {
+        "AA": "TA",
+        "A": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "TA"
+      ]
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99660516,
+      "cpicPosition": 99660516,
+      "rsid": "rs28383479",
+      "chromosomeHgvsName": "g.99660516C>T",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99665212,
+      "cpicPosition": 99665212,
+      "rsid": "rs10264272",
+      "chromosomeHgvsName": "g.99665212C>T",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99672916,
+      "cpicPosition": 99672916,
+      "rsid": "rs776746",
+      "chromosomeHgvsName": "g.99672916T>C",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
+      ]
+    },
+    {
+      "chromosome": "chr7",
+      "position": 99676198,
+      "cpicPosition": 99676198,
+      "rsid": "rs55817950",
+      "chromosomeHgvsName": "g.99676198G>A",
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "*1",
+      "id": "PA166128213",
+      "alleles": [
+        "T",
+        "C",
+        "C",
+        "T",
+        "G"
+      ],
+      "cpicAlleles": [
+        "A",
+        "C",
+        "C",
+        "T",
+        "G"
+      ],
+      "reference": true,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*3",
+      "id": "PA166128219",
+      "alleles": [
+        null,
+        null,
+        null,
+        "C",
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        "C",
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*6",
+      "id": "PA166128233",
+      "alleles": [
+        null,
+        null,
+        "T",
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        "T",
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*7",
+      "id": "PA166128234",
+      "alleles": [
+        "TA",
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        "AA",
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*8",
+      "id": "PA166128235",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        "A"
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        "A"
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*9",
+      "id": "PA166128236",
+      "alleles": [
+        null,
+        "T",
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        "T",
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    }
+  ],
+  "singularVariants": [
+    "chr7:99652770",
+    "chr7:99660516",
+    "chr7:99665212",
+    "chr7:99672916",
+    "chr7:99676198"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "gene": "ABCG2",
+  "haplotypes": {
+    "rs2231142 reference (G)": "Normal function",
+    "rs2231142 variant (T)": "Decreased function"
+  },
+  "activityValues": {},
+  "diplotypes": [
+    {
+      "generesult": "Normal Function",
+      "diplotype": "rs2231142 reference (G)/rs2231142 reference (G)",
+      "description": null,
+      "lookupkey": "Normal Function",
+      "diplotypekey": {
+        "rs2231142 reference (G)": 2
+      },
+      "activityScore": null,
+      "phenotype": "Normal Function"
+    },
+    {
+      "generesult": "Decreased Function",
+      "diplotype": "rs2231142 reference (G)/rs2231142 variant (T)",
+      "description": null,
+      "lookupkey": "Decreased Function",
+      "diplotypekey": {
+        "rs2231142 reference (G)": 1,
+        "rs2231142 variant (T)": 1
+      },
+      "activityScore": null,
+      "phenotype": "Decreased Function"
+    },
+    {
+      "generesult": "Poor Function",
+      "diplotype": "rs2231142 variant (T)/rs2231142 variant (T)",
+      "description": null,
+      "lookupkey": "Poor Function",
+      "diplotypekey": {
+        "rs2231142 variant (T)": 2
+      },
+      "activityScore": null,
+      "phenotype": "Poor Function"
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "rs2231142 reference (G)",
+      "activityValue": null,
+      "functionValue": "Normal function",
+      "lookupKey": "Normal function"
+    },
+    {
+      "name": "rs2231142 variant (T)",
+      "activityValue": null,
+      "functionValue": "Decreased function",
+      "lookupKey": "Decreased function"
+    }
+  ],
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "ABCG2 one Decreased function allele and one Normal function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Decreased function": 1
+      },
+      "phenotype": "Decreased Function",
+      "activityScore": null
+    },
+    {
+      "name": "ABCG2 two Normal function alleles",
+      "lookupKey": {
+        "Normal function": 2
+      },
+      "phenotype": "Normal Function",
+      "activityScore": null
+    },
+    {
+      "name": "ABCG2 two Decreased function alleles",
+      "lookupKey": {
+        "Decreased function": 2
+      },
+      "phenotype": "Poor Function",
+      "activityScore": null
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "formatVersion": "2",
+  "source": "PHARMGKB",
+  "version": "2024-08-27-21-12",
+  "modificationDate": "2023-02-03T16:20:52.044Z",
+  "gene": "ABCG2",
+  "orientation": null,
+  "chromosome": "chr4",
+  "genomeBuild": "GRCh38.p13",
+  "refSeqChromosomeId": "NC_000004.12",
+  "variants": [
+    {
+      "chromosome": "chr4",
+      "position": 88131171,
+      "cpicPosition": 88131171,
+      "rsid": "rs2231142",
+      "chromosomeHgvsName": "g.88131171G>T",
+      "cpicAlleles": [
+        "G",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "T": "T",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "T"
+      ]
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "rs2231142 reference (G)",
+      "id": "PA166287823",
+      "alleles": [
+        "G"
+      ],
+      "cpicAlleles": [
+        "G"
+      ],
+      "reference": true,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "rs2231142 variant (T)",
+      "id": "PA166287824",
+      "alleles": [
+        "T"
+      ],
+      "cpicAlleles": [
+        "T"
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    }
+  ],
+  "singularVariants": [
+    "chr4:88131171"
+  ]
+}

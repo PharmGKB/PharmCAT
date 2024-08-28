@@ -1,0 +1,105 @@
+{
+  "formatVersion": "2",
+  "source": "PHARMGKB",
+  "version": "2024-08-27-21-12",
+  "modificationDate": "2021-10-22T20:00:04.974Z",
+  "gene": "CACNA1S",
+  "orientation": null,
+  "chromosome": "chr1",
+  "genomeBuild": "GRCh38.p13",
+  "refSeqChromosomeId": "NC_000001.11",
+  "variants": [
+    {
+      "chromosome": "chr1",
+      "position": 201060815,
+      "cpicPosition": 201060815,
+      "rsid": "rs1800559",
+      "chromosomeHgvsName": "g.201060815C>T",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
+    },
+    {
+      "chromosome": "chr1",
+      "position": 201091993,
+      "cpicPosition": 201091993,
+      "rsid": "rs772226819",
+      "chromosomeHgvsName": "g.201091993G>A",
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
+    }
+  ],
+  "namedAlleles": [
+    {
+      "name": "Reference",
+      "id": "PA166180429",
+      "alleles": [
+        "C",
+        "G"
+      ],
+      "cpicAlleles": [
+        "C",
+        "G"
+      ],
+      "reference": true,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "c.520C>T",
+      "id": "PA166180430",
+      "alleles": [
+        null,
+        "A"
+      ],
+      "cpicAlleles": [
+        null,
+        "A"
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "c.3257G>A",
+      "id": "PA166180431",
+      "alleles": [
+        "T",
+        null
+      ],
+      "cpicAlleles": [
+        "T",
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    }
+  ],
+  "singularVariants": [
+    "chr1:201060815",
+    "chr1:201091993"
+  ]
+}

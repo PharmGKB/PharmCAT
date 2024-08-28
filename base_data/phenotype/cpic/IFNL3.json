@@ -1,0 +1,25 @@
+{
+  "gene": "IFNL3",
+  "haplotypes": {
+    "rs12979860 reference (C)": "Favorable response allele",
+    "rs12979860 variant (T)": "Unfavorable response allele"
+  },
+  "activityValues": {},
+  "diplotypes": [],
+  "namedAlleles": [
+    {
+      "name": "rs12979860 reference (C)",
+      "activityValue": null,
+      "functionValue": "Favorable response allele",
+      "lookupKey": "Favorable response allele"
+    },
+    {
+      "name": "rs12979860 variant (T)",
+      "activityValue": null,
+      "functionValue": "Unfavorable response allele",
+      "lookupKey": "Unfavorable response allele"
+    }
+  ],
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": []
+}
