@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-08-15-11-35",
+  "version": "2024-08-27-21-12",
   "modificationDate": "2023-02-03T16:20:52.044Z",
   "gene": "ABCG2",
   "orientation": null,
@@ -58,5 +58,8 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr4:88131171"
   ]
 }

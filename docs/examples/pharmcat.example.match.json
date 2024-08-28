@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p13",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2024-08-15T21:52:45.835Z",
+    "timestamp": "2024-08-28T04:40:12.870Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false
@@ -11,7 +11,7 @@
   "results": [
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr4",
       "gene": "ABCG2",
       "diplotypes": [
@@ -106,7 +106,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr1",
       "gene": "CACNA1S",
       "diplotypes": [
@@ -213,7 +213,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr7",
       "gene": "CFTR",
       "diplotypes": [
@@ -764,7 +764,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr19",
       "gene": "CYP2B6",
       "diplotypes": [
@@ -1411,7 +1411,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr10",
       "gene": "CYP2C19",
       "diplotypes": [
@@ -1902,7 +1902,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr10",
       "gene": "CYP2C9",
       "diplotypes": [
@@ -2952,7 +2952,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr7",
       "gene": "CYP3A4",
       "diplotypes": [
@@ -3539,7 +3539,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr7",
       "gene": "CYP3A5",
       "diplotypes": [
@@ -3682,7 +3682,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr19",
       "gene": "CYP4F2",
       "diplotypes": [
@@ -3933,7 +3933,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr1",
       "gene": "DPYD",
       "diplotypes": [
@@ -5000,7 +5000,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chrX",
       "gene": "G6PD",
       "diplotypes": [
@@ -7135,7 +7135,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr19",
       "gene": "IFNL3",
       "diplotypes": [
@@ -7230,7 +7230,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr13",
       "gene": "NUDT15",
       "diplotypes": [
@@ -7517,7 +7517,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr19",
       "gene": "RYR1",
       "diplotypes": [
@@ -11356,7 +11356,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr12",
       "gene": "SLCO1B1",
       "diplotypes": [
@@ -11811,7 +11811,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr6",
       "gene": "TPMT",
       "diplotypes": [
@@ -12410,7 +12410,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr2",
       "gene": "UGT1A1",
       "diplotypes": [
@@ -12541,7 +12541,7 @@
     },
     {
       "source": "PHARMGKB",
-      "version": "2024-08-15-11-35",
+      "version": "2024-08-27-21-12",
       "chromosome": "chr16",
       "gene": "VKORC1",
       "diplotypes": [

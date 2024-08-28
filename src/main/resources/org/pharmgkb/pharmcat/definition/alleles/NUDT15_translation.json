@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-08-15-11-35",
+  "version": "2024-08-27-21-12",
   "modificationDate": "2021-10-22T19:44:45.760Z",
   "gene": "NUDT15",
   "orientation": null,
@@ -1257,5 +1257,22 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr13:48037748",
+    "chr13:48037749",
+    "chr13:48037798",
+    "chr13:48037825",
+    "chr13:48037834",
+    "chr13:48037847",
+    "chr13:48037849",
+    "chr13:48037885",
+    "chr13:48037902",
+    "chr13:48040977",
+    "chr13:48041103",
+    "chr13:48041113",
+    "chr13:48045690",
+    "chr13:48045720",
+    "chr13:48045771"
   ]
 }

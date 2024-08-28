@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-08-15-11-35",
+  "version": "2024-08-27-21-12",
   "modificationDate": "2021-12-02T22:52:37.860Z",
   "gene": "SLCO1B1",
   "orientation": null,
@@ -3708,5 +3708,17 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr12:21172776",
+    "chr12:21176868",
+    "chr12:21176871",
+    "chr12:21176898",
+    "chr12:21200595",
+    "chr12:21202553",
+    "chr12:21202649",
+    "chr12:21202664",
+    "chr12:21205921",
+    "chr12:21239145"
   ]
 }

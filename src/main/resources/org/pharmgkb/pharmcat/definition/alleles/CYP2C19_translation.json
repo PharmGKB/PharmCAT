@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-08-15-11-35",
+  "version": "2024-08-27-21-12",
   "modificationDate": "2022-10-04T01:59:42.269Z",
   "gene": "CYP2C19",
   "orientation": null,
@@ -3380,5 +3380,9 @@
       "numCombinations": 0,
       "numPartials": 0
     }
+  ],
+  "singularVariants": [
+    "chr10:94775106",
+    "chr10:94852765"
   ]
 }
