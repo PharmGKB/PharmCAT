@@ -43436,5 +43436,58 @@
       "lookupKey": "1.0"
     }
   ],
-  "version": "2024-08-27-21-12"
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "DPYD one No function allele and one Decreased function allele",
+      "lookupKey": {
+        "0.0": 1,
+        "0.5": 1
+      },
+      "phenotype": "Poor Metabolizer",
+      "activityScore": "0.5"
+    },
+    {
+      "name": "DPYD two No function alleles",
+      "lookupKey": {
+        "0.0": 2
+      },
+      "phenotype": "Poor Metabolizer",
+      "activityScore": "0.0"
+    },
+    {
+      "name": "DPYD two Decreased function alleles",
+      "lookupKey": {
+        "0.5": 2
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "1.0"
+    },
+    {
+      "name": "DPYD one No function allele and one Normal function allele",
+      "lookupKey": {
+        "0.0": 1,
+        "1.0": 1
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "1.0"
+    },
+    {
+      "name": "DPYD two Normal function alleles",
+      "lookupKey": {
+        "1.0": 2
+      },
+      "phenotype": "Normal Metabolizer",
+      "activityScore": "2.0"
+    },
+    {
+      "name": "DPYD one Decreased function allele and one Normal function allele",
+      "lookupKey": {
+        "0.5": 1,
+        "1.0": 1
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "1.5"
+    }
+  ]
 }

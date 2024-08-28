@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 # version is dynamically updated - DO NOT MODIFY MANUALLY
-PHARMCAT_VERSION = '2.15.3'
+PHARMCAT_VERSION = 'v2.15.3-shc'
 
 # expected tool versions
 MIN_BCFTOOLS_VERSION = '1.18'

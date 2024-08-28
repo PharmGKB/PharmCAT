@@ -295,5 +295,58 @@
       "lookupKey": "Unknown function"
     }
   ],
-  "version": "2024-08-27-21-12"
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "CYP3A5 one Normal function allele and one Unknown function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Unknown function": 1
+      },
+      "phenotype": "Possible Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP3A5 one Normal function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Normal function": 1
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP3A5 two Normal function alleles",
+      "lookupKey": {
+        "Normal function": 2
+      },
+      "phenotype": "Normal Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP3A5 two No function alleles",
+      "lookupKey": {
+        "No function": 2
+      },
+      "phenotype": "Poor Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP3A5 one No function allele and one Unknown function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Unknown function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP3A5 two Unknown function alleles",
+      "lookupKey": {
+        "Unknown function": 2
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    }
+  ]
 }

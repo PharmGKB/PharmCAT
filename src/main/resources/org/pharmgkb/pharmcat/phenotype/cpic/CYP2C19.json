@@ -8215,5 +8215,137 @@
       "lookupKey": "Uncertain function"
     }
   ],
-  "version": "2024-08-27-21-12"
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "CYP2C19 one Decreased function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Decreased function": 1
+      },
+      "phenotype": "Likely Poor Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Decreased function allele and one Increased function allele",
+      "lookupKey": {
+        "Decreased function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Likely Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 two Decreased function alleles",
+      "lookupKey": {
+        "Decreased function": 2
+      },
+      "phenotype": "Likely Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Decreased function allele and one Normal function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Decreased function": 1
+      },
+      "phenotype": "Likely Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one No function allele and one Uncertain function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Decreased function allele and one Uncertain function allele",
+      "lookupKey": {
+        "Decreased function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Normal function allele and one Uncertain function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 two Uncertain function alleles",
+      "lookupKey": {
+        "Uncertain function": 2
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Increased function allele and one Uncertain function allele",
+      "lookupKey": {
+        "Increased function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 two Normal function alleles",
+      "lookupKey": {
+        "Normal function": 2
+      },
+      "phenotype": "Normal Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Increased function allele and one Normal function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Rapid Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 two Increased function alleles",
+      "lookupKey": {
+        "Increased function": 2
+      },
+      "phenotype": "Ultrarapid Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Increased function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 one Normal function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Normal function": 1
+      },
+      "phenotype": "Intermediate Metabolizer",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "CYP2C19 two No function alleles",
+      "lookupKey": {
+        "No function": 2
+      },
+      "phenotype": "Poor Metabolizer",
+      "activityScore": "n/a"
+    }
+  ]
 }

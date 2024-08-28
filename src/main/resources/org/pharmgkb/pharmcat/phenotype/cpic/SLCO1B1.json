@@ -12151,5 +12151,137 @@
       "lookupKey": "No function"
     }
   ],
-  "version": "2024-08-27-21-12"
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "SLCO1B1 two No function alleles",
+      "lookupKey": {
+        "No function": 2
+      },
+      "phenotype": "Poor Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 two Increased function alleles",
+      "lookupKey": {
+        "Increased function": 2
+      },
+      "phenotype": "Increased Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 two Normal function alleles",
+      "lookupKey": {
+        "Normal function": 2
+      },
+      "phenotype": "Normal Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Increased function allele and one Normal function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Normal Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Increased function allele and one Unknown function allele",
+      "lookupKey": {
+        "Unknown function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 two Unknown function alleles",
+      "lookupKey": {
+        "Unknown function": 2
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Increased function allele and one Uncertain function allele",
+      "lookupKey": {
+        "Increased function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Normal function allele and one Unknown function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Unknown function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 two Uncertain function alleles",
+      "lookupKey": {
+        "Uncertain function": 2
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Uncertain function allele and one Unknown function allele",
+      "lookupKey": {
+        "Unknown function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Normal function allele and one Uncertain function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Indeterminate",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Normal function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Normal function": 1
+      },
+      "phenotype": "Decreased Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one Increased function allele and one No function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Increased function": 1
+      },
+      "phenotype": "Decreased Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one No function allele and one Uncertain function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Uncertain function": 1
+      },
+      "phenotype": "Possible Decreased Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "SLCO1B1 one No function allele and one Unknown function allele",
+      "lookupKey": {
+        "No function": 1,
+        "Unknown function": 1
+      },
+      "phenotype": "Possible Decreased Function",
+      "activityScore": "n/a"
+    }
+  ]
 }

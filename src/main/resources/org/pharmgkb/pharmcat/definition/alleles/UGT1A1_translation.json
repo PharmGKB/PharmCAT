@@ -11,25 +11,6 @@
   "variants": [
     {
       "chromosome": "chr2",
-      "position": 233759924,
-      "cpicPosition": 233759924,
-      "rsid": "rs887829",
-      "chromosomeHgvsName": "g.233759924C>T",
-      "cpicAlleles": [
-        "C",
-        "T"
-      ],
-      "cpicToVcfAlleleMap": {
-        "C": "C",
-        "T": "T"
-      },
-      "ref": "C",
-      "alts": [
-        "T"
-      ]
-    },
-    {
-      "chromosome": "chr2",
       "position": 233760233,
       "cpicPosition": 233760235,
       "rsid": "rs3064744",
@@ -97,13 +78,11 @@
       "name": "*1",
       "id": "PA166115841",
       "alleles": [
-        "C",
         "CAT",
         "G",
         "C"
       ],
       "cpicAlleles": [
-        "C",
         "TA(7)",
         "G",
         "C"
@@ -118,15 +97,31 @@
       "id": "PA166115858",
       "alleles": [
         null,
-        null,
         "A",
         null
       ],
       "cpicAlleles": [
         null,
-        null,
         "A",
         null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*6+*27",
+      "id": "shc627",
+      "alleles": [
+        null,
+        "A",
+        "A"
+      ],
+      "cpicAlleles": [
+        null,
+        "A",
+        "A"
       ],
       "reference": false,
       "structuralVariant": false,
@@ -139,11 +134,9 @@
       "alleles": [
         null,
         null,
-        null,
         "A"
       ],
       "cpicAlleles": [
-        null,
         null,
         null,
         "A"
@@ -157,16 +150,50 @@
       "name": "*28",
       "id": "PA166115842",
       "alleles": [
-        null,
         "CATAT",
         null,
         null
       ],
       "cpicAlleles": [
-        null,
         "TA(8)",
         null,
         null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*28+*6",
+      "id": "shc628",
+      "alleles": [
+        "CATAT",
+        "A",
+        null
+      ],
+      "cpicAlleles": [
+        "TA(8)",
+        "A",
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*28+*27",
+      "id": "shc2728",
+      "alleles": [
+        "CATAT",
+        null,
+        "A"
+      ],
+      "cpicAlleles": [
+        "TA(8)",
+        null,
+        "A"
       ],
       "reference": false,
       "structuralVariant": false,
@@ -177,13 +204,11 @@
       "name": "*36",
       "id": "PA166115843",
       "alleles": [
-        null,
         "C",
         null,
         null
       ],
       "cpicAlleles": [
-        null,
         "TA(6)",
         null,
         null
@@ -194,16 +219,50 @@
       "numPartials": 0
     },
     {
+      "name": "*36+*6",
+      "id": "shc636",
+      "alleles": [
+        "C",
+        "A",
+        null
+      ],
+      "cpicAlleles": [
+        "TA(6)",
+        "A",
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*36+*27",
+      "id": "shc2736",
+      "alleles": [
+        "C",
+        null,
+        "A"
+      ],
+      "cpicAlleles": [
+        "TA(6)",
+        null,
+        "A"
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
       "name": "*37",
       "id": "PA166115844",
       "alleles": [
-        null,
         "CATATAT",
         null,
         null
       ],
       "cpicAlleles": [
-        null,
         "TA(9)",
         null,
         null
@@ -214,18 +273,16 @@
       "numPartials": 0
     },
     {
-      "name": "*80",
-      "id": "PA166115850",
+      "name": "*37+*6",
+      "id": "shc637",
       "alleles": [
-        "T",
-        null,
-        null,
+        "CATATAT",
+        "A",
         null
       ],
       "cpicAlleles": [
-        "T",
-        null,
-        null,
+        "TA(9)",
+        "A",
         null
       ],
       "reference": false,
@@ -234,39 +291,17 @@
       "numPartials": 0
     },
     {
-      "name": "*80+*28",
-      "id": "PA166220483",
+      "name": "*37+*27",
+      "id": "shc2737",
       "alleles": [
-        "T",
-        "CATAT",
-        null,
-        null
-      ],
-      "cpicAlleles": [
-        "T",
-        "TA(8)",
-        null,
-        null
-      ],
-      "reference": false,
-      "structuralVariant": false,
-      "numCombinations": 0,
-      "numPartials": 0
-    },
-    {
-      "name": "*80+*37",
-      "id": "PA166220484",
-      "alleles": [
-        "T",
         "CATATAT",
         null,
-        null
+        "A"
       ],
       "cpicAlleles": [
-        "T",
         "TA(9)",
         null,
-        null
+        "A"
       ],
       "reference": false,
       "structuralVariant": false,
@@ -274,8 +309,5 @@
       "numPartials": 0
     }
   ],
-  "singularVariants": [
-    "chr2:233760498",
-    "chr2:233760973"
-  ]
+  "singularVariants": []
 }

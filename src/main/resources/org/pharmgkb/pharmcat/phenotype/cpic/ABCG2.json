@@ -55,5 +55,32 @@
       "lookupKey": "Decreased function"
     }
   ],
-  "version": "2024-08-27-21-12"
+  "version": "2024-08-27-21-12",
+  "diplotypeFunctions": [
+    {
+      "name": "ABCG2 two Decreased function alleles",
+      "lookupKey": {
+        "Decreased function": 2
+      },
+      "phenotype": "Poor Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "ABCG2 one Decreased function allele and one Normal function allele",
+      "lookupKey": {
+        "Normal function": 1,
+        "Decreased function": 1
+      },
+      "phenotype": "Decreased Function",
+      "activityScore": "n/a"
+    },
+    {
+      "name": "ABCG2 two Normal function alleles",
+      "lookupKey": {
+        "Normal function": 2
+      },
+      "phenotype": "Normal Function",
+      "activityScore": "n/a"
+    }
+  ]
 }
