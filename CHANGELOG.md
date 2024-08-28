@@ -1,3 +1,15 @@
+## [2.15.3](https://github.com/PharmGKB/PharmCAT/compare/v2.15.2...v2.15.3) (2024-08-28)
+
+### Bug Fixes
+
+* **data:** track singular variants ([fb1ebbd](https://github.com/PharmGKB/PharmCAT/commit/fb1ebbd13cc0376fbd62876d4a2eca07bd6373fc))
+* **data:** update data ([c8100ec](https://github.com/PharmGKB/PharmCAT/commit/c8100ec878f6d0731ba9f1403f1a5ecb91061abb))
+* **namedallelematcher:** fix permutation generation with mix of phased/unphased data ([2146db0](https://github.com/PharmGKB/PharmCAT/commit/2146db07f78724c92c375378cc98e8fbbe351e31))
+* **phenotyper:** improve support for combinations in outside calls ([b1a6deb](https://github.com/PharmGKB/PharmCAT/commit/b1a6debd266e5ba65ea1dd05b6e5dd19a0c3beb8))
+* **reporter:** fix limiting reports by source ([ac0c52e](https://github.com/PharmGKB/PharmCAT/commit/ac0c52e31c5026895200ee9d1914fb6076fb42bb))
+* **reporter:** fix matching diplotype-specific recommendations ([11fc7b4](https://github.com/PharmGKB/PharmCAT/commit/11fc7b4a1d40f8ef015111c35887ca19f2c43103))
+* **reporter:** take subsetting into account when calculating total genes ([6ef47cc](https://github.com/PharmGKB/PharmCAT/commit/6ef47ccb722897fc94b531229809074e57bda6ee))
+
 ## [2.15.2](https://github.com/PharmGKB/PharmCAT/compare/v2.15.1...v2.15.2) (2024-08-20)
 
 ### Bug Fixes
