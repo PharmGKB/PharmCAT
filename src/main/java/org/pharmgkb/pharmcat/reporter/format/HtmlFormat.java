@@ -131,16 +131,12 @@ public class HtmlFormat extends AbstractFormat {
         continue;
       }
       for (GeneReport geneReport : reportContext.getGeneReports().get(source).values()) {
-        // skip any genes on the blacklist
+        // skip any genes on the blocklist
         if (geneReport.isIgnored()) {
           continue;
         }
 
         String symbol = geneReport.getGeneDisplay();
-        totalGenes.add(symbol);
-        if (!m_compact) {
-          geneReportMap.put(symbol, geneReport);
-        }
 
         // CPIC gets sorted first, this will pick CPIC over DPWG
         if (!functionMap.containsKey(symbol)) {
@@ -150,10 +146,18 @@ public class HtmlFormat extends AbstractFormat {
           }
         }
 
+        totalGenes.add(symbol);
+        if (!m_compact) {
+          geneReportMap.put(symbol, geneReport);
+        }
         if (geneReport.isNoData()) {
-          // checking if allele definition exists for this gene because of subsetting
+          // no data and no definition means that the gene was removed due to subsetting
           if (getEnv().getDefinitionReader().getGenes().contains(symbol)) {
             noDataGenes.add(symbol);
+          } else {
+            totalGenes.remove(symbol);
+            geneReportMap.removeAll(symbol);
+            functionMap.remove(symbol);
           }
           continue;
         }

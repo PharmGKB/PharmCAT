@@ -1,9 +1,11 @@
 package org.pharmgkb.pharmcat.reporter.model;
 
 /**
- * Data source names
+ * Data source names.
  */
 public enum DataSource {
+  // XXX: code expects CPIC to be sorted first (e.g. in HtmlFormat.compile())
+  // DO NOT CHANGE ORDER without dealing with this expectation
   CPIC("CPIC", "CPIC"),
   DPWG("DPWG", "DPWG"),
   PHARMGKB("PharmGKB", "PharmGKB"),
