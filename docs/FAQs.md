@@ -104,6 +104,37 @@ providing actionable prescribing recommendations from authorities like CPIC and 
 Outside calls provided by the user will override the results from the VCF file. Details about the relative priority of outside calls can be found on the [Outside Call Format page](/using/Outside-Call-Format#activity-score-genes).
 
 
+### Why doesn’t the Preprocessor normalize consecutive homozygous reference positions?
+
+The Preprocessor does not consider consecutive homozygous reference genotypes as evidence for homozygous reference INDELs. For example, one might equate the following two VCF entries
+
+```text
+# example 1
+chr2    233760233       .       C       <NON_REF>       .       .       .       GT  0/0
+chr2    233760234       .       A       <NON_REF>       .       .       .       GT  0/0
+chr2    233760235       .       T       <NON_REF>       .       .       .       GT  0/0
+
+# example 2
+chr2    233760233       .       CAT       C       .       .       .       GT  0/0
+chr2    233760233       .       C       CAT       .       .       .       GT  0/0
+```
+
+However, example 1 does not rule out the possibility of a small deletion, _e.g._, `CAT>CATAT`, while example 2 explicitly states the lack of a small AT insertion or deletion at this genomic position.
+
+You can find more examples on [this GitHub issue page](https://github.com/samtools/bcftools/issues/2163).
+
+As it is hard to accurately infer INDELs for various cases and PharmCAT expects high-quality genotypes, it is beyond the scope of the tool to perform in-depth genotype-calling tasks.
+
+If you understand the risks, you can make the call on your data before passing it on to PharmCAT.
+
+If you have access to the raw sequencing data, one option is to try the [force-calling feature in DeepVariant](https://github.com/google/deepvariant/issues/433). Or try out the `--alleles` feature in the [GATK HaplotypeCaller > 4.6.0.0](https://gatk.broadinstitute.org/hc/en-us/articles/27007962724507-HaplotypeCaller).
+
+Alternatively, use bcftools to merge a gVCF with the PharmCAT position VCF to force the representation of INDELs before any downstream file normalization. Again, please note that PharmCAT expects high-quality VCF as the input.
+```shell
+# bcftools merge -m both <input_vcf.gz> pharmcat_position.vcf.bgz | bcftools view -s ^PharmCAT -Oz -o <output.vcf.gz>
+```
+
+We thank the PharmCAT users who reported the issue and shared solutions in the [original GitHub issue](https://github.com/PharmGKB/PharmCAT/issues/128)
 
 ## Output-related
 
