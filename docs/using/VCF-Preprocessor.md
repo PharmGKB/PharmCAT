@@ -7,9 +7,8 @@ render_with_liquid: false
 ---
 # PharmCAT VCF Preprocessor
 
-The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT.
+The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT (see [PharmCAT's VCF Requirements](/using/VCF-Requirements)).
 
-Input VCF files must comply with [Variant Call Format (VCF) Version >= 4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
 This tool will:
 
@@ -65,7 +64,7 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
 **Mandatory** argument: `-vcf`.
 
 -vcf
-: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples.  Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank). 
+: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples. Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank). Input VCF files must at least comply with [Variant Call Format (VCF) Version >= 4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
 VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 
@@ -97,7 +96,7 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 : A comma-separated list of sample IDs.
 
 -o `<dir>` <span class="altArg"><br />or --output-dir `<dir>`</span>
-: Directory to save preprocessed VCF to.  Default is the parent directory of the input VCF.
+: Directory to save preprocessed VCF to. Default is the parent directory of the input VCF.
 
 -bf `<name>` <span class="altArg"><br />or --base-filename `<name>`</span>
 : Prefix of the output VCF files. Default is the input base file name plus sample IDs.
@@ -115,8 +114,8 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
     instead of unreadable/uncallable at those positions. Running PharmCAT with positions as missing vs reference can lead to different results.
 
 -c <span class="altArg"><br />or --concurrent-mode</span>
-: Enable concurrent mode.  This defaults to using one less than the number of CPU cores available.
-Note that this is only useful if processing many files/samples.  With only a few files/samples, the overhead of
+: Enable concurrent mode. This defaults to using one less than the number of CPU cores available.
+Note that this is only useful if processing many files/samples. With only a few files/samples, the overhead of
 using concurrent mode is more than the benefit it may provide.
 
 -cp `<num processes>` <span class="altArg"><br />or --max-concurrent-processes `<num processes>`</span>
@@ -134,8 +133,8 @@ using concurrent mode is more than the benefit it may provide.
 These options allow you to override default locations if the preprocessor cannot find its dependencies.
 
 -refVcf `<vcf_file>` <span class="altArg"><br />or --reference-pgx-vcf `<vcf_file>`</span>
-: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT.  By default, the preprocessor will
-look for `pharmcat_positions.vcf.bgz` under the current working directory.  You can find this VCF in the
+: A sorted, compressed VCF of PGx core allele defining positions used by PharmCAT. By default, the preprocessor will
+look for `pharmcat_positions.vcf.bgz` under the current working directory. You can find this VCF in the
 `pharmcat_preprocessor-<release_version>.tar.gz` available from the PharmCAT GitHub releases page.
 
 -refFna `<fna_file>` <span class="altArg"><br />or --reference-genome `<fna_file>`</span>
@@ -151,12 +150,12 @@ as the reference PGx VCF file (`-refVcf`) if not provided by user (see [Notes](#
 -bcftools `</path/to/bcftools>` <span class="altArg"><br />or --path-to-bcftools `</path/to/bcftools>`</span>
 : bcftools must be installed. This argument is optional if bcftools is available in your PATH.
 If not, you can download and compile [bcftools](http://www.htslib.org/download/) and provide the path to the bcftools
-program.  Alternatively, set using the `BCFTOOLS_PATH` environment variable.
+program. Alternatively, set using the `BCFTOOLS_PATH` environment variable.
 
 -bgzip `</path/to/bgzip>` <span class="altArg"><br />or --path-to-bgzip `</path/to/bgzip>`</span>
 : bgzip must be installed. This argument is optional if bgzip is available in your PATH.
 If not, bgzip is a part of the [htslib](http://www.htslib.org/download/). You can download and compile it and provide
-the path to the bgzip program.  Alternatively, set using the `BGZIP_PATH` environment variable.
+the path to the bgzip program. Alternatively, set using the `BGZIP_PATH` environment variable.
 
 -G <span class="altArg"><br />or --no-gvcf-check</span>
 : Bypass the check of the gVCF file format.
@@ -170,11 +169,11 @@ the path to the bgzip program.  Alternatively, set using the `BGZIP_PATH` enviro
 
 By default, the preprocessor will produce a (multi-sample) VCF named `<base_filename>.preprocessed.vcf.bgz`, which is ready to be used by PharmCAT.
 
-All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument.  For example, if the input file is "study.vcf", then the base filename is "study". If the input file is "biobank_files.txt" then the base filename is "biobank_files".
+All preprocessor output files will use the base filename of the input file unless otherwise specified using the `-bf`/`--base-filename` argument. For example, if the input file is "study.vcf", then the base filename is "study". If the input file is "biobank_files.txt" then the base filename is "biobank_files".
 
-If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample.  The output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
+If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample. The output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
 
-If there are missing PGx positions, it will also produce a report named `<base_filename>.missing_pgx_var.vcf`.  This file only reports positions that are missing in _all_ samples.  If `-0`/`--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
+If there are missing PGx positions, it will also produce a report named `<base_filename>.missing_pgx_var.vcf`. This file only reports positions that are missing in _all_ samples. If `-0`/`--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
 
 
 ## Tutorial
@@ -311,7 +310,7 @@ The PharmCAT VCF Preprocessor updates the INFO on genetic variants that warrant 
 
 ## Notes
 
-PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39).  It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/GCA_000001405.15_GRCh38_full_plus_hs38d1_analysis_set.fna.gz).
+PharmCAT uses [**GRCh38.p13**](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.39). It is available through the [NCBI RefSeq FTP site](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.39_GRCh38.p13/GRCh38_major_release_seqs_for_alignment_pipelines/GCA_000001405.15_GRCh38_full_plus_hs38d1_analysis_set.fna.gz).
 
 PharmCAT takes this file and prepares it for use with the following commands:
 

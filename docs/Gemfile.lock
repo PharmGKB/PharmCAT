@@ -29,6 +29,8 @@ GEM
     gemoji (4.1.0)
     google-protobuf (4.26.1-aarch64-linux)
       rake (>= 13)
+    google-protobuf (4.26.1-arm64-darwin)
+      rake (>= 13)
     google-protobuf (4.26.1-x86_64-linux)
       rake (>= 13)
     html-pipeline (2.14.3)
@@ -83,6 +85,8 @@ GEM
     mutex_m (0.2.0)
     nokogiri (1.16.4-aarch64-linux)
       racc (~> 1.4)
+    nokogiri (1.16.4-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     pathutil (0.16.2)
@@ -98,6 +102,8 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.75.0-aarch64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.75.0-arm64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
     sass-embedded (1.75.0-x86_64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
     terminal-table (3.0.2)
@@ -109,6 +115,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES

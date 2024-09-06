@@ -47,7 +47,7 @@ No, PharmCAT only considers the information as stated in the [VCF Requirements](
 
 ### What VCF fields does PharmCAT use?
 
-Please see the [VCF requirements](/using/VCF-Requirements.md) for the specific VCF fields used by PharmCAT. 
+Please see the [VCF requirements](/using/VCF-Requirements.md) for the specific VCF fields used by PharmCAT.
 
 When an optional _FORMAT/AD_ field is present in a VCF file, PharmCAT will perform a quality assurance check on whether _FORMAT/GT_ and _FORMAT/GT_ agree with each other. The check was added to PharmCAT to address a [reported issue](https://github.com/PharmGKB/PharmCAT/issues/90) where _FORMAT/GT_ and _FORMAT/AD_ were discrepant from each other and confused PharmCAT.
 
@@ -61,42 +61,27 @@ The VCF Preprocessor uses the _INFO/END_ field to recognize gVCF, a file format 
 
 PharmCAT will not be supporting this.
 
-We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it.  It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/using/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide.  We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
+We want people to be 100% clear on how PharmCAT works and what happens with the data you provide to it. It does not accept arbitrary VCF for many reasons (see [VCF Requirements](/using/VCF-Requirements) for the full list of requirements), but the main one is that we will not make any assumptions on the input you provide. We have already encountered users making assumptions on how PharmCAT works or should work which has led to confusion down the line.
 
-For one thing, we do not know what "reference" is because it can vary based on your reference sequence. Did you convert it from GRCh37 to GRCh38? If so, the "reference" from the two could have changed and your VCF would not provide any indications that this is the case.  Secondly, a missing entry can mean that the reference base was detected OR it can mean the base was not assayed or has no call.  We cannot distinguish between uncalled positions and reference in a VCF file. So we ask that you declare each required position for PharmCAT to be clear about the input.
-
-You have to decide on how accurate you want the data you provide to PharmCAT should be, especially if you're making any clinical decisions based on PharmCAT's results.  If you wish to make assumptions of your data, you are welcome to do so.  Instructions on how to do this can be found [here](/using/VCF-Requirements/#preparing-vcf-files).
-
+For more reasons behind this decision, please visit [the VCF Requirements](/using/VCF-Requirements/#must-have-all-allele-defining-positions).
 
 ### VCF parsing errors
 
-PharmCAT and VCF Preprocessor is designed not to alter any info in the input VCF file. Please make sure your VCF file follow the VCF file specifications > 4.2.
+PharmCAT and VCF Preprocessor is designed not to alter any info in the input VCF file. Please make sure your VCF file follow [PharmCAT's VCF requirements](/using/VCF-Requirements).
 
-One example is a VCF file where the QUAL column has entries other than the allowed numeric numbers or a missing value `.`. In this case, PharmCAT will complain about the VCF file format. If this happens or you see other parsing errors, please check whether your VCF file follows the VCF file specifications, and if necessary, contact the bioinformatics tool team for a proper solution.
+One example is a VCF file where the QUAL column has entries other than the allowed numeric numbers or a missing value `.`. In this case, PharmCAT will complain about the VCF file format. But the root cause is that the input VCF deviates from the VCF file specifications. If this happens or you see other parsing errors, please check whether your VCF file follows the VCF file specifications, and if necessary, contact the bioinformatics tool team for a proper solution.
 
 ### Can I modify the definitions of alleles and phenotypes in PharmCAT?
 
 PharmCAT is open source and can be modified to satisfy your own needs.
 
-We do not, however, endorse modifying the allele or phenotype definitions to give different allele matching or phenotype 
-results for genes already covered by PharmCAT. A goal of PharmCAT is to create transparent reports about what alleles or
-genetic positions are used to determine genotype and phenotype, and to _promote consistent and robust results_.
+We do not, however, endorse modifying the allele or phenotype definitions to give different allele matching or phenotype results for genes already covered by PharmCAT. A goal of PharmCAT is to create transparent reports about what alleles or genetic positions are used to determine genotype and phenotype, and to _promote consistent and robust results_.
 
-In general, we frequently get this question when there is a problem with the genotyping data.  For example, if not all
-positions PharmCAT requires is available. The instinct is to remove those positions from PharmCAT's named allele
-definitions.  But when a genetic position is removed, PharmCAT will not "see" those positions, which will likely cause
-the sample/study individual to be inaccurately reported as reference who in fact is not, incorrectly assigned genotypes
-or, even worse, phenotypes.
+In general, we frequently get this question when there is a problem with the genotyping data. For example, if not all positions PharmCAT requires is available. The instinct is to remove those positions from PharmCAT's named allele definitions. But when a genetic position is removed, PharmCAT will not "see" those positions, which will likely cause the sample/study individual to be inaccurately reported as reference who in fact is not, incorrectly assigned genotypes or, even worse, phenotypes.
 
-If you have no information about some genetic positions in your dataset, and want to ignore them or assume reference at
-those positions, there is an option in the Pharmcat VCF Preprocessor to set the missing positions to reference.  We
-suggest using this option for research purposes only. We recommend against using this option for reporting results or
-implementation.
+If you have no information about some genetic positions in your dataset, and want to ignore them or assume reference at those positions, there is an option in the Pharmcat VCF Preprocessor to set the missing positions to reference. We suggest using this option for research purposes only. We recommend against using this option for reporting results or implementation.
 
-If instead you are interested in customizing PharmCAT to add support for additional genes and PGx recommendations, this
-is possible, but currently undocumented.  Just adding the required JSON files to PharmCAT will only get you part of the
-way there.  We are currently unable to support anyone looking to do this at this time because we are focused on
-providing actionable prescribing recommendations from authorities like CPIC and DPWG.
+If instead you are interested in customizing PharmCAT to add support for additional genes and PGx recommendations, this is possible, but currently undocumented. Just adding the required JSON files to PharmCAT will only get you part of the way there. We are currently unable to support anyone looking to do this at this time because we are focused on providing actionable prescribing recommendations from authorities like CPIC and DPWG.
 
 
 ### What happens if I provide an outside diplotype or phenotype for a gene also found in the VCF file?
@@ -106,35 +91,7 @@ Outside calls provided by the user will override the results from the VCF file. 
 
 ### Why doesn’t the Preprocessor normalize consecutive homozygous reference positions?
 
-The Preprocessor does not consider consecutive homozygous reference genotypes as evidence for homozygous reference INDELs. For example, one might equate the following two VCF entries
-
-```text
-# example 1
-chr2    233760233       .       C       <NON_REF>       .       .       .       GT  0/0
-chr2    233760234       .       A       <NON_REF>       .       .       .       GT  0/0
-chr2    233760235       .       T       <NON_REF>       .       .       .       GT  0/0
-
-# example 2
-chr2    233760233       .       CAT       C       .       .       .       GT  0/0
-chr2    233760233       .       C       CAT       .       .       .       GT  0/0
-```
-
-However, example 1 does not rule out the possibility of a small deletion, _e.g._, `CAT>CATAT`, while example 2 explicitly states the lack of a small AT insertion or deletion at this genomic position.
-
-You can find more examples on [this GitHub issue page](https://github.com/samtools/bcftools/issues/2163).
-
-As it is hard to accurately infer INDELs for various cases and PharmCAT expects high-quality genotypes, it is beyond the scope of the tool to perform in-depth genotype-calling tasks.
-
-If you understand the risks, you can make the call on your data before passing it on to PharmCAT.
-
-If you have access to the raw sequencing data, one option is to try the [force-calling feature in DeepVariant](https://github.com/google/deepvariant/issues/433). Or try out the `--alleles` feature in the [GATK HaplotypeCaller > 4.6.0.0](https://gatk.broadinstitute.org/hc/en-us/articles/27007962724507-HaplotypeCaller).
-
-Alternatively, use bcftools to merge a gVCF with the PharmCAT position VCF to force the representation of INDELs before any downstream file normalization. Again, please note that PharmCAT expects high-quality VCF as the input.
-```shell
-# bcftools merge -m both <input_vcf.gz> pharmcat_position.vcf.bgz | bcftools view -s ^PharmCAT -Oz -o <output.vcf.gz>
-```
-
-We thank the PharmCAT users who reported the issue and shared solutions in the [original GitHub issue](https://github.com/PharmGKB/PharmCAT/issues/128)
+The Preprocessor does not consider consecutive homozygous reference genotypes as evidence for homozygous reference INDELs. For the reason behind this decision, please visit our [VCF requirements web page](/using/VCF-Requirements/#consecutive-homozygous-reference-genotypes-will-not-be-translated-to-a-homozygous-reference-indel)
 
 ## Output-related
 
