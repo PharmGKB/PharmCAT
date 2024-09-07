@@ -4,7 +4,9 @@
 [![Preprocessor CI](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml)
 [![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=development)
 
-A tool to extract variants of pharmacogenomic interest from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)), interpret the variant alleles, match to defined named alleles, find related prescribing guidance, and generate reports in various formats.
+A tool to extract variants of pharmacogenomic interest from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)),
+interpret the variant alleles, match to defined named alleles, find related prescribing guidance, and generate reports
+in various formats.
 
 For more details:
 
@@ -14,11 +16,13 @@ For more details:
 
 ## Status
 
-PharmCAT is available for general use, but it is still under _active development_. New features, data updates, and bug fixes will be released. Watch this repo or check the [releases](../../releases) page for new releases.
+PharmCAT is available for general use, but it is still under _active development_. 
+New features, data updates, and bug fixes will be released.
+Watch this repository or check the [releases](../../releases) page for new releases.
 
 All technical requirements and documentation are available on [PharmCAT.org](https://pharmcat.org).
 
-PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077)
+PharmCAT is managed at Stanford University & University of Pennsylvania (NHGRI U24HG013077).
 
 
 ## Contact
@@ -30,4 +34,6 @@ For general questions about the PharmCAT project, contact [pharmcat@pharmgkb.org
 
 ## Liability
 
-:warning: PhamCAT assumes no responsibility for any injury to person or damage to persons or property arising out of, or related to any use of PharmCAT, or for any errors or omissions. The user recognizes they are using PharmCAT at their own risk.
+:warning: PharmCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
+or related to any use of PharmCAT, or for any errors or omissions.
+The user recognizes they are using PharmCAT at their own risk.
