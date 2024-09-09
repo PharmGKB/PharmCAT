@@ -97,7 +97,8 @@ If you have .bam files to work from, one possible approach is to use the followi
      -L pharmcat_positions.vcf -ip 20 --max-mnp-distance 1 --output-mode EMIT_ALL_ACTIVE_SITES
 ```
 
-This will XXX? (BINGLAN PLEASE FILL IN).
+This is expected to, to our best knowledge at the time of writing, call all the genetic variants specified by the 
+`--alleles pharmcat_positions.vcf` from your input bam file. Please refer to the [GATK documentation](https://gatk.broadinstitute.org/hc/en-us/categories/360002369672-Tool-Index) for the latest updates.
 
 The `pharmcat_positions.vcf` file is available on the [PharmCAT release page](https://github.com/PharmGKB/PharmCAT/releases) on GitHub.
 
