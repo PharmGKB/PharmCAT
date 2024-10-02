@@ -953,11 +953,6 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
-                                # if all genotypes are missing, move next
-                                is_all_geno_missing = all(x.split(':')[0] in ['.|.', './.', '.'] for x in fields[9:])
-                                if is_all_geno_missing:
-                                    continue
-
                                 # record input PGx positions in a list
                                 # use this to fill up multi-allelic ALT later
                                 if input_chr_pos not in input_pos:
