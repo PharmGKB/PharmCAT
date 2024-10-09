@@ -112,7 +112,7 @@ if __name__ == "__main__":
         m_genes: list[str] = []
         if args.guideline_source == 'CPIC':
             m_genes = ["ABCG2", "CACNA1S", "CFTR", "CYP2B6", "CYP2C9", "CYP2C19", "CYP3A5", "CYP4F2",
-                       "DPYD", "G6PD", "IFNL3", "NUDT15", "RYR1", "SLCO1B1", "TPMT", "UGT1A1",
+                       "DPYD", "G6PD", "IFNL3", "NAT2", "NUDT15", "RYR1", "SLCO1B1", "TPMT", "UGT1A1",
                        "VKORC1", "CYP2D6", "HLA-A", "HLA-B", "MT-RNR1"]
         elif args.guideline_source == 'DPWG':
             m_genes = ["ABCG2", "CYP2B6", "CYP2C9", "CYP2C19", "CYP3A4", "CYP3A5", "DPYD", "NUDT15",
