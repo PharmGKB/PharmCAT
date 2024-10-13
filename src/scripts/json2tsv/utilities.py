@@ -215,15 +215,43 @@ def extract_pcat_json(matcher_json: str, phenotyper_json: str, genes: list[str],
             pcat_summary['haplotype_2_variants'].append('')
             pcat_summary['missing_positions'].append(missing_positions)
             pcat_summary['uncallable_haplotypes'].append(uncallable_haplotypes)
+        elif i_gene == "NAT2":
+            for idx_diplotype in range(n_diploids):
+                ma_entry: dict = matcher_data[idx_ma_gene]['diplotypes'][idx_diplotype]
 
+                # append the extracted phenotyper data into the summary dictionary
+                pcat_summary['sample'].append(sample_id)
+                pcat_summary['gene'].append(i_gene)
+                pcat_summary['phenotype'].append('')
+                pcat_summary['activity_score'].append('')
+                pcat_summary['diplotype'].append(ma_entry['name'])
+                pcat_summary['dpyd_ryr1_variants'].append('')
+                pcat_summary['dpyd_ryr1_variant_functions'].append('')
+                pcat_summary['dpyd_ryr1_variant_genotypes'].append('')
+                pcat_summary['haplotype_1'].append(ma_entry['haplotype1']['name'])
+                pcat_summary['haplotype_1_functions'].append('')
+                pcat_summary['haplotype_2'].append(ma_entry['haplotype1']['name'])
+                pcat_summary['haplotype_2_functions'].append('')
+                pcat_summary['missing_positions'].append(missing_positions)
+                pcat_summary['uncallable_haplotypes'].append(uncallable_haplotypes)
+
+                # append the haplotype variants into the summary dictionary
+                for json_field in ['haplotype1', 'haplotype2']:
+                    # get the alternative genotypes for a haplotype
+                    tmp_names, tmp_genotypes = get_names_and_genotypes(
+                        ma_entry[json_field], reference_genotypes[i_gene])
+                    # append the alternative genotypes to the variant list
+                    if json_field == 'haplotype1':
+                        pcat_summary['haplotype_1_variants'].append(','.join(tmp_genotypes))
+                    if json_field == 'haplotype2':
+                        pcat_summary['haplotype_2_variants'].append(','.join(tmp_genotypes))
         else:  # for genes other than DPYD and RYR1
             for idx_diplotype in range(n_diploids):
                 # get the matcher and phenotyper entries
                 # matcher and phenotyper jsons have sorted and listed diplotypes in the same order
-                # todo: remove the if condition when duplicate cyp2d6 diplotypes are fixed in the research mode
                 if len(phenotyper_data[i_gene]['recommendationDiplotypes']) - 1 >= idx_diplotype:
                     p_entry: dict = phenotyper_data[i_gene]['recommendationDiplotypes'][idx_diplotype]
-                else:
+                else:  # todo: remove the else condition when duplicate cyp2d6 diplotypes are fixed in the research mode
                     continue
                 ma_entry: dict = matcher_data[idx_ma_gene]['diplotypes'][idx_diplotype]
 
