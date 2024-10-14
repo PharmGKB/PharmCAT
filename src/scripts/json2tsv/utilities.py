@@ -230,7 +230,7 @@ def extract_pcat_json(matcher_json: str, phenotyper_json: str, genes: list[str],
                 pcat_summary['dpyd_ryr1_variant_genotypes'].append('')
                 pcat_summary['haplotype_1'].append(ma_entry['haplotype1']['name'])
                 pcat_summary['haplotype_1_functions'].append('')
-                pcat_summary['haplotype_2'].append(ma_entry['haplotype1']['name'])
+                pcat_summary['haplotype_2'].append(ma_entry['haplotype2']['name'])
                 pcat_summary['haplotype_2_functions'].append('')
                 pcat_summary['missing_positions'].append(missing_positions)
                 pcat_summary['uncallable_haplotypes'].append(uncallable_haplotypes)
