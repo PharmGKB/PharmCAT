@@ -1,9 +1,17 @@
 # WDL to run the PharmCAT pipeline
 
-This WDL script executes the PharmCAT pipeline on a specified VCF file or a set of VCF files, processing genetic data to
-provide pharmacogenomic insights. This workflow automates the execution of the PharmCAT pipeline, streamlining the
-analysis of genetic variants to predict drug response and tailor medical treatment to individual patients' genetic
-profiles. By leveraging the Workflow Description Language (WDL), this script ensures reproducibility, scalability, and
+PharmCAT (Pharmacogenomics Clinical Annotation Tool) is a bioinformatics tool that analyzes genetic variants to predict
+drug response and tailor medical treatment to an individual patient’s genetic profile. It does this in two phases:
+
+1. Processes VCF files from next generation sequencing (NGS) or genotyping methods and identifies pharmacogenomic (PGx)
+   genotypes and infers haplotypes, typically called star alleles.
+2. Uses the pharmacogene diplotypes (combination of maternal and paternal star alleles) to predict PGx phenotypes and
+   reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
+   [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
+   [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
+
+This WDL script executes the PharmCAT pipeline, taking VCF files as input and produces a recommendation report for each
+sample. By leveraging the Workflow Description Language (WDL), this script ensures reproducibility, scalability, and
 ease of use across various computational environments.
 
 For details, see:
