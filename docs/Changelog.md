@@ -6,10 +6,14 @@ nav_order: 6
 
 # Change Log
 
-Starting in March 2024, this page highlights the major content updates. For more detail, visit the [PharmCAT GitHub Releases page](https://github.com/PharmGKB/PharmCAT/releases).
+This page highlights _major updates_ to PharmCAT (starting with v2.10.0).
 
-You can subscribe to the PharmCAT GitHub repository by following [these instructions](https://github.blog/changelog/2018-11-27-watch-releases/). You will need a GitHub account to receive notifications of PharmCAT
-releases. 
+If you are looking for details on releases, please visit the
+[PharmCAT GitHub Releases page](https://github.com/PharmGKB/PharmCAT/releases).  If you'd like to learn more about how
+we version PharmCAT, check out our page on [versioning and releases](/versioning).  Finally, you can subscribe to
+PharmCAT release notifications by following
+[these instructions](/versioning#subscribing-to-release-notifications). This method will require a GitHub account.
+
 
 ## v2.13.0
 
@@ -20,7 +24,6 @@ Added support for FDA drug guidance.
 
 DPWG removed the recommendation for _F5_ and hormonal contraceptives for systemic use.
 The guideline annotation was retired on PharmGKB, and resulted in the removal of _F5_ from PharmCAT.
-
 
 
 ## v2.10.0
@@ -37,7 +40,7 @@ This change prompted the following PharmCAT updates:
 
 #### _RYR1_
 
-In December 2023, [CPIC](https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/) has added additional 291 variants that were included in the ClinGen variant curation expert panel (VCEP) recommendations for RYR1 pathogenicity. PharmCAT accommodates these changes by updating the Named Allele Matcher module. The Name Allele Matcher now will report all _RYR1_ variants found in an individual. 
+In December 2023, [CPIC](https://cpicpgx.org/guidelines/cpic-guideline-for-ryr1-and-cacna1s/) added additional 291 variants that were included in the ClinGen variant curation expert panel (VCEP) recommendations for RYR1 pathogenicity. PharmCAT accommodates these changes by updating the Named Allele Matcher module. The Name Allele Matcher now will report all _RYR1_ variants found in an individual. 
 
 CPIC _RYR1_ phenotypes are determined based on the function combinations of two _RYR1_ variants. PharmCAT will prioritize the variants with Malignant Hyperthermia-associated function for individuals with more than two variants. If the input VCF file is not phased, PharmCAT assumes an individual to have two or more Malignant Hyperthermia-associated variants on different chromosomes. PharmCAT prioritizes variants with Malignant Hyperthermia-associated function when determining the RYR1 phenotype for an individual.
 

@@ -2,7 +2,7 @@
 parent: Methods
 title: Named Allele Matcher 201
 permalink: methods/NamedAlleleMatcher-201/
-nav_order: 5
+nav_order: 3
 ---
 # Named Allele Matcher 201
 

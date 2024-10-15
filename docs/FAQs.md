@@ -1,7 +1,7 @@
 ---
 title: FAQs
 permalink: faqs/
-nav_order: 7
+nav_order: 8
 ---
 # Frequently Asked Questions
 {: .no_toc }
@@ -42,7 +42,7 @@ happening with PharmCAT:
 ### When does PharmCAT release new versions?
 
 PharmCAT releases new versions when substantial updates are ready to be released and not on a time-based schedule.
-For more information, see our [Versioning documentation](/methods/Versioning).
+For more information, see our [Versioning documentation](/versioning).
 
 
 ### Does PharmCAT transmit input data over the network or otherwise share input data?

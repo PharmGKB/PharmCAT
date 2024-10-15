@@ -2,7 +2,7 @@
 parent: Methods
 title: Matching Recommendations
 permalink: methods/Matching-Recommendations/
-nav_order: 6
+nav_order: 5
 ---
 # Matching Recommendations
 

@@ -2,14 +2,19 @@
 parent: Methods
 title: Named Allele Matcher 101
 permalink: methods/NamedAlleleMatcher-101/
-nav_order: 4
+nav_order: 2
 ---
 # Named Allele Matcher 101
+
+The `Named Allele Matcher` is responsible for calling diplotypes from variant call data.  While it is designed to be
+used in the PharmCAT pipeline, it can also be run independently.
 
 The basic process:
 
 1. Read in all named allele definitions from the gene definition table.
-   Each gene has a reference allele defined by the first definition row in the table (eg. \*1).  By default, any non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition table) will default to the reference row's base call.
+   Each gene has a reference allele defined by the first definition row in the table (e.g. \*1).  By default, any
+   non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition
+  table) will default to the reference row's base call.
 2. Read in sample data (VCF file), ignoring positions that are not used in the gene definition tables.
 3. For each gene:
     1. If data is unphased, generate all possible combinations of genotypes for the positions of interest.

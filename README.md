@@ -4,15 +4,30 @@
 [![Preprocessor CI](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml/badge.svg)](https://github.com/PharmGKB/PharmCAT/actions/workflows/ci-preprocessor.yml)
 [![codecov.io](https://codecov.io/github/PharmGKB/PharmCAT/coverage.svg?branch=main)](https://codecov.io/github/PharmGKB/PharmCAT?branch=development)
 
-A tool to extract variants of pharmacogenomic interest from a genetic dataset (represented as a [VCF file](https://github.com/samtools/hts-specs#variant-calling-data-files)),
-interpret the variant alleles, match to defined named alleles, find related prescribing guidance, and generate reports
-in various formats.
 
-For more details:
+PharmCAT (Pharmacogenomics Clinical Annotation Tool) is a bioinformatics tool that analyzes genetic variants to predict
+drug response and tailor medical treatment to an individual patient’s genetic profile. It does this in two phases:
 
-1. Go to [PharmCAT website](https://pharmcat.org)
-2. Read the [PharmGKB blog post about PharmCAT](http://pharmgkb.blogspot.com/2016/04/pharmacogenomics-clinical-annotation.html)
-3. Read the [article on GenomeWeb](https://www.genomeweb.com/molecular-diagnostics/researchers-hope-pharmcat-tool-will-help-improve-clinical-implementation)
+1. Processes VCF files from next generation sequencing (NGS) or genotyping methods and identifies pharmacogenomic (PGx)
+   genotypes and infers haplotypes, typically called star alleles.
+2. Uses the pharmacogene diplotypes (combination of maternal and paternal star alleles) to predict PGx phenotypes and
+   reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
+   [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
+   [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
+
+For more information:
+
+* The [PharmCAT website](https://pharmcat.org) will have the latest documentation
+* _Commentary:_ TE Klein, MD Ritchie.
+  [PharmCAT: A Pharmacogenomics Clinical Annotation Tool](https://dx.doi.org/10.1002/cpt.928).
+  Clinical Pharmacology & Therapeutics (2018) 104(1):19-22.
+* _Methods paper:_ K Sangkuhl & M Whirl-Carrillo, et al.
+  [Pharmacogenomics Clinical Annotation Tool (PharmCAT)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6977333).
+  Clinical Pharmacology & Therapeutics (2020) 107(1):203-210.
+* _Tutorial paper:_ B Li & K Sangkuhl et al.
+  [How to Run the Pharmacogenomics Clinical Annotation Tool (PharmCAT)](https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.2790).
+  Clinical Pharmacology & Therapeutics (2022).
+
 
 ## Status
 

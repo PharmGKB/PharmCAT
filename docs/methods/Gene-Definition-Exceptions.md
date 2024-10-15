@@ -2,7 +2,7 @@
 parent: Methods
 title: Gene Definition Exceptions
 permalink: methods/Gene-Definition-Exceptions/
-nav_order: 7
+nav_order: 4
 ---
 # Gene Definition Exceptions
 
