@@ -1,3 +1,9 @@
+## [2.15.4](https://github.com/PharmGKB/PharmCAT/compare/v2.15.3...v2.15.4) (2024-10-15)
+
+### Bug Fixes
+
+* bump version for Dockerhub fix ([3ab49f3](https://github.com/PharmGKB/PharmCAT/commit/3ab49f386b4d0fbd8f616dbb9b8ff73b3d7cb562))
+
 ## [2.15.3](https://github.com/PharmGKB/PharmCAT/compare/v2.15.2...v2.15.3) (2024-08-28)
 
 ### Bug Fixes
