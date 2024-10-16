@@ -73,8 +73,11 @@ if __name__ == '__main__':
 
     # preprocessor args
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
-    preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
-                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!')
+    preprocessor_group.add_argument("--absent-to-ref", action='store_true',
+                                    help="Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!")
+    preprocessor_group.add_argument("--unspecified-to-ref", action='store_true',
+                                    help="Assume unspecified genotypes ./. as 0/0 when every sample is \'./.\'. "
+                                         "DANGEROUS!")
     preprocessor_group.add_argument("-G", "--no-gvcf-check", action="store_true",
                                     help="Bypass check if VCF file is in gVCF format.")
 
@@ -147,15 +150,23 @@ if __name__ == '__main__':
     # print the version number
     print('PharmCAT version: %s' % preprocessor.PHARMCAT_VERSION)
     # print warnings here
-    if args.missing_to_ref:
+    if args.absent_to_ref:
         print("""
-%sWarning: Argument "-0"/"--missing-to-ref" supplied
+%sWarning: Argument "--absent-to-ref" supplied
+              
+THIS SHOULD ONLY BE USED IF: you are sure your data is reference
+at the absent positions, instead of unreadable/uncallable.
 
-THIS SHOULD ONLY BE USED IF: you sure your data is reference
-at the missing positions instead of unreadable/uncallable at
-those positions.
-
-Running PharmCAT with positions as missing vs reference can
+Running PharmCAT with positions as absent vs reference can 
+lead to different results.
+%s
+        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+    print()
+    if args.unspecified_to_ref:
+        print("""
+%sWarning: Argument "--unspecified-to-ref" supplied
+        
+Running PharmCAT with positions as unspecified vs reference can
 lead to different results.
 %s
         """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
@@ -274,7 +285,8 @@ lead to different results.
                 output_dir=m_output_dir,
                 output_basename=m_output_basename,
                 keep_intermediate_files=False,
-                missing_to_ref=args.missing_to_ref,
+                absent_to_ref=args.absent_to_ref,
+                unspecified_to_ref=args.unspecified_to_ref,
                 retain_specific_regions=m_retain_specific_regions,
                 reference_regions_to_retain=m_pharmcat_regions_bed,
                 concurrent_mode=True,
@@ -345,7 +357,8 @@ lead to different results.
             output_basename=m_output_basename,
             split_samples=False,
             keep_intermediate_files=False,
-            missing_to_ref=args.missing_to_ref,
+            absent_to_ref=args.absent_to_ref,
+            unspecified_to_ref=args.unspecified_to_ref,
             retain_specific_regions=m_retain_specific_regions,
             reference_regions_to_retain=m_pharmcat_regions_bed,
             concurrent_mode=True,

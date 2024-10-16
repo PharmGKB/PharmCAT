@@ -28,8 +28,10 @@ if __name__ == "__main__":
                               help='A file containing a list of sample IDs, one sample at a line.  '
                                    'Only applicable if you have multiple samples and only want to work on specific ones.')
 
-    parser.add_argument("-0", "--missing-to-ref", action='store_true',
-                        help="Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!")
+    parser.add_argument("--absent-to-ref", action='store_true',
+                        help="Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!")
+    parser.add_argument("--unspecified-to-ref", action='store_true',
+                        help="Assume unspecified genotypes ./. as 0/0 when every sample is \'./.\'. DANGEROUS!")
     parser.add_argument("-G", "--no-gvcf-check", action="store_true",
                         help="Bypass check if VCF file is in gVCF format.")
     # output args
@@ -83,16 +85,25 @@ if __name__ == "__main__":
     # print the version number
     print('PharmCAT VCF Preprocessor version: %s' % preprocessor.PHARMCAT_VERSION)
     # print warnings here
-    if args.missing_to_ref:
+    if args.absent_to_ref:
         print("""
         =============================================================
-        Warning: Argument "-0"/"--missing-to-ref" supplied
+        Warning: Argument "--absent-to-ref" supplied
               
-        THIS SHOULD ONLY BE USED IF: you sure your data is reference
-        at the missing positions instead of unreadable/uncallable at
-        those positions.
+        THIS SHOULD ONLY BE USED IF: you are sure your data is reference
+        at the absent positions, instead of unreadable/uncallable.
         
-        Running PharmCAT with positions as missing vs reference can
+        Running PharmCAT with positions as absent vs reference can 
+        lead to different results.
+        =============================================================
+
+        """)
+    if args.unspecified_to_ref:
+        print("""
+        =============================================================
+        Warning: Argument "--unspecified-to-ref" supplied
+        
+        Running PharmCAT with positions as unspecified vs reference can
         lead to different results.
         =============================================================
 
@@ -229,7 +240,8 @@ if __name__ == "__main__":
                                           output_basename=m_output_basename,
                                           split_samples=args.single_samples,
                                           keep_intermediate_files=args.keep_intermediate_files,
-                                          missing_to_ref=args.missing_to_ref,
+                                          absent_to_ref=args.absent_to_ref,
+                                          unspecified_to_ref=args.unspecified_to_ref,
                                           retain_specific_regions=m_retain_specific_regions,
                                           reference_regions_to_retain=m_pharmcat_regions_bed,
                                           concurrent_mode=args.concurrent_mode,

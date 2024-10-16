@@ -595,7 +595,7 @@ def create_uniallelic_vcf(uniallelic_positions_vcf: Path, pharmcat_positions_vcf
                           verbose: int = 0):
     if verbose:
         print('* Preparing uniallelic PharmCAT positions VCF')
-    # convert reference PGx variants to the uniallelic format needed for extracting exact PGx positions
+    # convert PharmCAT PGx variants to the uniallelic format needed for extracting exact PGx positions
     # and generating an accurate missing report
     bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws', '-f',
                         str(reference_genome_fasta), '-Oz', '-o', str(uniallelic_positions_vcf),
@@ -800,11 +800,18 @@ def _is_haploid(gt_field) -> bool:
         return True
 
 
+def _update_reference_genotypes(n: int, is_sex_chromosome: bool = False,
+                                sample_haploidy: list[bool] = None, is_phased: bool = False) -> list[str]:
+    if is_sex_chromosome and sample_haploidy is None:
+
+
+
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
-                         output_dir: Path, output_basename: str, missing_to_ref: bool = False,
+                         output_dir: Path, output_basename: str,
+                         absent_to_ref: bool = False, unspecified_to_ref: bool = False,
                          retain_specific_regions: bool = False, verbose: int = 0) -> Path:
     """
-    Extract specific pgx positions that are present in the reference PGx VCF.
+    Extract specific pgx positions that are present in the PharmCAT PGx VCF.
     Generate a report of PGx positions that are missing in the input VCF.
 
     "bcftools isec <options> <vcf_file>". For bcftools common options, see running_bcftools().
@@ -834,8 +841,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         # add in missing multi-allelic variants as '0|0'
         # bcftools will take care of the rest (sorting, normalization, etc.)
         #
-        # first create a dictionary of PharmCAT reference PGx positions
-        # the ref_pos_static (dict) will be used to static dictionary of reference PGx positions
+        # first create a dictionary of PharmCAT PGx positions
+        # the ref_pos_static (dict) will be used to static dictionary of PharmCAT PGx positions
         # the ref_pos_dynamic (dict) will be used to retain only PGx pos in the input
         ref_pos_dynamic = {}
         with gzip.open(uniallelic_positions_vcf, mode='rt', encoding='utf-8') as in_f:
@@ -855,9 +862,9 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
         # deep copy the ref_pos_dynamic to have a consistent reference of PharmCAT PGx positions
         ref_pos_static = copy.deepcopy(ref_pos_dynamic)
 
-        # use input_pos to record PGx positions that are present in the input VCF
-        input_pos = []
-        input_pos_phased = {}
+        # record PGx positions in the input VCF
+        input_pos = []  # positions present in the input VCF
+        input_pos_phased = {}  # phasing status of positions
         # this dictionary saves genetic variants concurrent at PGx positions
         dict_non_pgx_records = {}
         if verbose:
@@ -930,7 +937,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             # list out REF alleles at a position
                             ref_alleles = [x[0] for x in ref_pos_static[input_chr_pos].keys()]
                             alt_alleles = [x[1] for x in ref_pos_static[input_chr_pos].keys()]
-                            # check if the reference PGx variant is a SNP
+                            # check if the PharmCAT PGx variant is a SNP
                             len_ref: list[int] = [len(i) for i in ref_alleles]
                             len_alt: list[int] = [len(i) for i in alt_alleles]
                             is_snp: bool = (len_ref == len_alt)
@@ -949,13 +956,18 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 ref_info.append(fields[7])
                             updated_info = ';'.join(ref_info)
 
+                            # check whether all genotypes are unspecified
+                            is_all_unspecified = all([x.split(':')[0] in ['.|.', './.', '.'] for x in fields[9:]])
+                            # if so, added to the list of positions with only unspecified genotypes
+                            if is_all_unspecified and unspecified_to_ref:
+                                # todo: convert this to a function _update_reference_genotypes(phasing, chromosome, sample_is_chrx_haploid)
+                                if input_chr_pos[0] == 'chrX':
+                                    fields[9:] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
+                                else:
+                                    fields[9:] = ['0|0'] * n_sample
+
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
-                                # if all genotypes are missing, move next
-                                is_all_geno_missing = all(x.split(':')[0] in ['.|.', './.', '.'] for x in fields[9:])
-                                if is_all_geno_missing:
-                                    continue
-
                                 # record input PGx positions in a list
                                 # use this to fill up multi-allelic ALT later
                                 if input_chr_pos not in input_pos:
@@ -979,7 +991,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                         del ref_pos_dynamic[input_chr_pos]
                             # SNPs - homozygous reference
                             elif is_snp and is_nonspecific_alt and (fields[3] in ref_alleles):
-                                # if reference ALT alleles are exhausted, next positions
+                                # if all ALT alleles are presented elsewhere in the input vcf, skip to the next
                                 if input_chr_pos not in ref_pos_dynamic:
                                     continue
                                 else:
@@ -1044,7 +1056,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                                 dict_non_pgx_records[input_chr_pos] = '\t'.join(fields)
                         elif retain_specific_regions:
                             out_f.write(line + '\n')
-            # complete lines of multi-allelic loci or missing positions
+            # complete lines of multi-allelic loci or absent positions
             # ref_pos_dynamic dictionary contains the PGx positions that are not present in the input VCF
             for key_chr_pos in ref_pos_dynamic:
                 for val in ref_pos_dynamic[key_chr_pos].values():
@@ -1061,8 +1073,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         else:
                             line = '\t'.join(val + ['0/0'] * n_sample)
                         out_f.write(line + '\n')
-                    # if missing_to_ref is true, output lines of missing positions as homozygous reference
-                    elif missing_to_ref:
+                    # add absent positions back in as homozygous reference
+                    elif absent_to_ref:
                         # differentiate autosomes and sex chromosomes
                         if key_chr_pos[0] == 'chrX':
                             chrx_genotypes: list[str] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
@@ -1136,6 +1148,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
             shutil.move(normed_bgz, filtered_bgz)
 
         # report missing positions in the input VCF
+        # this includes positions that are absent or full of unspecified genotypes
         if len(ref_pos_dynamic):
             mf = _print_missing_positions(pharmcat_positions, ref_pos_dynamic, output_dir, output_basename)
 
@@ -1143,7 +1156,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
 
 def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str) -> Path:
-    # report missing positions in the input VCF
+    # report missing positions or positions with all unspecified genotypes in the input VCF
     missing_pos_file: Path = output_dir / (output_basename + _missing_pgx_var_suffix + '.vcf')
     # TODO(markwoon): use colorama to highlight this in next release
     print("* Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), missing_pos_file))

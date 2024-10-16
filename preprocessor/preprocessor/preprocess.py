@@ -9,7 +9,8 @@ from .exceptions import ReportableException
 def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                vcf_files: List[Path], samples: Optional[List[str]], input_basename: str,
                output_dir: Path, output_basename: Optional[str] = '', split_samples: bool = False,
-               keep_intermediate_files: bool = False, missing_to_ref: bool = False,
+               keep_intermediate_files: bool = False,
+               absent_to_ref: bool = False, unspecified_to_ref: bool = False,
                retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
@@ -32,7 +33,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     multisample_vcf = _preprocess(pharmcat_positions_vcf, reference_genome,
                                   vcf_files, samples,
                                   output_dir, basename,
-                                  keep_intermediate_files, missing_to_ref,
+                                  keep_intermediate_files, absent_to_ref, unspecified_to_ref,
                                   retain_specific_regions, reference_regions_to_retain,
                                   concurrent_mode, max_processes, verbose)
     if split_samples and len(samples) > 1:
@@ -92,7 +93,8 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
 def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                 vcf_files: List[Path], samples: Optional[List[str]],
                 output_dir: Path, output_basename: Optional[str] = '',
-                keep_intermediate_files: bool = False, missing_to_ref: bool = False,
+                keep_intermediate_files: bool = False,
+                absent_to_ref: bool = False, unspecified_to_ref: bool = False,
                 retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
                 concurrent_mode=False, max_processes=1, verbose: int = 0) -> Path:
 
@@ -109,7 +111,9 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
     # extract the specific PGx genetic variants in the reference PGx VCF
     # this step also generates a report of missing PGx positions in the input VCF
     pgx_variants_vcf: Path = util.extract_pgx_variants(pharmcat_positions_vcf, reference_genome, normalized_vcf,
-                                                       output_dir, output_basename, missing_to_ref=missing_to_ref,
+                                                       output_dir, output_basename,
+                                                       absent_to_ref=absent_to_ref,
+                                                       unspecified_to_ref=unspecified_to_ref,
                                                        retain_specific_regions=retain_specific_regions,
                                                        verbose=verbose)
 
