@@ -3,7 +3,8 @@ workflows:
   - subclass: WDL
     name: PharmCAT-Pipeline
     primaryDescriptorPath: /dockstore/pipeline/PharmCAT_Pipeline.wdl
-    readMePath: /pipeline/README.md
+    readMePath: /dockstore/pipeline/README.md
+    latestTagAsDefault: True
     filters:
       tags:
         - /v\d+.*/
