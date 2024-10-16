@@ -534,6 +534,32 @@ def test_export_single_sample_concurrent():
         helpers.compare_vcf_files(s2_file, tmp_dir, basename, 'Sample_2')
 
 
+def test_absent_and_unspecified_to_ref():
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+
+    vcf_file = helpers.test_dir / 'raw_unspecified_genotypes.vcf.bgz'
+    expected_file = helpers.test_dir / 'test.unspecified_to_ref.absent_to_ref.vcf'
+    with tempfile.TemporaryDirectory() as td:
+        # copy the input test file to the temporary folder
+        tmp_dir = Path(td)
+        tmp_vcf = tmp_dir / vcf_file.name
+        shutil.copyfile(vcf_file, tmp_vcf)
+        # copy the expected output files to the temporary folder
+        expected_vcf = tmp_dir / expected_file.name
+        shutil.copyfile(expected_file, expected_vcf)
+        # copy the necessary helper files to the temporary folder
+        shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
+
+        # run the utility function to convert absent positions to reference
+        basename = 'test1'
+        samples = ['Sample_1', 'Sample_2']
+        input_basename = tmp_vcf.name
+        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], samples,
+                                input_basename, tmp_dir, basename, absent_to_ref=True, unspecified_to_ref=True)
+
+        helpers.compare_vcf_files(expected_vcf, tmp_dir, basename)
+
+
 def test_check_max_memory():
     assert utils.check_max_memory(None) is None
     assert utils.check_max_memory('') is None
