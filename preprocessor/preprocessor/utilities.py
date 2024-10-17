@@ -800,10 +800,19 @@ def _is_haploid(gt_field) -> bool:
         return True
 
 
-def _update_reference_genotypes(n: int, is_sex_chromosome: bool = False,
-                                sample_haploidy: list[bool] = None, is_phased: bool = False) -> list[str]:
-    if is_sex_chromosome and sample_haploidy is None:
+def _fill_reference(n: int, chromosome: str,
+                    sample_haploidy: list[bool] = None, is_phased: bool = True) -> list[str]:
+    # check whether haploid counts are present for chromosome X
+    if chromosome == 'chrX' and sample_haploidy is None:
+        raise ReportableException('Cannot find sample haploid counts for the input sex chromosome')
+    # update genotypes
+    g = '0|0' if is_phased else '0/0'
+    if chromosome == 'chrX':
+        updated_genotypes = ['0' if x else g for x in sample_haploidy]
+    else:
+        updated_genotypes = [g] * n
 
+    return updated_genotypes
 
 
 def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_file: Path,
@@ -960,11 +969,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             is_all_unspecified = all([x.split(':')[0] in ['.|.', './.', '.'] for x in fields[9:]])
                             # if so, added to the list of positions with only unspecified genotypes
                             if is_all_unspecified and unspecified_to_ref:
-                                # todo: convert this to a function _update_reference_genotypes(phasing, chromosome, sample_is_chrx_haploid)
-                                if input_chr_pos[0] == 'chrX':
-                                    fields[9:] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
-                                else:
-                                    fields[9:] = ['0|0'] * n_sample
+                                fields[9:] = _fill_reference(n_sample, input_chr_pos[0], sample_is_chrx_haploid)
 
                             # positions with matching REF and ALT
                             if input_ref_alt in ref_pos_static[input_chr_pos]:
@@ -1062,25 +1067,15 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                 for val in ref_pos_dynamic[key_chr_pos].values():
                     # complete multi-allelic loci
                     if key_chr_pos in input_pos:
-                        if key_chr_pos[0] == 'chrX' and input_pos_phased[key_chr_pos]:
-                            chrx_genotypes: list[str] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
-                            line = '\t'.join(val + chrx_genotypes)
-                        elif key_chr_pos[0] == 'chrX':
-                            chrx_genotypes: list[str] = ['0' if x else '0/0' for x in sample_is_chrx_haploid]
-                            line = '\t'.join(val + chrx_genotypes)
-                        elif input_pos_phased[key_chr_pos]:
-                            line = '\t'.join(val + ['0|0'] * n_sample)
-                        else:
-                            line = '\t'.join(val + ['0/0'] * n_sample)
+                        updated_reference = _fill_reference(n_sample, key_chr_pos[0],
+                                                            sample_is_chrx_haploid, input_pos_phased[key_chr_pos])
+                        line = '\t'.join(val + updated_reference)
                         out_f.write(line + '\n')
                     # add absent positions back in as homozygous reference
                     elif absent_to_ref:
                         # differentiate autosomes and sex chromosomes
-                        if key_chr_pos[0] == 'chrX':
-                            chrx_genotypes: list[str] = ['0' if x else '0|0' for x in sample_is_chrx_haploid]
-                            line = '\t'.join(val + chrx_genotypes)
-                        else:
-                            line = '\t'.join(val + ['0|0'] * n_sample)
+                        updated_reference = _fill_reference(n_sample, key_chr_pos[0], sample_is_chrx_haploid)
+                        line = '\t'.join(val + updated_reference)
                         out_f.write(line + '\n')
                     else:
                         continue
