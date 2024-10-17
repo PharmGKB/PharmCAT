@@ -107,11 +107,17 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 -ss <span class="altArg"><br />or --single-sample</span>
 : Generate 1 VCF file per sample.
 
--0 <span class="altArg"><br />or --missing-to-ref</span>
-: This option will add missing PGx positions to the output. Missing PGx positions are those whose genotypes are all missing "./." in every single sample.
-  * This option will not convert "./." to "0/0" if any other sample has non-missing genotype at this position as these missing calls are likely missing for good reasons.
-  * This **SHOULD ONLY BE USED** if you are sure your data is reference at the missing positions
-    instead of unreadable/uncallable at those positions. Running PharmCAT with positions as missing vs reference can lead to different results.
+
+--absent-to-ref
+: This option will add absent PGx positions into the output as homozygous reference.
+  * This **SHOULD ONLY BE USED** if you are sure your data is reference at the absent positions
+  instead of unreadable/uncallable.
+  * Running PharmCAT with positions as absent vs reference can lead to different results.
+
+--unspecified-to-ref
+: This option will convert unspecified PGx position to homozygous reference. Unspecified PGx positions are those whose genotypes are unspecified "./." in every single sample.
+  * This option will not convert "./." to "0/0" when there is a specified genotype at a PGx position as these `./.` calls are likely left unspecified for good reasons.
+  * Running PharmCAT with positions as unspecified vs reference can lead to different results.
 
 -c <span class="altArg"><br />or --concurrent-mode</span>
 : Enable concurrent mode. This defaults to using one less than the number of CPU cores available.
@@ -173,7 +179,7 @@ All preprocessor output files will use the base filename of the input file unles
 
 If there are multiple samples, and the `-ss` flag is provided, the preprocessor will produce one PharmCAT-ready VCF file per sample. The output files are named `<base_filename>.<sample_id>.preprocessed.vcf`
 
-If there are missing PGx positions, it will also produce a report named `<base_filename>.missing_pgx_var.vcf`. This file only reports positions that are missing in _all_ samples. If `-0`/`--missing-to-ref` is turned on, you can use this report to trace positions whose genotypes are missing in all samples (`./.`) in the original input but have now been added into the output VCF(s) as reference (`0/0`).
+The preprocessor will produce a report named `<base_filename>.missing_pgx_var.vcf` when there are absent PGx positions or alleles. This file only reports positions that are absent or unspecified in _all_ samples. The report is based on the input VCF and is not affected by `--unspecified-to-ref` or `--absent-to-ref`.
 
 
 ## Tutorial

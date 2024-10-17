@@ -38,7 +38,8 @@ Standard use case:
 
 ```
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
-                         [-0] [-G] [-R] [-refRegion <bed_file>]
+                         [--absent-to-ref] [-unspecified-to-ref] [-G] 
+                         [-R] [-refRegion <bed_file>]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
                          [-reporter] [-rs <sources>] [-re] [-reporterJson]
@@ -64,8 +65,10 @@ Input arguments:
                         Only applicable if you have multiple samples and only want to work on specific ones.
 
 Preprocessor arguments:
-  -0, --missing-to-ref               
-                        Assume genotypes at missing PGx sites are 0/0. DANGEROUS!
+  --absent-to-ref             
+                        Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!
+  -unspecified-to-ref           
+                        Assume unspecified genotypes ./. as 0/0 when every sample is './.'. DANGEROUS!
   -G, --no-gvcf-check                
                         Bypass the gVCF check for the input VCF.
   -R, --retain-specific-regions      
