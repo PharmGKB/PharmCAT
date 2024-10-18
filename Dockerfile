@@ -2,7 +2,7 @@
 #
 # Base Dockerfile for PharmCAT
 #
-FROM python:3.12
+FROM python:3.13
 
 # apt-utils line due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
@@ -11,11 +11,18 @@ RUN apt-get update && \
     apt-get -y install bzip2 build-essential wget
 
 # install java (https://blog.adoptium.net/2021/12/eclipse-temurin-linux-installers-available/)
-RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
-RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" \
-    | tee /etc/apt/sources.list.d/adoptium.list
-RUN apt-get update && \
+RUN curl https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /etc/apt/keyrings/adoptium.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/adoptium.gpg] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" \
+      | tee /etc/apt/sources.list.d/adoptium.list && \
+    apt-get update && \
     apt-get -y install --no-install-recommends temurin-17-jdk
+
+# install gcloud
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /etc/apt/keyrings/cloud.google.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"  \
+      | tee /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    apt-get update && \
+    apt-get -y install google-cloud-cli
 
 
 RUN mkdir /pharmcat
@@ -28,9 +35,9 @@ RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
     rm -f GRCh38_reference_fasta.tar
 
 
-ENV BCFTOOLS_VERSION=1.20
-ENV HTSLIB_VERSION=1.20
-ENV SAMTOOLS_VERSION=1.20
+ENV BCFTOOLS_VERSION=1.21
+ENV HTSLIB_VERSION=1.21
+ENV SAMTOOLS_VERSION=1.21
 
 # download the suite of tools
 WORKDIR /usr/local/bin/
