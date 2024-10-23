@@ -1,5 +1,5 @@
 ---
-parent: Methods
+parent: How It Works
 title: Named Allele Matcher 201
 permalink: methods/NamedAlleleMatcher-201/
 nav_order: 3
