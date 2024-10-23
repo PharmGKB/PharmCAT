@@ -1,5 +1,5 @@
 ---
-parent: Methods
+parent: How It Works
 title: Matching Recommendations
 permalink: methods/Matching-Recommendations/
 nav_order: 5

@@ -1,5 +1,5 @@
 ---
-parent: Methods
+parent: How It Works
 title: Gene Definition Exceptions
 permalink: methods/Gene-Definition-Exceptions/
 nav_order: 4
