@@ -55,6 +55,7 @@ show_downloads: true
 #   - vendor/ruby/
 exclude:
   - .ruby-version
+  - bashrc
   - CNAME
   - Dockerfile
   - Gemfile
