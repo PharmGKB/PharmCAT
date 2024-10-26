@@ -90,3 +90,5 @@ COPY preprocessor/preprocessor/*.py \
 RUN mkdir data
 RUN chmod 755 *.py pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor.py preprocessor data
 RUN python -c "import preprocessor; preprocessor.prep_pharmcat_positions()"
+
+CMD ["/bin/bash"]

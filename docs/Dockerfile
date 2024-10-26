@@ -4,7 +4,7 @@
 #
 FROM ruby
 
-ENV NODE_MAJOR_VERSION 20
+ENV NODE_MAJOR_VERSION=20
 
 RUN mkdir -p /etc/apt/keyrings
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
@@ -23,4 +23,6 @@ COPY Makefile Gemfile Gemfile.lock ./
 RUN make setup && \
     rm -f Makefile Gemfile Gemfile.lock
 
-WORKDIR /PharmCAT
+WORKDIR /PharmCAT/docs
+COPY bashrc /root/.bashrc
+CMD ["/bin/bash"]

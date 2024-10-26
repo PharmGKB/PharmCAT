@@ -231,7 +231,7 @@ jekyllDocker:
 
 .PHONEY: jekyll
 jekyll:
-	docker run --rm -it -v ${ROOT_DIR}:/PharmCAT jekyll bash
+	docker run --rm -it -v ${ROOT_DIR}:/PharmCAT jekyll
 
 
 # used to build reference FASTA download for Zenodo
