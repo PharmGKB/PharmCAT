@@ -28,6 +28,8 @@ if __name__ == "__main__":
                               help='A file containing a list of sample IDs, one sample at a line.  '
                                    'Only applicable if you have multiple samples and only want to work on specific ones.')
 
+    parser.add_argument("-0", "--missing-to-ref", action='store_true',
+                        help="Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!")
     parser.add_argument("--absent-to-ref", action='store_true',
                         help="Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!")
     parser.add_argument("--unspecified-to-ref", action='store_true',
@@ -85,6 +87,23 @@ if __name__ == "__main__":
     # print the version number
     print('PharmCAT VCF Preprocessor version: %s' % preprocessor.PHARMCAT_VERSION)
     # print warnings here
+    if args.missing_to_ref:
+        print("""
+        =============================================================
+        Warning: Argument "-0"/"--missing-to-ref" supplied
+              
+        THIS SHOULD ONLY BE USED IF: you sure your data is reference
+        at the missing positions instead of unreadable/uncallable at
+        those positions.
+        
+        Running PharmCAT with positions as missing vs reference can
+        lead to different results.
+        
+        "--missing-to-ref" is equivalent to providing both 
+        "--absent-to-ref" and "--unspecified-to-ref".
+        =============================================================
+
+        """)
     if args.absent_to_ref:
         print("""
         =============================================================
@@ -102,6 +121,9 @@ if __name__ == "__main__":
         print("""
         =============================================================
         Warning: Argument "--unspecified-to-ref" supplied
+        
+        THIS SHOULD ONLY BE USED IF: you are confident in assuming
+        the unspecified genotypes ./. in your data as reference.
         
         Running PharmCAT with positions as unspecified vs reference can
         lead to different results.
@@ -198,6 +220,7 @@ if __name__ == "__main__":
                           'If this is not a gVCF file, use -G to bypass.' % str(file))
                     sys.exit(1)
 
+        # check whether a sample file is provided, otherwise proceed with all samples in the input VCF
         m_samples: List[str] = []
         if args.sample_file:
             # validate sample file
@@ -207,6 +230,16 @@ if __name__ == "__main__":
             m_samples = preprocessor.parse_samples(args.samples)
         if len(m_samples) == 0:
             m_samples = preprocessor.read_vcf_samples(m_vcf_files[0], verbose=args.verbose)
+
+        # make sure xx-to-ref commands are provided correctly
+        m_absent_to_ref: bool
+        m_unspecified_to_ref: bool
+        if args.missing_to_ref:
+            m_absent_to_ref = True
+            m_unspecified_to_ref = True
+        else:
+            m_absent_to_ref = args.absent_to_ref
+            m_unspecified_to_ref = args.unspecified_to_ref
 
         # define output base name, default to empty string
         m_output_basename: str = args.base_filename if args.base_filename else ''
@@ -240,8 +273,8 @@ if __name__ == "__main__":
                                           output_basename=m_output_basename,
                                           split_samples=args.single_samples,
                                           keep_intermediate_files=args.keep_intermediate_files,
-                                          absent_to_ref=args.absent_to_ref,
-                                          unspecified_to_ref=args.unspecified_to_ref,
+                                          absent_to_ref=m_absent_to_ref,
+                                          unspecified_to_ref=m_unspecified_to_ref,
                                           retain_specific_regions=m_retain_specific_regions,
                                           reference_regions_to_retain=m_pharmcat_regions_bed,
                                           concurrent_mode=args.concurrent_mode,

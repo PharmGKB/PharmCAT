@@ -73,6 +73,8 @@ if __name__ == '__main__':
 
     # preprocessor args
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
+    preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
+                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!')
     preprocessor_group.add_argument("--absent-to-ref", action='store_true',
                                     help="Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!")
     preprocessor_group.add_argument("--unspecified-to-ref", action='store_true',
@@ -150,6 +152,20 @@ if __name__ == '__main__':
     # print the version number
     print('PharmCAT version: %s' % preprocessor.PHARMCAT_VERSION)
     # print warnings here
+    if args.missing_to_ref:
+        print("""
+%sWarning: Argument "-0"/"--missing-to-ref" supplied
+
+THIS SHOULD ONLY BE USED IF: you sure your data is reference
+at the missing positions instead of unreadable/uncallable at
+those positions.
+
+Running PharmCAT with positions as missing vs reference can
+lead to different results.
+%s
+        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+    print()
+
     if args.absent_to_ref:
         print("""
 %sWarning: Argument "--absent-to-ref" supplied
@@ -162,6 +178,7 @@ lead to different results.
 %s
         """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
     print()
+
     if args.unspecified_to_ref:
         print("""
 %sWarning: Argument "--unspecified-to-ref" supplied
@@ -225,6 +242,7 @@ lead to different results.
             raise ReportableException('%s does not exist' % str(vcf_path))
         if not vcf_path.is_dir() and not vcf_path.is_file():
             raise ReportableException('%s is neither a file nor a directory' % str(vcf_path))
+        # read the sample file or use all the samples in the input VCF
         m_samples: List[str] = []
         if args.sample_file:
             # validate sample file
@@ -232,6 +250,16 @@ lead to different results.
                                                       verbose=args.verbose)
         elif args.samples:
             m_samples = preprocessor.parse_samples(args.samples)
+
+        # make sure xx-to-ref commands are provided correctly
+        m_absent_to_ref: bool
+        m_unspecified_to_ref: bool
+        if args.missing_to_ref:
+            m_absent_to_ref = True
+            m_unspecified_to_ref = True
+        else:
+            m_absent_to_ref = args.absent_to_ref
+            m_unspecified_to_ref = args.unspecified_to_ref
 
         # validate concurrent args
         m_max_processes: int = preprocessor.check_max_processes(args.max_concurrent_processes, verbose=args.verbose)
@@ -285,8 +313,8 @@ lead to different results.
                 output_dir=m_output_dir,
                 output_basename=m_output_basename,
                 keep_intermediate_files=False,
-                absent_to_ref=args.absent_to_ref,
-                unspecified_to_ref=args.unspecified_to_ref,
+                absent_to_ref=m_absent_to_ref,
+                unspecified_to_ref=m_unspecified_to_ref,
                 retain_specific_regions=m_retain_specific_regions,
                 reference_regions_to_retain=m_pharmcat_regions_bed,
                 concurrent_mode=True,
@@ -357,8 +385,8 @@ lead to different results.
             output_basename=m_output_basename,
             split_samples=False,
             keep_intermediate_files=False,
-            absent_to_ref=args.absent_to_ref,
-            unspecified_to_ref=args.unspecified_to_ref,
+            absent_to_ref=m_absent_to_ref,
+            unspecified_to_ref=m_unspecified_to_ref,
             retain_specific_regions=m_retain_specific_regions,
             reference_regions_to_retain=m_pharmcat_regions_bed,
             concurrent_mode=True,
