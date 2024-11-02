@@ -108,6 +108,13 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 : Generate 1 VCF file per sample.
 
 
+-0 <span class="altArg"><br />or --missing-to-ref</span>
+: This option will add missing PGx positions to the output. Missing PGx positions are those absent in the input VCF or whose genotypes are unspecified as "./." across all samples. This option is equivalent to the combination of `--absent-to-ref` and `--unspecified-to-ref`. 
+* This option will not convert "./." to "0/0" if any other sample has a specified genotype (`0/0`, `0/1`, etc.) as the unspecified genotypes are likely determined so for good reasons.
+* This **SHOULD ONLY BE USED** if you are sure your data is reference at the absent positions
+instead of being unreadable/uncallable. Running PharmCAT with positions as absent vs reference can lead to different results.
+
+
 --absent-to-ref
 : This option will add absent PGx positions into the output as homozygous reference.
   * This **SHOULD ONLY BE USED** if you are sure your data is reference at the absent positions
