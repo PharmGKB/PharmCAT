@@ -320,9 +320,19 @@ def _check_for_gvcf(in_f) -> bool:
         else:
             line = line.rstrip('\n')
             fields: List[str] = line.split('\t')
-            # check whether input is a block gVCF
-            if re.search('END', fields[7]):
-                return True
+            v_len: int = abs(len(fields[4]) - len(fields[3]))
+            v_start: int = int(fields[1])
+            end_in_info = re.search(r"[;|]?END=(\d+)", fields[7])
+            if end_in_info:
+                end_pos: int = int(end_in_info.group(1))
+                # calculate the length of the variant block indicated by the END annotation in the INFO column
+                end_block = end_pos - v_start
+                if end_block > v_len:
+                    return True
+                elif end_block == v_len:  # not a gVCF if an END block simply annotates the variant length
+                    return False
+                else:  # when end_len < v_len, it is unclear what END annotation stands for
+                    return False
     return False
 
 

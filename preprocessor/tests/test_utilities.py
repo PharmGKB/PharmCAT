@@ -160,8 +160,14 @@ def test_is_vcf_file():
 def test_is_gvcf_file():
     test_vcf_file = helpers.test_dir / 'raw.vcf.bgz'
     test_gvcf_file = helpers.test_dir / 'test.g.vcf.bgz'
+    test_vcf_end_file = helpers.test_dir / 'test_not_gvcf_block.vcf'
+    test_gvcf_end_file = helpers.test_dir / 'test_gvcf_block.vcf'
     with tempfile.TemporaryDirectory() as td:
         assert not utils.is_gvcf_file(test_vcf_file)
+        # is gVCF as the END annotation indicates a large genomic block
+        assert utils.is_gvcf_file(test_gvcf_end_file)
+        # is not gVCF as the END annotation simply indicates the variant length
+        assert not utils.is_gvcf_file(test_vcf_end_file)
 
         tmp_dir = Path(td)
         f1 = tmp_dir / 'test.g.vcf.bgz'

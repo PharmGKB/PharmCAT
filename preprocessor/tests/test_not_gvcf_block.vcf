@@ -1,0 +1,9 @@
+##fileformat=VCFv4.1
+##source=PharmCAT allele definitions
+##reference=hg38
+##contig=<ID=chr11,assembly=hg38,species="Homo sapiens">
+##FILTER=<ID=PASS,Description="All filters passed">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
+chr1	123456	.	A	T	.	PASS	P|ABEND5|ABEND5	GT	0|1
+chr1	123456	.	GGT	G	.	PASS	END=123458;annotation_of_variant_ending_position	GT	0|1
