@@ -316,23 +316,40 @@ def _is_gvcf_file(file: Path) -> bool:
 def _check_for_gvcf(in_f) -> bool:
     for line in in_f:
         if line[0] == '#':
-            continue
+            # a gVCF block in the header is indicative of a gVCF file
+            if re.search('##GVCFBlock', line):
+                return True
+            # when there is no indicative gVCF header lines, continue to check the vcf content
+            else:
+                continue
         else:
             line = line.rstrip('\n')
+            # vcf header fields: CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample
             fields: List[str] = line.split('\t')
-            v_len: int = abs(len(fields[4]) - len(fields[3]))
-            v_start: int = int(fields[1])
-            end_in_info = re.search(r"[;|]?END=(\d+)", fields[7])
-            if end_in_info:
-                end_pos: int = int(end_in_info.group(1))
-                # calculate the length of the variant block indicated by the END annotation in the INFO column
-                end_block = end_pos - v_start
-                if end_block > v_len:
-                    return True
-                elif end_block == v_len:  # not a gVCF if an END block simply annotates the variant length
-                    return False
-                else:  # when end_len < v_len, it is unclear what END annotation stands for
-                    return False
+
+            # according to the vcf specs, the ALT column must
+            # be an unspecified allele, <NON_REF> or <*> (recommended by the VCF specs)
+            v_alt = fields[4]
+            if v_alt == '<NON_REF>' or v_alt == '<*>':  # check if ALT has an unspecified allele
+                # find the END annotation in the INFO column
+                end_in_info = re.search(r"[;|]?END=(\d+)", fields[7])
+                if end_in_info:
+                    # get the starting position
+                    v_start: int = int(fields[1])
+                    # identify the END genomic position
+                    end_pos: int = int(end_in_info.group(1))
+                    # calculate the length of the variant block indicated by the END annotation in the INFO column
+                    end_block = end_pos - v_start
+                    if end_block > 1:
+                        return True
+                    elif end_block == 1:  # not a gVCF if an END block simply annotates the variant length
+                        # when the gVCF block is only of 1 basepair long, it's equivalent to a SNP and
+                        # it's possible to annotate ALT based on PharmCAT position vcf
+                        return False
+                    else:  # when end_len < 1, it is unclear what END annotation stands for
+                        return False
+            else:
+                continue
     return False
 
 
