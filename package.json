@@ -15,7 +15,8 @@
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "semantic-release": "24.1.0",
+    "netlify-cli": "17.37.2",
+    "semantic-release": "24.2.0",
     "showdown": "2.1.0"
   },
   "release": {
@@ -171,6 +172,7 @@
     "ci": false
   },
   "scripts": {
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "localDocs": "netlify deploy --dir=docs/_site --prod"
   }
 }

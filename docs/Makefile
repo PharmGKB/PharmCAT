@@ -14,3 +14,7 @@ clean:
 
 next: clean build
 	surge _site next.pharmcat.org
+
+dev:
+	bundle exec just-the-docs rake search:init
+	bundle exec jekyll build --incremental

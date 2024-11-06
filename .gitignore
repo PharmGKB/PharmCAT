@@ -56,3 +56,6 @@ hs_err_pid*
 
 # python directory or files
 __pycache__/
+
+# Local Netlify folder
+.netlify
