@@ -37,7 +37,7 @@ public class GeneDrugSummary {
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/util/summary.md");
   private static final Path PHENOTYPES_TEMPLATE_FILE =
       PathUtils.getPathToResource("org/pharmgkb/pharmcat/util/phenotypes.md");
-  private static final String SUMMARY_FILE_NAME = "Genes-and-Drugs.md";
+  private static final String SUMMARY_FILE_NAME = "Genes-Drugs.md";
   private static final String PHENOTYPES_MD_FILE_NAME = "Phenotypes-List.md";
   private static final String PHENOTYPES_TSV_FILE_NAME = "phenotypes.tsv";
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());

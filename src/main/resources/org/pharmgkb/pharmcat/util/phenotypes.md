@@ -1,5 +1,5 @@
 ---
-parent: Genes and Drugs
+parent: Genes & Drugs
 title: Phenotypes List
 permalink: Phenotypes-List/
 ---
