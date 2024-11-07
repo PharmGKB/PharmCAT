@@ -317,7 +317,7 @@ def _check_for_gvcf(in_f) -> bool:
     for line in in_f:
         if line[0] == '#':
             # a gVCF block in the header is indicative of a gVCF file
-            if re.search('##GVCFBlock', line):
+            if re.search('^##GVCFBlock', line):
                 return True
             # when there is no indicative gVCF header lines, continue to check the vcf content
             else:
@@ -330,7 +330,7 @@ def _check_for_gvcf(in_f) -> bool:
             # according to the vcf specs, the ALT column must
             # be an unspecified allele, <NON_REF> or <*> (recommended by the VCF specs)
             v_alt = fields[4]
-            if v_alt == '<NON_REF>' or v_alt == '<*>':  # check if ALT has an unspecified allele
+            if v_alt == '<NON_REF>' or v_alt == '<*>' or v_alt == '.':  # check if ALT has an unspecified allele
                 # find the END annotation in the INFO column
                 end_in_info = re.search(r"[;|]?END=(\d+)", fields[7])
                 if end_in_info:
@@ -340,11 +340,15 @@ def _check_for_gvcf(in_f) -> bool:
                     end_pos: int = int(end_in_info.group(1))
                     # calculate the length of the variant block indicated by the END annotation in the INFO column
                     end_block = end_pos - v_start
-                    if end_block > 1:
+                    # check the block length
+                    # do not complicate the test by calculating the variant length (|ALT - REF|)
+                    # REF in a gVCF block only annotates the starting base pair, len(REF) = 1 and len(|ALT - REF|) = 1
+                    # here we only need to know if any end block is greater than 1 base pair in size
+                    if end_block > 1:  # long end block, cannot be annotated by the preprocessor, indicative of gVCF
                         return True
-                    elif end_block == 1:  # not a gVCF if an END block simply annotates the variant length
-                        # when the gVCF block is only of 1 basepair long, it's equivalent to a SNP and
-                        # it's possible to annotate ALT based on PharmCAT position vcf
+                    elif end_block == 1:  # END is possibly just a variant annotation
+                        # when the gVCF block is only of 1 basepair long, it's equivalent to a homozygous reference SNP
+                        # the preprocessor can annotate ALT based on PharmCAT position vcf
                         return False
                     else:  # when end_len < 1, it is unclear what END annotation stands for
                         return False
