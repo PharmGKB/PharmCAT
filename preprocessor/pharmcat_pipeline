@@ -192,21 +192,20 @@ lead to different results.
         script_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 
         # make sure we have pharmcat.jar
-        m_pharmcat_jar: Path = preprocessor.find_file(preprocessor.PHARMCAT_JAR_FILENAME, list({script_dir}))
+        m_pharmcat_jar: Path = preprocessor.find_file(preprocessor.PHARMCAT_JAR_FILENAME, [script_dir])
         if m_pharmcat_jar is None:
             print('Downloading %s...' % preprocessor.PHARMCAT_JAR_FILENAME)
             m_pharmcat_jar = preprocessor.download_pharmcat_jar(script_dir, verbose=args.verbose)
 
         # make sure we have pharmcat_positions.vcf.bgz
-        m_pharmcat_positions_vcf: Path = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME,
-                                                                list({script_dir}))
+        m_pharmcat_positions_vcf: Path = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME, [script_dir])
         if m_pharmcat_positions_vcf is None:
             print('Downloading %s...' % preprocessor.PHARMCAT_POSITIONS_FILENAME)
             m_pharmcat_positions_vcf = preprocessor.download_pharmcat_accessory_files(script_dir, verbose=args.verbose)
 
         # make sure we have reference FASTA
         m_reference_genome: Path = preprocessor.find_file(preprocessor.REFERENCE_FASTA_FILENAME,
-                                                          list({m_pharmcat_positions_vcf.parent, script_dir}))
+                                                          [m_pharmcat_positions_vcf.parent, script_dir])
         if m_reference_genome is None:
             print('Downloading reference FASTA.  This may take a while...')
             m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,

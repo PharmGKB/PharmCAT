@@ -141,7 +141,7 @@ if __name__ == "__main__":
             m_pharmcat_positions_vcf = preprocessor.validate_file(args.reference_pgx_vcf)
         else:
             m_pharmcat_positions_vcf = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME,
-                                                              list({Path.cwd(), script_dir}))
+                                                              [Path.cwd(), script_dir])
             if m_pharmcat_positions_vcf is None:
                 print('Downloading pharmcat_positions.vcf...')
                 m_pharmcat_positions_vcf = preprocessor.download_pharmcat_accessory_files(script_dir,
@@ -153,7 +153,7 @@ if __name__ == "__main__":
             m_reference_genome = preprocessor.validate_file(args.reference_genome)
         else:
             m_reference_genome = preprocessor.find_file(preprocessor.REFERENCE_FASTA_FILENAME,
-                                                        list({m_pharmcat_positions_vcf.parent, Path.cwd(), script_dir}))
+                                                        [m_pharmcat_positions_vcf.parent, Path.cwd(), script_dir])
             if m_reference_genome is None:
                 print('Downloading reference FASTA.  This may take a while...')
                 m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
