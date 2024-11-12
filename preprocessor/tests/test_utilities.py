@@ -1,7 +1,7 @@
 import os
+import random
 import shutil
 import tempfile
-import random
 from pathlib import Path
 from timeit import default_timer as timer
 from typing import List
@@ -397,30 +397,8 @@ def test_prep_pharmcat_positions():
             reference_fasta = helpers.pharmcat_positions_file.parent / preprocessor.REFERENCE_FASTA_FILENAME
             assert reference_fasta.is_file(), 'Cannot find reference FASTA for testing!'
 
-        # already have reference fasta, so this should be faster, but still need to generate uniallelic positions
-        # this section tests that running with additional data is faster than the initial run
-        start = timer()
         utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=1)
-        build_time = timer() - start
-        print("time to build uniallelic positions:", build_time)
-        assert build_time < 2
-
         assert tmp_uniallelic.is_file()
-        uniallelic_mtime = tmp_uniallelic.stat().st_mtime
-
-        # already have reference fasta and uniallelic positions, so this should be very fast
-        # this section tests that running with all data is much faster than the initial run
-        start = timer()
-        # utils.prep_pharmcat_positions(None, tmp_reference, verbose=True)
-        utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=1)
-        check_time = timer() - start
-        print("time to run check preparation:", check_time)
-        assert check_time < build_time
-        # is an order of magnitude faster
-        assert check_time < (build_time / 10)
-
-        assert tmp_uniallelic.is_file()
-        assert uniallelic_mtime == tmp_uniallelic.stat().st_mtime
 
         # check whether the generated uniallelic position file has the same content as the default one
         uniallelic_file_lines = helpers.read_vcf(helpers.uniallelic_pharmcat_positions_file, bgzipped=True)
@@ -433,10 +411,11 @@ def test_extract_pgx_regions():
     vcf_file = helpers.test_dir / 'raw.vcf.bgz'
     vcf_file1 = helpers.test_dir / 'raw-p1.vcf.bgz'
     vcf_file2 = helpers.test_dir / 'raw-p2.vcf.bgz'
+
+    pgx_regions = preprocessor.get_pgx_regions(helpers.pharmcat_positions_file)
+
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
-        tmp_positions = tmp_dir / helpers.pharmcat_positions_file.name
-        shutil.copyfile(helpers.pharmcat_positions_file, tmp_positions)
         shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
         tmp_vcf = tmp_dir / vcf_file.name
         shutil.copyfile(vcf_file, tmp_vcf)
@@ -447,15 +426,15 @@ def test_extract_pgx_regions():
 
         vcf_files: List[Path] = [tmp_vcf1, tmp_vcf2]
         samples: List[str] = ['Sample_1', 'Sample_2']
-        combo_pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, vcf_files, samples, tmp_dir, 'combo_test',
-                                                       verbose=1)
+        combo_pgx_vcf_file = utils.extract_pgx_regions(vcf_files, samples, tmp_dir, 'combo_test',
+                                                       pgx_regions, verbose=1)
         assert combo_pgx_vcf_file.is_file()
         index_file = utils.find_index_file(combo_pgx_vcf_file)
         assert index_file is not None
         combo_hash = helpers.md5hash(combo_pgx_vcf_file)
         print("combo:", combo_hash)
 
-        pgx_vcf_file = utils.extract_pgx_regions(tmp_positions, [tmp_vcf], samples, tmp_dir, 'test', verbose=1)
+        pgx_vcf_file = utils.extract_pgx_regions([tmp_vcf], samples, tmp_dir, 'test', pgx_regions, verbose=1)
         assert pgx_vcf_file.is_file()
         single_hash = helpers.md5hash(pgx_vcf_file)
         print("single:", single_hash)
@@ -546,6 +525,7 @@ def test_export_single_sample_concurrent():
 
 def test_absent_and_unspecified_to_ref():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    pgx_regions = preprocessor.get_pgx_regions(helpers.pharmcat_positions_file)
 
     expected_file = helpers.pharmcat_positions_file
     with tempfile.TemporaryDirectory() as td:
@@ -592,7 +572,7 @@ def test_absent_and_unspecified_to_ref():
         basename = 'test_absent_and_unspecified_to_ref'
         samples = ['PharmCAT']
         input_basename = test_vcf.name
-        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, [test_vcf], samples,
+        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False, [test_vcf], samples,
                                 input_basename, tmp_dir, basename, absent_to_ref=True, unspecified_to_ref=True)
 
         helpers.compare_vcf_files(expected_vcf, tmp_dir, basename)

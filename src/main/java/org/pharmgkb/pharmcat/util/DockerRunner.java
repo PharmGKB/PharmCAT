@@ -75,8 +75,8 @@ public class DockerRunner {
     String localPath = "data/" + PathUtils.getFilename(inFile);
 
     runCmd(dockerCmd, "python -c \"import preprocessor; from pathlib import Path; " +
-        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file, verbose=1)\"", inFile.getParent(),
-        true);
+        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file, force_update=True, verbose=1)\"",
+        inFile.getParent(), true);
   }
 
 

@@ -242,6 +242,10 @@ if __name__ == "__main__":
         elif args.max_concurrent_processes is not None:
             print("-cp/--max_processes will be ignored (not running in multiprocess mode)")
 
+        # get pgx_regions we care about
+        custom_regions: bool = bool(m_regions_bed)
+        pgx_regions = preprocessor.get_pgx_regions(m_regions_bed or m_pharmcat_positions_vcf)
+
         start = timer()
 
         # normalize variant representations and reconstruct multi-allelic variants in the input VCF
@@ -251,6 +255,8 @@ if __name__ == "__main__":
         print()
         results = preprocessor.preprocess(pharmcat_positions_vcf=m_pharmcat_positions_vcf,
                                           reference_genome=m_reference_genome,
+                                          regions_to_retain=pgx_regions,
+                                          custom_regions=custom_regions,
                                           vcf_files=m_vcf_files,
                                           samples=m_samples,
                                           input_basename=m_input_basename,
@@ -260,7 +266,6 @@ if __name__ == "__main__":
                                           keep_intermediate_files=args.keep_intermediate_files,
                                           absent_to_ref=m_absent_to_ref,
                                           unspecified_to_ref=m_unspecified_to_ref,
-                                          regions_to_retain=m_regions_bed,
                                           concurrent_mode=args.concurrent_mode,
                                           max_processes=m_max_processes,
                                           verbose=args.verbose,
