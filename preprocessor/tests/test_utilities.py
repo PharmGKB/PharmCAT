@@ -1,6 +1,7 @@
 import os
 import shutil
 import tempfile
+import random
 from pathlib import Path
 from timeit import default_timer as timer
 from typing import List
@@ -546,24 +547,52 @@ def test_export_single_sample_concurrent():
 def test_absent_and_unspecified_to_ref():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
 
-    vcf_file = helpers.test_dir / 'raw_unspecified_genotypes.vcf.bgz'
-    expected_file = helpers.test_dir / 'test.unspecified_to_ref.absent_to_ref.vcf'
+    expected_file = helpers.pharmcat_positions_file
     with tempfile.TemporaryDirectory() as td:
-        # copy the input test file to the temporary folder
+        # copy the expected file to the temporary folder
         tmp_dir = Path(td)
-        tmp_vcf = tmp_dir / vcf_file.name
-        shutil.copyfile(vcf_file, tmp_vcf)
-        # copy the expected output files to the temporary folder
-        expected_vcf = tmp_dir / expected_file.name
-        shutil.copyfile(expected_file, expected_vcf)
+        expected_bgz = tmp_dir / 'pharmcat_positions.vcf.gz'
+        shutil.copyfile(expected_file, expected_bgz)
+        raw_lines = helpers.read_vcf(expected_bgz, bgzipped=True, skip_comments=False).split('\n')
+
+        # convert "0/0" to "0|0" to avoid irrelevant mismatching error
+        expected_vcf = tmp_dir / 'random_pharmcat_positions.vcf'
+        expected_lines = []
+        with open(expected_vcf, 'w') as f:
+            for line in raw_lines:
+                if not line.startswith('#'):
+                    fields = line.split('\t')
+                    fields[9] = '0|0'
+                    line = '\t'.join(fields)
+                f.write(line + '\n')
+                expected_lines.append(line)
+
+        # create the test file by randomly knocking down positions or genotypes
+        test_file = tmp_dir / 'random_absent_and_unspecified_genotypes.vcf'
+        random.seed(37)
+        with open(test_file, 'w') as f:
+            for line in expected_lines:
+                if line.startswith('#'):  # metadata and the header line
+                    f.write(line + '\n')
+                else:
+                    fields = line.split('\t')
+                    rnd_int = random.randrange(10)
+                    if rnd_int == 1:  # make 10% of the positions absent
+                        continue
+                    if rnd_int == 2:  # convert 10% of the positions to unspecified genotypes
+                        fields[9] = './.'
+                        line = '\t'.join(fields)
+                    f.write(line + '\n')
+        test_vcf = utils.bgzip_file(test_file, True)
+
         # copy the necessary helper files to the temporary folder
         shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
 
         # run the utility function to convert absent positions to reference
-        basename = 'test1'
-        samples = ['Sample_1', 'Sample_2']
-        input_basename = tmp_vcf.name
-        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, [tmp_vcf], samples,
+        basename = 'test_absent_and_unspecified_to_ref'
+        samples = ['PharmCAT']
+        input_basename = test_vcf.name
+        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, [test_vcf], samples,
                                 input_basename, tmp_dir, basename, absent_to_ref=True, unspecified_to_ref=True)
 
         helpers.compare_vcf_files(expected_vcf, tmp_dir, basename)

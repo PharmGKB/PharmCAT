@@ -99,6 +99,29 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
         assert orig_actual_vcf in results, ('%s not in results (%s)' % (actual, results))
     if copy_to_test_dir:
         shutil.copyfile(actual, actual.parent / actual.name)
-    print(read_vcf(actual))
 
-    assert read_vcf(expected) == read_vcf(actual), '%s mismatch' % key
+    # compare vcfs line by line
+    expected_lines = read_vcf(expected).split('\n')
+    actual_lines = read_vcf(actual).split('\n')
+
+    if len(expected_lines) != len(actual_lines):
+        assert False, f'mismatching number of lines between {expected} and {actual}'
+
+    for expected_line, actual_line in zip(expected_lines, actual_lines):
+        columns = ['CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT', 'Samples']
+        expected_fields = expected_line.split('\t')
+        actual_fields = actual_line.split('\t')
+
+        if len(expected_fields) != len(actual_fields):
+            assert False, f'mismatching number of samples between {expected} and {actual}'
+
+        for i, col in enumerate(columns):
+            # compare the ALT alleles
+            if i == 4 and set(actual_fields[3]) != set(expected_fields[3]):
+                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'
+            # compare genotypes
+            if i == 9 and actual_fields[9:] != expected_fields[9:]:
+                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'
+            # compare the rest
+            if actual_line[i] != expected_line[i]:
+                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'

@@ -988,7 +988,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 
                             # update info
                             ref_info = list(set([x[7] for x in ref_pos_static[input_chr_pos].values()]))
-                            if fields[7] != '.':
+                            if fields[7] != '.' and fields[7] not in ref_info:
                                 ref_info.append(fields[7])
                             updated_info = ';'.join(ref_info)
 
