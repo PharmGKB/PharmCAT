@@ -690,7 +690,7 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
                         output_dir: Path, output_basename: str,
-                        reference_regions_to_retain: Path = None,
+                        regions_to_retain: Path = None,
                         concurrent_mode: bool = False, max_processes: int = 1,
                         verbose: int = 0) -> Path:
     """
@@ -712,17 +712,17 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
         if len(vcf_files) == 1:
             # this should create pgx_region_vcf_file
             _extract_pgx_regions(pharmcat_positions, vcf_files[0], tmp_sample_file, output_dir, output_basename,
-                                 reference_regions_to_retain, verbose)
+                                 regions_to_retain, verbose)
         else:
             # generate files to be concatenated
             tmp_files: List[Path] = []
             if concurrent_mode:
-                with concurrent.futures.ProcessPoolExecutor(max_workers=check_max_processes(max_processes,
-                                                                                            validate=False)) as e:
+                with concurrent.futures.ProcessPoolExecutor(
+                        max_workers=check_max_processes(max_processes, validate=False)) as e:
                     futures = []
                     for vcf_file in vcf_files:
                         futures.append(e.submit(_extract_pgx_regions, pharmcat_positions, vcf_file, tmp_sample_file,
-                                                output_dir, get_vcf_basename(vcf_file), reference_regions_to_retain,
+                                                output_dir, get_vcf_basename(vcf_file), regions_to_retain,
                                                 verbose))
                     concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
                     for future in futures:
@@ -730,7 +730,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
             else:
                 for vcf_file in vcf_files:
                     tmp_files.append(_extract_pgx_regions(pharmcat_positions, vcf_file, tmp_sample_file, output_dir,
-                                                          get_vcf_basename(vcf_file), reference_regions_to_retain,
+                                                          get_vcf_basename(vcf_file), regions_to_retain,
                                                           verbose))
             # write file names to txt file for bcftools
             tmp_file_list = tmp_dir / 'regions.txt'
@@ -752,7 +752,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
 
 def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: Path, output_dir: Path,
                          output_basename: Optional[str],
-                         reference_regions_to_retain: Path = None,
+                         regions_to_retain: Path = None,
                          verbose: int = 0) -> Path:
     """
     Does the actual work to extract PGx regions from input VCF file(s) into a single VCF file and
@@ -768,8 +768,8 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
     if idx_file is None:
         index_vcf(bgz_file, verbose)
 
-    if reference_regions_to_retain:
-        df_regions_to_retain = pd.read_csv(reference_regions_to_retain, sep="\t", header=None)
+    if regions_to_retain:
+        df_regions_to_retain = pd.read_csv(regions_to_retain, sep="\t", header=None)
         df_regions_to_retain = df_regions_to_retain[[0, 1, 2]]
         df_regions_to_retain.columns = ['CHROM', 'chromStart', 'chromEnd']
         df_regions_to_retain.chromStart = df_regions_to_retain.chromStart.astype(str)

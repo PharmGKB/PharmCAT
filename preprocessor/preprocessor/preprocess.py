@@ -11,7 +11,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                output_dir: Path, output_basename: Optional[str] = '', split_samples: bool = False,
                keep_intermediate_files: bool = False,
                absent_to_ref: bool = False, unspecified_to_ref: bool = False,
-               reference_regions_to_retain: Path = None,
+               regions_to_retain: Path = None,
                concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -34,7 +34,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                                   vcf_files, samples,
                                   output_dir, basename,
                                   keep_intermediate_files, absent_to_ref, unspecified_to_ref,
-                                  reference_regions_to_retain,
+                                  regions_to_retain,
                                   concurrent_mode, max_processes, verbose)
     if split_samples and len(samples) > 1:
         util.index_vcf(multisample_vcf, verbose)
@@ -56,7 +56,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
                               output_dir: Path, output_basename: Optional[str] = '',
                               keep_intermediate_files: bool = False,
                               absent_to_ref: bool = False, unspecified_to_ref: bool = False,
-                              reference_regions_to_retain: Path = None,
+                              regions_to_retain: Path = None,
                               concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -85,7 +85,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
                                       output_dir, basename,
                                       keep_intermediate_files,
                                       absent_to_ref, unspecified_to_ref,
-                                      reference_regions_to_retain,
+                                      regions_to_retain,
                                       concurrent_mode, max_processes, verbose)
         results.append(finalize_multisample_vcf(multisample_vcf, output_dir, basename))
 
@@ -97,14 +97,14 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                 output_dir: Path, output_basename: Optional[str] = '',
                 keep_intermediate_files: bool = False,
                 absent_to_ref: bool = False, unspecified_to_ref: bool = False,
-                reference_regions_to_retain: Path = None,
+                regions_to_retain: Path = None,
                 concurrent_mode=False, max_processes=1, verbose: int = 0) -> Path:
 
     # shrink input VCF down to PGx allele defining regions and selected samples
     # standardize chromosome names to <chr##>
     pgx_region_vcf: Path = util.extract_pgx_regions(pharmcat_positions_vcf, vcf_files, samples,
                                                     output_dir, output_basename,
-                                                    reference_regions_to_retain,
+                                                    regions_to_retain,
                                                     concurrent_mode=concurrent_mode, max_processes=max_processes,
                                                     verbose=verbose)
     # normalize the input VCF
@@ -116,7 +116,7 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                                                        output_dir, output_basename,
                                                        absent_to_ref=absent_to_ref,
                                                        unspecified_to_ref=unspecified_to_ref,
-                                                       retain_specific_regions=bool(reference_regions_to_retain),
+                                                       retain_specific_regions=bool(regions_to_retain),
                                                        verbose=verbose)
 
     if not keep_intermediate_files:

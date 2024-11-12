@@ -260,7 +260,7 @@ if __name__ == "__main__":
                                           keep_intermediate_files=args.keep_intermediate_files,
                                           absent_to_ref=m_absent_to_ref,
                                           unspecified_to_ref=m_unspecified_to_ref,
-                                          reference_regions_to_retain=m_regions_bed,
+                                          regions_to_retain=m_regions_bed,
                                           concurrent_mode=args.concurrent_mode,
                                           max_processes=m_max_processes,
                                           verbose=args.verbose,
