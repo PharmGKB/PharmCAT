@@ -50,6 +50,13 @@ def find_uniallelic_file(pharmcat_positions: Path, must_exist: bool = True) -> P
     return uniallelic_positions_vcf
 
 
+def find_regions_file(pharmcat_positions: Path, must_exist: bool = True) -> Path:
+    regions_file: Path = pharmcat_positions.parent / common.PHARMCAT_REGIONS_FILENAME
+    if must_exist and not regions_file.is_file():
+        raise ReportableException('Cannot find %s' % common.PHARMCAT_REGIONS_FILENAME)
+    return regions_file
+
+
 def run(command: List[str]):
     try:
         # 'check=True' raises a 'CalledProcessError' if the subprocess does not complete
@@ -606,8 +613,10 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
         index_vcf(pharmcat_positions_vcf, verbose)
 
     uniallelic_positions_vcf: Path = find_uniallelic_file(pharmcat_positions_vcf, must_exist=False)
-    if not uniallelic_positions_vcf.is_file():
-        create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions_vcf, reference_genome_fasta)
+    create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions_vcf, reference_genome_fasta)
+
+    regions_file: Path = find_regions_file(pharmcat_positions_vcf, must_exist=False)
+    create_regions_file(regions_file, pharmcat_positions_vcf, verbose)
 
     # create chromosome mapping file
     if not common.CHR_RENAME_FILE.is_file() or update_chr_rename_file:
@@ -629,6 +638,33 @@ def create_uniallelic_vcf(uniallelic_positions_vcf: Path, pharmcat_positions_vcf
                         str(pharmcat_positions_vcf)]
     run(bcftools_command)
     index_vcf(uniallelic_positions_vcf, verbose)
+
+
+def create_regions_file(regions_file: Path, pharmcat_positions_vcf: Path, verbose: int = 0):
+    if verbose:
+        print('* Preparing PharmCAT regions file')
+    entries = {}
+    with gzip.open(pharmcat_positions_vcf, mode='rt', encoding='utf-8') as in_f:
+        for line in in_f:
+            if line[0] != '#':
+                fields = line.rstrip().split()
+                pos = int(fields[1])
+                px = fields[7]
+                if px in entries:
+                    if entries[px]['start'] > pos:
+                        entries[px]['start'] = pos
+                    elif entries[px]['end'] < pos:
+                        entries[px]['end'] = pos
+                else:
+                    entries[px] = {'chr': fields[0], 'start': pos, 'end': pos}
+    with open(regions_file, 'w+') as f:
+        # no need to sort - keys are preserved in insertion order
+        for px in entries:
+            data = entries[px]
+            entries[px]['start'] = entries[px]['start'] - 200
+            entries[px]['end'] = entries[px]['end'] + 200
+            f.write(data['chr'] + "\t" + str(data['start'] - 200) + "\t" + str(data['end'] + 200) + "\t" + px + "\n")
+
 
 
 def _get_vcf_pos_min_max(positions, flanking_bp=100):

@@ -81,8 +81,10 @@ public class VcfHelper implements AutoCloseable {
 
     if (m_queryCacheUpdated) {
       Path cacheFile = PathUtils.getPathToResource(getClass(), sf_vcfCacheFile);
-      System.out.println("Query cache updated!  Saving cache file to " + cacheFile);
-      System.out.println("Don't forget to save this file!");
+      System.out.println("-----");
+      System.out.println("!!! Query cache updated!  Saving cache file to " + cacheFile);
+      System.out.println("!!! Don't forget to save this file!");
+      System.out.println("-----");
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(cacheFile))) {
         DataSerializer.GSON.toJson(m_queryCache, writer);
       } catch (Exception ex) {

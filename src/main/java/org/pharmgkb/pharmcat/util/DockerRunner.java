@@ -59,7 +59,7 @@ public class DockerRunner {
     Path bgzFile = inFile.getParent().resolve(PathUtils.getFilename(inFile) + ".bgz");
     // rename .gz to .bgz
     Files.move(gzFile, bgzFile, StandardCopyOption.REPLACE_EXISTING);
-    // rename copy to original file
+    // rename the copy back to the original file
     Files.move(bakFile, inFile);
     return bgzFile;
   }
@@ -75,12 +75,16 @@ public class DockerRunner {
     String localPath = "data/" + PathUtils.getFilename(inFile);
 
     runCmd(dockerCmd, "python -c \"import preprocessor; from pathlib import Path; " +
-        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file)\"", inFile.getParent());
+        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file, verbose=1)\"", inFile.getParent(),
+        true);
   }
 
 
   private static void runCmd(String dockerCmd, String toolCmd, Path workDir) throws IOException {
+    runCmd(dockerCmd, toolCmd, workDir, false);
+  }
 
+  private static void runCmd(String dockerCmd, String toolCmd, Path workDir, boolean verbose) throws IOException {
     ProcessBuilder builder = new ProcessBuilder();
     if (sf_isWindows) {
       builder.command("cmd.exe", "/c", dockerCmd + toolCmd);
@@ -92,8 +96,12 @@ public class DockerRunner {
     try {
       int exitCode = process.waitFor();
       String stdin = new String(process.getInputStream().readAllBytes());
-      if (stdin.length() > 0) {
-        sf_logger.info(stdin);
+      if (!stdin.isEmpty()) {
+        if (verbose) {
+          System.out.println(stdin);
+        } else {
+          sf_logger.info(stdin);
+        }
       }
       if (exitCode != 0) {
         throw new IOException("Docker run failed (" + exitCode + ")\n" +

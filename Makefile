@@ -35,9 +35,11 @@ quietTest = true
 updateData: clean
 	@echo "Updating data..."
 	@${GRADLE_CMD} updateData
+	cp build/resources/main/org/pharmgkb/pharmcat/util/vcfQueryCache.json src/main/resources/org/pharmgkb/pharmcat/util/
 	@echo "Moving pharmcat_position files..."
 	mv -f src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_positions.* .
 	cp -f pharmcat_positions.vcf src/test/resources/org/pharmgkb/pharmcat/reference.vcf
+	mv -f src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_regions.bed .
 	@echo ""
 	@echo "Updating examples..."
 	@${GRADLE_CMD} updateExample

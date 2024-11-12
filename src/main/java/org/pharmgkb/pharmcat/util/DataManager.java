@@ -217,6 +217,7 @@ public class DataManager {
 
     Path downloadedGuidanceFile = downloadDir.resolve(PgkbGuidelineCollection.PRESCRIBING_GUIDANCE_FILE_NAME);
     Path destinationGuidanceFile = guidelinesDir.resolve(PgkbGuidelineCollection.PRESCRIBING_GUIDANCE_FILE_NAME);
+    System.out.println();
     System.out.println("Saving guidelines to " + destinationGuidanceFile);
 
     PgkbGuidelineCollection pgkbGuidelineCollection = new PgkbGuidelineCollection(downloadedGuidanceFile);
@@ -241,6 +242,7 @@ public class DataManager {
   private DefinitionReader transformAlleleDefinitions(Path downloadDir, Path definitionsDir,
       Map<String, DefinitionExemption> exemptionsMap) throws Exception {
 
+    System.out.println();
     System.out.println("Generating allele definitions...");
     List<DefinitionFile> definitionFiles = new ArrayList<>();
     for (DefinitionFile df : parseDefinitionFiles(downloadDir)) {
@@ -275,7 +277,8 @@ public class DataManager {
 
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
 
-    System.out.println("Saving allele definitions in " + definitionsDir.toString());
+    System.out.println();
+    System.out.println("Saving allele definitions to " + definitionsDir.toString());
     Set<String> currentFiles = getCurrentFiles(definitionsDir, "_translation.json");
 
     for (String gene : definitionFileMap.keySet()) {
@@ -327,12 +330,10 @@ public class DataManager {
 
 
   public static void exportVcfData(Path definitionsDir) throws IOException {
-
     DefinitionReader definitionReader = new DefinitionReader(definitionsDir);
-
     SortedSet<String> genes = new TreeSet<>(definitionReader.getGeneAlleleCount().keySet());
-
     Path positionsFile = definitionsDir.resolve(POSITIONS_VCF);
+    System.out.println();
     System.out.println("Saving positions VCF to " + positionsFile);
     VcfHelper.extractPositions(genes, definitionReader, positionsFile);
     Path bgzFile = DockerRunner.bgzip(positionsFile);
@@ -342,6 +343,7 @@ public class DataManager {
 
 
   private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
+    System.out.println();
     System.out.println("Saving exemptions to " + jsonFile.toString());
     Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
     DataSerializer.serializeToJson(exemptions, jsonFile);
