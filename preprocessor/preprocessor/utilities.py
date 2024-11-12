@@ -613,7 +613,9 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
         index_vcf(pharmcat_positions_vcf, verbose)
 
     uniallelic_positions_vcf: Path = find_uniallelic_file(pharmcat_positions_vcf, must_exist=False)
-    create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions_vcf, reference_genome_fasta)
+    uniallelic_csi_file = Path(str(uniallelic_positions_vcf) + '.csi')
+    if not uniallelic_csi_file.is_file():
+        create_uniallelic_vcf(uniallelic_positions_vcf, pharmcat_positions_vcf, reference_genome_fasta)
 
     regions_file: Path = find_regions_file(pharmcat_positions_vcf, must_exist=False)
     create_regions_file(regions_file, pharmcat_positions_vcf, verbose)
