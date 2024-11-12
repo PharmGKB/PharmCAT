@@ -11,7 +11,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                output_dir: Path, output_basename: Optional[str] = '', split_samples: bool = False,
                keep_intermediate_files: bool = False,
                absent_to_ref: bool = False, unspecified_to_ref: bool = False,
-               retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
+               reference_regions_to_retain: Path = None,
                concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -34,7 +34,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                                   vcf_files, samples,
                                   output_dir, basename,
                                   keep_intermediate_files, absent_to_ref, unspecified_to_ref,
-                                  retain_specific_regions, reference_regions_to_retain,
+                                  reference_regions_to_retain,
                                   concurrent_mode, max_processes, verbose)
     if split_samples and len(samples) > 1:
         util.index_vcf(multisample_vcf, verbose)
@@ -54,8 +54,9 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
 def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Path,
                               vcf_files: List[Path], samples: Optional[List[str]],
                               output_dir: Path, output_basename: Optional[str] = '',
-                              keep_intermediate_files: bool = False, missing_to_ref: bool = False,
-                              retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
+                              keep_intermediate_files: bool = False,
+                              absent_to_ref: bool = False, unspecified_to_ref: bool = False,
+                              reference_regions_to_retain: Path = None,
                               concurrent_mode: bool = False, max_processes: int = 1, verbose: int = 0) -> List[Path]:
     """
     Normalize and prepare the input VCF for PharmCAT.
@@ -70,7 +71,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
         if samples is None or len(samples) == 0:
             file_samples = util.read_vcf_samples(file, verbose=verbose)
         else:
-            # make sure samples are in vcf file
+            # make sure samples are in the VCF file
             vcf_samples = util.read_vcf_samples(vcf_files[0], verbose=verbose)
             for sample in samples:
                 if sample in vcf_samples:
@@ -82,8 +83,9 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
         multisample_vcf = _preprocess(pharmcat_positions_vcf, reference_genome,
                                       [file], file_samples,
                                       output_dir, basename,
-                                      keep_intermediate_files, missing_to_ref,
-                                      retain_specific_regions, reference_regions_to_retain,
+                                      keep_intermediate_files,
+                                      absent_to_ref, unspecified_to_ref,
+                                      reference_regions_to_retain,
                                       concurrent_mode, max_processes, verbose)
         results.append(finalize_multisample_vcf(multisample_vcf, output_dir, basename))
 
@@ -95,14 +97,14 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                 output_dir: Path, output_basename: Optional[str] = '',
                 keep_intermediate_files: bool = False,
                 absent_to_ref: bool = False, unspecified_to_ref: bool = False,
-                retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
+                reference_regions_to_retain: Path = None,
                 concurrent_mode=False, max_processes=1, verbose: int = 0) -> Path:
 
     # shrink input VCF down to PGx allele defining regions and selected samples
-    # modify input VCF chromosomes naming format to <chr##>
+    # standardize chromosome names to <chr##>
     pgx_region_vcf: Path = util.extract_pgx_regions(pharmcat_positions_vcf, vcf_files, samples,
                                                     output_dir, output_basename,
-                                                    retain_specific_regions, reference_regions_to_retain,
+                                                    reference_regions_to_retain,
                                                     concurrent_mode=concurrent_mode, max_processes=max_processes,
                                                     verbose=verbose)
     # normalize the input VCF
@@ -114,7 +116,7 @@ def _preprocess(pharmcat_positions_vcf: Path, reference_genome: Path,
                                                        output_dir, output_basename,
                                                        absent_to_ref=absent_to_ref,
                                                        unspecified_to_ref=unspecified_to_ref,
-                                                       retain_specific_regions=retain_specific_regions,
+                                                       retain_specific_regions=bool(reference_regions_to_retain),
                                                        verbose=verbose)
 
     if not keep_intermediate_files:

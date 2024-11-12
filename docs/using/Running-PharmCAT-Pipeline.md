@@ -39,7 +39,7 @@ Standard use case:
 ```
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
                          [-0] [--absent-to-ref] [-unspecified-to-ref] [-G] 
-                         [-R] [-refRegion <bed_file>]
+                         [-R <bed_file>]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
                          [-reporter] [-rs <sources>] [-re] [-reporterJson]
@@ -73,13 +73,9 @@ Preprocessor arguments:
                         Assume unspecified genotypes ./. as 0/0 when every sample is './.'. DANGEROUS!
   -G, --no-gvcf-check                
                         Bypass the gVCF check for the input VCF.
-  -R, --retain-specific-regions      
-                        Retain all variants in genomic regions of interest in VCF.
-                        Defaults to entire region of genes covered by PharmCAT.
+  -R `<bed_file>`, --retain-specific-regions `<bed_file>`      
+                        A sorted .bed file indicating regions to retain in VCF.
                         For research use only. Additional variants are not used by PharmCAT and will slow PharmCAT down.
-  -refRegion `<bed_file>`, --reference-regions-to-retain `<bed_file>`
-                        A sorted bed file of specific PGx regions to retain.
-                        Use with the `-R` to specify custom regions.
 
 Named allele matcher arguments:
   -matcher              Run named allele matcher independently.

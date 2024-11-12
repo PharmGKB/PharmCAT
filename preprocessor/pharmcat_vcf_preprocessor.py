@@ -5,7 +5,7 @@ __author__ = 'BinglanLi'
 import sys
 from pathlib import Path
 from timeit import default_timer as timer
-from typing import List
+from typing import List, Optional
 
 import preprocessor
 
@@ -63,14 +63,11 @@ if __name__ == "__main__":
                                      'or the directory the preprocessor is in.')
     advanced_group.add_argument("-refFna", "--reference-genome", type=str, metavar='<fna_file>',
                                 help="The Human Reference Genome GRCh38/hg38 in the fasta format.")
-    advanced_group.add_argument("-R", "--retain-specific-regions", action="store_true",
-                                help='Retain all variants in genomic regions of interest in VCF. '
-                                     'Defaults to entire region of genes covered by PharmCAT. '
+    advanced_group.add_argument("-R", "--retain-specific-regions",
+                                type=str, metavar='<bed_file>',
+                                help='A sorted .bed file indicating regions to retain in VCF. '
                                      'For research use only. '
                                      'Additional variants are not used by PharmCAT and will slow PharmCAT down.')
-    advanced_group.add_argument("-refRegion", "--reference-regions-to-retain", type=str, metavar='<bed_file>',
-                                help='A sorted .bed file of PGx regions to retain. '
-                                     'Use with "-R" to specify custom regions.')
     advanced_group.add_argument("-bcftools", "--path-to-bcftools", type=str, metavar='</path/to/bcftools>',
                                 help="Path to the bcftools program.  Defaults to bcftools in PATH.")
     advanced_group.add_argument("-bgzip", "--path-to-bgzip", type=str, metavar='</path/to/bgzip>',
@@ -162,22 +159,10 @@ if __name__ == "__main__":
                 m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
                                                                                      verbose=args.verbose)
 
-        # make sure we have pharmcat_regions.bed
+        # validate .bed file if retaining specific regions
+        m_regions_bed: Optional[Path] = None
         if args.retain_specific_regions:
-            m_retain_specific_regions: bool = True
-            m_pharmcat_regions_bed: Path
-            if args.reference_regions_to_retain:
-                m_pharmcat_regions_bed = preprocessor.validate_file(args.reference_regions_to_retain)
-            else:
-                m_pharmcat_regions_bed = preprocessor.find_file(preprocessor.PHARMCAT_REGIONS_FILENAME,
-                                                                list({Path.cwd(), script_dir}))
-                if m_pharmcat_regions_bed is None:
-                    print('Downloading pharmcat_regions.bed...')
-                    m_pharmcat_regions_bed = preprocessor.download_pharmcat_accessory_files(
-                        script_dir, download_region_bed=True, verbose=args.verbose)
-        else:
-            m_retain_specific_regions: bool = False
-            m_pharmcat_regions_bed = None
+            m_regions_bed = preprocessor.validate_file(args.retain_specific_regions)
 
         # prep pharmcat_positions helper files
         preprocessor.prep_pharmcat_positions(m_pharmcat_positions_vcf, m_reference_genome, verbose=args.verbose)
@@ -275,8 +260,7 @@ if __name__ == "__main__":
                                           keep_intermediate_files=args.keep_intermediate_files,
                                           absent_to_ref=m_absent_to_ref,
                                           unspecified_to_ref=m_unspecified_to_ref,
-                                          retain_specific_regions=m_retain_specific_regions,
-                                          reference_regions_to_retain=m_pharmcat_regions_bed,
+                                          reference_regions_to_retain=m_regions_bed,
                                           concurrent_mode=args.concurrent_mode,
                                           max_processes=m_max_processes,
                                           verbose=args.verbose,

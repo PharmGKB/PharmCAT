@@ -19,6 +19,7 @@ from typing import Optional, Union, List
 from urllib.error import HTTPError
 
 import pandas as pd
+from colorama import Fore, Style
 from packaging import version
 
 from . import common
@@ -394,8 +395,8 @@ def read_sample_file(sample_file: Path, verbose: int = 0) -> List[str]:
             if line and not line.startswith("#"):
                 samples.append(line)
     if len(samples) == 0:
-        # TODO(markwoon): use colorama to highlight this in next release
-        print("Warning: No samples found. Will use all samples listed in VCF.")
+        print(Fore.RED + "Warning: No samples found. Will use all samples listed in VCF." +
+              Style.RESET_ALL)
     else:
         validate_samples(samples)
     return samples
@@ -526,20 +527,15 @@ def download_from_url(url: str, download_dir: Path, force_update: bool = False, 
         raise InvalidURL(url)
 
 
-def download_pharmcat_accessory_files(download_dir: Union[Path, str], force_update: bool = False,
-                                      download_region_bed: bool = False, verbose: int = 0):
+def download_pharmcat_accessory_files(download_dir: Union[Path, str], force_update: bool = False, verbose: int = 0):
     if not isinstance(download_dir, Path):
         download_dir = Path(download_dir)
     pos_file = download_dir / common.PHARMCAT_POSITIONS_FILENAME
     if pos_file.exists() and not force_update:
         return pos_file
 
-    if download_region_bed:
-        url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_regions_%s.bed' % \
-              (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
-    else:
-        url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_positions_%s.vcf.bgz' %\
-            (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
+    url = 'https://github.com/PharmGKB/PharmCAT/releases/download/v%s/pharmcat_positions_%s.vcf.bgz' %\
+          (common.PHARMCAT_VERSION, common.PHARMCAT_VERSION)
     try:
         dl_file = download_from_url(url, download_dir, force_update, verbose)
         # use shutil.move instead of rename to deal with cross-device issues
@@ -656,7 +652,7 @@ def _is_valid_chr(vcf_file: Path) -> bool:
 
 def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples: List[str],
                         output_dir: Path, output_basename: str,
-                        retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
+                        reference_regions_to_retain: Path = None,
                         concurrent_mode: bool = False, max_processes: int = 1,
                         verbose: int = 0) -> Path:
     """
@@ -678,7 +674,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
         if len(vcf_files) == 1:
             # this should create pgx_region_vcf_file
             _extract_pgx_regions(pharmcat_positions, vcf_files[0], tmp_sample_file, output_dir, output_basename,
-                                 retain_specific_regions, reference_regions_to_retain, verbose)
+                                 reference_regions_to_retain, verbose)
         else:
             # generate files to be concatenated
             tmp_files: List[Path] = []
@@ -688,16 +684,16 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
                     futures = []
                     for vcf_file in vcf_files:
                         futures.append(e.submit(_extract_pgx_regions, pharmcat_positions, vcf_file, tmp_sample_file,
-                                                output_dir, get_vcf_basename(vcf_file), retain_specific_regions,
-                                                reference_regions_to_retain, verbose))
+                                                output_dir, get_vcf_basename(vcf_file), reference_regions_to_retain,
+                                                verbose))
                     concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
                     for future in futures:
                         tmp_files.append(future.result())
             else:
                 for vcf_file in vcf_files:
                     tmp_files.append(_extract_pgx_regions(pharmcat_positions, vcf_file, tmp_sample_file, output_dir,
-                                                          get_vcf_basename(vcf_file), retain_specific_regions,
-                                                          reference_regions_to_retain, verbose))
+                                                          get_vcf_basename(vcf_file), reference_regions_to_retain,
+                                                          verbose))
             # write file names to txt file for bcftools
             tmp_file_list = tmp_dir / 'regions.txt'
             with open(tmp_file_list, 'w+') as w:
@@ -718,7 +714,7 @@ def extract_pgx_regions(pharmcat_positions: Path, vcf_files: List[Path], samples
 
 def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: Path, output_dir: Path,
                          output_basename: Optional[str],
-                         retain_specific_regions: bool = False, reference_regions_to_retain: Path = None,
+                         reference_regions_to_retain: Path = None,
                          verbose: int = 0) -> Path:
     """
     Does the actual work to extract PGx regions from input VCF file(s) into a single VCF file and
@@ -734,7 +730,7 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
     if idx_file is None:
         index_vcf(bgz_file, verbose)
 
-    if retain_specific_regions:
+    if reference_regions_to_retain:
         df_regions_to_retain = pd.read_csv(reference_regions_to_retain, sep="\t", header=None)
         df_regions_to_retain = df_regions_to_retain[[0, 1, 2]]
         df_regions_to_retain.columns = ['CHROM', 'chromStart', 'chromEnd']
@@ -743,7 +739,7 @@ def _extract_pgx_regions(pharmcat_positions: Path, vcf_file: Path, sample_file: 
         df_regions_to_retain['POS'] = df_regions_to_retain['chromStart'] + '-' + df_regions_to_retain['chromEnd']
         ref_pgx_regions = df_regions_to_retain[['CHROM', 'POS']]
     else:
-        # obtain PGx regions to be extracted
+        # get PGx regions to be extracted
         df_pcat_pos = pd.read_csv(str(pharmcat_positions), compression='gzip', sep="\t", comment='#', header=None)
         df_pcat_pos = df_pcat_pos[[0, 1]]
         df_pcat_pos.columns = ['CHROM', 'POS']
@@ -1184,8 +1180,8 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
 def _print_missing_positions(pharmcat_positions: Path, ref_pos_dynamic, output_dir: Path, output_basename: str) -> Path:
     # report missing positions or positions with all unspecified genotypes in the input VCF
     missing_pos_file: Path = output_dir / (output_basename + _missing_pgx_var_suffix + '.vcf')
-    # TODO(markwoon): use colorama to highlight this in next release
-    print("* Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), missing_pos_file))
+    print(Fore.RED + "* Cataloging %d missing positions in %s" % (len(ref_pos_dynamic), missing_pos_file) +
+          Style.RESET_ALL)
     with open(missing_pos_file, 'w') as out_f:
         # get VCF header from pharmcat_positions
         with gzip.open(pharmcat_positions, mode='rt', encoding='utf-8') as in_f:

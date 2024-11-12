@@ -82,17 +82,11 @@ if __name__ == '__main__':
                                          "DANGEROUS!")
     preprocessor_group.add_argument("-G", "--no-gvcf-check", action="store_true",
                                     help="Bypass check if VCF file is in gVCF format.")
-
-    adv_preprocessor_group = parser.add_argument_group('Advanced preprocessor arguments (research only)')
-    adv_preprocessor_group.add_argument("-R", "--retain-specific-regions", action="store_true",
-                                        help='Retain all variants in genomic regions of interest in VCF. '
-                                             'Defaults to entire region of genes covered by PharmCAT. '
-                                             'For research use only. '
-                                             'Additional variants are not used by PharmCAT and will slow PharmCAT down.')
-    adv_preprocessor_group.add_argument("-refRegion", "--reference-regions-to-retain",
-                                        type=str, metavar='<bed_file>',
-                                        help='A sorted .bed file of PGx regions to retain. '
-                                             'Use with "-R" to specify custom regions.')
+    preprocessor_group.add_argument("-R", "--retain-specific-regions",
+                                    type=str, metavar='<bed_file>',
+                                    help='A sorted .bed file indicating regions to retain in VCF. '
+                                         'For research use only. '
+                                         'Additional variants are not used by PharmCAT and will slow PharmCAT down.')
 
     # matcher args
     matcher_group = parser.add_argument_group('Named allele matcher arguments')
@@ -217,21 +211,10 @@ lead to different results.
             print('Downloading reference FASTA.  This may take a while...')
             m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
                                                                                  verbose=args.verbose)
-        # make sure we have the pharmcat_regions.bed file if the user choose to retain regions
+        # validate .bed file if retaining specific regions
+        m_regions_bed: Optional[Path] = None
         if args.retain_specific_regions:
-            m_retain_specific_regions: bool = True
-            if args.reference_regions_to_retain:
-                m_pharmcat_regions_bed = preprocessor.validate_file(args.reference_regions_to_retain)
-            else:
-                m_pharmcat_regions_bed = preprocessor.find_file(preprocessor.PHARMCAT_REGIONS_FILENAME,
-                                                                list({script_dir}))
-                if m_pharmcat_regions_bed is None:
-                    print('Downloading %s...' % preprocessor.PHARMCAT_REGIONS_FILENAME)
-                    m_pharmcat_regions_bed = preprocessor.download_pharmcat_accessory_files(
-                        script_dir, download_region_bed=True, verbose=args.verbose)
-        else:
-            m_retain_specific_regions: bool = False
-            m_pharmcat_regions_bed = None
+            m_regions_bed = preprocessor.validate_file(args.retain_specific_regions)
 
         # prep pharmcat_positions helper files
         preprocessor.prep_pharmcat_positions(m_pharmcat_positions_vcf, m_reference_genome, verbose=args.verbose)
@@ -315,8 +298,7 @@ lead to different results.
                 keep_intermediate_files=False,
                 absent_to_ref=m_absent_to_ref,
                 unspecified_to_ref=m_unspecified_to_ref,
-                retain_specific_regions=m_retain_specific_regions,
-                reference_regions_to_retain=m_pharmcat_regions_bed,
+                reference_regions_to_retain=m_regions_bed,
                 concurrent_mode=True,
                 max_processes=m_max_processes,
                 verbose=args.verbose,
@@ -387,8 +369,7 @@ lead to different results.
             keep_intermediate_files=False,
             absent_to_ref=m_absent_to_ref,
             unspecified_to_ref=m_unspecified_to_ref,
-            retain_specific_regions=m_retain_specific_regions,
-            reference_regions_to_retain=m_pharmcat_regions_bed,
+            reference_regions_to_retain=m_regions_bed,
             concurrent_mode=True,
             max_processes=m_max_processes,
             verbose=args.verbose,
