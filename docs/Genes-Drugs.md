@@ -45,7 +45,7 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 matching recommendation data.
 
 See [Outside Call Format](/using/Outside-Call-Format) for formatting details and
-[Calling CYP2D6](/using/Calling-CYP2D6) or [Calling HLA](/using/Calling-HLA) for how to get CYP2D6 or
+[Calling CYP2D6](/using/Calling-CYP2D6) or [Calling HLA](/using/Calling-HLA) for how to obtain CYP2D6 or
 HLA calls, respectively, using sequencing data.
 
 | Gene | CPIC | DPWG |
@@ -61,7 +61,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the 184 drugs for which PharmCAT has recommendations for, along with their sources. 
+The following table lists the 183 drugs for which PharmCAT has recommendations for, along with their sources. 
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |
@@ -93,7 +93,6 @@ The following table lists the 184 drugs for which PharmCAT has recommendations f
 | carbamazepine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | carisoprodol |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | carvedilol |  |  |  | :heavy_check_mark: |
-| ceftriaxone |  |  | :heavy_check_mark: |  |
 | celecoxib | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | cevimeline |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | chloroquine |  |  | :heavy_check_mark: |  |

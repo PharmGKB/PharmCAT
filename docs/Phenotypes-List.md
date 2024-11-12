@@ -1,5 +1,5 @@
 ---
-parent: Genes and Drugs
+parent: Genes & Drugs
 title: Phenotypes List
 permalink: Phenotypes-List/
 ---
@@ -380,6 +380,10 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*11</li>
 <li>*12</li>
 <li>*13</li>
+<li>*13 + *1</li>
+<li>*13 + *1x2</li>
+<li>*13 + *2</li>
+<li>*13 + *68x2 + *4</li>
 <li>*14</li>
 <li>*15</li>
 <li>*17</li>
@@ -407,7 +411,11 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*35</li>
 <li>*35x2</li>
 <li>*36</li>
+<li>*36 + *10</li>
+<li>*36 + *10x2</li>
 <li>*36x2</li>
+<li>*36x2 + *10</li>
+<li>*36x2 + *10x2</li>
 <li>*37</li>
 <li>*38</li>
 <li>*39</li>
@@ -441,6 +449,9 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*64</li>
 <li>*65</li>
 <li>*68</li>
+<li>*68 + *2</li>
+<li>*68 + *4</li>
+<li>*68x2</li>
 <li>*69</li>
 <li>*70</li>
 <li>*71</li>

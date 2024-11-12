@@ -282,7 +282,7 @@ public class DataManager {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
       // output file
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
-      m_dataSerializer.serializeToJson(definitionFile, jsonFile);
+      DataSerializer.serializeToJson(definitionFile, jsonFile);
       if (m_verbose) {
         System.out.println("Wrote " + jsonFile);
       }
@@ -344,7 +344,7 @@ public class DataManager {
   private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
     System.out.println("Saving exemptions to " + jsonFile.toString());
     Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
-    m_dataSerializer.serializeToJson(exemptions, jsonFile);
+    DataSerializer.serializeToJson(exemptions, jsonFile);
 
     Map<String, DefinitionExemption> exemptionsMap = new HashMap<>();
     exemptions.forEach(exemption -> exemptionsMap.put(exemption.getGene(), exemption));
@@ -353,7 +353,7 @@ public class DataManager {
 
   private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {
     System.out.println("Saving messages to " + jsonFile.toString());
-    m_dataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
+    DataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
   }
 
 
