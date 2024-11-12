@@ -14,11 +14,6 @@ import preprocessor.utilities as utils
 from preprocessor import ReportableException, InappropriateVCFSuffix, InvalidURL, common
 
 
-def test_chr_arrays():
-    # make sure chr arrays are of the same length
-    assert len(utils._chr_invalid) == len(utils._chr_valid)
-
-
 def test_validate_tool():
     utils.validate_tool('bcftools', 'bcftools')
 

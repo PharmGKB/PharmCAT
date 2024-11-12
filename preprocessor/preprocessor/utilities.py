@@ -27,19 +27,19 @@ from .exceptions import ReportableException, InappropriateVCFSuffix, InvalidURL
 
 
 # chromosome names
-_chr_invalid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
-                "18", "19", "20", "21", "22", "X", "Y", "M", "MT", "chrMT"]
-_chr_valid = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-              "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-              "chr22", "chrX", "chrY", "chrM", "chrM", "chrM"]
-_chr_valid_sorter = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-                     "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-                     "chr22", "chrX", "chrY", "chrM"]
-_chr_valid_length = ["248956422", "242193529", "198295559", "190214555", "181538259",
-                     "170805979", "159345973", "145138636", "138394717", "133797422",
-                     "135086622", "133275309", "114364328", "107043718", "101991189",
-                     "90338345", "83257441", "80373285", "58617616", "64444167",
-                     "46709983", "50818468", "156040895", "57227415", "16569"]
+_chr_invalid_dict = {
+    "1": "chr1", "2": "chr2", "3": "chr3", "4": "chr4", "5": "chr5", "6": "chr6", "7": "chr7", "8": "chr8", "9": "chr9",
+    "10": "chr10", "11": "chr11", "12": "chr12", "13": "chr13", "14": "chr14", "15": "chr15", "16": "chr16",
+    "17": "chr17", "18": "chr18", "19": "chr19", "20": "chr20", "21": "chr21", "22": "chr22",
+    "X": "chrX", "Y": "chrY", "M": "chrM", "MT": "chrM", "chrMT": "chrM"
+}
+_chr_lengths = {
+    "chr1": "248956422", "chr2": "242193529", "chr3": "198295559", "chr4": "190214555", "chr5": "181538259",
+    "chr6": "170805979", "chr7": "159345973", "chr8": "145138636", "chr9": "138394717", "chr10": "133797422",
+    "chr11": "135086622", "chr12": "133275309", "chr13": "114364328", "chr14": "107043718", "chr15": "101991189",
+    "chr16": "90338345", "chr17": "83257441", "chr18": "80373285", "chr19": "58617616", "chr20": "64444167",
+    "chr21": "46709983", "chr22": "50818468", "chrX": "156040895", "chrY": "57227415", "chrM": "16569"
+}
 _missing_pgx_var_suffix = '.missing_pgx_var'
 
 def get_pgx_regions(regions_file: Path):
@@ -56,7 +56,7 @@ def get_pgx_regions(regions_file: Path):
     df_positions = pd.read_csv(str(regions_file), compression='gzip', sep="\t", comment='#', header=None)
     df_positions = df_positions[[0, 1]]
     df_positions.columns = ['CHROM', 'POS']
-    df_positions['CHROM'] = df_positions['CHROM'].astype('category').cat.set_categories(_chr_valid_sorter)
+    df_positions['CHROM'] = df_positions['CHROM'].astype('category').cat.set_categories(_chr_lengths.keys())
     pgx_regions = df_positions.groupby(['CHROM'], observed=True)['POS'].agg(_get_vcf_pos_min_max).reset_index()
     # add a special case for 'chrMT'
     idx_chr_m = pgx_regions.index[pgx_regions['CHROM'] == 'chrM']
@@ -662,8 +662,8 @@ def prep_pharmcat_positions(pharmcat_positions_vcf: Optional[Path] = None,
         if verbose:
             print('* Preparing chromosome rename file')
         with open(common.CHR_RENAME_FILE, 'w+') as f:
-            for i in range(len(_chr_invalid)):
-                f.write(_chr_invalid[i] + "\t" + _chr_valid[i] + "\n")
+            for key in _chr_invalid_dict:
+                f.write(key + "\t" + _chr_invalid_dict[key] + "\n")
 
 
 def create_uniallelic_vcf(uniallelic_positions_vcf: Path, pharmcat_positions_vcf: Path, reference_genome_fasta: Path,
@@ -716,9 +716,9 @@ def _is_valid_chr(vcf_file: Path) -> bool:
         for line in in_f:
             if line[0] != '#':
                 fields = line.rstrip().split()
-                if fields[0] in _chr_valid:
+                if fields[0] in _chr_lengths:
                     return True
-                elif fields[0] in _chr_invalid:
+                elif fields[0] in _chr_invalid_dict:
                     return False
                 else:
                     raise ReportableException('The CHROM column does not conform with either "chr##" or "##" format.')
@@ -966,9 +966,9 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                         out_f.write(line)
                     # process the sample line, add PGx-related lines
                     elif line[0:6] == '#CHROM':
-                        for chr_index in range(len(_chr_valid_sorter)):
-                            out_f.write('##contig=<ID=' + _chr_valid_sorter[chr_index] + ',length=' +
-                                        _chr_valid_length[chr_index] + ',assembly=GRCh38.p13,species="Homo sapiens">\n')
+                        for key in _chr_lengths:
+                            out_f.write('##contig=<ID=' + key + ',length=' +
+                                        _chr_lengths[key] + ',assembly=GRCh38.p13,species="Homo sapiens">\n')
                         out_f.write('##INFO=<ID=PX,Number=.,Type=String,Description="Gene">\n')
                         out_f.write('##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not'
                                     ' part of an allele definition">\n')
@@ -1181,6 +1181,7 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
             filtered_vcf: Path = output_dir / (output_basename + '.multiallelic.vcf')
             with open(filtered_vcf, 'w') as out_f:
                 print('Adding back non-PGx variants at PGx positions...')
+                chrs = list(_chr_lengths.keys())
                 with gzip.open(normed_bgz, mode='rt', encoding='utf-8') as in_f:
                     for line in in_f:
                         # print all header lines
@@ -1196,10 +1197,10 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             fields = line.split('\t')
                             while len(non_pgx_records):
                                 non_pgx_fields = non_pgx_records[0].split('\t')
-                                if _chr_valid_sorter.index(fields[0]) > _chr_valid_sorter.index(non_pgx_fields[0]):
+                                if chrs.index(fields[0]) > chrs.index(non_pgx_fields[0]):
                                     out_f.write(non_pgx_records[0] + '\n')
                                     non_pgx_records.pop(0)
-                                elif _chr_valid_sorter.index(fields[0]) == _chr_valid_sorter.index(non_pgx_fields[0]) \
+                                elif chrs.index(fields[0]) == chrs.index(non_pgx_fields[0]) \
                                         and int(fields[1]) > int(non_pgx_fields[1]):
                                     out_f.write(non_pgx_records[0] + '\n')
                                     non_pgx_records.pop(0)
