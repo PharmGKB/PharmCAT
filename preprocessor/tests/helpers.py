@@ -1,7 +1,7 @@
+import gzip
 import hashlib
 import shutil
 import urllib.request
-import gzip
 from pathlib import Path
 from typing import Optional, List
 
@@ -12,6 +12,7 @@ from preprocessor import download_reference_fasta_and_index
 TEST_DOWNLOAD = False
 NETWORK_AVAILABLE = True
 
+# noinspection PyBroadException
 try:
     with urllib.request.urlopen('https://google.com') as response:
         NETWORK_AVAILABLE = True
@@ -63,7 +64,7 @@ def read_vcf(file: Path, bgzipped: bool = False, skip_comments: bool = True):
 
 
 def _read_vcf(in_f, skip_comments: bool = True):
-    """Reads VCF file and (1) strips trailing spaces, (2) removes empty lines and (3) normalizes line endings."""
+    """Reads the VCF file and (1) strips trailing spaces, (2) removes empty lines and (3) normalizes line endings."""
     lines = []
     for line in in_f:
         line = line.rstrip()
@@ -105,7 +106,7 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
     actual_lines = read_vcf(actual).split('\n')
 
     if len(expected_lines) != len(actual_lines):
-        assert False, f'mismatching number of lines between {expected} and {actual}'
+        assert False, f'Different number of lines (expected {expected}, found {actual})'
 
     for expected_line, actual_line in zip(expected_lines, actual_lines):
         columns = ['CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT', 'Samples']
@@ -113,15 +114,15 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
         actual_fields = actual_line.split('\t')
 
         if len(expected_fields) != len(actual_fields):
-            assert False, f'mismatching number of samples between {expected} and {actual}'
+            assert False, f'Different number of samples (expected {expected}, found {actual})'
 
         for i, col in enumerate(columns):
             # compare the ALT alleles
             if i == 4 and set(actual_fields[3]) != set(expected_fields[3]):
-                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'
+                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
             # compare genotypes
             if i == 9 and actual_fields[9:] != expected_fields[9:]:
-                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'
+                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
             # compare the rest
             if actual_line[i] != expected_line[i]:
-                assert False, f'mismatching {col}:\nexpected: {expected_line}\nactual: {actual_line}'
+                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
