@@ -1,3 +1,21 @@
+## [2.15.5](https://github.com/PharmGKB/PharmCAT/compare/v2.15.4...v2.15.5) (2024-11-13)
+
+### Bug Fixes
+
+* update pharmcat_regions.bed on data update ([8911fa1](https://github.com/PharmGKB/PharmCAT/commit/8911fa1c4eb5dc1a295464483b492b28f12ed076))
+* **data:** update data ([f429762](https://github.com/PharmGKB/PharmCAT/commit/f429762f69641546dcc5842bacd972e7e30d64c8))
+* **preprocessor:** add a check and test on the GVCFBlock comment in the gVCF header lines ([76b31dd](https://github.com/PharmGKB/PharmCAT/commit/76b31dd4e075f5abdc82dc5883d45fc4bc08a684))
+* **preprocessor:** add a function to fill up homozygous reference genotypes ([f302af6](https://github.com/PharmGKB/PharmCAT/commit/f302af65bc956922b310dca344df0fa9e2cf7738))
+* **preprocessor:** add back --missing-to-ref ([fad76c9](https://github.com/PharmGKB/PharmCAT/commit/fad76c9776411a6bb735c910f8d5ab8d94a4ebd0))
+* **preprocessor:** check whether the index file exists before indexing the uniallelic position VCF ([d2078f0](https://github.com/PharmGKB/PharmCAT/commit/d2078f0062bc6f18d81a362f72ac17a5e19fbc00))
+* **preprocessor:** improve the check on the gVCF END block ([6854ec3](https://github.com/PharmGKB/PharmCAT/commit/6854ec3d7cd51982cfa8b712ed1286f3381d4472)), closes [#199](https://github.com/PharmGKB/PharmCAT/issues/199)
+* **preprocessor:** make search path precedence count ([1b5754d](https://github.com/PharmGKB/PharmCAT/commit/1b5754d02095e80558b672fc3cacc4854c84f8f2))
+* **preprocessor:** matching pattern for GVCFBlock in the header ([6509882](https://github.com/PharmGKB/PharmCAT/commit/6509882af82ff2225445ea54a216aeedb1b455fb))
+* **preprocessor:** only retrieve regions to extract once ([3964b13](https://github.com/PharmGKB/PharmCAT/commit/3964b1384e5439827afdb920e4b4a82556c36a0c))
+* **preprocessor:** remove -refRegion argument from preprocessor ([5331c2b](https://github.com/PharmGKB/PharmCAT/commit/5331c2b0dd1f2538763dc7fb5fd598698b58fe89))
+* **preprocessor:** replace the "--missing-to-ref" functionality with two separate functions, --absent-to-ref and --unspecified-to-ref. ([98f7559](https://github.com/PharmGKB/PharmCAT/commit/98f7559fac37d0260b6309701544c2c70366fdd5))
+* **preprocessor:** simplifies the check on sex chromosome haploidy ([90a0306](https://github.com/PharmGKB/PharmCAT/commit/90a030656b8c110beb399786af90b8987b8f17b0))
+
 ## [2.15.4](https://github.com/PharmGKB/PharmCAT/compare/v2.15.3...v2.15.4) (2024-10-15)
 
 ### Bug Fixes
