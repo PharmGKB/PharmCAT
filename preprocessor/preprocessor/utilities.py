@@ -42,6 +42,7 @@ _chr_lengths = {
 }
 _missing_pgx_var_suffix = '.missing_pgx_var'
 
+
 def get_pgx_regions(regions_file: Path):
     if regions_file.name.endswith(".bed"):
         df_regions = pd.read_csv(regions_file, sep="\t", header=None)
@@ -703,8 +704,6 @@ def create_regions_file(regions_file: Path, pharmcat_positions_vcf: Path, verbos
             entries[px]['start'] = entries[px]['start'] - 200
             entries[px]['end'] = entries[px]['end'] + 200
             f.write(data['chr'] + "\t" + str(data['start'] - 200) + "\t" + str(data['end'] + 200) + "\t" + px + "\n")
-
-
 
 
 def _is_valid_chr(vcf_file: Path) -> bool:

@@ -19,7 +19,7 @@ def test_preprocess():
         shutil.copyfile(vcf_file, tmp_vcf)
 
         basename = 'preprocess'
-        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions,False,
+        results = preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False,
                              [tmp_vcf], None, basename, tmp_dir, basename, verbose=1)
         print(tmp_dir)
         files = os.listdir(tmp_dir)
