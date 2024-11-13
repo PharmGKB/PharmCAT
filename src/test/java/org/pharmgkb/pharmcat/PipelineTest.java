@@ -408,6 +408,9 @@ class PipelineTest {
    * NOTE: if these assertions fail, then new data may have been added from the DataManager because of an update to the
    * CPIC database. If that's true, then update these numbers to the current count. If the count changes with no known
    * change to the CPIC database, then something may be wrong in the code.
+   *
+   * <p>NOTE: you may also want to check the git log of Genes-Drugs.md to see specifically what genes/drugs have
+   * changed.</p>
    */
   @Test
   void testCounts(TestInfo testInfo) throws Exception {
@@ -425,7 +428,7 @@ class PipelineTest {
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(184, drugs.size());
+    assertEquals(183, drugs.size());
   }
 
   @Test
