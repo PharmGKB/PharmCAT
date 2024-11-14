@@ -23,5 +23,5 @@ RUN make setup && \
     rm -f Makefile Gemfile Gemfile.lock
 
 WORKDIR /PharmCAT/docs
-COPY bashrc /root/.bashrc
+COPY .bashrc /root/.bashrc
 CMD ["/bin/bash"]
