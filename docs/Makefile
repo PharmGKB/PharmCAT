@@ -18,3 +18,7 @@ next: clean build
 dev:
 	bundle exec just-the-docs rake search:init
 	bundle exec jekyll build --incremental
+	cd ..; yarn localDocs
+
+local:
+	bundle exec jekyll serve --force-polling --incremental

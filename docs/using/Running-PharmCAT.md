@@ -1,23 +1,20 @@
 ---
 parent: Using PharmCAT
-title: Running PharmCAT
+title: PharmCAT Tool
 permalink: using/Running-PharmCAT/
-nav_order: 1
+nav_order: 7
 render_with_liquid: false
 mermaid: true
 ---
-# Running PharmCAT
+# Running the PharmCAT Tool
 
 This document teaches you how to use the core PharmCAT tool.
 
 
 ## Prerequisites
 
-### Install the Software
-You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
-
-1. You will need [Java 17 or newer](https://adoptium.net/index.html?variant=openjdk17&jvmVariant=hotspot).
-2. Download the PharmCAT Jar file from our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
+This assumes that you are either [using Docker](/using/PharmCAT-in-Docker) or have already
+[set up PharmCAT](/using/Setup-PharmCAT).
 
 
 ### Prepare Your VCF Files
@@ -25,9 +22,10 @@ You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker)
 PharmCAT takes VCF files as input.
 
 {: .warn}
-> Please make sure you have read and understand PharmCAT's [VCF requirements](/using/VCF-Requirements).
->
-> If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor).
+Please make sure you have read and understand PharmCAT's [VCF requirements](/using/VCF-Requirements).
+<br /><br />
+If you are not preparing your VCF files yourself, we highly recommend you run your VCF file through PharmCAT's
+[VCF Preprocessor](/using/VCF-Preprocessor).
 
 
 ## Running PharmCAT

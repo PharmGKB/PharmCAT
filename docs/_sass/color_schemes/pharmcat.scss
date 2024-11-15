@@ -3,8 +3,9 @@ $link-color: $blue-200;
 // from https://github.com/just-the-docs/just-the-docs/issues/171#issuecomment-538794741
 $callouts: (
     info: ($blue-300, rgba($blue-000, .2), 'INFO'),
-    warn: ($yellow-300, rgba($yellow-000, .2), 'WARNING'),
-    danger: ($red-300, rgba($red-000, .2), 'DANGER')
+    warn: ($yellow-300, rgba($yellow-000, .3), 'WARNING'),
+    danger: ($red-300, rgba($red-000, .2), 'DANGER'),
+    attention: ($yellow-300, rgba($yellow-000, .1), 'attention')
 );
 
 @each $class, $props in $callouts {
@@ -31,18 +32,29 @@ $callouts: (
 
 .logoDiv {
   display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &__logo {
+    height: 120px;
+    margin-right: 2rem;
+
+    img {
+      height: 120px;
+    }
+  }
 
   &__links {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
-    margin-top: 8%;
+    margin-top: 4rem;
 
-    @media (max-width: 715px) {
-      margin-top: 5%;
+    @media (max-width: 630px) {
+      margin-top: 1rem;
     }
-    @media (min-width: 800px) and (max-width: 995px) {
-      margin-top: 5%;
+    @media (min-width: 800px) and (max-width: 915px) {
+      margin-top: 1rem;
     }
 
     span {
@@ -56,7 +68,29 @@ $callouts: (
   }
 }
 
+.img-translation {
+  max-width: 600px;
+
+  @media (max-width: 800px) {
+    max-width: 100%;
+  }
+}
+.img-pipeline {
+  margin-top: 1rem;
+}
+
+.language-plaintext, .language-console {
+  line-height: 1;
+  code {
+    line-height: 1;
+  }
+}
+
 // hide footer so that menu works on mobile
 .site-footer {
   display: none;
+}
+
+.site-logo {
+  height: 3.2rem !important;
 }

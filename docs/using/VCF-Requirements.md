@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: VCF Requirements
 permalink: using/VCF-Requirements/
-nav_order: 2
+nav_order: 3
 ---
 # VCF Requirements
 
@@ -26,14 +26,17 @@ In addition, PharmCAT expects incoming VCF to meet the following requirements:
 4. [Normalize insertions and deletions](#requirement-4---normalize-insertions-and-deletions) to the expected left-aligned representation.
 5. [The `CHROM` field must be in the format "chr##"](#requirement-5---the-chrom-field-must-be-in-the-format-chr).
 
-{: .info}
-> We highly recommend that you use PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor) to prepare your VCF files for
-> use by PharmCAT.
+{: .attention}
+We highly recommend that you use PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor) to prepare your VCF files for
+use by PharmCAT.
 
 The PharmCAT VCF Preprocessor automates the process of making your VCF PharmCAT-ready as much as possible.
 It will handle requirements #2 - #5 in most cases.  However, it will always err on the side of caution and not make
 any assumptions about your data.  If it cannot automate something, it's most likely because there is no obvious way for
 it to do so, and you will have to manage the idiosyncrasies in your data yourself.
+
+For real-world examples of changes the VCF Preprocessor will make, we have a page collecting
+[before and after examples](/using/Variant-Normalization) of these normalization changes.
 
 If you believe there is a tool that can do a better job with variant normalization other than bcftools
 (or if there is a better way to use bcftools), please [let us know](mailto:pharmcat@pharmgkb.org).

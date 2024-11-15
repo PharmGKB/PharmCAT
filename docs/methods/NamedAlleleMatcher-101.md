@@ -13,21 +13,38 @@ The basic process:
 
 1. Read in all named allele definitions from the gene definition table.
    Each gene has a reference allele defined by the first definition row in the table (e.g. \*1).  By default, any
-   non-reference named allele that does not contain a base call for a given position (ie. blank spots in the definition
+   non-reference named allele that does not contain a base call for a given position (i.e. blank spots in the definition
   table) will default to the reference row's base call.
 2. Read in sample data (VCF file), ignoring positions that are not used in the gene definition tables.
 3. For each gene:
-    1. If data is unphased, generate all possible combinations of genotypes for the positions of interest.
-    2. Attempt to match each combination to a named allele.<sup>[1](#notes)</sup>
-    3. If there are matches, and data is unphased, try to build diplotypes by making sure that the genotype combinations are possible.
-    4. If diplotypes can be found, they are scored and only the top-scoring diplotype(s) is returned.<sup>[2](#notes)</sup>
+    * If the data is phased:
+        1. Attempt to match the genotypes in each strand to a named allele.
+        2. Return matched diplotype
+    * If the data is unphased:
+        1. Generate all possible combinations of genotypes for the positions of interest.
+        2. Attempt to match each combination to a named allele.<sup>[1](#notes)</sup>
+        3. If there are matches, try to build diplotypes by making sure that the genotype combinations are possible.
+        4. Return matched diplotype(s).  If multiple diplotypes are possible, they are scored and only the top-scoring
+           diplotype(s) is returned.<sup>[2](#notes)</sup>
 
+Note that some genes have to be handled differently (e.g. DPYD and SLCO1B1).
+See [Gene Definition Exceptions](/methods/Gene-Definition-Exceptions) for details.
+
+
+{: .attention }
+When given unphased data, the `Named Allele Matcher` may call multiple diplotypes.  These are all equally possible and
+valid.  They are assigned scores not because one is better than another but so that we can consistently pick one over
+another when necessary.  It is as arbitrary as choosing by alphabetical order.
+<br /><br />
+For reliable diplotype calls, phased data is best.
 
 
 
 ## Scoring
 
-Each named allele is given a score based on the number of variant positions used to define the allele (non-blank cells in that row).  This means that the reference allele will always have the maximum score because all positions are defined for that allele.
+Each named allele is given a score based on the number of variant positions used to define the allele (non-blank cells
+in that row).  This means that the reference allele will always have the maximum score because all positions are defined
+for that allele.
 
 Take a look at this sample gene definition table:
 

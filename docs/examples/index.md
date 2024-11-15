@@ -25,7 +25,7 @@ This is an example of an optional file of [outside diplotype calls](/using/Outsi
 
 ### Named Allele Matcher output
 
-The `Named Allele Matcher` component generates both HTML and JSON files with detailed information about how data in the 
+The `Named Allele Matcher` module generates both HTML and JSON files with detailed information about how data in the 
 sample VCF matches up with haplotype definitions.
 
 - [example matcher HTML](pharmcat.example.match.html)
@@ -33,14 +33,14 @@ sample VCF matches up with haplotype definitions.
 
 ### Phenotyper output
 
-The `Phenotyper` component takes data from the `Named Allele Matcher` and combines it with outside call data to assign 
+The `Phenotyper` module takes data from the `Named Allele Matcher` and combines it with outside call data to assign 
 function and metabolizer values.
 
 - [example phenotype JSON](pharmcat.example.phenotype.json)
 
 ### Reporter output
 
-The `Reporter` component takes data from the `Phenotyper` and matches phenotypes to information found in CPIC guideline
+The `Reporter` module takes data from the `Phenotyper` and matches phenotypes to information found in CPIC guideline
 data. This data is visible in an HTML report and also in a JSON file for machine parsing.
 
 - [example report HTML](pharmcat.example.report.html)

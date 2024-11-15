@@ -30,7 +30,7 @@ mermaid:
 color_scheme: pharmcat
 ga_tracking: G-7ZP1HHBWTE
 ga_tracking_anonymize_ip: true
-logo: /images/pharmcat_header.png
+logo: /images/pharmcat_logo.svg
 show_downloads: true
 
 pharmcat_version: 2.15.5

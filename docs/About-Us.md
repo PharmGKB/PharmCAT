@@ -5,20 +5,18 @@ nav_order: 10
 ---
 # About Us
 
-## Co-PIs
+PharmCAT is developed and maintained by Mark Woon (lead developer), Ryan Whaley (lead developer),
+Katrin Sangkuhl (lead scientist) and Michelle Whirl-Carrillo (scientist) at Stanford University.
+Binglan Li developed the preprocessor.
 
-Teri Klein (Stanford University) and Marylyn Ritchie (University of Pennsylvania)
+The co-Principal Investigators on the project are Teri Klein at Stanford University and Marylyn Ritchie at University of
+Pennsylvania.
 
 
-## Current Team
+## Other Team Members
 
 | Name                    | Institution                |
 |:------------------------|:---------------------------|
-| Binglan Li              | Stanford University        |
-| Katrin Sangkuhl         | Stanford University        |
-| Ryan Whaley             | Stanford University        |
-| Michelle Whirl-Carrillo | Stanford University        |
-| Mark Woon               | Stanford University        |  
 | Karl Keat               | University of Pennsylvania |
 | Andre Rico              | University of Pennsylvania |
 | Sony Tuteja             | University of Pennsylvania |
@@ -43,6 +41,7 @@ PharmCAT is now part of [ClinPGx](https://clinpgx.org).  PharmCAT's scientific a
 | Mark Dunnenberger  | Northshore University Health System        |
 | Philip Empey       | University of Pittsburgh                   |
 | Alex Frase         | University of Pennsylvania                 |
+| Obed Garcia        | Stanford University                        |
 | Robert Freimuth    | Mayo Clinic                                |
 | Andrea Gaedigk     | Children's Mercy Hospital                  |
 | Adam Gordon        | University of Washington                   |

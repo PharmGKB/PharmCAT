@@ -2,18 +2,22 @@
 parent: Using PharmCAT
 title: PharmCAT in Docker
 permalink: using/PharmCAT-in-Docker/
-nav_order: 6
+nav_order: 1
 render_with_liquid: false
 ---
 # PharmCAT in Docker
 
-PharmCAT is available in a Docker container.
+PharmCAT is available in a [Docker container](https://hub.docker.com/r/pgkb/pharmcat).
+If you are not familiar with Docker, this [overview](https://docs.docker.com/get-started/overview/) is a good starting
+point.
+
+This page will cover the basics of getting started with Docker and PharmCAT.
+
 
 ## Setup
 
-If you are not familiar with Docker, this [overview](https://docs.docker.com/get-started/overview/) is a good starting point.
-
-You must have Docker [installed](https://docs.docker.com/get-docker/) to use PharmCAT via Docker.
+If you don't already have Docker installed,
+[follow these instructions to install Docker](https://docs.docker.com/get-docker/).
 
 Then you can get PharmCAT from [Docker Hub](https://hub.docker.com/r/pgkb/pharmcat):
 
@@ -25,9 +29,19 @@ Then you can get PharmCAT from [Docker Hub](https://hub.docker.com/r/pgkb/pharmc
 
 You will need to make your data accessible to the Docker container. There are
 [several options](https://docs.docker.com/storage/) to choose from, and you will have to decide what works best for you.
-For example, a volume mount is the best for persisting data, but will take some configuration.
+For example, a volume mount is the best for persisting data but will take some configuration.
 
-This tutorial will use bind mounts because they are the easiest to use and requires no prior configuration.
+This tutorial will use bind mounts because they are the easiest to use and require no prior configuration.
+
+There are two ways to use the Docker image: on a per-command basis or interactively.
+Choose the former if you only want to run PharmCAT as a one-off event.
+If you intend to run multiple PharmCAT commands or are exploring the tool, then interactive mode would be a better 
+option (and involve less typing).  
+
+
+### Per-command usage
+
+Use this to run PharmCAT with single commands.  
 
 General usage:
 
@@ -35,83 +49,79 @@ General usage:
 # docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat <xxx>
 ```
 
---rm
-: Cleans up the container automatically when you're done with it
+* __docker run__: The base Docker command
+* __--rm__: Cleans up the container automatically when you're done with it
+* __-v__: Bind mounts `/path/to/data` on your machine to `/pharmcat/data` in the Docker image.
+This will make the data available under the `data` subdirectory.
+* __pgkb/pharmcat__: The name of the PharmCAT image
+* __&lt;xxx&gt;__: Command to run
 
--v
-: Bind mounts `/path/to/data` on your machine to `/pharmcat/data` in the Docker image.  This will make the data available under the `data` subdirectory.
+##### Example 
 
-`<xxx>`
-: Command to run
-
-If you run `ls`, it will list the contents of the `/pharmcat` directory:
+Assuming you have a VCF file called `sample.vcf` in `/path/to/data`, you can run the
+[PharmCAT Pipeline](/using/Running-PharmCAT-Pipeline) with:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ls
-pharmcat_vcf_preprocessor.py
-data
-pharmcat
-pharmcat.jar
-pharmcat_pipeline
-pharmcat_positions.uniallelic.vcf.bgz
-pharmcat_positions.uniallelic.vcf.bgz.csi
-pharmcat_positions.vcf
-pharmcat_positions.vcf.bgz
-pharmcat_positions.vcf.bgz.csi
-preprocessor
-reference.fna.bgz
-reference.fna.bgz.fai
-reference.fna.bgz.gzi
-vcf_preprocess_exceptions.py
-vcf_preprocess_utilities.py
+# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline /pharmcat/data/sample.vcf
+PharmCAT version: {{site.pharmcat_version}}
+
+Processing /pharmcat/data/sample.vcf ...
+
+Running PharmCAT...
+Checking files...
+* Found 1 VCF file
+Saving named allele matcher JSON results to /pharmcat/data/sample.match.json
+Saving phenotyper JSON results to /pharmcat/data/sample.phenotype.json
+Saving reporter HTML results to /pharmcat/data/sample.report.html
+
+Done.
+#
 ```
 
 
-### Running the PharmCAT pipeline
+### Interactive mode
 
-The [Pharmcat pipeline](/using/Running-PharmCAT-Pipeline) combines the [VCF preprocessor](/using/VCF-Preprocessor) and
-the core [PharmCAT tool](/using/Running-PharmCAT).  You should be familiar with both tools and their requirements.
+Use this if you want to run PharmCAT multiple times or just explore the available options.
 
-That said, this is the easiest way to run PharmCAT:
-
-```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_pipeline <vcf_file>
-```
-
-If you have a file `/path/to/data/sample.vcf`, you would use:
+To start interactive mode:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat ./pharmcat_pipeline data/sample.vcf
+# docker run --rm -v /path/to/data:/pharmcat/data -it pgkb/pharmcat
 ```
+* __docker run__: The base Docker command
+* __--rm__: Cleans up the container automatically when you're done with it
+* __-v__: Bind mounts `/path/to/data` on your machine to `/pharmcat/data` in the Docker image.
+This will make the data available under the `data` subdirectory.
+* __-it__: Starts interactive mode
+* __pgkb/pharmcat__: The name of the PharmCAT image
 
+##### Example
 
-### Running the VCF Preprocessor
-
-Your VCF files needs to comply with [PharmCAT's requirements](/using/VCF-Requirements).  [PharmCAT's VCF Preprocessor](/using/VCF-Preprocessor) will handle much of this for you.
+Once you are in interactive mode, you can proceed to use PharmCAT.
+Assuming you have a VCF file called `sample.vcf` in `/path/to/data`, you can run the
+[PharmCAT Pipeline](/using/Running-PharmCAT-Pipeline) with:
 
 ```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_vcf_preprocessor.py -vcf <vcf_file>
+# docker run --rm -v /path/to/data:/pharmcat/data -it pgkb/pharmcat
+/pharmcat > pharmcat_pipeline /pharmcat/data/sample.vcf
+PharmCAT version: {{site.pharmcat_version}}
+
+Processing /pharmcat/data/sample.vcf ...
+
+Running PharmCAT...
+Checking files...
+* Found 1 VCF file
+Saving named allele matcher JSON results to /pharmcat/data/sample.match.json
+Saving phenotyper JSON results to /pharmcat/data/sample.phenotype.json
+Saving reporter HTML results to /pharmcat/data/sample.report.html
+
+Done.
+/pharmcat >
 ```
 
-If you have a file `/path/to/data/sample.vcf`, you would use:
 
-```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat_vcf_preprocessor.py -vcf data/sample.vcf
-```
+## Next Steps
 
+Once you have Docker set up, learn more about how to use PharmCAT:
 
-### Running PharmCAT
-
-```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat <vcf_file>
-```
-
-After running the file `/path/to/data/sample.vcf` through the preprocessor, if it was a single sample file, you should 
-have gotten a file called `sample.preprocessed.vcf`.  You can then run this through PharmCAT with:
-
-```console
-# docker run --rm -v /path/to/data:/pharmcat/data pgkb/pharmcat pharmcat -vcf data/sample.preprocessed.vcf
-```
-
-> The Docker image includes the `pharmcat` script, which is just a wrapper around the call to Java.  For details on 
-> using PharmCAT, please see the [Running PharmCAT](/using/Running-PharmCAT).
+* [PharmCAT Pipeline](/using/Running-PharmCAT-Pipeline)
