@@ -85,7 +85,7 @@
               "to": "pharmcat_version: ${nextRelease.version}",
               "results": [
                 {
-                  "file": "docs/index.md",
+                  "file": "docs/_config.yml",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
@@ -185,7 +185,7 @@
             "bin/setup.sh",
             "dockstore/pipeline/PharmCAT_Pipeline.wdl",
             "dockstore/pipeline/README.md",
-            "docs/index.md",
+            "docs/_config.yml",
             "package.json",
             "preprocessor/preprocessor/common.py"
           ],

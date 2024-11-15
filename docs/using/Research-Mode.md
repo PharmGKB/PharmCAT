@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: Research Mode
 permalink: using/Research-Mode/
-nav_order: 10
+nav_order: 11
 ---
 # Research Mode
 

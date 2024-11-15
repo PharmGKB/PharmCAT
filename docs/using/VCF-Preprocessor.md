@@ -1,13 +1,14 @@
 ---
 parent: Using PharmCAT
-title: Running the VCF Preprocessor
+title: VCF Preprocessor
 permalink: using/VCF-Preprocessor/
-nav_order: 4
+nav_order: 6
 render_with_liquid: false
 ---
 # PharmCAT VCF Preprocessor
 
-The PharmCAT VCF Preprocessor is a script that can preprocess VCF files for PharmCAT (see [PharmCAT's VCF Requirements](/using/VCF-Requirements)).
+The PharmCAT VCF Preprocessor is a script that can pre-process VCF files for PharmCAT to make sure the VCF file
+complies with [PharmCAT's VCF Requirements](/using/VCF-Requirements).
 
 
 This tool will:
@@ -26,27 +27,9 @@ By default, the PharmCAT VCF preprocessing produces two types of **output**:
 
 ## Prerequisites
 
-### Install the Software
+This assumes that you are either [using Docker](/using/PharmCAT-in-Docker) or have already
+[set up PharmCAT](/using/Setup-PharmCAT).
 
-You can skip this if are [running PharmCAT in Docker](/using/PharmCAT-in-Docker).
-
-1. You will need python 3.10.14 or higher
-2. You will need the following bioinformatic tools:
-    * [bcftools >= v1.18](http://www.htslib.org/download/)
-    * [htslib >= v1.18](http://www.htslib.org/download/)
-3. Download the preprocessor tar file from our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
-    * Untar the file
-4. You will need the following python dependencies:
-    * colorama >= 0.4.6
-    * pandas >= 1.5.1
-    * packaging ~= 21.3
-
-To install the necessary python packages, run the following code:
-```console
-$ pip3 install -r requirements.txt
-```
-
-You can find `requirements.txt` in the preprocessor tar file you downloaded. 
 
 
 ## How to run the PharmCAT VCF Preprocessor
@@ -64,7 +47,10 @@ $ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
 **Mandatory** argument: `-vcf`.
 
 -vcf
-: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome position. All VCF files must have the same set of samples. Use this when data for a sample has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank). Input VCF files must at least comply with [Variant Call Format (VCF) Version >= 4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
+: Path to a single VCF file or a file containing the list of VCF file paths (one per line), sorted by chromosome
+position. All VCF files must have the same set of samples. Use this when data for a sample has been split among
+multiple files (e.g. VCF files from large cohorts, such as UK Biobank). Input VCF files must at least comply with
+[Variant Call Format (VCF) Version >= 4.2](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
 VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 

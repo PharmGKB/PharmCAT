@@ -1,28 +1,24 @@
 ---
 parent: Using PharmCAT
-title: Running the PharmCAT Pipeline
+title: PharmCAT Pipeline
 permalink: using/Running-PharmCAT-Pipeline/
-nav_order: 5
+nav_order: 2
 render_with_liquid: false
 ---
 # Running the PharmCAT Pipeline
 
-For convenience, we have a single script (`pharmcat_pipeline`) that simplifies the process of running the entire 
-PharmCAT pipeline (the [VCF Preprocessor](/using/VCF-Preprocessor) and the [core PharmCAT tool](/using/Running-PharmCAT)).
+The PharmCAT pipeline is composed of two components: the [VCF Preprocessor](/using/VCF-Preprocessor) and the 
+[PharmCAT tool](/using/Running-PharmCAT).
 
-This script tries to keep things as simple as possible.  If you need advanced features, you will need to run the
-individual parts of the pipeline directly.
+For convenience, we have a single script (`pharmcat_pipeline`) that simplifies the process of running the pipeline. 
+This script tries to keep things as simple as possible. If you need advanced features, you may need to run the
+individual components of the pipeline directly.
 
 
 ## Prerequisites
 
-You must have both the VCF preprocessor and the core PharmCAT tool installed correctly.  All the dependencies (python3, java, bcfools, bgzip) must already be in your PATH.  If necessary, you can customize which versions of these dependencies to use using environment variables:
-
-* `JAVA_HOME` - the directory where the version of Java you want to use is installed
-* `BCFTOOLS_PATH` - the full path to the `bcftools` program
-* `BGZIP_PATH` - the full path to the `bgzip` program
-
-The `pharmcat_pipeline` script is in the PharmCAT VCF Preprocessor tar file that's available on our [releases page](https://github.com/PharmGKB/PharmCAT/releases/).
+This assumes that you are either [using Docker](/using/PharmCAT-in-Docker) or have already
+[set up PharmCAT](/using/Setup-PharmCAT).
 
 
 ## Usage
@@ -34,7 +30,7 @@ Standard use case:
 ```
 
 
-### Details 
+Full list of options: 
 
 ```
 usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
@@ -115,15 +111,47 @@ Concurrency/Memory arguments:
                         variable.
 ```
 
-#### Inputs
+### Inputs
+
+#### 1. VCF data 
+
+You must specify exactly one of the following:
 
 * A VCF file
-    * can be single or multisample
+    * can be single or multi-sample
     * can be compressed (with gzip/bgzip)
-* A text file containing a list of VCF file paths.  Files should be listed one per line, sorted by chromosome position.  Use this when data has been split among multiple files (e.g. VCF files from large cohorts, such as UK Biobank).
-* A directory.  The script will look for VCF files to process, and they will be treated individually.
+* A directory containing VCF files
+* For multi-file VCFs, a text file containing the list of VCF files.
+  Files should be listed one per line, sorted by chromosome position.
 
-If the provided VCF file contains multiple samples, you can limit which samples get processed with either the `-s` or `-S` flag.
+{: .info }
+Some large datasets come in multi-file VCFs, where a single extremely large VCF file is split across multiple smaller
+VCF files. Examples of this are data from the International Genome Sample Resource (IGSR) 
+(e.g. [Sample NA12878](https://www.internationalgenome.org/data-portal/sample/NA12878)) and UK Biobank
+(e.g. [Data-Field 23156](https://biobank.ctsu.ox.ac.uk/crystal/field.cgi?id=23156)).
+<br /><br />
+To feed multi-file VCFs to `pharmcat_pipeline`, you will need to create a text file that lists all the VCF files.
+Files should be listed one per line, sorted by chromosome position.
+
+
+#### 2. Outside call file(s)
+
+If you need to provide [outside calls](/using/Outside-Call-Format), you can do so with the following file naming 
+convention: `<sample_id>.outside.tsv`.  For example, if your sample is `Sample_1`, then use `Sample_1.outside.tsv`.
+
+If you have a single sample VCF file, you can also use the base name of the VCF file.
+For example, use `mydata.outside.vcf` if you have a single sample VCF file called `mydata.vcf`.
+
+If you have a multi-sample VCF file, (e.g. `multisample.vcf`) and have outside calls for `Sample_1`, you can use
+`multisample.Sample_1.outside.tsv` instead.
+
+These files need to be in the same directory as the VCF file.
+
+
+#### Filtering Samples
+
+If the provided VCF file contains multiple samples, you can limit which samples get processed with either the
+`-s` (a comma separated list of sample IDs) or `-S` flag (a file containing a list of sample IDs, one per line)
 
 
 #### Concurrent Processing
@@ -131,18 +159,6 @@ If the provided VCF file contains multiple samples, you can limit which samples 
 The script will automatically attempt to use concurrent processing if possible.
 
 
-#### Outside Calls
-
-If you need to provide [outside calls](/using/Outside-Call-Format), you can do so with the following file naming 
-convention: `<sample_id>.outside.tsv`.  For example, if your sample is `Sample_1`, then use `Sample_1.outside.tsv`.
-
-If you have a single sample VCF file, you can also just use the basename of the VCF file.  For example, use
-`mydata.outside.vcf` if you have a single sample VCF file called `mydata.vcf`.
-
-If you have a multisample VCF file, (e.g. `multisample.vcf`) and have outside calls for `Sample_1`, then can use
-`multisample.Sample_1.outside.tsv` instead.
-
-These files need to be in the same directory as the VCF file.
 
 
 #### Naming Conventions
@@ -156,7 +172,129 @@ PharmCAT uses the following sub-extensions in filenames to indicate which part o
 
 These sub-extensions will be stripped off any filename to derive a base name for the file.
 
-For example: the basename for `mydata.preprocessed.vcf` is `mydata`. 
+For example, the base name for `mydata.preprocessed.vcf` is `mydata`. 
 
-In addition, outside call files with a `.outside` sub-extension will have the sub-extension stripped to derive the base
-name for the file.
+In addition, outside call files with a `.outside.tsv` extension will have the extension stripped to derive the base name
+for the file.
+
+
+### Examples
+
+#### Single-sample VCF
+
+You have a [VCF file that contains data for a single person](/examples/pharmcat.example.vcf) saved as `/data/test.vcf`.
+
+Base command, assuming you are in the directory in which you've installed PharmCAT:
+
+```console
+# pharmcat_pipeline /data/test.vcf
+```
+
+To run via Docker:
+
+```console
+# docker run --rm -v /data:/pharmcat/data pgkb/pharmcat pharmcat_pipeline data/test.vcf
+```
+
+Explanation: you are mounting `/data` as `/pharmcat/data`.  When you run the `pharmcat_pipeline` command, you are 
+running it from the `/pharmcat` directory, so you can use a relative path to your VCF file.
+
+If running Docker in [interactive mode](/using/PharmCAT-in-Docker#interactive-mode):
+
+```console
+# docker run --rm -v /data:/pharmcat/data -it pgkb/pharmcat
+/pharmcat > pharmcat_pipeline data/test.vcf
+```
+
+{: .info }
+For the remainder of these examples, I will only be providing the base command.
+Hopefully, the examples above are enough to show you how to use the base command when running with Docker.  
+
+
+#### Single sample VCF + outside call file
+
+* You have a [VCF file that contains data for a single person](/examples/pharmcat.example.vcf) saved as
+`/data/test.vcf`, under the sample ID `Sample_1` 
+* You have an [outside call file](/examples/pharmcat.example.outsideCall.tsv) saved as `/data/test.outside.tsv`
+
+```console
+# pharmcat_pipeline /data/test.vcf
+```
+
+Notice that the command is the same as the previous example.
+
+Since the VCF file only has a single sample, `pharmcat_pipeline` will notice that you have an outside call
+file with the same base name and automatically use it.
+
+The outside call file could also have been saved as `/data/Sample_1.outside.tsv` and `pharmcat_pipeline` would have
+noticed that you have an outside call file with the name of the sample and automatically use it.
+
+
+#### Multi-sample VCF file (+ outside call files)
+
+You have a [VCF file that contains data for multiple people](/examples/multisample.vcf) saved as
+`/data/multisample.vcf`.
+
+```console
+# pharmcat_pipeline /data/multisample.vcf
+```
+
+Notice that except for the filename, the command is the same as the previous example.
+
+`pharmcat_pipeline` will automatically handle each sample it finds in the VCF file.
+
+If you want to provide outside calls, you _must_ use the sample ID file naming scheme.
+You do not need to provide outside call files for every sample if you do not wish to.
+For example, `split_vcf_list.txt` has 2 samples (Sample_1 and Sample_2).
+You can just have a `/data/Sample_1.outside.tsv` and no `/data/Sample_2.outside.tsv`, or vice versa.
+
+
+#### Using multi-file VCF data
+
+Some large datasets come in multi-file VCFs, where a single extremely large VCF file is split across multiple smaller
+VCF files. For example, data from the International Genome Sample Resource (IGSR) and UK Biobank come in this format:
+
+* [Data-Field 23156](https://biobank.ctsu.ox.ac.uk/crystal/field.cgi?id=23156) from UK Biobank
+* [Sample NA12878](https://www.internationalgenome.org/data-portal/sample/NA12878) from IGSR
+
+To feed multi-file VCFs to `pharmcat_pipeline`, you will need to create a text file that lists all the VCF files (one 
+per line), sorted by chromosome position.
+
+You can download the sample [split VCF list](/examples/split_vcf_list.txt) to test this out.
+You will also need the actual [split VCF files](/examples/split_vcf.tar).
+Untar this file into the same directory of the split VCF list file.
+
+```console
+# pharmcat_pipeline split_vcf_list.txt
+```
+
+Notice that except for the filename, the command is the same as the first example.
+
+If you want to provide outside calls, you _must_ use the sample ID file naming scheme.
+You do not need to provide outside call files for every sample if you do not wish to.
+For example, `split_vcf_list.txt` has 2 samples (Sample_1 and Sample_2).
+You can just have a `/data/Sample_1.outside.tsv` and no `/data/Sample_2.outside.tsv`, or vice versa.
+
+
+#### Using multiple VCF files
+
+If you have multiple independent VCF files (single or multi-sample) and would like to process them in one swoop, you can
+just point `pharmcat_pipeline` at the directory the files are in.
+
+If you have `[/data/test1.vcf](/examples/pharmcat.example.vcf)`, `[/data/test2.vcf](/examples/pharmcat.example2.vcf)`
+and `[/data/test1.outside.tsv](/examples/pharmcat.example.outsideCall.tsv)`, then you can run:
+
+```console
+# pharmcat_pipeline /data
+```
+
+Notice that except for the directory, the command is the same as the first example.
+
+If you want to provide outside calls, you can either use the VCF file base name approach
+(e.g. `/data/test1.outside.tsv`) if the VCF file only has a single sample. 
+
+
+You do not need to provide outside call files for every sample if you do not wish to.
+For example, `split_vcf_list.txt` has 2 samples (Sample_1 and Sample_2).
+You can just have a `/data/Sample_1.outside.tsv` and no `/data/Sample_2.outside.tsv`, or vice versa.
+

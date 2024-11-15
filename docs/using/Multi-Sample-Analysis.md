@@ -2,30 +2,44 @@
 parent: Using PharmCAT
 title: Multi-Sample Analysis
 permalink: using/Multi-Sample-Analysis/
-nav_order: 7
+nav_order: 10
 ---
 # Multi-Sample Analysis
 {: .no_toc }
 
-As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF is provided, only the first sample will be annotated. However, PharmCAT can generate a PGx report in a matter of seconds for a preprocessed VCF. The fast runtime of PharmCAT allows you to batch-annotate VCFs, with a little help from a bit of scripting, to scale from a few dozen samples to a biobank-scale cohorts in an efficient manner.
+As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF is provided, only the first sample will
+be annotated. However, PharmCAT can generate a PGx report in a matter of seconds for a preprocessed VCF. The fast 
+runtime of PharmCAT allows you to batch-annotate VCFs, with a little help from a bit of scripting, to scale from a few
+dozen samples to biobank-scale cohorts efficiently.
 
-This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a High-Performance Computing (HPC) environment. We expect readers to be familiar with using both PharmCAT's [VCF Preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).
+This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a
+High-Performance Computing (HPC) environment. We expect readers to be familiar with using both PharmCAT's
+[VCF Preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).
 
-Need an interactive tutorial? we have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real genetic data sets.
+Interested in an interactive tutorial?
+We have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real
+genetic data sets.
 
 ---
 
-## Table of contents
-{: .no_toc .text-delta }
-
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
 1. TOC
 {:toc}
+</details>
 
 ---
 
 ## Example using the Stanford Sherlock HPC
 
-This part uses the VCFs on multiple GeT-RM samples[1](#reference) generated from the 30x high-coverage WGS sequencing performed by the New York Genome Center (NYGC)[2](#reference). The job was run on the Stanford Sherlock cluster, a High-Performance Computing (HPC) cluster which uses Slurm as an open-source resource manager and job scheduler. The scripts to run PharmCAT on the Stanford Sherlock cluster is written in shell programming language and can be easily adapted to another HPC environment supported by a different job scheduler.
+This part uses the VCFs on multiple GeT-RM samples[1](#reference) generated from the 30x high-coverage WGS sequencing
+performed by the New York Genome Center (NYGC)[2](#reference). The job was run on the Stanford Sherlock cluster, a
+High-Performance Computing (HPC) cluster which uses Slurm as an open-source resource manager and job scheduler.
+The scripts to run PharmCAT on the Stanford Sherlock cluster are written in shell programming language and can be easily
+adapted to another HPC environment supported by a different job scheduler.
 
 ### Preprocessing the data
 
@@ -33,9 +47,10 @@ This section provides examples for working with different types of input VCFs.
 
 #### Case 1 - single-sample VCFs
 
-If your genetic data is already stored in single-sample VCFs, you are one step closer to running the PharmCAT. We recommend the users to still run the PharmCAT VCF Preprocessor to ensure the appropriate variant representation format, which can be achieved by the following command.
+If your genetic data is already stored in single-sample VCFs, you are one step closer to running the PharmCAT.
+We still recommend that users run the PharmCAT VCF Preprocessor to ensure the appropriate variant representation format,
+which can be achieved with the following command:
 
-On the command line:
 ```console
 $ python3 pharmcat_vcf_preprocessor.py -vcf <single_sample_vcf>
 ```
@@ -61,7 +76,9 @@ done
 
 #### Case 2 - multi-sample VCF
 
-Population- or biobank-scale VCFs most likely come in multi-sample format. The PharmCAT VCF Preprocessor is designed to help the users with this case and produce multiple single-sample VCFs that PharmCAT requires. The simplest command to preprocess a multi-sample VCF is as follows.
+Population- or biobank-scale VCFs most likely come in multi-sample format. The PharmCAT VCF Preprocessor is designed to
+help the users with this case and produce multiple single-sample VCFs that PharmCAT requires. The simplest command to
+preprocess a multi-sample VCF is as follows.
 
 On the command line:
 ```console
@@ -75,7 +92,9 @@ python3 pharmcat_vcf_preprocessor.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks
 
-As sometimes seen with large-scale genetic studies, the genetic data may be divided into multiple by-chromosome VCFs or VCFs with consecutive genetic blocks. The PharmCAT VCF Preprocessor can manage this type of genetic data sets by taking a list of VCFs as the input.
+As sometimes seen with large-scale genetic studies, the genetic data may be divided into multiple by-chromosome VCFs or
+VCFs with consecutive genetic blocks. The PharmCAT VCF Preprocessor can manage this type of genetic data sets by taking
+a list of VCFs as the input.
 
 On the command line:
 ```console
@@ -90,7 +109,8 @@ python3 pharmcat_vcf_preprocessor.py -vcf data/input_vcf_list.txt
 
 ###  Running PharmCAT
 
-After running the PharmCAT VCF Preprocessor you should have multiple single-sample VCFs named like `<base_filename>.<sample_id>.preprocessed.vcf`.
+After running the PharmCAT VCF Preprocessor you should have multiple single-sample VCFs named like
+`<base_filename>.<sample_id>.preprocessed.vcf`.
 
 Use the following command to batch annotate multiple VCFs using PharmCAT.
 
@@ -113,11 +133,15 @@ The output is a set of PGx reports in HTML format named as `pharmcat.<sample_id>
 
 #### Batch outside calls
 
-To incorporate outside PGx calls with PharmCAT for multiple samples, the users have to prepare the outside PGx calls of each sample in separate files and supply the individual file as outside calls to the PharmCAT.
+To incorporate outside PGx calls with PharmCAT for multiple samples, the users have to prepare the outside PGx calls of
+each sample in separate files and supply the individual file as outside calls to the PharmCAT.
 
-### Running individual components
+### Running individual modules
 
-You can run the individual modules of PharmCAT on multiple samples in a similar manner to how you run the whole PharmCAT pipeline. This is useful if you are interested in understanding population PGx and specifically obtaining PGx frequencies (named alleles, diplotypes, or metabolizer phenotypes) in your cohort. To do so, you can run the following commands against your data.
+You can run the individual modules of PharmCAT on multiple samples in a similar manner to how you run the whole PharmCAT
+pipeline. This is useful if you are interested in understanding population PGx and are only interested in obtaining
+PGx frequencies (named alleles, diplotypes, or metabolizer phenotypes) in your cohort.
+To do so, you can run the following commands against your data.
 
 #### Named Allele Matcher
 
@@ -165,21 +189,27 @@ do
 done
 ```
 
-These commands yield `Named Allele Matcher`, `Phenotyper`, and `Reporter` results for each individual separately in the format of JSON files. We encourage the users to explore and perform data analysis using the rich content in these JSON files, which can be easily achieved using auxiliary JSON libraries and data analysis packages in R or python.
+These commands yield `Named Allele Matcher`, `Phenotyper`, and `Reporter` results for each individual separately in the
+format of JSON files. We encourage the users to explore and perform data analysis using the rich content in these JSON
+files, which can be easily achieved using auxiliary JSON libraries and data analysis packages in R or python.
 
 ### Extracting PharmCAT JSON content into TSV
 
-We also provide [an accessory python script](https://github.com/PharmGKB/PharmCAT/blob/development/src/scripts/json2tsv/json2tsv_pharmcat.py) under `src/scripts/json2tsv/` that extracts and organizes the content from the PharmCAT JSON outputs into a tab-separated values (TSV) file. Here is an example TSV that the users will obtain from the provided Python script.
+We also provide
+[an accessory python script](https://github.com/PharmGKB/PharmCAT/blob/development/src/scripts/json2tsv/json2tsv_pharmcat.py)
+under `src/scripts/json2tsv/` that extracts and organizes the content from the PharmCAT JSON outputs into a 
+tab-separated values (TSV) file. Here is an example TSV that the users will get from the provided Python script.
 
-| Sample   | Gene    | Phenotype       | Activity_Score | Diplotype\*                                     | DPYD_RYR1_Variants    | DPYD_RYR1_Variant_Functions      | DPYD_RYR1_Variant_Genotypes | Haplotype_1             | Haplotype_2            | Haplotype_1_Functions | Haplotype_2_Functions | Haplotype_1_Variants                                                             | Haplotype_2_Variants                                                  | Missing_Positions | Uncallable_Haplotypes |
-|----------|---------|-----------------|----------------|-------------------------------------------------|-----------------------|----------------------------------|-----------------------------|-------------------------|------------------------|-----------------------|-----------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------|-----------------------|
-| sample_1  | ABCG2   |                 |                | rs2231142 reference (G)/rs2231142 reference (G) | |                                     |                             | rs2231142 reference (G) | rs2231142 reference (G) |        |                       |                                                                        |                                                             |                   |                       |
-| sample_1 | CYP3A5  |                 | | \*1/\*1                                         |                        |                                  |                             | \*1                     | \*1                    |                       |                       | | | 99660516;99676198 |                       |
-| sample_1  | SLCO1B1 | Decreased Function | | \*1/\*15                                        |                                                 |                       |                                   | \*1                     | \*15                   | Normal function       | No function           |  | 21178615:C | 21176804 | \*37                  |
-| sample_1  | CYP2C9 | Normal Metabolizer | 2.0            |                                                 |                       |                                  |                             | \*1                     | \*1                    | Normal function       | Normal function       |  |  |  |                   |
-| sample_1  | RYR1 | Uncertain Susceptibility |                | c.13513G>C (heterozygous)                       | Reference;c.13513G>C  | Normal function;Normal function  | 38566986:C                  |                         |                     |       |                       |  |  | 38433867;38440747;38440796;<...truncated for visual clarity...> |     c.12115A>T;c.6349G>C;c.178G>T;<...truncated for visual clarity...>              |
+| Sample   | Gene    | Phenotype                | Activity_Score | Diplotype\*                                     | DPYD_RYR1_Variants   | DPYD_RYR1_Variant_Functions     | DPYD_RYR1_Variant_Genotypes | Haplotype_1             | Haplotype_2             | Haplotype_1_Functions | Haplotype_2_Functions | Haplotype_1_Variants | Haplotype_2_Variants | Missing_Positions                                               | Uncallable_Haplotypes                                              |
+|----------|---------|--------------------------|----------------|-------------------------------------------------|----------------------|---------------------------------|-----------------------------|-------------------------|-------------------------|-----------------------|-----------------------|----------------------|----------------------|-----------------------------------------------------------------|--------------------------------------------------------------------|
+| sample_1 | ABCG2   |                          |                | rs2231142 reference (G)/rs2231142 reference (G) |                      |                                 |                             | rs2231142 reference (G) | rs2231142 reference (G) |                       |                       |                      |                      |                                                                 |                                                                    |
+| sample_1 | CYP3A5  |                          |                | \*1/\*1                                         |                      |                                 |                             | \*1                     | \*1                     |                       |                       |                      |                      | 99660516;99676198                                               |                                                                    |
+| sample_1 | SLCO1B1 | Decreased Function       |                | \*1/\*15                                        |                      |                                 |                             | \*1                     | \*15                    | Normal function       | No function           |                      | 21178615:C           | 21176804                                                        | \*37                                                               |
+| sample_1 | CYP2C9  | Normal Metabolizer       | 2.0            |                                                 |                      |                                 |                             | \*1                     | \*1                     | Normal function       | Normal function       |                      |                      |                                                                 |                                                                    |
+| sample_1 | RYR1    | Uncertain Susceptibility |                | c.13513G>C (heterozygous)                       | Reference;c.13513G>C | Normal function;Normal function | 38566986:C                  |                         |                         |                       |                       |                      |                      | 38433867;38440747;38440796;<...truncated for visual clarity...> | c.12115A>T;c.6349G>C;c.178G>T;<...truncated for visual clarity...> |
 
-[*] This column only shows [the effectively phased _DPYD_ and _RYR1_ diplotypes](/methods/Gene-Definition-Exceptions/). If the column is empty, please check out other designated columns for _DPYD_ or _RYR1_ variants.
+[*] This column only shows [the effectively phased _DPYD_ and _RYR1_ diplotypes](/methods/Gene-Definition-Exceptions/).
+If the column is empty, please check out other designated columns for _DPYD_ or _RYR1_ variants.
 
 #### Example command
 ```shell

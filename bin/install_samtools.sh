@@ -1,7 +1,10 @@
 #!/bin/bash
 #
-#  Sets up PharmCAT in the current directory after checking for basic requirements.
+# Sets up samtools.
+# Requires the following libraries on Ubuntu: libbz2-dev, libncurses-dev, liblzma-dev.
 #
+# Can be called with a single parameter, defining where to install (will be supplied as --prefix to configure).
+# Defaults to current directory.
 #
 
 set -e

@@ -7,6 +7,8 @@ has_toc: false
 ---
 # How PharmCAT Works
 
+<img src="/images/pipeline-h.svg" alt="PharmCAT pipeline" class="img-pipeline" />
+
 PharmCAT (Pharmacogenomics Clinical Annotation Tool) is a bioinformatics tool that analyzes genetic variants to predict
 drug response and tailor medical treatment to an individual patient’s genetic profile.
 It does this in two phases:
@@ -17,10 +19,6 @@ It does this in two phases:
    reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
    [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
    [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
-
-The PharmCAT pipeline can be visualized as such:
-
-![process diagram](/images/flowchart.png)
 
 
 ### Phase 1 - Determining Alleles
@@ -49,3 +47,22 @@ recommendations for clinical decision support.
 See [Matching Recommendations](/methods/Matching-Recommendations) for details on how the `Phenotyper` and `Reporter`
 works. 
 
+
+## Video Tutorial
+
+Prefer video tutorials?
+We have [an introduction to PharmCAT, modules, and reports](https://youtu.be/PjVdtMp8oRI?si=mRaiaU6EVEEd6dJL)
+on YouTube.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PjVdtMp8oRI?si=LkWbiIN-L2A3gZeJ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+## Further Reading
+
+Useful links for more information on drug recommendations. 
+
+* [CPIC Site](https://cpicpgx.org)
+* [CPIC Guideline Publications](https://cpicpgx.org/publications/)
+* [PharmGKB Site](https://www.pharmgkb.org)
+* [List of PharmGKB clinical guideline annotations](https://www.pharmgkb.org/guidelineAnnotations)
