@@ -1,10 +1,10 @@
-#! /usr/bin/env python
 __author__ = 'BinglanLi'
 
 import json
 import sys
 from pathlib import Path
 from typing import Set, Optional
+
 import numpy as np
 
 

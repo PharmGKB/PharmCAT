@@ -1,4 +1,3 @@
-#! /usr/bin/env python
 __author__ = 'BinglanLi'
 
 import concurrent.futures
