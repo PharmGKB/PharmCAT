@@ -38,11 +38,19 @@ function echo_green() {
     echo -e "$GREEN$*$NORMAL"
 }
 
+pipe_strip_newlines () {
+  local str
+  # read from stdin
+  str="$(</dev/stdin)"
+  str="${str//$'\r'/}"
+  str="${str//$'\n'/}"
+  echo "$str"
+}
 
 # compare function based on https://stackoverflow.com/a/4025065/1063501
 # modified to use echo return values based on https://linuxize.com/post/bash-functions/#return-values
 compare_versions () {
-  if [[ $1 == $2 ]]
+  if [[ $1 == "$2" ]]
   then
     echo "="
     return
@@ -84,7 +92,7 @@ fi
 
 echo "Looking for Java ${MIN_JAVA_VERSION} or greater..."
 # xargs at the end removes newline
-java_version=$(javap -verbose java.lang.String | grep "major version" | cut -d " " -f5 | xargs -d '\r' echo -n)
+java_version=$(javap -verbose java.lang.String | grep "major version" | cut -d " " -f5 | pipe_strip_newlines)
 if [[ $java_version -lt $MIN_JAVA_CLASS_VERSION ]]; then
 	echo_red "Not found!"
 	echo ""
