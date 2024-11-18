@@ -140,18 +140,12 @@ fi
 
 
 RELEASE_URL=https://github.com/PharmGKB/PharmCAT/releases/download/v${PHARMCAT_VERSION}
-JAR_URL=${RELEASE_URL}/pharmcat-${PHARMCAT_VERSION}-all.jar
-SCRIPT_URL=https://raw.githubusercontent.com/PharmGKB/PharmCAT/refs/heads/main/bin/pharmcat
-PREPROCESSOR_URL=${RELEASE_URL}/pharmcat-preprocessor-${PHARMCAT_VERSION}.tar.gz
+PIPELINE_URL=${RELEASE_URL}/pharmcat-pipeline-${PHARMCAT_VERSION}.tar.gz
 
 if command -v curl &>/dev/null; then
-  GET_JAR="curl -fsSL '${JAR_URL}' -o 'pharmcat.jar'"
-  GET_SCRIPT="curl -fsSL '${SCRIPT_URL}' -o 'pharmcat'"
-  GET_PREPROCESSOR="curl -fsSL '${PREPROCESSOR_URL}' -o 'preprocessor.tgz'"
+  GET="curl -fsSL '${PIPELINE_URL}' -o 'pipeline.tgz'"
 elif command -v wget &>/dev/null; then
-  GET_JAR="wget '${JAR_URL}' -O 'pharmcat.jar' >/dev/null 2>&1"
-  GET_SCRIPT="wget '${SCRIPT_URL}' -O 'pharmcat' >/dev/null 2>&1"
-  GET_PREPROCESSOR="wget '${PREPROCESSOR_URL}' -O 'preprocessor.tgz' >/dev/null 2>&1"
+  GET="wget '${PIPELINE_URL}' -O 'pipeline.tgz' >/dev/null 2>&1"
 else
   echo_red "ERROR: Cannot find 'curl' nor 'wget' utility --  please install one of them"
 	echo ""
@@ -160,55 +154,25 @@ fi
 
 
 echo ""
-echo "Downloading PharmCAT jar..."
+echo "Downloading PharmCAT..."
 set +e
-eval $GET_JAR; status=$?
+eval $GET; status=$?
 set -e
 if [ $status -ne 0 ]; then
   echo ""
-  echo_red "ERROR: Cannot download PharmCAT jar -- make sure you can connect to the internet"
+  echo_red "ERROR: Cannot download PharmCAT -- make sure you can connect to the internet"
+  echo ""
+  echo "Alternatively, you can try to download this file:"
+  echo_yellow "  ${PIPELINE_URL}"
+  echo "and un-tar it"
   echo ""
   exit 1
 fi
 
+tar -xzf pipeline.tgz
+rm pipeline.tgz
+chmod 755 pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor.py
 
-echo ""
-echo "Downloading PharmCAT script..."
-set +e
-eval $GET_SCRIPT; status=$?
-set -e
-if [ $status -ne 0 ]; then
-  echo ""
-  echo_red "ERROR: Cannot download PharmCAT Preprocessor -- make sure you can connect to the internet"
-  echo ""
-  exit 1
-fi
-
-chmod 755 pharmcat
-
-
-echo ""
-echo "Downloading PharmCAT Preprocessor..."
-set +e
-eval $GET_PREPROCESSOR; status=$?
-set -e
-if [ $status -ne 0 ]; then
-  echo ""
-  echo_red "ERROR: Cannot download PharmCAT Preprocessor -- make sure you can connect to the internet"
-  echo ""
-  exit 1
-fi
-
-tar -xzf preprocessor.tgz
-rm preprocessor.tgz
-
-mv preprocessor tmp
-mv -f tmp/* .
-rmdir tmp
-rm -f README.md
-chmod 755 pharmcat_pipeline pharmcat_vcf_preprocessor.py
-
-echo ""
 echo_green "Done!"
 echo ""
 echo "Don't forget to install PharmCAT Preprocessor's Python dependencies."
