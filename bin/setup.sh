@@ -38,6 +38,14 @@ function echo_green() {
     echo -e "$GREEN$*$NORMAL"
 }
 
+darwin=false
+case "$(uname)" in
+    Darwin*)
+        darwin=true
+        ;;
+esac
+
+
 pipe_strip_newlines () {
   local str
   # read from stdin
@@ -124,7 +132,10 @@ if [[ $op = '<' ]]; then
 	echo ""
 	echo_yellow "Please install bgzip ${MIN_BGZIP_VERSION} or greater on your system and try again."
 	echo ""
-	echo_yellow "bgzip can be found in htslib @ https://www.htslib.org/download/"
+ 	echo_yellow "bgzip can be found in htslib @ https://www.htslib.org/download/"
+	if [[ $darwin == true ]]; then
+	  echo_yellow "htslib is also available via homebrew"
+	fi
 	echo ""
 	exit 1
 else
@@ -140,6 +151,9 @@ if [[ $op = '<' ]]; then
 	echo_yellow "Please install bcftools ${MIN_BCFTOOLS_VERSION} or greater on your system and try again."
 	echo ""
 	echo_yellow "bcftools can be found @ https://www.htslib.org/download/"
+	if [[ $darwin == true ]]; then
+	  echo_yellow "bcftools is also available via homebrew"
+	fi
 	echo ""
 	exit 1
 else
@@ -183,7 +197,7 @@ chmod 755 pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor.py
 
 echo_green "Done!"
 echo ""
-echo "Don't forget to install PharmCAT Preprocessor's Python dependencies."
+echo "Don't forget to install PharmCAT VCF Preprocessor's Python dependencies."
 echo ""
 echo "You can do so with:"
 echo_yellow "  pip3 install -r requirements.txt"
