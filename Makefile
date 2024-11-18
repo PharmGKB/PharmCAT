@@ -68,9 +68,31 @@ scriptPkg:
 	mkdir build/preprocessor/preprocessor
 	cp -f preprocessor/preprocessor/*.py build/preprocessor/preprocessor
 	cp -f preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor
-	cp -f pharmcat_positions.vcf* build/preprocessor
+	cp -f pharmcat_positions.* pharmcat_regions.bed build/pipeline
 	cp -f docs/using/VCF-Preprocessor.md build/preprocessor/README.md
+	chmod 644 build/preprocessor/preprocessor/* build/preprocessor/*
+	chmod 755 build/preprocessor/pharmcat_pipeline build/preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor/preprocessor
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
+
+
+# meant to be run in CI: run gradle with --no-daemon
+.PHONY: pipelinePkg
+pipelinePkg:
+	${GRADLE_CMD} shadowJar --no-daemon
+	rm -rf build/pipeline
+	mkdir -p build/pipeline
+	cp -f bin/pharmcat build/pipeline
+	cp -f build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pipeline/pharmcat.jar
+	cp -f preprocessor/requirements.txt build/pipeline
+	cp -f preprocessor/pharmcat_vcf_preprocessor.py build/pipeline
+	cp -f preprocessor/pharmcat_pipeline build/pipeline
+	mkdir build/pipeline/preprocessor
+	cp -f preprocessor/preprocessor/*.py build/pipeline/preprocessor
+	cp -f preprocessor/preprocessor/*.tsv build/pipeline/preprocessor
+	cp -f pharmcat_positions.* pharmcat_regions.bed build/pipeline
+	chmod 644 build/pipeline/preprocessor/* build/pipeline/*
+	chmod 755 build/pipeline/pharmcat build/pipeline/pharmcat_pipeline build/pipeline/pharmcat_vcf_preprocessor.py build/pipeline/preprocessor
+	cd build/pipeline; tar -czvf ../pipeline.tar.gz *
 
 
 .PHONE: updateDataFromScratch
