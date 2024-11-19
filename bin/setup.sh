@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 #  Sets up PharmCAT in the current directory after checking for basic requirements.
 #
@@ -167,7 +167,7 @@ PIPELINE_URL=${RELEASE_URL}/pharmcat-pipeline-${PHARMCAT_VERSION}.tar.gz
 if command -v curl &>/dev/null; then
   GET="curl -fsSL '${PIPELINE_URL}' -o 'pipeline.tgz'"
 elif command -v wget &>/dev/null; then
-  GET="wget '${PIPELINE_URL}' -O 'pipeline.tgz' >/dev/null 2>&1"
+  GET="wget -nv '${PIPELINE_URL}' -O 'pipeline.tgz' >/dev/null 2>&1"
 else
   echo_red "ERROR: Cannot find 'curl' nor 'wget' utility --  please install one of them"
 	echo ""
