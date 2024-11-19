@@ -24,11 +24,16 @@ tar -xjf samtools-${SAMTOOLS_VERSION}.tar.bz2
 
 # compile
 cwd=$(pwd)
-cd htslib-${HTSLIB_VERSION}/     && ./configure --prefix="$1" && make && make install
+if [ $# -eq 0 ]; then
+  install_dir=$cwd
+else
+  install_dir=$1
+fi
+cd htslib-${HTSLIB_VERSION}/     && ./configure --prefix="$install_dir" && make && make install
 cd "$cwd"
-cd bcftools-${BCFTOOLS_VERSION}/ && ./configure --prefix="$1" && make && make install
+cd bcftools-${BCFTOOLS_VERSION}/ && ./configure --prefix="$install_dir" && make && make install
 cd "$cwd"
-cd samtools-${SAMTOOLS_VERSION}/ && ./configure --prefix="$1" && make && make install
+cd samtools-${SAMTOOLS_VERSION}/ && ./configure --prefix="$install_dir" && make && make install
 
 # cleanup
 cd "$cwd"
