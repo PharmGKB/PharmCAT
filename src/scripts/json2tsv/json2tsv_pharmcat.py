@@ -40,7 +40,7 @@ if __name__ == "__main__":
                         help="(Optional) Guideline source to extract, default = CPIC.")
     parser.add_argument("-g", "--genes", type=str, metavar='gene1,gene2',
                         default=None,
-                        help="(Optional) List of genes to be process, separated by comma.")
+                        help="(Optional) List of genes to be processed, separated by comma.")
 
     # output args
     output_group = parser.add_argument_group('Output arguments')
@@ -158,9 +158,10 @@ if __name__ == "__main__":
         m_max_processes: int = 1
         if args.concurrent_mode:
             print('Concurrent mode enabled...')
-            m_max_processes = args.max_concurrent_processes
         elif args.max_concurrent_processes is not None:
             print("-cp/--max_processes will be ignored (not running in multiprocess mode)")
+        if args.max_concurrent_processes:
+            m_max_processes = args.max_concurrent_processes
 
         start = timer()
 
