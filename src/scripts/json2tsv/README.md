@@ -105,6 +105,8 @@ Only samples that have both Matcher and Phenotyper JSON files will be passed to 
 #### Effectively phased
 | TSV column                  | source           | JSON field, if application                                                |
 |-----------------------------|------------------|---------------------------------------------------------------------------|
+| phenotype                   | Phenotyper JSON  | recommendationDiplotypes -> phenotypes                                    |
+| activity_score              | Phenotyper JSON  | recommendationDiplotypes -> activityScore                                 |
 | diplotype                   | Phenotyper JSON  | sourceDiplotypes -> label                                                 |
 | dpyd_ryr1_variants          | Phenotyper JSON  | matcherComponentHaplotypes -> allele1 -> name                             |
 | dpyd_ryr1_variant_functions | Phenotyper JSON  | matcherComponentHaplotypes -> allele1 -> function                         |
@@ -113,10 +115,12 @@ Only samples that have both Matcher and Phenotyper JSON files will be passed to 
 
 #### Not effectively phased
 
-| TSV column                  | source           | JSON field, if application              |
-|-----------------------------|------------------|-----------------------------------------|
-| diplotype                   | Phenotyper JSON  | N/A                                     |
-| dpyd_ryr1_variants          | Phenotyper JSON  | sourceDiplotypes -> allele1 -> name     |
-| dpyd_ryr1_variant_functions | Phenotyper JSON  | sourceDiplotypes -> allele1 -> function |
-| dpyd_ryr1_variant_genotypes | Matcher JSON     | haplotypeMatches -> sequences           |
+| TSV column                  | source           | JSON field, if application                |
+|-----------------------------|------------------|-------------------------------------------|
+| phenotype                   | Phenotyper JSON  | recommendationDiplotypes -> phenotypes    |
+| activity_score              | Phenotyper JSON  | recommendationDiplotypes -> activityScore |
+| diplotype                   | Phenotyper JSON  | N/A                                       |
+| dpyd_ryr1_variants          | Phenotyper JSON  | sourceDiplotypes -> allele1 -> name       |
+| dpyd_ryr1_variant_functions | Phenotyper JSON  | sourceDiplotypes -> allele1 -> function   |
+| dpyd_ryr1_variant_genotypes | Matcher JSON     | haplotypeMatches -> sequences             |
 
