@@ -100,7 +100,7 @@ public class Pipeline implements Callable<PipelineResult> {
       m_sampleId = sampleId;
       generateBasename(baseFilename, vcfFile.getFile(), sampleId, singleSample);
       if (m_baseDir == null) {
-        m_baseDir = m_vcfFile.getFile().getParent();
+        m_baseDir = getBaseDir(m_vcfFile.getFile());
       }
       m_matcherJsonFile = m_baseDir.resolve(m_basename + BaseConfig.MATCHER_SUFFIX + ".json");
       m_topCandidateOnly = topCandidateOnly;
@@ -126,7 +126,7 @@ public class Pipeline implements Callable<PipelineResult> {
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
       if (m_baseDir == null) {
-        m_baseDir = inputFile.getParent();
+        m_baseDir = getBaseDir(inputFile);
       }
       m_phenotyperJsonFile = m_baseDir.resolve(m_basename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
     }
@@ -143,7 +143,7 @@ public class Pipeline implements Callable<PipelineResult> {
       }
       generateBasename(baseFilename, inputFile, sampleId, singleSample);
       if (m_baseDir == null) {
-        m_baseDir = inputFile.getParent();
+        m_baseDir = getBaseDir(inputFile);
       }
       if (reporterHtml) {
         m_reporterHtmlFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".html");
@@ -176,9 +176,10 @@ public class Pipeline implements Callable<PipelineResult> {
     return m_basename;
   }
 
-  private void generateBasename(String baseFilename, Path inputFile, String sampleId, boolean singleSample) {
+  private void generateBasename(String baseFilename, Path inputFile, String sampleId, boolean singleSample)
+      throws ReportableException {
     if (m_baseDir == null) {
-      m_baseDir = inputFile.getParent();
+      m_baseDir = getBaseDir(inputFile);
     }
     if (m_basename != null) {
       return;
@@ -197,6 +198,16 @@ public class Pipeline implements Callable<PipelineResult> {
     if (sampleId != null) {
       m_displayName = "sample " + sampleId + " in " + m_displayName;
     }
+  }
+
+
+  private Path getBaseDir(Path inputFile) throws ReportableException {
+    Path absPath = inputFile.toAbsolutePath();
+    Path dir = absPath.getParent();
+    if (dir != null) {
+      return dir;
+    }
+    throw new ReportableException("Cannot determine directory to save results to.  Please specify output directory.");
   }
 
 
