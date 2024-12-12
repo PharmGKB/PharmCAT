@@ -367,7 +367,9 @@
     {{#if (thereAre drugsWithoutRecommendations)}}
       <div>
         <h3>Drugs With No Guidance</h3>
-        <p>The following drugs are known to be associated with the given genes but have no guidance for their genotypes.</p>
+        <p>The following drugs are known to be associated with genes in this report but have no guidance for the
+          specific genotypes in this report. For more information, see the
+          <a href="https://www.pharmgkb.org/prescribingInfo">"Prescribing Info" page on PharmGKB</a>.</p>
         <ul>
           {{#each drugsWithoutRecommendations}}
             <li>{{this}}</li>
