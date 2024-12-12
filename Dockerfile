@@ -66,6 +66,7 @@ RUN git clone https://github.com/chrchang/plink-ng.git && \
 RUN mkdir /pharmcat
 WORKDIR /pharmcat
 ENV PATH="$PATH:/pharmcat"
+ENV PCAT_PLATFORM=docker
 
 # download fasta files
 RUN wget https://zenodo.org/record/7288118/files/GRCh38_reference_fasta.tar && \
