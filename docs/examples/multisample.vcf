@@ -17,7 +17,7 @@
 ##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
 ##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
 chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0/0	0/0
 chr1	97078993	rs148799944	C	G	.	PASS	PX=DPYD	GT	0/0	0/0
 chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0	0/0

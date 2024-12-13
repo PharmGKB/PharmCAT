@@ -93,12 +93,10 @@ public class SampleDataUpdater {
               continue;
             } else if (line1.startsWith("##source=")) {
               line1 = "##source=PharmCAT examples";
+            } else if (line1.endsWith("FORMAT\tSample_1")) {
+              line1 += "\tSample_2";
             }
             writer.println(line1);
-            continue;
-          }
-          if (line1.contains("FORMAT\tSample_1")) {
-            writer.println(line1 + "\tSample_2");
             continue;
           }
 
