@@ -461,6 +461,39 @@ public class NamedAlleleMatcherTest {
     assertTrue(dm.getHaplotype2().getHaplotype().isPartial());
   }
 
+
+  /**
+   * This tests partial matching when combination matching produces <= 1 haplotype match.
+   * It also uses an undocumented variant.
+   */
+  @Test
+  void testPartialUnphasedWithSingleHapMatch(TestInfo testInfo) throws Exception {
+    TestVcfBuilder vcfBuilder = new TestVcfBuilder(testInfo);
+    Path vcfFile = vcfBuilder.variation("CYP2B6", "rs33973337", "A", "T")
+        .variationAsIs("CYP2B6", "rs45482602", "0/2", "C", "A", "T")
+        .generate();
+
+    DefinitionReader definitionReader = new DefinitionReader();
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(1, result.getVcfWarnings().size());
+
+    Optional<GeneCall> opt = result.getGeneCalls().stream()
+        .filter(gc -> gc.getGene().equals("CYP2B6"))
+        .findFirst();
+    assertTrue(opt.isPresent());
+    GeneCall geneCall = opt.get();
+    assertEquals(1, geneCall.getDiplotypes().size());
+    DiplotypeMatch dm = geneCall.getDiplotypes().iterator().next();
+    assertEquals("*1/[g.40991381A>T + g.41009350C>T]", dm.getName());
+    assertFalse(dm.getHaplotype1().getHaplotype().isCombination());
+    assertFalse(dm.getHaplotype1().getHaplotype().isPartial());
+    assertNotNull(dm.getHaplotype2());
+    assertFalse(dm.getHaplotype2().getHaplotype().isCombination());
+    assertTrue(dm.getHaplotype2().getHaplotype().isPartial());
+  }
+
   @Test
   void testPartial2Phased() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-cyp2c19.json");

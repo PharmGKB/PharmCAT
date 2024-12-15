@@ -21,6 +21,7 @@ import static org.pharmgkb.pharmcat.PipelineTest.*;
 
 /**
  * This JUnit test validates RYR1 through the pipeline.
+ * This should test the data generated from a full run of the PharmCAT matcher and reporter.
  *
  * @author Mark Woon
  */
