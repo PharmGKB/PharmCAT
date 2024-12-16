@@ -294,7 +294,7 @@ lead to different results.
             preprocessed_vcf = preprocessor.preprocess_multiple_files(
                 pharmcat_positions_vcf=m_pharmcat_positions_vcf,
                 reference_genome=m_reference_genome,
-                regions_to_retain=m_regions_bed,
+                regions_to_retain=pgx_regions,
                 custom_regions=custom_regions,
                 vcf_files=vcf_files,
                 samples=m_samples,
