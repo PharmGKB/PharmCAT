@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -78,24 +77,19 @@ public class DiplotypeMatcher {
         matches.add(combinationMatch);
       }
       if (findPartials) {
-        // add off-reference partial match
-        // this needs to come after check for partials and added matches do not need to have finalizeHaplotype called
-        if (m_dataset.isEffectivelyPhased()) {
-          Optional<NamedAllele> opt = m_dataset.getHaplotypes().stream()
-              .filter(NamedAllele::isReference)
-              .findFirst();
-          if (opt.isPresent()) {
-            NamedAllele reference = opt.get();
-            for (String seq : m_dataset.getPermutations()) {
-              Optional<BaseMatch> match = matches.stream()
-                  .filter(m -> m.getSequences().contains(seq))
-                  .findAny();
-              if (match.isEmpty()) {
-                // only generate if sequence has no other match
-                matches.add(new CombinationMatch(m_dataset, reference, seq));
-              }
-            }
+        // add remaining permutations as off-reference partial match
+        NamedAllele referenceHaplotype = m_dataset.getHaplotypes().stream()
+            .filter(NamedAllele::isReference)
+            .findFirst()
+            .orElseThrow(() -> new IllegalStateException("No reference haplotype!"));
+        Set<String> matchedSequences = matches.stream()
+            .flatMap(bm -> bm.getSequences().stream())
+            .collect(Collectors.toSet());
+        for (String seq : m_dataset.getPermutations()) {
+          if (matchedSequences.contains(seq)) {
+            continue;
           }
+          matches.add(new CombinationMatch(m_dataset, referenceHaplotype, seq));
         }
       }
 
