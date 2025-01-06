@@ -117,7 +117,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
-   * The HGVS name use for this location on the chromosomal sequence (NC_).
+   * The HGVS name used for this location on the chromosomal sequence (NC_).
    */
   public String getChromosomeHgvsName() {
     return m_chromosomeHgvsName;
@@ -125,7 +125,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
 
   /**
-   * The identifier use for this location from dbSNP
+   * The identifier to use for this location from dbSNP
    */
   public String getRsid() {
     return m_rsid;

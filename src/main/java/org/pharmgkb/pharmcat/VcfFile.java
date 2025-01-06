@@ -17,7 +17,7 @@ import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 
 /**
  * This class supports working with VCF files.
- * If file size is less than 20% of max available memory, it will be read into memory.
+ * If the file size is less than 20% of max available memory, it will be read into memory.
  *
  * @author Mark Woon
  */

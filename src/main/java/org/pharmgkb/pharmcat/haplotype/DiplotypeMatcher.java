@@ -71,7 +71,7 @@ public class DiplotypeMatcher {
         }
       }
 
-      // finalize combination match and check for partials (if findPartials = true)
+      // finalize the combination match and check for partials (if findPartials = true)
       for (CombinationMatch combinationMatch : combinationMatches) {
         combinationMatch.finalizeCombinationHaplotype(m_dataset, findPartials);
         matches.add(combinationMatch);

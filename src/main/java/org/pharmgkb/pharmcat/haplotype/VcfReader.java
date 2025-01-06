@@ -74,7 +74,7 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.
-   * Reads in VCF file and pull the sample's alleles for positions of interest.
+   * Reads in a VCF file and pulls the sample's alleles at positions of interest.
    */
   public VcfReader(DefinitionReader definitionReader, BufferedReader vcfReader, @Nullable String sampleId,
       boolean findCombinations) throws IOException {
@@ -89,7 +89,7 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.  Primarily used for testing.
-   * This will read in the VCF file and pull the (first) sample's alleles for positions of interest.
+   * This will read in the VCF file and pull the (first) sample's alleles at positions of interest.
    */
   public VcfReader(DefinitionReader definitionReader, Path vcfFile) throws IOException {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
@@ -102,7 +102,7 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.  Primarily for testing.
-   * This will read in the VCF file and pull the sample's alleles for <em>ALL</em> positions.
+   * This will read in the VCF file and pull the sample's alleles at <em>ALL</em> positions.
    */
   VcfReader(Path vcfFile) throws IOException {
     m_locationsOfInterest = null;
@@ -152,7 +152,7 @@ public class VcfReader implements VcfLineParser {
 
 
   /**
-   * Read VCF file.
+   * Reads the VCF file.
    */
   private void read(Path vcfFile) throws IOException {
     Preconditions.checkNotNull(vcfFile);
@@ -167,7 +167,7 @@ public class VcfReader implements VcfLineParser {
    * Read VCF data via reader.
    */
   private void read(BufferedReader reader) throws IOException {
-    // read VCF file
+    // read VCF
     try (VcfParser vcfParser = new VcfParser.Builder()
         .fromReader(reader)
         .parseWith(this)
@@ -300,7 +300,7 @@ public class VcfReader implements VcfLineParser {
               .append(", found ")
               .append(String.join("/", undocumentedVariations))
               .append(" in VCF)");
-          if (treatAsReference(chrPos)) {
+          if (treatUndocumentedAsReference(chrPos)) {
             msgBuilder.append(".  Undocumented variations will be replaced with reference.");
           }
           addWarning(chrPos, msgBuilder.toString());
@@ -399,7 +399,7 @@ public class VcfReader implements VcfLineParser {
         if (!".".equals(allelicDepth)) {
           // try to catch reference overlap style VCF where
           // VCF always specifies heterozygous GT and uses AD field to determine actual alleles
-          // see https://github.com/PharmGKB/PharmCAT/issues/90 for example
+          // see https://github.com/PharmGKB/PharmCAT/issues/90 for details
           try {
             List<Integer> depths = Arrays.stream(allelicDepth.split(","))
                 .filter(a -> !a.equals("."))
@@ -465,7 +465,7 @@ public class VcfReader implements VcfLineParser {
     vcfAlleles.add(position.getRef());
     vcfAlleles.addAll(position.getAltBases());
 
-    boolean treatUndocumentedAsReference = m_locationsByGene != null && treatAsReference(chrPos);
+    boolean treatUndocumentedAsReference = m_locationsByGene != null && treatUndocumentedAsReference(chrPos);
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
         isEffectivelyPhased, vcfAlleles, undocumentedVariations, treatUndocumentedAsReference);
     m_alleleMap.put(chrPos, sampleAllele);
@@ -476,13 +476,14 @@ public class VcfReader implements VcfLineParser {
   }
 
 
-  private boolean treatAsReference(String chrPos) {
+  private boolean treatUndocumentedAsReference(String chrPos) {
     String gene = m_locationsByGene.get(chrPos);
     if (NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
       if (isLowestFunctionGene(gene)) {
         // lowest-function genes ignore find-combinations mode
         return true;
       }
+      // if finding combinations, don't treat as reference so that the exact change is reflected
       return !m_findCombinations;
     }
     return false;

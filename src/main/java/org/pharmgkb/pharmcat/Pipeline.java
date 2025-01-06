@@ -57,7 +57,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private boolean m_callCyp2d6;
   private Path m_matcherJsonFile;
   private Path m_matcherHtmlFile;
-  /** True if VCF file only contains a single sample. */
+  /** True if the VCF file only contains a single sample. */
   private final boolean m_singleSample;
 
   private final boolean m_runPhenotyper;
