@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import com.google.common.base.Preconditions;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
@@ -17,16 +19,38 @@ import org.pharmgkb.common.comparator.ChromosomeNameComparator;
  * @author Mark Woon
  */
 public class SampleAllele implements Comparable<SampleAllele> {
+  @Expose
+  @SerializedName("chr")
   private final String m_chromosome;
+  @Expose
+  @SerializedName("position")
   private final int m_position;
+  @Expose
+  @SerializedName("allele1")
   private final String m_allele1;
+  @Expose
+  @SerializedName("allele2")
   private final String m_allele2;
+  @Expose
+  @SerializedName("computedAllele1")
   private final String m_computedAllele1;
+  @Expose
+  @SerializedName("computedAllele2")
   private final String m_computedAllele2;
+  @Expose
+  @SerializedName("phased")
   private final boolean m_isPhased;
+  @Expose
+  @SerializedName("effectivelyPhased")
   private final boolean m_isEffectivelyPhased;
+  @Expose
+  @SerializedName("vcfAlleles")
   private final List<String> m_vcfAlleles;
+  @Expose
+  @SerializedName("undocumentedVariations")
   private final Set<String> m_undocumentedVariations = new HashSet<>();
+  @Expose
+  @SerializedName("treatUndocumentedVariationsAsReference")
   private boolean m_treatUndocumentedVariationsAsReference;
 
 
