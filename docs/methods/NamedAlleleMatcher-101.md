@@ -40,6 +40,23 @@ by default.<sup>[2](#notes)</sup> It is as arbitrary as sorting them alphabetica
 _For reliable diplotype calls, phased data is best_.
 
 
+### Structural Variants and Multi-allelic results 
+
+The `Named Allele Matcher` does not currently support structural variants, including gene copy number.
+If structural variants are detected in the VCF data, it will be ignored and a warning will be issued.
+
+If it detects more than the expected number of alleles in the `GT` column of the VCF, only the first two alleles will be
+used and a warning will be issued.  On haploid chromosomes, only the first allele will be used.
+
+
+### Partial Genotypes
+
+If the genotype field (GT) in the VCF lists a partial genotype (e.g. `0/.` or `.|1`), the `Named Allele Matcher` will
+check if it's on a haploid or diploid chromosome. For diploid chromosomes, if the partial is the reference (`0`), the
+position will be ignored and treated as a missing position.  If the partial is an alternate allele (ALT), then the
+partial will be accepted as-is.  However, this means that the `Named Allele Matcher` will not be able to call
+a diplotype (unless the combination research mode is enabled).
+
 
 ## Scoring
 
@@ -163,33 +180,38 @@ are set to reference for genes for which the defined variants affect drug toxici
 {: .warn}
 > Calling combinations and partial alleles is intended for **research use only**.
 
-A combination allele is when a sample matches a combination of 2 or more defined alleles.  For example, `[*6 + *14]` in
-the CYP2B6 `[*6 + *14]/*13` diplotype output.
-
-PharmCAT's syntax for combination calls uses square brackets to reflect that it is a variation on one gene copy and to
-distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
+A combination allele is when a sample matches a combination of 2 or more named alleles _in the same single gene copy_.
+For example, `[*6 + *14]` in the CYP2B6 `[*6 + *14]/*13` diplotype output.
 
 A partial allele is when a sample matches all the (core) variants of a defined allele but also has additional variants.
 For example, CYP2C19 `*2/[*17 + g.94781859G>A]`.  In the case where a partial call occurs off the reference allele,
 only the positions are listed (e.g. `*2/g.94781859G>A`).
 
-When asked to find combinations and partial alleles, the `Named Allele Matcher` will only attempt to do so if no viable
-call can be made.
+When asked to find combinations and partial alleles, the `Named Allele Matcher`
+* will only attempt to do so if a normal call cannot be made.
+* will only look for combinations catalogued by PharmVar or other nomenclature sites.
+It does not consider novel variants (i.e. variants at undocumented positions); it only considers variants included in
+existing allele definitions found in novel combinations.
 
-The `Named Allele Matcher` will only look for variant combinations not catalogued by PharmVar or other nomenclature
-sites. It does not consider novel variants; it only considers variants included in existing allele definitions found
-in novel combinations.
+When looking for combinations, the variations of every named allele must not overlap – the same SNV cannot be counted 
+for more than one star (*) allele. Examples:
 
+1. A combination such as CYP2D6 `[*10 + *37]` could not exist because `100C>T` and `4181G>C` are present on both named
+   alleles, and each SNV can only be assigned to one named allele in a single gene copy.
+2. On the other hand CYP2D6 `[*10 + *25]` could theoretically exist because the core SNV in `*25` is `3199C>G` and the
+   core SNVs in `*10` are `100C>T` and `4181G>C`.
 
-### Phased vs. Unphased Data
+{: .info}
+> PharmCAT's syntax for combinations uses square brackets to surround the alleles and will always have spaces around the
+> `+`.
+>
+> Examples:
+> * `*2/[*17 + g.94781859G>A]`
+> * `[*6 + *14]/*13`
+> * `[*6 + *14 + g.94781859G>A]/*13`
 
-When dealing with unphased data, note that the `Named Allele Matcher` will never produce a combination/partial allele
-call if there is a viable non-combination/partial call.  For example, if the sample would be called CYP2B6
-`*1/[*8 + *9]` with phased data, the `Named Allele Matcher` will only call `*8/*9` if the data is unphased because that
-is a viable call.  It will not attempt to look for potential combination/partial alleles.
-
-In addition, to limit the potential search space, a partial off the reference allele will only be called if the data is
-phased or the unphased data only has 2 possible sequence combinations.
+PharmCAT's syntax for combinations uses square brackets to reflect that it is a variation on one gene copy and to
+distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
 
 
 ### Scoring
@@ -200,10 +222,30 @@ will get the highest score. As such, scoring is biased towards grouping combinat
 `*23/[*5 + *9]` are also possible.
 
 
+### Unphased Data
+
+When dealing with unphased data, note that the `Named Allele Matcher` will never produce a combination/partial allele
+call if there is a viable non-combination/partial call.  For example, if the sample is CYP2B6 `*1/[*8 + *9]` with phased
+data, the `Named Allele Matcher` will only call `*8/*9` if the data is unphased because that is a viable call.
+It will not attempt to look for potential combination/partial alleles.
+
+Once the `Named Allele Matcher` starts looking for combinations, it will look for all occurrences of named alleles in
+all possible permutations of the unphased data.  It will only attempt to find partials based on the reference sequence
+if there are zero or one named allele matches.  The matching diplotypes will then be scored like normal.   
+
+Examples:
+
+1. If the SNVs defining CYP2C9 `*2` and CYP2C9 `*3` are found alone in unphased data, the predicted diplotype will be 
+   CYP2C9 `*2/*3`.
+2. If the SNV defining CYP2C9 `*2` is found along with 1 SNV defining `*18` (`g.94986073A>C`, rs72558193), the predicted
+   diplotype will be CYP2C9 `*1/[*2 + g.94986073A>C]` as the highest scoring result and CYP2C9 `*2/g.94986073A>C` as an
+   equal possible option but with a lower matching score.
+3. If the SNV defining CYP2C9 `*2` is found to be homozygous and the SNV defining CYP2C9 `*3` is also found, the 
+   predicted diplotype will be CYP2C9 `*2/[*2 + *3]`.
 
 
 
-### Notes
+## Notes
 
 __1__: If sample data is not phased and we do not assume the reference for missing positions in the definition, it is
 possible to have multiple matches for a single named allele.
