@@ -35,30 +35,19 @@ public class Variant implements Comparable<Variant>  {
    */
   public Variant(VariantLocus variant, SampleAllele allele) {
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-
-    StringBuilder callBuilder = new StringBuilder()
-        .append(allele.getAllele1());
-    if (allele.getAllele2() != null) {
-      if (allele.isPhased()) {
-        callBuilder.append("|");
-      } else {
-        callBuilder.append("/");
-      }
-      callBuilder.append(allele.getAllele2());
-    }
-    initialize(variant.getPosition(), variant.getRsid(), callBuilder.toString(), vcfAlleles);
+    initialize(variant.getPosition(), variant.getRsid(), allele.getVcfCall(), vcfAlleles);
   }
 
   /**
    * Constructor for creating faux-{@link Variant}s for extra positions and tests.
    */
-  public Variant(long pos, @Nullable String rsids, @Nullable String call, @Nullable String vcfAlleles) {
-    initialize(pos, rsids, call, vcfAlleles);
+  public Variant(long pos, @Nullable String rsid, @Nullable String call, @Nullable String vcfAlleles) {
+    initialize(pos, rsid, call, vcfAlleles);
   }
 
-  private void initialize(long pos, @Nullable String rsids, @Nullable String call, @Nullable String vcfAlleles) {
+  private void initialize(long pos, @Nullable String rsid, @Nullable String call, @Nullable String vcfAlleles) {
     m_position = pos;
-    m_rsid = rsids;
+    m_rsid = rsid;
     m_vcfCall = call;
     if (call != null) {
       // check for phasing by lack of "/" to match behavior in VCF reader
@@ -76,6 +65,10 @@ public class Variant implements Comparable<Variant>  {
     return m_rsid;
   }
 
+  /**
+   * Gets the alleles separated by VCF phasing delimiter (i.e. "/" or "|").
+   * Missing allele will be represented by ".".
+   */
   public @Nullable String getVcfCall() {
     return m_vcfCall;
   }
@@ -84,6 +77,9 @@ public class Variant implements Comparable<Variant>  {
     return m_isPhased;
   }
 
+  /**
+   * Gets the comma-separated list of all possible alleles from the VCF (i.e. REF and ALT).
+   */
   public @Nullable String getVcfAlleles() {
     return m_vcfAlleles;
   }

@@ -210,12 +210,24 @@ public class NamedAlleleMatcher {
     return resultBuilder.build();
   }
 
+  /**
+   * Call standard gene haplotypes.
+   */
   private void callAssumingReference(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
     MatchData data = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (data.getNumSampleAlleles() == 0) {
       resultBuilder.gene(gene, data);
+      return;
+    }
+
+    if (data.hasPartialMissingAlleles()) {
+      if (m_findCombinations) {
+        callCombination(sampleId, alleleMap, gene, resultBuilder);
+      } else {
+        resultBuilder.gene(gene, data);
+      }
       return;
     }
 

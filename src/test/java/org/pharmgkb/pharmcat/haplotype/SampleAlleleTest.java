@@ -18,12 +18,12 @@ class SampleAlleleTest {
   @Test
   void testCompare() {
 
-    SampleAllele sa1 = new SampleAllele("chr1", 1, "A", "A", true, Lists.newArrayList("A", "G"));
-    SampleAllele sa2 = new SampleAllele("chr1", 2, "A", "A", true, Lists.newArrayList("A", "G"));
-    SampleAllele sa3 = new SampleAllele("chr2", 1, "A", "A", true, Lists.newArrayList("A", "G"));
-    SampleAllele sa4 = new SampleAllele("chrX", 1, "A", "A", true, Lists.newArrayList("A", "G"));
-    SampleAllele sa5 = new SampleAllele("chrY", 1, "A", "A", true, Lists.newArrayList("A", "G"));
-    SampleAllele sa6 = new SampleAllele("chr11", 1, "A", "A", true, Lists.newArrayList("A", "G"));
+    SampleAllele sa1 = new SampleAllele("chr1", 1, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
+    SampleAllele sa2 = new SampleAllele("chr1", 2, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
+    SampleAllele sa3 = new SampleAllele("chr2", 1, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
+    SampleAllele sa4 = new SampleAllele("chrX", 1, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
+    SampleAllele sa5 = new SampleAllele("chrY", 1, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
+    SampleAllele sa6 = new SampleAllele("chr11", 1, "A", "A", true, Lists.newArrayList("A", "G"), "0/0");
 
     assertSame(Sets.newTreeSet(Sets.newHashSet(sa1, sa2)).first(), sa1);
     assertSame(Sets.newTreeSet(Sets.newHashSet(sa2, sa1)).first(), sa1);

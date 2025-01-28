@@ -203,6 +203,10 @@ public class VariantLocus implements Comparable<VariantLocus> {
     if (m_chromosomeHgvsNameList == null) {
       m_chromosomeHgvsNameList = HGVS_NAME_SPLITTER.splitToList(m_chromosomeHgvsName);
     }
+    if (vcfAllele.equals(".")) {
+      // if phased, we should use "[?]"
+      return "g." + m_position + "?";
+    }
     if (vcfAllele.equals(m_ref)) {
       return "g." + m_position + "=";
     }

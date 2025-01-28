@@ -22,10 +22,25 @@ public class CombinationUtil {
     Preconditions.checkNotNull(alleles);
     Preconditions.checkArgument(!alleles.isEmpty(), "No alleles to generate permutations for");
 
-    boolean isHaploid = alleles.stream().allMatch(sa -> sa.getAllele2() == null);
-    Set<String> rez = generatePermutations(alleles, 0, isHaploid, true, "");
-    if (!isHaploid) {
-      rez.addAll(generatePermutations(alleles, 0, false, false, ""));
+    boolean isS1Blank = true;
+    boolean isS2Blank = true;
+    for (SampleAllele sa : alleles) {
+      if (sa.getAllele1() != null) {
+        isS1Blank = false;
+      }
+      if (sa.getAllele2() != null) {
+        isS2Blank = false;
+      }
+      if (!isS1Blank && !isS2Blank) {
+        break;
+      }
+    }
+    Set<String> rez = new HashSet<>();
+    if (!isS1Blank) {
+      rez.addAll(generatePermutations(alleles, 0, isS2Blank, true, ""));
+    }
+    if (!isS2Blank) {
+      rez.addAll(generatePermutations(alleles, 0, isS1Blank, false, ""));
     }
     if (rez.isEmpty()) {
       throw new IllegalStateException("No permutations generated from " + alleles.size() + " alleles");

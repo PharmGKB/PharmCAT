@@ -85,9 +85,9 @@ class DiplotypeMatcherTest {
   void test1() {
 
     SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
-        new SampleAllele("chr1", 2, "C", "C", false, Lists.newArrayList("C", "T")),
-        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "T"))
+        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G"), "0/1"),
+        new SampleAllele("chr1", 2, "C", "C", false, Lists.newArrayList("C", "T"), "0/0"),
+        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "T"), "0/0")
     ));
 
     SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -100,9 +100,9 @@ class DiplotypeMatcherTest {
   void test2() {
 
     SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G")),
-        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
-        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
+        new SampleAllele("chr1", 1, "A", "G", false, Lists.newArrayList("A", "G"), "0/1"),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T"), "0/1"),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"), "0/1")
     ));
 
     SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -115,9 +115,9 @@ class DiplotypeMatcherTest {
   void test3() {
 
     SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
-        new SampleAllele("chr1", 1, "A", "A", false, Lists.newArrayList("A", "G")),
-        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
-        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
+        new SampleAllele("chr1", 1, "A", "A", false, Lists.newArrayList("A", "G"), "0/0"),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T"), "0/1"),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"), "0/1")
     ));
 
     SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -130,9 +130,9 @@ class DiplotypeMatcherTest {
   void test4() {
 
     SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
-        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
-        new SampleAllele("chr1", 2, "T", "T", false, Lists.newArrayList("C", "T")),
-        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
+        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G"), "1/1"),
+        new SampleAllele("chr1", 2, "T", "T", false, Lists.newArrayList("C", "T"), "1/1"),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"), "0/1")
     ));
 
     SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
@@ -145,9 +145,9 @@ class DiplotypeMatcherTest {
   void test5() {
 
     SortedSet<SampleAllele> alleles = new TreeSet<>(Arrays.asList(
-        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G")),
-        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T")),
-        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"))
+        new SampleAllele("chr1", 1, "G", "G", false, Lists.newArrayList("A", "G"), "1/1"),
+        new SampleAllele("chr1", 2, "C", "T", false, Lists.newArrayList("C", "T"), "0/1"),
+        new SampleAllele("chr1", 3, "C", "T", false, Lists.newArrayList("C", "T"), "0/1")
     ));
     SortedSet<DiplotypeMatch> pairMatches = computeHaplotypes(alleles);
     List<String> expectedMatches = Lists.newArrayList("*4a/*4b", "*4a/*17", "*4a/*4a");
@@ -216,10 +216,10 @@ class DiplotypeMatcherTest {
         "1:T;2:T;3:C;4:G;"
     );
     SortedMap<String, SampleAllele> sampleAlleleMap = new TreeMap<>();
-    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T")));
-    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("T")));
-    sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C")));
-    sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C")));
+    sampleAlleleMap.put("chr1:1", new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T"), "0/0"));
+    sampleAlleleMap.put("chr1:2", new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("T"), "1/0"));
+    sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C"), "0/0"));
+    sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C"), "0/1"));
 
     MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
     dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false);

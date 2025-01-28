@@ -26,10 +26,10 @@ class CombinationUtilTest {
   void testGeneratePermutationsNotPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "T", "T", false, Lists.newArrayList("T", "C")),
-        new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("A", "T")),
-        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "C")),
-        new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C", "G"))
+        new SampleAllele("chr1", 1, "T", "T", false, Lists.newArrayList("T", "C"), "0/0"),
+        new SampleAllele("chr1", 2, "A", "T", false, Lists.newArrayList("A", "T"),  "0/1"),
+        new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C", "C"), "0/0"),
+        new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C", "G"), "0/1")
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(
@@ -49,10 +49,10 @@ class CombinationUtilTest {
   void testGeneratePermutationPhased() {
 
     List<SampleAllele> alleles = Arrays.asList(
-        new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T", "C")),
-        new SampleAllele("chr1", 2, "A", "T", true, Lists.newArrayList("A", "T")),
-        new SampleAllele("chr1", 3, "C", "C", true, Lists.newArrayList("C", "C")),
-        new SampleAllele("chr1", 4, "C", "G", true, Lists.newArrayList("C", "G"))
+        new SampleAllele("chr1", 1, "T", "T", true, Lists.newArrayList("T", "C"), "0|0"),
+        new SampleAllele("chr1", 2, "A", "T", true, Lists.newArrayList("A", "T"), "0|1"),
+        new SampleAllele("chr1", 3, "C", "C", true, Lists.newArrayList("C", "C"), "0|0"),
+        new SampleAllele("chr1", 4, "C", "G", true, Lists.newArrayList("C", "G"), "0|1")
     );
 
     Set<String> expectedPermutations = Sets.newHashSet(

@@ -1042,6 +1042,78 @@ public class NamedAlleleMatcherTest {
   }
 
 
+  @Test
+  void testPartialMissingAllele(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/CYP2B6_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "no_call")
+        .withDefinition(definitionFile)
+        // *2
+        .variation("CYP2B6", "rs8192709", ".", "T")
+        .generate();
+
+
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, false, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(1, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(0, matches.size());
+  }
+
+  @Test
+  void testPartialMissingAllele_combination1(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/CYP2B6_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "no_call")
+        .withDefinition(definitionFile)
+        // *2
+        .variation("CYP2B6", "rs8192709", "T", ".")
+        .generate();
+
+
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(1, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(1, matches.size());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals("*2/g.40991369?", geneCall.getDiplotypes().iterator().next().getName());
+  }
+
+  @Test
+  void testPartialMissingAllele_combination_phased(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/CYP2B6_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "no_call")
+        .withDefinition(definitionFile)
+        .phased()
+        // *2
+        .variation("CYP2B6", "rs8192709", ".", "T")
+        .generate();
+
+
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(1, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(1, matches.size());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals("*2/g.40991369?", geneCall.getDiplotypes().iterator().next().getName());
+  }
+
+
   @SuppressWarnings("unused")
   private static void printWarnings(Result result) {
     for (String key : result.getVcfWarnings().keySet()) {

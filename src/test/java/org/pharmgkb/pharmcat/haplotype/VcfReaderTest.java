@@ -32,6 +32,54 @@ class VcfReaderTest {
 
 
   @Test
+  void testAlleleOrder() throws Exception {
+    VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-alleleOrder.vcf"));
+    Map<String, SampleAllele> alleleMap = reader.getAlleleMap();
+
+    // only expect 4 because 0|. and .|0 will be ignored
+    assertEquals(4, alleleMap.size());
+
+    reader.getWarnings().keySet()
+        .forEach(p -> {
+          System.out.println(p);
+          for (String warning : reader.getWarnings().get(p)) {
+            System.out.println(" * " + warning);
+          }
+        });
+
+    // .|1
+    String chrPos = "chr1:97079005";
+    assertTrue(reader.getWarnings().containsKey(chrPos));
+    assertEquals(1, reader.getWarnings().get(chrPos).size());
+    assertTrue(reader.getWarnings().get(chrPos).contains("1 genotype found (GT=.|1), expecting 2."));
+    SampleAllele sa = alleleMap.get(chrPos);
+    assertNotNull(sa);
+    assertNull(sa.getAllele1());
+    assertEquals("T", sa.getAllele2());
+
+    // 1|.
+    chrPos = "chr1:97079071";
+    assertTrue(reader.getWarnings().containsKey(chrPos));
+    assertEquals(1, reader.getWarnings().get(chrPos).size());
+    assertTrue(reader.getWarnings().get(chrPos).contains("1 genotype found (GT=1|.), expecting 2."));
+    assertTrue(alleleMap.containsKey(chrPos));
+
+    // 0|.
+    chrPos = "chr1:97079076";
+    assertTrue(reader.getWarnings().containsKey(chrPos));
+    assertEquals(1, reader.getWarnings().get(chrPos).size());
+    assertTrue(reader.getWarnings().get(chrPos).contains("Ignoring: only a single genotype found (GT=0|.).  Since it's reference, treating this as a missing position."));
+    assertFalse(alleleMap.containsKey(chrPos));
+    // .|0
+    chrPos = "chr1:97079077";
+    assertTrue(reader.getWarnings().containsKey(chrPos));
+    assertEquals(1, reader.getWarnings().get("chr1:97079077").size());
+    assertTrue(reader.getWarnings().get("chr1:97079077").contains("Ignoring: only a single genotype found (GT=.|0).  Since it's reference, treating this as a missing position."));
+    assertFalse(alleleMap.containsKey(chrPos));
+  }
+
+
+  @Test
   void testPhasing() throws Exception {
 
     VcfReader reader = new VcfReader(PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phasing.vcf"));

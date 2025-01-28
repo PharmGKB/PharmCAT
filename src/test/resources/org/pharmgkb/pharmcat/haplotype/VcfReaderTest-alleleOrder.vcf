@@ -1,0 +1,26 @@
+##fileformat=VCFv4.2
+##source=PharmCAT allele definitions
+##fileDate=2023-02-03T08:20:52.044-08:00
+##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr2,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr4,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr6,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr7,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr12,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr13,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr16,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr19,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr22,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chrX,assembly=GRCh38.p13,species="Homo sapiens">
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PharmCAT
+chr1	97078987	rs114096998	G	T	.	PASS	PX=DPYD	GT	0|1
+chr1	97078993	rs148799944	C	G	.	PASS	PX=DPYD	GT	1|0
+chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	.|1
+chr1	97079071	rs1801268	C	A	.	PASS	PX=DPYD	GT	1|.
+chr1	97079076	rs139459586	A	C	.	PASS	PX=DPYD	GT	0|.
+chr1	97079077	rs202144771	G	A	.	PASS	PX=DPYD	GT	.|0

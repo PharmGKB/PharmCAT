@@ -47,6 +47,12 @@ public class SampleAllele implements Comparable<SampleAllele> {
   @SerializedName("vcfAlleles")
   private final List<String> m_vcfAlleles;
   @Expose
+  @SerializedName("gt")
+  private final String m_gt;
+  @Expose
+  @SerializedName("vcfCall")
+  private final String m_vcfCall;
+  @Expose
   @SerializedName("undocumentedVariations")
   private final Set<String> m_undocumentedVariations = new HashSet<>();
   @Expose
@@ -54,8 +60,8 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private boolean m_treatUndocumentedVariationsAsReference;
 
 
-  public SampleAllele(String chromosome, long position, String a1, @Nullable String a2, boolean isPhased,
-      boolean isEffectivelyPhased, List<String> vcfAlleles, @Nullable Set<String> undocumentedVariations,
+  public SampleAllele(String chromosome, long position, @Nullable String a1, @Nullable String a2, boolean isPhased,
+      boolean isEffectivelyPhased, List<String> vcfAlleles, String gt, @Nullable Set<String> undocumentedVariations,
       boolean treatUndocumentedAsReference) {
     Preconditions.checkNotNull(vcfAlleles);
     m_chromosome = chromosome;
@@ -66,16 +72,43 @@ public class SampleAllele implements Comparable<SampleAllele> {
       m_undocumentedVariations.addAll(undocumentedVariations);
     }
     m_vcfAlleles = vcfAlleles;
+    m_gt = gt;
 
-    m_allele1 = a1.toUpperCase();
-    m_computedAllele1 = computeAllele(m_allele1, treatUndocumentedAsReference);
+    StringBuilder callBuilder = new StringBuilder();
+    if (a1 != null) {
+      m_allele1 = a1.toUpperCase();
+      m_computedAllele1 = computeAllele(m_allele1, treatUndocumentedAsReference);
+      callBuilder.append(m_allele1);
+    } else {
+      m_allele1 = null;
+      m_computedAllele1 = ".";
+      callBuilder.append(".");
+    }
     if (a2 != null) {
       m_allele2 = a2.toUpperCase();
       m_computedAllele2 = computeAllele(m_allele2, treatUndocumentedAsReference);
+      if (isPhased) {
+        callBuilder.append("|");
+      } else {
+        callBuilder.append("/");
+      }
+      callBuilder.append(m_allele2);
     } else {
       m_allele2 = null;
-      m_computedAllele2 = null;
+      String[] gtArray = VcfReader.GT_DELIMITER.split(gt);
+      if (gtArray.length > 1 && gtArray[1].equals(".")) {
+        if (isPhased) {
+          callBuilder.append("|");
+        } else {
+          callBuilder.append("/");
+        }
+        callBuilder.append(".");
+        m_computedAllele2 = ".";
+      } else {
+        m_computedAllele2 = null;
+      }
     }
+    m_vcfCall = callBuilder.toString();
     m_isPhased = isPhased;
     m_isEffectivelyPhased = isEffectivelyPhased;
   }
@@ -89,11 +122,11 @@ public class SampleAllele implements Comparable<SampleAllele> {
   }
 
   /**
-   * This constructor is primarily for use in tests only.
+   * This constructor should only be use in tests.
    */
-  protected SampleAllele(String chromosome, long position, String a1, @Nullable String a2,
-      boolean isPhased, List<String> vcfAlleles) {
-    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles, null, false);
+  protected SampleAllele(String chromosome, long position, @Nullable String a1, @Nullable String a2,
+      boolean isPhased, List<String> vcfAlleles, String gt) {
+    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles, gt, null, false);
   }
 
 
@@ -112,7 +145,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
   /**
    * Gets the first allele from the VCF (per GT column).
    */
-  public String getAllele1() {
+  public @Nullable String getAllele1() {
     return m_allele1;
   }
 
@@ -127,7 +160,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
   /**
    * Gets the first allele, taking treatUndocumentedVariationsAsReference into account.
    */
-  public String getComputedAllele1() {
+  public @Nullable String getComputedAllele1() {
     return m_computedAllele1;
   }
 
@@ -160,8 +193,27 @@ public class SampleAllele implements Comparable<SampleAllele> {
     return m_vcfAlleles;
   }
 
+  /**
+   * Gets the GT value from the VCF.
+   */
+  public String getGt() {
+    return m_gt;
+  }
+
+  /**
+   * Gets the alleles separated by VCF phasing delimiter (i.e. "/" or "|").
+   * Missing allele will be represented by ".".
+   */
+  public String getVcfCall() {
+    return m_vcfCall;
+  }
 
   public boolean isHomozygous() {
+    if (m_computedAllele1 == null) {
+      // both alleles can never be null
+      Preconditions.checkState(m_computedAllele2 != null);
+      return false;
+    }
     return m_computedAllele1.equals(m_computedAllele2);
   }
 
@@ -180,7 +232,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
 
   @Override
   public String toString() {
-    return m_allele1 + (m_allele2 == null ? "" : "/" + m_allele2) + " @ " + m_chromosome + ":" + m_position;
+    return m_vcfCall + " @ " + m_chromosome + ":" + m_position;
   }
 
   @Override

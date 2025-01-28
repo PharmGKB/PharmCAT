@@ -1,17 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.lang.invoke.MethodHandles;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
@@ -114,7 +104,7 @@ public class MatchData {
         }
       }
     }
-    m_isHaploid = m_sampleMap.values().stream().allMatch(sa -> sa.getAllele2() == null);
+    m_isHaploid = areSampleAllelesHaploid(m_sampleMap.values());
     m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
     m_isHomozygous = m_isHaploid ||
         m_sampleMap.values().stream().allMatch(SampleAllele::isHomozygous);
@@ -169,6 +159,14 @@ public class MatchData {
         }
       }
     }
+  }
+
+  /**
+   * Checks if any of the sample's alleles is partially missing.
+   */
+  public boolean hasPartialMissingAlleles() {
+    return m_sampleMap.values().stream()
+        .anyMatch(sa -> sa.getVcfCall().contains("."));
   }
 
   private boolean isIgnorableCombination(String gene, NamedAllele hap) {
@@ -375,5 +373,20 @@ public class MatchData {
   @Override
   public String toString() {
     return m_gene + " match data for " + m_sampleId;
+  }
+
+
+  private static boolean areSampleAllelesHaploid(Collection<SampleAllele> sampleAlleles) {
+    int s1 = 0;
+    int s2 = 0;
+    for (SampleAllele a : sampleAlleles) {
+      if (a.getAllele1() == null) {
+        s1 += 1;
+      }
+      if (a.getAllele2() == null) {
+        s2 += 1;
+      }
+    }
+    return s1 == sampleAlleles.size() || s2 == sampleAlleles.size();
   }
 }

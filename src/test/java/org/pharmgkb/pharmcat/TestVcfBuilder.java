@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -343,7 +342,9 @@ public class TestVcfBuilder {
       }
       String vcfAllele = vl.getCpicToVcfAlleleMap().get(cpicAllele);
       if (vcfAllele == null) {
-        if (m_allowUnknownAllele) {
+        if (cpicAllele.equals(".")) {
+          vcfAllele = ".";
+        } else if (m_allowUnknownAllele) {
           vcfAllele = cpicAllele;
           alts.add(vcfAllele);
         } else {
@@ -351,7 +352,9 @@ public class TestVcfBuilder {
               ", expected one of " + vl.getCpicToVcfAlleleMap().keySet());
         }
       }
-      if (vcfAllele.equals(vl.getRef())) {
+      if (vcfAllele.equals(".")) {
+        builder.append(".");
+      } else if (vcfAllele.equals(vl.getRef())) {
         builder.append("0");
       } else {
         int idx = alts.indexOf(vcfAllele);

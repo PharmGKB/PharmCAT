@@ -47,7 +47,7 @@ public class CombinationMatch extends BaseMatch {
   }
 
   /**
-   * Constructor for {@link CombinationMatch} based on off-reference partial sequence.
+   * Constructor for {@link CombinationMatch} based on an off-reference partial sequence.
    * <p>
    * This automatically <b>sets the score to 0</b>.  So you should NOT call
    * {@link BaseMatch#finalizeCombinationHaplotype(MatchData, boolean)} on this.

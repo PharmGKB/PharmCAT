@@ -3,11 +3,11 @@ package org.pharmgkb.pharmcat;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -28,6 +28,7 @@ import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -198,20 +199,16 @@ class PipelineWrapper {
   private void testDiplotypeNames(GeneReport geneReport, List<String> diplotypes) {
     List<String> actualDiplotypes = geneReport.getSourceDiplotypes().stream()
         .map(d -> {
-          StringBuilder builder = new StringBuilder();
           if (d.getAllele1() == null) {
-            builder.append(Haplotype.UNKNOWN)
-                .append(TextConstants.GENOTYPE_DELIMITER)
-                .append(Haplotype.UNKNOWN);
-          } else {
-            builder.append(Objects.requireNonNull(d.getAllele1()).getName());
-            if (d.getAllele2() != null) {
-              builder
-                  .append(TextConstants.GENOTYPE_DELIMITER)
-                  .append(d.getAllele2().getName());
-            }
+            return Haplotype.UNKNOWN + TextConstants.GENOTYPE_DELIMITER + Haplotype.UNKNOWN;
           }
-          return builder.toString();
+          List<String> haps = new ArrayList<>();
+          haps.add(d.getAllele1().getName());
+          if (d.getAllele2() != null) {
+            haps.add(d.getAllele2().getName());
+          }
+          haps.sort(HaplotypeNameComparator.getComparator());
+          return String.join(TextConstants.GENOTYPE_DELIMITER, haps);
         })
         .toList();
     List<String> expectedDiplotypes = stripHomozygousNotes(diplotypes);
