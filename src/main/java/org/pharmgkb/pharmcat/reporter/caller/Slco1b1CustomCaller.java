@@ -51,7 +51,7 @@ public class Slco1b1CustomCaller {
     List<VariantReport> variants = report.getVariantReports().stream()
         .filter(v -> sf_callPosition.equals(v.getDbSnpId()))
         .toList();
-    if (variants.size() == 0) {
+    if (variants.isEmpty()) {
       return report.getSourceDiplotypes();
     }
     if (variants.size() > 1) {
@@ -64,13 +64,13 @@ public class Slco1b1CustomCaller {
       return report.getSourceDiplotypes();
     }
 
-    Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source);
+    Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source, 0);
     diplotype.setVariant(variant);
     diplotype.setInferred(true);
 
     String[] alleles = Objects.requireNonNull(splitVariant(variant));
     diplotype.setInferredSourceDiplotype(new Diplotype(GENE,
-        sf_callPosition + " " + alleles[0], sf_callPosition + " " + alleles[1], env, source));
+        sf_callPosition + " " + alleles[0], sf_callPosition + " " + alleles[1], env, source, 0));
 
     SortedSet<Diplotype> dips = new TreeSet<>();
     dips.add(diplotype);

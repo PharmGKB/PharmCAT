@@ -48,9 +48,11 @@ public class BaseConfig {
   List<PrescribingGuidanceSource> reporterSources;
   boolean reporterJson;
   boolean reporterHtml = true;
+  boolean reporterCallsOnlyTsv = false;
   Path outputDir;
   String baseFilename;
   boolean deleteIntermediateFiles;
+  boolean verbose;
   SortedSet<String> samples = new TreeSet<>();
 
 
@@ -125,13 +127,15 @@ public class BaseConfig {
       reporterTitle = cliHelper.getValue("rt");
       reporterCompact = !cliHelper.hasOption("re");
       reporterJson = cliHelper.hasOption("reporterJson");
+      reporterCallsOnlyTsv = cliHelper.hasOption("reporterCallsOnly");
 
       if (researchMode) {
-        System.out.println("WARNING: REPORTER MODULE NOT AVAILABLE IN RESEARCH MODE");
-        if (!reporterJson) {
+        System.out.println("WARNING: FULL REPORTER OUTPUT NOT AVAILABLE IN RESEARCH MODE");
+        if (!reporterCallsOnlyTsv) {
           runReporter = false;
         }
         reporterHtml = false;
+        reporterJson = false;
       }
 
       if (cliHelper.hasOption("rs")) {
@@ -166,6 +170,7 @@ public class BaseConfig {
     }
     baseFilename = cliHelper.getValue("bf");
     deleteIntermediateFiles = cliHelper.hasOption("del");
+    verbose = cliHelper.isVerbose();
   }
 
 

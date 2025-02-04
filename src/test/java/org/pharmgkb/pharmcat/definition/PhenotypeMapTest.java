@@ -84,7 +84,7 @@ class PhenotypeMapTest {
   @Test
   void testLookupPhenotype() {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
-    Diplotype diplotype = new Diplotype("CYP2C19", "*1", "*1", s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype("CYP2C19", "*1", "*1", s_env, DataSource.CPIC, 0);
 
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2C19")
         .orElseThrow(() -> new RuntimeException("No CYP2C19 phenotype map found"));
@@ -97,7 +97,7 @@ class PhenotypeMapTest {
   @Test
   void testLookupActivity() {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
-    Diplotype diplotype = new Diplotype("CYP2D6", "*1", "*3", s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype("CYP2D6", "*1", "*3", s_env, DataSource.CPIC, 0);
 
     GenePhenotype genePhenotype = phenotypeMap.lookupCpic("CYP2D6")
         .orElseThrow(() -> new RuntimeException("No CYP2D6 phenotype map found"));

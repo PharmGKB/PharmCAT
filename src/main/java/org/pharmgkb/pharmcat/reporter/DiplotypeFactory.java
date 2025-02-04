@@ -61,7 +61,7 @@ public class DiplotypeFactory {
       }
     }
     for (NamedAllele na : haps) {
-      dips.add(new Diplotype(m_gene, na.getName(), null, m_env, source));
+      dips.add(new Diplotype(m_gene, na.getName(), null, m_env, source, na.getScore()));
     }
     return dips;
   }
@@ -79,8 +79,7 @@ public class DiplotypeFactory {
           if (h2 != null) {
             h2Name = h2.getName();
           }
-
-          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2Name, m_env, source);
+          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2Name, m_env, source, dm.getScore());
           diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
           return diplotype;
         })
@@ -92,7 +91,7 @@ public class DiplotypeFactory {
       return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
     }
     return matches.stream()
-        .map((hm) -> new Diplotype(m_gene, hm.getName(), null, m_env, source))
+        .map((hm) -> new Diplotype(m_gene, hm.getName(), null, m_env, source, 0))
         .toList();
   }
 

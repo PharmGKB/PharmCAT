@@ -47,6 +47,7 @@ public class PharmCAT {
           .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]", false, "sources")
           .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
+          .addOption("reporterCallsOnly", "reporter-save-calls-only", "Save calls only as TSV")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
@@ -163,14 +164,8 @@ public class PharmCAT {
           if (config.samples.size() > 1) {
             System.out.println(x + " / " + config.samples.size() + " - " + sampleId);
           }
-          Pipeline pipeline = new Pipeline(env,
-              config.runMatcher, vcfFile, sampleId, singleSample,
-              config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
-              config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFiles,
-              config.runReporter, reporterInputFile, config.reporterTitle,
-              config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
-              config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-              Pipeline.Mode.CLI, null, cliHelper.isVerbose());
+          Pipeline pipeline = new Pipeline(env, config, vcfFile, sampleId, singleSample,
+              phenotyperInputFile, phenotyperOutsideCallsFiles, reporterInputFile);
           if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
             failIfNotTest();
             blankRuns.add(sampleId);
@@ -187,14 +182,8 @@ public class PharmCAT {
         }
 
       } else {
-        Pipeline pipeline = new Pipeline(env,
-            false, null, null, true,
-            config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
-            config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFiles,
-            config.runReporter, reporterInputFile, config.reporterTitle,
-            config.reporterSources, config.reporterCompact, config.reporterJson, config.reporterHtml,
-            config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-            Pipeline.Mode.CLI, null, cliHelper.isVerbose());
+        Pipeline pipeline = new Pipeline(env, config, null, null, true,
+            phenotyperInputFile, phenotyperOutsideCallsFiles, reporterInputFile);
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
           cliHelper.printHelp();
           System.out.println("Nothing to do.");

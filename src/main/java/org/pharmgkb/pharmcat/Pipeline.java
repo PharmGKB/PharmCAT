@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.phenotype.OutsideCallParser;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.reporter.format.JsonFormat;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
@@ -72,6 +73,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private List<PrescribingGuidanceSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
+  private Path m_reporterCallsOnlyFile;
   private ReportContext m_reportContext;
 
   private final boolean m_deleteIntermediateFiles;
@@ -83,12 +85,28 @@ public class Pipeline implements Callable<PipelineResult> {
   private final String m_displayCount;
 
 
+  public Pipeline(Env env, BaseConfig config, @Nullable VcfFile vcfFile,
+      @Nullable String sampleId, boolean singleSample,
+      @Nullable Path phenotyperInputFile, @Nullable List<Path> phenotyperOutsideCallsFiles,
+      @Nullable Path reporterInputFile) throws ReportableException {
+    this(env, config.runMatcher, vcfFile, sampleId, singleSample,
+        config.topCandidateOnly, config.callCyp2d6, config.findCombinations, config.matcherHtml,
+        config.runPhenotyper, phenotyperInputFile, phenotyperOutsideCallsFiles,
+        config.runReporter, reporterInputFile, config.reporterTitle,
+        config.reporterSources, config.reporterCompact,
+        config.reporterJson, config.reporterHtml, config.reporterCallsOnlyTsv,
+        config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
+        Pipeline.Mode.CLI, null, config.verbose);
+  }
+
+
   public Pipeline(Env env,
       boolean runMatcher, @Nullable VcfFile vcfFile, @Nullable String sampleId, boolean singleSample,
       boolean topCandidateOnly, boolean callCyp2d6, boolean findCombinations, boolean matcherHtml,
       boolean runPhenotyper, @Nullable Path phenotyperInputFile, @Nullable List<Path> phenotyperOutsideCallsFile,
       boolean runReporter, @Nullable Path reporterInputFile, @Nullable String reporterTitle,
-      @Nullable List<PrescribingGuidanceSource> reporterSources, boolean reporterCompact, boolean reporterJson, boolean reporterHtml,
+      @Nullable List<PrescribingGuidanceSource> reporterSources, boolean reporterCompact,
+      boolean reporterJson, boolean reporterHtml, boolean reporterCallsOnlyTsv,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
       Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
     m_env = env;
@@ -150,6 +168,9 @@ public class Pipeline implements Callable<PipelineResult> {
       }
       if (reporterJson) {
         m_reporterJsonFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".json");
+      }
+      if (reporterCallsOnlyTsv) {
+        m_reporterCallsOnlyFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
       }
       m_reporterTitle = reporterTitle;
       if (m_reporterTitle == null) {
@@ -347,6 +368,16 @@ public class Pipeline implements Callable<PipelineResult> {
           }
           new JsonFormat(m_reporterJsonFile, m_env)
               .write(m_reportContext);
+        }
+        if (m_reporterCallsOnlyFile != null) {
+          if (!batchDisplayMode) {
+            output.add("Saving calls-only TSV results to " + m_reporterCallsOnlyFile);
+          }
+          CallsOnlyFormat caf = new CallsOnlyFormat(m_reporterCallsOnlyFile, m_env);
+          if (!m_topCandidateOnly) {
+            caf.showMatchScores();
+          }
+          caf.write(m_reportContext);
         }
         didSomething = true;
       }

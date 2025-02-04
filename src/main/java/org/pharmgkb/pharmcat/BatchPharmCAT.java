@@ -65,6 +65,7 @@ public class BatchPharmCAT {
           .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]", false, "sources")
           .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
+          .addOption("reporterCallsOnly", "reporter-save-calls-only", "Save calls only as TSV")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")
@@ -396,7 +397,8 @@ public class BatchPharmCAT {
           m_config.topCandidateOnly, m_config.callCyp2d6, m_config.findCombinations, m_config.matcherHtml,
           m_runPhenotyper, m_piFile, m_poFile,
           m_runReporter, m_riFile, m_config.reporterTitle,
-          m_config.reporterSources, m_config.reporterCompact, m_config.reporterJson, m_config.reporterHtml,
+          m_config.reporterSources, m_config.reporterCompact,
+          m_config.reporterJson, m_config.reporterHtml, m_config.reporterCallsOnlyTsv,
           m_config.outputDir, m_config.baseFilename, m_config.deleteIntermediateFiles,
           mode, (index + "/" + totalTasks), m_verbose);
     }

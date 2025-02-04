@@ -129,7 +129,7 @@ class PipelineWrapper {
         runMatcher, vcfFileObj, null, true,
         m_topCandidatesOnly, m_callCyp2d6, m_findCombinations, true,
         true, null, outsideCallPaths,
-        true, null, null, m_sources, m_compactReport, true, true,
+        true, null, null, m_sources, m_compactReport, true, true, true,
         m_outputPath, null, m_deleteIntermediateFiles,
         Pipeline.Mode.TEST, null, false
     );

@@ -8,6 +8,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
@@ -43,6 +44,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("gene")
   private String m_gene;
+  @Expose
+  @SerializedName("matchScore")
+  private int m_matchScore;
   @Expose
   @SerializedName("phenotypes")
   private List<String> m_phenotypes = new ArrayList<>();
@@ -94,6 +98,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   /**
    * Public constructor.
+   * Mainly used to create diplotypes from custom callers.
    */
   public Diplotype(String gene, Haplotype h1, @Nullable Haplotype h2, Env env, DataSource source) {
     m_gene = gene;
@@ -108,11 +113,16 @@ public class Diplotype implements Comparable<Diplotype> {
     }
   }
 
-  public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source) {
+  /**
+   * Public constructor.
+   * Mainly used to create diplotypes from {@link NamedAlleleMatcher}.
+   */
+  public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source, int matchScore) {
     m_gene = gene;
     m_phenotypeDataSource = source;
     m_allele1 = env.makeHaplotype(gene, hap1, source);
     m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
+    m_matchScore = matchScore;
     annotateDiplotype(env.getPhenotype(m_gene, source));
     m_label = buildLabel(false);
     addAlleleToDiplotypeKey(hap1);
@@ -199,6 +209,17 @@ public class Diplotype implements Comparable<Diplotype> {
   public @Nullable Haplotype getAllele2()  {
     return m_allele2;
   }
+
+
+  /**
+   * Gets the score from the {@link NamedAlleleMatcher}.
+   * Will be zero if not called by {@link NamedAlleleMatcher} or if no diplotype was generated
+   * (e.g. if this "diplotype" is based on haplotype matches from the {@link NamedAlleleMatcher}).
+   */
+  public int getMatchScore() {
+    return m_matchScore;
+  }
+
 
   /**
    * Is this Diplotype for a single-ploidy gene like MT-RNR1?
@@ -576,7 +597,7 @@ public class Diplotype implements Comparable<Diplotype> {
         if (isUnknown()) {
           m_lookupKeys.add(TextConstants.NO_RESULT);
         } else {
-          // if had diplotype, activity score would have been filled in
+          // if had diplotype, the activity score would have been filled in
           m_lookupKeys.addAll(lookupActivityScoresByPhenotype(gp, m_phenotypes));
         }
       }
