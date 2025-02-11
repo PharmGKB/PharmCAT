@@ -18,13 +18,13 @@ import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 
 /**
  * Class to parse outside-call text files into {@link OutsideCall} objects.
- * This parser will ignore any lines starting with "#" or blank lines and interpret the rest as TSV formatted lines as:
+ * This parser will ignore any lines starting with "#" or blank lines and interpret the rest as TSV-formatted lines as:
  * <ol>
  *   <li>gene symbol</li>
  *   <li>diplotype</li>
  *   <li>phenotype</li>
  *   <li>activity score</li>
- * </ol>with
+ * </ol>
  * <p>
  * The diplotype call in the second "column" can optionally include the gene symbol as a prefix on the allele name, but
  * it will be ignored. The gene is read from the first "column". As an example, this means both
