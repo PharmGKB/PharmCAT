@@ -22,6 +22,7 @@ import org.pharmgkb.common.util.AnsiConsole;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.phenotype.OutsideCallParser;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
@@ -300,14 +301,17 @@ public class Pipeline implements Callable<PipelineResult> {
 
       Phenotyper phenotyper = null;
       if (m_runPhenotyper) {
+        Metadata metadata = null;
         List<GeneCall> calls;
         Map<String, Collection<String>> warnings = new HashMap<>();
         if (matcherResult != null) {
+          metadata = matcherResult.getMetadata();
           calls = matcherResult.getGeneCalls();
           warnings.putAll(matcherResult.getVcfWarnings());
         } else if (m_phenotyperInputFile != null) {
           org.pharmgkb.pharmcat.haplotype.model.Result deserializedMatcherResult = new ResultSerializer()
               .fromJson(m_phenotyperInputFile);
+          metadata = deserializedMatcherResult.getMetadata();
           calls = deserializedMatcherResult.getGeneCalls();
           warnings.putAll(deserializedMatcherResult.getVcfWarnings());
         } else {
@@ -337,7 +341,7 @@ public class Pipeline implements Callable<PipelineResult> {
           }
         }
 
-        phenotyper = new Phenotyper(m_env, calls, outsideCalls, warnings);
+        phenotyper = new Phenotyper(m_env, metadata, calls, outsideCalls, warnings);
         if (!m_deleteIntermediateFiles || !m_runReporter) {
           if (!batchDisplayMode) {
             output.add("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
@@ -352,7 +356,7 @@ public class Pipeline implements Callable<PipelineResult> {
           Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
           phenotyper = Phenotyper.read(inputFile);
         }
-        m_reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), m_reporterTitle);
+        m_reportContext = new ReportContext(m_env, phenotyper, m_reporterTitle);
         if (m_reporterHtmlFile != null) {
           if (!batchDisplayMode) {
             output.add("Saving reporter HTML results to " + m_reporterHtmlFile);
@@ -373,11 +377,8 @@ public class Pipeline implements Callable<PipelineResult> {
           if (!batchDisplayMode) {
             output.add("Saving calls-only TSV results to " + m_reporterCallsOnlyFile);
           }
-          CallsOnlyFormat caf = new CallsOnlyFormat(m_reporterCallsOnlyFile, m_env);
-          if (!m_topCandidateOnly) {
-            caf.showMatchScores();
-          }
-          caf.write(m_reportContext);
+          new CallsOnlyFormat(m_reporterCallsOnlyFile, m_env)
+              .write(m_reportContext);
         }
         didSomething = true;
       }

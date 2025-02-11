@@ -163,8 +163,16 @@ Each module has its own arguments to customize its behavior.
 -re <span class="altArg"><br />or --reporter-extended</span>
 : write an extended report (includes all possible genes and drugs, even if no data is available)
 
--reporterJson
+-reporterHtml<br />or --reporter-save-html</span>
+: save reporter results as HTML. This is the default if no format is specified.
+If any format is specified, only the specified formats will be saved.
+
+-reporterJson<br />or --reporter-save-json</span>
 : save reporter results as JSON
+
+-reporterCallsOnlyTsv<br />or --reporter-save-calls-only-tsv</span>
+: save call results only as TSV
+
 
 
 ### Running Individual Modules
@@ -199,7 +207,7 @@ Saving phenotyper JSON results to /tmp/results/outside_calls.phenotype.json
 
 #### Just the `Reporter`
 
-This will take the phenotyper data and output the relevant drug annotations in a comprehensive HTML report.
+This will take the `Phenotyper` data and output the relevant drug annotations in a comprehensive HTML report.
 
 Examples:
 

@@ -7,15 +7,7 @@ import java.lang.invoke.MethodHandles;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
@@ -24,6 +16,7 @@ import com.google.gson.annotations.SerializedName;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
+import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -44,33 +37,58 @@ import org.slf4j.LoggerFactory;
 public class Phenotyper {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+  @SerializedName("matcherMetadata")
+  @Expose
+  private Metadata m_matcherMetadata;
   @Expose
   @SerializedName("geneReports")
   private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports = new TreeMap<>();
+  @Expose
+  @SerializedName("unannotatedGeneCalls")
+  private SortedSet<GeneReport> m_unannotatedGeneCalls = new TreeSet<>();
 
 
   /**
    * Public constructor. This needs {@link GeneCall} objects from the {@link NamedAlleleMatcher} and {@link OutsideCall}
    * objects coming from other allele calling sources. This relies on reading definition files as well.
    *
+   * @param matcherMetadata metadata for the named allele matcher used for {@code geneCalls};
+   * can be null if all outside calls
    * @param geneCalls a List of {@link GeneCall} objects
    * @param outsideCalls a List of {@link OutsideCall} objects
    * @param variantWarnings map of VCF warnings, keyed to chromosomal position
    */
-  public Phenotyper(Env env, List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls,
+  public Phenotyper(Env env, @Nullable Metadata matcherMetadata, List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls,
       @Nullable Map<String, Collection<String>> variantWarnings) {
-    initialize(geneCalls, outsideCalls, env, DataSource.CPIC, variantWarnings);
-    initialize(geneCalls, outsideCalls, env, DataSource.DPWG, variantWarnings);
+    List<String> unusedGenes = initialize(geneCalls, outsideCalls, env, DataSource.CPIC, variantWarnings);
+    unusedGenes.retainAll(initialize(geneCalls, outsideCalls, env, DataSource.DPWG, variantWarnings));
+
+    if (!unusedGenes.isEmpty()) {
+      for (String gene : unusedGenes) {
+        GeneCall geneCall = geneCalls.stream()
+            .filter(gc -> gc.getGene().equals(gene))
+            .findFirst()
+            .orElseThrow(() -> new IllegalStateException("Cannot find gene call for " + gene));
+        GeneReport geneReport = new GeneReport(geneCall, env, DataSource.UNKNOWN);
+        if (!geneReport.isNoData()) {
+          m_unannotatedGeneCalls.add(geneReport);
+        }
+      }
+    }
+
+    m_matcherMetadata = matcherMetadata;
   }
 
 
-  private void initialize(List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls, Env env, DataSource source,
+  private List<String> initialize(List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls, Env env, DataSource source,
       @Nullable Map<String, Collection<String>> variantWarnings) {
     SortedMap<String, GeneReport> reportMap = m_geneReports.computeIfAbsent(source, (s) -> new TreeMap<>());
 
+    List<String> unusedGeneCalls = new ArrayList<>();
     // matcher calls
     for (GeneCall geneCall : geneCalls) {
       if (!env.hasGene(source, geneCall.getGene())) {
+        unusedGeneCalls.add(geneCall.getGene());
         continue;
       }
       GeneReport geneReport = new GeneReport(geneCall, env, source);
@@ -83,7 +101,7 @@ public class Phenotyper {
       MessageAnnotation msgAnnotation = null;
       if (geneReport != null) {
         if (geneReport.getCallSource() != CallSource.OUTSIDE) {
-          // outside call trumps matcher
+          // outside call trumps the matcher's result
           // warn the user of the conflict
           String matcherCall = geneReport.getSourceDiplotypes().stream()
               .sorted()
@@ -117,6 +135,8 @@ public class Phenotyper {
 
     // add VCF warnings
     reportMap.values().forEach(geneReport -> geneReport.addVariantWarningMessages(variantWarnings));
+
+    return unusedGeneCalls;
   }
 
 
@@ -132,6 +152,11 @@ public class Phenotyper {
       return Optional.ofNullable(m_geneReports.get(source).get(geneSymbol));
     }
     return Optional.empty();
+  }
+
+
+  public SortedSet<GeneReport> getUnannotatedGeneCalls() {
+    return m_unannotatedGeneCalls;
   }
 
 
@@ -169,5 +194,10 @@ public class Phenotyper {
         .map(GeneReport::getGene)
         .forEach(unspecifiedGenes::remove);
     return unspecifiedGenes;
+  }
+
+
+  public Metadata getMatcherMetadata() {
+    return m_matcherMetadata;
   }
 }

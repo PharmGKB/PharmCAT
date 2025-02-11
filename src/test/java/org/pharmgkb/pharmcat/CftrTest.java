@@ -114,7 +114,7 @@ class CftrTest {
         .reference("CYP2C19")
         .reference("CYP2C9")
     ;
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("CYP2C9");

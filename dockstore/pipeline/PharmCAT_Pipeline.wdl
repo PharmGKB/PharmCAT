@@ -28,7 +28,9 @@ workflow pharmcat_pipeline {
     run_reporter: "Run reporter independently."
     reporter_sources: "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]"
     reporter_extended: "Write an extended report (includes all possible genes and drugs, even if no data is available)"
+    reporter_save_html: "Save reporter results as HTML (the default if no format is specified)."
     reporter_save_json: "Save reporter results as JSON."
+    reporter_save_calls_only_tsv: "Save call results only as TSV."
 
     base_filename: "Prefix for output files.  Defaults to the same base name as the input."
     delete_intermediate_files: "Delete intermediate PharmCAT files.  Defaults to saving all files."
@@ -52,7 +54,9 @@ workflow pharmcat_pipeline {
     Boolean run_reporter = false
     String reporter_sources = ""
     Boolean reporter_extended = false
+    Boolean reporter_save_html = false
     Boolean reporter_save_json = false
+    Boolean reporter_save_calls_only_tsv = false
     String base_filename = ""
     Boolean delete_intermediate_files = false
     Int max_concurrent_processes = 1
@@ -74,7 +78,9 @@ workflow pharmcat_pipeline {
       run_reporter = run_reporter,
       reporter_sources = reporter_sources,
       reporter_extended = reporter_extended,
+      reporter_save_html = reporter_save_html,
       reporter_save_json = reporter_save_json,
+      reporter_save_calls_only_tsv = reporter_save_calls_only_tsv,
       base_filename = base_filename,
       delete_intermediate_files = delete_intermediate_files,
       max_concurrent_processes = max_concurrent_processes,
@@ -108,7 +114,9 @@ task pharmcat_pipeline_task {
     Boolean run_reporter = false
     String reporter_sources = ""
     Boolean reporter_extended = false
+    Boolean reporter_save_html = false
     Boolean reporter_save_json = false
+    Boolean reporter_save_calls_only_tsv = false
     String base_filename = ""
     Boolean delete_intermediate_files = false
     Int max_concurrent_processes = 1
@@ -133,7 +141,9 @@ task pharmcat_pipeline_task {
     ~{if run_reporter then '-reporter' else ''} \
     ~{if reporter_sources != "" then '-rs ' + reporter_sources else ''} \
     ~{if reporter_extended then '-re' else ''} \
+    ~{if reporter_save_html then '-reporterHtml' else ''} \
     ~{if reporter_save_json then '-reporterJson' else ''} \
+    ~{if reporter_save_calls_only_tsv then 'reporterCallsOnlyTsv' else ''} \
     ~{if base_filename != "" then '-bf ' + base_filename else ''} \
     ~{if delete_intermediate_files then '-del' else ''} \
     -cp ~{max_concurrent_processes} -cm ~{max_memory}

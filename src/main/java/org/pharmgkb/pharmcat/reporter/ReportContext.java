@@ -9,11 +9,15 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.haplotype.model.Metadata;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
@@ -51,18 +55,28 @@ public class ReportContext {
   @Expose
   @SerializedName("messages")
   private final List<MessageAnnotation> f_messages = new ArrayList<>();
+  @SerializedName("matcherMetadata")
+  @Expose
+  private Metadata m_matcherMetadata;
+  @Expose
+  @SerializedName("unannotatedGeneCalls")
+  private SortedSet<GeneReport> m_unannotatedGeneCalls = new TreeSet<>();
+
 
   /**
    * Public constructor. Compiles all the incoming data into useful objects to be held for later reporting.
    *
-   * @param geneReports {@link GeneReport} objects, non-null but can be empty
+   * @param phenotyper phenotyper data to build this report from
    * @param title the optional text to show as a user-friendly title or identifier for this report
    */
-  public ReportContext(Env env, SortedMap<DataSource, SortedMap<String, GeneReport>> geneReports, String title) throws IOException {
+  public ReportContext(Env env, Phenotyper phenotyper, String title) throws IOException {
     f_title = title;
-    m_geneReports = geneReports;
-
+    m_matcherMetadata = phenotyper.getMatcherMetadata();
+    m_geneReports = phenotyper.getGeneReports();
     m_dataVersion = validateVersions(env.getDrugs());
+    if (!phenotyper.getUnannotatedGeneCalls().isEmpty()) {
+      m_unannotatedGeneCalls.addAll(phenotyper.getUnannotatedGeneCalls());
+    }
 
     for (PrescribingGuidanceSource dataSourceType : PrescribingGuidanceSource.values()) {
       Map<String, DrugReport> drugReports = m_drugReports.computeIfAbsent(dataSourceType, (s) -> new TreeMap<>());
@@ -79,7 +93,7 @@ public class ReportContext {
     // now that all reports are generated, apply applicable messages
     MessageHelper messageHelper = env.getMessageHelper();
     // to gene reports
-    geneReports.values().stream()
+    m_geneReports.values().stream()
         .flatMap((m) -> m.values().stream())
         .forEach(messageHelper::addMatchingMessagesTo);
     // to drug reports
@@ -211,5 +225,13 @@ public class ReportContext {
 
   public void addMessage(MessageAnnotation message) {
     f_messages.add(message);
+  }
+
+  public Metadata getMatcherMetadata() {
+    return m_matcherMetadata;
+  }
+
+  public SortedSet<GeneReport> getUnannotatedGeneCalls() {
+    return m_unannotatedGeneCalls;
   }
 }

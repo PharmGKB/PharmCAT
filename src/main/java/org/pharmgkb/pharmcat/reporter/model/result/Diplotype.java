@@ -255,6 +255,10 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
 
+  /**
+   * Gets the phenotype for this {@link Diplotype}.
+   * Should only have one phenotype, except for HLAs.
+   */
   public List<String> getPhenotypes() {
     return m_phenotypes;
   }

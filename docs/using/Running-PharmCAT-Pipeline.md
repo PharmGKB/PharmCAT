@@ -38,7 +38,8 @@ usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
                          [-R <bed_file>]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
                          [-phenotyper]
-                         [-reporter] [-rs <sources>] [-re] [-reporterJson]
+                         [-reporter] [-rs <sources>] [-re]
+                         [-reporterHtml] [-reporterJson] [-reporterCallsOnlyTsv]
                          [-o <dir>] [-bf <name>] [-del]
                          [-cp <num processes>]
                          [-v] [-V]
@@ -91,8 +92,13 @@ Reporter arguments:
                         Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]
   -re, --reporter-extended
                         Write an extended report (includes all possible genes and drugs, even if no data is available)
+  -reporterHtml, --reporter-save-html
+                        Save reporter results as HTML.  This is the default if no format is specified.
+                        If any format is specified, only the specified formats will be saved.
   -reporterJson, --reporter-save-json
                         Save reporter results as JSON.
+  -reporterCallsOnlyTsv, --reporter-save-calls-only-tsv
+                        Save call results only as TSV.
 
 Output arguments:
   -o <dir>, --output-dir <dir>

@@ -44,7 +44,7 @@ class PhenotyperTest {
     warnings.put("chr10:94775453", ImmutableList.of("Test warning message"));
     warnings.put("chr10:94852914", ImmutableList.of("Test other message"));
 
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("Cyp2C19Het.match.json"),
         OutsideCallParser.parse(s_env, "CYP2D6\t*1/*3"), warnings);
 
@@ -64,7 +64,7 @@ class PhenotyperTest {
 
   @Test
   void testCyp2D6Only() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         new ArrayList<>(),
         OutsideCallParser.parse(s_env, "CYP2D6\t*1/*3"), null);
 
@@ -95,7 +95,7 @@ class PhenotyperTest {
 
   @Test
   void testCyp2C19Hom() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("Cyp2C19s2s2.match.json"),
         new HashSet<>(), null);
 
@@ -106,7 +106,7 @@ class PhenotyperTest {
 
   @Test
   void testUGT1A1Phased() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("UGT1A1s1s60s80phased.match.json"),
         new HashSet<>(), null);
 
@@ -119,7 +119,7 @@ class PhenotyperTest {
 
   @Test
   void testUGT1A1Unphased() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("UGT1A1s1s60s80unphased.match.json"),
         new HashSet<>(), null);
 
@@ -132,7 +132,7 @@ class PhenotyperTest {
 
   @Test
   void testNUDT15() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("NUDT15ref.match.json"),
         new HashSet<>(), null);
 
@@ -144,7 +144,7 @@ class PhenotyperTest {
 
   @Test
   void testNUDT15star3() throws Exception {
-    Phenotyper phenotyper = new Phenotyper(s_env,
+    Phenotyper phenotyper = new Phenotyper(s_env, null,
         readMatchData("NUDT15s3.match.json"),
         new HashSet<>(), null);
 

@@ -46,8 +46,9 @@ public class PharmCAT {
           .addOption("rt", "reporter-title", "Text to add to the report title", false, "title")
           .addOption("rs", "reporter-sources", "Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]", false, "sources")
           .addOption("re", "reporter-extended", "Write an extended report (includes all possible genes and drugs, even if no data is available)")
+          .addOption("reporterHtml", "reporter-save-html", "Save reporter results as HTML (the default if no format is specified)")
           .addOption("reporterJson", "reporter-save-json", "Save reporter results as JSON")
-          .addOption("reporterCallsOnly", "reporter-save-calls-only", "Save calls only as TSV")
+          .addOption("reporterCallsOnlyTsv", "reporter-save-calls-only-tsv", "Save calls results only as TSV")
 
           // outputs
           .addOption("o", "output-dir", "Directory to output to (optional, default is input file directory)", false, "directory")

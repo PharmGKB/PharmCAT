@@ -69,7 +69,7 @@ public class Cyp2d6Test {
         .variation("CYP2C19", "rs12248560", "C", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_outsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
@@ -88,7 +88,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("DPYD");
-    testWrapper.execute(s_outsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath);
 
     testWrapper.testReportable("CYP2D6");
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
@@ -115,7 +115,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*1/*XXX");
     testWrapper.testPrintCalls(DataSource.DPWG, "CYP2D6", "*1/*XXX");
@@ -156,7 +156,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    Path vcfFile = testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
@@ -189,7 +189,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    Path vcfFile = testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
@@ -228,7 +228,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    Path vcfFile = testWrapper.execute(outsideCallPath);
+    Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     List<String> cyp2c19ExpectedCalls = List.of("*38/*38");
     testWrapper.testCalledByMatcher("CYP2C19");
@@ -313,7 +313,7 @@ public class Cyp2d6Test {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     List<String> expectedCyp2d6Calls = List.of("*1/*1", "*1x2/*9", "*1x2/*10", "*1x2/*17", "*1/*1x3", "*4/*4", "*4/*10");
 
@@ -413,7 +413,7 @@ public class Cyp2d6Test {
     }
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", diplotype);
     testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", phenotype);

@@ -128,6 +128,9 @@ public class Env {
   }
 
 
+  /**
+   * Checks if gene is used in any guideline from the specified {@code source}.
+   */
   public boolean hasGene(DataSource source, String gene) {
     return m_drugs.getGenesUsedInSource(source).contains(gene);
   }

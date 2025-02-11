@@ -50,7 +50,7 @@ class ReporterTest {
   void cypc2c9VariantPassthrough() throws Exception {
 
     Phenotyper phenotyper = Phenotyper.read(PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/ReporterTest-cypc2c9VariantPassthrough.json"));
-    ReportContext reportContext = new ReportContext(m_env, phenotyper.getGeneReports(), null);
+    ReportContext reportContext = new ReportContext(m_env, phenotyper, null);
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");
@@ -85,7 +85,7 @@ class ReporterTest {
 
     Phenotyper phenotyper = Phenotyper.read(
         PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/ReporterTest-multipleActivityScores.json"));
-    ReportContext reportContext = new ReportContext(new Env(), phenotyper.getGeneReports(), null);
+    ReportContext reportContext = new ReportContext(new Env(), phenotyper, null);
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");
@@ -138,7 +138,7 @@ class ReporterTest {
 
     Phenotyper phenotyper = Phenotyper.read(
         PathUtils.getPathToResource("org/pharmgkb/pharmcat/reporter/ReporterTest-multiplePhenotypes.json"));
-    ReportContext reportContext = new ReportContext(new Env(), phenotyper.getGeneReports(), null);
+    ReportContext reportContext = new ReportContext(new Env(), phenotyper, null);
 
     // test the CYP2C9 data
     GeneReport geneReport = reportContext.getGeneReport(DataSource.CPIC, "CYP2C9");

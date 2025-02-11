@@ -127,12 +127,17 @@ public class BaseConfig {
       reporterTitle = cliHelper.getValue("rt");
       reporterCompact = !cliHelper.hasOption("re");
       reporterJson = cliHelper.hasOption("reporterJson");
-      reporterCallsOnlyTsv = cliHelper.hasOption("reporterCallsOnly");
+      reporterCallsOnlyTsv = cliHelper.hasOption("reporterCallsOnlyTsv");
+      // by default, generate the HTML report (which preserves backwards compatibility)
+      // only check for reporterHtml flag if specifying other reporter format outputs
+      if (reporterJson || reporterCallsOnlyTsv) {
+        reporterHtml = cliHelper.hasOption("reporterHtml");
+      }
 
       if (researchMode) {
         System.out.println("WARNING: FULL REPORTER OUTPUT NOT AVAILABLE IN RESEARCH MODE");
         if (!reporterCallsOnlyTsv) {
-          runReporter = false;
+          reporterCallsOnlyTsv = true;
         }
         reporterHtml = false;
         reporterJson = false;

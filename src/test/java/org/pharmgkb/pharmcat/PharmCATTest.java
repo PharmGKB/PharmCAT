@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -195,6 +196,34 @@ class PharmCATTest {
     });
   }
 
+  @Test
+  void referenceTsvOnly(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+    Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
+
+    Path refMatcherOutput = outputDir.resolve("reference.match.json");
+    Path refPhenotyperOutput = outputDir.resolve("reference.phenotype.json");
+    Path refReporterOutput = outputDir.resolve("reference.report.html");
+    Path refReporterTsvOutput = outputDir.resolve("reference.report.tsv");
+
+    try {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+          "-vcf", vcfFile.toString(),
+          "-o", outputDir.toString(),
+          "-del", "-reporterCallsOnlyTsv"
+      }));
+      System.out.println(systemOut);
+      assertTrue(systemOut.contains("Done."));
+      assertFalse(Files.exists(refMatcherOutput));
+      assertFalse(Files.exists(refPhenotyperOutput));
+      assertFalse(Files.exists(refReporterOutput));
+      assertTrue(Files.exists(refReporterTsvOutput));
+
+    } finally {
+      TestUtils.deleteTestFiles(refMatcherOutput, refPhenotyperOutput, refReporterOutput);
+    }
+  }
+
 
   /**
    * An example run with CYP2D6 research mode enabled.
@@ -276,27 +305,24 @@ class PharmCATTest {
     Path outsideCallFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2d6.tsv");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path matcherOutput = outputDir.resolve("PharmCATTest-cyp2d6.match.json");
-    Path phenotyperOutput = outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json");
-    Path reporterOutput = outputDir.resolve("PharmCATTest-cyp2d6.report.html");
+    String baseFilename = TestUtils.getFullTestName(testInfo);
+    Path matcherOutput = outputDir.resolve(baseFilename + ".match.json");
+    Path phenotyperOutput = outputDir.resolve(baseFilename + ".phenotype.json");
+    Path reporterOutput = outputDir.resolve(baseFilename + ".report.html");
 
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-o", outputDir.toString(),
-          "-phenotyper",
-          "-po", outsideCallFile.toString()
-      }));
-      System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertFalse(Files.exists(matcherOutput));
-      assertTrue(Files.exists(phenotyperOutput));
-      assertFalse(Files.exists(reporterOutput));
+    String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+        "-o", outputDir.toString(),
+        "-phenotyper",
+        "-po", outsideCallFile.toString(),
+        "-bf", baseFilename,
+    }));
+    System.out.println(systemOut);
+    assertTrue(systemOut.contains("Done."));
+    assertFalse(Files.exists(matcherOutput));
+    assertTrue(Files.exists(phenotyperOutput));
+    assertFalse(Files.exists(reporterOutput));
 
-      validateCyp2d6OutsideCallOutput(phenotyperOutput);
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
+    validateCyp2d6OutsideCallOutput(phenotyperOutput);
   }
 
   @Test
@@ -417,32 +443,27 @@ class PharmCATTest {
     }
 
     // matcher only, expecting many CYP2C19 matches
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-matcher",
-          "-ma",
-          "-o", outputDir.toString(),
-          "-bf", baseFilename,
-      }));
-      //System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
-      assertTrue(Files.exists(matcherOutput));
-      assertFalse(Files.exists(phenotyperOutput));
-      assertFalse(Files.exists(reporterOutput));
+    String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+        "-vcf", vcfFile.toString(),
+        "-matcher",
+        "-ma",
+        "-o", outputDir.toString(),
+        "-bf", baseFilename,
+    }));
+    //System.out.println(systemOut);
+    assertTrue(systemOut.contains("Done."));
+    assertTrue(Files.exists(matcherOutput));
+    assertFalse(Files.exists(phenotyperOutput));
+    assertFalse(Files.exists(reporterOutput));
 
-      ResultSerializer resultSerializer = new ResultSerializer();
-      Result result = resultSerializer.fromJson(matcherOutput);
-      Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
-          .filter(gc -> gc.getGene().equals("CYP2C19"))
-          .findFirst();
-      assertTrue(gcOpt.isPresent());
-      GeneCall gc = gcOpt.get();
-      assertTrue(gc.getDiplotypes().size() > 50);
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
+    ResultSerializer resultSerializer = new ResultSerializer();
+    Result result = resultSerializer.fromJson(matcherOutput);
+    Optional<GeneCall> gcOpt = result.getGeneCalls().stream()
+        .filter(gc -> gc.getGene().equals("CYP2C19"))
+        .findFirst();
+    assertTrue(gcOpt.isPresent());
+    GeneCall gc = gcOpt.get();
+    assertTrue(gc.getDiplotypes().size() > 50, "Expecting more than 50, found " + gc.getDiplotypes().size());
   }
 
 
@@ -489,7 +510,25 @@ class PharmCATTest {
       assertTrue(doubleOut.contains("Done."));
       assertTrue(Files.exists(doublePhenotyperOutput));
 
-      assertEquals(Files.readString(singlesPhenotyperOutput), Files.readString(doublePhenotyperOutput));
+      StringBuilder singlePhenoJson = new StringBuilder();
+      try (Stream<String> lines = Files.lines(singlesPhenotyperOutput)) {
+        // Process each line
+        lines.filter(l -> !l.contains("\"timestamp\":"))
+            .forEach(l -> {
+              singlePhenoJson.append(l)
+                  .append("\n");
+            });
+      }
+      StringBuilder doublePhenoJson = new StringBuilder();
+      try (Stream<String> lines = Files.lines(doublePhenotyperOutput)) {
+        lines.filter(l -> !l.contains("\"timestamp\":"))
+            .forEach(l -> {
+              doublePhenoJson.append(l)
+                  .append("\n");
+            });
+      }
+
+      assertEquals(singlePhenoJson.toString(), doublePhenoJson.toString());
     } finally {
       TestUtils.deleteTestFiles(outputDir);
     }
@@ -535,38 +574,34 @@ class PharmCATTest {
     Path outsideCallFile2 = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-outsideCallsNoRecs.tsv");
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
 
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-phenotyper",
-          "-reporter",
-          "-reporterJson",
-          "-po", outsideCallFile1.toString(),
-          "-po", outsideCallFile2.toString(),
-          "-o", outputDir.toString(),
-      }));
-      assertTrue(systemOut.contains("Done."));
+    String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+        "-phenotyper",
+        "-reporter",
+        "-reporterHtml",
+        "-reporterJson",
+        "-po", outsideCallFile1.toString(),
+        "-po", outsideCallFile2.toString(),
+        "-o", outputDir.toString(),
+    }));
+    assertTrue(systemOut.contains("Done."));
 
-      // file names should be based on the first outside call file
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json")));
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.json")));
-      assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.html")));
+    // file names should be based on the first outside call file
+    assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json")));
+    assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.json")));
+    assertTrue(Files.exists(outputDir.resolve("PharmCATTest-cyp2d6.report.html")));
 
-      // file names should NOT be based on the second outside call file
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.phenotype.json")));
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.json")));
-      assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.html")));
+    // file names should NOT be based on the second outside call file
+    assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.phenotype.json")));
+    assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.json")));
+    assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.html")));
 
-      Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
-          "*3", "*4");
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
-          "*1", "*3");
-      checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
-          "rs12979860 variant (T)", "rs12979860 variant (T)");
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
+    Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
+    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
+        "*3", "*4");
+    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
+        "*1", "*3");
+    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
+        "rs12979860 variant (T)", "rs12979860 variant (T)");
   }
 
   public static void checkOutsideDiplotype(@Nullable GeneReport report, String allele1, String allele2) {

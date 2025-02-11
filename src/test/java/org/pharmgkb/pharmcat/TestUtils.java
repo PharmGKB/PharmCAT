@@ -46,9 +46,14 @@ public class TestUtils {
     return testInfo.getDisplayName().replace("(TestInfo)", "");
   }
 
+  public static String getFullTestName(TestInfo testInfo) {
+    //noinspection OptionalGetWithoutIsPresent
+    return testInfo.getTestClass().get().getSimpleName() + "-" + testInfo.getTestMethod().get().getName();
+  }
+
 
   /**
-   * Checks if test is running in a continuous integration environment.
+   * Checks if the test is running in a continuous integration environment.
    * This is determined based on the <a
    * href="https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables">`CI`
    * environment variable on GH Actions</a>.
@@ -98,7 +103,7 @@ public class TestUtils {
    * Gets the output directory for the given test.
    * Directory is guaranteed to exist.
    *
-   * @param deleteIfExist if directory exists, it will be deleted and re-created
+   * @param deleteIfExist if the directory exists, it will be deleted and re-created
    */
   public static Path getTestOutputDir(TestInfo testInfo, boolean deleteIfExist) throws IOException {
     return getTestOutputDir(testInfo, null, deleteIfExist);
@@ -133,7 +138,7 @@ public class TestUtils {
    * Gets the output directory for the given class.
    * Directory is guaranteed to exist.
    *
-   * @param deleteIfExist if directory exists, it will be deleted and re-created
+   * @param deleteIfExist if the directory exists, it will be deleted and re-created
    */
   public static Path getTestOutputDir(Class testClass, boolean deleteIfExist) throws IOException {
     Path dir = s_testOutputDir.resolve(testClass.getSimpleName());

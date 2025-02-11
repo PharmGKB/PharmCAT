@@ -33,8 +33,12 @@ def add_reporter_java_args(java_args: List[str], cli_args):
         java_args.append('-rs')
     if cli_args.reporter_extended:
         java_args.append('-re')
+    if cli_args.reporter_save_html:
+        java_args.append('-reporterHtml')
     if cli_args.reporter_save_json:
         java_args.append('-reporterJson')
+    if cli_args.reporter_save_calls_only_tsv:
+        java_args.append('-reporterCallsOnlyTsv')
 
 
 def add_output_java_args(java_args: List[str], cli_args, output_dir: Optional[Path]):
@@ -110,8 +114,13 @@ if __name__ == '__main__':
                                 help='Comma-separated list of sources to limit recommendations to: [CPIC, DPWG, FDA]')
     reporter_group.add_argument('-re', '--reporter-extended', action='store_true',
                                 help='Write an extended report (includes all possible genes and drugs, even if no data is available).')
+    reporter_group.add_argument('-reporterHtml', '--reporter-save-html', action='store_true',
+                                help='Save reporter results as HTML.  This is the default if no format is specified.  '
+                                     'If any format is specified, only the specified formats will be saved.')
     reporter_group.add_argument('-reporterJson', '--reporter-save-json', action='store_true',
                                 help='Save reporter results as JSON.')
+    reporter_group.add_argument('-reporterCallsOnlyTsv', '--reporter-save-calls_only_tsv', action='store_true',
+                                help='Save calls results only as TSV.')
     # output args
     output_group = parser.add_argument_group('Output arguments')
     output_group.add_argument('-o', '--output-dir', type=str, metavar='<dir>',

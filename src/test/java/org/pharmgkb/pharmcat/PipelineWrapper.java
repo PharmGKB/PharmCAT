@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Mark Woon
  */
-class PipelineWrapper {
+public class PipelineWrapper {
   // controls to support running PipelineTest from SyntheticBatchTest
   private static boolean m_compact = true;
   private static List<PrescribingGuidanceSource> m_sources = PrescribingGuidanceSource.listValues();
@@ -63,16 +64,16 @@ class PipelineWrapper {
   }
 
 
-  PipelineWrapper(TestInfo testInfo, boolean allMatches) throws IOException, ReportableException {
+  public PipelineWrapper(TestInfo testInfo, boolean allMatches) throws IOException, ReportableException {
     this(testInfo, false, allMatches, false);
   }
 
-  PipelineWrapper(TestInfo testInfo, boolean findCombinations, boolean allMatches, boolean callCyp2d6)
+  public PipelineWrapper(TestInfo testInfo, boolean findCombinations, boolean allMatches, boolean callCyp2d6)
       throws IOException, ReportableException {
     this(testInfo, null, findCombinations, allMatches, callCyp2d6);
   }
 
-  PipelineWrapper(TestInfo testInfo, @Nullable String name, boolean findCombinations, boolean allMatches,
+  public PipelineWrapper(TestInfo testInfo, @Nullable String name, boolean findCombinations, boolean allMatches,
       boolean callCyp2d6) throws IOException, ReportableException {
     Preconditions.checkNotNull(testInfo);
 
@@ -96,7 +97,7 @@ class PipelineWrapper {
     return this;
   }
 
-  PipelineWrapper saveIntermediateFiles() {
+  public PipelineWrapper saveIntermediateFiles() {
     m_deleteIntermediateFiles = false;
     return this;
   }
@@ -105,22 +106,43 @@ class PipelineWrapper {
     return m_reportContext;
   }
 
-  TestVcfBuilder getVcfBuilder() {
+  public TestVcfBuilder getVcfBuilder() {
     return m_vcfBuilder;
   }
 
-  @Nullable Path execute(Path... outsideCallPath) throws Exception {
+
+  public @Nullable Path executeWithOutsideCalls(Path... outsideCallPath) throws Exception {
     if (outsideCallPath == null || outsideCallPath.length == 0) {
-      return execute(null, false);
+      return execute();
     }
-    return execute(ImmutableList.copyOf(outsideCallPath), false);
+    return execute(null, ImmutableList.copyOf(outsideCallPath), false);
   }
 
-  @Nullable Path execute(@Nullable List<Path> outsideCallPaths, boolean allowNoData) throws Exception {
-    Path vcfFile = null;
+  /**
+   * Execute the pipeline with the specified VCF file (this file will be copied to the output location).
+   *
+   * @return path to actual VCF used
+   */
+  public Path executeWithVcf(Path vcfFile) throws Exception {
+    return execute(vcfFile, null, false);
+  }
+
+  public @Nullable Path execute() throws Exception {
+    return execute(null, null, false);
+  }
+
+
+  @Nullable Path execute(@Nullable Path vcfFile, @Nullable List<Path> outsideCallPaths, boolean allowNoData)
+      throws Exception {
     VcfFile vcfFileObj = null;
     boolean runMatcher = false;
-    if (m_vcfBuilder.hasData() || allowNoData) {
+    if (vcfFile != null) {
+      runMatcher = true;
+      Path copy = m_outputPath.resolve(vcfFile.getFileName());
+      Files.copy(vcfFile, copy, StandardCopyOption.REPLACE_EXISTING);
+      vcfFile = copy;
+      vcfFileObj = new VcfFile(vcfFile, false);
+    } else if (m_vcfBuilder.hasData() || allowNoData) {
       runMatcher = true;
       vcfFile = m_vcfBuilder.generate();
       vcfFileObj = new VcfFile(vcfFile, false);
@@ -141,6 +163,10 @@ class PipelineWrapper {
 
   public Env getEnv() {
     return m_env;
+  }
+
+  public Path getOutputDir() {
+    return m_outputPath;
   }
 
 

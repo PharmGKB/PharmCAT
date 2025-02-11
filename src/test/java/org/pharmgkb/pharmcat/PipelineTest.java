@@ -462,7 +462,7 @@ class PipelineTest {
         .reference("TPMT")
         .reference("UGT1A1")
         .reference("VKORC1");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher(
         "ABCG2",
@@ -491,7 +491,7 @@ class PipelineTest {
   @Test
   void testNoData(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.execute(null, true);
+    testWrapper.execute(null,  null, true);
   }
 
 
@@ -649,7 +649,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_otherOutsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*1");
@@ -673,7 +673,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs58973490", "G", "A")
         .variation("CYP2C19", "rs4244285", "G", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_otherOutsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
@@ -720,7 +720,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12769205", "A", "G")
         .variation("CYP2C19", "rs4244285", "G", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_otherOutsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*1/*2");
@@ -767,7 +767,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12769205", "G", "G")
         .variation("CYP2C19", "rs4244285", "A", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_otherOutsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_otherOutsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCpicCalls( "CYP2C19", "*2/*2");
@@ -819,7 +819,7 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .variation("CYP2C19", "rs12769205", "A", "G")
         .variation("CYP2C19", "rs4244285", "A", "A");
-    testWrapper.execute(s_otherOutsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_otherOutsideCallFilePath);
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
 
@@ -856,7 +856,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12248560", "T", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(s_outsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
@@ -876,7 +876,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12248560", "C", "T")
         .variation("CYP2C19", "rs28399504", "A", "G")
         .missing("CYP2C19", "rs3758581");
-    testWrapper.execute(s_outsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
@@ -914,7 +914,7 @@ class PipelineTest {
         .reference("CYP2C19")
         .variation("CYP2C19", "rs3758581", "A", "G")
         .missing("CYP2C19", "rs56337013");
-    testWrapper.execute(s_outsideCallFilePath);
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2D6");
@@ -1517,7 +1517,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("CYP2C9");
@@ -1556,7 +1556,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("HLA-B");
@@ -1591,7 +1591,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testNotCalledByMatcher("HLA-B");
@@ -1639,7 +1639,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs12769205", "G", "G")
         .variation("CYP2C19", "rs4244285", "A", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testRecommendedDiplotypes("CYP2C19", "*2", "*2");
     testWrapper.testPrintCpicCalls("CYP2C19", "*2/*2");
@@ -1782,7 +1782,7 @@ class PipelineTest {
         .reference("CYP2C19")
         .reference("CYP2C9")
     ;
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("CYP2C9");
@@ -1850,7 +1850,7 @@ class PipelineTest {
         .variation("CYP2C19", "rs367543002", "C", "T")
         .variation("CYP2C19", "rs3758581", "G", "G")
         .missing("CYP2C19", "rs367543003");
-    testWrapper.execute(s_outsideCallFilePath); //CYP2D6 *1/*4
+    testWrapper.executeWithOutsideCalls(s_outsideCallFilePath); //CYP2D6 *1/*4
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testReportable("CYP2C19");
@@ -1876,7 +1876,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
     // this is the diplotype indicated in the outside call, not the one matched
@@ -1904,7 +1904,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    Path vcfFile = testWrapper.execute(outsideCallPath1, outsideCallPath2);
+    Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath1, outsideCallPath2);
 
     // this is an outside calls
     testWrapper.testNotCalledByMatcher("CYP4F2");
@@ -1934,7 +1934,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testNotCalledByMatcher("CYP2C19");
     // this should be a normalized version of the given diplotype
@@ -1951,7 +1951,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
@@ -1987,7 +1987,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
@@ -2016,7 +2016,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C19");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
@@ -2088,7 +2088,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
-    testWrapper.execute(outsideCallPath);
+    testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     // these are outside calls
     testWrapper.testNotCalledByMatcher("IFNL3");
