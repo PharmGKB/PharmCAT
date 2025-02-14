@@ -173,7 +173,8 @@ if __name__ == "__main__":
             'haplotype_1': [], 'haplotype_2': [],
             'haplotype_1_functions': [], 'haplotype_2_functions': [],
             'haplotype_1_variants': [], 'haplotype_2_variants': [],
-            'missing_positions': [], 'uncallable_haplotypes': []
+            'missing_positions': [], 'uncallable_haplotypes': [], 
+            'non_ref_genotypes': []
         }
         if args.concurrent_mode:
             with concurrent.futures.ProcessPoolExecutor(max_workers=m_max_processes) as e:
@@ -225,7 +226,7 @@ if __name__ == "__main__":
                            'Haplotype_1', 'Haplotype_2',
                            'Haplotype_1_Functions', 'Haplotype_2_Functions',
                            'Haplotype_1_Variants', 'Haplotype_2_Variants',
-                           'Missing_Positions', 'Uncallable_Haplotypes']
+                           'Missing_Positions', 'Uncallable_Haplotypes', 'NonRefGenotypes']
         rez.to_csv(m_output_file.absolute(), mode='w', sep="\t", header=cols, index=False)
 
         end = timer()
