@@ -40,7 +40,7 @@ class PharmCATTest {
 
   @AfterEach
   void deleteDirectory(TestInfo testInfo) {
-    TestUtils.deleteTestOutputDirectory(testInfo);
+    //TestUtils.deleteTestOutputDirectory(testInfo);
   }
 
 
@@ -537,35 +537,37 @@ class PharmCATTest {
 
   @Test
   void multisample(TestInfo testInfo) throws Exception {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest-multisample.vcf");
+    Path saFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest-multisample.sampleData.tsv");
 
     Path outputDir = TestUtils.getTestOutputDir(testInfo, true);
-    Path matcherOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.match.json");
-    Path phenotyperOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json");
-    Path reporterOutput1 = outputDir.resolve("VcfSampleReaderTest.Sample_1.report.html");
-    Path matcherOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.match.json");
-    Path phenotyperOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.phenotype.json");
-    Path reporterOutput2 = outputDir.resolve("VcfSampleReaderTest.Sample_2.report.html");
+    Path matcherOutput1 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_1.match.json");
+    Path phenotyperOutput1 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_1.phenotype.json");
+    Path reporterOutput1 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_1.report.html");
+    Path matcherOutput2 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_2.match.json");
+    Path phenotyperOutput2 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_2.phenotype.json");
+    Path reporterOutput2 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_2.report.html");
+    Path callsOutput1 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_1.report.tsv");
+    Path callsOutput2 = outputDir.resolve("VcfSampleReaderTest-multisample.Sample_2.report.tsv");
 
-    try {
-      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
-          "-vcf", vcfFile.toString(),
-          "-o", outputDir.toString(),
-      }));
-      System.out.println(systemOut);
-      assertTrue(systemOut.contains("Done."));
+    String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+        "-vcf", vcfFile.toString(),
+        "-o", outputDir.toString(),
+        "-sm", saFile.toString(),
+        "-reporterHtml", "-reporterJson", "-reporterCallsOnlyTsv"
+    }));
+    System.out.println(systemOut);
+    assertTrue(systemOut.contains("Done."));
 
-      assertTrue(Files.exists(matcherOutput1));
-      assertTrue(Files.exists(phenotyperOutput1));
-      assertTrue(Files.exists(reporterOutput1));
+    assertTrue(Files.exists(matcherOutput1));
+    assertTrue(Files.exists(phenotyperOutput1));
+    assertTrue(Files.exists(reporterOutput1));
+    assertTrue(Files.exists(callsOutput1));
 
-      assertTrue(Files.exists(matcherOutput2));
-      assertTrue(Files.exists(phenotyperOutput2));
-      assertTrue(Files.exists(reporterOutput2));
-
-    } finally {
-      TestUtils.deleteTestFiles(outputDir);
-    }
+    assertTrue(Files.exists(matcherOutput2));
+    assertTrue(Files.exists(phenotyperOutput2));
+    assertTrue(Files.exists(reporterOutput2));
+    assertTrue(Files.exists(callsOutput2));
   }
 
   @Test

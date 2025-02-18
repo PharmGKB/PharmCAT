@@ -211,7 +211,7 @@ class BatchPharmCATTest {
   @Test
   void multisample(TestInfo testInfo) throws Exception {
     Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
-    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
+    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest-multisample.vcf");
     Path[] vcfFiles = new Path[] {
         multisampleVcfFile,
         na18526Vcf
@@ -258,7 +258,7 @@ class BatchPharmCATTest {
     allInputs.add(phenotypeFile5);
     checkForOutputFiles(tmpDir, allInputs.toArray(new Path[0]));
 
-    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json"));
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest-multisample.Sample_1.phenotype.json"));
     PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
   }
 
@@ -266,7 +266,7 @@ class BatchPharmCATTest {
   @Test
   void multisampleRestricted(TestInfo testInfo) throws Exception {
     Path na18526Vcf  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PharmCATTest-cyp2c19MissingPositions.vcf");
-    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
+    Path multisampleVcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest-multisample.vcf");
     Path[] vcfFiles = new Path[] {
         multisampleVcfFile,
         na18526Vcf
@@ -313,7 +313,7 @@ class BatchPharmCATTest {
     allInputs.add(phenotypeFile5);
     checkForOutputFiles(tmpDir, allInputs.toArray(new Path[0]));
 
-    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest.Sample_1.phenotype.json"));
+    PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("VcfSampleReaderTest-multisample.Sample_1.phenotype.json"));
     PharmCATTest.validateCyp2d6OutsideCallOutput(tmpDir.resolve("Sample_4.phenotype.json"));
   }
 

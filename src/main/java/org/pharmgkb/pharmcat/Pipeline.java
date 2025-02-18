@@ -61,6 +61,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private Path m_matcherHtmlFile;
   /** True if the VCF file only contains a single sample. */
   private final boolean m_singleSample;
+  private final Path m_sampleMetadataFile;
 
   private final boolean m_runPhenotyper;
   private Path m_phenotyperInputFile;
@@ -97,7 +98,8 @@ public class Pipeline implements Callable<PipelineResult> {
         config.reporterSources, config.reporterCompact,
         config.reporterJson, config.reporterHtml, config.reporterCallsOnlyTsv,
         config.outputDir, config.baseFilename, config.deleteIntermediateFiles,
-        Pipeline.Mode.CLI, null, config.verbose);
+        Pipeline.Mode.CLI, null, config.verbose,
+        config.sampleMetadataFile);
   }
 
 
@@ -109,11 +111,13 @@ public class Pipeline implements Callable<PipelineResult> {
       @Nullable List<PrescribingGuidanceSource> reporterSources, boolean reporterCompact,
       boolean reporterJson, boolean reporterHtml, boolean reporterCallsOnlyTsv,
       @Nullable Path outputDir, @Nullable String baseFilename, boolean deleteIntermediateFiles,
-      Mode mode, @Nullable String displayCount, boolean verbose) throws ReportableException {
+      Mode mode, @Nullable String displayCount, boolean verbose,
+      @Nullable Path sampleMetadataFile) throws ReportableException {
     m_env = env;
 
     m_runMatcher = runMatcher;
     m_baseDir = outputDir;
+    m_sampleMetadataFile = sampleMetadataFile;
     if (runMatcher) {
       m_vcfFile = Objects.requireNonNull(vcfFile);
       m_sampleId = sampleId;
@@ -268,7 +272,7 @@ public class Pipeline implements Callable<PipelineResult> {
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }
-        matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId);
+        matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId, m_sampleMetadataFile);
 
         if (matcherResult.getVcfWarnings() != null &&
             !matcherResult.getVcfWarnings().isEmpty()) {

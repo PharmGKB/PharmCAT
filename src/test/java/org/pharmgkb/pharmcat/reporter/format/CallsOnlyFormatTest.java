@@ -1,18 +1,24 @@
 package org.pharmgkb.pharmcat.reporter.format;
 
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.BaseConfig;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.PipelineWrapper;
+import org.pharmgkb.pharmcat.TestUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.pharmgkb.pharmcat.reporter.model.result.Haplotype.UNKNOWN;
@@ -109,9 +115,40 @@ class CallsOnlyFormatTest {
   }
 
 
-  private Map<String, List<String>> parseTsv(String[] lines, int maxColumns, String... genes) {
+  @Test
+  void withSampleData(TestInfo testInfo) throws Exception {
+    Path sampleDataFile = TestUtils.createTempFile(testInfo, "tsv");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(sampleDataFile))) {
+      writer.println("PharmCAT\tTown\tStanford");
+      writer.println("PharmCAT\tState\tCA");
+    }
+
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+        .saveIntermediateFiles();
+    Path vcfFile = testWrapper.execute(PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf"),
+        null, sampleDataFile, false);
+
+    String basename = BaseConfig.getBaseFilename(Objects.requireNonNull(vcfFile).getFileName());
+    Path normalFile = testWrapper.getOutputDir().resolve(basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
+    String normalTsv = Files.readString(normalFile);
+    String[] lines = normalTsv.split("\n");
+
+    Map<String, List<String>> geneMap = parseTsv(lines, 18);
+    Env env = new Env();
+    SortedSet<String> allGenes = new TreeSet<>(env.getDefinitionReader().getGenes());
+    allGenes.remove("CYP2D6");
+    // TODO(markwoon): ignore NAT2 until it's fully integrated
+    allGenes.remove("NAT2");
+    assertEquals(allGenes, geneMap.keySet());
+
+    System.out.println(geneMap.get("TPMT"));
+    assertTrue(geneMap.get("TPMT").get(0).contains("Stanford"));
+  }
+
+
+  private SortedMap<String, List<String>> parseTsv(String[] lines, int maxColumns, String... genes) {
     // test normal
-    Map<String, List<String>> geneMap = new HashMap<>();
+    SortedMap<String, List<String>> geneMap = new TreeMap<>();
     for (String line : lines) {
       String[] data = line.split("\t");
       if (data.length != maxColumns) {

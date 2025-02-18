@@ -161,6 +161,8 @@ public class TestUtils {
   /**
    * Creates a temporary test file based on {@code testInfo}, with the specified suffix.
    * This file name will change from one test to the next.
+   *
+   * @param suffix file extension including dot (e.g. ".tsv")
    */
   public static Path createTempFile(TestInfo testInfo, String suffix) throws IOException {
     return createTempFile(getTestOutputDir(testInfo, false), getTestName(testInfo), suffix);

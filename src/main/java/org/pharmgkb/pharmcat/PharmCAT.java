@@ -28,6 +28,7 @@ public class PharmCAT {
           // inputs
           .addOption("s", "samples", "Comma-separated list of samples", false, "samples")
           .addOption("S", "sample-file", "File containing a list of sample, one per line", false, "file")
+          .addOption("sm", "sample-metadata", "TSV containing sample metadata", false, "file")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "Run named allele matcher independently")

@@ -6,26 +6,23 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
-import org.pharmgkb.pharmcat.BaseConfig;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
-import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
+import static org.pharmgkb.pharmcat.Constants.isActivityScoreGene;
 import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 
 
@@ -36,6 +33,7 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
  */
 public class CallsOnlyFormat extends AbstractFormat {
   private boolean m_singleFileMode;
+  private boolean m_showSampleId = true;
 
 
   public CallsOnlyFormat(Path outputPath, Env env) {
@@ -47,6 +45,11 @@ public class CallsOnlyFormat extends AbstractFormat {
    */
   public CallsOnlyFormat singleFileMode() {
     m_singleFileMode = true;
+    return this;
+  }
+
+  public CallsOnlyFormat hideSampleId() {
+    m_showSampleId = false;
     return this;
   }
 
@@ -81,54 +84,80 @@ public class CallsOnlyFormat extends AbstractFormat {
       calledGenes.put(gene, primary);
     }
 
-
+    String sampleId = null;
+    SortedMap<String, String> sampleProps = null;
+    if (reportContext.getMatcherMetadata() != null) {
+      sampleId = reportContext.getMatcherMetadata().getSampleId();
+      if (reportContext.getMatcherMetadata().getSampleProps() != null &&
+          !reportContext.getMatcherMetadata().getSampleProps().isEmpty()) {
+        sampleProps = new TreeMap<>(reportContext.getMatcherMetadata().getSampleProps());
+      }
+    }
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(getOutputPath(), StandardCharsets.UTF_8, options))) {
       if (printHeaders) {
-        writer.println("Gene\tSource Diplotype\tPhenotype\tActivity Score" +
+        if (m_singleFileMode && m_showSampleId) {
+          writer.print("Sample ID\t");
+        }
+        writer.print("Gene\tSource Diplotype\tPhenotype\tActivity Score" +
             "\tHaplotype 1\tHaplotype 1 Function\tHaplotype 1 Activity Value" +
             "\tHaplotype 2\tHaplotype 2 Function\tHaplotype 2 Activity Value" +
             "\tOutside Call\tMatch Score\tMissing positions?\t" +
             "Recommendation Lookup Diplotype\tRecommendation Lookup Phenotype\tRecommendation Lookup Activity Score");
+        if (sampleProps != null) {
+          for (String key : sampleProps.keySet()) {
+            writer.print("\t");
+            writer.print(key);
+          }
+        }
+        writer.println();
       }
 
       for (String gene : calledGenes.keySet()) {
         GeneReport report = calledGenes.get(gene);
         if (!report.isCalled()) {
-          writeNoCall(writer, report);
+          writeNoCall(writer, sampleId, sampleProps, report);
           continue;
         }
+
 
         // only have component haplotypes for lowest function genes when diplotypes are true diplotypes
         // (vs. individual haplotypes)
         boolean lowestFunctionSingles = isLowestFunctionGene(gene) && report.getMatcherComponentHaplotypes().isEmpty();
 
         if (report.getSourceDiplotypes().size() > 1 || lowestFunctionSingles) {
-          writeCollapsedDiplotypes(writer, report, lowestFunctionSingles, true);
+          writeCollapsedDiplotypes(writer, sampleId, sampleProps, report, lowestFunctionSingles, true);
         } else {
           for (Diplotype dip : report.getSourceDiplotypes()) {
-            writeDiplotype(writer, report, dip, true);
+            writeDiplotype(writer, sampleId, sampleProps, report, dip, true);
           }
         }
       }
 
       for (GeneReport report : reportContext.getUnannotatedGeneCalls()) {
         if (report.getSourceDiplotypes().size() > 1) {
-          writeCollapsedDiplotypes(writer, report, false, false);
+          writeCollapsedDiplotypes(writer, sampleId, sampleProps, report, false, false);
         } else {
           for (Diplotype dip : report.getSourceDiplotypes()) {
-            writeDiplotype(writer, report, dip, false);
+            writeDiplotype(writer, sampleId, sampleProps, report, dip, false);
           }
         }
       }
     }
   }
 
-  private void writeNoCall(PrintWriter writer, GeneReport report) {
+  private void writeNoCall(PrintWriter writer, @Nullable String sampleId, @Nullable Map<String, String> sampleProps,
+      GeneReport report) {
+    if (m_singleFileMode && m_showSampleId) {
+      if (sampleId != null) {
+        writer.print(sampleId);
+      }
+      writer.print("\t");
+    }
     writer.print(report.getGene());
-    writer.print("\tno call\t\t" +
+    writer.print("\tno call\t\t\t" +
         "\t\t\t" +
         "\t\t\t");
-    writeCommon(writer, report, null, false);
+    writeCommon(writer, sampleProps, report, null, false);
     writer.println();
   }
 
@@ -148,13 +177,15 @@ public class CallsOnlyFormat extends AbstractFormat {
   }
 
 
-  private void writeCollapsedDiplotypes(PrintWriter writer, GeneReport report, boolean lowestFunctionSingles,
-      boolean showRecommendationDiplotype) {
+  private void writeCollapsedDiplotypes(PrintWriter writer,
+      @Nullable String sampleId, @Nullable Map<String, String> sampleProps,
+      GeneReport report, boolean lowestFunctionSingles, boolean showRecommendationDiplotype) {
 
     boolean hasPhenotypes = report.getSourceDiplotypes().stream()
         .anyMatch(d -> !d.getPhenotypes().isEmpty() && !isIgnorableValue(d.getPhenotypes().get(0)));
-    boolean hasActivityScores = report.getSourceDiplotypes().stream()
-        .anyMatch(d -> !isIgnorableValue(d.getActivityScore()));
+    boolean hasActivityScores = isActivityScoreGene(report.getGene(), report.getPhenotypeSource()) &&
+        report.getSourceDiplotypes().stream()
+            .anyMatch(d -> !isIgnorableValue(d.getActivityScore()));
 
     StringBuilder diplotypes = new StringBuilder();
     StringBuilder matchScores = new StringBuilder();
@@ -188,6 +219,12 @@ public class CallsOnlyFormat extends AbstractFormat {
       }
     };
 
+    if (m_singleFileMode && m_showSampleId) {
+      if (sampleId != null) {
+        writer.print(sampleId);
+      }
+      writer.print("\t");
+    }
     writer.print(report.getGene());
     writer.print("\t");
     writer.print(diplotypes);
@@ -199,12 +236,19 @@ public class CallsOnlyFormat extends AbstractFormat {
         "\t\t\t" +
         "\t\t\t");
 
-    writeCommon(writer, report, matchScores.toString(), showRecommendationDiplotype);
+    writeCommon(writer, sampleProps, report, matchScores.toString(), showRecommendationDiplotype);
     writer.println();
   }
 
-  private void writeDiplotype(PrintWriter writer, GeneReport report, Diplotype dip,
-      boolean showRecommendationDiplotype) {
+  private void writeDiplotype(PrintWriter writer, @Nullable String sampleId, @Nullable Map<String, String> sampleProps,
+      GeneReport report, Diplotype dip, boolean showRecommendationDiplotype) {
+
+    if (m_singleFileMode && m_showSampleId) {
+      if (sampleId != null) {
+        writer.print(sampleId);
+      }
+      writer.print("\t");
+    }
     writer.print(report.getGene());
     writer.print("\t");
     // diplotype
@@ -214,7 +258,7 @@ public class CallsOnlyFormat extends AbstractFormat {
     writer.print(generatePhenotypeValue(dip.getPhenotypes()));
     writer.print("\t");
     // activity score
-    if (dip.getActivityScore() != null) {
+    if (isActivityScoreGene(report.getGene(), report.getPhenotypeSource()) && dip.getActivityScore() != null) {
       writer.print(generateStandardizedValue(dip.getActivityScore()));
     }
     writer.print("\t");
@@ -253,13 +297,13 @@ public class CallsOnlyFormat extends AbstractFormat {
     }
     writer.print("\t");
 
-    writeCommon(writer, report, Integer.toString(dip.getMatchScore()), showRecommendationDiplotype);
+    writeCommon(writer, sampleProps, report, Integer.toString(dip.getMatchScore()), showRecommendationDiplotype);
     writer.println();
   }
 
 
-  private void writeCommon(PrintWriter writer, GeneReport report, String matchScore,
-      boolean showRecommendationDiplotype) {
+  private void writeCommon(PrintWriter writer,  @Nullable Map<String, String> sampleProps, GeneReport report,
+      String matchScore, boolean showRecommendationDiplotype) {
     // outside call
     writer.print(report.isOutsideCall());
     writer.print("\t");
@@ -279,9 +323,17 @@ public class CallsOnlyFormat extends AbstractFormat {
       writer.print(generatePhenotypeValue(recDip.getPhenotypes()));
       writer.print("\t");
       // recommendation lookup activity score
-      writer.print(generateStandardizedValue(recDip.getActivityScore()));
+      if (isActivityScoreGene(report.getGene(), report.getPhenotypeSource())) {
+        writer.print(generateStandardizedValue(recDip.getActivityScore()));
+      }
     } else {
       writer.print("\t\t");
+    }
+    if (sampleProps != null) {
+      for (String key : sampleProps.keySet()) {
+        writer.print("\t");
+        writer.print(sampleProps.get(key));
+      }
     }
   }
 
@@ -298,80 +350,5 @@ public class CallsOnlyFormat extends AbstractFormat {
       }
     }
     return builder.toString();
-  }
-
-
-  public static void main(String[] args) {
-
-    if (args == null || args.length != 2) {
-      throw new IllegalArgumentException("Please specify an input and output directory");
-    }
-    Path inDir = Paths.get(args[0]);
-    if (!Files.isDirectory(inDir)) {
-      throw new IllegalArgumentException("Not a valid directory: " + inDir);
-    }
-    Path outDir = Paths.get(args[1]);
-    if (!Files.isDirectory(outDir) && Files.exists(outDir)) {
-      throw new IllegalArgumentException("Not a valid directory: " + outDir);
-    }
-
-    System.out.println("Reading from " + inDir);
-    System.out.println("Writing to " + outDir);
-
-    try {
-      if (!Files.exists(outDir)) {
-        Files.createDirectories(outDir);
-      }
-
-      Env env = new Env();
-      readDir(env, inDir, outDir, 0);
-
-    } catch (Exception ex) {
-      //noinspection CallToPrintStackTrace
-      ex.printStackTrace();
-    }
-  }
-
-  private static int readDir(Env env, Path inDir, Path outDir, int index) throws IOException {
-
-    List<Path> matchFiles = new ArrayList<>();
-    List<Path> dirs = new ArrayList<>();
-
-    try (Stream<Path> files = Files.list(inDir)) {
-      files.forEach(f -> {
-        if (Files.isDirectory(f)) {
-          dirs.add(f);
-        } else if (Files.isRegularFile(f)) {
-          if (f.toString().endsWith(".match.json")) {
-            matchFiles.add(f);
-          }
-        }
-      });
-    }
-
-    System.out.println("Found " + matchFiles.size() + " in " + inDir);
-    for (Path d : dirs) {
-      index = readDir(env, d, outDir, index);
-    }
-    for (Path mFile : matchFiles) {
-      index += 1;
-      //String basename = BaseConfig.getBaseFilename(mFile);
-      String basename = "complete";
-      if (index % 1000 == 0) {
-        System.out.println(index);
-      }
-      org.pharmgkb.pharmcat.haplotype.model.Result matcherResult = new ResultSerializer()
-          .fromJson(mFile);
-      Phenotyper phenotyper = new Phenotyper(env, matcherResult.getMetadata(), matcherResult.getGeneCalls(),
-          new TreeSet<>(), new HashMap<>());
-
-      ReportContext reportContext = new ReportContext(env, phenotyper, basename);
-
-      Path outFile = outDir.resolve(basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
-      new CallsOnlyFormat(outFile, env)
-          .singleFileMode()
-          .write(reportContext);
-    }
-    return index;
   }
 }

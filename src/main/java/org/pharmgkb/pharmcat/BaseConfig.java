@@ -54,6 +54,7 @@ public class BaseConfig {
   boolean deleteIntermediateFiles;
   boolean verbose;
   SortedSet<String> samples = new TreeSet<>();
+  Path sampleMetadataFile;
 
 
   BaseConfig(CliHelper cliHelper) throws IOException, ReportableException {
@@ -93,6 +94,9 @@ public class BaseConfig {
           samples.add(sample);
         }
       }
+    }
+    if (cliHelper.hasOption("sm")) {
+      sampleMetadataFile = cliHelper.getValidFile("sm", true);
     }
 
     boolean researchMode = false;

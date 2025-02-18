@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -33,6 +36,7 @@ public class Env {
   private MessageHelper m_messageHelper;
   private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
   private final Multimap<String, String> m_validHaplotypes = HashMultimap.create();
+  private final Map<Path, Map<String, Map<String, String>>> m_sampleDataMap = new HashMap<>();
 
 
   public Env() throws IOException, ReportableException {
@@ -188,5 +192,42 @@ public class Env {
           haplotype.setReference(name.equals(getReferenceAllele(gene)));
           return haplotype;
         });
+  }
+
+
+  public synchronized @Nullable Map<String, String> getSampleMetadata(Path sampleMetadataFile, String sampleId,
+      boolean cache) throws IOException {
+
+    Map<String, Map<String, String>> fileMap;
+    if (cache) {
+      fileMap = m_sampleDataMap.computeIfAbsent(sampleMetadataFile, f -> new TreeMap<>());
+      if (!fileMap.isEmpty()) {
+        return fileMap.get(sampleId);
+      }
+    } else {
+      fileMap = new TreeMap<>();
+    }
+    try (BufferedReader reader = Files.newBufferedReader(sampleMetadataFile)) {
+      String line;
+      while ((line = reader.readLine()) != null) {
+        String[] row = line.split("\t");
+        if (row.length >= 3) {
+          String sid = row[0];
+          if (cache) {
+            fileMap.computeIfAbsent(sid, k -> new HashMap<>())
+                .put(row[1], row[2]);
+          } else {
+            if (sid.equals(sampleId)) {
+              fileMap.computeIfAbsent(sid, k -> new HashMap<>())
+                  .put(row[1], row[2]);
+            } else if (fileMap.containsKey(sid)) {
+              // all values for a single sample must be consecutive
+              break;
+            }
+          }
+        }
+      }
+    }
+    return fileMap.get(sampleId);
   }
 }

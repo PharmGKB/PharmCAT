@@ -122,7 +122,11 @@ public class VcfReader implements VcfLineParser {
   }
 
 
-  public @Nullable String getSampleId() {
+  /**
+   * Gets the Sample ID of the data to read.
+   */
+  public String getSampleId() {
+    // this should never be null after read() is called
     return m_sampleId;
   }
 

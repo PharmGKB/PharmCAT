@@ -115,7 +115,7 @@ public class PipelineWrapper {
     if (outsideCallPath == null || outsideCallPath.length == 0) {
       return execute();
     }
-    return execute(null, ImmutableList.copyOf(outsideCallPath), false);
+    return execute(null, ImmutableList.copyOf(outsideCallPath), null, false);
   }
 
   /**
@@ -124,16 +124,16 @@ public class PipelineWrapper {
    * @return path to actual VCF used
    */
   public Path executeWithVcf(Path vcfFile) throws Exception {
-    return execute(vcfFile, null, false);
+    return execute(vcfFile, null, null, false);
   }
 
   public @Nullable Path execute() throws Exception {
-    return execute(null, null, false);
+    return execute(null, null, null, false);
   }
 
 
-  @Nullable Path execute(@Nullable Path vcfFile, @Nullable List<Path> outsideCallPaths, boolean allowNoData)
-      throws Exception {
+  public @Nullable Path execute(@Nullable Path vcfFile, @Nullable List<Path> outsideCallPaths,
+      Path sampleMetadataFile, boolean allowNoData) throws Exception {
     VcfFile vcfFileObj = null;
     boolean runMatcher = false;
     if (vcfFile != null) {
@@ -153,7 +153,7 @@ public class PipelineWrapper {
         true, null, outsideCallPaths,
         true, null, null, m_sources, m_compactReport, true, true, true,
         m_outputPath, null, m_deleteIntermediateFiles,
-        Pipeline.Mode.TEST, null, false
+        Pipeline.Mode.TEST, null, false, sampleMetadataFile
     );
     pcat.call();
     m_reportContext = pcat.getReportContext();

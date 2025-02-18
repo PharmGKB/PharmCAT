@@ -138,7 +138,7 @@ public class NamedAlleleMatcher {
       NamedAlleleMatcher namedAlleleMatcher =
           new NamedAlleleMatcher(new Env(), definitionReader, findCombinations, topCandidateOnly, callCyp2d6)
               .printWarnings();
-      Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+      Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null, null);
 
       Path jsonFile = CliUtils.getOutputFile(cliHelper, vcfFile, "json", BaseConfig.MATCHER_SUFFIX + ".json");
       ResultSerializer resultSerializer = new ResultSerializer();
@@ -182,10 +182,18 @@ public class NamedAlleleMatcher {
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
   public Result call(VcfFile vcfFile, @Nullable String sampleId) throws IOException {
+    return call(vcfFile, sampleId, null);
+  }
+
+  /**
+   * Calls diplotypes for the given VCF file for all genes for which a definition exists.
+   */
+  public Result call(VcfFile vcfFile, @Nullable String sampleId, @Nullable Path sampleMetadataFile) throws IOException {
     VcfReader vcfReader = vcfFile.getReader(m_definitionReader, sampleId, m_findCombinations);
     SortedMap<String, SampleAllele> alleleMap = vcfReader.getAlleleMap();
     ResultBuilder resultBuilder = new ResultBuilder(m_definitionReader, m_topCandidateOnly, m_findCombinations, m_callCyp2d6)
-        .forFile(vcfFile, vcfReader.getWarnings().asMap());
+        .forFile(vcfFile, vcfReader.getWarnings().asMap(), vcfReader.getSampleId(), sampleMetadataFile);
+
     if (m_printWarnings) {
       vcfReader.getWarnings().keySet()
           .forEach(key -> {
@@ -207,7 +215,7 @@ public class NamedAlleleMatcher {
         callAssumingReference(vcfReader.getSampleId(), alleleMap, gene, resultBuilder);
       }
     }
-    return resultBuilder.build();
+    return resultBuilder.build(m_env);
   }
 
   /**

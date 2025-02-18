@@ -491,7 +491,7 @@ class PipelineTest {
   @Test
   void testNoData(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
-    testWrapper.execute(null,  null, true);
+    testWrapper.execute(null,  null, null, true);
   }
 
 

@@ -1,5 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
@@ -35,6 +38,7 @@ public class ResultBuilder {
   private final boolean m_topCandidatesOnly;
   private final boolean m_findCombinations;
   private final boolean m_callCyp2d6;
+  private Path m_sampleMetadataFile;
 
 
   public ResultBuilder(DefinitionReader definitionReader, boolean topCandidatesOnly, boolean findCombinations,
@@ -46,19 +50,30 @@ public class ResultBuilder {
     m_callCyp2d6 = callCyp2d6;
   }
 
-  public Result build() {
+  public Result build(Env env) throws IOException {
+    if (m_sampleMetadataFile != null) {
+      Metadata metadata = m_result.getMetadata();
+      Map<String, String> sampleData = env.getSampleMetadata(m_sampleMetadataFile, metadata.getSampleId(), true);
+      if (sampleData != null && !sampleData.isEmpty()) {
+        metadata.setSampleProps(sampleData);
+      }
+    }
     return m_result;
   }
 
 
-  public ResultBuilder forFile(VcfFile vcfFile, Map<String, Collection<String>> warnings) {
+  public ResultBuilder forFile(VcfFile vcfFile, Map<String, Collection<String>> warnings, String sampleId,
+      @Nullable Path sampleMetadataFile) {
     Preconditions.checkNotNull(vcfFile);
 
-    m_result.setMetadata(new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
-        PathUtils.getFilename(vcfFile.getFile()), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6));
+    Metadata metadata = new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
+        PathUtils.getFilename(vcfFile.getFile()), new Date(), m_topCandidatesOnly, m_findCombinations, m_callCyp2d6,
+        sampleId);
+    m_result.setMetadata(metadata);
     if (warnings != null) {
       m_result.setVcfWarnings(warnings);
     }
+    m_sampleMetadataFile = sampleMetadataFile;
     return this;
   }
 
@@ -74,7 +89,7 @@ public class ResultBuilder {
 
 
   /**
-   * Adds diplotype results for specified gene.
+   * Adds diplotype results for a specified gene.
    */
   protected ResultBuilder diplotypes(String gene, MatchData matchData, SortedSet<DiplotypeMatch> matches) {
     Preconditions.checkNotNull(gene);
@@ -82,7 +97,7 @@ public class ResultBuilder {
   }
 
   /**
-   * Adds diplotype results for specified gene.
+   * Adds diplotype results for a specified gene.
    */
   protected ResultBuilder diplotypes(String gene, MatchData matchData, SortedSet<DiplotypeMatch> matches,
       @Nullable List<MessageAnnotation> warnings) {
@@ -100,7 +115,7 @@ public class ResultBuilder {
 
 
   /**
-   * Add haplotype results for specified gene.
+   * Add haplotype results for a specified gene.
    * <p>
    * This should only be used when we can't get diplotypes but still need to track potential haplotypes (e.g. DPYD).
    */
@@ -109,7 +124,7 @@ public class ResultBuilder {
   }
 
   /**
-   * Add haplotype results for specified gene.
+   * Add haplotype results for a specified gene.
    * <p>
    * This should only be used when we can't get diplotypes but still need to track potential haplotypes (e.g. DPYD).
    */

@@ -74,7 +74,7 @@ public class ReportContext {
     m_matcherMetadata = phenotyper.getMatcherMetadata();
     m_geneReports = phenotyper.getGeneReports();
     m_dataVersion = validateVersions(env.getDrugs());
-    if (!phenotyper.getUnannotatedGeneCalls().isEmpty()) {
+    if (phenotyper.getUnannotatedGeneCalls() != null && !phenotyper.getUnannotatedGeneCalls().isEmpty()) {
       m_unannotatedGeneCalls.addAll(phenotyper.getUnannotatedGeneCalls());
     }
 

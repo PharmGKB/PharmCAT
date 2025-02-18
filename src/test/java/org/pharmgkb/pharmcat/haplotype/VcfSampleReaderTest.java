@@ -19,7 +19,7 @@ class VcfSampleReaderTest {
 
   @Test
   void read() throws IOException {
-    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest.vcf");
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfSampleReaderTest-multisample.vcf");
     VcfSampleReader sampleReader = new VcfSampleReader(vcfFile);
 
     assertThat(sampleReader.getSamples(), hasItems("Sample_1", "Sample_2"));

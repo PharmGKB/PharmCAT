@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
@@ -97,7 +98,7 @@ public class Constants {
     Set<String> genes = switch (dataSource) {
       case CPIC -> ACTIVITY_SCORE_GENES_CPIC;
       case DPWG -> ACTIVITY_SCORE_GENES_DPWG;
-      default -> throw new RuntimeException("No genes specified for " + dataSource);
+      default -> Collections.emptySet();
     };
     return gene != null && genes.contains(gene.toUpperCase());
   }
