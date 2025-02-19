@@ -23,6 +23,8 @@ import org.pharmgkb.pharmcat.PharmCAT;
  * @author Mark Woon
  */
 public class CliUtils {
+  private static String s_version;
+
 
   /**
    * Private constructor for utility class.
@@ -38,7 +40,10 @@ public class CliUtils {
    * @return a String of the PharmCAT version
    * @throws IOException can occur from reading the manifest
    */
-  public static String getVersion() throws IOException {
+  public synchronized static String getVersion() throws IOException {
+    if (s_version != null) {
+      return s_version;
+    }
     Class<PharmCAT> clazz = PharmCAT.class;
     String className = clazz.getSimpleName() + ".class";
     String classPath = Optional.ofNullable(clazz.getResource(className))
@@ -51,7 +56,8 @@ public class CliUtils {
             Charset.defaultCharset());
         String gitVersion = StringUtils.strip(writer.toString());
         if (StringUtils.isNotBlank(gitVersion)) {
-          return gitVersion;
+          s_version = gitVersion;
+          return s_version;
         }
       } catch (Exception e) {
         System.err.println("Error reading git version");
@@ -63,7 +69,8 @@ public class CliUtils {
     try (InputStream input = new URL(manifestPath).openStream()) {
       Manifest manifest = new Manifest(input);
       Attributes attr = manifest.getMainAttributes();
-      return attr.getValue("Implementation-Version");
+      s_version = attr.getValue("Implementation-Version");
+      return s_version;
     }
   }
 
