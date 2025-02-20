@@ -67,26 +67,22 @@ Notes:
 * the MT-RNR1 line specifies a single allele call since that gene is monoploid
 
 
-## Caveats
+## Details
 
 We rely on string matching to match outside calls to recommendations.
 
 Consult the [Phenotypes List](/Phenotypes-List) for a complete list of named alleles, phenotypes and activity scores.
 
 Prefixing allele names with the gene symbol in the second field (e.g. `CYP2C9*1/CYP2C9*3`) is not necessary. The gene is
-specified in the first field so repeating it in second field is not necessary. Prefixed gene symbols will be stripped
-from the allele names.
+specified in the first field, so repeating it in the second field is not necessary. Prefixed gene symbols will be
+stripped from the allele names.
 
 If there is an outside call for a gene that also has data from the VCF, the outside call will trump the VCF data.
 
 
-#### Diplotypes
+### Diplotypes
 
 Named allele matching in diplotypes/single allele calls should be fairly straightforward.
-
-If the call is a combination call (e.g. `[*2 + *3]`), it needs to use PharmCAT's combination syntax: it has to be 
-wrapped in square brackets (`[` and `]`) and each named allele must be separated with a plus sign with a space on either
-side (` + `).  More examples: `*1/[*6 + *8]`, `[*3 + *4 + *5]/[*18 + *37]`.
 
 PharmCAT will automatically convert named alleles into a format usable by PharmCAT based on existing conventions for
 CYP2D6, HLA-A and HLA-B. For example:
@@ -95,15 +91,70 @@ CYP2D6, HLA-A and HLA-B. For example:
 * `CYP2D6 *4.024` will be truncated to `*4`
 
 
-##### Gene copy number
+#### Gene duplications and copy numbers
 
-PharmCAT relies on CPIC or PharmVar gene definitions.  CYP2D6 is the only gene with copy numbers defined in these resources.  Furthermore, PharmCAT only recognizes copy number variations that have a function assignment from CPIC.  Consult the [CYP2D6 phenotypes list](/Phenotypes-List#cyp2d6) for the full list. These alleles are part of the CPIC diplotype to phenotype translation and can be connected to a corresponding recommendation.  Some copy number variations (e.g. for `*1`, `*2` and `*4`) over 3 are combined in a single bin (≥3).  So if you have `*1x3` or `*1x5`, you will need to translate that to `*1≥3`.
+{: .info}
+Gene duplication occurs when there are two or more copies of the same gene present on the same chromosome (in cis).
+These gene copies may contain genetic variation defined by named alleles.
+The gene copies may be identical (i.e. the same named allele) or non-identical (i.e. different named alleles).
 
-PharmCAT will automatically attempt to translate your CYP2D6 copy number variation into a matching CPIC copy number variation if possible.
+PharmCAT relies on PharmVar gene definitions. CYP2D6 is the only gene with gene duplications defined.
+More information about gene duplications, terminology and notation can be found in the Structural Variation document for
+CYP2D6, accessible at the top of the [PharmVar CYP2D6 page](https://www.pharmvar.org/gene/CYP2D6).
 
-**IMPORTANT**: PharmCAT expects files encoded in UTF-8.  This is particularly important when it comes to the "≥" signs that are used in copy number names.
+Highlights include:
+1. If the gene copy number is known, duplications/multiplications are recommended to be annotated and reported as `x2`,
+   `x3`, etc., and if the number is unknown as `xN`.
+2. To date, only CYP2D6 `*1`, `*2`, `*4`, and `*41` have been described to have 3 or more copies, whereas an increasing
+   number of other star alleles have been described in the duplicated state.
+3. Over 90% of CYP2D6 SVs (structural variants) involve identical copies of the gene.
+4. In the past, "tandem" was used to distinguish allelic variants with two or more gene units that are not identical
+   from those with identical units that are duplicated or multiplied. PharmVar no longer recommends using this term.
+5. PharmVar maintains a table of non-identical CYP2D6 duplications that have been described in the literature and/or
+   submitted to PharmVar.
+6. PharmVar maintains a table of recommended ways to report structural variations, including gene duplications.
 
-#### Phenotypes
+Syntax:
+* PharmCAT follows PharmVar recommended notation for gene duplications and copy numbers.
+* For identical gene copies on the same allele (in cis), the star allele is followed by an “x” and the number of
+  gene copies. Gene copies may vary at the suballele level. If the number of gene copies is unknown, the star number
+  is followed by "xN". Note that alleles with an unknown number of gene copies cannot be linked to prescribing
+  recommendations. Examples:
+    * CYP2D6 `*2x2/*4`
+    * CYP2D6 `*1/*41x3`
+* For non-identical gene copies on the same allele (in cis), or multiple SVs/CNVs on the same allele, the upstream
+  gene copy is written first, followed by a "+" and the downstream gene copy. Although the order of the gene copies
+  may not be experimentally determined in routine clinical testing, they should be displayed in their most likely order
+  (the order found in PharmVar’s "Structural Variation for CYP2D6" document referred to above) for consistency.
+  Examples:
+    * CYP2D6 `*68+*4/*10`
+    * CYP2D6 `*2/*36+*10`
+
+In addition to only recognizing gene duplications defined in PharmVar, PharmCAT also only recognizes copy number
+variations that have a function assignment from CPIC.
+Consult the [CYP2D6 phenotypes list](/Phenotypes-List#cyp2d6) for the full list.
+These alleles are part of the CPIC diplotype to phenotype translation and can be connected to a corresponding
+recommendation.  Some copy number variations (e.g. for `*1`, `*2` and `*4`) over 3 are combined in a single bin (≥3).
+So if you have `*1x3` or `*1x5`, you will need to translate that to `*1≥3`.
+
+PharmCAT will automatically attempt to translate your CYP2D6 copy number variation into a matching CPIC copy number
+variation if possible.
+
+**IMPORTANT**: PharmCAT expects files encoded in UTF-8.
+This is particularly important when it comes to the "≥" signs that are used in copy number names.
+
+
+#### Combination Calls
+
+If the call is a [combination call](/methods/NamedAlleleMatcher-101#combinations-and-partial-alleles)
+(e.g. `[*2 + *3]`), it needs to use PharmCAT's combination syntax: it has to be wrapped in square brackets (`[` and `]`)
+and each named allele must be separated with a plus sign with a space on either side (` + `).
+More examples: `*1/[*6 + *8]`, `[*3 + *4 + *5]/[*18 + *37]`.
+
+Please note the differences in syntax between combination calls and gene duplication calls described above!
+
+
+### Phenotypes
 
 When providing phenotypes, you will need to use
 [CPIC standardized terms](https://cpicpgx.org/resources/term-standardization/), although we do provide some
@@ -121,7 +172,7 @@ interpretation:
 3. We will try to extract the main phenotypes above if possible.  For example, "CYP2D6 Ultrarapid Metabolizers (UM)" becomes "Ultrarapid Metabolizer".
 4. Some CPIC standardized terms for phenotypes include modifiers such as "likely" or "possible".  We retain these modifiers.  For example, "likely cyp2c19 poor metaboliser" becomes "Likely Poor Metabolizer".
 
-#### Activity Scores
+### Activity Scores
 
 String matching also applies to activity scores.  PharmCAT only recognizes CPIC assigned
 activity scores.  For example, one possible CPIC activity score for CYP2D6 is "≥6.0".  If you provide "7.0", this will result in a no call.  Similarly, if CPIC defines activity scores of "0.0" and "0.25", and you provide "0.1", this will also result in a no call. 
