@@ -61,6 +61,11 @@ RUN git clone https://github.com/chrchang/plink-ng.git && \
     mv bin/* /usr/local/bin && \
     rm -rf /usr/local/bin/plink-ng
 
+# install R
+# hack to get debian codename from https://unix.stackexchange.com/a/253476/90413
+#RUN gpg --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' && \
+#    gpg --armor --export '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' | gpg --dearmor | tee /usr/share/keyrings/cran.gpg > /dev/null && \
+#    echo "deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/debian $(dpkg --status tzdata|grep Provides|cut -f2 -d'-')-cran40/" > /etc/apt/sources.list.d/cran.list
 
 
 RUN mkdir /pharmcat
