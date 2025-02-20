@@ -108,10 +108,18 @@ class CallsOnlyFormatTest {
     // no phenotype and activity score, but recommendation phenotype and activity score
     assertTrue(StringUtils.isBlank(dpydRow[2]));
     assertTrue(StringUtils.isBlank(dpydRow[3]));
-    System.out.println(dpydRow[14]);
-    System.out.println(dpydRow[15]);
+    assertTrue(StringUtils.isNotBlank(dpydRow[13]));
     assertTrue(StringUtils.isNotBlank(dpydRow[14]));
     assertTrue(StringUtils.isNotBlank(dpydRow[15]));
+
+    String[] cyp2c19Row = geneMap.get("CYP2C19").get(0).split("\t");
+    // will have phenotype and activity score
+    assertTrue(StringUtils.isNotBlank(cyp2c19Row[2]));
+    assertTrue(StringUtils.isBlank(cyp2c19Row[3]));
+    // but no recommendation
+    assertTrue(StringUtils.isBlank(cyp2c19Row[13]));
+    assertTrue(StringUtils.isBlank(cyp2c19Row[14]));
+    assertTrue(StringUtils.isBlank(cyp2c19Row[15]));
   }
 
 

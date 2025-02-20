@@ -181,7 +181,7 @@ public class CallsOnlyFormat extends AbstractFormat {
       @Nullable String sampleId, @Nullable Map<String, String> sampleProps,
       GeneReport report, boolean lowestFunctionSingles, boolean showRecommendationDiplotype) {
 
-    boolean hasPhenotypes = report.getSourceDiplotypes().stream()
+    boolean hasPhenotypes = !lowestFunctionSingles && report.getSourceDiplotypes().stream()
         .anyMatch(d -> !d.getPhenotypes().isEmpty() && !isIgnorableValue(d.getPhenotypes().get(0)));
     boolean hasActivityScores = isActivityScoreGene(report.getGene(), report.getPhenotypeSource()) &&
         report.getSourceDiplotypes().stream()
