@@ -592,6 +592,7 @@ class PipelineTest {
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCallsToRecommendedDiplotypes(tpmtExpectedCalls));
     testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
     testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
+    testWrapper.testRecommendedPhenotype(DataSource.CPIC, "TPMT", TextConstants.NA);
 
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-TPMT"));

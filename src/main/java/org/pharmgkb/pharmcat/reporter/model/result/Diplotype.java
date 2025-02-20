@@ -592,6 +592,7 @@ public class Diplotype implements Comparable<Diplotype> {
           // diplotype -> phenotype
           diplotype.ifPresentOrElse(
               (d) -> m_phenotypes.add(d.getPhenotype()),
+              // TODO(whaleyr): should this be lookupPhenotypeByActivityScore instead?
               () -> m_phenotypes.add(lookupPhenotypesByDiplotype(gp, lookupMap)));
         }
       }
@@ -653,7 +654,11 @@ public class Diplotype implements Comparable<Diplotype> {
       throw new IllegalStateException("More than one phenotype matched for " + this + ": " +
           String.join("; ", keys));
     } else if (keys.isEmpty()) {
-      return TextConstants.NA;
+      if (isActivityScoreType()) {
+        return TextConstants.INDETERMINATE;
+      } else {
+        return TextConstants.NA;
+      }
     } else {
       return keys.iterator().next();
     }
@@ -684,7 +689,7 @@ public class Diplotype implements Comparable<Diplotype> {
         .map(DiplotypeRecord::getGeneResult)
         .collect(Collectors.toCollection(TreeSet::new));
     if (rez.isEmpty()) {
-      rez.add(TextConstants.NA);
+      rez.add(TextConstants.INDETERMINATE);
     }
     return rez;
   }

@@ -48,7 +48,7 @@ class LowestFunctionGeneCallerTest {
     assertNotNull(dip.getAllele2());
     assertEquals("*5", dip.getAllele2().getName());
     assertEquals(1, dip.getPhenotypes().size());
-    Assertions.assertEquals(TextConstants.NA, dip.getPhenotypes().get(0));
+    Assertions.assertEquals(TextConstants.INDETERMINATE, dip.getPhenotypes().get(0));
   }
 
 

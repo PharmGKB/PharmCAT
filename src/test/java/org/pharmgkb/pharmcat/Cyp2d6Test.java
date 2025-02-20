@@ -119,7 +119,7 @@ public class Cyp2d6Test {
 
     testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*1/*XXX");
     testWrapper.testPrintCalls(DataSource.DPWG, "CYP2D6", "*1/*XXX");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", "n/a");
+    testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", TextConstants.INDETERMINATE);
 
     // this nonsense allele will still match to "Indeterminate" phenotypes in guidelines for CYP2D6
     testWrapper.testMatchedAnnotations("atomoxetine", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
@@ -132,7 +132,7 @@ public class Cyp2d6Test {
         .flatMap((g) -> g.getGenotypes().stream())
         .flatMap((g) -> g.getDiplotypes().stream())
         .filter((d) -> d.getGene().equals("CYP2D6"))
-        .allMatch((d) -> d.getPhenotypes().contains(TextConstants.NA)));
+        .allMatch((d) -> d.getPhenotypes().contains(TextConstants.INDETERMINATE)));
 
     GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
     assertNotNull(geneReport);
