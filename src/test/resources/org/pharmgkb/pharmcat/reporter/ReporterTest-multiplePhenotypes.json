@@ -321,7 +321,7 @@
               "*68"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -335,7 +335,7 @@
               "*36"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -349,7 +349,7 @@
               "*80"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -363,7 +363,7 @@
               "*7"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -377,7 +377,7 @@
               "*21"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -391,7 +391,7 @@
               "*83"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -405,7 +405,7 @@
               "*76"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -419,7 +419,7 @@
               "*22"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -433,7 +433,7 @@
               "*37"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -447,7 +447,7 @@
               "*20"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -461,7 +461,7 @@
               "*23"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -475,7 +475,7 @@
               "*13"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -489,7 +489,7 @@
               "*77"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -503,7 +503,7 @@
               "*38"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -517,7 +517,7 @@
               "*39"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -531,7 +531,7 @@
               "*40"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -545,7 +545,7 @@
               "*25"
             ],
             "phased": false,
-            "wildtypeAllele": "CAATGGAAAGA",
+            "referenceAllele": "CAATGGAAAGA",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -559,7 +559,7 @@
               "*41"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -573,7 +573,7 @@
               "*43"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -587,7 +587,7 @@
               "*42"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -601,7 +601,7 @@
               "*62"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -616,7 +616,7 @@
               "*35"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -630,7 +630,7 @@
               "*78"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -645,7 +645,7 @@
               "*44"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -659,7 +659,7 @@
               "*45"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -673,7 +673,7 @@
               "*33"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -689,7 +689,7 @@
               "*61"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -703,7 +703,7 @@
               "*63"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -717,7 +717,7 @@
               "*46"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -731,7 +731,7 @@
               "*72"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -745,7 +745,7 @@
               "*73"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -760,7 +760,7 @@
               "*27"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -774,7 +774,7 @@
               "*15"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -788,7 +788,7 @@
               "*47"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -802,7 +802,7 @@
               "*69"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -816,7 +816,7 @@
               "*57"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -830,7 +830,7 @@
               "*48"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -844,7 +844,7 @@
               "*28"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -858,7 +858,7 @@
               "*74"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -872,7 +872,7 @@
               "*49"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -886,7 +886,7 @@
               "*50"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -900,7 +900,7 @@
               "*82"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -914,7 +914,7 @@
               "*85"
             ],
             "phased": false,
-            "wildtypeAllele": "AT",
+            "referenceAllele": "AT",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -928,7 +928,7 @@
               "*9"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -943,7 +943,7 @@
               "*71"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -957,7 +957,7 @@
               "*6"
             ],
             "phased": false,
-            "wildtypeAllele": "GA",
+            "referenceAllele": "GA",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -971,7 +971,7 @@
               "*29"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -985,7 +985,7 @@
               "*64"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -999,7 +999,7 @@
               "*51"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1013,7 +1013,7 @@
               "*16"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1027,7 +1027,7 @@
               "*52"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1041,7 +1041,7 @@
               "*81"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1055,7 +1055,7 @@
               "*53"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1069,7 +1069,7 @@
               "*65"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1083,7 +1083,7 @@
               "*31"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1097,7 +1097,7 @@
               "*11"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1111,7 +1111,7 @@
               "*34"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1125,7 +1125,7 @@
               "*58"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1139,7 +1139,7 @@
               "*54"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1153,7 +1153,7 @@
               "*79"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1167,7 +1167,7 @@
               "*24"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1181,7 +1181,7 @@
               "*4"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1195,7 +1195,7 @@
               "*5"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1209,7 +1209,7 @@
               "*55"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1223,7 +1223,7 @@
               "*66"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1237,7 +1237,7 @@
               "*17"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1251,7 +1251,7 @@
               "*68"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1265,7 +1265,7 @@
               "*56"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1279,7 +1279,7 @@
               "*18"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1293,7 +1293,7 @@
               "*75"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1307,7 +1307,7 @@
               "*84"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1321,7 +1321,7 @@
               "*67"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1335,7 +1335,7 @@
               "*59"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1349,7 +1349,7 @@
               "*70"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1363,7 +1363,7 @@
               "*19"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1377,7 +1377,7 @@
               "*61"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1391,7 +1391,7 @@
               "*60"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1405,7 +1405,7 @@
               "*30"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1420,7 +1420,7 @@
               "*71"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1434,7 +1434,7 @@
               "*32"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           }
@@ -1448,7 +1448,7 @@
             "call": null,
             "alleles": [],
             "phased": false,
-            "wildtypeAllele": null,
+            "referenceAllele": null,
             "hasUndocumentedVariations": false,
             "warnings": []
           }
@@ -1914,7 +1914,7 @@
               "*68"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1928,7 +1928,7 @@
               "*36"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1942,7 +1942,7 @@
               "*80"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1956,7 +1956,7 @@
               "*7"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1970,7 +1970,7 @@
               "*21"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1984,7 +1984,7 @@
               "*83"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -1998,7 +1998,7 @@
               "*76"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2012,7 +2012,7 @@
               "*22"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2026,7 +2026,7 @@
               "*37"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2040,7 +2040,7 @@
               "*20"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2054,7 +2054,7 @@
               "*23"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2068,7 +2068,7 @@
               "*13"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2082,7 +2082,7 @@
               "*77"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2096,7 +2096,7 @@
               "*38"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2110,7 +2110,7 @@
               "*39"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2124,7 +2124,7 @@
               "*40"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2138,7 +2138,7 @@
               "*25"
             ],
             "phased": false,
-            "wildtypeAllele": "CAATGGAAAGA",
+            "referenceAllele": "CAATGGAAAGA",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2152,7 +2152,7 @@
               "*41"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2166,7 +2166,7 @@
               "*43"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2180,7 +2180,7 @@
               "*42"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2194,7 +2194,7 @@
               "*62"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2209,7 +2209,7 @@
               "*35"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2223,7 +2223,7 @@
               "*78"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2238,7 +2238,7 @@
               "*44"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2252,7 +2252,7 @@
               "*45"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2266,7 +2266,7 @@
               "*33"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2282,7 +2282,7 @@
               "*61"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2296,7 +2296,7 @@
               "*63"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2310,7 +2310,7 @@
               "*46"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2324,7 +2324,7 @@
               "*72"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2338,7 +2338,7 @@
               "*73"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2353,7 +2353,7 @@
               "*27"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2367,7 +2367,7 @@
               "*15"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2381,7 +2381,7 @@
               "*47"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2395,7 +2395,7 @@
               "*69"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2409,7 +2409,7 @@
               "*57"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2423,7 +2423,7 @@
               "*48"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2437,7 +2437,7 @@
               "*28"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2451,7 +2451,7 @@
               "*74"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2465,7 +2465,7 @@
               "*49"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2479,7 +2479,7 @@
               "*50"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2493,7 +2493,7 @@
               "*82"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2507,7 +2507,7 @@
               "*85"
             ],
             "phased": false,
-            "wildtypeAllele": "AT",
+            "referenceAllele": "AT",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2521,7 +2521,7 @@
               "*9"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2536,7 +2536,7 @@
               "*71"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2550,7 +2550,7 @@
               "*6"
             ],
             "phased": false,
-            "wildtypeAllele": "GA",
+            "referenceAllele": "GA",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2564,7 +2564,7 @@
               "*29"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2578,7 +2578,7 @@
               "*64"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2592,7 +2592,7 @@
               "*51"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2606,7 +2606,7 @@
               "*16"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2620,7 +2620,7 @@
               "*52"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2634,7 +2634,7 @@
               "*81"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2648,7 +2648,7 @@
               "*53"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2662,7 +2662,7 @@
               "*65"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2676,7 +2676,7 @@
               "*31"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2690,7 +2690,7 @@
               "*11"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2704,7 +2704,7 @@
               "*34"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2718,7 +2718,7 @@
               "*58"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2732,7 +2732,7 @@
               "*54"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2746,7 +2746,7 @@
               "*79"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2760,7 +2760,7 @@
               "*24"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2774,7 +2774,7 @@
               "*4"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2788,7 +2788,7 @@
               "*5"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2802,7 +2802,7 @@
               "*55"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2816,7 +2816,7 @@
               "*66"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2830,7 +2830,7 @@
               "*17"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2844,7 +2844,7 @@
               "*68"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2858,7 +2858,7 @@
               "*56"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2872,7 +2872,7 @@
               "*18"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2886,7 +2886,7 @@
               "*75"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2900,7 +2900,7 @@
               "*84"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2914,7 +2914,7 @@
               "*67"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2928,7 +2928,7 @@
               "*59"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2942,7 +2942,7 @@
               "*70"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2956,7 +2956,7 @@
               "*19"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2970,7 +2970,7 @@
               "*61"
             ],
             "phased": false,
-            "wildtypeAllele": "A",
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2984,7 +2984,7 @@
               "*60"
             ],
             "phased": false,
-            "wildtypeAllele": "T",
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -2998,7 +2998,7 @@
               "*30"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -3013,7 +3013,7 @@
               "*71"
             ],
             "phased": false,
-            "wildtypeAllele": "C",
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -3027,7 +3027,7 @@
               "*32"
             ],
             "phased": false,
-            "wildtypeAllele": "G",
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           }
@@ -3041,7 +3041,7 @@
             "call": null,
             "alleles": [],
             "phased": false,
-            "wildtypeAllele": null,
+            "referenceAllele": null,
             "hasUndocumentedVariations": false,
             "warnings": []
           }

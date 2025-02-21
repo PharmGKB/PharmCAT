@@ -131,7 +131,7 @@ public class ReportHelpers {
   private static final Pattern sf_4chPattern = Pattern.compile(".{9}|.+$");
 
   public static String variantAlleles(VariantReport variantReport) {
-    String cellStyle = variantReport.isNonWildType() ? "nonwild" : "";
+    String cellStyle = variantReport.isNonReference() ? "nonwild" : "";
     String mismatch = variantReport.isHasUndocumentedVariations() ? "<div class=\"callMessage\">Undocumented variation</div>" : "";
     if (variantReport.isHasUndocumentedVariations()) {
       cellStyle = StringUtils.strip(cellStyle + " mismatch");
@@ -140,8 +140,8 @@ public class ReportHelpers {
     return String.format(sf_variantAlleleTemplate, cellStyle, call, mismatch);
   }
 
-  public static String wildtypeAllele(VariantReport variantReport) {
-    return formatCall(variantReport.getWildTypeAllele());
+  public static String referenceAllele(VariantReport variantReport) {
+    return formatCall(variantReport.getReferenceAllele());
   }
 
   private static String formatCall(String call) {

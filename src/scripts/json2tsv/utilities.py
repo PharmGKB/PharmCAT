@@ -3,6 +3,7 @@
 __author__ = 'BinglanLi'
 
 import json
+
 import pandas as pd
 
 
@@ -64,9 +65,9 @@ def get_names_and_genotypes(json_entry: dict, reference_genotypes: list[str]) ->
 def get_non_ref_genotypes(variants):
     non_ref_genotypes = []
     for variant in variants:
-        wildtypeAllele = variant['wildtypeAllele']
-        wildtypeGenotype = f"{wildtypeAllele}/{wildtypeAllele}"
-        if variant['call'] != wildtypeGenotype:
+        reference_allele = variant['referenceAllele']
+        reference_genotype = f"{reference_allele}/{reference_allele}"
+        if variant['call'] != reference_genotype:
             non_ref_genotypes.append(variant)
     
     non_ref_genotypes = sorted(non_ref_genotypes, key=lambda x: x['position'])

@@ -50,8 +50,8 @@ public class VariantReport implements Comparable<VariantReport> {
   @SerializedName("phased")
   private boolean m_phased = false;
   @Expose
-  @SerializedName("wildtypeAllele")
-  private String m_wildTypeAllele;
+  @SerializedName("referenceAllele")
+  private String m_referenceAllele;
   @Expose
   @SerializedName("hasUndocumentedVariations")
   private boolean m_hasUndocumentedVariations;
@@ -138,12 +138,12 @@ public class VariantReport implements Comparable<VariantReport> {
     m_dbSnpId = dbSnpId;
   }
 
-  public String getWildTypeAllele() {
-    return m_wildTypeAllele;
+  public String getReferenceAllele() {
+    return m_referenceAllele;
   }
 
-  public void setWildTypeAllele(String wildTypeAllele) {
-    m_wildTypeAllele = wildTypeAllele;
+  public void setReferenceAllele(String referenceAllele) {
+    m_referenceAllele = referenceAllele;
   }
 
   public boolean isMissing() {
@@ -171,9 +171,9 @@ public class VariantReport implements Comparable<VariantReport> {
     m_warnings.add(warning);
   }
 
-  public boolean isNonWildType() {
-    return !(isMissing() || m_wildTypeAllele == null)
-        && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getWildTypeAllele()));
+  public boolean isNonReference() {
+    return !(isMissing() || m_referenceAllele == null)
+        && Arrays.stream(getCall().split("[|/]")).anyMatch(c -> !c.equals(getReferenceAllele()));
   }
 
 

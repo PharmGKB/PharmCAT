@@ -27,7 +27,7 @@ public class VariantReportFactory {
       Comparator.naturalOrder(),
       HaplotypeNameComparator.getComparator()
   );
-  private final Map<Long, String> m_wildAlleleMap = new TreeMap<>();
+  private final Map<Long, String> m_referenceAlleleMap = new TreeMap<>();
 
   /**
    * Create a new factory for the specified <code>gene</code> (HGNC symbol). This will gather all necessary information
@@ -46,7 +46,7 @@ public class VariantReportFactory {
       if (namedAllele.isReference()) {
         namedAllele.initialize(definitionFile.getVariants());
         for (VariantLocus v : allVariants) {
-          m_wildAlleleMap.put(v.getPosition(), namedAllele.getAllele(v));
+          m_referenceAlleleMap.put(v.getPosition(), namedAllele.getAllele(v));
         }
       } else {
         String[] definingAlleles = namedAllele.getAlleles();
@@ -86,7 +86,7 @@ public class VariantReportFactory {
   private VariantReport initializeReport(VariantReport variantReport) {
     assignNamedAlleles(variantReport);
     variantReport.setChr(m_chr);
-    variantReport.setWildTypeAllele(m_wildAlleleMap.get(variantReport.getPosition()));
+    variantReport.setReferenceAllele(m_referenceAlleleMap.get(variantReport.getPosition()));
     return variantReport;
   }
 
