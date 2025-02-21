@@ -19,6 +19,7 @@ import org.pharmgkb.pharmcat.BaseConfig;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.PipelineWrapper;
 import org.pharmgkb.pharmcat.TestUtils;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.pharmgkb.pharmcat.reporter.model.result.Haplotype.UNKNOWN;
@@ -120,6 +121,93 @@ class CallsOnlyFormatTest {
     assertTrue(StringUtils.isBlank(cyp2c19Row[13]));
     assertTrue(StringUtils.isBlank(cyp2c19Row[14]));
     assertTrue(StringUtils.isBlank(cyp2c19Row[15]));
+  }
+
+  @Test
+  void withDebugInfo(TestInfo testInfo) throws Exception {
+
+    try {
+      System.setProperty("PHARMCAT_REPORTER_DEBUG", "true");
+      PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true)
+          .saveIntermediateFiles();
+      testWrapper.getVcfBuilder()
+          .allowUnknownAllele()
+          // uncallable
+          .variation("TPMT", "rs1256618794", "A", "A")
+          // unknown allele
+          .variation("VKORC1", "rs9923231", "C", "G")
+          // unknown allele, but treated as reference
+          .variation("NUDT15", "rs186364861", "A", "T")
+          .reference("CYP4F2")
+          .reference("CYP2B6")
+          .reference("CACNA1S")
+          .variation("RYR1", "rs193922749", "A", "C") // c.152C>A
+          .variation("DPYD", "rs72547601", "C", "C") // c.2933A>G - no function
+          .variation("DPYD", "rs67376798", "A", "T") // c.2846A>T - decreased
+          .variation("DPYD", "rs60139309", "T", "C") // c.2582A>G - normal
+          .missing("CYP2C19",
+              "rs55752064",
+              "rs1564656981",
+              "rs55640102")
+          .variation("CYP2C19", "rs3758581", "G", "G")
+      ;
+      Path vcfFile = testWrapper.execute();
+
+      String[] genes = {
+          "CACNA1S", "CYP2B6", "CYP2C19", "CYP4F2", "DPYD", "NUDT15", "RYR1", "TPMT", "VKORC1"
+      };
+      List<String> referenceCalls = List.of("CYP4F2", "CYP2B6", "CACNA1S");
+      List<String> noCalls = List.of("TPMT", "VKORC1");
+      List<String> undocumented = List.of("NUDT15", "VKORC1");
+      List<String> missingPositions = List.of("CYP2C19");
+
+      String basename = BaseConfig.getBaseFilename(Objects.requireNonNull(vcfFile).getFileName());
+      Path normalFile = vcfFile.getParent().resolve(basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
+      String normalTsv = Files.readString(normalFile);
+
+      System.out.println("normal");
+      System.out.println(normalTsv);
+      String[] lines = normalTsv.split("\n");
+      assertEquals(10, lines.length);
+      Map<String, List<String>> geneMap = parseTsv(lines, 18, genes);
+      assertEquals(1, geneMap.get("CYP2C19").size());
+      assertEquals(1, geneMap.get("DPYD").size());
+
+      for (String gene : genes) {
+        String[] data = geneMap.get(gene).get(0).split("\t");
+        if (referenceCalls.contains(gene)) {
+          // check reference
+          assertTrue(StringUtils.isBlank(data[12]));
+          continue;
+        }
+        assertTrue(StringUtils.isNotBlank(data[12]));
+
+        if (noCalls.contains(gene)) {
+          // check no calls
+          assertEquals("no call", data[1], "Expecting no call for " + gene);
+        }
+
+        if (missingPositions.contains(gene)) {
+          assertTrue(StringUtils.isNotBlank(data[13]));
+        } else {
+          assertTrue(StringUtils.isBlank(data[13]));
+        }
+
+        if (undocumented.contains(gene)) {
+          assertTrue(StringUtils.isNotBlank(data[14]));
+          if (NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
+            assertTrue(data[14].contains("treat as reference"));
+          } else {
+            assertFalse(data[14].contains("treat as reference"));
+          }
+        }
+
+      }
+
+
+    } finally {
+      System.setProperty("PHARMCAT_REPORTER_DEBUG", "");
+    }
   }
 
 

@@ -19,6 +19,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
+import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -34,10 +35,13 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 public class CallsOnlyFormat extends AbstractFormat {
   private boolean m_singleFileMode;
   private boolean m_showSampleId = true;
+  private final boolean m_debug;
 
 
   public CallsOnlyFormat(Path outputPath, Env env) {
     super(outputPath, env);
+    m_debug = Boolean.parseBoolean(System.getenv("PHARMCAT_REPORTER_DEBUG")) ||
+        Boolean.parseBoolean(System.getProperty("PHARMCAT_REPORTER_DEBUG"));
   }
 
   /**
@@ -101,8 +105,16 @@ public class CallsOnlyFormat extends AbstractFormat {
         writer.print("Gene\tSource Diplotype\tPhenotype\tActivity Score" +
             "\tHaplotype 1\tHaplotype 1 Function\tHaplotype 1 Activity Value" +
             "\tHaplotype 2\tHaplotype 2 Function\tHaplotype 2 Activity Value" +
-            "\tOutside Call\tMatch Score\tMissing positions?\t" +
-            "Recommendation Lookup Diplotype\tRecommendation Lookup Phenotype\tRecommendation Lookup Activity Score");
+            "\tOutside Call\tMatch Score\t");
+        if (m_debug) {
+          writer.print("Variants\t");
+        }
+        writer.print("Missing positions\t");
+        if (m_debug) {
+          writer.print("Undocumented variants\t");
+        }
+        writer.print("Recommendation Lookup Diplotype\tRecommendation Lookup Phenotype\t" +
+            "Recommendation Lookup Activity Score");
         if (sampleProps != null) {
           for (String key : sampleProps.keySet()) {
             writer.print("\t");
@@ -305,12 +317,45 @@ public class CallsOnlyFormat extends AbstractFormat {
   private void writeCommon(PrintWriter writer,  @Nullable Map<String, String> sampleProps, GeneReport report,
       String matchScore, boolean showRecommendationDiplotype) {
     // outside call
-    writer.print(report.isOutsideCall());
+    writer.print(report.isOutsideCall() ? "yes" : "no");
     writer.print("\t");
-    writer.print(matchScore);
+    writer.print(matchScore == null ? "" : matchScore);
     writer.print("\t");
     // missing positions
-    writer.print(report.isMissingVariants());
+    if (m_debug) {
+      StringBuilder varBuilder = new StringBuilder();
+      StringBuilder missingBuilder = new StringBuilder();
+      for (VariantReport vr : report.getVariantReports()) {
+        if (vr.isMissing()) {
+          if (!missingBuilder.isEmpty()) {
+            missingBuilder.append(", ");
+          }
+          missingBuilder.append(vr.getPosition());
+        } else if (vr.isNonReference()) {
+          if (!varBuilder.isEmpty()) {
+            varBuilder.append(", ");
+          }
+          varBuilder.append(vr.getPosition())
+              .append(":")
+              .append(vr.getCall());
+        }
+      }
+      writer.print(varBuilder);
+      writer.print("\t");
+      writer.print(missingBuilder);
+      writer.print("\t");
+      if (report.isHasUndocumentedVariations()) {
+        writer.print(report.getVariantReports().stream()
+            .filter(VariantReport::isHasUndocumentedVariations)
+            .map(vr -> Long.toString(vr.getPosition()))
+            .collect(Collectors.joining(", ")));
+        if (report.isTreatUndocumentedVariationsAsReference()) {
+          writer.print(" (treat as reference)");
+        }
+      }
+    } else {
+      writer.print(report.isMissingVariants() ? "yes" : "no");
+    }
     writer.print("\t");
     // recommendation lookup fields
     if (showRecommendationDiplotype && report.getRecommendationDiplotypes() != null &&
