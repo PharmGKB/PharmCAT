@@ -22,6 +22,7 @@ import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.util.CliUtils;
 
 import static org.pharmgkb.pharmcat.Constants.isActivityScoreGene;
 import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
@@ -33,6 +34,8 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
  * @author Mark Woon
  */
 public class CallsOnlyFormat extends AbstractFormat {
+  public static final String ENV_DEBUG_KEY = "PHARMCAT_REPORTER_DEBUG";
+  public static final String NO_CALL_TAG = "no call";
   private boolean m_singleFileMode;
   private boolean m_showSampleId = true;
   private final boolean m_debug;
@@ -40,8 +43,8 @@ public class CallsOnlyFormat extends AbstractFormat {
 
   public CallsOnlyFormat(Path outputPath, Env env) {
     super(outputPath, env);
-    m_debug = Boolean.parseBoolean(System.getenv("PHARMCAT_REPORTER_DEBUG")) ||
-        Boolean.parseBoolean(System.getProperty("PHARMCAT_REPORTER_DEBUG"));
+    m_debug = Boolean.parseBoolean(System.getenv(ENV_DEBUG_KEY)) ||
+        Boolean.parseBoolean(System.getProperty(ENV_DEBUG_KEY));
   }
 
   /**
@@ -99,6 +102,8 @@ public class CallsOnlyFormat extends AbstractFormat {
     }
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(getOutputPath(), StandardCharsets.UTF_8, options))) {
       if (printHeaders) {
+        writer.print("PharmCAT " + CliUtils.getVersion());
+        writer.println();
         if (m_singleFileMode && m_showSampleId) {
           writer.print("Sample ID\t");
         }
@@ -111,6 +116,8 @@ public class CallsOnlyFormat extends AbstractFormat {
         }
         writer.print("Missing positions\t");
         if (m_debug) {
+          // GenerateStats keys off this column name to check if debug mode is enabled
+          // Make sure it is updated if this column name is changed
           writer.print("Undocumented variants\t");
         }
         writer.print("Recommendation Lookup Diplotype\tRecommendation Lookup Phenotype\t" +
@@ -166,7 +173,7 @@ public class CallsOnlyFormat extends AbstractFormat {
       writer.print("\t");
     }
     writer.print(report.getGene());
-    writer.print("\tno call\t\t\t" +
+    writer.print("\t" + NO_CALL_TAG + "\t\t\t" +
         "\t\t\t" +
         "\t\t\t");
     writeCommon(writer, sampleProps, report, null, false);

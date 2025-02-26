@@ -8,29 +8,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.SortedSet;
-import javax.xml.bind.DatatypeConverter;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
+import static org.pharmgkb.pharmcat.util.PoiUtils.*;
+
 
 /**
+ * This class generates a summary of changes made by the subsetter.
+ *
  * @author Mark Woon
  */
 public class SummaryWriter {
@@ -60,17 +55,17 @@ public class SummaryWriter {
 
     try (XSSFWorkbook workbook = new XSSFWorkbook()) {
       m_cellStyles.clear();
-      m_cellStyles.add(createCellStyle(workbook, "cccccc", true));
-      m_cellStyles.add(createCellStyle(workbook, "70eb8d", true));
-      m_cellStyles.add(createCellStyle(workbook, "70eb8d", false));
-      m_cellStyles.add(createCellStyle(workbook, "ffc870", true));
-      m_cellStyles.add(createCellStyle(workbook, "ffc870", false));
-      m_cellStyles.add(createCellStyle(workbook, "fe938c", true));
-      m_cellStyles.add(createCellStyle(workbook, "fe938c", false));
+      m_cellStyles.add(getHeaderCellStyle(workbook));
+      m_cellStyles.add(createCellStyle(workbook, POI_GREEN, true));
+      m_cellStyles.add(createCellStyle(workbook, POI_GREEN, false));
+      m_cellStyles.add(createCellStyle(workbook, POI_ORANGE, true));
+      m_cellStyles.add(createCellStyle(workbook, POI_ORANGE, false));
+      m_cellStyles.add(createCellStyle(workbook, POI_RED, true));
+      m_cellStyles.add(createCellStyle(workbook, POI_RED, false));
       // for report as reference
-      m_cellStyles.add(createCellStyle(workbook, "add8e6", false));
+      m_cellStyles.add(createCellStyle(workbook, POI_BLUE, false));
       // for modified function
-      m_cellStyles.add(createCellStyle(workbook, "e6d8ad", false));
+      m_cellStyles.add(createCellStyle(workbook, POI_YELLOW, false));
 
       for (String gene : m_geneData.keySet()) {
         GeneData gd = m_geneData.get(gene);
@@ -144,26 +139,6 @@ public class SummaryWriter {
   }
 
 
-  private CellStyle createCellStyle(Workbook workbook, String rgbColor, boolean boldFont) {
-
-    CellStyle cellStyle = workbook.createCellStyle();
-    cellStyle.setFillForegroundColor(IndexedColors.LEMON_CHIFFON.getIndex());
-    cellStyle.setFillForegroundColor(new XSSFColor(DatatypeConverter.parseHexBinary(rgbColor)));
-    cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-    cellStyle.setBottomBorderColor(IndexedColors.GREY_25_PERCENT.getIndex());
-    cellStyle.setRightBorderColor(IndexedColors.GREY_25_PERCENT.getIndex());
-    cellStyle.setTopBorderColor(IndexedColors.GREY_25_PERCENT.getIndex());
-    cellStyle.setBorderBottom(BorderStyle.THIN);
-    cellStyle.setBorderRight(BorderStyle.THIN);
-    cellStyle.setBorderTop(BorderStyle.THIN);
-    if (boldFont) {
-      Font font = workbook.createFont();
-      font.setBold(true);
-      cellStyle.setFont(font);
-    }
-    return cellStyle;
-  }
-
   private int writeSection(Sheet sheet, int rowNum, GeneData gd, SortedSet<NamedAllele> haplotypes) {
 
     for (NamedAllele hap : haplotypes) {
@@ -172,21 +147,6 @@ public class SummaryWriter {
       writeHaplotype(row, gd, hap);
     }
     return rowNum;
-  }
-
-  private Cell writeCell(Row row, int colNum, @Nullable String value) {
-    return writeCell(row, colNum, value, null);
-  }
-
-  private Cell writeCell(Row row, int colNum, @Nullable String value, @Nullable CellStyle cellStyle) {
-    Cell cell = row.createCell(colNum, CellType.STRING);
-    if (StringUtils.stripToNull(value) != null) {
-      cell.setCellValue(value);
-    }
-    if (cellStyle != null) {
-      cell.setCellStyle(cellStyle);
-    }
-    return cell;
   }
 
   private void writePositionHeaders(Row row, GeneData gd, HeaderType headerType) {

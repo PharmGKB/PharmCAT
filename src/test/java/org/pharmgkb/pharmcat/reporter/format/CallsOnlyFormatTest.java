@@ -22,6 +22,8 @@ import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.ENV_DEBUG_KEY;
+import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.NO_CALL_TAG;
 import static org.pharmgkb.pharmcat.reporter.model.result.Haplotype.UNKNOWN;
 
 
@@ -127,7 +129,7 @@ class CallsOnlyFormatTest {
   void withDebugInfo(TestInfo testInfo) throws Exception {
 
     try {
-      System.setProperty("PHARMCAT_REPORTER_DEBUG", "true");
+      System.setProperty(ENV_DEBUG_KEY, "true");
       PipelineWrapper testWrapper = new PipelineWrapper(testInfo, true)
           .saveIntermediateFiles();
       testWrapper.getVcfBuilder()
@@ -184,7 +186,7 @@ class CallsOnlyFormatTest {
 
         if (noCalls.contains(gene)) {
           // check no calls
-          assertEquals("no call", data[1], "Expecting no call for " + gene);
+          assertEquals(NO_CALL_TAG, data[1], "Expecting no call for " + gene);
         }
 
         if (missingPositions.contains(gene)) {
@@ -206,7 +208,7 @@ class CallsOnlyFormatTest {
 
 
     } finally {
-      System.setProperty("PHARMCAT_REPORTER_DEBUG", "");
+      System.setProperty(ENV_DEBUG_KEY, "");
     }
   }
 
