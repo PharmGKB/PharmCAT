@@ -256,8 +256,14 @@ public class VcfReader implements VcfLineParser {
 
     final String chrPos = position.getChromosome() + ":" + position.getPosition();
     if (m_alleleMap.containsKey(chrPos)) {
-      addWarning(chrPos, "Duplicate entry found in VCF; this entry trumps others.",
-          "Duplicate entry: first valid position wins");
+      // The preprocessor will split out PGx variants and non-PGx variants into 2 separate lines and add a filter code
+      // on the second entry. Don't bother printing warning in this case.
+      if (!position.getFilters().contains(sf_filterCodeRef) &&
+          !position.getFilters().contains(sf_filterCodeAlt) &&
+          !position.getFilters().contains(sf_filterCodeIndel)) {
+        addWarning(chrPos, "Duplicate entry found in VCF; first valid entry trumps others.",
+            "Duplicate entry: first valid position wins");
+      }
       return;
     }
 
