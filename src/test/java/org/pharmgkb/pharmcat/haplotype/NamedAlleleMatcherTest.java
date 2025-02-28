@@ -247,7 +247,7 @@ public class NamedAlleleMatcherTest {
       System.out.println("\t" + result.getVcfWarnings().get(key));
     }
 
-    assertEquals(78, result.getVcfWarnings().size());
+    assertEquals(34, result.getVcfWarnings().size());
     GeneCall rez = result.getGeneCalls().stream().filter(g -> g.getGene().equals("CYP2D6"))
         .findAny()
         .orElseThrow(() -> new IllegalStateException("CYP2D6 not called"));

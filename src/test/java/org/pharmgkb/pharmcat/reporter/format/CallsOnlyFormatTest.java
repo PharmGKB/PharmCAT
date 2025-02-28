@@ -101,7 +101,7 @@ class CallsOnlyFormatTest {
     System.out.println("normal");
     System.out.println(normalTsv);
     String[] lines = normalTsv.split("\n");
-    assertEquals(3, lines.length);
+    assertEquals(4, lines.length);
     Map<String, List<String>> geneMap = parseTsv(lines, 16, "CYP2C19", "DPYD");
     assertEquals(1, geneMap.get("CYP2C19").size());
     assertEquals(1, geneMap.get("DPYD").size());
@@ -170,7 +170,7 @@ class CallsOnlyFormatTest {
       System.out.println("normal");
       System.out.println(normalTsv);
       String[] lines = normalTsv.split("\n");
-      assertEquals(10, lines.length);
+      assertEquals(11, lines.length);
       Map<String, List<String>> geneMap = parseTsv(lines, 18, genes);
       assertEquals(1, geneMap.get("CYP2C19").size());
       assertEquals(1, geneMap.get("DPYD").size());
@@ -248,6 +248,9 @@ class CallsOnlyFormatTest {
     // test normal
     SortedMap<String, List<String>> geneMap = new TreeMap<>();
     for (String line : lines) {
+      if (line.startsWith("PharmCAT") || line.startsWith("Gene\t") || line.startsWith("Sample ID\t")) {
+        continue;
+      }
       String[] data = line.split("\t");
       if (data.length != maxColumns) {
         StringBuilder builder = new StringBuilder();
