@@ -33,7 +33,7 @@ Standard use case:
 Full list of options: 
 
 ```
-usage: pharmcat_pipeline [-s <samples> | -S <txt_file>]
+usage: pharmcat_pipeline [-s <samples> | -S <txt_file>] [-sm <tsv_file> ]
                          [-0] [--absent-to-ref] [-unspecified-to-ref] [-G] 
                          [-R <bed_file>]
                          [-matcher] [-ma] [-matcherHtml] [-research <type>]
@@ -60,6 +60,8 @@ Input arguments:
   -S <txt_file>, --sample-file <txt_file>
                         A file containing a list of samples, one sample per line.
                         Only applicable if you have multiple samples and only want to work on specific ones.
+  -sm <tsv_file>, --sample-metadata <tsv_file>
+                        A TSV file containing sample metadata.
 
 Preprocessor arguments:
   -0, --missing-to-ref               

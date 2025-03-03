@@ -82,7 +82,7 @@ As the [VCF specs v4.4](https://samtools.github.io/hts-specs/) states:
 
 To address a [reported issue](https://github.com/PharmGKB/PharmCAT/issues/174), the PharmCAT VCF
 Preprocessor now has a feature to bypass the gVCF check.
-See [Running the VCF Preprocessor](using/VCF-Preprocessor.md) for details. 
+See [Running the VCF Preprocessor](/using/VCF-Preprocessor) for details. 
 
 This feature should only be used when you are sure your file is not a gVCF file.
 Alternatively, you can strip out the _INFO/END_ or other fields that PharmCAT does not require.

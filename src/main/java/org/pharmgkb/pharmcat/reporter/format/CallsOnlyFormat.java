@@ -37,6 +37,7 @@ public class CallsOnlyFormat extends AbstractFormat {
   public static final String ENV_DEBUG_KEY = "PHARMCAT_REPORTER_DEBUG";
   public static final String NO_CALL_TAG = "no call";
   private boolean m_singleFileMode;
+  // this is only used in single file mode
   private boolean m_showSampleId = true;
   private final boolean m_debug;
 
@@ -55,6 +56,10 @@ public class CallsOnlyFormat extends AbstractFormat {
     return this;
   }
 
+  /**
+   * Sets whether Sample ID column should be written.
+   * This only matters in single file mode.
+   */
   public CallsOnlyFormat hideSampleId() {
     m_showSampleId = false;
     return this;

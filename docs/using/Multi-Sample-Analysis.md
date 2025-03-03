@@ -1,26 +1,25 @@
 ---
-parent: Using PharmCAT
-title: Multi-Sample Analysis
+parent: Working with Large Datasets
+title: Multi-Sample Analysis Examples
 permalink: using/Multi-Sample-Analysis/
-nav_order: 10
+nav_order: 1
 ---
-# Multi-Sample Analysis
+# Multi-Sample Analysis Examples
 {: .no_toc }
 
-As of March 2022, PharmCAT only takes a single-sample VCF. If a multi-sample VCF is provided, only the first sample will
-be annotated. However, PharmCAT can generate a PGx report in a matter of seconds for a preprocessed VCF. The fast 
-runtime of PharmCAT allows you to batch-annotate VCFs, with a little help from a bit of scripting, to scale from a few
-dozen samples to biobank-scale cohorts efficiently.
+{: .warn }
+> This page is out of date!
+> The steps listed here are a snapshot of how to use PharmCAT when they were written.
+> Everything documented here should still work, although there are newer, simpler ways of achieving the same tasks.
 
-This documentation shares concrete examples of how to use PharmCAT to batch process multiple samples in a
+
+This page shares concrete examples of how to use PharmCAT to batch process multiple samples in a
 High-Performance Computing (HPC) environment. We expect readers to be familiar with using both PharmCAT's
 [VCF Preprocessor](/using/VCF-Preprocessor) and the core [PharmCAT tool](/using/Running-PharmCAT).
 
 Interested in an interactive tutorial?
 We have a [tutorial](https://github.com/PharmGKB/PharmCAT-tutorial) available that walks you through working with real
 genetic data sets.
-
----
 
 <details open markdown="block">
   <summary>
@@ -32,6 +31,7 @@ genetic data sets.
 </details>
 
 ---
+
 
 ## Example using the Stanford Sherlock HPC
 
@@ -195,6 +195,9 @@ files, which can be easily achieved using auxiliary JSON libraries and data anal
 
 ### Extracting PharmCAT JSON content into TSV
 
+{: .info }
+This is now natively supported by PharmCAT using the `-reporterCallsOnlyTsv` flag.
+
 We also provide
 [an accessory python script](https://github.com/PharmGKB/PharmCAT/blob/development/src/scripts/json2tsv/json2tsv_pharmcat.py)
 under `src/scripts/json2tsv/` that extracts and organizes the content from the PharmCAT JSON outputs into a 
@@ -283,7 +286,7 @@ done
 
 ### Reading the PharmCAT calls into Python
 
-Here is a exemplary python output for the PharmCAT Named Allele Matcher:
+Here is a sample python output for the PharmCAT Named Allele Matcher:
 
 |SAMPLE_ID|CACNA1S            |CFTR                  |CYP2B6|CYP2C19|rs12777823|CYP2C9|<...truncated for visual clarity...>|
 |---------|-------------------|----------------------|------|-------|----------|------|------------------------------------|
@@ -292,7 +295,7 @@ Here is a exemplary python output for the PharmCAT Named Allele Matcher:
 |SAMPLE_3 |Reference/Reference|No CPIC variants found|\*1/\*1 |\*1/\*1  |G/G       |\*1/\*1 |<...truncated for visual clarity...>|
 
 
-Below is Python3 code for converting the report JSON files into Pandas DataFrames, which can be exported to CSV or processed further in python. Because of the long runtime of this process, we recommend saving the calls to CSV and loading the data from CSV when needed, instead of regenerating the DataFrames many times.
+Below is Python3 code for converting the report JSON files into Pandas DataFrames, which can be exported to CSV or processed further in python. Because of the long run time of this process, we recommend saving the calls to CSV and loading the data from CSV when needed, instead of regenerating the DataFrames many times.
 
 ```python
 # Need to give a list of sample IDs

@@ -2,7 +2,7 @@
 parent: Using PharmCAT
 title: Research Mode
 permalink: using/Research-Mode/
-nav_order: 11
+nav_order: 12
 ---
 # Research Mode
 
@@ -50,7 +50,7 @@ A partial allele is when a sample matches all the (core) variants of a defined a
 
 Note that PharmCAT only provides the match(es) with the highest score by default. Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually \*1) will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6 `*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`, `*23/[*5 + *9]` are also valid.
 
-For more details on combinations and partial alleles, please see [NamedAlleleMatcher 201](/methods/NamedAlleleMatcher-201#combinations-and-partial-alleles).
+For more details on combinations and partial alleles, please see [Named Allele Matcher 201](/methods/NamedAlleleMatcher-201#combinations-and-partial-alleles).
 
 To call combinations and partial alleles, use the `-research combinations` flag.
 

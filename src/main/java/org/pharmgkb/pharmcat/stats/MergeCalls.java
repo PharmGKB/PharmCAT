@@ -48,7 +48,7 @@ public class MergeCalls {
           .addOption("o", "output-dir", "Output to (optional, default is input file directory)", false, "directory")
           .addOption("o1d", "output-1-per-subdir", "Output 1 file per subdirectory")
           .addOption("o1f", "output-1-per-file", "Output 1 file per *.match.json file")
-          .addOption("sm", "sample-metadata", "TSV containing sample metadata", false, "file")
+          .addOption("sm", "sample-metadata", "TSV file containing sample metadata", false, "file")
           .addOption("esid", "extract-sample-id-from-filename", "Attempt to extract Sample ID from filename")
           .addOption("debug", "debug", "Add debug information to output files")
           ;
