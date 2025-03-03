@@ -29,12 +29,12 @@ import static org.pharmgkb.pharmcat.util.PoiUtils.writeCell;
 
 
 /**
- * This tool generates stats from *.report.tsv files.
+ * This tool generates allele frequency stats from *.report.tsv files.
  *
  * @author Mark Woon
  */
-public class GenerateStats {
-  private final int m_bgCol;
+public class CalcAlleleFrequencies {
+  private final int m_pivotCol;
   private final Map<String, GeneStats> m_stats = new TreeMap<>();
   private final NumberFormat m_numberFormat = NumberFormat.getNumberInstance();
   private final NumberFormat m_percentFormat = NumberFormat.getPercentInstance();
@@ -45,34 +45,38 @@ public class GenerateStats {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("i", "input", "Calls-only TSV file or directory", true, "file")
           .addOption("o", "output-dir", "Output to (optional, default is input file directory)", false, "directory")
-          .addOption("bgc", "biogeographic-column", "Biogeographic column number; first column is 1", false, "number")
+          .addOption("pc", "pivot-column", "Pivot column number; first column is 1", false, "number")
           ;
       if (!cliHelper.parse(args)) {
         return;
       }
 
       Path input = cliHelper.getPath("i");
-      Path outDir = input;
+      Path outDir;
       if (cliHelper.hasOption("o")) {
         outDir = cliHelper.getValidDirectory("o", false);
+      } else if (Files.isDirectory(input)) {
+        outDir = input;
+      } else {
+        outDir = input.getParent();
       }
-      int bgCol = -1;
-      if (cliHelper.hasOption("bgc")) {
+      int pivotCol = -1;
+      if (cliHelper.hasOption("pc")) {
         // ask for 1-based, but we use 0-based
-        bgCol = cliHelper.getIntValue("bgc") - 1;
-        if (bgCol < 16) {
-          throw new ReportableException("Invalid data column '" + cliHelper.getIntValue("bgc") +
+        pivotCol = cliHelper.getIntValue("pc") - 1;
+        if (pivotCol < 16) {
+          throw new ReportableException("Invalid data column '" + cliHelper.getIntValue("pc") +
               "' (expecting value > 16)");
         }
       }
 
-      GenerateStats generateStats = new GenerateStats(bgCol);
+      CalcAlleleFrequencies calcAlleleFrequencies = new CalcAlleleFrequencies(pivotCol);
       if (Files.isDirectory(input)) {
-        generateStats.ingestDir(input);
+        calcAlleleFrequencies.ingestDir(input);
       } else {
-        generateStats.ingestFile(input);
+        calcAlleleFrequencies.ingestFile(input);
       }
-      generateStats.write(outDir);
+      calcAlleleFrequencies.write(outDir);
 
     } catch (CliHelper.InvalidPathException ex) {
       System.out.println(ex.getMessage());
@@ -83,13 +87,13 @@ public class GenerateStats {
   }
 
 
-  private GenerateStats(int bgCol) {
-    m_bgCol = bgCol;
+  private CalcAlleleFrequencies(int pivotCol) {
+    m_pivotCol = pivotCol;
     m_percentFormat.setMinimumFractionDigits(3);
   }
 
-  private boolean hasBiogeographicData() {
-    return m_bgCol >= 0;
+  private boolean doPivot() {
+    return m_pivotCol >= 0;
   }
 
 
@@ -133,9 +137,9 @@ public class GenerateStats {
         String gene = fields[geneCol];
         String dip = fields[geneCol + 1];
         String bgData = null;
-        if (hasBiogeographicData()) {
-          if (m_bgCol < fields.length) {
-            bgData = fields[m_bgCol];
+        if (doPivot()) {
+          if (m_pivotCol < fields.length) {
+            bgData = fields[m_pivotCol];
           }
         }
         try {
@@ -223,7 +227,7 @@ public class GenerateStats {
 
   private void writeBgHeaders(Row headerRow, CellStyle headerStyle, int total, int geoTotal,
       SortedMap<String, Integer> regions) {
-    if (hasBiogeographicData()) {
+    if (doPivot()) {
       int cellCount = 2;
       if (total != geoTotal) {
         cellCount += 1;
@@ -246,17 +250,17 @@ public class GenerateStats {
     writeCell(row, 0, key);
     writeCell(row, 1, m_numberFormat.format(count));
     writeCell(row, 2, m_percentFormat.format(count / (double) total));
-    if (hasBiogeographicData()) {
+    if (doPivot()) {
       int cellCount = 2;
       if (total != bgTotal) {
         cellCount += 1;
         writeCell(row, cellCount, "");
       }
-      Map<String, Integer> bgCounts = bgMap.get(key);
+      Map<String, Integer> pivotCounts = bgMap.get(key);
       for (String region : regions.keySet()) {
         int numDipsForBg = 0;
-        if (bgCounts != null) {
-          numDipsForBg = bgCounts.getOrDefault(region, 0);
+        if (pivotCounts != null) {
+          numDipsForBg = pivotCounts.getOrDefault(region, 0);
         }
         cellCount += 1;
         writeCell(row, cellCount, m_numberFormat.format(numDipsForBg));

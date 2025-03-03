@@ -82,6 +82,7 @@ pipelinePkg:
 	rm -rf build/pipeline
 	mkdir -p build/pipeline
 	cp -f bin/pharmcat build/pipeline
+	cp -f bin/calc_allele_freqs build/calc_allele_freqs
 	cp -f build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pipeline/pharmcat.jar
 	cp -f preprocessor/requirements.txt build/pipeline
 	cp -f preprocessor/pharmcat_vcf_preprocessor.py build/pipeline

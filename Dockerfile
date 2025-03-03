@@ -90,6 +90,7 @@ COPY src/main/config/bashrc /root/.bashrc
 COPY preprocessor/pharmcat_vcf_preprocessor.py \
      preprocessor/pharmcat_pipeline \
      bin/pharmcat \
+     bin/calc_allele_freqs \
      build/pharmcat.jar \
      pharmcat_positions.vcf* \
      pharmcat_regions.bed \

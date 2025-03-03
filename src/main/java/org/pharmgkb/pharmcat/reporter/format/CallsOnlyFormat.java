@@ -116,7 +116,7 @@ public class CallsOnlyFormat extends AbstractFormat {
         }
         writer.print("Missing positions\t");
         if (m_debug) {
-          // GenerateStats keys off this column name to check if debug mode is enabled
+          // CalcAlleleFrequencies keys off this column name to check if debug mode is enabled
           // Make sure it is updated if this column name is changed
           writer.print("Undocumented variants\t");
         }
