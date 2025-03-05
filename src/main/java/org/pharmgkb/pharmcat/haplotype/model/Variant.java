@@ -27,6 +27,9 @@ public class Variant implements Comparable<Variant>  {
   @Expose
   @SerializedName("phased")
   private boolean m_isPhased;
+  @Expose
+  @SerializedName("phaseSet")
+  private Integer m_phaseSet;
   private String m_vcfAlleles;
 
 
@@ -35,23 +38,27 @@ public class Variant implements Comparable<Variant>  {
    */
   public Variant(VariantLocus variant, SampleAllele allele) {
     String vcfAlleles = sf_vcfAlleleJoiner.join(allele.getVcfAlleles());
-    initialize(variant.getPosition(), variant.getRsid(), allele.getVcfCall(), vcfAlleles);
+    initialize(variant.getPosition(), variant.getRsid(), allele.getVcfCall(), allele.getPhaseSet(), vcfAlleles);
   }
 
   /**
    * Constructor for creating faux-{@link Variant}s for extra positions and tests.
    */
   public Variant(long pos, @Nullable String rsid, @Nullable String call, @Nullable String vcfAlleles) {
-    initialize(pos, rsid, call, vcfAlleles);
+    initialize(pos, rsid, call, null, vcfAlleles);
   }
 
-  private void initialize(long pos, @Nullable String rsid, @Nullable String call, @Nullable String vcfAlleles) {
+  private void initialize(long pos, @Nullable String rsid, @Nullable String call, @Nullable Integer phaseSet,
+      @Nullable String vcfAlleles) {
     m_position = pos;
     m_rsid = rsid;
     m_vcfCall = call;
     if (call != null) {
       // check for phasing by lack of "/" to match behavior in VCF reader
       m_isPhased = !call.contains("/");
+    }
+    if (m_isPhased) {
+      m_phaseSet = phaseSet;
     }
     m_vcfAlleles = vcfAlleles;
   }

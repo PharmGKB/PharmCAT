@@ -1,0 +1,69 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##source=PharmCAT allele definitions
+##reference=hg38
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phase set">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=FT,Number=.,Type=String,Description="Genotype filters.">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled genotype Likelihoods">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block.">
+##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##contig=<ID=chr19,assembly=GRCh38.p13,species="Homo sapiens">
+##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
+##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
+##FILTER=<ID=PCATxREF,Description="Reference allele does not match PharmCAT reference alleles">
+##FILTER=<ID=PCATxALT,Description="Alternate alleles do not match PharmCAT alternate alleles">
+##FILTER=<ID=PCATxINDEL,Description="Unexpected format for INDELs">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
+chr19	40991224	rs34223104	T	C	.	PASS	PX=CYP2B6	GT:PS	0|1:40991224	0/1:40991224
+chr19	40991367	rs34883432	A	T	.	PASS	PX=CYP2B6	GT:PS	0|0:40991224	0/0:40991224
+chr19	40991369	rs8192709	C	T	.	PASS	PX=CYP2B6	GT:PS	1|0:40991224	0/0:40991224
+chr19	40991381	rs33973337	A	T	.	PASS	PX=CYP2B6	GT	0|0	0/0
+chr19	40991388	rs33980385	A	G	.	PASS	PX=CYP2B6	GT:PS	0|1:40991388	0/0:40991388
+chr19	40991390	rs33926104	C	A	.	PASS	PX=CYP2B6	GT:PS	0|0:40991388	0/0:40991388
+chr19	40991391	rs34284776	G	C	.	PASS	PX=CYP2B6	GT:PS	1|0:40991388	0/0:40991388
+chr19	40991441	rs35303484	A	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004015	rs281864907	T	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004125	rs36060847	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004133	rs148009906	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004158	rs186335453	G	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004303	rs139801276	T	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004377	rs12721655	A	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004380	rs535039125	C	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004381	rs35773040	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41004406	rs145884402	G	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41006919	rs3826711	C	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41006923	rs36056539	C	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41006936	rs3745274	G	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41006967	rs58871670	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41006968	rs373489637	T	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41007013	rs36079186	T	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41009313	.	A	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41009350	rs45482602	C	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41009358	rs2279343	A	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41010006	rs139029625	G	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41010088	rs34698757	C	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41010108	rs193922917	C	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012316	rs28399499	T	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012339	rs34826503	C	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012393	rs754621576	T	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012394	rs780991919	A	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012465	rs34097093	C	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012466	rs200458614	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012471	rs201500445	T	C	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012478	rs200238771	T	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012693	rs35979566	T	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012740	rs193922918	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41012803	rs35010098	C	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016652	rs764288403	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016679	rs374099483	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016726	rs3211369	A	G	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016741	rs117872433	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016778	rs564083989	G	A	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016805	.	A	T	.	PASS	PX=CYP2B6	GT	0/0	0/0
+chr19	41016810	rs3211371	C	A,T	.	PASS	PX=CYP2B6	GT	0/0	0/0

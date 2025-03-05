@@ -68,6 +68,65 @@ class CombinationUtilTest {
 
 
   @Test
+  void testGeneratePermutationPhaseSets() {
+
+    List<SampleAllele> alleles = Arrays.asList(
+        new SampleAllele("chr1", 1, "T", "T", true, true, null, Lists.newArrayList("T", "C"), "0|0", null, false),
+        new SampleAllele("chr1", 2, "A", "T", true, false, null, Lists.newArrayList("A", "T"), "0|1", null, false),
+        new SampleAllele("chr1", 3, "C", "C", true, true, 1, Lists.newArrayList("C", "C"), "0|0", null, false),
+        new SampleAllele("chr1", 4, "C", "G", true, false, 1, Lists.newArrayList("C", "G"), "0|1", null, false)
+    );
+
+    Set<String> expectedPermutations = Sets.newHashSet(
+        "1:T;2:A;3:C;4:C;",
+        "1:T;2:T;3:C;4:G;",
+        "1:T;2:A;3:C;4:G;",
+        "1:T;2:T;3:C;4:C;"
+    );
+    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
+    System.out.println(permutations);
+    assertEquals(expectedPermutations.size(), permutations.size());
+    for (String p : permutations) {
+      assertTrue(expectedPermutations.remove(p));
+    }
+  }
+
+
+  @Test
+  void testGeneratePermutationPhaseSetsWithUnphased() {
+
+    List<SampleAllele> alleles = Arrays.asList(
+        new SampleAllele("chr1", 1, "T", "C", true, false, 2, Lists.newArrayList("T", "C"), "0|1", null, false),
+        new SampleAllele("chr1", 2, "A", "T", true, false, 2, Lists.newArrayList("A", "T"), "0|1", null, false),
+        new SampleAllele("chr1", 3, "G", "C", false, false, 1, Lists.newArrayList("G", "C"), "1/0", null, false),
+        new SampleAllele("chr1", 4, "C", "C", true, true, 1, Lists.newArrayList("C", "C"), "0|0", null, false),
+        new SampleAllele("chr1", 5, "C", "G", true, false, 1, Lists.newArrayList("C", "G"), "0|1", null, false)
+    );
+
+    Set<String> expectedPermutations = Sets.newHashSet(
+        "1:T;2:A;3:G;4:C;5:C;",
+        "1:T;2:A;3:C;4:C;5:C;",
+
+        "1:T;2:A;3:G;4:C;5:G;",
+        "1:T;2:A;3:C;4:C;5:G;",
+
+        "1:C;2:T;3:G;4:C;5:C;",
+        "1:C;2:T;3:C;4:C;5:C;",
+
+        "1:C;2:T;3:G;4:C;5:G;",
+        "1:C;2:T;3:C;4:C;5:G;"
+
+        );
+    Set<String> permutations = CombinationUtil.generatePermutations(alleles);
+    permutations.forEach(System.out::println);
+    assertEquals(expectedPermutations.size(), permutations.size());
+    for (String p : permutations) {
+      assertTrue(expectedPermutations.remove(p));
+    }
+  }
+
+
+  @Test
   void testGeneratePerfectPairs() {
 
     SortedSet<NamedAllele> haplotypes = new TreeSet<>();

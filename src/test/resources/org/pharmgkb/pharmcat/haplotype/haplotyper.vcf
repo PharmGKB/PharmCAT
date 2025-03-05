@@ -4,6 +4,6 @@
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FILTER=<ID=PASS,Description="All filters passed">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	NA12878
-chr1	1	.	C	T	.	PASS	.	GT	0|1
-chr1	2	.	C	CT	.	PASS	.	GT	0|1
+chr1	1	.	C	T	.	PASS	.	GT:PS	0|1:.
+chr1	2	.	C	CT	.	PASS	.	GT:PS	0|1:2
 chr1	4	.	TG	T	.	PASS	.	GT	0|1

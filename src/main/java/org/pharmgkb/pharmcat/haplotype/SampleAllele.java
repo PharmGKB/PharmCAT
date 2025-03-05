@@ -58,11 +58,14 @@ public class SampleAllele implements Comparable<SampleAllele> {
   @Expose
   @SerializedName("treatUndocumentedVariationsAsReference")
   private boolean m_treatUndocumentedVariationsAsReference;
+  @Expose
+  @SerializedName("phaseSet")
+  private Integer m_phaseSet;
 
 
   public SampleAllele(String chromosome, long position, @Nullable String a1, @Nullable String a2, boolean isPhased,
-      boolean isEffectivelyPhased, List<String> vcfAlleles, String gt, @Nullable Set<String> undocumentedVariations,
-      boolean treatUndocumentedAsReference) {
+      boolean isEffectivelyPhased, Integer phaseSet, List<String> vcfAlleles, String gt,
+      @Nullable Set<String> undocumentedVariations, boolean treatUndocumentedAsReference) {
     Preconditions.checkNotNull(vcfAlleles);
     m_chromosome = chromosome;
     m_position = (int)position;
@@ -111,6 +114,9 @@ public class SampleAllele implements Comparable<SampleAllele> {
     m_vcfCall = callBuilder.toString();
     m_isPhased = isPhased;
     m_isEffectivelyPhased = isEffectivelyPhased;
+    if (m_isPhased) {
+      m_phaseSet = phaseSet;
+    }
   }
 
   private String computeAllele(String allele, boolean treatUndocumentedAsReference) {
@@ -126,7 +132,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
    */
   protected SampleAllele(String chromosome, long position, @Nullable String a1, @Nullable String a2,
       boolean isPhased, List<String> vcfAlleles, String gt) {
-    this(chromosome, position, a1, a2, isPhased, isPhased, vcfAlleles, gt, null, false);
+    this(chromosome, position, a1, a2, isPhased, isPhased, null, vcfAlleles, gt, null, false);
   }
 
 
@@ -177,6 +183,13 @@ public class SampleAllele implements Comparable<SampleAllele> {
    */
   public boolean isPhased() {
     return m_isPhased;
+  }
+
+  /**
+   * Gets the PS value from the VCF.
+   */
+  public Integer getPhaseSet() {
+    return m_phaseSet;
   }
 
   /**

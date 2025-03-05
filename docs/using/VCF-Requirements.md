@@ -10,6 +10,7 @@ PharmCAT expects incoming VCF files to follow the [official VCF spec](https://sa
 You can find the variants PharmCAT requires and their expected representation in [pharmcat_positions.vcf](https://github.com/PharmGKB/PharmCAT/releases/latest).
 
 PharmCAT only requires `CHROM`, `POS`, `REF`, `ALT`, and `FORMAT/GT` columns in a VCF file.
+PharmCAT supports phase sets `FORMAT/PS` as of version 3.0.
 Optional `FORMAT/AD` and `INFO/END` fields, when present, will be used for simple validation checks.
 
 VCF should only contain _high-quality genotypes_.

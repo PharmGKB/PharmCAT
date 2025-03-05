@@ -334,4 +334,25 @@ class VcfReaderTest {
       printWarnings(reader);
     });
   }
+
+  @Test
+  void phaseSet() throws IOException {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-phaseSet.vcf");
+
+    VcfReader vcfReader = new VcfReader(vcfFile, "Sample_1");
+    assertEquals(0, vcfReader.getWarnings().size());
+    assertNotNull(vcfReader.getAlleleMap().get("chr19:40991367").getPhaseSet());
+    assertNull(vcfReader.getAlleleMap().get("chr19:40991381").getPhaseSet());
+    assertEquals(6, vcfReader.getAlleleMap().entrySet().stream()
+        .filter(sa -> sa.getValue().getPhaseSet() != null)
+        .count()
+    );
+
+    vcfReader = new VcfReader(vcfFile, "Sample_2");
+    assertEquals(0, vcfReader.getWarnings().size());
+    assertEquals(0, vcfReader.getAlleleMap().entrySet().stream()
+        .filter(sa -> sa.getValue().getPhaseSet() != null)
+        .count()
+    );
+  }
 }

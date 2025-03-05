@@ -108,15 +108,25 @@ public class VcfReader implements VcfLineParser {
 
   /**
    * Constructor.  Primarily for testing.
-   * This will read in the VCF file and pull the sample's alleles at <em>ALL</em> positions.
+   * This will read in the VCF file and pull the (first) sample's alleles at <em>ALL</em> positions.
    *
    * @throws ParseException if there are no samples in the VCF file
    */
   VcfReader(Path vcfFile) throws IOException {
+    this(vcfFile, null);
+  }
+
+  /**
+   * Constructor.
+   * This will read in the VCF file and pull the sample's alleles at <em>ALL</em> positions.
+   *
+   * @throws ParseException if there are no samples in the VCF file
+   */
+  VcfReader(Path vcfFile, @Nullable String sampleId) throws IOException {
     m_locationsOfInterest = null;
     m_locationsByGene = null;
-    m_sampleId = null;
-    m_useSpecificSample = false;
+    m_sampleId = sampleId;
+    m_useSpecificSample = m_sampleId != null;
     m_findCombinations = false;
     read(vcfFile);
   }
@@ -490,12 +500,18 @@ public class VcfReader implements VcfLineParser {
     // genotype divided by "|" if phased and "/" if unphased
     boolean isPhased = true;
     boolean isEffectivelyPhased = true;
+    Integer phaseSet = null;
     if (gt.contains("/")) {
       isPhased = false;
       if (gtUnique.size() > 1) {
         // we'll also treat homozygous as phased
         isEffectivelyPhased = false;
        }
+    } else {
+      String p = sampleData.get(m_sampleIdx).getProperty("PS");
+      if (p != null && !p.equals(".")) {
+        phaseSet = Integer.valueOf(p);
+      }
     }
 
     List<String> vcfAlleles = new ArrayList<>();
@@ -504,7 +520,7 @@ public class VcfReader implements VcfLineParser {
 
     boolean treatUndocumentedAsReference = m_locationsByGene != null && treatUndocumentedAsReference(chrPos);
     SampleAllele sampleAllele = new SampleAllele(position.getChromosome(), position.getPosition(), a1, a2, isPhased,
-        isEffectivelyPhased, vcfAlleles, gt, undocumentedVariations, treatUndocumentedAsReference);
+        isEffectivelyPhased, phaseSet, vcfAlleles, gt, undocumentedVariations, treatUndocumentedAsReference);
     m_alleleMap.put(chrPos, sampleAllele);
     if (m_discardedPositions.contains(chrPos)) {
       addWarning(chrPos, "Duplicate entry found in VCF; this entry trumps previous invalid entry.",
