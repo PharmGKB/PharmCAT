@@ -15,6 +15,9 @@ def add_sample_java_args(java_args: List[str], cli_args):
     elif cli_args.samples:
         java_args.append('-s')
         java_args.append(','.join(m_samples))
+    if cli_args.sample_metadata:
+        java_args.append('-sm')
+        java_args.append(cli_args.sample_metadata)
 
 
 def add_matcher_java_args(java_args: List[str], cli_args):
@@ -74,6 +77,8 @@ if __name__ == '__main__':
     sample_group.add_argument('-S', '--sample-file', type=str, metavar='<txt_file>',
                               help='A file containing a list of samples IDs, one sample per line.  '
                                    'Only applicable if you have multiple samples and only want to work on specific ones.')
+    input_group.add_argument('-sm', '--sample-metadata', type=str, metavar='<tsv_file>',
+                             help='A TSV file containing sample metadata.')
 
     # preprocessor args
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
@@ -119,7 +124,7 @@ if __name__ == '__main__':
                                      'If any format is specified, only the specified formats will be saved.')
     reporter_group.add_argument('-reporterJson', '--reporter-save-json', action='store_true',
                                 help='Save reporter results as JSON.')
-    reporter_group.add_argument('-reporterCallsOnlyTsv', '--reporter-save-calls_only_tsv', action='store_true',
+    reporter_group.add_argument('-reporterCallsOnlyTsv', '--reporter-save-calls-only-tsv', action='store_true',
                                 help='Save calls results only as TSV.')
     # output args
     output_group = parser.add_argument_group('Output arguments')
