@@ -56,7 +56,7 @@ CYP2B6	*4/[*6 + *10] OR *6/[*4 + *10]								no	9 / 9
 For frequency analysis, this should effectively be treated as unknown.
 
 If this happens with genes that use the two lowest function variants to calculate phenotype/activity score,
-such as [DPYD](/methods/gene-definition-exceptions/#dpyd) and [RYR1](/methods/gene-definition-exceptions/#ryr1),
+such as [DPYD](/methods/Gene-Definition-Exceptions/#dpyd) and [RYR1](/methods/Gene-Definition-Exceptions/#ryr1),
 the calls will be separated with an " AND ".
 
 For example:

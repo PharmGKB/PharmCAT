@@ -323,7 +323,7 @@ When this happens, phenotype, activity score, haplotype and recommendation looku
 For frequency analysis, this should effectively be treated as unknown.
 
 If this happens with genes that use the two lowest function variants to calculate phenotype/activity score,
-such as [DPYD](/methods/gene-definition-exceptions/#dpyd) and [RYR1](/methods/gene-definition-exceptions/#ryr1),
+such as [DPYD](/methods/Gene-Definition-Exceptions/#dpyd) and [RYR1](/methods/Gene-Definition-Exceptions/#ryr1),
 the calls will be separated with an " AND ".
 
 For example:
@@ -339,7 +339,7 @@ For frequency analysis, _all_ alleles should be counted.
 The diplotype/phenotype/activity score used for recommendation lookup may not be the same as what is called by the
 `Named Allele Matcher`.
 See [Matching Recommendations](/methods/Matching-Recommendations/) and
-[Gene Definition Exceptions](https://markwoon.pharmcat.org/methods/gene-definition-exceptions/) for details.
+[Gene Definition Exceptions](https://markwoon.pharmcat.org/methods/Gene-Definition-Exceptions/) for details.
 
 If sourced from an outside call, these fields be whatever was specified by the outside call.
 

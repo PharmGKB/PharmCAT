@@ -48,7 +48,7 @@ PharmCAT is under active development.
 ## Documentation
 
 See [Genes & Drugs](/Genes-Drugs) for a list of all genes and drugs supported by PharmCAT.
-We have detailed documentation in [Gene Definition Exceptions](methods/Gene-Definition-Exceptions) for genes that
+We have detailed documentation in [Gene Definition Exceptions](/methods/Gene-Definition-Exceptions) for genes that
 require special handling.
 
 We also have a whole section explaining [how PharmCAT works](/methods), including how it
