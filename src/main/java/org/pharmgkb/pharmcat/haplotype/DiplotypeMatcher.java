@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
@@ -25,16 +27,16 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
  */
 public class DiplotypeMatcher {
   private final MatchData m_dataset;
+  private final boolean m_unphasedPriorityMode;
 
 
-  public DiplotypeMatcher(MatchData dataset) {
+  public DiplotypeMatcher(Env env, MatchData dataset) {
     m_dataset = dataset;
+    DefinitionExemption exemption = env.getDefinitionReader().getExemption(dataset.getGene());
+    m_unphasedPriorityMode = !dataset.isEffectivelyPhased() &&
+        exemption != null && !exemption.getUnphasedDiplotypePriorities().isEmpty();
   }
 
-
-  public SortedSet<DiplotypeMatch> compute(boolean findCombinations) {
-    return compute(findCombinations, false);
-  }
 
   public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
     return compute(findCombinations, findCombinations, topCandidateOnly, false);
@@ -131,7 +133,7 @@ public class DiplotypeMatcher {
 
     // using Collections.sort() throws an exception, so use SortedSet instead
     SortedSet<DiplotypeMatch> sortedPairs = new TreeSet<>(pairs);
-    if (topCandidateOnly && sortedPairs.size() > 1) {
+    if (topCandidateOnly && !m_unphasedPriorityMode && sortedPairs.size() > 1) {
       int topScore = sortedPairs.first().getScore();
       return sortedPairs.stream()
           .filter(dm -> dm.getScore() == topScore)

@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,15 +12,20 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -43,6 +49,7 @@ public class DataSerializer {
       .create();
   private static final Pattern sf_rsidPattern = Pattern.compile("rs\\d+");
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
+  private static final Splitter sf_semicolonSplitter = Splitter.on(";").trimResults().omitEmptyStrings();
 
 
 
@@ -71,66 +78,103 @@ public class DataSerializer {
   }
 
 
-  public Set<DefinitionExemption> deserializeExemptionsFromJson(Path jsonFile) throws IOException {
+  public SortedMap<String, DefinitionExemption> deserializeExemptionsFromJson(Path jsonFile) throws IOException {
     Preconditions.checkNotNull(jsonFile);
     Preconditions.checkArgument(jsonFile.toString().endsWith(".json"), "Invalid format: %s does not end with .json", jsonFile);
     Preconditions.checkArgument(Files.isRegularFile(jsonFile), "%s is not a file", jsonFile);
 
     try (BufferedReader reader = Files.newBufferedReader(jsonFile, StandardCharsets.UTF_8)) {
-      DefinitionExemption[] exemptions = GSON.fromJson(reader, DefinitionExemption[].class);
-      return Sets.newHashSet(exemptions);
+      Type mapType = new TypeToken<SortedMap<String, DefinitionExemption>>() {}.getType();
+      return GSON.fromJson(reader, mapType);
     }
   }
 
 
-  Set<DefinitionExemption> deserializeExemptionsFromTsv(Path tsvFile) throws IOException {
-    Preconditions.checkNotNull(tsvFile);
-    Preconditions.checkArgument(tsvFile.toString().endsWith(".tsv"), "Invalid format: %s does not end with .tsv", tsvFile);
-    Preconditions.checkArgument(Files.isRegularFile(tsvFile), "%s is not a file", tsvFile);
+  SortedMap<String, DefinitionExemption> deserializeExemptionsFromTsv(Path exemptionsTsvFile,
+      @Nullable Path unphasedPrioritiesTsvFile) throws IOException {
+    Preconditions.checkNotNull(exemptionsTsvFile);
+    Preconditions.checkArgument(exemptionsTsvFile.toString().endsWith(".tsv"),
+        "Invalid format: %s does not end with .tsv", exemptionsTsvFile);
+    Preconditions.checkArgument(Files.isRegularFile(exemptionsTsvFile),
+        "%s is not a file", exemptionsTsvFile);
 
-    SortedSet<DefinitionExemption> exemptions = new TreeSet<>();
+    SortedMap<String, DefinitionExemption> exemptions = new TreeMap<>();
     try (VcfHelper vcfHelper = new VcfHelper();
-         BufferedReader reader = Files.newBufferedReader(tsvFile)) {
+         BufferedReader reader = Files.newBufferedReader(exemptionsTsvFile)) {
       // skip the header
       reader.readLine();
       String line;
       while ((line  = reader.readLine()) != null) {
         String[] data = line.split("\t");
         String gene = data[0];
-        final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
+        final SortedSet<VariantLocus> requiredLoci = new TreeSet<>();
         if (data.length > 1) {
-          for (String var : sf_commaSplitter.splitToList(data[1])) {
-            if (sf_rsidPattern.matcher(var).matches()) {
-              ignoreLoci.add(vcfHelper.rsidToVariantLocus(var));
-            } else {
-              ignoreLoci.add(vcfHelper.hgvsToVariantLocus(var));
-            }
-          }
+          parseLoci(vcfHelper, data[1], requiredLoci);
+        }
+        final SortedSet<VariantLocus> ignoreLoci = new TreeSet<>();
+        if (data.length > 2) {
+          parseLoci(vcfHelper, data[2], ignoreLoci);
         }
         final SortedSet<VariantLocus> extraLoci = new TreeSet<>();
-        if (data.length > 2) {
-          for (String var : sf_commaSplitter.splitToList(data[2])) {
-            if (sf_rsidPattern.matcher(var).matches()) {
-              extraLoci.add(vcfHelper.rsidToVariantLocus(var));
-            } else {
-              extraLoci.add(vcfHelper.hgvsToVariantLocus(var));
-            }
-          }
+        if (data.length > 3) {
+          parseLoci(vcfHelper, data[3], extraLoci);
         }
         SortedSet<String> ignoreAlleles = null;
-        if (data.length > 3) {
-          ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[3]));
+        if (data.length > 4) {
+          ignoreAlleles = Sets.newTreeSet(sf_commaSplitter.splitToList(data[4]));
         }
-        Boolean allHits = null;
-        if (data.length > 4 && StringUtils.stripToNull(data[4]) != null) {
-          allHits = Boolean.parseBoolean(data[4]);
+        List<String> amp1Alleles = null;
+        if (data.length > 5) {
+          amp1Alleles = sf_semicolonSplitter.splitToList(data[5]);
         }
-        exemptions.add(new DefinitionExemption(gene, ignoreLoci, extraLoci, ignoreAlleles, allHits));
+        SortedSet<String> requiredPositions = requiredLoci.stream()
+            .map(VariantLocus::getVcfChrPosition)
+            .collect(Collectors.toCollection(TreeSet::new));
+        exemptions.put(gene, new DefinitionExemption(gene, requiredPositions, ignoreLoci, extraLoci, ignoreAlleles,
+            amp1Alleles));
+      }
+    }
+
+    if (unphasedPrioritiesTsvFile != null) {
+      try (BufferedReader reader = Files.newBufferedReader(unphasedPrioritiesTsvFile)) {
+        // skip the header
+        reader.readLine();
+        String line;
+        while ((line  = reader.readLine()) != null) {
+          String[] data = line.split("\t");
+          String gene = data[0];
+          if (!gene.toUpperCase().equals(gene)) {
+            throw new IllegalArgumentException("Gene name is not all uppercase: " + gene);
+          }
+
+          DefinitionExemption exemption = exemptions.computeIfAbsent(gene,
+              g -> new DefinitionExemption(gene, null, null, null, null, null));
+
+          String pick = data[1];
+          SortedSet<String> dips = new TreeSet<>();
+          //noinspection ManualArrayToCollectionCopy
+          for (int x = 1; x < data.length; x++) {
+            dips.add(data[x]);
+          }
+          exemption.addUnphasedDiplotypePriority(DefinitionExemption.generateUnphasedPriorityKey(dips), pick);
+        }
       }
     }
     return exemptions;
   }
 
+  private void parseLoci(VcfHelper vcfHelper, String data, SortedSet<VariantLocus> loci) throws IOException {
+    if (StringUtils.stripToNull(data) == null) {
+      return;
+    }
+    for (String var : sf_commaSplitter.splitToList(data)) {
+      if (sf_rsidPattern.matcher(var).matches()) {
+        loci.add(vcfHelper.rsidToVariantLocus(var));
+      } else {
+        loci.add(vcfHelper.hgvsToVariantLocus(var));
+      }
+    }
+  }
 
   public List<MessageAnnotation> deserializeMessagesFromTsv(Path tsvFile) throws IOException {
     Preconditions.checkNotNull(tsvFile);

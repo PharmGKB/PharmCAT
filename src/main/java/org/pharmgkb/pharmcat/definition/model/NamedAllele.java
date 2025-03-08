@@ -39,7 +39,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @SerializedName("cpicAlleles")
   private final String[] m_cpicAlleles;
   @Expose
-  @SerializedName(value = "reference", alternate = {"matchesreferencesequence"})
+  @SerializedName(value = "reference")
   private final boolean m_isReference;
   /**
    * This should always be false. The only time it might be true is on initial data ingestion by

@@ -32,6 +32,7 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
 
@@ -168,16 +169,6 @@ public class NamedAlleleMatcher {
   }
 
 
-  private boolean getTopCandidateOnly(String gene) {
-    DefinitionExemption exemption = m_definitionReader.getExemption(gene);
-    if (exemption != null && exemption.isAllHits() != null) {
-      //noinspection ConstantConditions
-      return !exemption.isAllHits();
-    }
-    return m_topCandidateOnly;
-  }
-
-
   /**
    * Calls diplotypes for the given VCF file for all genes for which a definition exists.
    */
@@ -220,27 +211,44 @@ public class NamedAlleleMatcher {
 
   /**
    * Call standard gene haplotypes.
+   * Missing alleles in {@link NamedAllele}s should be treated as reference.
+   * This determines how to interpret PharmCAT named allele definitions, not sample data.
    */
   private void callAssumingReference(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       ResultBuilder resultBuilder) {
 
     MatchData data = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (data.getNumSampleAlleles() == 0) {
-      resultBuilder.gene(gene, data);
+      resultBuilder.noCall(gene, data);
       return;
     }
+    if (!data.getMissingRequiredPositions().isEmpty()) {
+      StringBuilder builder = new StringBuilder("Cannot call ")
+          .append(gene)
+          .append(" - missing required variant");
+      if (data.getMissingRequiredPositions().size() > 1) {
+        builder.append("s");
+      }
+      builder.append(" (")
+          .append(String.join(", ", data.getMissingRequiredPositions()))
+          .append(")");
+      resultBuilder.noCall(gene, data, List.of(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+          "missing-required-position", builder.toString())));
+      return;
+    }
+    // TODO(markwoon): add check for missing AMP variants
 
     if (data.hasPartialMissingAlleles()) {
       if (m_findCombinations) {
         callCombination(sampleId, alleleMap, gene, resultBuilder);
       } else {
-        resultBuilder.gene(gene, data);
+        resultBuilder.noCall(gene, data);
       }
       return;
     }
 
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(data)
-        .compute(false, getTopCandidateOnly(gene));
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data)
+        .compute(false, m_topCandidateOnly);
     if (matches.isEmpty()) {
       if (!m_findCombinations) {
         resultBuilder.diplotypes(gene, data, matches);
@@ -257,12 +265,12 @@ public class NamedAlleleMatcher {
 
     MatchData data = initializeCallData(sampleId, alleleMap, gene, false, true);
     if (data.getNumSampleAlleles() == 0) {
-      resultBuilder.gene(gene, data);
+      resultBuilder.noCall(gene, data);
       return;
     }
 
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(data)
-        .compute(true, getTopCandidateOnly(gene));
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data)
+        .compute(true, m_topCandidateOnly);
     resultBuilder.diplotypes(gene, data, matches);
   }
 
@@ -272,7 +280,7 @@ public class NamedAlleleMatcher {
 
     MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (origData.getNumSampleAlleles() == 0) {
-      resultBuilder.gene(gene, origData);
+      resultBuilder.noCall(gene, origData);
       return;
     }
 
@@ -280,7 +288,7 @@ public class NamedAlleleMatcher {
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
       // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(origData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, origData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
         resultBuilder.diplotypes(gene, origData, diplotypeMatches);
@@ -298,7 +306,7 @@ public class NamedAlleleMatcher {
     if (comboData == null) {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
-    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(gene, comboData, null);
+    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(comboData, null);
     resultBuilder.haplotypes(gene, origData, hapMatches);
   }
 
@@ -306,7 +314,7 @@ public class NamedAlleleMatcher {
   private SortedSet<DiplotypeMatch> callPhasedLowestFunctionGeneWithCombination(MatchData comboData,
       boolean isHomozygous) {
 
-    SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(comboData)
+    SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData)
         .compute(true, false, false, true);
     if (!diplotypeMatches.isEmpty()) {
       DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
@@ -332,13 +340,13 @@ public class NamedAlleleMatcher {
   }
 
 
-  private List<HaplotypeMatch> callHaplotypesForLowestFunctionGene(String gene, MatchData comboData,
+  private List<HaplotypeMatch> callHaplotypesForLowestFunctionGene(MatchData comboData,
       @Nullable DpydHapB3Matcher dpydHapB3Matcher) {
 
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
     // have to compute diplotypes so that we can check for homozygous and partials
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(comboData)
-        .compute(true, getTopCandidateOnly(gene));
+    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, comboData)
+        .compute(true, m_topCandidateOnly);
     Set<String> homozygous = new HashSet<>();
     int numPartials = 0;
     for (DiplotypeMatch dm : matches) {
@@ -402,7 +410,7 @@ public class NamedAlleleMatcher {
 
 
   /**
-   * For DPYD, only attempt exact diplotype match if phased.
+   * For DPYD, only attempt an exact diplotype match if phased.
    * If there is no exact match, we only look for potential haplotypes.
    * This tries to match all permutations to any potential haplotype (won't assume reference).
    */
@@ -411,7 +419,7 @@ public class NamedAlleleMatcher {
 
     MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (origData.getNumSampleAlleles() == 0) {
-      resultBuilder.gene(gene, origData);
+      resultBuilder.noCall(gene, origData);
       return;
     }
 
@@ -427,7 +435,7 @@ public class NamedAlleleMatcher {
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
      // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(workingData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData)
           .compute(false, false);
       if (diplotypeMatches.size() == 1) {
         if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
@@ -457,7 +465,7 @@ public class NamedAlleleMatcher {
     if (comboData == null) {
       comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
     }
-    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(gene, comboData, dpydHapB3Matcher);
+    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(comboData, dpydHapB3Matcher);
     if (dpydHapB3Matcher.isHapB3Present()) {
       hapMatches.addAll(dpydHapB3Matcher.buildHapB3HaplotypeMatches(origData));
     }
@@ -504,6 +512,8 @@ public class NamedAlleleMatcher {
    * Initializes data required to call a diplotype.
    *
    * @param alleleMap map of {@link SampleAllele}s from VCF
+   * @param assumeReference true if missing alleles in {@link NamedAllele}s should be treated as reference.
+   * This determines how to interpret PharmCAT named allele definitions, not sample data.
    */
   private MatchData initializeCallData(String sampleId, SortedMap<String, SampleAllele> alleleMap, String gene,
       boolean assumeReference, boolean findCombinations) {
@@ -518,7 +528,7 @@ public class NamedAlleleMatcher {
     }
 
     // grab SampleAlleles for all positions related to the current gene
-    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, null);
+    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, null, exemption);
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }
@@ -527,6 +537,7 @@ public class NamedAlleleMatcher {
     data.marshallHaplotypes(gene, alleles, findCombinations);
 
     if (assumeReference) {
+      // fill in blanks in named alleles based on the reference named allele
       data.defaultMissingAllelesToReference();
     }
 
@@ -560,7 +571,7 @@ public class NamedAlleleMatcher {
     }
 
     // grab SampleAlleles for all positions related to the current gene
-    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions);
+    MatchData data = new MatchData(sampleId, gene, alleleMap, allPositions, extraPositions, unusedPositions, exemption);
     if (data.getNumSampleAlleles() == 0) {
       return data;
     }

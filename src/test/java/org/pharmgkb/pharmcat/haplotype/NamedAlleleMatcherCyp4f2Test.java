@@ -1,10 +1,13 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -20,10 +23,11 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  */
 public class NamedAlleleMatcherCyp4f2Test {
   private final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP4F2_translation.json");
-
+  private static Env s_env = null;
 
   @BeforeAll
-  static void prepare() {
+  static void prepare() throws IOException, ReportableException {
+    s_env = new Env();
     //TestUtils.setSaveTestOutput(true);
   }
 
@@ -40,7 +44,7 @@ public class NamedAlleleMatcherCyp4f2Test {
         .variation("CYP4F2", "rs3093105", "C", "A")
         .variation("CYP4F2", "rs2108622", "C", "T")
         .generate();
-    assertDiplotypePairs("*1/*4", testMatchNamedAlleles(sf_definitionFile, vcfFile, true));
+    assertDiplotypePairs("*1/*4", testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, true));
   }
 
   @Test
@@ -50,6 +54,6 @@ public class NamedAlleleMatcherCyp4f2Test {
         .variation("CYP4F2", "rs3093105", "C", "C")
         .variation("CYP4F2", "rs2108622", "C", "T")
         .generate();
-    assertDiplotypePairs("*2/*4", testMatchNamedAlleles(sf_definitionFile, vcfFile, true, true));
+    assertDiplotypePairs("*2/*4", testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, true, true));
   }
 }

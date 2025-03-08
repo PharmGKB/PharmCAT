@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.VcfFile;
@@ -30,10 +32,11 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  */
 public class NamedAlleleMatcherCyp2c9Test {
   private final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP2C9_translation.json");
-
+  private static Env s_env = null;
 
   @BeforeAll
-  static void prepare() {
+  static void prepare() throws IOException, ReportableException {
+    s_env = new Env();
     //TestUtils.setSaveTestOutput(true);
   }
 
@@ -45,7 +48,7 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   void s1_s1(TestInfo testInfo) throws Exception {
-    assertDiplotypePairs("*1/*1", testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs("*1/*1", testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*1/*1")
             .reference("CYP2C9")
             .generate()));
@@ -53,7 +56,7 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   void s2_s3(TestInfo testInfo) throws Exception {
-    assertDiplotypePairs("*2/*3", testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs("*2/*3", testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*2/*3")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs1057910", "A", "C")
@@ -62,7 +65,7 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   void s2_s24(TestInfo testInfo) throws Exception {
-    assertDiplotypePairs("*2/*24", testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs("*2/*24", testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*2/*24")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs749060448", "A", "G")
@@ -72,7 +75,7 @@ public class NamedAlleleMatcherCyp2c9Test {
   @Test
   void s2_s24Only(TestInfo testInfo) throws Exception {
     // no expected match
-    assertDiplotypePairs(new ArrayList<>(), testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs(new ArrayList<>(), testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*2/*24 only")
         .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C9", "rs749060448", "A", "A")
@@ -81,7 +84,7 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   void s24_s24(TestInfo testInfo) throws Exception {
-    assertDiplotypePairs("*24/*24", testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs("*24/*24", testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*24/*24")
             .variation("CYP2C9", "rs749060448", "A", "A")
             .generate()));
@@ -89,7 +92,7 @@ public class NamedAlleleMatcherCyp2c9Test {
 
   @Test
   void s2_s25(TestInfo testInfo) throws Exception {
-    assertDiplotypePairs("*2/*25", testMatchNamedAlleles(sf_definitionFile,
+    assertDiplotypePairs("*2/*25", testMatchNamedAlleles(s_env, sf_definitionFile,
         new TestVcfBuilder(testInfo, "*2/*25")
             .variation("CYP2C9", "rs1799853", "C", "T")
             .variation("CYP2C9", "rs1304490498", "AGAAATGGAA", "delAGAAATGGAA")
@@ -109,7 +112,7 @@ public class NamedAlleleMatcherCyp2c9Test {
         .variation("CYP2C9", "rs749060448", "A", "A")
         .generate();
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile, false);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, false);
     List<GeneCall> calls = result.getGeneCalls().stream()
         .filter(c -> c.getGene().equals("CYP2C9"))
         .toList();

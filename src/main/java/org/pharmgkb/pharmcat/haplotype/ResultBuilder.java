@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -15,6 +16,7 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.VcfFile;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
@@ -58,6 +60,30 @@ public class ResultBuilder {
         metadata.setSampleProps(sampleData);
       }
     }
+    for (GeneCall call : m_result.getGeneCalls()) {
+      if (call.getDiplotypes().size() > 1 && !call.isEffectivelyPhased()) {
+        DefinitionExemption exemption = m_definitionReader.getExemption(call.getGene());
+        if (exemption != null && !exemption.getUnphasedDiplotypePriorities().isEmpty()) {
+          String key = DefinitionExemption.generateUnphasedPriorityKey(call.getDiplotypes().stream()
+              .map(DiplotypeMatch::getName)
+              .collect(Collectors.toCollection(TreeSet::new)));
+          String priority = exemption.getUnphasedDiplotypePriorities().get(key);
+          if (priority != null) {
+            DiplotypeMatch priorityDip = call.getDiplotypes().stream()
+                .filter(dm -> dm.getName().equals(priority))
+                .findAny()
+                // this should never happen
+                .orElseThrow(() -> new IllegalStateException("Cannot find " + priority));
+            call.setPriorityDiplotype(priorityDip);
+            call.addWarning(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+                "unphased-priority",
+                "Unphased " + call.getGene() + " variants resulted in multiple calls.  " +
+                    "PharmCAT is picking a single call based on frequency data.  " +
+                    "Please consult the documentation for details."));
+          }
+        }
+      }
+    }
     return m_result;
   }
 
@@ -79,11 +105,20 @@ public class ResultBuilder {
 
 
   /**
-   * Builds the result for gene when VCF has with no samples for it.
+   * Builds the result for gene when VCF has no samples for it.
    */
-  protected ResultBuilder gene(String gene, MatchData matchData) {
+  protected ResultBuilder noCall(String gene, MatchData matchData) {
     Preconditions.checkNotNull(gene);
     m_result.addGeneCall(initGeneCall(gene, matchData, null));
+    return this;
+  }
+
+  /**
+   * Builds the result for gene when VCF has no call can be made.
+   */
+  protected ResultBuilder noCall(String gene, MatchData matchData, @Nullable List<MessageAnnotation> warnings) {
+    Preconditions.checkNotNull(gene);
+    m_result.addGeneCall(initGeneCall(gene, matchData, warnings));
     return this;
   }
 

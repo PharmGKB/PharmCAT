@@ -1,6 +1,9 @@
 package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -9,6 +12,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 
 
 /**
@@ -22,6 +26,9 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   @SerializedName("gene")
   private final String m_gene;
   @Expose
+  @SerializedName("requiredPositions")
+  private final SortedSet<String> m_requiredPositions;
+  @Expose
   @SerializedName("ignoredPositions")
   private final SortedSet<VariantLocus> m_ignoredPositions;
   @Expose
@@ -34,14 +41,22 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   @SerializedName("ignoredAllelesLc")
   private final SortedSet<String> m_ignoredAllelesLc;
   @Expose
-  @SerializedName("allHits")
-  private final Boolean m_allHits;
+  @SerializedName("unphasedDiplotypePriorities")
+  private final Map<String, String> m_unphasedDiplotypePriorities = new HashMap<>();
+  @Expose
+  @SerializedName("amp1Alleles")
+  private final List<String> m_amp1Alleles;
+  /** AMP1 positions as VCF chr:pos strings. */
+  @Expose
+  @SerializedName("amp1Positions")
+  private final SortedSet<String> m_amp1Positions = new TreeSet<>();
 
 
-  public DefinitionExemption(String gene, @Nullable SortedSet<VariantLocus> ignoredPositions,
-      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<String> ignoredAlleles, Boolean allHits) {
+  public DefinitionExemption(String gene, @Nullable SortedSet<String> requiredPositions,
+      @Nullable SortedSet<VariantLocus> ignoredPositions, @Nullable SortedSet<VariantLocus> extraPositions,
+      @Nullable SortedSet<String> ignoredAlleles, @Nullable List<String> amp1Alleles) {
     m_gene = gene;
-
+    m_requiredPositions = Objects.requireNonNullElse(requiredPositions, Collections.emptySortedSet());
     m_ignoredPositions = Objects.requireNonNullElse(ignoredPositions, Collections.emptySortedSet());
     m_extraPositions = Objects.requireNonNullElse(extraPositions, Collections.emptySortedSet());
     if (ignoredAlleles == null) {
@@ -53,7 +68,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
           .map(String::toLowerCase)
           .collect(Collectors.toCollection(TreeSet::new));
     }
-    m_allHits = allHits;
+    m_amp1Alleles = Objects.requireNonNullElse(amp1Alleles, Collections.emptyList());
   }
 
 
@@ -63,7 +78,24 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
 
 
   /**
-   * Gets the positions from original definition that should be ignored.
+   * Gets the required positions (as VCF chr:pos strings) from the original definition that must be present before
+   * {@link NamedAlleleMatcher} will make a call.
+   */
+  public SortedSet<String> getRequiredPositions() {
+    return m_requiredPositions;
+  }
+
+  public boolean hasRequiredPositions() {
+    return !m_requiredPositions.isEmpty();
+  }
+
+  public boolean isRequiredPosition(String vcfChrId) {
+    return m_requiredPositions.contains(vcfChrId);
+  }
+
+
+  /**
+   * Gets the positions from the original definition that should be ignored.
    * These get removed by the {@link org.pharmgkb.pharmcat.util.DataManager} when definitions are first pulled back from
    * PharmGKB.
    */
@@ -72,7 +104,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   }
 
   /**
-   * Checks if given position should be ignored.
+   * Checks if the given position should be ignored.
    * <p>
    * <b>Currently only checks based on RSID!</b>
    */
@@ -111,11 +143,36 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
     return m_ignoredAllelesLc.contains(allele.toLowerCase());
   }
 
+
+  public Map<String, String> getUnphasedDiplotypePriorities() {
+    return m_unphasedDiplotypePriorities;
+  }
+
   /**
-   * Gets if all possible diplotypes should be reported.
+   * Adds a priority diplotype when unphased data produces multiple calls.
+   *
+   * @param list a list of diplotypes; build using {@link #generateUnphasedPriorityKey(SortedSet)}
+   * @param pick the diplotype to select given the {@code list} of diplotypes
    */
-  public @Nullable Boolean isAllHits() {
-    return m_allHits;
+  public void addUnphasedDiplotypePriority(String list, String pick) {
+    m_unphasedDiplotypePriorities.put(list, pick);
+  }
+
+
+  public List<String> getAmp1Alleles() {
+    return m_amp1Alleles;
+  }
+
+  public boolean hasAmp1Positions() {
+    return m_amp1Positions.isEmpty();
+  }
+
+  public boolean isAmp1Position(String vcfChrId) {
+    return m_amp1Positions.contains(vcfChrId);
+  }
+
+  public void addAmp1Position(VariantLocus pos) {
+    m_amp1Positions.add(pos.getVcfChrPosition());
   }
 
 
@@ -124,5 +181,14 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
     Preconditions.checkNotNull(m_gene);
     Preconditions.checkNotNull(o.getGene());
     return m_gene.compareTo(o.getGene());
+  }
+
+
+  public static String generateUnphasedPriorityKey(SortedSet<String> diplotypes) {
+    return String.join("|", diplotypes);
+  }
+
+  public static String[] splitUnphasedPriorityKey(String key) {
+    return key.split("\\|");
   }
 }

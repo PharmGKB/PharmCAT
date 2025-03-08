@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -23,10 +26,11 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  */
 public class NamedAlleleMatcherTpmtTest {
   private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("TPMT_translation.json");
-
+  private static Env s_env = null;
 
   @BeforeAll
-  static void prepare() {
+  static void prepare() throws IOException, ReportableException {
+    s_env = new Env();
     //TestUtils.setSaveTestOutput(true);
   }
 
@@ -42,7 +46,7 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -52,13 +56,13 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1s1s.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
 
-    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(sf_definitionFile, vcfFile, false, true, false);
+    Result result = NamedAlleleMatcherTest.testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, false, true, false);
     assertDiplotypePairs(expectedMatches, result);
 
     // with exemptions
     expectedMatches = Lists.newArrayList("*1/*1");
 
-    result = NamedAlleleMatcherTest.testMatchNamedAlleles(sf_definitionFile, vcfFile, false, true, true);
+    result = NamedAlleleMatcherTest.testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, false, true, true);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -69,7 +73,7 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3bs3c.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*3A", "*3B/*3C");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -79,7 +83,7 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s3as3b.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3A/*3B");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -89,7 +93,7 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s16s22.vcf");
     List<String> expectedMatches = Lists.newArrayList("*16/*22");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -101,7 +105,7 @@ public class NamedAlleleMatcherTpmtTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/TPMT/s1ss1ss3.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*3A", "*3B/*3C");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 }

@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.TestVcfBuilder;
 import org.pharmgkb.pharmcat.VcfFile;
@@ -37,6 +39,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.pharmgkb.pharmcat.util.DataManager.DEFAULT_EXEMPTIONS_FILE;
 
 
 /**
@@ -45,9 +48,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Mark Woon
  */
 public class NamedAlleleMatcherTest {
+  private static Env s_env = null;
 
   @BeforeAll
-  static void prepare() {
+  static void prepare() throws IOException, ReportableException {
+    s_env = new Env();
     //TestUtils.setSaveTestOutput(true);
   }
 
@@ -65,37 +70,37 @@ public class NamedAlleleMatcherTest {
    *   <li>{@code withExemptions} = true</li>
    * </ul>
    */
-  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, false, false, true, true);
+  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile) throws Exception {
+    return testMatchNamedAlleles(env, tsvFile, vcfFile, false, false, true, true);
   }
 
-  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean topCandidateOnly)
+  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, false, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(env, tsvFile, vcfFile, false, topCandidateOnly, true, true);
   }
 
-  static Result testMatchNamedAlleles(Path tsvFile, Path vcfFile, boolean findCombination, boolean topCandidateOnly)
+  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile, boolean findCombination, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(tsvFile, vcfFile, findCombination, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(env, tsvFile, vcfFile, findCombination, topCandidateOnly, true, true);
   }
 
   /**
    * Helper method for running {@link NamedAlleleMatcher}.
    * This is used by the more specific gene tests.
    */
-  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean topCandidateOnly,
+  static Result testMatchNamedAlleles(Env env, Path definitionFile, Path vcfFile, boolean topCandidateOnly,
       boolean showUnmatched, boolean withExemptions) throws Exception {
-    return testMatchNamedAlleles(definitionFile, vcfFile, false, topCandidateOnly, showUnmatched,
+    return testMatchNamedAlleles(env, definitionFile, vcfFile, false, topCandidateOnly, showUnmatched,
         withExemptions);
   }
 
-  static Result testMatchNamedAlleles(Path definitionFile, Path vcfFile, boolean findCombinations,
+  static Result testMatchNamedAlleles(Env env, Path definitionFile, Path vcfFile, boolean findCombinations,
       boolean topCandidateOnly, boolean showUnmatched, boolean withExemptions) throws Exception {
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile,
-        withExemptions ? DataManager.DEFAULT_EXEMPTIONS_FILE : null);
+        withExemptions ? DEFAULT_EXEMPTIONS_FILE : null);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, findCombinations,
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(env, definitionReader, findCombinations,
         topCandidateOnly, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
@@ -177,7 +182,7 @@ public class NamedAlleleMatcherTest {
 
     DefinitionReader definitionReader = new DefinitionReader(jsonFile, null);
 
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     Set<DiplotypeMatch> pairs = result.getGeneCalls().get(0).getDiplotypes();
     assertNotNull(pairs);
@@ -207,11 +212,12 @@ public class NamedAlleleMatcherTest {
     VcfFile vcfFile = new VcfFile(vcfPath, false);
     VcfReader vcfReader = vcfFile.getReader(definitionReader, sampleId, false);
 
-    // grab SampleAlleles for all positions related to current gene
-    MatchData data = new MatchData(sampleId, gene, vcfReader.getAlleleMap(), definitionReader.getPositions(gene), null, null);
+    // grab SampleAlleles for all positions related to the current gene
+    MatchData data = new MatchData(sampleId, gene, vcfReader.getAlleleMap(), definitionReader.getPositions(gene), null,
+        null, null);
     assertEquals(3, data.getNumSampleAlleles());
     assertEquals(0, data.getMissingPositions().size());
-    // handle missing positions of interest in sample
+    // handle missing positions of interest in the sample
     data.marshallHaplotypes("TEST", definitionReader.getHaplotypes(gene), false);
     assertEquals(3, data.getPositions().length);
     assertEquals(2, data.getHaplotypes().size());
@@ -224,7 +230,8 @@ public class NamedAlleleMatcherTest {
     data.generateSamplePermutations();
     assertThat(data.getPermutations(), equalTo(permutations));
 
-    SortedSet<DiplotypeMatch> pairs = new DiplotypeMatcher(data).compute(false);
+    SortedSet<DiplotypeMatch> pairs = new DiplotypeMatcher(s_env, data)
+        .compute(false, false);
     assertNotNull(pairs);
     assertEquals(1, pairs.size());
     assertEquals("*1/*2", pairs.first().getName());
@@ -243,7 +250,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-sortError.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader();
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertNotNull(result.getVcfWarnings());
 
@@ -268,7 +275,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-mismatchedRefAllele.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertNotNull(result.getVcfWarnings());
 
@@ -300,12 +307,12 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
     VcfFile vcfFile = new VcfFile(vcfPath);
 
-    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(new Env(), definitionReader, false, false, false);
+    NamedAlleleMatcher naNoCyp2d6 = new NamedAlleleMatcher(s_env, definitionReader, false, false, false);
     Result result = naNoCyp2d6.call(vcfFile, null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(0, result.getGeneCalls().size());
 
-    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(new Env(), definitionReader, false, false, true);
+    NamedAlleleMatcher naWithCyp2d6 = new NamedAlleleMatcher(s_env, definitionReader, false, false, true);
     result = naWithCyp2d6.call(vcfFile, null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -328,7 +335,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, false, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, false, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -346,7 +353,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationBaseline.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -368,7 +375,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -384,7 +391,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationPhased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -405,7 +412,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationUnphased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -426,7 +433,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialWithCombination.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(1, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -449,7 +456,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(1, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -479,7 +486,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader();
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
     assertEquals(1, result.getVcfWarnings().size());
@@ -505,7 +512,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial2Phased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -530,7 +537,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial3Phased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -555,7 +562,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combinationLongestScore.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -575,7 +582,7 @@ public class NamedAlleleMatcherTest {
 
 
   /**
-   * Make sure the longest combination + partial scoring works.
+   * Make sure the longest combination and partial scoring works.
    * {@code *1/*4 + *9 + g.41010006G>C} should beat {@code *1/*6 + g.41010006G>C}
    */
   @Test
@@ -584,7 +591,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialLongestScore.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -610,7 +617,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     assertEquals(0, result.getVcfWarnings().size());
     assertEquals(1, result.getGeneCalls().size());
@@ -630,7 +637,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialReferenceUnphased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -655,7 +662,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialReferencePhased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -681,7 +688,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partialReferenceDouble.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -711,7 +718,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -747,7 +754,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     printWarnings(result);
@@ -787,7 +794,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -819,7 +826,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -853,7 +860,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -889,7 +896,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -926,7 +933,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -958,7 +965,7 @@ public class NamedAlleleMatcherTest {
         .generate();
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
     // ignore novel bases
     //printWarnings(result);
@@ -988,7 +995,7 @@ public class NamedAlleleMatcherTest {
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
     // this problem doesn't happen consistently, which is why we are doing this in a loop
     for (int x = 0; x < 10; x += 1) {
-      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+      NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
       Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
       assertEquals(1, result.getGeneCalls().size());
     }
@@ -1001,7 +1008,7 @@ public class NamedAlleleMatcherTest {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-unknownAltMultisample.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, false);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), "Sample_2");
     // ignore novel bases
     printWarnings(result);
@@ -1018,7 +1025,7 @@ public class NamedAlleleMatcherTest {
     Path definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP2C19_translation.json");
 
     // all phased
-    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(s_env, definitionFile,
         new TestVcfBuilder(testInfo, "*2/*17")
             .phased()
             .variation("CYP2C19", "rs12248560", "C", "T")
@@ -1028,7 +1035,7 @@ public class NamedAlleleMatcherTest {
             .generate()));
 
     // all unphased
-    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(s_env, definitionFile,
         new TestVcfBuilder(testInfo, "*2/*17")
             .variation("CYP2C19", "rs12248560", "C", "T")
             .variation("CYP2C19", "rs12769205", "G", "A")
@@ -1037,7 +1044,7 @@ public class NamedAlleleMatcherTest {
             .generate()));
 
     // mix of phased and unphased
-    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(definitionFile,
+    assertDiplotypePairs(Lists.newArrayList("*2/*17"), testMatchNamedAlleles(s_env, definitionFile,
         new TestVcfBuilder(testInfo, "*2/*17")
             .variation("CYP2C19", "rs12248560", "C", "T")
             .variation("CYP2C19", "rs12769205", true, "G", "A")
@@ -1058,7 +1065,7 @@ public class NamedAlleleMatcherTest {
 
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, false, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, false, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
     assertEquals(1, result.getVcfWarnings().size());
@@ -1080,7 +1087,7 @@ public class NamedAlleleMatcherTest {
 
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
     assertEquals(1, result.getVcfWarnings().size());
@@ -1105,7 +1112,7 @@ public class NamedAlleleMatcherTest {
 
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
-    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(new Env(), definitionReader, true, true, true);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
 
     assertEquals(1, result.getVcfWarnings().size());
@@ -1116,6 +1123,139 @@ public class NamedAlleleMatcherTest {
     assertEquals(1, matches.size());
     assertEquals(1, geneCall.getDiplotypes().size());
     assertEquals("*2/g.40991369?", geneCall.getDiplotypes().iterator().next().getName());
+  }
+
+  @Test
+  void unphasedPrioritySameScore(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/NAT2_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "*7/*34")
+        .withDefinition(definitionFile)
+        // 18400593:G/A
+        .variation("NAT2", "rs1799930", "G", "A")
+        // 18400806:G/A
+        .variation("NAT2", "rs1208", "G", "A")
+        // 18400860:G/A
+        .variation("NAT2", "rs1799931", "G", "A")
+        .generate();
+
+    // without priority
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(2, matches.size());
+    assertEquals(2, geneCall.getDiplotypes().size());
+    assertEquals(List.of("*6/*40", "*7/*34"), matches);
+    assertEquals(0, geneCall.getWarnings().size());
+
+    // with priority
+    definitionReader = new DefinitionReader(definitionFile, DEFAULT_EXEMPTIONS_FILE);
+    namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    geneCall = result.getGeneCalls().get(0);
+    matches = printMatches(geneCall);
+    assertEquals(1, matches.size());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals(List.of("*7/*34"), matches);
+    assertEquals(1, geneCall.getWarnings().size());
+  }
+
+  @Test
+  void unphasedPriorityDifferentScore(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/NAT2_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "*1/*6")
+        .withDefinition(definitionFile)
+        // 18400593:G/A (*6 and *34)
+        .variation("NAT2", "rs1799930", "G", "A")
+        // 18400806:G/A (*4 and *6)
+        .variation("NAT2", "rs1208", "G", "A")
+        .generate();
+
+    // without priority
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(2, matches.size());
+    assertEquals(2, geneCall.getDiplotypes().size());
+    assertEquals(List.of("*1/*6", "*4/*34"), matches);
+    assertEquals(0, geneCall.getWarnings().size());
+
+    // with priority
+    definitionReader = new DefinitionReader(definitionFile, DEFAULT_EXEMPTIONS_FILE);
+    namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    geneCall = result.getGeneCalls().get(0);
+    matches = printMatches(geneCall);
+    assertEquals(1, matches.size());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals(List.of("*1/*6"), matches);
+    assertEquals(1, geneCall.getWarnings().size());
+    System.out.println(geneCall.getWarnings());
+    assertEquals("unphased-priority", geneCall.getWarnings().get(0).getName());
+  }
+
+
+  @Test
+  void requiredPosition(TestInfo testInfo) throws Exception {
+    Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/alleles/NAT2_translation.json");
+    Path vcfFile = new TestVcfBuilder(testInfo, "*1/*6")
+        .withDefinition(definitionFile)
+        .reference("NAT2")
+        .missing("NAT2", "rs1801279")
+        .generate();
+
+    // without requiredPositions
+    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    assertEquals(0, geneCall.getWarnings().size());
+
+    List<String> matches = printMatches(geneCall);
+    assertEquals(1, matches.size());
+    assertEquals(1, geneCall.getDiplotypes().size());
+    assertEquals(List.of("*1/*1"), matches);
+
+    // with requiredPositions
+    definitionReader = new DefinitionReader(definitionFile, DEFAULT_EXEMPTIONS_FILE);
+    namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, true);
+    result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    geneCall = result.getGeneCalls().get(0);
+    assertEquals(1, geneCall.getWarnings().size());
+    System.out.println(geneCall.getWarnings());
+    assertEquals("missing-required-position", geneCall.getWarnings().get(0).getName());
+    assertTrue(geneCall.getWarnings().get(0).getMessage().contains("missing required variant"));
+
+    matches = printMatches(geneCall);
+    assertEquals(0, matches.size());
+    assertEquals(0, geneCall.getDiplotypes().size());
   }
 
 

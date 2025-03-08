@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import com.google.common.collect.Lists;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.util.DataManager;
@@ -23,10 +26,11 @@ import static org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcherTest.testMatchNa
  */
 public class NamedAlleleMatcherCyp3a5Test {
   private static final Path sf_definitionFile = DataManager.DEFAULT_DEFINITION_DIR.resolve("CYP3A5_translation.json");
-
+  private static Env s_env = null;
 
   @BeforeAll
-  static void prepare() {
+  static void prepare() throws IOException, ReportableException {
+    s_env = new Env();
     //TestUtils.setSaveTestOutput(true);
   }
 
@@ -43,7 +47,7 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -54,7 +58,7 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7.vcf");
     List<String> expectedMatches = Lists.newArrayList("*1/*7");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -64,7 +68,7 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s3s9-homozygous.vcf");
     List<String> expectedMatches = Lists.newArrayList("*3/*9");
 
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     assertDiplotypePairs(expectedMatches, result);
   }
 
@@ -79,18 +83,18 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s7missing.vcf");
 
     // just top match
-    Result result = testMatchNamedAlleles(sf_definitionFile, vcfFile);
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile);
     List<String> expectedMatches = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches, result);
 
     // All matches
     // TODO(markwoon): this one does NOT assume default
-    Result result2 = testMatchNamedAlleles(sf_definitionFile, vcfFile, false, false, false);
+    Result result2 = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, false, false, false);
     List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches2, result2);
 
     // Don't presume reference and take all hits
-    Result result3 = testMatchNamedAlleles(sf_definitionFile, vcfFile, false, false, false);
+    Result result3 = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, false, false, false);
     List<String> expectedMatches3 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches3, result3);
 
@@ -101,12 +105,8 @@ public class NamedAlleleMatcherCyp3a5Test {
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/cyp3a5/s1s1rs776746missing.vcf");
 
     // TODO(markwoon): this one does NOT assume default
-    Result result2 = testMatchNamedAlleles(sf_definitionFile, vcfFile, true, false, false);
+    Result result2 = testMatchNamedAlleles(s_env, sf_definitionFile, vcfFile, true, false, false);
     List<String> expectedMatches2 = Lists.newArrayList("*1/*1");
     assertDiplotypePairs(expectedMatches2, result2);
   }
-
-
-
-
 }

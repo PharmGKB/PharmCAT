@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.invoke.MethodHandles;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -20,9 +21,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -30,6 +31,7 @@ import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.InternalWrapper;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
@@ -51,7 +53,7 @@ public class DataManager {
   public static final String UNIALLELIC_POSITIONS_VCF = "pharmcat_positions.uniallelic.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
   private static final String sf_zipFileName = "pharmcat.zip";
-  private static final String sf_googleDocUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
+  private static final String sf_googleSheetUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
 
   private final DataSerializer m_dataSerializer = new DataSerializer();
   private final boolean m_verbose;
@@ -105,7 +107,7 @@ public class DataManager {
           Path messagesTsv = downloadDir.resolve("messages.tsv");
           if (!skipDownload) {
             // download messages
-            FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM")),
+            FileUtils.copyURLToFile(resolveSheetUrl("1MkWV6TlJTnw-KRNWeylyUJAUocCgupcJLlmV2fRdtcM", null),
                 messagesTsv.toFile());
           }
 
@@ -167,17 +169,24 @@ public class DataManager {
           Path allelesDir = cliHelper.getValidDirectory("a", true);
 
           Path exemptionsTsv = downloadDir.resolve("exemptions.tsv");
+          Path unphasedPrioritiesTsv = downloadDir.resolve("unphasedPriorities.tsv");
           if (!skipDownload) {
             // download exemptions
-            FileUtils.copyURLToFile(new URL(String.format(sf_googleDocUrlFmt, "1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk")),
+            FileUtils.copyURLToFile(resolveSheetUrl("1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk", null),
                 exemptionsTsv.toFile());
+            FileUtils.copyURLToFile(resolveSheetUrl("1xHvvXQIMv3xbqNhuN7zG6WP4DB7lpQDmLvz18w-u_lk", "21299471"),
+                unphasedPrioritiesTsv.toFile());
           }
           // transform exemptions
           Path exemptionsJson = allelesDir.resolve(EXEMPTIONS_JSON_FILE_NAME);
-          Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv, exemptionsJson);
+          Map<String, DefinitionExemption> exemptionsMap = manager.transformExemptions(exemptionsTsv,
+              unphasedPrioritiesTsv, exemptionsJson);
 
           // transform allele definitions
           definitionReader = manager.transformAlleleDefinitions(downloadDir, allelesDir, exemptionsMap);
+
+          // update exemptions with AMP1 positions
+          updateAmp1Positions(definitionReader, exemptionsMap, exemptionsJson);
 
         } else {
           // if we're skipping new gene data, then use the default data
@@ -210,6 +219,14 @@ public class DataManager {
     }
   }
 
+  private static URL resolveSheetUrl(String docId, @Nullable String gid) throws MalformedURLException  {
+    String url = String.format(sf_googleSheetUrlFmt, docId);
+    if (gid != null) {
+      url += "&gid=" + gid;
+    }
+    return new URL(url);
+  }
+
   private Path transformGuidelines(Path downloadDir, Path guidelinesDir) throws IOException {
     if (!Files.exists(guidelinesDir)) {
       Files.createDirectories(guidelinesDir);
@@ -231,7 +248,7 @@ public class DataManager {
     if (!Files.exists(definitionsFile)) {
       throw new IOException("Cannot find alleles definitions (" + definitionsFile + ")");
     }
-    String json = FileUtils.readFileToString(definitionsFile.toFile(), Charsets.UTF_8);
+    String json = FileUtils.readFileToString(definitionsFile.toFile(), StandardCharsets.UTF_8);
     return DataSerializer.GSON.fromJson(json, DefinitionFile[].class);
   }
 
@@ -301,6 +318,32 @@ public class DataManager {
   }
 
 
+  private static void updateAmp1Positions(DefinitionReader definitionReader,
+      Map<String, DefinitionExemption> exemptionMap, Path jsonFile) throws IOException {
+    for (DefinitionExemption exemption : exemptionMap.values()) {
+      if (exemption.getAmp1Alleles().isEmpty()) {
+        continue;
+      }
+      DefinitionFile definitionFile = definitionReader.getDefinitionFile(exemption.getGene());
+      for (String allele : exemption.getAmp1Alleles()) {
+        NamedAllele namedAllele = definitionFile.getNamedAllele(allele);
+        if (namedAllele == null) {
+          if (allele.equals("*5") && exemption.getGene().equals("CYP2D6")) {
+            continue;
+          }
+          throw new IllegalArgumentException("Unknown " + exemption.getGene() + " allele " + allele);
+        }
+        for (VariantLocus pos : definitionFile.getVariants()) {
+          if (namedAllele.getAllele(pos) != null) {
+            exemption.addAmp1Position(pos);
+          }
+        }
+      }
+    }
+    DataSerializer.serializeToJson(exemptionMap, jsonFile);
+  }
+
+
   private Set<String> getCurrentFiles(Path dir, String suffix) throws IOException {
     Set<String> currentFiles = new HashSet<>();
     try (Stream<Path> list = Files.list(dir)) {
@@ -342,15 +385,14 @@ public class DataManager {
   }
 
 
-  private Map<String, DefinitionExemption> transformExemptions(Path tsvFile, Path jsonFile) throws IOException {
+  private SortedMap<String, DefinitionExemption> transformExemptions(Path exemptionsTsvFile,
+      Path unphasedDiplotypePrioritiesTsvFile, Path jsonFile) throws IOException {
     System.out.println();
     System.out.println("Saving exemptions to " + jsonFile.toString());
-    Set<DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(tsvFile);
+    SortedMap<String, DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(exemptionsTsvFile,
+        unphasedDiplotypePrioritiesTsvFile);
     DataSerializer.serializeToJson(exemptions, jsonFile);
-
-    Map<String, DefinitionExemption> exemptionsMap = new HashMap<>();
-    exemptions.forEach(exemption -> exemptionsMap.put(exemption.getGene(), exemption));
-    return exemptionsMap;
+    return exemptions;
   }
 
   private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {

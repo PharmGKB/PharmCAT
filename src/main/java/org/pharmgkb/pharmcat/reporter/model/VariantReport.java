@@ -49,8 +49,9 @@ public class VariantReport implements Comparable<VariantReport> {
   @Expose
   @SerializedName("phased")
   private boolean m_phased = false;
+  // TODO(markwoon): remove deprecated wildtypeAllele in next major release (4.0)
   @Expose
-  @SerializedName("referenceAllele")
+  @SerializedName(value = "referenceAllele", alternate = {"wildtypeAllele"})
   private String m_referenceAllele;
   @Expose
   @SerializedName("hasUndocumentedVariations")

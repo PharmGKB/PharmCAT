@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,6 +9,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.TestInfo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -240,5 +243,22 @@ public class TestUtils {
     return name.replaceAll("\\*", "s")
         .replaceAll("/", "-")
         .replaceAll("[^a-zA-Z0-9_\\-]", "_");
+  }
+
+
+  public static void assertEqual(Path file1, Path file2) throws IOException {
+    try (BufferedReader reader1 = Files.newBufferedReader(file1);
+         BufferedReader reader2 = Files.newBufferedReader(file2)) {
+      StringBuilder f1 = new StringBuilder();
+      StringBuilder f2 = new StringBuilder();
+      String line;
+      while ((line = reader1.readLine()) != null) {
+        f1.append(line).append("\n");
+      }
+      while ((line = reader2.readLine()) != null) {
+        f2.append(line).append("\n");
+      }
+      assertEquals(f1.toString(), f2.toString(), "File content is not equal");
+    }
   }
 }

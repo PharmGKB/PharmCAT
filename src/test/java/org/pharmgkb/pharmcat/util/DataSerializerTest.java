@@ -1,12 +1,8 @@
 package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Optional;
-import java.util.Set;
-import com.google.common.base.Charsets;
-import org.apache.commons.io.FileUtils;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
@@ -24,99 +20,91 @@ import static org.junit.jupiter.api.Assertions.*;
 class DataSerializerTest {
 
   @Test
-  void testExemptions(TestInfo testInfo) throws Exception {
+  void exemptionsOnly(TestInfo testInfo) throws Exception {
 
-    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
+    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/DataSerializerTest-exemptions.tsv");
     Path jsonFile = TestUtils.createTestFile(testInfo, ".json");
-    Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
+    Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/DataSerializerTest-exemptions.json");
 
     try {
       DataSerializer dataSerializer = new DataSerializer();
-      Set<DefinitionExemption> definitionExemptions = dataSerializer.deserializeExemptionsFromTsv(tsvFile);
-      assertEquals(3, definitionExemptions.size());
-
-      Optional<DefinitionExemption> cyp2c9 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("CYP2C9"))
-          .findFirst();
-      assertTrue(cyp2c9.isPresent());
-      assertEquals(0, cyp2c9.get().getIgnoredPositions().size());
-      assertEquals(1, cyp2c9.get().getExtraPositions().size());
-      assertEquals(0, cyp2c9.get().getIgnoredAlleles().size());
-      assertNull(cyp2c9.get().isAllHits());
-
-      Optional<DefinitionExemption> cyp2c19 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("CYP2C19"))
-          .findFirst();
-      assertTrue(cyp2c19.isPresent());
-      assertEquals(1, cyp2c19.get().getIgnoredPositions().size());
-      assertEquals(0, cyp2c19.get().getExtraPositions().size());
-      assertEquals(0, cyp2c19.get().getIgnoredAlleles().size());
-      assertNull(cyp2c19.get().isAllHits());
+      Map<String, DefinitionExemption> definitionExemptions = dataSerializer.deserializeExemptionsFromTsv(tsvFile, null);
+      checkExemptions(definitionExemptions, false);
 
       // write it out
-      dataSerializer.serializeToJson(definitionExemptions, jsonFile);
+      DataSerializer.serializeToJson(definitionExemptions, jsonFile);
       // compare with expected
-      FileUtils.contentEqualsIgnoreEOL(refJsonFile.toFile(), jsonFile.toFile(), Charsets.UTF_8.displayName());
+      TestUtils.assertEqual(refJsonFile, jsonFile);
+
+      // read it back in
+      definitionExemptions = dataSerializer.deserializeExemptionsFromJson(jsonFile);
+      checkExemptions(definitionExemptions, false);
 
     } catch (IOException ex) {
       if (!TestUtils.isContinuousIntegration() || TestUtils.isIgnorableExternalServiceException(ex.getCause())) {
         throw ex;
       }
-    } finally {
-      Files.deleteIfExists(jsonFile);
     }
   }
 
   @Test
-  void testValuedBooleanExemptions(TestInfo testInfo) throws Exception {
+  void exemptionsWithUnphasedPriorities(TestInfo testInfo) throws Exception {
 
-    Path tsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.tsv");
+    Path exemptionsTsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/DataSerializerTest-exemptions.tsv");
+    Path unphasedPrioritiesTsvFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/DataSerializerTest-unphasedPriorities.tsv");
     Path jsonFile = TestUtils.createTestFile(testInfo, ".json");
-    Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/exemptions.json");
+    Path refJsonFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/definition/DataSerializerTest-exemptionsWithUnphasedPriorities.json");
 
     try {
       DataSerializer dataSerializer = new DataSerializer();
-      Set<DefinitionExemption> definitionExemptions = dataSerializer.deserializeExemptionsFromTsv(tsvFile);
-      assertEquals(3, definitionExemptions.size());
-
-      Optional<DefinitionExemption> cyp2c9 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("CYP2C9"))
-          .findFirst();
-      assertTrue(cyp2c9.isPresent());
-      assertEquals(0, cyp2c9.get().getIgnoredPositions().size());
-      assertEquals(1, cyp2c9.get().getExtraPositions().size());
-      assertEquals(0, cyp2c9.get().getIgnoredAlleles().size());
-      assertNull(cyp2c9.get().isAllHits());
-
-      Optional<DefinitionExemption> cyp2c19 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("CYP2C19"))
-          .findFirst();
-      assertTrue(cyp2c19.isPresent());
-      assertEquals(1, cyp2c19.get().getIgnoredPositions().size());
-      assertEquals(0, cyp2c19.get().getExtraPositions().size());
-      assertEquals(0, cyp2c19.get().getIgnoredAlleles().size());
-      assertNull(cyp2c19.get().isAllHits());
-
-      Optional<DefinitionExemption> cyp3a5 = definitionExemptions.stream()
-          .filter((de) -> de.getGene().equals("CYP3A5"))
-          .findFirst();
-      assertTrue(cyp3a5.isPresent());
-      assertEquals(0, cyp3a5.get().getIgnoredPositions().size());
-      assertEquals(0, cyp3a5.get().getExtraPositions().size());
-      assertEquals(0, cyp3a5.get().getIgnoredAlleles().size());
-      assertEquals(Boolean.TRUE, cyp3a5.get().isAllHits());
+      Map<String, DefinitionExemption> definitionExemptions =
+          dataSerializer.deserializeExemptionsFromTsv(exemptionsTsvFile, unphasedPrioritiesTsvFile);
+      checkExemptions(definitionExemptions, true);
 
       // write it out
-      dataSerializer.serializeToJson(definitionExemptions, jsonFile);
+      DataSerializer.serializeToJson(definitionExemptions, jsonFile);
       // compare with expected
-      FileUtils.contentEqualsIgnoreEOL(refJsonFile.toFile(), jsonFile.toFile(), Charsets.UTF_8.displayName());
+      TestUtils.assertEqual(refJsonFile, jsonFile);
+
+      // read it back in
+      definitionExemptions = dataSerializer.deserializeExemptionsFromJson(jsonFile);
+      checkExemptions(definitionExemptions, true);
 
     } catch (IOException ex) {
       if (!TestUtils.isContinuousIntegration() || TestUtils.isIgnorableExternalServiceException(ex.getCause())) {
         throw ex;
       }
-    } finally {
-      Files.deleteIfExists(jsonFile);
+    }
+  }
+
+
+  private void checkExemptions(Map<String, DefinitionExemption> definitionExemptions, boolean withPriorities) {
+    assertEquals(4, definitionExemptions.size());
+
+    assertNull(definitionExemptions.get("TPMT"));
+
+    DefinitionExemption cyp2c9 = definitionExemptions.get("CYP2C9");
+    assertNotNull(cyp2c9);
+    assertEquals(0, cyp2c9.getRequiredPositions().size());
+    assertEquals(0, cyp2c9.getIgnoredPositions().size());
+    assertEquals(1, cyp2c9.getExtraPositions().size());
+    assertEquals(0, cyp2c9.getIgnoredAlleles().size());
+
+    DefinitionExemption g6pd = definitionExemptions.get("G6PD");
+    assertNotNull(g6pd);
+    assertEquals(0, g6pd.getRequiredPositions().size());
+    assertEquals(2, g6pd.getIgnoredPositions().size());
+    assertEquals(0, g6pd.getExtraPositions().size());
+    assertEquals(1, g6pd.getIgnoredAlleles().size());
+
+    DefinitionExemption nat2 = definitionExemptions.get("NAT2");
+    assertNotNull(nat2);
+    assertEquals(4, nat2.getRequiredPositions().size());
+    assertEquals(0, nat2.getIgnoredPositions().size());
+    assertEquals(0, nat2.getExtraPositions().size());
+    assertEquals(0, nat2.getIgnoredAlleles().size());
+    if (withPriorities) {
+      assertEquals(4, nat2.getUnphasedDiplotypePriorities().size());
     }
   }
 }

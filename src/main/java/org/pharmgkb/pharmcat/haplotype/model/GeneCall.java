@@ -74,7 +74,7 @@ public class GeneCall {
     m_matchData = matchData;
     m_uncallableHaplotypes = uncallableHaplotypes;
     m_variantsOfInterest = matchData.getExtraPositions();
-    m_warnings = warnings;
+    m_warnings = warnings == null ? new ArrayList<>() : warnings;
   }
 
 
@@ -119,6 +119,15 @@ public class GeneCall {
     if (diplotype.getHaplotype2() != null) {
       m_haplotypes.add(diplotype.getHaplotype2());
     }
+  }
+
+  /**
+   * Adds a priority diplotype match, which trumps all other matches.
+   */
+  public void setPriorityDiplotype(DiplotypeMatch priorityDiplotype) {
+    m_diplotypes.clear();
+    m_haplotypes.clear();
+    addDiplotype(priorityDiplotype);
   }
 
 
@@ -202,6 +211,10 @@ public class GeneCall {
    */
   public List<MessageAnnotation> getWarnings() {
     return m_warnings;
+  }
+
+  public void addWarning(MessageAnnotation warning) {
+    m_warnings.add(warning);
   }
 
   @Override

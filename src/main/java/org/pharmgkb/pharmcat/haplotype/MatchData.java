@@ -53,6 +53,12 @@ public class MatchData {
   @SerializedName("effectivelyPhased")
   private boolean m_isEffectivelyPhased;
   private final Map<String, Map<Object, Object>> m_sequenceAlleleCache = new HashMap<>();
+  @Expose
+  @SerializedName("missingRequiredPositions")
+  private final List<String> m_missingRequiredPositions = new ArrayList<>();
+  @Expose
+  @SerializedName("missingAmp1Positions")
+  private final List<String> m_missingAmp1Positions = new ArrayList<>();
 
 
   /**
@@ -65,7 +71,8 @@ public class MatchData {
    * @param ignoredPositions ignored positions to remove from matching (used for special cases like DPYD)
    */
   public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
-      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions) {
+      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions,
+      @Nullable DefinitionExemption exemption) {
     m_sampleId = sampleId;
     m_gene = gene;
     if (ignoredPositions != null) {
@@ -108,6 +115,28 @@ public class MatchData {
     m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
     m_isHomozygous = m_isHaploid ||
         m_sampleMap.values().stream().allMatch(SampleAllele::isHomozygous);
+
+    if (exemption != null && !m_missingPositions.isEmpty()) {
+      if (exemption.hasRequiredPositions()) {
+        for (VariantLocus missing : m_missingPositions) {
+          if (exemption.isRequiredPosition(missing.getVcfChrPosition())) {
+            m_missingRequiredPositions.add(missing.getVcfChrPosition());
+          }
+        }
+      }
+      if (exemption.hasAmp1Positions()) {
+        for (VariantLocus missing : m_missingPositions) {
+          if (exemption.isAmp1Position(missing.getVcfChrPosition())) {
+            m_missingAmp1Positions.add(missing.getVcfChrPosition());
+          }
+        }
+      }
+    }
+  }
+
+
+  public String getGene() {
+    return m_gene;
   }
 
 
@@ -176,6 +205,19 @@ public class MatchData {
     return false;
   }
 
+  /**
+   * Gets if this dataset is missing a required position.
+   */
+  public List<String> getMissingRequiredPositions() {
+    return m_missingRequiredPositions;
+  }
+
+  /**
+   * Gets if this dataset is missing a required position for AMP 1.
+   */
+  public List<String> getMissingAmp1Positions() {
+    return m_missingAmp1Positions;
+  }
 
   /**
    * Assumes that missing alleles in {@link NamedAllele}s should be the reference.

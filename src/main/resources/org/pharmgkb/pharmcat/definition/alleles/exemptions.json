@@ -1,6 +1,7 @@
-[
-  {
+{
+  "CYP2C9": {
     "gene": "CYP2C9",
+    "requiredPositions": [],
     "ignoredPositions": [],
     "extraPositions": [
       {
@@ -25,10 +26,12 @@
     ],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": null
+    "unphasedDiplotypePriorities": {},
+    "amp1Positions": []
   },
-  {
+  "G6PD": {
     "gene": "G6PD",
+    "requiredPositions": [],
     "ignoredPositions": [
       {
         "chromosome": "chrX",
@@ -76,10 +79,145 @@
     "ignoredAllelesLc": [
       "mediterranean haplotype"
     ],
-    "allHits": null
+    "unphasedDiplotypePriorities": {},
+    "amp1Positions": []
   },
-  {
+  "NAT2": {
+    "gene": "NAT2",
+    "requiredPositions": [
+      {
+        "chromosome": "chr8",
+        "position": 18400194,
+        "cpicPosition": 18400194,
+        "rsid": "rs1801279",
+        "chromosomeHgvsName": "g.18400194G>A",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "G",
+        "alts": [
+          "A"
+        ]
+      },
+      {
+        "chromosome": "chr8",
+        "position": 18400344,
+        "cpicPosition": 18400344,
+        "rsid": "rs1801280",
+        "chromosomeHgvsName": "g.18400344T>C",
+        "cpicAlleles": [
+          "C",
+          "T"
+        ],
+        "cpicToVcfAlleleMap": {
+          "C": "C",
+          "T": "T"
+        },
+        "ref": "T",
+        "alts": [
+          "C"
+        ]
+      },
+      {
+        "chromosome": "chr8",
+        "position": 18400593,
+        "cpicPosition": 18400593,
+        "rsid": "rs1799930",
+        "chromosomeHgvsName": "g.18400593G>A",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "G",
+        "alts": [
+          "A"
+        ]
+      },
+      {
+        "chromosome": "chr8",
+        "position": 18400806,
+        "cpicPosition": 18400806,
+        "rsid": "rs1208",
+        "chromosomeHgvsName": "g.18400806G>A",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "G",
+        "alts": [
+          "A"
+        ]
+      },
+      {
+        "chromosome": "chr8",
+        "position": 18400860,
+        "cpicPosition": 18400860,
+        "rsid": "rs1799931",
+        "chromosomeHgvsName": "g.18400860G>A",
+        "cpicAlleles": [
+          "A",
+          "G"
+        ],
+        "cpicToVcfAlleleMap": {
+          "A": "A",
+          "G": "G"
+        },
+        "ref": "G",
+        "alts": [
+          "A"
+        ]
+      }
+    ],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": {
+      "*14/*40|*7/*46": "*7/*46",
+      "*16/*41|*4/*49": "*4/*49",
+      "*30/*46|*5/*15|*6/*29": "*5/*15",
+      "*14/*30|*15/*16": "*15/*16",
+      "*1/*15|*14/*34|*6/*46": "*6/*46",
+      "*4/*15|*6/*14": "*6/*14",
+      "*30/*44|*5/*36": "*5/*36",
+      "*40/*54|*7/*45": "*7/*45",
+      "*1/*7|*4/*40": "*1/*7",
+      "*1/*54|*4/*45": "*4/*45",
+      "*1/*36|*6/*44": "*6/*44",
+      "*16/*46|*4/*29|*5/*14": "*5/*14",
+      "*16/*45|*5/*54": "*5/*54",
+      "*1/*49|*5/*41": "*5/*41",
+      "*29/*41|*46/*49": "*46/*49",
+      "*1/*29|*5/*46": "*5/*46",
+      "*15/*44|*36/*46": "*36/*46",
+      "*1/*30|*16/*34|*5/*6": "*5/*6",
+      "*16/*40|*5/*7": "*5/*7",
+      "*1/*6|*4/*34": "*1/*6",
+      "*6/*40|*7/*34": "*7/*34",
+      "*4/*30|*6/*16": "*6/*16",
+      "*1/*16|*4/*5": "*4/*5",
+      "*1/*14|*4/*46": "*1/*14",
+      "*30/*41|*6/*49": "*6/*49",
+      "*34/*54|*6/*45": "*6/*45"
+    },
+    "amp1Positions": []
+  },
+  "RYR1": {
     "gene": "RYR1",
+    "requiredPositions": [],
     "ignoredPositions": [
       {
         "chromosome": "chr19",
@@ -104,6 +242,7 @@
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "allHits": null
+    "unphasedDiplotypePriorities": {},
+    "amp1Positions": []
   }
-]
+}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ import org.pharmgkb.pharmcat.util.DataSerializer;
 public class DefinitionReader {
   private final DataSerializer m_definitionSerializer = new DataSerializer();
   private final SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
-  private final Map<String, DefinitionExemption> m_exemptions = new TreeMap<>();
+  private final Map<String, DefinitionExemption> m_exemptions;
   private String m_genomeBuild;
   private ReferenceAlleleMap m_referenceAlleleMap;
   /** Map of {@code <chr:position>} Strings to {@link VariantLocus} */
@@ -55,7 +56,7 @@ public class DefinitionReader {
         readFile(file);
       }
     }
-    readExemptions(dir);
+    m_exemptions = readExemptions(dir);
     generateMetadata();
   }
 
@@ -73,7 +74,9 @@ public class DefinitionReader {
       readFile(file);
     }
     if (exemptionsFile != null) {
-      readExemptions(exemptionsFile);
+      m_exemptions = readExemptions(exemptionsFile);
+    } else {
+      m_exemptions = Collections.emptyMap();
     }
     generateMetadata();
   }
@@ -148,7 +151,7 @@ public class DefinitionReader {
   }
 
   public @Nullable DefinitionExemption getExemption(String gene) {
-    return m_exemptions.get(gene.toLowerCase());
+    return m_exemptions.get(gene);
   }
 
 
@@ -173,7 +176,7 @@ public class DefinitionReader {
             vlMapBuilder.put(vcp, v);
             geneMapBuilder.put(vcp, gene);
           });
-      DefinitionExemption exemption = m_exemptions.get(gene.toLowerCase());
+      DefinitionExemption exemption = m_exemptions.get(gene);
       if (exemption != null) {
         exemption.getExtraPositions()
             .forEach(v -> {
@@ -202,7 +205,7 @@ public class DefinitionReader {
   }
 
 
-  private void readExemptions(Path path) throws IOException {
+  private Map<String, DefinitionExemption> readExemptions(Path path) throws IOException {
 
     Preconditions.checkNotNull(path);
     Path file;
@@ -213,10 +216,7 @@ public class DefinitionReader {
     }
     Preconditions.checkArgument(Files.isRegularFile(file), "Not a file: %s", file);
 
-    Set<DefinitionExemption> exemptions = m_definitionSerializer.deserializeExemptionsFromJson(file);
-    for (DefinitionExemption de : exemptions) {
-      m_exemptions.put(de.getGene().toLowerCase(), de);
-    }
+    return m_definitionSerializer.deserializeExemptionsFromJson(file);
   }
 
 

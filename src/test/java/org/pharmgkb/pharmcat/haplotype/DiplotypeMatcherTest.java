@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.haplotype;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,6 +19,8 @@ import com.google.common.collect.Sets;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.common.util.NoDuplicateMergeFunction;
+import org.pharmgkb.pharmcat.Env;
+import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -35,13 +38,15 @@ import static org.junit.jupiter.api.Assertions.fail;
  * @author Mark Woon
  */
 class DiplotypeMatcherTest {
+  private static Env s_env = null;
   private static VariantLocus[] s_positions;
   private static final SortedSet<NamedAllele> s_haplotypes = new TreeSet<>();
 
 
   @BeforeAll
-  static void beforeClass() {
+  static void beforeClass() throws IOException, ReportableException {
 
+    s_env = new Env();
     // initialize test variants
     VariantLocus var1 = new VariantLocus("chr1", 1, "g.1T>A");
     VariantLocus var2 = new VariantLocus("chr1", 2, "g.2T>A");
@@ -161,11 +166,12 @@ class DiplotypeMatcherTest {
         .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
         Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
-    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, s_positions, null, null);
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, s_positions, null, null, null);
     dataset.marshallHaplotypes("TEST", s_haplotypes, false);
     dataset.generateSamplePermutations();
 
-    return new DiplotypeMatcher(dataset).compute(false);
+    return new DiplotypeMatcher(s_env, dataset)
+        .compute(false, false);
   }
 
 
@@ -221,7 +227,7 @@ class DiplotypeMatcherTest {
     sampleAlleleMap.put("chr1:3", new SampleAllele("chr1", 3, "C", "C", false, Lists.newArrayList("C"), "0/0"));
     sampleAlleleMap.put("chr1:4", new SampleAllele("chr1", 4, "C", "G", false, Lists.newArrayList("C"), "0/1"));
 
-    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null);
+    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, variants, null, null, null);
     dataset.marshallHaplotypes("TEST", new TreeSet<>(Lists.newArrayList(hap1, hap2, hap3)), false);
     dataset.generateSamplePermutations();
     assertThat(dataset.getPermutations(), equalTo(permutations));
