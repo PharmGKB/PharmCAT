@@ -17,6 +17,7 @@ _trial_temp/
 .coverage
 .gradle/
 .pytest_cache/
+.vale-styles/
 coverage-python.xml
 /node_modules/
 venv/
