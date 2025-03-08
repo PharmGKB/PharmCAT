@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.phenotype;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -9,7 +10,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
-import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 import org.pharmgkb.pharmcat.Env;
@@ -47,7 +47,7 @@ public class OutsideCallParser {
     Preconditions.checkNotNull(filePath);
 
     List<OutsideCall> calls = new ArrayList<>();
-    try (BufferedReader reader = Files.newBufferedReader(filePath, Charsets.UTF_8)) {
+    try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
       int x = 0;
       String line;
       while ((line = reader.readLine()) != null) {

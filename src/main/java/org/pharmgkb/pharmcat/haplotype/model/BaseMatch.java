@@ -67,7 +67,7 @@ public class BaseMatch implements Comparable<BaseMatch> {
 
 
   /**
-   * Checks if haplotype matches the reference or has partials.
+   * Checks if the haplotype matches the reference or has partials.
    * Only applicable when working with combinations and partials.
    */
   public void finalizeCombinationHaplotype(MatchData matchData, boolean findPartials) {

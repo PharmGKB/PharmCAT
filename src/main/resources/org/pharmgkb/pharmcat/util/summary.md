@@ -12,7 +12,8 @@ The following tables list genes used by PharmCAT to find drug recommendation, al
 
 ### Genes PharmCAT will attempt to match
 
-The `Named Allele Matcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions.
+The `Named Allele Matcher` will search the given sample file for locations associated with these genes and attempt to
+match them to known allele definitions.
 
 %s
 
@@ -35,6 +36,6 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the %d drugs for which PharmCAT has recommendations for, along with their sources. 
+The following table lists the %d drugs for which PharmCAT has recommendations for, along with their sources.
 
 %s
