@@ -204,7 +204,7 @@ task updateExample {
       args = [
           '-vcf', file('docs/examples/pharmcat.example.vcf'),
           '-po', file('docs/examples/pharmcat.example.outsideCall.tsv'),
-          'reporterCallsOnlyTsv', '-reporterJson', '-reporterHtml', '-matcherHtml'
+          '-reporterCallsOnlyTsv', '-reporterJson', '-reporterHtml', '-matcherHtml'
       ]
     }
 
@@ -214,7 +214,7 @@ task updateExample {
       classpath = sourceSets.main.runtimeClasspath
       args = [
           '-vcf', file('docs/examples/pharmcat.example2.vcf'),
-          'reporterCallsOnlyTsv', '-reporterJson', '-reporterHtml', '-matcherHtml'
+          '-reporterCallsOnlyTsv', '-reporterJson', '-reporterHtml', '-matcherHtml'
       ]
     }
   }
