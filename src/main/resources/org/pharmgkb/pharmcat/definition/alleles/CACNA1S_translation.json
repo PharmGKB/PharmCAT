@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2021-10-22T20:00:04.974Z",
   "gene": "CACNA1S",
   "orientation": null,
   "chromosome": "chr1",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000001.11",
   "variants": [
     {
@@ -62,6 +62,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -78,6 +80,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        201091993
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -94,12 +100,29 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        201060815
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr1:201060815",
-    "chr1:201091993"
-  ]
+    201060815,
+    201091993
+  ],
+  "positionToAlleles": {
+    "201060815": [
+      "c.3257G>A"
+    ],
+    "201091993": [
+      "c.520C>T"
+    ]
+  },
+  "positionToLocus": {
+    "201060815": 0,
+    "201091993": 1
+  },
+  "shellAlleles": {}
 }

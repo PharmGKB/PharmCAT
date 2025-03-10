@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2023-02-03T16:20:52.044Z",
   "gene": "ABCG2",
   "orientation": null,
   "chromosome": "chr4",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000004.12",
   "variants": [
     {
@@ -41,6 +41,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -55,11 +57,24 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        88131171
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr4:88131171"
-  ]
+    88131171
+  ],
+  "positionToAlleles": {
+    "88131171": [
+      "rs2231142 variant (T)"
+    ]
+  },
+  "positionToLocus": {
+    "88131171": 0
+  },
+  "shellAlleles": {}
 }

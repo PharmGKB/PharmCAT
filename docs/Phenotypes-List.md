@@ -1081,6 +1081,65 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 </tr>
 </table>
 
+### NAT2
+<p>No recommendations available for this gene.</p>
+<table>
+<tr>
+<th style="text-align: left">Named Alleles</th>
+</tr>
+<tr>
+<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
+<li>*4</li>
+<li>*5</li>
+<li>*6</li>
+<li>*7</li>
+<li>*10</li>
+<li>*14</li>
+<li>*15</li>
+<li>*16</li>
+<li>*19</li>
+<li>*21</li>
+<li>*27</li>
+<li>*29</li>
+<li>*30</li>
+<li>*31</li>
+<li>*32</li>
+<li>*33</li>
+<li>*34</li>
+<li>*35</li>
+<li>*36</li>
+<li>*37</li>
+<li>*38</li>
+<li>*39</li>
+<li>*40</li>
+<li>*41</li>
+<li>*42</li>
+<li>*43</li>
+<li>*44</li>
+<li>*45</li>
+<li>*46</li>
+<li>*47</li>
+<li>*48</li>
+<li>*49</li>
+<li>*50</li>
+<li>*51</li>
+<li>*52</li>
+<li>*53</li>
+<li>*54</li>
+<li>*55</li>
+<li>*56</li>
+<li>*57</li>
+<li>*58</li>
+<li>*59</li>
+<li>*60</li>
+<li>*61</li>
+<li>*62</li>
+<li>*63</li>
+<li>*64</li>
+</ul></td>
+</tr>
+</table>
+
 ### NUDT15
 <table>
 <tr>
@@ -1109,6 +1168,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*18</li>
 <li>*19</li>
 <li>*20</li>
+<li>*21</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li>
 <li>Intermediate Metabolizer</li>

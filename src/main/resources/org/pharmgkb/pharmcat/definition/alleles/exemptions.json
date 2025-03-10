@@ -1,4 +1,26 @@
 {
+  "CYP2C19": {
+    "gene": "CYP2C19",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*2",
+      "*3",
+      "*17"
+    ],
+    "amp1Positions": [
+      94761900,
+      94775367,
+      94775507,
+      94780653,
+      94781859,
+      94842866
+    ]
+  },
   "CYP2C9": {
     "gene": "CYP2C9",
     "requiredPositions": [],
@@ -26,8 +48,137 @@
     ],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {},
-    "amp1Positions": []
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*2",
+      "*3",
+      "*5",
+      "*6",
+      "*8",
+      "*11"
+    ],
+    "amp1Positions": [
+      94942290,
+      94942309,
+      94949281,
+      94981224,
+      94981296,
+      94981301
+    ]
+  },
+  "CYP2D6": {
+    "gene": "CYP2D6",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*2",
+      "*3",
+      "*4",
+      "*5",
+      "*6",
+      "*9",
+      "*10",
+      "*17",
+      "*29",
+      "*41"
+    ],
+    "amp1Positions": [
+      42126611,
+      42126619,
+      42126622,
+      42126623,
+      42126624,
+      42126625,
+      42126627,
+      42126633,
+      42126635,
+      42126636,
+      42126658,
+      42126660,
+      42126663,
+      42126667,
+      42127526,
+      42127608,
+      42127803,
+      42127941,
+      42128173,
+      42128241,
+      42128945,
+      42129042,
+      42129083,
+      42129130,
+      42129132,
+      42129770,
+      42129809,
+      42129819,
+      42130692
+    ]
+  },
+  "CYP3A4": {
+    "gene": "CYP3A4",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*22"
+    ],
+    "amp1Positions": [
+      99768693
+    ]
+  },
+  "CYP3A5": {
+    "gene": "CYP3A5",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*3",
+      "*6",
+      "*7"
+    ],
+    "amp1Positions": [
+      99652770,
+      99665212,
+      99672916
+    ]
+  },
+  "DPYD": {
+    "gene": "DPYD",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "c.557A>G",
+      "c.868A>G",
+      "c.1129-5923C>G, c.1236G>A (HapB3)",
+      "c.1679T>G (*13)",
+      "c.1905+1G>A (*2A)",
+      "c.2279C>T",
+      "c.2846A>T"
+    ],
+    "amp1Positions": [
+      97082391,
+      97305279,
+      97450058,
+      97515787,
+      97573863,
+      97579893,
+      97595149,
+      97699474
+    ]
   },
   "G6PD": {
     "gene": "G6PD",
@@ -79,141 +230,254 @@
     "ignoredAllelesLc": [
       "mediterranean haplotype"
     ],
-    "unphasedDiplotypePriorities": {},
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [],
     "amp1Positions": []
   },
   "NAT2": {
     "gene": "NAT2",
     "requiredPositions": [
-      {
-        "chromosome": "chr8",
-        "position": 18400194,
-        "cpicPosition": 18400194,
-        "rsid": "rs1801279",
-        "chromosomeHgvsName": "g.18400194G>A",
-        "cpicAlleles": [
-          "A",
-          "G"
-        ],
-        "cpicToVcfAlleleMap": {
-          "A": "A",
-          "G": "G"
-        },
-        "ref": "G",
-        "alts": [
-          "A"
-        ]
-      },
-      {
-        "chromosome": "chr8",
-        "position": 18400344,
-        "cpicPosition": 18400344,
-        "rsid": "rs1801280",
-        "chromosomeHgvsName": "g.18400344T>C",
-        "cpicAlleles": [
-          "C",
-          "T"
-        ],
-        "cpicToVcfAlleleMap": {
-          "C": "C",
-          "T": "T"
-        },
-        "ref": "T",
-        "alts": [
-          "C"
-        ]
-      },
-      {
-        "chromosome": "chr8",
-        "position": 18400593,
-        "cpicPosition": 18400593,
-        "rsid": "rs1799930",
-        "chromosomeHgvsName": "g.18400593G>A",
-        "cpicAlleles": [
-          "A",
-          "G"
-        ],
-        "cpicToVcfAlleleMap": {
-          "A": "A",
-          "G": "G"
-        },
-        "ref": "G",
-        "alts": [
-          "A"
-        ]
-      },
-      {
-        "chromosome": "chr8",
-        "position": 18400806,
-        "cpicPosition": 18400806,
-        "rsid": "rs1208",
-        "chromosomeHgvsName": "g.18400806G>A",
-        "cpicAlleles": [
-          "A",
-          "G"
-        ],
-        "cpicToVcfAlleleMap": {
-          "A": "A",
-          "G": "G"
-        },
-        "ref": "G",
-        "alts": [
-          "A"
-        ]
-      },
-      {
-        "chromosome": "chr8",
-        "position": 18400860,
-        "cpicPosition": 18400860,
-        "rsid": "rs1799931",
-        "chromosomeHgvsName": "g.18400860G>A",
-        "cpicAlleles": [
-          "A",
-          "G"
-        ],
-        "cpicToVcfAlleleMap": {
-          "A": "A",
-          "G": "G"
-        },
-        "ref": "G",
-        "alts": [
-          "A"
-        ]
-      }
+      18400194,
+      18400344,
+      18400593,
+      18400806,
+      18400860
     ],
     "ignoredPositions": [],
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {
-      "*14/*40|*7/*46": "*7/*46",
-      "*16/*41|*4/*49": "*4/*49",
-      "*30/*46|*5/*15|*6/*29": "*5/*15",
-      "*14/*30|*15/*16": "*15/*16",
-      "*1/*15|*14/*34|*6/*46": "*6/*46",
-      "*4/*15|*6/*14": "*6/*14",
-      "*30/*44|*5/*36": "*5/*36",
-      "*40/*54|*7/*45": "*7/*45",
-      "*1/*7|*4/*40": "*1/*7",
-      "*1/*54|*4/*45": "*4/*45",
-      "*1/*36|*6/*44": "*6/*44",
-      "*16/*46|*4/*29|*5/*14": "*5/*14",
-      "*16/*45|*5/*54": "*5/*54",
-      "*1/*49|*5/*41": "*5/*41",
-      "*29/*41|*46/*49": "*46/*49",
-      "*1/*29|*5/*46": "*5/*46",
-      "*15/*44|*36/*46": "*36/*46",
-      "*1/*30|*16/*34|*5/*6": "*5/*6",
-      "*16/*40|*5/*7": "*5/*7",
-      "*1/*6|*4/*34": "*1/*6",
-      "*6/*40|*7/*34": "*7/*34",
-      "*4/*30|*6/*16": "*6/*16",
-      "*1/*16|*4/*5": "*4/*5",
-      "*1/*14|*4/*46": "*1/*14",
-      "*30/*41|*6/*49": "*6/*49",
-      "*34/*54|*6/*45": "*6/*45"
-    },
+    "unphasedDiplotypePriorities": [
+      {
+        "id": "*1/*6|*4/*34",
+        "list": [
+          "*1/*6",
+          "*4/*34"
+        ],
+        "pick": "*1/*6"
+      },
+      {
+        "id": "*1/*7|*4/*40",
+        "list": [
+          "*1/*7",
+          "*4/*40"
+        ],
+        "pick": "*1/*7"
+      },
+      {
+        "id": "*1/*14|*4/*46",
+        "list": [
+          "*1/*14",
+          "*4/*46"
+        ],
+        "pick": "*1/*14"
+      },
+      {
+        "id": "*1/*16|*4/*5",
+        "list": [
+          "*1/*16",
+          "*4/*5"
+        ],
+        "pick": "*4/*5"
+      },
+      {
+        "id": "*1/*54|*4/*45",
+        "list": [
+          "*1/*54",
+          "*4/*45"
+        ],
+        "pick": "*4/*45"
+      },
+      {
+        "id": "*16/*41|*4/*49",
+        "list": [
+          "*16/*41",
+          "*4/*49"
+        ],
+        "pick": "*4/*49"
+      },
+      {
+        "id": "*1/*30|*16/*34|*5/*6",
+        "list": [
+          "*1/*30",
+          "*16/*34",
+          "*5/*6"
+        ],
+        "pick": "*5/*6"
+      },
+      {
+        "id": "*16/*40|*5/*7",
+        "list": [
+          "*16/*40",
+          "*5/*7"
+        ],
+        "pick": "*5/*7"
+      },
+      {
+        "id": "*16/*46|*4/*29|*5/*14",
+        "list": [
+          "*16/*46",
+          "*4/*29",
+          "*5/*14"
+        ],
+        "pick": "*5/*14"
+      },
+      {
+        "id": "*30/*46|*5/*15|*6/*29",
+        "list": [
+          "*30/*46",
+          "*5/*15",
+          "*6/*29"
+        ],
+        "pick": "*5/*15"
+      },
+      {
+        "id": "*30/*44|*5/*36",
+        "list": [
+          "*30/*44",
+          "*5/*36"
+        ],
+        "pick": "*5/*36"
+      },
+      {
+        "id": "*1/*49|*5/*41",
+        "list": [
+          "*1/*49",
+          "*5/*41"
+        ],
+        "pick": "*5/*41"
+      },
+      {
+        "id": "*1/*29|*5/*46",
+        "list": [
+          "*1/*29",
+          "*5/*46"
+        ],
+        "pick": "*5/*46"
+      },
+      {
+        "id": "*16/*45|*5/*54",
+        "list": [
+          "*16/*45",
+          "*5/*54"
+        ],
+        "pick": "*5/*54"
+      },
+      {
+        "id": "*4/*15|*6/*14",
+        "list": [
+          "*4/*15",
+          "*6/*14"
+        ],
+        "pick": "*6/*14"
+      },
+      {
+        "id": "*4/*30|*6/*16",
+        "list": [
+          "*4/*30",
+          "*6/*16"
+        ],
+        "pick": "*6/*16"
+      },
+      {
+        "id": "*1/*36|*6/*44",
+        "list": [
+          "*1/*36",
+          "*6/*44"
+        ],
+        "pick": "*6/*44"
+      },
+      {
+        "id": "*34/*54|*6/*45",
+        "list": [
+          "*34/*54",
+          "*6/*45"
+        ],
+        "pick": "*6/*45"
+      },
+      {
+        "id": "*1/*15|*14/*34|*6/*46",
+        "list": [
+          "*1/*15",
+          "*14/*34",
+          "*6/*46"
+        ],
+        "pick": "*6/*46"
+      },
+      {
+        "id": "*30/*41|*6/*49",
+        "list": [
+          "*30/*41",
+          "*6/*49"
+        ],
+        "pick": "*6/*49"
+      },
+      {
+        "id": "*6/*40|*7/*34",
+        "list": [
+          "*6/*40",
+          "*7/*34"
+        ],
+        "pick": "*7/*34"
+      },
+      {
+        "id": "*40/*54|*7/*45",
+        "list": [
+          "*40/*54",
+          "*7/*45"
+        ],
+        "pick": "*7/*45"
+      },
+      {
+        "id": "*14/*40|*7/*46",
+        "list": [
+          "*14/*40",
+          "*7/*46"
+        ],
+        "pick": "*7/*46"
+      },
+      {
+        "id": "*14/*30|*15/*16",
+        "list": [
+          "*14/*30",
+          "*15/*16"
+        ],
+        "pick": "*15/*16"
+      },
+      {
+        "id": "*15/*44|*36/*46",
+        "list": [
+          "*15/*44",
+          "*36/*46"
+        ],
+        "pick": "*36/*46"
+      },
+      {
+        "id": "*29/*41|*46/*49",
+        "list": [
+          "*29/*41",
+          "*46/*49"
+        ],
+        "pick": "*46/*49"
+      }
+    ],
+    "amp1Alleles": [],
     "amp1Positions": []
+  },
+  "NUDT15": {
+    "gene": "NUDT15",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*3"
+    ],
+    "amp1Positions": [
+      48045719
+    ]
   },
   "RYR1": {
     "gene": "RYR1",
@@ -242,7 +506,43 @@
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {},
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [],
     "amp1Positions": []
+  },
+  "TPMT": {
+    "gene": "TPMT",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "*2",
+      "*3A",
+      "*3B",
+      "*3C"
+    ],
+    "amp1Positions": [
+      18130687,
+      18138997,
+      18143724
+    ]
+  },
+  "VKORC1": {
+    "gene": "VKORC1",
+    "requiredPositions": [],
+    "ignoredPositions": [],
+    "extraPositions": [],
+    "ignoredAlleles": [],
+    "ignoredAllelesLc": [],
+    "unphasedDiplotypePriorities": [],
+    "amp1Alleles": [
+      "rs9923231 variant (T)"
+    ],
+    "amp1Positions": [
+      31096368
+    ]
   }
 }

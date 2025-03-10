@@ -12,7 +12,8 @@ The following tables list genes used by PharmCAT to find drug recommendation, al
 
 ### Genes PharmCAT will attempt to match
 
-The `Named Allele Matcher` will search the given sample file for locations associated with these genes and attempt to match them to known allele definitions.
+The `Named Allele Matcher` will search the given sample file for locations associated with these genes and attempt to
+match them to known allele definitions.
 
 | Gene | CPIC | DPWG |
 | :--- | :---: | :---: |
@@ -28,6 +29,7 @@ The `Named Allele Matcher` will search the given sample file for locations assoc
 | [DPYD](/Phenotypes-List#dpyd) | :heavy_check_mark: | :heavy_check_mark: |
 | [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
 | [IFNL3](/Phenotypes-List#ifnl3) | :heavy_check_mark: |  |
+| [NAT2](/Phenotypes-List#nat2) |  |  |
 | [NUDT15](/Phenotypes-List#nudt15) | :heavy_check_mark: | :heavy_check_mark: |
 | [RYR1](/Phenotypes-List#ryr1) | :heavy_check_mark: |  |
 | [SLCO1B1](/Phenotypes-List#slco1b1) | :heavy_check_mark: | :heavy_check_mark: |
@@ -45,7 +47,7 @@ These genes will not get allele matches from PharmCAT<sup>*</sup>. However, you 
 matching recommendation data.
 
 See [Outside Call Format](/using/Outside-Call-Format) for formatting details and
-[Calling CYP2D6](/using/Calling-CYP2D6) or [Calling HLA](/using/Calling-HLA) for how to get CYP2D6 or
+[Calling CYP2D6](/using/Calling-CYP2D6) or [Calling HLA](/using/Calling-HLA) for how to obtain CYP2D6 or
 HLA calls, respectively, using sequencing data.
 
 | Gene | CPIC | DPWG |
@@ -61,7 +63,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the 183 drugs for which PharmCAT has recommendations for, along with their sources. 
+The following table lists the 184 drugs for which PharmCAT has recommendations for, along with their sources.
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |
@@ -104,7 +106,7 @@ The following table lists the 183 drugs for which PharmCAT has recommendations f
 | clozapine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | codeine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | dabrafenib |  |  | :heavy_check_mark: |  |
-| dapsone | :heavy_check_mark: |  |  |  |
+| dapsone | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | darifenacin |  |  |  | :heavy_check_mark: |
 | desflurane | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | desipramine | :heavy_check_mark: |  |  | :heavy_check_mark: |
@@ -164,7 +166,7 @@ The following table lists the 183 drugs for which PharmCAT has recommendations f
 | lovastatin | :heavy_check_mark: |  |  |  |
 | mavacamten |  |  |  | :heavy_check_mark: |
 | meclizine |  |  | :heavy_check_mark: | :heavy_check_mark: |
-| meloxicam | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| meloxicam | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | mepivacaine |  |  | :heavy_check_mark: |  |
 | mercaptopurine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | methoxyflurane | :heavy_check_mark: |  |  |  |
@@ -213,7 +215,8 @@ The following table lists the 183 drugs for which PharmCAT has recommendations f
 | ribavirin | :heavy_check_mark: |  |  |  |
 | ribostamycin | :heavy_check_mark: |  |  |  |
 | risperidone |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| rosuvastatin | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| ropivacaine |  |  | :heavy_check_mark: |  |
+| rosuvastatin | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | sacituzumab govitecan |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | sertraline | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | sevoflurane | :heavy_check_mark: |  | :heavy_check_mark: |  |

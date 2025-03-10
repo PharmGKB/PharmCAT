@@ -1,5 +1,5 @@
-# tests    = 31,655
-# passed   = 31,572
+# tests    = 31,724
+# passed   = 31,641
 # warnings = 48
 # failed   = 35
 # no alts & no match   = 0
@@ -17,11 +17,10 @@
 | CYP3A5     |       0  |       0  |
 | CYP4F2     |       0  |       1  |
 | DPYD       |       0  |       0  |
-| F5         |       0  |       0  |
 | G6PD       |      13  |       6  |
 | IFNL3      |       0  |       0  |
+| NAT2       |       0  |       0  |
 | NUDT15     |       0  |       1  |
-| RYR1       |       0  |       0  |
 | SLCO1B1    |      25  |      11  |
 | TPMT       |       0  |       1  |
 | UGT1A1     |       2  |       2  |

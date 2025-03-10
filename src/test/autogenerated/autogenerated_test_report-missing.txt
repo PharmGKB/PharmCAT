@@ -1,8 +1,8 @@
-# tests    = 49,322
-# passed   = 33,833
-# warnings = 12,915
-# failed   = 2,574
-# no alts & no match   = 0
+# tests    = 55,852
+# passed   = 40,219
+# warnings = 12,975
+# failed   = 2,658
+# no alts & no match   = 84
 # with alts & no match = 0
 
 | Gene       | Warnings | Failures |
@@ -13,14 +13,14 @@
 | CYP2B6     |   2,625  |     188  |
 | CYP2C19    |   2,100  |   2,216  |
 | CYP2C9     |     507  |       0  |
-| CYP3A4     |     134  |       2  |
+| CYP3A4     |     174  |       2  |
 | CYP3A5     |       0  |       0  |
-| CYP4F2     |      12  |       0  |
-| DPYD       |       0  |       0  |
+| CYP4F2     |      30  |       0  |
+| DPYD       |       0  |      84  |
 | G6PD       |   4,433  |      45  |
 | IFNL3      |       0  |       0  |
-| NUDT15     |      37  |       0  |
-| RYR1       |       0  |       0  |
+| NAT2       |       0  |       0  |
+| NUDT15     |      39  |       0  |
 | SLCO1B1    |   2,950  |     123  |
 | TPMT       |      89  |       0  |
 | UGT1A1     |      28  |       0  |

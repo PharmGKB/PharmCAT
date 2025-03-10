@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2024-01-31T01:10:40.916Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000019.10",
   "variants": [
     {
@@ -314,6 +314,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -354,6 +356,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15897578
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -394,6 +400,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15879621
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -434,6 +444,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15879621,
+        15897578
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -474,6 +489,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15878779
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -514,6 +533,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15890405
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -554,6 +577,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15897566
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -594,6 +621,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15897473
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -634,6 +665,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15897466
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -674,6 +709,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15895560
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -714,6 +753,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15895527
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -754,6 +797,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15892541
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -794,6 +841,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15889671
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -834,6 +885,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15886018
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -874,6 +929,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15879412
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -914,22 +973,94 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        15878920
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr19:15878779",
-    "chr19:15878920",
-    "chr19:15879412",
-    "chr19:15886018",
-    "chr19:15889671",
-    "chr19:15890405",
-    "chr19:15892541",
-    "chr19:15895527",
-    "chr19:15895560",
-    "chr19:15897466",
-    "chr19:15897473",
-    "chr19:15897566"
-  ]
+    15878779,
+    15878920,
+    15879412,
+    15886018,
+    15889671,
+    15890405,
+    15892541,
+    15895527,
+    15895560,
+    15897466,
+    15897473,
+    15897566
+  ],
+  "positionToAlleles": {
+    "15878779": [
+      "*5"
+    ],
+    "15878920": [
+      "*17"
+    ],
+    "15879412": [
+      "*15"
+    ],
+    "15879621": [
+      "*3",
+      "*4"
+    ],
+    "15886018": [
+      "*14"
+    ],
+    "15889671": [
+      "*13"
+    ],
+    "15890405": [
+      "*6"
+    ],
+    "15892541": [
+      "*12"
+    ],
+    "15895527": [
+      "*11"
+    ],
+    "15895560": [
+      "*10"
+    ],
+    "15897466": [
+      "*9"
+    ],
+    "15897473": [
+      "*8"
+    ],
+    "15897566": [
+      "*7"
+    ],
+    "15897578": [
+      "*2",
+      "*4"
+    ]
+  },
+  "positionToLocus": {
+    "15878779": 0,
+    "15878920": 1,
+    "15879412": 2,
+    "15879621": 3,
+    "15886018": 4,
+    "15889671": 5,
+    "15890405": 6,
+    "15892541": 7,
+    "15895527": 8,
+    "15895560": 9,
+    "15897466": 10,
+    "15897473": 11,
+    "15897566": 12,
+    "15897578": 13
+  },
+  "shellAlleles": {
+    "*4": [
+      "*2",
+      "*3"
+    ]
+  }
 }

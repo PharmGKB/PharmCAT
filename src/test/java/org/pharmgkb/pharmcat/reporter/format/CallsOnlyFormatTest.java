@@ -235,8 +235,6 @@ class CallsOnlyFormatTest {
     Env env = new Env();
     SortedSet<String> allGenes = new TreeSet<>(env.getDefinitionReader().getGenes());
     allGenes.remove("CYP2D6");
-    // TODO(markwoon): ignore NAT2 until it's fully integrated
-    allGenes.remove("NAT2");
     assertEquals(allGenes, geneMap.keySet());
 
     System.out.println(geneMap.get("TPMT"));

@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2023-06-27T18:23:26Z",
   "gene": "IFNL3",
   "orientation": null,
   "chromosome": "chr19",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000019.10",
   "variants": [
     {
@@ -41,6 +41,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -55,11 +57,24 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        39248147
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr19:39248147"
-  ]
+    39248147
+  ],
+  "positionToAlleles": {
+    "39248147": [
+      "rs12979860 variant (T)"
+    ]
+  },
+  "positionToLocus": {
+    "39248147": 0
+  },
+  "shellAlleles": {}
 }

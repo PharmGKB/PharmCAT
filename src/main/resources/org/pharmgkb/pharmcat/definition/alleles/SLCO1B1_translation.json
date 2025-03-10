@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2021-12-02T22:52:37.860Z",
   "gene": "SLCO1B1",
   "orientation": null,
   "chromosome": "chr12",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000012.12",
   "variants": [
     {
@@ -671,6 +671,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -745,6 +747,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21172782
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -819,6 +825,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21174595,
+        21176883
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -893,6 +904,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176879
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -967,6 +982,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21178615
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1041,6 +1060,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21200595
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1115,6 +1138,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21202649
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1189,6 +1216,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21205921
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1263,6 +1294,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21205999
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1337,6 +1372,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21239077
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1411,6 +1450,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21239113
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1485,6 +1528,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21172782,
+        21239077
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1559,6 +1607,12 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21174595,
+        21176883,
+        21239113
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1633,6 +1687,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21176879
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1707,6 +1766,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178615
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1781,6 +1845,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176868
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1855,6 +1923,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21239042
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1929,6 +2001,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21239042
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2003,6 +2080,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21172776
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2077,6 +2158,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21196951
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2151,6 +2237,13 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21176879,
+        21196951,
+        21196976
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2225,6 +2318,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21202664
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2299,6 +2396,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21202555
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2373,6 +2475,12 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21196951,
+        21196976
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2447,6 +2555,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21239158
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2521,6 +2634,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178957
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2595,6 +2713,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21205999
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2669,6 +2792,12 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21176879,
+        21196951
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2743,6 +2872,13 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21172734,
+        21176804,
+        21196951,
+        21196976
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2817,6 +2953,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21239145
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2891,6 +3031,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21202553
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2965,6 +3109,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3039,6 +3187,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176871
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3113,6 +3265,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21196975
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3187,6 +3344,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21178615,
+        21239042
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3261,6 +3423,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176898
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3335,6 +3501,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178612
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3409,6 +3580,13 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21176879,
+        21196951,
+        21206031
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3483,6 +3661,12 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21196951,
+        21206031
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3557,6 +3741,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21222355
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3631,6 +3819,12 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178615,
+        21222355
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3705,20 +3899,292 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178615,
+        21200544
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr12:21172776",
-    "chr12:21176868",
-    "chr12:21176871",
-    "chr12:21176898",
-    "chr12:21200595",
-    "chr12:21202553",
-    "chr12:21202649",
-    "chr12:21202664",
-    "chr12:21205921",
-    "chr12:21239145"
-  ]
+    21172776,
+    21176868,
+    21176871,
+    21176898,
+    21200595,
+    21202553,
+    21202649,
+    21202664,
+    21205921,
+    21239145
+  ],
+  "positionToAlleles": {
+    "21172734": [
+      "*33"
+    ],
+    "21172776": [
+      "*23"
+    ],
+    "21172782": [
+      "*2",
+      "*12"
+    ],
+    "21174595": [
+      "*3",
+      "*13"
+    ],
+    "21176804": [
+      "*14",
+      "*15",
+      "*20",
+      "*24",
+      "*25",
+      "*27",
+      "*28",
+      "*29",
+      "*30",
+      "*31",
+      "*32",
+      "*33",
+      "*37",
+      "*39",
+      "*42",
+      "*43",
+      "*44",
+      "*46",
+      "*47"
+    ],
+    "21176868": [
+      "*16"
+    ],
+    "21176871": [
+      "*38"
+    ],
+    "21176879": [
+      "*4",
+      "*14",
+      "*25",
+      "*32",
+      "*43"
+    ],
+    "21176883": [
+      "*3",
+      "*13"
+    ],
+    "21176898": [
+      "*41"
+    ],
+    "21178612": [
+      "*42"
+    ],
+    "21178615": [
+      "*5",
+      "*15",
+      "*40",
+      "*46",
+      "*47"
+    ],
+    "21178957": [
+      "*30"
+    ],
+    "21196951": [
+      "*24",
+      "*25",
+      "*28",
+      "*32",
+      "*33",
+      "*43",
+      "*44"
+    ],
+    "21196975": [
+      "*39"
+    ],
+    "21196976": [
+      "*25",
+      "*28",
+      "*33"
+    ],
+    "21200544": [
+      "*47"
+    ],
+    "21200595": [
+      "*6"
+    ],
+    "21202553": [
+      "*36"
+    ],
+    "21202555": [
+      "*27"
+    ],
+    "21202649": [
+      "*7"
+    ],
+    "21202664": [
+      "*26"
+    ],
+    "21205921": [
+      "*8"
+    ],
+    "21205999": [
+      "*9",
+      "*31"
+    ],
+    "21206031": [
+      "*43",
+      "*44"
+    ],
+    "21222355": [
+      "*45",
+      "*46"
+    ],
+    "21239042": [
+      "*19",
+      "*20",
+      "*40"
+    ],
+    "21239077": [
+      "*10",
+      "*12"
+    ],
+    "21239113": [
+      "*11",
+      "*13"
+    ],
+    "21239145": [
+      "*34"
+    ],
+    "21239158": [
+      "*29"
+    ]
+  },
+  "positionToLocus": {
+    "21172734": 0,
+    "21172776": 1,
+    "21172782": 2,
+    "21174595": 3,
+    "21176804": 4,
+    "21176868": 5,
+    "21176871": 6,
+    "21176879": 7,
+    "21176883": 8,
+    "21176898": 9,
+    "21178612": 10,
+    "21178615": 11,
+    "21178957": 12,
+    "21196951": 13,
+    "21196975": 14,
+    "21196976": 15,
+    "21200544": 16,
+    "21200595": 17,
+    "21202553": 18,
+    "21202555": 19,
+    "21202649": 20,
+    "21202664": 21,
+    "21205921": 22,
+    "21205999": 23,
+    "21206031": 24,
+    "21222355": 25,
+    "21239042": 26,
+    "21239077": 27,
+    "21239113": 28,
+    "21239145": 29,
+    "21239158": 30
+  },
+  "shellAlleles": {
+    "*40": [
+      "*5",
+      "*19"
+    ],
+    "*30": [
+      "*37"
+    ],
+    "*42": [
+      "*37"
+    ],
+    "*31": [
+      "*9",
+      "*37"
+    ],
+    "*20": [
+      "*19",
+      "*37"
+    ],
+    "*43": [
+      "*4",
+      "*14",
+      "*24",
+      "*32",
+      "*37",
+      "*44"
+    ],
+    "*32": [
+      "*4",
+      "*14",
+      "*24",
+      "*37"
+    ],
+    "*44": [
+      "*24",
+      "*37"
+    ],
+    "*33": [
+      "*24",
+      "*28",
+      "*37"
+    ],
+    "*12": [
+      "*2",
+      "*10"
+    ],
+    "*46": [
+      "*5",
+      "*15",
+      "*37",
+      "*45"
+    ],
+    "*24": [
+      "*37"
+    ],
+    "*13": [
+      "*3",
+      "*11"
+    ],
+    "*47": [
+      "*5",
+      "*15",
+      "*37"
+    ],
+    "*25": [
+      "*4",
+      "*14",
+      "*24",
+      "*28",
+      "*32",
+      "*37"
+    ],
+    "*14": [
+      "*4",
+      "*37"
+    ],
+    "*15": [
+      "*5",
+      "*37"
+    ],
+    "*27": [
+      "*37"
+    ],
+    "*39": [
+      "*37"
+    ],
+    "*28": [
+      "*24",
+      "*37"
+    ],
+    "*29": [
+      "*37"
+    ]
+  }
 }

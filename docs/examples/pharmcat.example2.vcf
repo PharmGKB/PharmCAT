@@ -1,18 +1,19 @@
 ##fileformat=VCFv4.2
 ##source=PharmCAT allele definitions
 ##fileDate=2023-02-03T08:20:52.044-08:00
-##contig=<ID=chr1,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr2,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr4,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr6,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr7,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr10,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr12,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr13,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr16,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr19,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chr22,assembly=GRCh38.p13,species="Homo sapiens">
-##contig=<ID=chrX,assembly=GRCh38.p13,species="Homo sapiens">
+##contig=<ID=chr1,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr2,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr4,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr6,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr7,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr8,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr10,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr12,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr13,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr16,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr19,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chr22,assembly=GRCh38.p14,species="Homo sapiens">
+##contig=<ID=chrX,assembly=GRCh38.p14,species="Homo sapiens">
 ##FILTER=<ID=PASS,Description="All filters passed">
 ##INFO=<ID=PX,Number=.,Type=String,Description="Gene">
 ##INFO=<ID=POI,Number=0,Type=Flag,Description="Position of Interest but not part of an allele definition">
@@ -237,6 +238,43 @@ chr7	117642472	rs74503330	G	A	.	PASS	PX=CFTR	GT	0/0
 chr7	117642483	rs121909041	T	C	.	PASS	PX=CFTR	GT	0/0
 chr7	117642528	rs11971167	G	A	.	PASS	PX=CFTR	GT	0/0
 chr7	117664770	rs193922525	G	A	.	PASS	PX=CFTR	GT	0/0
+chr8	18400010	rs200893121	A	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400032	rs72466456	T	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400054	rs201339185	C	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400061	rs532310930	G	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400073	rs45477599	T	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400124	rs149283608	A	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400155	rs72466457	G	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400193	rs1805158	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400194	rs1801279	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400206	rs72466458	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400251	rs561124342	G	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400324	rs549917500	C	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400344	rs1801280	T	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400349	rs183409091	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400367	rs4986996	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400406	rs12720065	C	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400461	rs72466460	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400475	rs139351995	A	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400478	rs537007806	T	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400494	rs139512288	T	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400502	rs72554617	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400509	rs200585149	A	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400521	rs369500066	A	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400539	rs572750517	A	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400581	rs79050330	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400592	rs375746304	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400593	rs1799930	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400612	rs45618543	G	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400625	rs56387565	T	C	.	PASS	PX=NAT2	GT	0/0
+chr8	18400641	rs138707146	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400653	rs568110818	T	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400686	rs45518335	C	T	.	PASS	PX=NAT2	GT	0/0
+chr8	18400769	rs55700793	A	G	.	PASS	PX=NAT2	GT	0/0
+chr8	18400799	rs539346244	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400806	rs1208	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400841	rs56393504	G	A	.	PASS	PX=NAT2	GT	0/0
+chr8	18400860	rs1799931	G	A	.	PASS	PX=NAT2	GT	0/0
 chr10	94645745	rs12777823	G	A	.	PASS	POI	GT	0/0
 chr10	94761900	rs12248560	C	T	.	PASS	PX=CYP2C19	GT	0/0
 chr10	94762706	rs28399504	A	G	.	PASS	PX=CYP2C19	GT	0/0
@@ -397,6 +435,7 @@ chr13	48040977	rs1457579126	GA	G	.	PASS	PX=NUDT15	GT	0/0
 chr13	48041103	rs761191455	T	TG	.	PASS	PX=NUDT15	GT	0/0
 chr13	48041113	rs1368252918	G	T	.	PASS	PX=NUDT15	GT	0/0
 chr13	48045690	rs768324690	C	G	.	PASS	PX=NUDT15	GT	0/0
+chr13	48045714	rs1185228044	G	C	.	PASS	PX=NUDT15	GT	0/0
 chr13	48045719	rs116855232	C	T	.	PASS	PX=NUDT15	GT	0/0
 chr13	48045720	rs147390019	G	A	.	PASS	PX=NUDT15	GT	0/0
 chr13	48045771	rs139551410	T	A	.	PASS	PX=NUDT15	GT	0/0

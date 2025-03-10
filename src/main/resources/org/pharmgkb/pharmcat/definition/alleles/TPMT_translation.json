@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2021-10-14T03:54:49.779Z",
   "gene": "TPMT",
   "orientation": null,
   "chromosome": "chr6",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000006.12",
   "variants": [
     {
@@ -929,6 +929,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1027,6 +1029,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143724
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1125,6 +1131,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130687,
+        18138997
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1223,6 +1234,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18138997
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1321,6 +1336,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130687
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1419,6 +1438,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130781
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1517,6 +1540,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18147910
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1615,6 +1642,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133845
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1713,6 +1744,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130725
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1811,6 +1846,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130762
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1909,6 +1948,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143606
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2007,6 +2050,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18139027
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2105,6 +2152,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18139689
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2203,6 +2254,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18139710
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2301,6 +2356,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149045
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2399,6 +2458,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149127
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2497,6 +2560,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133890
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2595,6 +2662,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18138969
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2693,6 +2764,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149004
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2791,6 +2866,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18147845
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2889,6 +2968,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143597
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2987,6 +3070,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130694
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3085,6 +3172,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18147851
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3183,6 +3274,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18138969
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3281,6 +3376,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133884
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3379,6 +3478,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133847
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3477,6 +3580,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130772
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3575,6 +3682,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18132136
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3673,6 +3784,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143643
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3771,6 +3886,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143613
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3869,6 +3988,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149126
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3967,6 +4090,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149022
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4065,6 +4192,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18132147
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4163,6 +4294,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143622
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4261,6 +4396,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18138970
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4359,6 +4498,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143718
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4457,6 +4600,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18147856
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4555,6 +4702,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18132163
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4653,6 +4804,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130758
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4751,6 +4906,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133870
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4849,6 +5008,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18147838
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4947,6 +5110,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130729
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5045,6 +5212,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18130687
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5143,6 +5314,10 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18149032
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5241,6 +5416,11 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18143700,
+        18143728
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5339,48 +5519,251 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        18133887
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr6:18130694",
-    "chr6:18130725",
-    "chr6:18130729",
-    "chr6:18130758",
-    "chr6:18130762",
-    "chr6:18130772",
-    "chr6:18130781",
-    "chr6:18132136",
-    "chr6:18132147",
-    "chr6:18132163",
-    "chr6:18133845",
-    "chr6:18133847",
-    "chr6:18133870",
-    "chr6:18133884",
-    "chr6:18133887",
-    "chr6:18133890",
-    "chr6:18138970",
-    "chr6:18139027",
-    "chr6:18139689",
-    "chr6:18139710",
-    "chr6:18143597",
-    "chr6:18143606",
-    "chr6:18143613",
-    "chr6:18143622",
-    "chr6:18143643",
-    "chr6:18143718",
-    "chr6:18143724",
-    "chr6:18147838",
-    "chr6:18147845",
-    "chr6:18147851",
-    "chr6:18147856",
-    "chr6:18147910",
-    "chr6:18149004",
-    "chr6:18149022",
-    "chr6:18149032",
-    "chr6:18149045",
-    "chr6:18149126",
-    "chr6:18149127"
-  ]
+    18130694,
+    18130725,
+    18130729,
+    18130758,
+    18130762,
+    18130772,
+    18130781,
+    18132136,
+    18132147,
+    18132163,
+    18133845,
+    18133847,
+    18133870,
+    18133884,
+    18133887,
+    18133890,
+    18138970,
+    18139027,
+    18139689,
+    18139710,
+    18143597,
+    18143606,
+    18143613,
+    18143622,
+    18143643,
+    18143718,
+    18143724,
+    18147838,
+    18147845,
+    18147851,
+    18147856,
+    18147910,
+    18149004,
+    18149022,
+    18149032,
+    18149045,
+    18149126,
+    18149127
+  ],
+  "positionToAlleles": {
+    "18130687": [
+      "*3A",
+      "*3C",
+      "*41"
+    ],
+    "18130694": [
+      "*20"
+    ],
+    "18130725": [
+      "*7"
+    ],
+    "18130729": [
+      "*40"
+    ],
+    "18130758": [
+      "*37"
+    ],
+    "18130762": [
+      "*8"
+    ],
+    "18130772": [
+      "*25"
+    ],
+    "18130781": [
+      "*4"
+    ],
+    "18132136": [
+      "*26"
+    ],
+    "18132147": [
+      "*31"
+    ],
+    "18132163": [
+      "*36"
+    ],
+    "18133845": [
+      "*6"
+    ],
+    "18133847": [
+      "*24"
+    ],
+    "18133870": [
+      "*38"
+    ],
+    "18133884": [
+      "*23"
+    ],
+    "18133887": [
+      "*44"
+    ],
+    "18133890": [
+      "*15"
+    ],
+    "18138969": [
+      "*16",
+      "*22"
+    ],
+    "18138970": [
+      "*33"
+    ],
+    "18138997": [
+      "*3A",
+      "*3B"
+    ],
+    "18139027": [
+      "*10"
+    ],
+    "18139689": [
+      "*11"
+    ],
+    "18139710": [
+      "*12"
+    ],
+    "18143597": [
+      "*19"
+    ],
+    "18143606": [
+      "*9"
+    ],
+    "18143613": [
+      "*28"
+    ],
+    "18143622": [
+      "*32"
+    ],
+    "18143643": [
+      "*27"
+    ],
+    "18143700": [
+      "*43"
+    ],
+    "18143718": [
+      "*34"
+    ],
+    "18143724": [
+      "*2"
+    ],
+    "18143728": [
+      "*43"
+    ],
+    "18147838": [
+      "*39"
+    ],
+    "18147845": [
+      "*18"
+    ],
+    "18147851": [
+      "*21"
+    ],
+    "18147856": [
+      "*35"
+    ],
+    "18147910": [
+      "*5"
+    ],
+    "18149004": [
+      "*17"
+    ],
+    "18149022": [
+      "*30"
+    ],
+    "18149032": [
+      "*42"
+    ],
+    "18149045": [
+      "*13"
+    ],
+    "18149126": [
+      "*29"
+    ],
+    "18149127": [
+      "*14"
+    ]
+  },
+  "positionToLocus": {
+    "18130687": 0,
+    "18130694": 1,
+    "18130725": 2,
+    "18130729": 3,
+    "18130758": 4,
+    "18130762": 5,
+    "18130772": 6,
+    "18130781": 7,
+    "18132136": 8,
+    "18132147": 9,
+    "18132163": 10,
+    "18133845": 11,
+    "18133847": 12,
+    "18133870": 13,
+    "18133884": 14,
+    "18133887": 15,
+    "18133890": 16,
+    "18138969": 17,
+    "18138970": 18,
+    "18138997": 19,
+    "18139027": 20,
+    "18139689": 21,
+    "18139710": 22,
+    "18143597": 23,
+    "18143606": 24,
+    "18143613": 25,
+    "18143622": 26,
+    "18143643": 27,
+    "18143700": 28,
+    "18143718": 29,
+    "18143724": 30,
+    "18143728": 31,
+    "18147838": 32,
+    "18147845": 33,
+    "18147851": 34,
+    "18147856": 35,
+    "18147910": 36,
+    "18149004": 37,
+    "18149022": 38,
+    "18149032": 39,
+    "18149045": 40,
+    "18149126": 41,
+    "18149127": 42
+  },
+  "shellAlleles": {
+    "*41": [
+      "*3C"
+    ],
+    "*3A": [
+      "*3B",
+      "*3C",
+      "*41"
+    ],
+    "*22": [
+      "*16"
+    ],
+    "*3C": [
+      "*41"
+    ],
+    "*16": [
+      "*22"
+    ]
+  }
 }

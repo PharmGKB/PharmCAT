@@ -97,6 +97,9 @@
     th {
       text-align: left;
     }
+    td.center {
+      vertical-align: middle !important;
+    }
     tr.top-aligned td,th {
       vertical-align: top;
     }
@@ -123,6 +126,9 @@
     }
     table.diplotype tbody tr:first-child td {
       border-top: 0;
+    }
+    table.diplotype tbody tr.lowestFunctionDiplotype:not(:first-child) td {
+      padding-top: 1em;
     }
     tr.lowestFunctionDiplotype td {
       color: #3f3f3f;
@@ -405,9 +411,9 @@
   </div>
   <div class="metadata">
     <table>
-      <tr><th>Date created</th><td>November 11, 2024</td></tr>
-      <tr><th>PharmCAT Version</th><td>v2.15.4-20-g7f763d7c</td></tr>
-      <tr><th>Data Version</th><td>2024-11-06-02-36</td></tr>
+      <tr><th>Date created</th><td>April 08, 2025</td></tr>
+      <tr><th>PharmCAT Version</th><td>v2.15.5-60-g7b59c997</td></tr>
+      <tr><th>Data Version</th><td>2025-03-07-16-38</td></tr>
     </table>
   </div>
 </header>
@@ -744,12 +750,6 @@
                 <div class="drugName">
                   
                     <a href="#flibanserin">flibanserin</a>
-                  
-                </div>
-              
-                <div class="drugName">
-                  
-                    <a href="#fosphenytoin">fosphenytoin</a>
                   
                 </div>
               
@@ -1109,16 +1109,20 @@
                 <tbody>
                 
                   
-                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
-                      <td colspan="3"><b>Reference/Reference</b></td>
-                    </tr>
-                  
-                  
-                    <tr class="top-aligned gs-dip_component">
-                      <td>Reference</td>
-                      <td>1.0 (Normal function)</td>
-                      <td>See drug section</td>
-                    </tr>
+                    
+                      
+                        <tr class="lowestFunctionDiplotype">
+                          <td colspan="3">
+                            <b class="gs-dip_lowestFunction">Reference/Reference</b><br />
+                          </td>
+                        </tr>
+                      
+                      <tr class="top-aligned gs-dip_component">
+<td>Reference</td>
+<td>1.0 (Normal function)</td>
+<td rowspan="1" class="center">See drug section</td></tr>
+
+                    
                   
                 
                 </tbody>
@@ -1236,6 +1240,10 @@
                 <div class="drugName">
                   
                     <a href="#rasburicase">rasburicase</a>
+                  
+                </div>
+              
+                <div class="drugName">
                   
                 </div>
               
@@ -1449,16 +1457,20 @@
                 <tbody>
                 
                   
-                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
-                      <td colspan="3"><b>Reference/Reference</b></td>
-                    </tr>
-                  
-                  
-                    <tr class="top-aligned gs-dip_component">
-                      <td>Reference</td>
-                      <td>Normal function</td>
-                      <td>See drug section</td>
-                    </tr>
+                    
+                      
+                        <tr class="lowestFunctionDiplotype">
+                          <td colspan="3">
+                            <b class="gs-dip_lowestFunction">Reference/Reference</b><br />
+                          </td>
+                        </tr>
+                      
+                      <tr class="top-aligned gs-dip_component">
+<td>Reference</td>
+<td>Normal function</td>
+<td rowspan="1" class="center">See drug section</td></tr>
+
+                    
                   
                 
                 </tbody>
@@ -2390,6 +2402,8 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
               <ul>
                 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9035072" target="_blank" rel="noopener noreferrer">The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.</a> <i>Clinical pharmacology and therapeutics</i>. 2022. PMID:35152405</li>
+                
+                  <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/39676086" target="_blank" rel="noopener noreferrer">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between SLCO1B1 and statins and CYP2C9 and sulfonylureas.</a> <i>European journal of human genetics : EJHG</i>. 2024. PMID:39676086</li>
                 
                   <li><a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations" target="_blank" rel="noopener noreferrer">FDA Table of Pharmacogenetic Associations</a>.</li>
                 
@@ -4306,6 +4320,33 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                 
               
             
+              
+                <tr class="top-aligned fda-label-dapsone">
+                  <td class="top-aligned">
+                    <p>
+                      <b>FDA Label Annotation</b>
+                      
+                        <sup class="sources">
+                          <a href="https://www.pharmgkb.org/labelAnnotation/PA166344801" target="_blank" rel="noopener noreferrer">1</a>
+                        </sup>
+                      
+                    </p>
+                  </td>
+                  
+                    <td class="top-aligned">
+                      <div class="hint">Genotype</div>
+                      <span class="rx-unmatched-dip"><a href="#G6PD">G6PD</a>:B (reference)/B (reference)</span>
+                      
+                      
+                    </td>
+                    <td colspan="4" class="top-aligned">
+                      <div class="hint">&nbsp;</div>
+                      FDA Label Annotation provides no genotype-based recommendations for this genotype, after evaluating the evidence.
+                    </td>
+                  
+                </tr>
+              
+            
             </tbody>
           </table>
 
@@ -4323,6 +4364,8 @@ OTHER INDICATIONS: determine the level of inhibition of platelet aggregation by 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4111801" target="_blank" rel="noopener noreferrer">Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines for rasburicase therapy in the context of G6PD deficiency genotype.</a> <i>Clinical pharmacology and therapeutics</i>. 2014. PMID:24787449</li>
                 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10281211" target="_blank" rel="noopener noreferrer">Expanded Clinical Pharmacogenetics Implementation Consortium Guideline for Medication Use in the Context of G6PD Genotype.</a> <i>Clinical pharmacology and therapeutics</i>. 2023. PMID:36049896</li>
+                
+                  <li><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=021794" target="_blank" rel="noopener noreferrer">Drugs@FDA: Drug Product DAPSONE (dapsone), Pacific Pharma, Inc. - NDA021794/SUPPL-16, 05/18/2018</a>.</li>
                 
               </ul>
             </div>
@@ -6156,7 +6199,7 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                   
                     <td class="top-aligned">
                       <div class="hint">Genotypes</div>
-                      <span class="rx-unmatched-dip"><a href="#CYP2C19">CYP2C19</a>:*2/*2</span>;<br /><span class="rx-unmatched-dip"><a href="#CYP2C9">CYP2C9</a>:*1/*1</span>;<br /><span class="rx-unmatched-dip"><a href="#HLA-B">HLA-B</a>:Unknown/Unknown</span>
+                      <span class="rx-unmatched-dip"><a href="#CYP2C9">CYP2C9</a>:*1/*1</span>;<br /><span class="rx-unmatched-dip"><a href="#HLA-B">HLA-B</a>:Unknown/Unknown</span>
                       
                       
                     </td>
@@ -7488,33 +7531,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
               
             
               
-                <tr class="top-aligned fda-label-meloxicam">
-                  <td class="top-aligned">
-                    <p>
-                      <b>FDA Label Annotation</b>
-                      
-                        <sup class="sources">
-                          <a href="https://www.pharmgkb.org/labelAnnotation/PA166182753" target="_blank" rel="noopener noreferrer">1</a>
-                        </sup>
-                      
-                    </p>
-                  </td>
-                  
-                    <td class="top-aligned">
-                      <div class="hint">Genotype</div>
-                      <span class="rx-unmatched-dip"><a href="#CYP2C9">CYP2C9</a>:*1/*1</span>
-                      
-                      
-                    </td>
-                    <td colspan="4" class="top-aligned">
-                      <div class="hint">&nbsp;</div>
-                      FDA Label Annotation provides no genotype-based recommendations for this genotype, after evaluating the evidence.
-                    </td>
-                  
-                </tr>
-              
-            
-              
                 <tr class="top-aligned fda-assoc-meloxicam">
                   <td class="top-aligned">
                     <p>
@@ -7556,12 +7572,6 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
               <ul>
                 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8080882" target="_blank" rel="noopener noreferrer">Clinical Pharmacogenetics Implementation Consortium Guideline (CPIC) for CYP2C9 and Nonsteroidal Anti-Inflammatory Drugs.</a> <i>Clinical pharmacology and therapeutics</i>. 2020. PMID:32189324</li>
-                
-                  <li><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=020938" target="_blank" rel="noopener noreferrer">Drugs@FDA: Drug Product Mobic (meloxicam), NDA020938, REMEDYREPACK INC.</a></li>
-                
-                  <li><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=211210" target="_blank" rel="noopener noreferrer">Drugs@FDA: Drug Product QMIIZ ODT (meloxicam), NDA211210, TerSera Therapeutics LLC</a>.</li>
-                
-                  <li><a href="https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=207233" target="_blank" rel="noopener noreferrer">Drugs@FDA: Drug Product Vivlodex (meloxicam), NDA207233, Egalet US Inc.</a></li>
                 
                   <li><a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations" target="_blank" rel="noopener noreferrer">FDA Table of Pharmacogenetic Associations</a>.</li>
                 
@@ -9792,6 +9802,51 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
               
             
               
+                
+                  
+                    <tr class="top-aligned dpwg-guideline-rosuvastatin">
+                      <td>
+                        <p>
+                          <b><a href="https://www.pharmgkb.org/guidelineAnnotation/PA166363221" target="_blank">DPWG Guideline Annotation</a></b>
+                        </p>
+                        <p>Population:<br/>Unspecified</p>
+                        
+                          <div class="tag noAction">No Action</div>
+                        
+                      </td>
+                      <td>
+                        <div class="hint">Genotype</div>
+                        <ul class="noBullet mt-0">
+                          
+                            <li>
+                              <span class="noWrap">
+                                <span class="rx-dip"><a href="#SLCO1B1">SLCO1B1</a>:*1/*1</span>
+                                
+                                
+                              </span>
+                              
+                            </li>
+                          
+                        </ul>
+                        
+                          <div class="hint">Phenotype</div>
+                          <p class="rx-phenotype">Normal Function</p>
+                        
+                        
+                      </td>
+                    
+                        <td></td>
+                        <td class="drugRecommendation">
+                          The guideline does not provide a recommendation for rosuvastatin in patients with the <em>SLCO1B1</em> 521 TT genotype
+                          
+                        </td>
+                        <td>No recommendation</td>
+                    
+                  
+                
+              
+            
+              
                 <tr class="top-aligned fda-assoc-rosuvastatin">
                   <td class="top-aligned">
                     <p>
@@ -9833,6 +9888,8 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
               <ul>
                 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9035072" target="_blank" rel="noopener noreferrer">The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.</a> <i>Clinical pharmacology and therapeutics</i>. 2022. PMID:35152405</li>
+                
+                  <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/39676086" target="_blank" rel="noopener noreferrer">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between SLCO1B1 and statins and CYP2C9 and sulfonylureas.</a> <i>European journal of human genetics : EJHG</i>. 2024. PMID:39676086</li>
                 
                   <li><a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations" target="_blank" rel="noopener noreferrer">FDA Table of Pharmacogenetic Associations</a>.</li>
                 
@@ -10275,6 +10332,8 @@ The potential for drug-drug interactions and dose limits based on renal and hepa
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4169720" target="_blank" rel="noopener noreferrer">The clinical pharmacogenetics implementation consortium guideline for SLCO1B1 and simvastatin-induced myopathy: 2014 update.</a> <i>Clinical pharmacology and therapeutics</i>. 2014. PMID:24918167</li>
                 
                   <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9035072" target="_blank" rel="noopener noreferrer">The Clinical Pharmacogenetics Implementation Consortium Guideline for SLCO1B1, ABCG2, and CYP2C9 genotypes and Statin-Associated Musculoskeletal Symptoms.</a> <i>Clinical pharmacology and therapeutics</i>. 2022. PMID:35152405</li>
+                
+                  <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/39676086" target="_blank" rel="noopener noreferrer">Dutch Pharmacogenetics Working Group (DPWG) guideline for the gene-drug interaction between SLCO1B1 and statins and CYP2C9 and sulfonylureas.</a> <i>European journal of human genetics : EJHG</i>. 2024. PMID:39676086</li>
                 
                   <li><a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations" target="_blank" rel="noopener noreferrer">FDA Table of Pharmacogenetic Associations</a>.</li>
                 
@@ -11991,7 +12050,9 @@ Further dose adjustments or selection of alternative therapy may be necessary du
     
       <div>
         <h3>Drugs With No Guidance</h3>
-        <p>The following drugs are known to be associated with the given genes but have no guidance for their genotypes.</p>
+        <p>The following drugs are known to be associated with genes in this report but have no guidance for the
+          specific genotypes in this report. For more information, see the
+          <a href="https://www.pharmgkb.org/prescribingInfo">"Prescribing Info" page on PharmGKB</a>.</p>
         <ul>
           
             <li>Ascorbic acid (vitamin C), combinations</li>
@@ -12057,6 +12118,8 @@ Further dose adjustments or selection of alternative therapy may be necessary du
             <li>raltegravir</li>
           
             <li>ribavirin</li>
+          
+            <li>ropivacaine</li>
           
             <li>sacituzumab govitecan</li>
           
@@ -26107,6 +26170,30 @@ Further dose adjustments or selection of alternative therapy may be necessary du
                       <ul class="noBullet mt-0 mb-0">
                         
                           <li>*20 - Unassigned</li>
+                        
+                      </ul>
+                    
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr>
+              
+                <tr id="chr13_48045714" style="vertical-align: initial;">
+                  <td>chr13:48045714</td>
+                  <td id="rs1185228044">rs1185228044</td>
+                  
+                  
+                    <td class="">G/G</td>
+                  
+                  <td>
+                    G
+                  </td>
+                  <td>
+                    
+                      <ul class="noBullet mt-0 mb-0">
+                        
+                          <li>*21 - Unassigned</li>
                         
                       </ul>
                     

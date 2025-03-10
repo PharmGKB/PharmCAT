@@ -1,12 +1,12 @@
 {
   "formatVersion": "2",
   "source": "PHARMGKB",
-  "version": "2024-11-06-02-36",
+  "version": "2025-03-07-16-38",
   "modificationDate": "2023-05-04T00:25:05.851Z",
   "gene": "VKORC1",
   "orientation": null,
   "chromosome": "chr16",
-  "genomeBuild": "GRCh38.p13",
+  "genomeBuild": "GRCh38.p14",
   "refSeqChromosomeId": "NC_000016.10",
   "variants": [
     {
@@ -41,6 +41,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
+      "corePositions": null,
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -55,11 +57,24 @@
       ],
       "reference": false,
       "structuralVariant": false,
+      "corePositions": [
+        31096368
+      ],
+      "score": 0,
       "numCombinations": 0,
       "numPartials": 0
     }
   ],
   "singularVariants": [
-    "chr16:31096368"
-  ]
+    31096368
+  ],
+  "positionToAlleles": {
+    "31096368": [
+      "rs9923231 variant (T)"
+    ]
+  },
+  "positionToLocus": {
+    "31096368": 0
+  },
+  "shellAlleles": {}
 }
