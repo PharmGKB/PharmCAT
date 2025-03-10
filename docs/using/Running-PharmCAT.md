@@ -305,6 +305,8 @@ results from the `Named Allele Matcher` and the `Phenotyper`.  It will have the 
     unless it comes from an outside call) used to map to a clinical prescribing recommendation
     ([see below](#recommendation-lookup-columns) for details)
 
+See the [Examples page](/examples/) for sample .report.tsv files.
+
 
 #### _Source Diplotype_ Column
 

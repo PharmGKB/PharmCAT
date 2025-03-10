@@ -45,6 +45,7 @@ data. This data is visible in an HTML report and also in a JSON file for machine
 
 - [example report HTML](pharmcat.example.report.html)
 - [example report JSON](pharmcat.example.report.json)
+- [example calls-only report TSV](pharmcat.example.report.tsv)
 
 
 # Example 2 - Some Non-Reference Alleles
@@ -63,3 +64,4 @@ the source variant data and the corresponding output files that would result fro
 - [example2 phenotype JSON](pharmcat.example2.phenotype.json)
 - [example2 report HTML](pharmcat.example2.report.html)
 - [example2 report JSON](pharmcat.example2.report.json)
+- [example2 calls-only report TSV](pharmcat.example2.report.tsv)
