@@ -10,11 +10,16 @@ set -o pipefail
 
 
 MISSING="false"
+GENE=""
 
-while getopts 'm' OPTION; do
+while getopts 'mg' OPTION; do
   case "$OPTION" in
     m)
       MISSING="true"
+      ;;
+
+    g)
+      GENE=${2}
       ;;
 
     ?)
@@ -28,7 +33,7 @@ shift "$(($OPTIND -1))"
 
 
 # cd to location of script
-cd $(dirname $0)
+cd "$(dirname $0)"
 
 if [ -z ${PHARMCAT_DATA_DIR+x} ]; then
   dataDir="../../../build"
@@ -43,12 +48,17 @@ OUTPUT_DIR="${dataDir}/testVcf"
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
     gene=$(echo $(basename $file) | cut -d "_" -f1)
+    if [[ -n $GENE ]]; then
+      if [[ $GENE != "$gene" ]]; then
+        continue
+      fi
+    fi
     echo "$gene"
-    mkdir -p ${OUTPUT_DIR}/${gene}
+    mkdir -p "${OUTPUT_DIR}/${gene}"
     if [[ $MISSING == "false" ]]; then
-      ./test_gen.py $file ${OUTPUT_DIR}/${gene}
+      ./test_gen.py "$file" "${OUTPUT_DIR}/${gene}"
     else
-      ./test_gen_missing.py $file ${OUTPUT_DIR}/${gene}
+      ./test_gen_missing.py "$file" "${OUTPUT_DIR}/${gene}"
     fi
     if [ "${PHARMCAT_TEST_QUIET-defined}" != "true" ]; then
       echo ""
