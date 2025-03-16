@@ -4,12 +4,17 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.invoke.MethodHandles;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
-import com.google.common.base.Charsets;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.FileUtils;
@@ -18,6 +23,7 @@ import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
+import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
@@ -134,8 +140,7 @@ public class GeneDrugSummary {
           drugList.append(" |\n");
         });
 
-    String summaryTemplate = FileUtils.readFileToString(SUMMARY_TEMPLATE_FILE.toFile(), Charsets.UTF_8);
-    String phenotypesTemplate = FileUtils.readFileToString(PHENOTYPES_TEMPLATE_FILE.toFile(), Charsets.UTF_8);
+    String summaryTemplate = FileUtils.readFileToString(SUMMARY_TEMPLATE_FILE.toFile(), StandardCharsets.UTF_8);
     Path summaryFile = documentationDir.resolve(SUMMARY_FILE_NAME);
     try (BufferedWriter writer = Files.newBufferedWriter(summaryFile)) {
       writer.write(String.format(summaryTemplate, matcherGeneList, outsideCallGeneList, drugSourceMap.keySet().size(),
@@ -143,6 +148,8 @@ public class GeneDrugSummary {
     }
     sf_logger.info("Saving summary to {}", summaryFile);
 
+
+    String phenotypesTemplate = FileUtils.readFileToString(PHENOTYPES_TEMPLATE_FILE.toFile(), StandardCharsets.UTF_8);
     Path mdAlleleFile = documentationDir.resolve(PHENOTYPES_MD_FILE_NAME);
     Path tsvAlleleFile = documentationDir.resolve(PHENOTYPES_TSV_FILE_NAME);
     try (PrintWriter mdWriter = new PrintWriter(Files.newBufferedWriter(mdAlleleFile));
@@ -307,6 +314,41 @@ public class GeneDrugSummary {
       }
     }
     sf_logger.info("Saving allele data to {}", summaryFile);
+
+
+    Path nat2ExceptionFile = documentationDir.resolve("methods/unphasedPriorities-NAT2.md");
+    try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(nat2ExceptionFile))) {
+      DefinitionExemption exemption = Objects.requireNonNull(m_definitionReader.getExemption("NAT2"));
+      AtomicInteger count = new AtomicInteger(0);
+      int half = (exemption.getUnphasedDiplotypePriorities().size() + 1) / 2;
+      List<String> col1 = new ArrayList<>();
+      List<String> col2 = new ArrayList<>();
+      exemption.getUnphasedDiplotypePriorities().entrySet().stream()
+          .sorted(Map.Entry.comparingByValue(HaplotypeNameComparator.getComparator()))
+          .forEach(entry -> {
+            String[] dips = DefinitionExemption.splitUnphasedPriorityKey(entry.getKey());
+            String pick = entry.getValue();
+            StringBuilder builder = new StringBuilder();
+            builder.append("* __")
+                .append(pick.replaceAll("\\*", "\\\\*"))
+                .append("__");
+            for (String dip : dips) {
+              if (!dip.equals(pick)) {
+                builder.append(", ")
+                    .append(dip.replaceAll("\\*", "\\\\*"));
+              }
+            }
+            List<String> col = count.getAndIncrement() > half ? col2 : col1;
+            col.add(builder.toString());
+          });
+      for (int x = 0; x < col1.size(); x++) {
+        writer.print("| " + col1.get(x) + " | ");
+        if (col2.size() > x) {
+          writer.print(col2.get(x));
+        }
+        writer.println(" |");
+      }
+    }
   }
 
   private void collectDiplotypeMetadata(GenePhenotype dpwgGp, SortedSet<String> dpwgPhenotypes, SortedSet<String> dpwgScores) {

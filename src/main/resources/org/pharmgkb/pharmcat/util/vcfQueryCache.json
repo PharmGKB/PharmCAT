@@ -11443,5 +11443,12 @@
     "hgvs": "NC_000008.11:g.18400860G>A",
     "position": 1.840086E7,
     "ref": "G"
+  },
+  "https://api.pharmgkb.org/v1/pharmcat/extraPosition/rs1801279": {
+    "alt": "A",
+    "chrom": "chr8",
+    "hgvs": "NC_000008.11:g.18400194G>A",
+    "position": 1.8400194E7,
+    "ref": "G"
   }
 }

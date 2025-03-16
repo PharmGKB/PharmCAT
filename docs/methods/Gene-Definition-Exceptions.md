@@ -12,6 +12,7 @@ modifications for the following genes:
 * [CYP3A4](#cyp3a4)
 * [DPYD](#dpyd)
 * [G6PD](#g6pd)
+* [NAT2](#nat2)
 * [SLCO1B1](#slco1b1)
 * [RYR1](#ryr1)
 
@@ -145,6 +146,16 @@ This poses nontrivial challenges to properly format variant representations for 
 PharmCAT to accurately recognize any genetic variants of this kind at any allele-defining position.
 Due to this challenge, NC_000023.11:g.154532991_154532993delGGT, which defines `Villeurbanne`,
 is currently excluded from the _G6PD_ allele definitions in PharmCAT.
+
+
+## NAT2
+
+If the `Named Allele Matcher` produce multiple calls for NAT2 due to unphased sample data, PharmCAT tries to use
+frequency data to make a single call.
+
+These are the affected calls, with priority given to the one in bold. 
+
+{% include_relative unphasedPriorities-NAT2.md %}
 
 
 ## RYR1
