@@ -211,7 +211,7 @@ public class VcfHelper implements AutoCloseable {
 
         // don't bother sorting, bcftools will deal with it
         for (VcfData vcf : data) {
-          printVcfLine(writer, chr, vcf.pos, null, vcf.ref, vcf.alt, null, "0/0");
+          printVcfLine(writer, chr, vcf.pos, null, vcf.ref, vcf.alt, null, "0/0", null);
         }
       }
 
@@ -317,7 +317,7 @@ public class VcfHelper implements AutoCloseable {
 
 
   public static void printVcfLine(PrintWriter writer, String chr, long pos, @Nullable String rsid, String ref,
-      String alt, @Nullable String info, String sample) {
+      String alt, @Nullable String info, String sample, @Nullable Integer phaseSet) {
 
     writer.print(chr);
     writer.print("\t");
@@ -331,8 +331,17 @@ public class VcfHelper implements AutoCloseable {
     writer.print("\t." +    // qual
         "\tPASS\t");        // filter
     writer.print(Objects.requireNonNullElse(info, "."));
-    writer.print("\tGT\t"); // format
-    writer.println(sample);
+    writer.print("\tGT"); // format
+    if (phaseSet != null) {
+      writer.print(":PS");
+    }
+    writer.print("\t");
+    writer.print(sample);
+    if (phaseSet != null) {
+      writer.print(":");
+      writer.print(phaseSet);
+    }
+    writer.println();
   }
 
 
@@ -425,10 +434,9 @@ public class VcfHelper implements AutoCloseable {
       if (this == obj) {
         return true;
       }
-      if (!(obj instanceof VcfData)) {
+      if (!(obj instanceof VcfData o)) {
         return false;
       }
-      VcfData o = (VcfData)obj;
       return Objects.equals(chrom, o.chrom) &&
           Objects.equals(pos, o.pos) &&
           Objects.equals(ref, o.ref) &&

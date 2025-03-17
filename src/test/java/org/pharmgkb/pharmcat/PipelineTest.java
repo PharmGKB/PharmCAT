@@ -27,6 +27,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
@@ -2171,5 +2172,25 @@ class PipelineTest {
     assertEquals(2, warnings.size());
     assertTrue(warnings.get(0).text().toLowerCase().contains("does not match expected reference"));
     assertTrue(warnings.get(1).text().toLowerCase().contains("duplicate entry"));
+  }
+
+  @Test
+  void phaseSet(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+        .saveIntermediateFiles();
+
+    testWrapper.getVcfBuilder()
+        //chr1	97078987	.	G	T	61.6	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:60:45:28,17:0.377778:61,0,66:96997594
+        //chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720
+        .reference("DPYD")
+        .variationInPhaseSet("DPYD", "rs114096998", 1, "G", "T")
+        .variationInPhaseSet("DPYD", "rs1801265", 1, "A", "G")
+    ;
+
+    Path vcfFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PipelineTest-phaseSet.vcf");
+    vcfFile = testWrapper.execute(vcfFile, null, null, false);
+
+    Document document = readHtmlReport(vcfFile);
+
   }
 }

@@ -137,6 +137,9 @@ public class ReportHelpers {
       cellStyle = StringUtils.strip(cellStyle + " mismatch");
     }
     String call = formatCall(variantReport.getCall());
+    if (variantReport.getPhaseSet() != null) {
+      call += " (PS:" + variantReport.getPhaseSet() + ")";
+    }
     return String.format(sf_variantAlleleTemplate, cellStyle, call, mismatch);
   }
 
@@ -513,7 +516,14 @@ public class ReportHelpers {
     if (geneReport.isOutsideCall()) {
       return "Unavailable for calls made outside PharmCAT";
     }
-    return geneReport.isPhased() ? "Phased" : "Unphased";
+    if (geneReport.isPhased()) {
+      if (geneReport.getVariantReports().stream()
+          .anyMatch(vr -> vr.getPhaseSet() != null)) {
+        return "Phased, with phase sets (PS)";
+      }
+      return "Phased";
+    }
+    return "Unphased";
   }
 
   public static boolean amdShowUnphasedNote(GeneReport geneReport) {

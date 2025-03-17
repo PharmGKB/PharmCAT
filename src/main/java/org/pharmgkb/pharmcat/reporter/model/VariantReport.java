@@ -49,6 +49,9 @@ public class VariantReport implements Comparable<VariantReport> {
   @Expose
   @SerializedName("phased")
   private boolean m_phased = false;
+  @Expose
+  @SerializedName("phaseSet")
+  private Integer m_phaseSet;
   // TODO(markwoon): remove deprecated wildtypeAllele in next major release (4.0)
   @Expose
   @SerializedName(value = "referenceAllele", alternate = {"wildtypeAllele"})
@@ -61,25 +64,27 @@ public class VariantReport implements Comparable<VariantReport> {
   private Set<String> m_warnings = new TreeSet<>();
 
   public VariantReport(String gene, Variant variant) {
-    setGene(gene);
-    setPosition(variant.getPosition());
-    setCall(variant.getVcfCall());
-    setDbSnpId(variant.getRsid());
-    setPhased(variant.isPhased());
+    m_gene = gene;
+    m_position = variant.getPosition();
+    m_dbSnpId = variant.getRsid();
+    m_phased = variant.isPhased();
+    m_phaseSet = variant.getPhaseSet();
+
+    if (VariantUtils.isValidCall(variant.getVcfCall())) {
+      m_call = variant.getVcfCall();
+    } else {
+      sf_logger.debug("Bad call value for {}: {}", this, variant.getVcfCall());
+    }
   }
 
   public VariantReport(String gene, VariantLocus locus) {
-    setGene(gene);
-    setPosition(locus.getPosition());
-    setDbSnpId(locus.getRsid());
+    m_gene = gene;
+    m_position = locus.getPosition();
+    m_dbSnpId = locus.getRsid();
   }
 
   public String getGene() {
     return m_gene;
-  }
-
-  public void setGene(String gene) {
-    m_gene = gene;
   }
 
   public String getChr() {
@@ -94,21 +99,8 @@ public class VariantReport implements Comparable<VariantReport> {
     return m_position;
   }
 
-  public void setPosition(long position) {
-    m_position = position;
-  }
-
   public String getCall() {
     return m_call;
-  }
-
-  public void setCall(String call) {
-    if (VariantUtils.isValidCall(call)) {
-      m_call = call;
-    }
-    else {
-      sf_logger.debug("Bad call value for {}: {}", this, call);
-    }
   }
 
   public boolean isHetCall() {
@@ -127,16 +119,12 @@ public class VariantReport implements Comparable<VariantReport> {
     return m_phased;
   }
 
-  public void setPhased(boolean phased) {
-    m_phased = phased;
+  public Integer getPhaseSet() {
+    return m_phaseSet;
   }
 
   public String getDbSnpId() {
     return m_dbSnpId;
-  }
-
-  public void setDbSnpId(String dbSnpId) {
-    m_dbSnpId = dbSnpId;
   }
 
   public String getReferenceAllele() {

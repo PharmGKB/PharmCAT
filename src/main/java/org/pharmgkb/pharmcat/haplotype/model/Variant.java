@@ -84,6 +84,12 @@ public class Variant implements Comparable<Variant>  {
     return m_isPhased;
   }
 
+
+  public Integer getPhaseSet() {
+    return m_phaseSet;
+  }
+
+
   /**
    * Gets the comma-separated list of all possible alleles from the VCF (i.e. REF and ALT).
    */

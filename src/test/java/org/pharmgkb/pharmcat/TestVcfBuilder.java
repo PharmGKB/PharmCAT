@@ -94,6 +94,15 @@ public class TestVcfBuilder {
     return this;
   }
 
+  public TestVcfBuilder variationInPhaseSet(String gene, String rsid, int phaseSet, String... cpicAlleles) {
+    VcfEdit edit = new VcfEdit(rsid, cpicAlleles);
+    edit.ps = phaseSet;
+    edit.isPhased = true;
+    m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+        .put(edit.id, edit);
+    return this;
+  }
+
   public TestVcfBuilder variation(String gene, String chrom, long position, String... cpicAlleles) {
     VcfEdit edit = new VcfEdit(chrom, position, cpicAlleles);
     m_edits.computeIfAbsent(gene, g -> new HashMap<>())
@@ -282,7 +291,7 @@ public class TestVcfBuilder {
           sample = m_isPhased ? "0|0" : "0/0";
         }
         VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-            String.join(",", vl.getAlts()), info, sample);
+            String.join(",", vl.getAlts()), info, sample, null);
 
       } else {
         // custom sample
@@ -313,7 +322,7 @@ public class TestVcfBuilder {
     if (edit.gt != null) {
       // write out VCF line as-is
       VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), edit.ref,
-          String.join(",", edit.vcfAltAlleles), info, edit.gt);
+          String.join(",", edit.vcfAltAlleles), info, edit.gt, edit.ps);
       return;
     }
 
@@ -367,7 +376,7 @@ public class TestVcfBuilder {
     }
     String sample = builder.toString();
     VcfHelper.printVcfLine(writer, definitionFile.getChromosome(), vl.getPosition(), vl.getRsid(), vl.getRef(),
-        String.join(",", alts), info, sample);
+        String.join(",", alts), info, sample, edit.ps);
   }
 
   private String buildRefSample(int times) {
@@ -388,6 +397,7 @@ public class TestVcfBuilder {
     private String[] vcfAltAlleles;
     private String ref;
     private String gt;
+    private Integer ps;
     private Boolean isPhased;
 
     private VcfEdit(String rsid, @Nullable String[] cpicAlleles) {

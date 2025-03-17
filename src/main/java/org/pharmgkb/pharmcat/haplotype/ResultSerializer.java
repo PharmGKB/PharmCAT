@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,6 +29,7 @@ import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
+import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.util.DataSerializer;
 
 
@@ -97,107 +97,147 @@ public class ResultSerializer {
     for (GeneCall call : result.getGeneCalls()) {
       MatchData matchData = call.getMatchData();
       Map<Long, String> refAlleleMap = new HashMap<>();
-      Arrays.stream(matchData.getPositions()).forEach(vl -> refAlleleMap.put(vl.getPosition(), vl.getRef()));
+      boolean hasPhaseSets = false;
+      for (VariantLocus vl : matchData.getPositions()) {
+        refAlleleMap.put(vl.getPosition(), vl.getRef());
+        if (matchData.getSampleAllele(vl.getPosition()).getPhaseSet() != null) {
+          hasPhaseSets = true;
+        }
+      }
       Set<Long> highlightPositions = new HashSet<>();
       builder.append("<h3>")
           .append(call.getGene())
           .append("</h3>\n");
 
-      builder.append("<ul>");
-      for (DiplotypeMatch diplotype : call.getDiplotypes()) {
-        builder.append("  <li>")
-            .append(diplotype.getName())
-            .append(" (")
-            .append(diplotype.getScore())
-            .append(")</li>");
-      }
-      builder.append("</ul>\n");
-
-      builder.append("<table class=\"table table-striped table-hover table-sm\">\n");
-      // position
-      builder.append("  <tr>");
-      builder.append("<th class=\"first\">Definition Position</th>");
-      for (Variant v : call.getVariants()) {
-        builder.append("<th>")
-            .append(v.getPosition())
-            .append("</th>");
-      }
-      builder.append("</tr>");
-      // rsid
-      builder.append("  <tr>");
-      builder.append("<th></th>");
-      for (Variant v : call.getVariants()) {
-        builder.append("<th>");
-        if (v.getRsid() != null) {
-          builder.append(v.getRsid());
+      boolean missingRequired = false;
+      for (MessageAnnotation msg : call.getWarnings()) {
+        if (msg.getName().equals("unphased-priority")) {
+          builder.append("<p>")
+              .append(msg.getMessage())
+              .append("</p>\n");
         }
-        builder.append("</th>");
+        if (msg.getName().equals("missing-required-position")) {
+          missingRequired = true;
+          builder.append("<p>")
+              .append(msg.getMessage())
+              .append("</p>\n");
+        }
       }
-      builder.append("</tr>");
-      // VCF position
-      builder.append("  <tr>");
-      builder.append("<th class=\"first\">VCF Position</th>");
-      for (Variant v : call.getVariants()) {
-        builder.append("<th>")
-            .append(v.getPosition())
-            .append("</th>");
-      }
-      builder.append("</tr>");
-      // sample
-      builder.append("  <tr>");
-      builder.append("<th class=\"first\">VCF REF,ALTs</th>");
-      for (Variant v : call.getVariants()) {
-        builder.append("<th>")
-            .append(v.getVcfAlleles())
-            .append("</th>");
-      }
-      builder.append("</tr>\n");
 
-      builder.append("  <tr class=\"table-success\">");
-      builder.append("<th class=\"first\">VCF Call</th>");
-      for (Variant v : call.getVariants()) {
-        if (v.getVcfCall() != null) {
-          SortedSet<String> alleles = new TreeSet<>(Splitter.on(v.isPhased() ? "|" : "/").splitToList(v.getVcfCall()));
-          boolean isNonRef = false;
-          if (alleles.size() > 1 || !alleles.first().equals(refAlleleMap.get(v.getPosition()))) {
-            isNonRef = true;
-            highlightPositions.add(v.getPosition());
-          }
-          builder.append("<th");
-          if (isNonRef) {
-            builder.append(" class=\"table-danger\"");
-          }
-          builder.append(">")
-              .append(v.getVcfCall())
+      if (!missingRequired) {
+        builder.append("<ul>");
+        for (DiplotypeMatch diplotype : call.getDiplotypes()) {
+          builder.append("  <li>")
+              .append(diplotype.getName())
+              .append(" (")
+              .append(diplotype.getScore())
+              .append(")</li>");
+        }
+        builder.append("</ul>\n");
+
+        builder.append("<table class=\"table table-striped table-hover table-sm\">\n");
+        // position
+        builder.append("  <tr>");
+        builder.append("<th class=\"first\">Definition Position</th>");
+        for (Variant v : call.getVariants()) {
+          builder.append("<th>")
+              .append(v.getPosition())
               .append("</th>");
-        } else {
-          builder.append("<th />");
         }
-      }
-      builder.append("</tr>\n");
+        builder.append("</tr>");
+        // rsid
+        builder.append("  <tr>");
+        builder.append("<th></th>");
+        for (Variant v : call.getVariants()) {
+          builder.append("<th>");
+          if (v.getRsid() != null) {
+            builder.append(v.getRsid());
+          }
+          builder.append("</th>");
+        }
+        builder.append("</tr>");
+        // VCF position
+        builder.append("  <tr>");
+        builder.append("<th class=\"first\">VCF Position</th>");
+        for (Variant v : call.getVariants()) {
+          builder.append("<th>")
+              .append(v.getPosition())
+              .append("</th>");
+        }
+        builder.append("</tr>");
+        if (hasPhaseSets) {
+          builder.append("  <tr>");
+          builder.append("<th class=\"first\">VCF Phase Set</th>");
+          for (Variant v : call.getVariants()) {
+            builder.append("<th>");
+            Integer ps = matchData.getSampleAllele(v.getPosition()).getPhaseSet();
+            if (ps != null) {
+              builder.append(ps);
+            }
+            builder.append("</th>");
+          }
+          builder.append("</tr>\n");
+        }
+        // sample
+        builder.append("  <tr>");
+        builder.append("<th class=\"first\">VCF REF,ALTs</th>");
+        for (Variant v : call.getVariants()) {
+          builder.append("<th>")
+              .append(v.getVcfAlleles())
+              .append("</th>");
+        }
+        builder.append("</tr>\n");
 
-      Set<String> matchedHaplotypeNames = new HashSet<>();
-      if (call.getHaplotypes().size() > 0) {
-        for (BaseMatch hm : call.getHaplotypes()) {
-          matchedHaplotypeNames.add(hm.getHaplotype().getName());
-          printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype().getPermutations().pattern(), "table-info",
-              highlightPositions);
-          for (String seq : hm.getSequences()) {
-            printAllele(builder, null, seq, null, highlightPositions);
+        builder.append("  <tr class=\"table-success\">");
+        builder.append("<th class=\"first\">VCF Call</th>");
+        for (Variant v : call.getVariants()) {
+          if (v.getVcfCall() != null) {
+            SortedSet<String> alleles = new TreeSet<>(Splitter.on(v.isPhased() ? "|" : "/")
+                .splitToList(v.getVcfCall()));
+            boolean isNonRef = false;
+            if (alleles.size() > 1 || !alleles.first().equals(refAlleleMap.get(v.getPosition()))) {
+              isNonRef = true;
+              highlightPositions.add(v.getPosition());
+            }
+            builder.append("<th");
+            if (isNonRef) {
+              builder.append(" class=\"table-danger\"");
+            }
+            builder.append(">")
+                .append(v.getVcfCall())
+                .append("</th>");
+          } else {
+            builder.append("<th />");
           }
         }
-      }
-      if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.size() == 0) {
-        for (NamedAllele haplotype : matchData.getHaplotypes()) {
-          if (!matchedHaplotypeNames.contains(haplotype.getName())) {
-            printAllele(builder, haplotype.getName(), haplotype.getPermutations().pattern(), "table-danger", highlightPositions);
+        builder.append("</tr>\n");
+
+        Set<String> matchedHaplotypeNames = new HashSet<>();
+        if (!call.getHaplotypes().isEmpty()) {
+          for (BaseMatch hm : call.getHaplotypes()) {
+            matchedHaplotypeNames.add(hm.getHaplotype().getName());
+            printAllele(builder, hm.getHaplotype().getName(), hm.getHaplotype()
+                    .getPermutations()
+                    .pattern(), "table-info",
+                highlightPositions);
+            for (String seq : hm.getSequences()) {
+              printAllele(builder, null, seq, null, highlightPositions);
+            }
           }
         }
+        if (m_alwaysShowUnmatchedHaplotypes || matchedHaplotypeNames.isEmpty()) {
+          for (NamedAllele haplotype : matchData.getHaplotypes()) {
+            if (!matchedHaplotypeNames.contains(haplotype.getName())) {
+              printAllele(builder, haplotype.getName(), haplotype.getPermutations()
+                  .pattern(), "table-danger", highlightPositions);
+            }
+          }
+        }
+
+        builder.append("</table>\n");
       }
 
-      builder.append("</table>\n");
-
-      if (matchData.getMissingPositions().size() > 0) {
+      if (!matchData.getMissingPositions().isEmpty()) {
         builder.append("<p>There ");
         if (matchData.getMissingPositions().size() > 1) {
           builder.append("were ");
@@ -216,7 +256,7 @@ public class ResultSerializer {
         }
         builder.append("</ul>\n");
 
-        if (call.getUncallableHaplotypes().size() > 0) {
+        if (!missingRequired && !call.getUncallableHaplotypes().isEmpty()) {
           builder.append("<p>The following haplotype(s) were eliminated from consideration:</p>")
               .append("<ul>");
           for (String name : call.getUncallableHaplotypes()) {
@@ -227,11 +267,11 @@ public class ResultSerializer {
           builder.append("</ul>\n");
         }
 
-        if (call.getHaplotypes().size() > 0) {
+        if (!call.getHaplotypes().isEmpty()) {
           builder.append("<p>The following haplotypes were called even though tag positions were missing:</p>\n")
               .append("<ul>");
           for (BaseMatch hm : call.getHaplotypes()) {
-            if (hm.getHaplotype().getMissingPositions().size() > 0) {
+            if (!hm.getHaplotype().getMissingPositions().isEmpty()) {
               builder.append("  <li>Called ")
                   .append(hm.getName())
                   .append(" without ")

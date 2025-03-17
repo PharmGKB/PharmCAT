@@ -1211,6 +1211,11 @@ public class NamedAlleleMatcherTest {
     assertEquals(1, geneCall.getWarnings().size());
     System.out.println(geneCall.getWarnings());
     assertEquals("unphased-priority", geneCall.getWarnings().get(0).getName());
+
+    Path dir = TestUtils.getTestOutputDir(testInfo, true);
+    Path jsonRezFile = dir.resolve("matcher.json");
+    Path htmlRezFile = dir.resolve("matcher.html");
+    namedAlleleMatcher.saveResults(result, jsonRezFile, htmlRezFile);
   }
 
 
@@ -1256,6 +1261,11 @@ public class NamedAlleleMatcherTest {
     matches = printMatches(geneCall);
     assertEquals(0, matches.size());
     assertEquals(0, geneCall.getDiplotypes().size());
+
+    Path dir = TestUtils.getTestOutputDir(testInfo, true);
+    Path jsonRezFile = dir.resolve("matcher.json");
+    Path htmlRezFile = dir.resolve("matcher.html");
+    namedAlleleMatcher.saveResults(result, jsonRezFile, htmlRezFile);
   }
 
 
