@@ -27,7 +27,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
@@ -2174,23 +2173,60 @@ class PipelineTest {
     assertTrue(warnings.get(1).text().toLowerCase().contains("duplicate entry"));
   }
 
+
+  /**
+   * Based on issue #175.
+   * {@code chr1	97078987	.	G	T	61.6	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:60:45:28,17:0.377778:61,0,66:96997594}
+   * {@code chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720}
+   */
   @Test
   void phaseSet(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+    // unphased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, "unphased", false, false, false)
         .saveIntermediateFiles();
-
     testWrapper.getVcfBuilder()
-        //chr1	97078987	.	G	T	61.6	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:60:45:28,17:0.377778:61,0,66:96997594
-        //chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720
-        .reference("DPYD")
-        .variationInPhaseSet("DPYD", "rs114096998", 1, "G", "T")
-        .variationInPhaseSet("DPYD", "rs1801265", 1, "A", "G")
+        //.phased()
+        .variation("DPYD", "rs114096998", "G", "T")
+        .variation("DPYD", "rs1801265", "A", "G")
     ;
+    Path vcfFile = testWrapper.execute();
 
-    Path vcfFile  = PathUtils.getPathToResource("org/pharmgkb/pharmcat/PipelineTest-phaseSet.vcf");
-    vcfFile = testWrapper.execute(vcfFile, null, null, false);
+    List<String> expectedCalls = List.of(
+        "c.85T>C (*9A)",
+        "c.3067C>A"
+    );
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, null, expectedCalls, false, RecPresence.YES);
 
-    Document document = readHtmlReport(vcfFile);
 
+    // phased
+    testWrapper = new PipelineWrapper(testInfo, "phased", false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variation("DPYD", "rs114096998", "G", "T")
+        .variation("DPYD", "rs1801265", "A", "G")
+    ;
+    vcfFile = testWrapper.execute();
+    expectedCalls = List.of("Reference/[c.85T>C (*9A) + c.3067C>A]");
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls,
+        List.of("[c.85T>C (*9A) + c.3067C>A] (heterozygous)"), List.of("Reference", "c.85T>C (*9A)"),
+        false, RecPresence.YES);
+
+
+    // phased with phase sets
+    testWrapper = new PipelineWrapper(testInfo, "phaseSet", false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variationInPhaseSet("DPYD", "rs114096998", 96997594, "G", "T")
+        .variationInPhaseSet("DPYD", "rs1801265", 97710720, "A", "G")
+    ;
+    vcfFile = testWrapper.execute();
+
+    expectedCalls = List.of(
+        "c.85T>C (*9A)",
+        "c.3067C>A"
+    );
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, null, expectedCalls, false, RecPresence.YES);
   }
 }

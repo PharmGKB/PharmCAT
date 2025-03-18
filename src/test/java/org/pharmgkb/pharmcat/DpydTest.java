@@ -47,7 +47,7 @@ class DpydTest {
   @BeforeAll
   static void prepare() {
     ReportHelpers.setDebugMode(true);
-    //TestUtils.setSaveTestOutput(true);
+    TestUtils.setSaveTestOutput(true);
   }
 
   @AfterEach
@@ -122,7 +122,7 @@ class DpydTest {
         RecPresence.YES);
   }
 
-  private void doStandardChecks(PipelineWrapper testWrapper, Path vcfFile, List<String> expectedCalls,
+  static void doStandardChecks(PipelineWrapper testWrapper, Path vcfFile, List<String> expectedCalls,
       @Nullable List<String> cpicStyleCalls, @Nullable List<String> recommendedDips, boolean hasMissingPositions,
       RecPresence hasDpwgAnnotations) throws Exception {
 
@@ -1062,5 +1062,35 @@ class DpydTest {
     List<String> recommendedDiplotypes = List.of("c.1905+1G>A (*2A)", "c.1129-5923C>G");
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, null, recommendedDiplotypes, false, RecPresence.YES);
+  }
+
+
+  @Test
+  void phaseBlock1(TestInfo testInfo) throws Exception {
+    // phased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, "phased", false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variation("DPYD", "rs140114515", "C", "T")
+        .variation("DPYD", "rs1801268", "C", "A")
+        .variation("DPYD", "rs67376798", "T", "A")
+        .variation("DPYD", "rs1801265", "A", "G")
+    ;
+    Path vcfFile = testWrapper.execute();
+
+
+    // phased with phase sets
+    testWrapper = new PipelineWrapper(testInfo, "phaseSet", false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variationInPhaseSet("DPYD", "rs140114515", 1, "C", "T")
+        .variationInPhaseSet("DPYD", "rs1801268", 1, "C", "A")
+        .variationInPhaseSet("DPYD", "rs67376798", 1, "T", "A")
+        .variationInPhaseSet("DPYD", "rs1801265", 2, "A", "G")
+    ;
+    vcfFile = testWrapper.execute();
+
   }
 }

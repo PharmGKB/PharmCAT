@@ -511,6 +511,9 @@ public class VcfReader implements VcfLineParser {
       String p = sampleData.get(m_sampleIdx).getProperty("PS");
       if (p != null && !p.equals(".")) {
         phaseSet = Integer.valueOf(p);
+        if (gtUnique.size() > 1) {
+          isEffectivelyPhased = false;
+        }
       }
     }
 
