@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.haplotype;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,6 +34,9 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
+import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.ReportContext;
+import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
 import org.pharmgkb.pharmcat.util.DataManager;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -225,6 +229,8 @@ public class NamedAlleleMatcherTest {
     // get all permutations of sample at positions of interest
     Set<String> permutations = Sets.newHashSet(
         "1:C;2:C;4:TG;",
+        "1:C;2:CT;4:TG;",
+        "1:T;2:C;4:T;",
         "1:T;2:CT;4:T;"
     );
     data.generateSamplePermutations();
@@ -532,13 +538,24 @@ public class NamedAlleleMatcherTest {
   }
 
   @Test
-  void testPartial3() throws Exception {
+  void testPartial3(TestInfo testInfo) throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial3.json");
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-partial3Phased.vcf");
 
     DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
     NamedAlleleMatcher namedAlleleMatcher = new NamedAlleleMatcher(s_env, definitionReader, true, true, false);
     Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+
+    Path dir = TestUtils.getTestOutputDir(testInfo, true);
+    Path htmlMatchFile = dir.resolve("match.html");
+    namedAlleleMatcher.saveResults(result, null, htmlMatchFile);
+    Phenotyper phenotyper = new Phenotyper(s_env, result.getMetadata(), result.getGeneCalls(), new HashSet<>(),
+        result.getVcfWarnings());
+    ReportContext reportContext = new ReportContext(s_env, phenotyper, TestUtils.getTestName(testInfo));
+    Path htmlReportFile = dir.resolve("report.html");
+    new HtmlFormat(htmlReportFile, s_env, true)
+        .write(reportContext);
+
     // ignore novel bases
     //printWarnings(result);
     assertEquals(6, result.getVcfWarnings().size());

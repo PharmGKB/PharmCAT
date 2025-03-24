@@ -1,12 +1,12 @@
 package org.pharmgkb.pharmcat.definition.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
@@ -48,6 +48,9 @@ public class NamedAllele implements Comparable<NamedAllele> {
   @Expose
   @SerializedName("structuralVariant")
   private final boolean m_isStructuralVariant;
+  @Expose
+  @SerializedName("corePositions")
+  private SortedSet<Long> m_corePositions;
   //-- variables after this point are used by NamedAlleleMatcher --//
   /** The set of positions that are missing from this copy of the NamedAllele **/
   private final SortedSet<VariantLocus> m_missingPositions;
@@ -57,7 +60,8 @@ public class NamedAllele implements Comparable<NamedAllele> {
   private boolean m_isInitialized;
   private HashMap<VariantLocus, String> m_alleleMap;
   private HashMap<VariantLocus, String> m_cpicAlleleMap;
-  private List<Integer> m_wobblePositions;
+  private SortedSet<Integer> m_wobbleIndices;
+  private SortedSet<Long> m_wobblePositions;
   @Expose
   @SerializedName("score")
   private int m_score;
@@ -155,15 +159,21 @@ public class NamedAllele implements Comparable<NamedAllele> {
     }
     m_alleleMap = new HashMap<>();
     m_cpicAlleleMap = new HashMap<>();
-    m_wobblePositions = new ArrayList<>();
+    m_wobbleIndices = new TreeSet<>();
+    m_wobblePositions = new TreeSet<>();
+    m_corePositions = new TreeSet<>();
     for (int x = 0; x < refVariants.length; x += 1) {
       m_alleleMap.put(refVariants[x], m_alleles[x]);
       m_cpicAlleleMap.put(refVariants[x], m_cpicAlleles[x]);
       if (m_alleles[x] != null) {
         if (Iupac.isWobble(m_alleles[x])) {
-          m_wobblePositions.add(x);
+          m_wobbleIndices.add(x);
+          m_wobblePositions.add(refVariants[x].getPosition());
         }
         m_score++;
+        if (!m_isReference) {
+          m_corePositions.add(refVariants[x].getPosition());
+        }
       }
     }
     m_score -= m_numPartials;
@@ -189,11 +199,11 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * This takes wobbles into consideration.
    */
   public int scoreForSample(MatchData matchData, Collection<String> sequences) {
-    if (m_wobblePositions == null || m_wobblePositions.isEmpty()) {
+    if (m_wobbleIndices == null || m_wobbleIndices.isEmpty()) {
       return m_score;
     }
     int score = m_score;
-    for (Integer idx : m_wobblePositions) {
+    for (Integer idx : m_wobbleIndices) {
       VariantLocus vl = matchData.getPositions()[idx];
       int numRefs = 0;
       for (String seq : sequences) {
@@ -240,6 +250,19 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
 
+  /**
+   * Gets the VCF positions that define this named allele.
+   * This will be empty for the reference allele.
+   */
+  public SortedSet<Long> getCorePositions() {
+    return m_corePositions;
+  }
+
+  void setCorePositions(SortedSet<Long> corePositions) {
+    m_corePositions = corePositions;
+  }
+
+
   public boolean isCombination() {
     return m_numCombinations > 1;
   }
@@ -254,6 +277,10 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
   public int getNumPartials() {
     return m_numPartials;
+  }
+
+  public boolean isWobble(long position) {
+    return m_wobblePositions.contains(position);
   }
 
 

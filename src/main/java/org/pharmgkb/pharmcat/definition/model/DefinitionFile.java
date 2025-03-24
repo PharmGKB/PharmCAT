@@ -5,8 +5,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import com.google.common.collect.SortedSetMultimap;
-import com.google.common.collect.TreeMultimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -60,8 +58,23 @@ public class DefinitionFile {
   private SortedSet<NamedAllele> m_namedAlleles;
   @Expose
   @SerializedName("singularVariants")
-  private SortedSet<String> m_singularVariants;
-
+  private SortedSet<Long> m_singularVariants;
+  /**
+   * Maps VCF position to the named alleles for which they are a core position.
+   */
+  @Expose
+  @SerializedName("positionToAlleles")
+  private SortedMap<Long, List<String>> m_positionToAlleleMap;
+  /**
+   * Maps VCF position to an index in the {@code VariantLocus[]} array.
+   */
+  @Expose
+  @SerializedName("positionToLocus")
+  private SortedMap<Long, Integer> m_positionToLocusMap;
+  @Expose
+  @SerializedName("shellAlleles")
+  // shell named allele to subset named alleles
+  private Map<String, List<String>> m_shellAlleles;
 
 
   //-- cache
@@ -98,7 +111,7 @@ public class DefinitionFile {
 
 
   /**
-   * The date this file should be considered to be last modified (should be manually set by curators).
+   * The date this file was last modified.
    */
   public Date getModificationDate() {
     return m_modificationDate;
@@ -150,13 +163,33 @@ public class DefinitionFile {
   }
 
   /**
-   * All VCF chr:pos that are only used by a single {@link NamedAllele}s that only has 1 {@link VariantLocus}.
+   * All VCF pos that are only used by a single {@link NamedAllele}s that only has 1 {@link VariantLocus}.
    */
-  public SortedSet<String> getSingularVariants() {
+  public SortedSet<Long> getSingularVariants() {
     if (m_singularVariants == null) {
       return Collections.emptySortedSet();
     }
     return m_singularVariants;
+  }
+
+  /**
+   * Gets the VariantLocus for the specified VCF position
+   *
+   * @param position a VCF position
+   */
+  public VariantLocus getVariantForPosition(long position) {
+    if (!m_positionToLocusMap.containsKey(position)) {
+      throw new IllegalArgumentException("Unknown position: " + position);
+    }
+    return m_variants[m_positionToLocusMap.get(position)];
+  }
+
+
+  /**
+   * Gets shell alleles - a named allele that encompasses other named alleles.
+   */
+  public @Nullable Map<String, List<String>> getShellAlleles() {
+    return m_shellAlleles;
   }
 
 
@@ -259,7 +292,7 @@ public class DefinitionFile {
 
 
   /**
-   * Filters out structural variant alleles, they have no definition to match against.
+   * Filters out structural variant alleles since they have no definition to match against.
    * <p>
    * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
@@ -425,30 +458,50 @@ public class DefinitionFile {
     resetNamedAlleles(Collections.unmodifiableSortedSet(updatedNamedAlleles));
     m_variants = sortedVariants;
 
+    m_positionToAlleleMap = new TreeMap<>();
+    m_positionToLocusMap = new TreeMap<>();
     m_singularVariants = new TreeSet<>();
-    // look for alleles with only 1 position
-    SortedSet<NamedAllele> allelesWith1Position = m_namedAlleles.stream()
-        .filter(na -> !na.isReference())
-        .filter(na -> Arrays.stream(na.getCpicAlleles()).filter(Objects::nonNull).count() == 1)
-        .collect(Collectors.toCollection(TreeSet::new));
-
-    if (!allelesWith1Position.isEmpty()) {
-      // check how frequently a position is used by an allele
-      SortedSetMultimap<VariantLocus, NamedAllele> locusMap = TreeMultimap.create();
+    SortedSet<String> allelesWith1Position = new TreeSet<>();
+    for (NamedAllele na : m_namedAlleles) {
+      if (na.isReference()) {
+        continue;
+      }
+      SortedSet<Long> corePositions = new TreeSet<>();
       for (int x = 0; x < m_variants.length; x += 1) {
-        for (NamedAllele na : m_namedAlleles) {
-          if (na.isReference()) {
-            continue;
-          }
-          if (na.getCpicAllele(x) != null) {
-            locusMap.put(m_variants[x], na);
-          }
+        m_positionToLocusMap.put(m_variants[x].getPosition(), x);
+        if (na.getCpicAllele(x) != null) {
+          m_positionToAlleleMap.computeIfAbsent(m_variants[x].getPosition(), id -> new ArrayList<>())
+              .add(na.getName());
+          corePositions.add(m_variants[x].getPosition());
         }
       }
-      // get positions only used by a single allele (that are only have a single position)
-      for (VariantLocus vl : locusMap.keySet()) {
-        if (locusMap.get(vl).size() == 1 && allelesWith1Position.contains(locusMap.get(vl).first())) {
-          m_singularVariants.add(vl.getVcfChrPosition());
+      na.setCorePositions(corePositions);
+      if (corePositions.size() == 1) {
+        allelesWith1Position.add(na.getName());
+      }
+    }
+
+    if (!allelesWith1Position.isEmpty()) {
+      // get positions only used by a single allele (that only have a single position)
+      for (long pos : m_positionToAlleleMap.keySet()) {
+        if (m_positionToAlleleMap.get(pos).size() == 1 && allelesWith1Position.contains(m_positionToAlleleMap.get(pos).get(0))) {
+          m_singularVariants.add(pos);
+        }
+      }
+    }
+
+    m_shellAlleles = new HashMap<>();
+    for (NamedAllele curNa : m_namedAlleles) {
+      if (curNa.isReference()) {
+        continue;
+      }
+      for (NamedAllele checkNa : m_namedAlleles) {
+        if (checkNa.isReference() || curNa == checkNa) {
+          continue;
+        }
+        if (curNa.getCorePositions().containsAll(checkNa.getCorePositions())) {
+          m_shellAlleles.computeIfAbsent(curNa.getName(), id -> new ArrayList<>())
+              .add(checkNa.getName());
         }
       }
     }
