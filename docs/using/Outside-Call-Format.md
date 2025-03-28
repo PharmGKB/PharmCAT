@@ -79,6 +79,12 @@ stripped from the allele names.
 
 If there is an outside call for a gene that also has data from the VCF, the outside call will trump the VCF data.
 
+{: .info}
+> To avoid potential problems, please use [UTF-8 encoding](https://en.wikipedia.org/wiki/UTF-8) for outside call files.
+>
+> Pay attention to the use of special characters, especially "&ge;", which is used in CYP2D6 diplotypes and activity
+> scores.
+
 
 ### Diplotypes
 
