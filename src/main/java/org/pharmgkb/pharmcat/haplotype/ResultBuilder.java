@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -185,6 +186,20 @@ public class ResultBuilder {
         .map(NamedAllele::getName)
         .filter(n -> !matchableHaps.contains(n))
         .collect(Collectors.toSet());
+
+    if (!matchData.getMissingAmp1Positions().isEmpty()) {
+      StringBuilder builder = new StringBuilder("Missing variant");
+      if (matchData.getMissingAmp1Positions().size() > 1) {
+        builder.append("s");
+      }
+      builder.append(" required to meet AMP Tier 1 requirements:  ")
+          .append(String.join(", ", matchData.getMissingRequiredPositions()))
+          .append(". See https://www.pharmgkb.org/ampAllelesToTest for details.");
+      if (warnings == null) {
+        warnings = new ArrayList<>();
+      }
+      warnings.add(new MessageAnnotation(MessageAnnotation.TYPE_NOTE, "missing-amp1-position", builder.toString()));
+    }
 
     DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(gene);
     GeneCall geneCall = new GeneCall(definitionFile.getSource(), definitionFile.getVersion(),
