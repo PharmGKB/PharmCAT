@@ -83,25 +83,19 @@ class DiplotypeMatchTest {
     // c.1371C>T
     HaplotypeMatch hm1 = new HaplotypeMatch(na1);
     // [c.557A>G + c.1627A>G (*5) + c.85T>C (*9A)]
-    CombinationMatch cm1 = new CombinationMatch(new VariantLocus[0], na3, "CCCCC");
-    cm1.merge(na4);
-    cm1.merge(na2);
+    CombinationMatch cm1 = new CombinationMatch(new VariantLocus[0], "CCCCC", List.of(na3, na4, na2), null);
     DiplotypeMatch dmA = new DiplotypeMatch(hm1, cm1, dataset);
 
     // c.1627A>G (*5)
     HaplotypeMatch hm2 = new HaplotypeMatch(na3);
     // [c.85T>C (*9A) + c.557A>G + c.1371C>T]
-    CombinationMatch cm2 = new CombinationMatch(new VariantLocus[0], na4, "CCCCC");
-    cm2.merge(na2);
-    cm2.merge(na1);
+    CombinationMatch cm2 = new CombinationMatch(new VariantLocus[0], "CCCCC", List.of(na4, na2, na1), null);
     DiplotypeMatch dmB = new DiplotypeMatch(hm2, cm2, dataset);
 
     // c.85T>C (*9A)
     HaplotypeMatch hm3 = new HaplotypeMatch(na4);
     // [c.557A>G + c.1371C>T + c.1627A>G (*5)]
-    CombinationMatch cm3 = new CombinationMatch(new VariantLocus[0], na2, "CCCCC");
-    cm3.merge(na1);
-    cm3.merge(na3);
+    CombinationMatch cm3 = new CombinationMatch(new VariantLocus[0], "CCCCC", List.of(na2, na1, na3), null);
     DiplotypeMatch dmC = new DiplotypeMatch(hm3, cm3, dataset);
 
     System.out.println(dmA);

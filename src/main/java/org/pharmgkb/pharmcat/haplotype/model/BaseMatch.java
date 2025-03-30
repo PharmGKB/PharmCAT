@@ -1,19 +1,17 @@
 package org.pharmgkb.pharmcat.haplotype.model;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.SortedMap;
+import java.util.Objects;
 import java.util.SortedSet;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.ObjectUtils;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
-import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
@@ -65,94 +63,44 @@ public class BaseMatch implements Comparable<BaseMatch> {
   }
 
 
-
-  /**
-   * Checks if the haplotype matches the reference or has partials.
-   * Only applicable when working with combinations and partials.
-   */
-  public void finalizeCombinationHaplotype(MatchData matchData, boolean findPartials) {
-    if (getSequences().size() > 1) {
-      throw new IllegalStateException("Can only finalize if there is only 1 sequence");
-    }
-
-    SortedMap<Long, String> alleleMap = new TreeMap<>();
-    VariantLocus[] refVariants = matchData.getPositions();
-    String sequence = getSequences().first();
-    for (int x = 0; x < refVariants.length; x += 1) {
-      alleleMap.put(refVariants[x].getPosition(), matchData.getAllele(sequence, x));
-    }
-
-    List<String> partials = new ArrayList<>();
-    NamedAllele hap = getHaplotype();
-    if (findPartials) {
-      for (int x = 0; x < hap.getAlleles().length; x += 1) {
-        long pos = refVariants[x].getPosition();
-        if (hap.getAlleles()[x] == null) {
-          if (!refVariants[x].getRef().equals(alleleMap.get(pos))) {
-            VariantLocus vl = refVariants[x];
-            partials.add(vl.getHgvsForVcfAllele(alleleMap.get(pos)));
-          }
-        }
-      }
-    }
-    if (!partials.isEmpty()) {
-      if (hap.isReference()) {
-        throw new IllegalStateException("Cannot create partial based on reference!");
-      }
-
-      StringBuilder builder = new StringBuilder();
-      if (CombinationMatch.isCombinationName(m_name))  {
-        builder.append(CombinationMatch.extractCombinationName(m_name));
-      } else {
-        builder.append(getName());
-      }
-      for (String partial : partials) {
-        builder.append(CombinationMatch.COMBINATION_JOINER)
-            .append(partial);
-      }
-      setName("[" + builder + "]");
-
-      NamedAllele partialHap = new NamedAllele(hap.getId(), builder.toString(), hap.getAlleles(),
-          hap.getCpicAlleles(), hap.getMissingPositions(), false, hap.getNumCombinations(), partials.size());
-      partialHap.initialize(refVariants);
-      m_haplotype = partialHap;
-
-    } else {
-      NamedAllele newHap = new NamedAllele(hap.getId(), hap.getName(), hap.getAlleles(),
-          hap.getCpicAlleles(), hap.getMissingPositions(), hap.isReference(), hap.getNumCombinations(), 0);
-      newHap.initialize(refVariants);
-      m_haplotype = newHap;
-    }
-  }
-
-
   @Override
   public int compareTo(BaseMatch o) {
-    String name1 = getName();
-    String name2 = o.getName();
-    if (name1.equals(name2)) {
+    if (this == o) {
       return 0;
     }
+    String name1 = getName();
+    String name2 = o.getName();
 
-    Iterator<String> it1 = CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(name1).iterator();
-    Iterator<String> it2 = CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(name2).iterator();
-    while (it1.hasNext()) {
-      String n1 = it1.next();
-      if (it2.hasNext()) {
-        String n2 = it2.next();
-        int rez = HaplotypeNameComparator.getComparator().compare(n1, n2);
-        if (rez != 0) {
-          return rez;
-        }
-      } else {
-        return 1;
-      }
+    int rez = HaplotypeNameComparator.getComparator().compare(name1, name2);
+    if (rez != 0) {
+      return rez;
     }
-    if (it2.hasNext()) {
-      return -1;
+
+    if (this instanceof HaplotypeMatch && o instanceof HaplotypeMatch hm2) {
+      rez = ObjectUtils.compare(getHaplotype().getScore(), hm2.getHaplotype().getScore());
+      if (rez != 0) {
+        return rez;
+      }
     }
 
     return compareSequences(o);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof BaseMatch that)) {
+      return false;
+    }
+    return Objects.equals(getName(), that.getName()) &&
+        compareSequences(that) == 0;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(getName(), Arrays.hashCode(getSequences().toArray()));
   }
 
   int compareSequences(BaseMatch o) {

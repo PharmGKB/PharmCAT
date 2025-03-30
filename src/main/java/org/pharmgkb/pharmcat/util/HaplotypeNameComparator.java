@@ -2,10 +2,8 @@ package org.pharmgkb.pharmcat.util;
 
 import java.util.Comparator;
 import java.util.List;
-import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
-
-import static org.pharmgkb.pharmcat.haplotype.model.CombinationMatch.COMBINATION_NAME_SPLITTER;
-import static org.pharmgkb.pharmcat.haplotype.model.CombinationMatch.extractCombinationName;
+import java.util.regex.Pattern;
+import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 
 
 /**
@@ -14,6 +12,7 @@ import static org.pharmgkb.pharmcat.haplotype.model.CombinationMatch.extractComb
  * @author Mark Woon
  */
 public class HaplotypeNameComparator implements Comparator<String> {
+  public static final Pattern PARTIAL_PATTERN = Pattern.compile("^g\\.\\d+[?=]?[ACGT>\\d]+$");
   private static final Comparator<String> sf_comparator = new HaplotypeNameComparator();
 
   /**
@@ -42,8 +41,8 @@ public class HaplotypeNameComparator implements Comparator<String> {
       return 0;
     }
 
-    boolean c1 = CombinationMatch.isCombinationName(name1);
-    boolean c2 = CombinationMatch.isCombinationName(name2);
+    boolean c1 = CombinationMatcher.isCombinationName(name1);
+    boolean c2 = CombinationMatcher.isCombinationName(name2);
     if (c1 != c2) {
       if (c1) {
         return 1;
@@ -52,8 +51,9 @@ public class HaplotypeNameComparator implements Comparator<String> {
     }
 
     if (c1) {
-      List<String> h1 = COMBINATION_NAME_SPLITTER.splitToList(extractCombinationName(name1));
-      List<String> h2 = COMBINATION_NAME_SPLITTER.splitToList(extractCombinationName(name2));
+      // both must be combinations
+      List<String> h1 = CombinationMatcher.splitCombinationName(name1);
+      List<String> h2 = CombinationMatcher.splitCombinationName(name2);
 
       int rez = Integer.compare(h1.size(), h2.size());
       if (rez != 0) {
@@ -63,6 +63,17 @@ public class HaplotypeNameComparator implements Comparator<String> {
       for (int x = 0; x < h1.size(); x += 1) {
         String n1 = h1.get(x);
         String n2 = h2.get(x);
+
+        boolean isPartial1 = PARTIAL_PATTERN.matcher(n1).matches();
+        boolean isPartial2 = PARTIAL_PATTERN.matcher(n2).matches();
+        if (isPartial1 != isPartial2) {
+          // push partials to the bottom
+          if (isPartial1) {
+            return 1;
+          }
+          return -1;
+        }
+
         rez = org.pharmgkb.common.comparator.HaplotypeNameComparator.getComparator().compare(n1, n2);
         if (rez != 0) {
           return rez;

@@ -399,33 +399,30 @@ public class DpydHapB3Matcher {
 
     NamedAllele hapB3 = findHapB3Allele(matchData, alleleName);
     if (bm instanceof CombinationMatch) {
-      CombinationMatch cm = null;
+      SortedSet<NamedAllele> components = new TreeSet<>();
+      components.add(hapB3);
       for (NamedAllele c : ((CombinationMatch)bm).getComponentHaplotypes()) {
         NamedAllele component = matchData.getHaplotypes().stream()
             .filter(h -> h.getName().equals(c.getName()))
             .findAny()
             .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + c.getName() + "'"));
-        if (cm == null) {
-          cm = new CombinationMatch(matchData.getPositions(), component, bm.getSequences().first());
-        } else {
-          cm.merge(component);
-        }
+        components.add(component);
       }
-      Objects.requireNonNull(cm).merge(hapB3);
-      return cm;
+      return new CombinationMatch(matchData.getPositions(), bm.getSequences().first(), components, null);
     }
     HaplotypeMatch hm = (HaplotypeMatch)bm;
     if (hm.getName().equals(TextConstants.REFERENCE)) {
       return new HaplotypeMatch(hapB3);
     }
+    SortedSet<NamedAllele> components = new TreeSet<>();
+    components.add(hapB3);
     NamedAllele hap = matchData.getHaplotypes().stream()
         .filter(h -> h.getName().equals(hm.getName()))
         .findAny()
         .orElseThrow(() -> new IllegalStateException("Cannot find DPYD allele '" + hm.getName() + "'"));
+    components.add(hap);
     // warning: the sequence will not match haplotype because the sequence won't have HapB3 positions
-    CombinationMatch cm = new CombinationMatch(matchData.getPositions(), hap, hm.getSequences().first());
-    cm.merge(hapB3);
-    return cm;
+    return new CombinationMatch(matchData.getPositions(), hm.getSequences().first(), components, null);
   }
 
 

@@ -12,6 +12,7 @@ import com.google.common.collect.Lists;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
@@ -119,8 +120,8 @@ public class DiplotypeFactory {
   }
 
   public static List<String> splitHaplotype(String haplotypeText) {
-    if (CombinationMatch.isCombinationName(haplotypeText))  {
-      return CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(CombinationMatch.extractCombinationName(haplotypeText));
+    if (CombinationMatcher.isCombinationName(haplotypeText))  {
+      return CombinationMatcher.splitCombinationName(haplotypeText);
     }
     return Lists.newArrayList(haplotypeText);
   }

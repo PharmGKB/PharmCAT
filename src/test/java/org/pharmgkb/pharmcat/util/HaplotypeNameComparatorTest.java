@@ -44,6 +44,18 @@ class HaplotypeNameComparatorTest {
     names.add("[*2 + *4]");
     names.add("[*2 + *3]");
     assertEquals("[*2 + *3]", names.first());
+
+    names = new TreeSet<>(new HaplotypeNameComparator());
+    names.add("[c.85T>C (*9 A) + c.1218G>A + c.1627A>G (*5)]");
+    names.add("[c.1218G>A + c.1627A>G (*5)]");
+    System.out.println(names);
+    assertThat(names, contains("[c.1218G>A + c.1627A>G (*5)]", "[c.85T>C (*9 A) + c.1218G>A + c.1627A>G (*5)]"));
+
+    names = new TreeSet<>(new HaplotypeNameComparator());
+    names.add("[c.1218G>A + c.1627A>G (*5)]");
+    names.add("[*17 + c.1627A>G (*5)]");
+    System.out.println(names);
+    assertThat(names, contains("[*17 + c.1627A>G (*5)]", "[c.1218G>A + c.1627A>G (*5)]"));
   }
 
   @Test

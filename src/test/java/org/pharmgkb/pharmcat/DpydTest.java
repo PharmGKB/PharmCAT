@@ -19,8 +19,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.haplotype.DpydHapB3Matcher;
-import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
@@ -67,9 +67,8 @@ class DpydTest {
     return expectedCalls.stream()
         .flatMap(s -> Arrays.stream(s.split(TextConstants.GENOTYPE_DELIMITER)))
         .flatMap(s -> {
-          if (s.startsWith("[")) {
-            s = s.substring(1, s.length() - 1);
-            return CombinationMatch.COMBINATION_NAME_SPLITTER.splitToList(s).stream();
+          if (CombinationMatcher.isCombinationName(s)) {
+            return CombinationMatcher.splitCombinationName(s).stream();
           }
           return Stream.of(s);
         })

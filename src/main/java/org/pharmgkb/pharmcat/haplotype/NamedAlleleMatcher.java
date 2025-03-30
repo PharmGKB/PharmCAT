@@ -209,6 +209,25 @@ public class NamedAlleleMatcher {
     return resultBuilder.build(m_env);
   }
 
+  private boolean hasRequiredPositions(MatchData data, ResultBuilder resultBuilder) {
+    if (!data.getMissingRequiredPositions().isEmpty()) {
+      StringBuilder builder = new StringBuilder("Cannot call ")
+          .append(data.getGene())
+          .append(" - missing required variant");
+      if (data.getMissingRequiredPositions().size() > 1) {
+        builder.append("s");
+      }
+      builder.append(" (")
+          .append(String.join(", ", data.getMissingRequiredPositions()))
+          .append(")");
+      resultBuilder.noCall(data.getGene(), data, List.of(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+          "missing-required-position", builder.toString())));
+      return false;
+    }
+    // AMP 1 required positions check is only a warning and is handled by ResultBuilder
+    return true;
+  }
+
   /**
    * Call standard gene haplotypes.
    * Missing alleles in {@link NamedAllele}s should be treated as reference.
@@ -222,21 +241,9 @@ public class NamedAlleleMatcher {
       resultBuilder.noCall(gene, data);
       return;
     }
-    if (!data.getMissingRequiredPositions().isEmpty()) {
-      StringBuilder builder = new StringBuilder("Cannot call ")
-          .append(gene)
-          .append(" - missing required variant");
-      if (data.getMissingRequiredPositions().size() > 1) {
-        builder.append("s");
-      }
-      builder.append(" (")
-          .append(String.join(", ", data.getMissingRequiredPositions()))
-          .append(")");
-      resultBuilder.noCall(gene, data, List.of(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
-          "missing-required-position", builder.toString())));
+    if (!hasRequiredPositions(data, resultBuilder)) {
       return;
     }
-    // TODO(markwoon): add check for missing AMP variants
 
     if (data.hasPartialMissingAlleles()) {
       if (m_findCombinations) {
@@ -270,7 +277,7 @@ public class NamedAlleleMatcher {
     }
 
     SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, data)
-        .compute(true, m_topCandidateOnly);
+        .compute(true, false);
     resultBuilder.diplotypes(gene, data, matches);
   }
 
@@ -281,6 +288,9 @@ public class NamedAlleleMatcher {
     MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (origData.getNumSampleAlleles() == 0) {
       resultBuilder.noCall(gene, origData);
+      return;
+    }
+    if (!hasRequiredPositions(origData, resultBuilder)) {
       return;
     }
 
@@ -315,7 +325,7 @@ public class NamedAlleleMatcher {
       boolean isHomozygous) {
 
     SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData)
-        .compute(true, false, false, true);
+        .compute(true, false, false);
     if (!diplotypeMatches.isEmpty()) {
       DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
       for (int x = 0; x < matches.length; x += 1) {
@@ -346,7 +356,7 @@ public class NamedAlleleMatcher {
     SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
     // have to compute diplotypes so that we can check for homozygous and partials
     SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, comboData)
-        .compute(true, m_topCandidateOnly);
+        .compute(true, false, false);
     Set<String> homozygous = new HashSet<>();
     int numPartials = 0;
     for (DiplotypeMatch dm : matches) {
@@ -420,6 +430,9 @@ public class NamedAlleleMatcher {
     MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
     if (origData.getNumSampleAlleles() == 0) {
       resultBuilder.noCall(gene, origData);
+      return;
+    }
+    if (!hasRequiredPositions(origData, resultBuilder)) {
       return;
     }
 

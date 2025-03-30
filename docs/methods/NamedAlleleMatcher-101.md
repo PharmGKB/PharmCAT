@@ -216,10 +216,7 @@ distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36
 
 ### Scoring
 
-Because PharmCAT scores on the number of matched positions in the definitions, the reference named allele (usually \*1)
-will get the highest score. As such, scoring is biased towards grouping combinations together.  For example, CYP2B6
-`*1/[*5 + *9 + *23]` will be the call with the highest score but permutations such as `*5/[*9 + *23]`, `*9/[*5 + *23]`,
-`*23/[*5 + *9]` are also possible.
+PharmCAT does not score combination calls because it will always return all possible matches.
 
 
 ### Unphased Data

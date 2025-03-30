@@ -10,14 +10,14 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
-import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
+import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
 /**
@@ -27,11 +27,13 @@ import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
  */
 public class DiplotypeMatcher {
   private final MatchData m_dataset;
+  private final DefinitionFile m_definitionFile;
   private final boolean m_unphasedPriorityMode;
 
 
   public DiplotypeMatcher(Env env, MatchData dataset) {
     m_dataset = dataset;
+    m_definitionFile = env.getDefinitionReader().getDefinitionFile(dataset.getGene());
     DefinitionExemption exemption = env.getDefinitionReader().getExemption(dataset.getGene());
     m_unphasedPriorityMode = !dataset.isEffectivelyPhased() &&
         exemption != null && !exemption.getUnphasedDiplotypePriorities().isEmpty();
@@ -39,64 +41,26 @@ public class DiplotypeMatcher {
 
 
   public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean topCandidateOnly) {
-    return compute(findCombinations, findCombinations, topCandidateOnly, false);
+    return compute(findCombinations, findCombinations, topCandidateOnly);
   }
 
-  /**
-   *
-   * @param boostComboScores false by default, which means scoring will prefer fewer combos; if true, scoring will
-   * prefer more combos
-   */
-  public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean findPartials, boolean topCandidateOnly,
-      boolean boostComboScores) {
-
-    // compare sample permutations to haplotypes
-    List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
-    if (haplotypeMatches.isEmpty() && !findCombinations) {
-      return Collections.emptySortedSet();
+  public SortedSet<DiplotypeMatch> compute(boolean findCombinations, boolean findPartials, boolean topCandidateOnly) {
+    if (findCombinations && topCandidateOnly) {
+      throw new IllegalStateException("Cannot get top candidate only when using combinations!");
     }
 
-    SortedSet<BaseMatch> matches = new TreeSet<>();
+    SortedSet<BaseMatch> matches;
     if (findCombinations) {
-      List<CombinationMatch> combinationMatches = new ArrayList<>();
-      for (int x = 0; x < haplotypeMatches.size(); x += 1) {
-        HaplotypeMatch hm = haplotypeMatches.get(x);
-        for (String seq : hm.getSequences()) {
-          // to support partial matching, each HaplotypeMatch can only have 1 sequence
-          HaplotypeMatch individualHapMatch = new HaplotypeMatch(hm.getHaplotype());
-          individualHapMatch.addSequence(seq);
-          individualHapMatch.finalizeCombinationHaplotype(m_dataset, findPartials);
-          matches.add(individualHapMatch);
-
-          CombinationMatch combinationMatch = new CombinationMatch(m_dataset.getPositions(), hm.getHaplotype(), seq);
-          combinationMatches.addAll(calculateCombinations(haplotypeMatches, x + 1, combinationMatch));
-        }
-      }
-
-      // finalize the combination match and check for partials (if findPartials = true)
-      for (CombinationMatch combinationMatch : combinationMatches) {
-        combinationMatch.finalizeCombinationHaplotype(m_dataset, findPartials);
-        matches.add(combinationMatch);
-      }
-      if (findPartials) {
-        // add remaining permutations as off-reference partial match
-        NamedAllele referenceHaplotype = m_dataset.getHaplotypes().stream()
-            .filter(NamedAllele::isReference)
-            .findFirst()
-            .orElseThrow(() -> new IllegalStateException("No reference haplotype!"));
-        Set<String> matchedSequences = matches.stream()
-            .flatMap(bm -> bm.getSequences().stream())
-            .collect(Collectors.toSet());
-        for (String seq : m_dataset.getPermutations()) {
-          if (matchedSequences.contains(seq)) {
-            continue;
-          }
-          matches.add(new CombinationMatch(m_dataset, referenceHaplotype, seq));
-        }
-      }
+      matches = new CombinationMatcher(m_definitionFile, findPartials)
+          .compute(m_dataset);
 
     } else {
-      matches.addAll(haplotypeMatches);
+      // compare sample permutations to haplotypes
+      List<HaplotypeMatch> haplotypeMatches = new ArrayList<>(m_dataset.comparePermutations());
+      if (haplotypeMatches.isEmpty()) {
+        return Collections.emptySortedSet();
+      }
+      matches = new TreeSet<>(haplotypeMatches);
     }
 
     List<DiplotypeMatch> pairs;
@@ -107,19 +71,7 @@ public class DiplotypeMatcher {
       pairs = determineHeterozygousPairs(matches, findCombinations);
     }
 
-    // final scoring
-    if (findCombinations) {
-      // weed out shorter pairs
-      int maxCombos = 0;
-      for (DiplotypeMatch dm : pairs) {
-        maxCombos = maxComboBonus(dm.getHaplotype1(), maxCombos);
-        maxCombos = maxComboBonus(dm.getHaplotype2(), maxCombos);
-      }
-      for (DiplotypeMatch dm : pairs) {
-        dm.setScore(newComboScore(dm.getHaplotype1(), maxCombos, boostComboScores) +
-            newComboScore(dm.getHaplotype2(), maxCombos, boostComboScores));
-      }
-    } else {
+    if (!findCombinations) {
       for (DiplotypeMatch dm : pairs) {
         BaseMatch m1 = dm.getHaplotype1();
         BaseMatch m2 = dm.getHaplotype2();
@@ -140,54 +92,6 @@ public class DiplotypeMatcher {
           .collect(Collectors.toCollection(TreeSet::new));
     }
     return sortedPairs;
-  }
-
-  private int maxComboBonus(@Nullable BaseMatch match, int curMax) {
-    if (match == null) {
-      return curMax;
-    }
-    if (match instanceof CombinationMatch cm) {
-      if (cm.getNumCombinations() > curMax) {
-        return cm.getNumCombinations();
-      }
-    }
-    return curMax;
-  }
-
-  private int newComboScore(@Nullable BaseMatch match, int maxBonus, boolean boostCombos) {
-    if (match == null) {
-      return 0;
-    }
-    NamedAllele na = match.getHaplotype();
-    int score = na.scoreForSample(m_dataset, match.getSequences()) - na.getNumPartials();
-    int bonus;
-    if (boostCombos) {
-      // prefer more combos
-      bonus = match.getHaplotype().getNumCombinations();
-    } else {
-      // default behavior - prefer fewer combos
-      bonus = maxBonus - match.getHaplotype().getNumCombinations();
-    }
-    return score + bonus;
-  }
-
-
-  private List<CombinationMatch> calculateCombinations(List<HaplotypeMatch> matches, int position,
-      CombinationMatch combinationMatch) {
-
-    List<CombinationMatch> combinationMatches = new ArrayList<>();
-    for (int x = position; x < matches.size(); x += 1) {
-      HaplotypeMatch haplotypeMatch = matches.get(x);
-      for (String seq : haplotypeMatch.getSequences()) {
-        if (combinationMatch.canMerge(haplotypeMatch.getHaplotype(), seq)) {
-          CombinationMatch newCombo = new CombinationMatch(combinationMatch);
-          newCombo.merge(haplotypeMatch.getHaplotype());
-          combinationMatches.add(newCombo);
-          combinationMatches.addAll(calculateCombinations(matches, x + 1, newCombo));
-        }
-      }
-    }
-    return combinationMatches;
   }
 
 
@@ -242,7 +146,9 @@ public class DiplotypeMatcher {
     }
 
     // possible pairs from what got matched
-    List<List<String>> pairs = CombinationUtil.generatePerfectPairs(new TreeSet<>(hapMap.keySet()));
+    List<String> sortedNames = new ArrayList<>(hapMap.keySet());
+    sortedNames.sort(HaplotypeNameComparator.getComparator());
+    List<List<String>> pairs = CombinationUtil.generatePerfectPairs(sortedNames);
 
     List<DiplotypeMatch> matches = new ArrayList<>();
     for (List<String> pair : pairs) {

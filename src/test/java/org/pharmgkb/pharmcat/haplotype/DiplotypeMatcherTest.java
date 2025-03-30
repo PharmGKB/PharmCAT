@@ -166,7 +166,7 @@ class DiplotypeMatcherTest {
         .collect(Collectors.toMap(s -> "chr1:" + s.getPosition(),
         Function.identity(), new NoDuplicateMergeFunction<>(), TreeMap::new));
 
-    MatchData dataset = new MatchData("Sample_1", "GENE", sampleAlleleMap, s_positions, null, null, null);
+    MatchData dataset = new MatchData("Sample_1", "CYP2B6", sampleAlleleMap, s_positions, null, null, null);
     dataset.marshallHaplotypes("TEST", s_haplotypes, false);
     dataset.generateSamplePermutations();
 

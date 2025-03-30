@@ -15,7 +15,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
+import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeUtils;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -159,8 +159,8 @@ public class OutsideCall implements Comparable<OutsideCall> {
               } else {
                 fixedA = a;
               }
-              if (fixedA.contains(CombinationMatch.COMBINATION_JOINER)) {
-                fixedA = fixedA.replaceAll(CombinationMatch.COMBINATION_JOINER_REGEX, "+");
+              if (fixedA.contains(CombinationMatcher.COMBINATION_JOINER)) {
+                fixedA = fixedA.replaceAll(CombinationMatcher.COMBINATION_JOINER_REGEX, "+");
                 if (env.isValidNamedAllele(m_gene, fixedA)) {
                   m_warnings.add("Converting outside call for " + m_gene + " from '" + a + "', to '" + fixedA +
                       "'.");
