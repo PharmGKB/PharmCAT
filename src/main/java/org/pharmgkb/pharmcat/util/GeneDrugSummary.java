@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -323,24 +322,20 @@ public class GeneDrugSummary {
       int half = (exemption.getUnphasedDiplotypePriorities().size() + 1) / 2;
       List<String> col1 = new ArrayList<>();
       List<String> col2 = new ArrayList<>();
-      exemption.getUnphasedDiplotypePriorities().entrySet().stream()
-          .sorted(Map.Entry.comparingByValue(HaplotypeNameComparator.getComparator()))
-          .forEach(entry -> {
-            String[] dips = DefinitionExemption.splitUnphasedPriorityKey(entry.getKey());
-            String pick = entry.getValue();
-            StringBuilder builder = new StringBuilder();
-            builder.append("* __")
-                .append(pick.replaceAll("\\*", "\\\\*"))
-                .append("__");
-            for (String dip : dips) {
-              if (!dip.equals(pick)) {
-                builder.append(", ")
-                    .append(dip.replaceAll("\\*", "\\\\*"));
-              }
-            }
-            List<String> col = count.getAndIncrement() > half ? col2 : col1;
-            col.add(builder.toString());
-          });
+      exemption.getUnphasedDiplotypePriorities().forEach(entry -> {
+        StringBuilder builder = new StringBuilder();
+        builder.append("* __")
+            .append(entry.getPick().replaceAll("\\*", "\\\\*"))
+            .append("__");
+        for (String dip : entry.getList()) {
+          if (!dip.equals(entry.getPick())) {
+            builder.append(", ")
+                .append(dip.replaceAll("\\*", "\\\\*"));
+          }
+        }
+        List<String> col = count.getAndIncrement() > half ? col2 : col1;
+        col.add(builder.toString());
+      });
       for (int x = 0; x < col1.size(); x++) {
         writer.print("| " + col1.get(x) + " | ");
         if (col2.size() > x) {

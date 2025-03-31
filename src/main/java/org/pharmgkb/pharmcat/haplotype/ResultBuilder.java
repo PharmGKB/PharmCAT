@@ -20,6 +20,7 @@ import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.UnphasedDiplotypePriority;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
@@ -64,23 +65,25 @@ public class ResultBuilder {
     for (GeneCall call : m_result.getGeneCalls()) {
       if (call.getDiplotypes().size() > 1 && !call.isEffectivelyPhased()) {
         DefinitionExemption exemption = m_definitionReader.getExemption(call.getGene());
-        if (exemption != null && !exemption.getUnphasedDiplotypePriorities().isEmpty()) {
-          String key = DefinitionExemption.generateUnphasedPriorityKey(call.getDiplotypes().stream()
+        if (exemption != null && exemption.hasUnphasedDiplotypePriorities()) {
+          Set<String> dips = call.getDiplotypes().stream()
               .map(DiplotypeMatch::getName)
-              .collect(Collectors.toCollection(TreeSet::new)));
-          String priority = exemption.getUnphasedDiplotypePriorities().get(key);
-          if (priority != null) {
-            DiplotypeMatch priorityDip = call.getDiplotypes().stream()
-                .filter(dm -> dm.getName().equals(priority))
-                .findAny()
-                // this should never happen
-                .orElseThrow(() -> new IllegalStateException("Cannot find " + priority));
-            call.setPriorityDiplotype(priorityDip);
-            call.addWarning(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
-                "unphased-priority",
-                "Unphased " + call.getGene() + " variants resulted in multiple calls.  " +
-                    "PharmCAT is picking a single call based on frequency data.  " +
-                    "Please consult the documentation for details."));
+              .collect(Collectors.toCollection(TreeSet::new));
+          for (UnphasedDiplotypePriority udp : exemption.getUnphasedDiplotypePriorities()) {
+            if (dips.containsAll(udp.getList())) {
+              DiplotypeMatch priorityDip = call.getDiplotypes().stream()
+                  .filter(dm -> dm.getName().equals(udp.getPick()))
+                  .findAny()
+                  // this should never happen
+                  .orElseThrow(() -> new IllegalStateException("Cannot find " + udp.getPick()));
+              call.setPriorityDiplotype(priorityDip);
+              call.addWarning(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
+                  "unphased-priority",
+                  "Unphased " + call.getGene() + " variants resulted in multiple calls.  " +
+                      "PharmCAT is picking a single call based on frequency data.  " +
+                      "Please consult the documentation for details."));
+              break;
+            }
           }
         }
       }

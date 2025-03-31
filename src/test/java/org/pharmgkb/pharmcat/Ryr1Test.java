@@ -16,6 +16,7 @@ import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.pharmgkb.pharmcat.PipelineTest.*;
 
 
@@ -191,6 +192,8 @@ class Ryr1Test {
             .put("RYR1", "Uncertain Susceptibility")
             .build(),
         RecPresence.NO, null);
+
+    assertNotNull(document.getElementById("rs193922744"), "rs193922744 should be present");
   }
 
   /**

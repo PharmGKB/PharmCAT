@@ -26,7 +26,7 @@
     ],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {},
+    "unphasedDiplotypePriorities": [],
     "amp1Alleles": [],
     "amp1Positions": []
   },
@@ -80,28 +80,58 @@
     "ignoredAllelesLc": [
       "mediterranean haplotype"
     ],
-    "unphasedDiplotypePriorities": {},
+    "unphasedDiplotypePriorities": [],
     "amp1Alleles": [],
     "amp1Positions": []
   },
   "NAT2": {
     "gene": "NAT2",
     "requiredPositions": [
-      "chr8:18400344",
-      "chr8:18400593",
-      "chr8:18400806",
-      "chr8:18400860"
+      18400344,
+      18400593,
+      18400806,
+      18400860
     ],
     "ignoredPositions": [],
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {
-      "*1/*30|*16/*34|*5/*6": "*1/*30",
-      "*1/*15|*14/*34|*6/*46": "*1/*15",
-      "*1/*7|*4/*40": "*1/*7",
-      "*1/*6|*4/*34": "*1/*6"
-    },
+    "unphasedDiplotypePriorities": [
+      {
+        "id": "*1/*6|*4/*34",
+        "list": [
+          "*1/*6",
+          "*4/*34"
+        ],
+        "pick": "*1/*6"
+      },
+      {
+        "id": "*1/*7|*4/*40",
+        "list": [
+          "*1/*7",
+          "*4/*40"
+        ],
+        "pick": "*1/*7"
+      },
+      {
+        "id": "*1/*15|*14/*34|*6/*46",
+        "list": [
+          "*1/*15",
+          "*14/*34",
+          "*6/*46"
+        ],
+        "pick": "*1/*15"
+      },
+      {
+        "id": "*1/*30|*16/*34|*5/*6",
+        "list": [
+          "*1/*30",
+          "*16/*34",
+          "*5/*6"
+        ],
+        "pick": "*1/*30"
+      }
+    ],
     "amp1Alleles": [],
     "amp1Positions": []
   },
@@ -132,7 +162,7 @@
     "extraPositions": [],
     "ignoredAlleles": [],
     "ignoredAllelesLc": [],
-    "unphasedDiplotypePriorities": {},
+    "unphasedDiplotypePriorities": [],
     "amp1Alleles": [],
     "amp1Positions": []
   }

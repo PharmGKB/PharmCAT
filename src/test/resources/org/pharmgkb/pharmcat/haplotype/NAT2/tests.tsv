@@ -1,0 +1,76 @@
+Missing positions	Other NAT2 positions	rs1801279	rs1801280	rs1799930	rs1208	rs1799931	Output	Pick
+none	reference	G/G	T/T	G/G	G/G	G/G	*1/*1	
+none	reference	G/A	T/C	G/A	G/A	G/A	not called	
+none	reference	G/G	T/C	G/A	G/A	G/A	*30/*40	
+none	reference	G/A	T/T	G/A	G/A	G/A	*15/*40	
+none	reference	G/A	T/C	G/G	G/A	G/A	*7/*29	
+none	reference	G/A	T/C	G/A	G/G	G/A	not called	
+none	reference	G/A	T/C	G/A	G/A	G/G	*6/*29 or *30/*46 or *5/*15	*5/*15
+none	reference	G/A	T/C	G/A	G/G	G/G	*29/*34	
+none	reference	G/A	T/T	G/A	G/A	G/G	*1/*15 or *6/*46 or *14/*34	*6/*46
+none	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40	*7/*46
+none	reference	G/A	T/C	G/G	G/A	G/G	*4/*29 or *16/*46 or *5/*14	*5/*14
+none	reference	G/A	T/C	G/G	G/G	G/A	*29/*40	
+none	reference	G/G	T/C	G/G	G/A	G/A	*5/*7 or *16/*40	*5/*7
+none	reference	G/G	T/C	G/A	G/G	G/A	not called	
+none	reference	G/G	T/C	G/A	G/A	G/G	*5/*6 or *1/*30 or *16/*34	*5/*6
+none	reference	G/G	T/T	G/A	G/A	G/A	*6/*40 or *7/*34	*7/*34
+none	reference	G/G	T/T	G/G	G/A	G/A	*1/*7 or *4/*40	*1/*7
+none	reference	G/G	T/C	G/G	G/A	G/G	*1/*16 or *4/*5	*4/*5
+none	reference	G/G	T/C	G/G	G/G	G/A	*5/*40	
+none	reference	G/G	T/T	G/A	G/A	G/G	*1/*6 or *4/*34	*1/*6
+none	reference	G/G	T/T	G/A	G/G	G/A	*34/*40	
+none	reference	G/A	T/T	G/G	G/G	G/A	*40/*46	
+none	reference	G/A	T/C	G/G	G/G	G/G	*5/*46 or *1/*29	*5/*46
+none	reference	G/A	T/T	G/A	G/G	G/G	*34/*46	
+none	reference	G/A	T/T	G/G	G/A	G/G	*1/*14 or *4/*46	*1/*14
+none	reference	G/A	T/T	G/G	G/G	G/G	*1/*46	
+none	reference	G/G	T/C	G/G	G/G	G/G	*1/*5	
+none	reference	G/G	T/T	G/A	G/G	G/G	*1/*34	
+none	reference	G/G	T/T	G/G	G/A	G/G	*1/*4	
+none	reference	G/G	T/T	G/G	G/G	G/A	*1/*40	
+none	reference	G/A	T/T	G/G	A/A	G/G	*4/*14	
+none	reference	G/G	T/C	G/G	A/A	G/G	*4/*16	
+none	reference	G/G	T/T	G/A	A/A	G/G	*4/*6	
+none	reference	G/G	T/T	G/G	A/A	G/A	*4/*7	
+none	reference	G/A	T/C	G/G	A/A	G/G	*14/*16	
+none	reference	G/A	T/T	G/A	A/A	G/G	*6/*14	
+none	reference	G/A	T/T	G/G	A/A	G/A	*7/*14	
+none	reference	G/G	T/C	G/A	A/A	G/G	*6/*16 or *4/*30	*6/*16
+none	reference	G/G	T/C	G/G	A/A	G/A	*7/*16	
+none	reference	G/G	T/T	G/A	A/A	G/A	*6/*7	
+none	reference	G/A	T/C	G/A	A/A	G/G	*15/*16 or *14/*30	*15/*16
+none	reference	G/A	T/C	G/G	A/A	G/A	not called	
+none	reference	G/G	T/C	G/A	A/A	G/A	*7/*30	
+none	reference	G/A	T/C	G/A	A/A	G/A	not called	
+none	reference	G/G	T/T	A/A	G/A	G/G	*6/*34	
+none	reference	G/G	T/T	A/A	G/G	G/A	not called	
+none	reference	G/A	T/C	A/A	G/G	G/G	not called	
+none	reference	G/A	T/T	A/A	G/A	G/G	*15/*34	
+none	reference	G/G	T/C	A/A	G/A	G/G	*30/*34	
+rs72466456 (*45, *54)	reference	G/G	T/C	G/A	G/A	G/A	*30/*40	
+rs537007806 (*59)	reference	G/G	T/C	G/A	G/A	G/A	*30/*40	
+rs138707146 (*37)	reference	G/A	T/C	G/A	G/A	G/G	*29/*37 or *6/*29 or *30/*46 or *5/*15	*5/*15
+rs45518335 (*47)	reference	G/A	T/C	G/A	G/A	G/G	*6/*29 or *30/*46 or *5/*15	*5/*15
+rs72466458 (*32)	reference	G/A	T/C	G/A	G/A	G/G	*6/*29 or *30/*46 or *5/*15 or *15/*32	*5/*15
+rs72466456 (*45, *54)	reference	G/A	T/C	G/A	G/A	G/G	*6/*29 or *30/*46 or *5/*15	*5/*15
+rs45518335 (*47)	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40 or *40/*47	*7/*46
+rs72466458 (*32)	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40	*7/*46
+rs72466456 (*45, *54)	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40	*7/*46
+rs537007806 (*59)	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40 or *46/*59	*7/*46
+rs138707146 (*37)	reference	G/A	T/C	G/G	G/A	G/G	*4/*29 or *16/*46 or *5/*14	*5/*14
+rs45518335 (*47)	reference	G/A	T/C	G/G	G/A	G/G	*4/*29 or *16/*46 or *5/*14	*5/*14
+rs72466458 (*32)	reference	G/A	T/C	G/G	G/A	G/G	*4/*29 or *16/*46 or *5/*14 or *14/*32	*5/*14
+rs72466456 (*45, *54)	reference	G/A	T/C	G/G	G/A	G/G	*4/*29 or *16/*46 or *5/*14 or *29/*54	*5/*14
+rs45518335 (*47), rs537007806 (*59)	reference	G/A	T/T	G/G	G/A	G/A	*7/*46 or *14/*40 or *40/*47 or *46/*59	*7/*46
+rs138707146 (*37), rs72466458 (*32)	reference	G/A	T/C	G/A	G/A	G/G	*29/*37 or *6/*29 or *30/*46 or *5/*15 or *15/*32	*5/*15
+rs138707146 (*37), rs72466458 (*32), rs139351995 (*33), rs12720065 (*36, *44)	reference	G/A	T/C	G/A	G/A	G/G	*29/*37 or *6/*29 or *30/*46 or *5/*15 or *15/*32 or *15/*33 or *29/*36	*5/*15
+rs138707146 (*37), rs72466458 (*32), rs139351995 (*33), rs12720065 (*36, *44), rs72466456 (*45, *54)	reference	G/A	T/C	G/A	G/A	G/G	*29/*37 or *6/*29 or *30/*46 or *5/*15 or *15/*32 or *15/*33 or *29/*36	*5/*15
+rs201339185 (*55)	reference	G/G	T/C	G/A	A/A	G/A	*7/*30	
+rs201339185 (*55), rs537007806 (*59)	reference	G/G	T/C	G/A	A/A	G/A	*7/*30 or *30/*59	
+rs72466456 (*45, *54)	reference	G/G	T/C	G/G	G/A	G/G	*1/*16 or *4/*5	*4/*5
+rs12720065 (*36, *44)	reference	G/G	T/T	G/A	G/A	G/G	*1/*6 or *4/*34	*1/*6
+rs79050330 (*41, *49)	reference	G/G	T/C	G/G	G/G	G/G	*1/*5 or *1/*49	
+rs79050330 (*41, *49)	reference	G/G	T/C	G/A	G/A	G/G	*5/*6 or *1/*30 or *16/*34	*5/*6
+rs79050330 (*41, *49)	reference	G/G	T/C	G/G	G/A	G/G	*1/*16 or *4/*5	*4/*5
+rs79050330 (*41, *49)	reference	G/A	T/C	G/G	G/G	G/G	*5/*46 or *1/*29	*5/*46

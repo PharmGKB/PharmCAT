@@ -36,7 +36,7 @@ public class DiplotypeMatcher {
     m_definitionFile = env.getDefinitionReader().getDefinitionFile(dataset.getGene());
     DefinitionExemption exemption = env.getDefinitionReader().getExemption(dataset.getGene());
     m_unphasedPriorityMode = !dataset.isEffectivelyPhased() &&
-        exemption != null && !exemption.getUnphasedDiplotypePriorities().isEmpty();
+        exemption != null && exemption.hasUnphasedDiplotypePriorities();
   }
 
 

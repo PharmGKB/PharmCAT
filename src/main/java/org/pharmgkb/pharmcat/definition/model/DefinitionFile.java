@@ -20,7 +20,7 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
  * @author Ryan Whaley
  */
 public class DefinitionFile {
-  public static final String FORMAT_VERSION = "2";
+  public static final String FORMAT_VERSION = "3";
   // metadata
   @Expose
   @SerializedName("formatVersion")
@@ -214,11 +214,11 @@ public class DefinitionFile {
     return m_referenceNamedAllele;
   }
 
-  private void mapNamedAlleles() {
+  private synchronized void mapNamedAlleles() {
     if (m_namedAlleleMap == null) {
-      m_namedAlleleMap = new HashMap<>();
+      Map<String, NamedAllele> map = new HashMap<>();
       for (NamedAllele allele : getNamedAlleles()) {
-        m_namedAlleleMap.put(allele.getName(), allele);
+        map.put(allele.getName(), allele);
         if (allele.isReference()) {
           if (m_referenceNamedAllele != null) {
             throw new IllegalStateException("Multiple reference named alleles: " + allele.getName() + " and " +
@@ -230,6 +230,7 @@ public class DefinitionFile {
       if (m_referenceNamedAllele == null) {
         throw new IllegalStateException(m_geneSymbol + " has no reference named allele!");
       }
+      m_namedAlleleMap = map;
     }
   }
 
@@ -388,7 +389,7 @@ public class DefinitionFile {
         y += 1;
       }
 
-      // if there's nothing left that differs from reference allele, then don't include this named allele in output
+      // if there's nothing left that differs from the reference allele, don't include this named allele in the output
       if (Arrays.stream(cpicAlleles).allMatch(Objects::isNull)) {
         System.out.println("WARNING: Removing " + namedAllele.getName() +
             " because it has no alleles after removing unused/ignored positions");
@@ -452,6 +453,7 @@ public class DefinitionFile {
         updated = reorderHaplotypeAlleles(na, m_variants, sortedVariants, fixedAlleles);
       } else {
         updated = new NamedAllele(na.getId(), na.getName(), fixedAlleles, na.getCpicAlleles(), na.isReference());
+        updated.initializeForImport(m_variants);
       }
       updatedNamedAlleles.add(updated);
     }
@@ -759,7 +761,9 @@ public class DefinitionFile {
       }
     }
 
-    return new NamedAllele(hap.getId(), hap.getName(), alleles, cpicAlleles, hap.getMissingPositions(),
+    NamedAllele na = new NamedAllele(hap.getId(), hap.getName(), alleles, cpicAlleles, hap.getMissingPositions(),
         hap.isReference(), hap.getNumCombinations(), hap.getNumPartials());
+    na.initializeForImport(newPositions);
+    return na;
   }
 }

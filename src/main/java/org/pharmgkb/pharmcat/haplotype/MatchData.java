@@ -119,14 +119,14 @@ public class MatchData {
     if (exemption != null && !m_missingPositions.isEmpty()) {
       if (exemption.hasRequiredPositions()) {
         for (VariantLocus missing : m_missingPositions) {
-          if (exemption.isRequiredPosition(missing.getVcfChrPosition())) {
+          if (exemption.isRequiredPosition(missing.getPosition())) {
             m_missingRequiredPositions.add(missing.getVcfChrPosition());
           }
         }
       }
       if (exemption.hasAmp1Positions()) {
         for (VariantLocus missing : m_missingPositions) {
-          if (exemption.isAmp1Position(missing.getVcfChrPosition())) {
+          if (exemption.isAmp1Position(missing.getPosition())) {
             m_missingAmp1Positions.add(missing.getVcfChrPosition());
           }
         }
@@ -241,7 +241,7 @@ public class MatchData {
       String[] cpicAlleles = new String[numAlleles];
       for (int x = 0; x < numAlleles; x += 1) {
         if (curAlleles[x] == null) {
-          // ref allele can be null if position is missing
+          // ref allele can be null if the position is missing
           String refAllele = referenceHaplotype.getAllele(x);
           if (refAllele != null && Iupac.isWobble(refAllele)) {
             newAlleles[x] = m_positions[x].getRef();

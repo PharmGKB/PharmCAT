@@ -74,18 +74,18 @@ public class NamedAlleleMatcherTest {
    *   <li>{@code withExemptions} = true</li>
    * </ul>
    */
-  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile) throws Exception {
-    return testMatchNamedAlleles(env, tsvFile, vcfFile, false, false, true, true);
+  static Result testMatchNamedAlleles(Env env, Path definitionFile, Path vcfFile) throws Exception {
+    return testMatchNamedAlleles(env, definitionFile, vcfFile, false, false, true, true);
   }
 
-  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile, boolean topCandidateOnly)
+  static Result testMatchNamedAlleles(Env env, Path definitionFile, Path vcfFile, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(env, tsvFile, vcfFile, false, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(env, definitionFile, vcfFile, false, topCandidateOnly, true, true);
   }
 
-  static Result testMatchNamedAlleles(Env env, Path tsvFile, Path vcfFile, boolean findCombination, boolean topCandidateOnly)
+  static Result testMatchNamedAlleles(Env env, Path definitionFile, Path vcfFile, boolean findCombination, boolean topCandidateOnly)
       throws Exception {
-    return testMatchNamedAlleles(env, tsvFile, vcfFile, findCombination, topCandidateOnly, true, true);
+    return testMatchNamedAlleles(env, definitionFile, vcfFile, findCombination, topCandidateOnly, true, true);
   }
 
   /**
@@ -1379,7 +1379,7 @@ public class NamedAlleleMatcherTest {
     }
   }
 
-  private static List<String> printMatches(GeneCall geneCall) {
+  static List<String> printMatches(GeneCall geneCall) {
     List<String> names = new ArrayList<>();
     for (DiplotypeMatch d : geneCall.getDiplotypes()) {
       if (d.getHaplotype1() instanceof CombinationMatch && d.getHaplotype2() instanceof CombinationMatch) {

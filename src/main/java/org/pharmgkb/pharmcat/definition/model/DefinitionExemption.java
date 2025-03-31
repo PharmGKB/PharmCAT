@@ -1,9 +1,7 @@
 package org.pharmgkb.pharmcat.definition.model;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -27,7 +25,7 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   private final String m_gene;
   @Expose
   @SerializedName("requiredPositions")
-  private final SortedSet<String> m_requiredPositions;
+  private final SortedSet<Long> m_requiredPositions;
   @Expose
   @SerializedName("ignoredPositions")
   private final SortedSet<VariantLocus> m_ignoredPositions;
@@ -42,17 +40,17 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   private final SortedSet<String> m_ignoredAllelesLc;
   @Expose
   @SerializedName("unphasedDiplotypePriorities")
-  private final Map<String, String> m_unphasedDiplotypePriorities = new HashMap<>();
+  private final SortedSet<UnphasedDiplotypePriority> m_unphasedDiplotypePriorities = new TreeSet<>();
   @Expose
   @SerializedName("amp1Alleles")
   private final List<String> m_amp1Alleles;
-  /** AMP1 positions as VCF chr:pos strings. */
   @Expose
   @SerializedName("amp1Positions")
-  private final SortedSet<String> m_amp1Positions = new TreeSet<>();
+  private final SortedSet<Long> m_amp1Positions = new TreeSet<>();
 
 
-  public DefinitionExemption(String gene, @Nullable SortedSet<String> requiredPositions,
+
+  public DefinitionExemption(String gene, @Nullable SortedSet<Long> requiredPositions,
       @Nullable SortedSet<VariantLocus> ignoredPositions, @Nullable SortedSet<VariantLocus> extraPositions,
       @Nullable SortedSet<String> ignoredAlleles, @Nullable List<String> amp1Alleles) {
     m_gene = gene;
@@ -78,10 +76,9 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
 
 
   /**
-   * Gets the required positions (as VCF chr:pos strings) from the original definition that must be present before
-   * {@link NamedAlleleMatcher} will make a call.
+   * Gets the required positions that must be present before {@link NamedAlleleMatcher} will make a call.
    */
-  public SortedSet<String> getRequiredPositions() {
+  public SortedSet<Long> getRequiredPositions() {
     return m_requiredPositions;
   }
 
@@ -89,8 +86,8 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
     return !m_requiredPositions.isEmpty();
   }
 
-  public boolean isRequiredPosition(String vcfChrId) {
-    return m_requiredPositions.contains(vcfChrId);
+  public boolean isRequiredPosition(long pos) {
+    return m_requiredPositions.contains(pos);
   }
 
 
@@ -144,7 +141,11 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
   }
 
 
-  public Map<String, String> getUnphasedDiplotypePriorities() {
+  public boolean hasUnphasedDiplotypePriorities() {
+    return !m_unphasedDiplotypePriorities.isEmpty();
+  }
+
+  public SortedSet<UnphasedDiplotypePriority> getUnphasedDiplotypePriorities() {
     return m_unphasedDiplotypePriorities;
   }
 
@@ -154,8 +155,19 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
    * @param list a list of diplotypes; build using {@link #generateUnphasedPriorityKey(SortedSet)}
    * @param pick the diplotype to select given the {@code list} of diplotypes
    */
-  public void addUnphasedDiplotypePriority(String list, String pick) {
-    m_unphasedDiplotypePriorities.put(list, pick);
+  public void addUnphasedDiplotypePriority(SortedSet<String> list, String pick) {
+    UnphasedDiplotypePriority udp = new UnphasedDiplotypePriority(list, pick);
+    for (UnphasedDiplotypePriority existing : m_unphasedDiplotypePriorities) {
+      if (existing.getList().containsAll(udp.getList())) {
+        throw new IllegalArgumentException("Cannot add " + String.join(", ", udp.getList()) +
+            "- an existing superset of diplotypes already exist (" + String.join(", ", existing.getList()) + ")");
+      }
+      if (udp.getList().containsAll(existing.getList())) {
+        throw new IllegalArgumentException("Cannot add " + String.join(", ", udp.getList()) +
+            "- an existing subset of diplotypes already exist (" + String.join(", ", existing.getList()) + ")");
+      }
+    }
+    m_unphasedDiplotypePriorities.add(udp);
   }
 
 
@@ -167,12 +179,12 @@ public class DefinitionExemption implements Comparable<DefinitionExemption> {
     return m_amp1Positions.isEmpty();
   }
 
-  public boolean isAmp1Position(String vcfChrId) {
-    return m_amp1Positions.contains(vcfChrId);
+  public boolean isAmp1Position(long pos) {
+    return m_amp1Positions.contains(pos);
   }
 
   public void addAmp1Position(VariantLocus pos) {
-    m_amp1Positions.add(pos.getVcfChrPosition());
+    m_amp1Positions.add(pos.getPosition());
   }
 
 

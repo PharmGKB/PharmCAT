@@ -127,8 +127,8 @@ public class DataSerializer {
         if (data.length > 5) {
           amp1Alleles = sf_semicolonSplitter.splitToList(data[5]);
         }
-        SortedSet<String> requiredPositions = requiredLoci.stream()
-            .map(VariantLocus::getVcfChrPosition)
+        SortedSet<Long> requiredPositions = requiredLoci.stream()
+            .map(VariantLocus::getPosition)
             .collect(Collectors.toCollection(TreeSet::new));
         exemptions.put(gene, new DefinitionExemption(gene, requiredPositions, ignoreLoci, extraLoci, ignoreAlleles,
             amp1Alleles));
@@ -156,7 +156,7 @@ public class DataSerializer {
           for (int x = 1; x < data.length; x++) {
             dips.add(data[x]);
           }
-          exemption.addUnphasedDiplotypePriority(DefinitionExemption.generateUnphasedPriorityKey(dips), pick);
+          exemption.addUnphasedDiplotypePriority(dips, pick);
         }
       }
     }
