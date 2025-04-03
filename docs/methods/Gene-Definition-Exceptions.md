@@ -150,12 +150,40 @@ is currently excluded from the _G6PD_ allele definitions in PharmCAT.
 
 ## NAT2
 
-If the `Named Allele Matcher` produce multiple calls for NAT2 due to unphased sample data, PharmCAT tries to use
-frequency data to make a single call.
+[NAT2 star alleles](https://www.pharmvar.org/gene/NAT2) are largely characterized by five key variants:
+* rs1801279 (`191G>A`)
+* rs1801280 (`341T>C`)
+* rs1799930 (`590G>A`)
+* rs1208 (`803G>A`)
+* rs1799931 (`857G>A)`
 
-These are the affected calls, with priority given to the one in bold. 
+These are found in different combinations and with other variants. Due to the number of star alleles with these five
+variants, multiple diplotype assignments will often be possible for unphased data.
+In such situations, PharmCAT typically defaults to selecting the diplotype containing the star allele with the most
+variants (see [Scoring](/methods/NamedAlleleMatcher-101/#scoring) for details).
+
+However, review of historical star allele frequencies and our recent analysis of the UK Biobank 200K phased data
+(manuscript in preparation) confirmed that NAT2 star alleles most variants are not always the most common across
+biogeographic populations.   
+We have used this frequency data to change the default PharmCAT behavior for unphased NAT2 data.
+Below is a list of possible diplotype results for the same data, with the default call shown in bold.
 
 {% include_relative unphasedPriorities-NAT2.md %}
+
+The list of potential calls assumes all variants of interest are available.
+If there are missing variants, the `Named Allele Matcher` will still try to pick the priority diplotype as long as all
+diplotypes in the list are present in the call.
+
+For example, given the following variants (with all other positions being the reference allele):
+
+| rs1801279 | rs1801280 | rs1799930 | rs1208 | rs1799931 |
+|:----------|:----------|:----------|:-------|:----------|
+| G/A       | T/C       | G/A       | G/A    | G/G       |
+
+The `Named Allele Matcher` would normally call: `*6/*29` or `*30/*46` or `*5/*15`.
+
+However, with the NAT2 prioritization scheme, `*5/*15` will be called instead.  
+A note will be added to the result whenever this occurs.
 
 
 ## RYR1

@@ -214,11 +214,6 @@ PharmCAT's syntax for combinations uses square brackets to reflect that it is a 
 distinguish it from gene duplications (e.g. tandem arrangements like CYP2D6 `*36+*10`).
 
 
-### Scoring
-
-PharmCAT does not score combination calls because it will always return all possible matches.
-
-
 ### Unphased Data
 
 When dealing with unphased data, note that the `Named Allele Matcher` will never produce a combination/partial allele
@@ -227,8 +222,7 @@ data, the `Named Allele Matcher` will only call `*8/*9` if the data is unphased 
 It will not attempt to look for potential combination/partial alleles.
 
 Once the `Named Allele Matcher` starts looking for combinations, it will look for all occurrences of named alleles in
-all possible permutations of the unphased data.  It will only attempt to find partials based on the reference sequence
-if there are zero or one named allele matches.  The matching diplotypes will then be scored like normal.   
+all possible permutations of the unphased data.  
 
 Examples:
 
@@ -240,6 +234,12 @@ Examples:
 3. If the SNV defining CYP2C9 `*2` is found to be homozygous and the SNV defining CYP2C9 `*3` is also found, the 
    predicted diplotype will be CYP2C9 `*2/[*2 + *3]`.
 
+In the event that there are multiple viable calls, all calls will always be reported.
+
+
+### Scoring
+
+The `Named Allele Matcher` does not score combination calls because it will always return all possible matches.
 
 
 ## Notes
