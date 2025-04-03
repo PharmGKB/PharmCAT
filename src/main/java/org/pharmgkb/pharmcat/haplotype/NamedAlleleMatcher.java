@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +14,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Sets;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.BaseConfig;
@@ -26,8 +23,6 @@ import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
-import org.pharmgkb.pharmcat.haplotype.model.BaseMatch;
-import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
@@ -35,6 +30,8 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.DataManager;
+
+import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 
 
 /**
@@ -198,10 +195,8 @@ public class NamedAlleleMatcher {
       if (!m_callCyp2d6 && gene.equals("CYP2D6")) {
         continue;
       }
-      if (gene.equals("DPYD")) {
-        callDpyd(vcfReader.getSampleId(), alleleMap, resultBuilder);
-      } else if (gene.equals("RYR1")) {
-        callLowestFunctionGene(vcfReader.getSampleId(), "RYR1", alleleMap, resultBuilder);
+      if (isLowestFunctionGene(gene)) {
+        callLowestFunctionGene(vcfReader.getSampleId(), gene, alleleMap, resultBuilder);
       } else {
         callAssumingReference(vcfReader.getSampleId(), alleleMap, gene, resultBuilder);
       }
@@ -282,6 +277,17 @@ public class NamedAlleleMatcher {
   }
 
 
+  /**
+   * Calls diplotype based on the lowest-function algorithm:
+   * <ul>
+   *   <li>Only attempt diplotype match if effectively phased</li>
+   *   <li>
+   *     If no exact match or not effectively phased, only look for potential haplotypes
+   *     (try to match all permutations to any potential haplotype without assuming reference)
+   *   </li>
+   * </ul>
+   *
+   */
   private void callLowestFunctionGene(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap,
       ResultBuilder resultBuilder) {
 
@@ -294,76 +300,76 @@ public class NamedAlleleMatcher {
       return;
     }
 
-    MatchData comboData = null;
+    DpydHapB3Matcher dpydHapB3Matcher = null;
+    MatchData workingData = origData;
+    if (gene.equals("DPYD")) {
+      dpydHapB3Matcher = new DpydHapB3Matcher(m_env, alleleMap, origData);
+      if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
+        workingData = initializeDpydCallData(sampleId, alleleMap, true, false);
+      }
+    }
+
     // try for diplotypes if effectively phased
     if (origData.isEffectivelyPhased()) {
       // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, origData)
+      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData)
           .compute(false, false);
-      if (diplotypeMatches.size() == 1) {
-        resultBuilder.diplotypes(gene, origData, diplotypeMatches);
-        return;
-      }
-      // try combinations
-      comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
-      diplotypeMatches = callPhasedLowestFunctionGeneWithCombination(comboData, origData.isHomozygous());
       if (!diplotypeMatches.isEmpty()) {
-        resultBuilder.diplotypes(gene, origData, diplotypeMatches);
+        if (dpydHapB3Matcher != null && !dpydHapB3Matcher.isMissingHapB3Positions()) {
+          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
+          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
+          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        } else {
+          resultBuilder.diplotypes(gene, workingData, diplotypeMatches);
+        }
         return;
       }
     }
 
-    if (comboData == null) {
+    // try combinations
+    MatchData comboData;
+    if (dpydHapB3Matcher != null) {
+      comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
+    } else {
       comboData = initializeCallData(sampleId, alleleMap, gene, false, true);
     }
-    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(comboData, null);
-    resultBuilder.haplotypes(gene, origData, hapMatches);
-  }
-
-
-  private SortedSet<DiplotypeMatch> callPhasedLowestFunctionGeneWithCombination(MatchData comboData,
-      boolean isHomozygous) {
-
-    SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, comboData)
+    SortedSet<DiplotypeMatch> comboDipMatches = new DiplotypeMatcher(m_env, comboData)
         .compute(true, false, false);
-    if (!diplotypeMatches.isEmpty()) {
-      DiplotypeMatch[] matches = diplotypeMatches.toArray(new DiplotypeMatch[0]);
-      for (int x = 0; x < matches.length; x += 1) {
-        matches = removeSubCombos(matches, x);
-      }
-      SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>(Arrays.asList(matches));
-      if (matches.length > 1) {
-        if (isHomozygous) {
-          finalMatches = finalMatches.stream()
-              .filter(m -> m.getHaplotype2() != null &&
-                  m.getHaplotype1().getName().equals(m.getHaplotype2().getName()))
-              .collect(Collectors.toCollection(TreeSet::new));
+    if (!comboDipMatches.isEmpty()) {
+      if (origData.isEffectivelyPhased() || comboData.isUsingPhaseSets()) {
+        if (dpydHapB3Matcher != null && !dpydHapB3Matcher.isMissingHapB3Positions()) {
+          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, true);
+          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, comboDipMatches);
+          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
+        } else {
+          resultBuilder.diplotypes(gene, comboData, comboDipMatches);
         }
+        return;
       }
-      if (finalMatches.size() > 1) {
-        // this should never happen
-        throw new IllegalStateException("Lowest function gene cannot have more than 1 diplotype");
-      }
-      return finalMatches;
     }
-    return diplotypeMatches;
+
+    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(comboData, comboDipMatches, dpydHapB3Matcher);
+    if (dpydHapB3Matcher != null) {
+      resultBuilder.haplotypes(gene, origData, hapMatches, dpydHapB3Matcher.getWarnings());
+    } else {
+      resultBuilder.haplotypes(gene, origData, hapMatches);
+    }
   }
 
 
   private List<HaplotypeMatch> callHaplotypesForLowestFunctionGene(MatchData comboData,
-      @Nullable DpydHapB3Matcher dpydHapB3Matcher) {
+      SortedSet<DiplotypeMatch> matches, @Nullable DpydHapB3Matcher dpydHapB3Matcher) {
 
-    SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
-    // have to compute diplotypes so that we can check for homozygous and partials
-    SortedSet<DiplotypeMatch> matches = new DiplotypeMatcher(m_env, comboData)
-        .compute(true, false, false);
+    // use diplotypes to check for homozygous and partials
     Set<String> homozygous = new HashSet<>();
     int numPartials = 0;
     for (DiplotypeMatch dm : matches) {
-      if (dm.getHaplotype1().getHaplotype().isPartial() ||
-          (dm.getHaplotype2() != null && dm.getHaplotype2().getHaplotype().isPartial())) {
-        numPartials += 1;
-      }
+      // TODO(markwoon): don't bother counting partials because we're not looking for them
+      // TODO(markwoon): we might want to reconsider this
+//      if (dm.getHaplotype1().getHaplotype().isPartial() ||
+//          (dm.getHaplotype2() != null && dm.getHaplotype2().getHaplotype().isPartial())) {
+//        numPartials += 1;
+//      }
 
       Map<String, Integer> haps = new HashMap<>();
       for (String h : dm.getHaplotype1().getHaplotypeNames()) {
@@ -392,6 +398,7 @@ public class NamedAlleleMatcher {
       homozygous.remove(TextConstants.REFERENCE);
     }
 
+    SortedSet<HaplotypeMatch> hapMatches = comboData.comparePermutations();
     // If there are more than 2 haplotype matches, strip out Reference because we prioritize non-Reference if possible.
     // With 2 or fewer haplotype matches, cannot have Reference if there's a partial.
     int numMatches = hapMatches.size();
@@ -412,112 +419,13 @@ public class NamedAlleleMatcher {
         homozygous.remove(hm.getName());
       }
     }
+    if (dpydHapB3Matcher != null) {
+      finalHaps.addAll(dpydHapB3Matcher.buildHapB3HaplotypeMatches());
+    }
     if (!homozygous.isEmpty()) {
       throw new IllegalStateException("Combination matching found " + homozygous + " but haplotype matching didn't");
     }
     return finalHaps;
-  }
-
-
-  /**
-   * For DPYD, only attempt an exact diplotype match if phased.
-   * If there is no exact match, we only look for potential haplotypes.
-   * This tries to match all permutations to any potential haplotype (won't assume reference).
-   */
-  private void callDpyd(String sampleId, SortedMap<String, SampleAllele> alleleMap, ResultBuilder resultBuilder) {
-    final String gene = "DPYD";
-
-    MatchData origData = initializeCallData(sampleId, alleleMap, gene, true, false);
-    if (origData.getNumSampleAlleles() == 0) {
-      resultBuilder.noCall(gene, origData);
-      return;
-    }
-    if (!hasRequiredPositions(origData, resultBuilder)) {
-      return;
-    }
-
-    DpydHapB3Matcher dpydHapB3Matcher = new DpydHapB3Matcher(m_env, alleleMap, origData.isEffectivelyPhased());
-    MatchData workingData;
-    if (dpydHapB3Matcher.isMissingHapB3Positions()) {
-      workingData = origData;
-    } else {
-      workingData = initializeDpydCallData(sampleId, alleleMap, true, false);
-    }
-
-    MatchData comboData = null;
-    // try for diplotypes if effectively phased
-    if (origData.isEffectivelyPhased()) {
-     // first look for exact matches (use topCandidateOnly = false because looking for exact match)
-      SortedSet<DiplotypeMatch> diplotypeMatches = new DiplotypeMatcher(m_env, workingData)
-          .compute(false, false);
-      if (diplotypeMatches.size() == 1) {
-        if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, false);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
-        } else {
-          resultBuilder.diplotypes(gene, workingData, diplotypeMatches);
-        }
-        return;
-      }
-      // try combinations
-      comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
-      diplotypeMatches = callPhasedLowestFunctionGeneWithCombination(comboData, workingData.isHomozygous());
-      if (!diplotypeMatches.isEmpty()) {
-        if (!dpydHapB3Matcher.isMissingHapB3Positions()) {
-          MatchData mergerData = initializeCallData(sampleId, alleleMap, gene, false, true);
-          SortedSet<DiplotypeMatch> mergedMatches = dpydHapB3Matcher.mergePhasedDiplotypeMatch(mergerData, diplotypeMatches);
-          resultBuilder.diplotypes(gene, mergerData, mergedMatches, dpydHapB3Matcher.getWarnings());
-        } else {
-          resultBuilder.diplotypes(gene, comboData, diplotypeMatches);
-        }
-        return;
-      }
-    }
-
-    if (comboData == null) {
-      comboData = initializeDpydCallData(sampleId, alleleMap, false, true);
-    }
-    List<HaplotypeMatch> hapMatches = callHaplotypesForLowestFunctionGene(comboData, dpydHapB3Matcher);
-    if (dpydHapB3Matcher.isHapB3Present()) {
-      hapMatches.addAll(dpydHapB3Matcher.buildHapB3HaplotypeMatches(origData));
-    }
-    resultBuilder.haplotypes(gene, origData, hapMatches, dpydHapB3Matcher.getWarnings());
-  }
-
-  /**
-   * Removes diplotypes that are partial combinations.
-   */
-  private DiplotypeMatch[] removeSubCombos(DiplotypeMatch[] diplotypeMatches, int idx) {
-
-    List<DiplotypeMatch> cleaned = new ArrayList<>(Arrays.asList(diplotypeMatches).subList(0, idx));
-    DiplotypeMatch diplotypeMatch = diplotypeMatches[idx];
-    Set<String> hap1 = getNames(diplotypeMatch.getHaplotype1());
-    Set<String> hap2 = getNames(diplotypeMatch.getHaplotype2());
-    cleaned.add(diplotypeMatch);
-    for (int x = idx + 1; x < diplotypeMatches.length; x += 1) {
-      DiplotypeMatch dm = diplotypeMatches[x];
-      Set<String> h1 = getNames(dm.getHaplotype1());
-      Set<String> h2 = getNames(dm.getHaplotype2());
-      if ((!hap1.containsAll(h1) || !hap2.containsAll(h2)) &&
-          (!hap1.containsAll(h2) || !hap2.containsAll(h1))) {
-        cleaned.add(dm);
-      }
-    }
-    return cleaned.toArray(new DiplotypeMatch[0]);
-  }
-
-  private Set<String> getNames(@Nullable BaseMatch bm) {
-    if (bm == null) {
-      return Collections.emptySet();
-    }
-    if (bm instanceof CombinationMatch cm) {
-      return cm.getComponentHaplotypes().stream()
-          .map(NamedAllele::getName)
-          .collect(Collectors.toSet());
-    } else {
-      return Sets.newHashSet(bm.getName());
-    }
   }
 
 

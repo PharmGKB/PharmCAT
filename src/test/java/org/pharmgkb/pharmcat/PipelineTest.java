@@ -97,6 +97,17 @@ class PipelineTest {
         .toList();
   }
 
+  public static List<String> expectedCallsToCpicStyleCalls(List<String> expectedCalls) {
+    return expectedCalls.stream()
+        .map(d -> {
+          if (d.startsWith("Reference/") && !d.endsWith("/Reference")) {
+            return d.substring(10) + " (heterozygous)";
+          }
+          return d;
+        })
+        .toList();
+  }
+
 
   /**
    * Checks for expected HTML output.
@@ -214,7 +225,7 @@ class PipelineTest {
           Elements gsLowestFunction = document.select(".gs-" + gene + " .gs-dip_lowestFunction");
           assertEquals(cpicStyleCalls == null ? expectedCalls : cpicStyleCalls,
               gsLowestFunction.stream()
-                  .map(e -> e.child(0).text())
+                  .map(Element::text)
                   .toList());
 
           Elements gsComponents = document.select(".gs-" + gene + " .gs-dip_component");
@@ -927,6 +938,26 @@ class PipelineTest {
     assertNotNull(cyp2d6Report);
     assertTrue(cyp2d6Report.isOutsideCall());
   }
+
+
+  @Test
+  void multipleCalls(TestInfo testInfo) throws Exception {
+    // Test *1/*4 - but with 94762706	rs28399504	A	G	.	PASS	star-4a-4b	GT	./. to test partial call
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .variation("CYP2C19", "rs12248560", "C", "T")
+        .variation("CYP2C19", "rs3758581", "G", "G")
+        .missing("CYP2C19", "rs28399504");
+    testWrapper.execute();
+
+    testWrapper.testCalledByMatcher("CYP2C19");
+    testWrapper.testReportable("CYP2C19");
+
+    testWrapper.testPrintCpicCalls("CYP2C19", "*1/*4", "*1/*17");
+    GeneReport cyp2c19Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
+    assertNotNull(cyp2c19Report);
+  }
+
 
 
   @Test
@@ -2180,7 +2211,7 @@ class PipelineTest {
    * {@code chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720}
    */
   @Test
-  void phaseSet(TestInfo testInfo) throws Exception {
+  void phaseSetDpyd(TestInfo testInfo) throws Exception {
     // unphased
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, "unphased", false, false, false)
         .saveIntermediateFiles();
@@ -2224,9 +2255,98 @@ class PipelineTest {
     vcfFile = testWrapper.execute();
 
     expectedCalls = List.of(
-        "c.85T>C (*9A)",
-        "c.3067C>A"
+        "Reference/[c.85T>C (*9A) + c.3067C>A]",
+        "c.85T>C (*9A)/c.3067C>A"
     );
-    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, null, expectedCalls, false, RecPresence.YES);
+    List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
+    List<String> recommendedDiplotypes = List.of("c.85T>C (*9A)", "Reference");
+
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
+  }
+
+
+  @Test
+  void phaseSetCyp2C9(TestInfo testInfo) throws Exception {
+    // unphased
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, "unphased",false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .variation("CYP2C9", "rs1799853", "C", "T")
+        .variation("CYP2C9", "rs1057910", "A", "C")
+    ;
+    Path vcfFile = testWrapper.execute();
+
+    List<String> expectedCalls = List.of("*2/*3");
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+
+    Document document = readHtmlReport(vcfFile);
+    Elements elems = document.select(".gene.CYP2C9 .genotype-result");
+    assertEquals(1, elems.size());
+    assertEquals(expectedCalls.get(0), elems.get(0).text());
+
+
+    // phased
+    testWrapper = new PipelineWrapper(testInfo, "phased",false, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variation("CYP2C9", "rs1799853", "C", "T")
+        .variation("CYP2C9", "rs1057910", "A", "C")
+    ;
+    vcfFile = testWrapper.execute();
+
+    testWrapper.testNotCalledByMatcher("CYP2C9");
+
+    document = readHtmlReport(vcfFile);
+    elems = document.select(".gene.CYP2C9 .genotype-result");
+    assertEquals(1, elems.size());
+    assertEquals("Not called", elems.get(0).text());
+
+
+    // phased + combinations
+    testWrapper = new PipelineWrapper(testInfo, "phasedCombo",true, false, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variation("CYP2C9", "rs1799853", "C", "T")
+        .variation("CYP2C9", "rs1057910", "A", "C")
+    ;
+    vcfFile = testWrapper.execute();
+
+    expectedCalls = List.of("*1/[*2 + *3]");
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+
+    document = readHtmlReport(vcfFile);
+    elems = document.select(".gene.CYP2C9 .genotype-result");
+    assertEquals(1, elems.size());
+    assertEquals(expectedCalls.get(0), elems.get(0).text());
+
+
+    // phase sets
+     testWrapper = new PipelineWrapper(testInfo, "phaseSets",false, true, false)
+        .saveIntermediateFiles();
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variationInPhaseSet("CYP2C9", "rs1799853", 1, "C", "T")
+        .variationInPhaseSet("CYP2C9", "rs1057910", 2, "A", "C")
+    ;
+    vcfFile = testWrapper.execute();
+
+    expectedCalls = List.of("*2/*3");
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
+    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+
+    document = readHtmlReport(vcfFile);
+    elems = document.select(".gene.CYP2C9 .genotype-result");
+    assertEquals(1, elems.size());
+    assertEquals(expectedCalls.get(0), elems.get(0).text());
   }
 }

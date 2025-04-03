@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
  * @author Mark Woon
  */
 public class MatchData {
+  public static final Integer NULL_PHASE_SET = Integer.MIN_VALUE;
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
   private final String m_sampleId;
   private final String m_gene;
@@ -45,7 +46,15 @@ public class MatchData {
   private Set<String> m_permutations;
   @Expose
   @SerializedName("phased")
-  private boolean m_isPhased;
+  private final boolean m_isPhased;
+  /** Map of phase set to positions. */
+  @Expose
+  @SerializedName("phaseSets")
+  private final SortedMap<Integer, SortedSet<Long>> m_phaseSets = new TreeMap<>();
+  /** Map of positions to phase set. */
+  @Expose
+  @SerializedName("posToPhaseSet")
+  private final SortedMap<Long, Integer> m_positionToPhaseSet = new TreeMap<>();
   @Expose
   @SerializedName("homozygous")
   private boolean m_isHomozygous;
@@ -80,6 +89,7 @@ public class MatchData {
     }
 
     List<VariantLocus> positions = new ArrayList<>();
+    boolean isPhased = true;
     for (VariantLocus variant : allPositions) {
       String chrPos = variant.getVcfChrPosition();
       SampleAllele allele = alleleMap.get(chrPos);
@@ -98,6 +108,14 @@ public class MatchData {
         }
       }
       positions.add(variant);
+      if (!allele.isPhased()) {
+        isPhased = false;
+      }
+      if (allele.isPhased()) {
+        m_phaseSets.computeIfAbsent(Objects.requireNonNullElse(allele.getPhaseSet(), NULL_PHASE_SET),
+                ps -> new TreeSet<>())
+            .add((long)allele.getPosition());
+      }
       m_sampleMap.put(variant.getPosition(), allele);
     }
     m_positions = positions.toArray(new VariantLocus[0]);
@@ -112,9 +130,17 @@ public class MatchData {
       }
     }
     m_isHaploid = areSampleAllelesHaploid(m_sampleMap.values());
-    m_isPhased = m_sampleMap.values().stream().allMatch(SampleAllele::isPhased);
+    m_isPhased = isPhased;
     m_isHomozygous = m_isHaploid ||
         m_sampleMap.values().stream().allMatch(SampleAllele::isHomozygous);
+
+    if (isUsingPhaseSets()) {
+      for (Integer ps : m_phaseSets.keySet()) {
+        for (Long pos : m_phaseSets.get(ps)) {
+          m_positionToPhaseSet.put(pos, ps);
+        }
+      }
+    }
 
     if (exemption != null && !m_missingPositions.isEmpty()) {
       if (exemption.hasRequiredPositions()) {
@@ -311,6 +337,34 @@ public class MatchData {
   public boolean isPhased() {
     return m_isPhased;
   }
+
+  /**
+   * Gets whether data uses phase sets.
+   */
+  public boolean isUsingPhaseSets() {
+    if (m_phaseSets.isEmpty()) {
+      return false;
+    }
+    if (m_phaseSets.containsKey(NULL_PHASE_SET)) {
+      return m_phaseSets.size() > 1;
+    }
+    return true;
+  }
+
+  /**
+   * Gets a map of the positions for each phase set (i.e. phase set ID to positions).
+   */
+  public SortedMap<Integer, SortedSet<Long>> getPhaseSets() {
+    return m_phaseSets;
+  }
+
+  /**
+   * Gets the phase set ID for the specified {@code position}.
+   */
+  public @Nullable Integer getPhaseSet(long position) {
+    return m_positionToPhaseSet.get(position);
+  }
+
 
   public boolean isHomozygous() {
     return m_isHomozygous;

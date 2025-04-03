@@ -179,7 +179,7 @@ public class GeneReport implements Comparable<GeneReport> {
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory(m_gene, env);
     if (isLowestFunctionGene(m_gene)) {
 
-      if (call.isEffectivelyPhased() && call.getDiplotypes().size() == 1) {
+      if (!call.getDiplotypes().isEmpty()) {
         m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
         m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
         m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromDiplotypes(m_gene, env,

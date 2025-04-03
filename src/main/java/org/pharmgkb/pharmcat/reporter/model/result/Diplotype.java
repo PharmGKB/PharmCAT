@@ -26,7 +26,7 @@ import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
  * @author Ryan Whaley
  */
 public class Diplotype implements Comparable<Diplotype> {
-  private static final String HETEROZYGOUS_SUFFIX = " (heterozygous)";
+  public static final String HETEROZYGOUS_SUFFIX = " (heterozygous)";
   private static final List<String> USE_CPIC_STYLE_DIPLOTYPE_NAMES = List.of(
       "CACNA1S",
       "CFTR",
@@ -356,6 +356,11 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
 
+  private DataSource getPhenotypeDataSource() {
+    return m_phenotypeDataSource;
+  }
+
+
 
   public boolean isCombination() {
     return m_combination;
@@ -467,22 +472,52 @@ public class Diplotype implements Comparable<Diplotype> {
 
   @Override
   public int compareTo(Diplotype o) {
-    int rez = ObjectUtils.compare(getGene(), o.getGene());
+    if (this == o) {
+      return 0;
+    }
+    int rez = ObjectUtils.compare(m_gene, o.getGene());
     if (rez != 0) {
       return rez;
     }
 
-    rez = compareAllele(m_allele1, o.getAllele1());
+    rez = ObjectUtils.compare(m_label, o.getLabel());
+    if (rez != 0) {
+      rez = compareAllele(m_allele1, o.getAllele1());
+      if (rez != 0) {
+        return rez;
+      }
+      rez = compareAllele(m_allele2, o.getAllele2());
+      if (rez != 0) {
+        return rez;
+      }
+    }
+
+    rez = ObjectUtils.compare(m_phenotypeDataSource, o.getPhenotypeDataSource());
     if (rez != 0) {
       return rez;
     }
+    return ObjectUtils.compare(m_inferred, o.isInferred());
+  }
 
-    rez = compareAllele(m_allele2, o.getAllele2());
-    if (rez != 0) {
-      return rez;
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
+    if (!(obj instanceof Diplotype that)) {
+      return false;
+    }
+    return Objects.equals(m_gene, that.getGene()) &&
+        Objects.equals(m_label, that.getLabel()) &&
+        Objects.equals(m_phenotypeDataSource, that.getPhenotypeDataSource()) &&
+        Objects.equals(m_inferred, that.isInferred()) &&
+        Objects.equals(m_allele1, that.getAllele1()) &&
+        Objects.equals(m_allele2, that.getAllele2());
+  }
 
-    return ObjectUtils.compare(m_label, o.getLabel());
+  @Override
+  public int hashCode() {
+    return Objects.hash(m_gene, m_label, m_phenotypeDataSource, m_inferred, m_allele1, m_allele2);
   }
 
   private int compareAllele(@Nullable Haplotype a, @Nullable Haplotype b) {
@@ -524,9 +559,9 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
   /**
-   * Computes lookup map for this {@link Diplotype}.
+   * Computes the lookup map for this {@link Diplotype}.
    * <p>
-   * Using default scope to allow for use in tests.
+   * Using the default scope to allow for use in tests.
    */
   Map<String, Integer> computeLookupMap() {
     String phenotype = null;

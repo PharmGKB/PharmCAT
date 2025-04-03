@@ -3,8 +3,11 @@ package org.pharmgkb.pharmcat.reporter.handlebars;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -15,6 +18,7 @@ import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.TextUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -237,6 +241,48 @@ public class ReportHelpers {
       return TextConstants.NA.toUpperCase();
     }
     return String.join("; ", diplotype.getPhenotypes());
+  }
+
+
+  private static List<String> parseHaplotypeName(String name) {
+    if (CombinationMatcher.isCombinationName(name)) {
+      List<String> names = new ArrayList<>();
+      return CombinationMatcher.splitCombinationName(name);
+    } else {
+      return List.of(name);
+    }
+  }
+
+  public static String gsLowestFunctionComponents(Diplotype diplotype, Collection<Diplotype> components,
+      Collection<String> homozygousComponentHaplotypes) {
+
+    Set<String> haps = new HashSet<>(parseHaplotypeName(Objects.requireNonNull(diplotype.getAllele1()).getName()));
+    if (diplotype.getAllele2() != null) {
+      haps.addAll(parseHaplotypeName(diplotype.getAllele2().getName()));
+    }
+    StringBuilder builder = new StringBuilder();
+    int x = 0;
+    for (Diplotype comp : components) {
+      if (haps.contains(Objects.requireNonNull(comp.getAllele1()).getName())) {
+        builder.append("<tr class=\"top-aligned gs-dip_component\">\n" +
+                "<td>")
+            .append(gsCall(comp, homozygousComponentHaplotypes))
+            .append("</td>\n" +
+                "<td>")
+            .append(gsFunction(comp))
+            .append("</td>\n");
+        if (x == 0) {
+          builder.append("<td rowspan=\"")
+              .append(components.size())
+              .append("\" class=\"center\">")
+              .append(TextConstants.SEE_DRUG)
+              .append("</td>");
+        }
+        builder.append("</tr>\n");
+        x += 1;
+      }
+    }
+    return builder.toString();
   }
 
 

@@ -110,18 +110,26 @@
               <table class="diplotype">
                 <tbody>
                 {{#if showComponents}}
-                  {{#with diplotypes}}
-                    <tr class="lowestFunctionDiplotype gs-dip_lowestFunction">
-                      <td colspan="3"><b>{{{gsCall this ../homozygousComponentHaplotypes}}}</b></td>
-                    </tr>
-                  {{/with}}
-                  {{#each componentDiplotypes}}
-                    <tr class="top-aligned gs-dip_component">
-                      <td>{{{gsCall this ../homozygousComponentHaplotypes}}}</td>
-                      <td>{{gsFunction}}</td>
-                      <td>{{gsPhenotype}}</td>
-                    </tr>
-                  {{/each}}
+                  {{#if (thereAre diplotypes) }}
+                    {{#each diplotypes}}
+                      {{#with this}}
+                        <tr class="lowestFunctionDiplotype">
+                          <td colspan="3">
+                            <b class="gs-dip_lowestFunction">{{{gsCall this ../homozygousComponentHaplotypes}}}</b><br />
+                          </td>
+                        </tr>
+                      {{/with}}
+                      {{{gsLowestFunctionComponents this componentDiplotypes ../homozygousComponentHaplotypes}}}
+                    {{/each}}
+                  {{else}}
+                    {{#each componentDiplotypes}}
+                      <tr class="top-aligned gs-dip_component">
+                        <td>{{{gsCall this ../homozygousComponentHaplotypes}}}</td>
+                        <td>{{gsFunction}}</td>
+                        <td>{{gsPhenotype}}</td>
+                      </tr>
+                    {{/each}}
+                  {{/if}}
                 {{else}}
                   <!-- standard diplotype -->
                   {{#each diplotypes}}

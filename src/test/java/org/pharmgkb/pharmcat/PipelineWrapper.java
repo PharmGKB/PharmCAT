@@ -317,7 +317,8 @@ public class PipelineWrapper {
    */
   void testRecommendedDiplotypes(DataSource source, String gene, List<String> haplotypes) {
     Preconditions.checkArgument(!haplotypes.isEmpty() && haplotypes.size() <= 2,
-        "Can only test on 1 or 2 haplotypes, got " + haplotypes.size());
+        "Can only test on 1 or 2 haplotypes, got " + haplotypes.size() + ": " +
+            String.join(", ", haplotypes));
 
     GeneReport geneReport = getContext().getGeneReport(source, gene);
     assertNotNull(geneReport);

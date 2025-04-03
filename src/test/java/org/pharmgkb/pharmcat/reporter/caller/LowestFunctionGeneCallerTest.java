@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
+import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
+import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
@@ -29,10 +32,13 @@ import static org.pharmgkb.pharmcat.reporter.model.DataSource.DPWG;
  */
 class LowestFunctionGeneCallerTest {
   private static Env s_env;
+  private static DiplotypeFactory s_diplotypeFactory;
+
 
   @BeforeAll
   static void prepare() throws Exception {
     s_env = new Env();
+    s_diplotypeFactory = new DiplotypeFactory("DPYD", s_env);
   }
 
 
@@ -169,8 +175,92 @@ class LowestFunctionGeneCallerTest {
   }
 
 
+  private void checkInferredDpyd(List<DiplotypeMatch> matches, String cpicDip, String cpicActivityScore, String dpwgDip) {
+    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("DPYD", s_env, CPIC, s_diplotypeFactory,
+        matches);
+    assertEquals(1, rez.size());
+    Diplotype finalDip = rez.get(0);
+    assertEquals(cpicDip, finalDip.buildLabel(true));
+    assertEquals(cpicActivityScore, finalDip.getActivityScore(), "Incorrect inferred CPIC diplotype");
+
+    rez = LowestFunctionGeneCaller.inferFromDiplotypes("DPYD", s_env, DPWG, s_diplotypeFactory, matches);
+    assertEquals(1, rez.size());
+    finalDip = rez.get(0);
+    assertEquals(dpwgDip, finalDip.buildLabel(true), "Incorrect inferred DPWG diplotype");
+    ///assertEquals(dpwgActivityScore, finalDip.getActivityScore());
+  }
+
+
   @Test
-  void testComparator() {
+  void inferDiplotypes_matcherPhaseSets() {
+
+    // rs1801267 C > T - c.2657G>A (*9B) - Activity Value 1.0 (Normal function), not in DPWG
+    NamedAllele na9b = new NamedAllele("1", "c.2657G>A (*9B)", new String[0], new String[0], false);
+    HaplotypeMatch hm9b = new HaplotypeMatch(na9b);
+    // rs59086055 G > A - c.1774C>T - Activity Value 0.0 (No function), not in DPWG
+    NamedAllele na1774 = new NamedAllele("2", "c.1774C>T", new String[0], new String[0], false);
+    HaplotypeMatch hm1774 = new HaplotypeMatch(na1774);
+    // rs186169810 A > A - c.1314T>G - Activity Value 0.5 (Decreased function), not in DPWG
+    NamedAllele na1314 = new NamedAllele("3", "c.1314T>G", new String[0], new String[0], false);
+
+    // rs55886062 A > C - c.1679T>G (*13) - Activity Value 0.0 (No function)
+    NamedAllele na13 = new NamedAllele("4", "c.1679T>G (*13)", new String[0], new String[0], false);
+    HaplotypeMatch hm13 = new HaplotypeMatch(na13);
+    // rs67376798 T > T - c.2846A>T - Activity Value 0.5 (Decreased function)
+    NamedAllele na2846 = new NamedAllele("4", "c.2846A>T", new String[0], new String[0], false);
+
+
+    // *9B/*13 -> normal (no DPWG)/no function
+    List<DiplotypeMatch> matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm9b, hm13, null));
+
+    checkInferredDpyd(matches, "c.1679T>G (*13)/c.2657G>A (*9B)", "1.0",
+        "Reference/c.1679T>G (*13)");
+
+    //-----
+    // c.1774C>T/*13 -> no function (no DPWG)/no function
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm1774, hm13, null));
+
+    checkInferredDpyd(matches, "c.1679T>G (*13)/c.1774C>T", "0.0",
+        "c.1679T>G (*13)/c.1774C>T");
+
+
+    //-----
+    // *9B/[c.1774C>T + *13] -> normal (no DPWG)/no function (no DPWG) + no function
+    // should pick DPWG no function over CPIC no function
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm9b, new CombinationMatch(new VariantLocus[0], "", List.of(na1774, na13), null), null));
+
+    checkInferredDpyd(matches, "c.1679T>G (*13)/c.2657G>A (*9B)", "1.0",
+        "Reference/c.1679T>G (*13)");
+
+
+    //-----
+    // *9B/[c.1774C>T + *13] -> normal (no DPWG)/no function (no DPWG) + no function
+    // should pick DPWG no function over CPIC no function
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm9b, new CombinationMatch(new VariantLocus[0], "", List.of(na1774, na13), null), null));
+
+    checkInferredDpyd(matches, "c.1679T>G (*13)/c.2657G>A (*9B)", "1.0",
+        "Reference/c.1679T>G (*13)");
+
+
+    //-----
+    // *9B/[c.1774C>T + *13] -> normal (no DPWG)/no function (no DPWG) + no function
+    // [*9B + c.1774C>T]/*13 -> no function (no DPWG) + normal (no DPWG)/no function
+    // should pick DPWG no function over CPIC no function
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm9b, new CombinationMatch(new VariantLocus[0], "", List.of(na1774, na13), null), null));
+    matches.add(new DiplotypeMatch(hm13, new CombinationMatch(new VariantLocus[0], "", List.of(na1774, na9b), null), null));
+
+    checkInferredDpyd(matches, "c.1679T>G (*13)/c.1774C>T", "0.0",
+        "c.1679T>G (*13)/c.1774C>T");
+  }
+
+
+  @Test
+  void testDpydActivityComparator() {
     LowestFunctionGeneCaller.DpydActivityComparator comparator = new LowestFunctionGeneCaller.DpydActivityComparator(s_env);
 
     Haplotype hapRef = new Haplotype("DPYD", "Reference");  // normal, DPWG
@@ -193,5 +283,52 @@ class LowestFunctionGeneCallerTest {
     // order by name
     assertEquals(1, comparator.compare(hap2582, hap498));
     assertEquals(-1, comparator.compare(hap498, hap2582));
+  }
+
+
+  @Test
+  void testRyr1DiplotypeComparator() {
+
+    // c.38T>G - Malignant Hyperthermia associated
+    NamedAllele na38 = new NamedAllele("1", "c.38T>G", new String[0], new String[0], false);
+    HaplotypeMatch hm38 = new HaplotypeMatch(na38);
+    // c.51_53del - Uncertain function
+    NamedAllele na51 = new NamedAllele("2", "c.51_53del", new String[0], new String[0], false);
+    HaplotypeMatch hm51 = new HaplotypeMatch(na51);
+
+
+    // c.38T>G/c.51_53del - malignant/uncertain
+    List<DiplotypeMatch> matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm38, hm51, null));
+    checkInferredRyr1(matches, "c.38T>G/c.51_53del");
+
+    // c.38T>G/c.51_53del - malignant/uncertain
+    // c.51_53del/c.51_53del - uncertain/uncertain
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm38, hm51, null));
+    matches.add(new DiplotypeMatch(hm51, hm51, null));
+    checkInferredRyr1(matches, "c.38T>G/c.51_53del");
+
+    // c.38T>G/c.38T>G - malignant/malignant
+    // c.51_53del/c.51_53del - uncertain/uncertain
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm38, hm38, null));
+    matches.add(new DiplotypeMatch(hm51, hm51, null));
+    checkInferredRyr1(matches, "c.38T>G/c.38T>G");
+
+    // c.38T>G/c.38T>G - malignant/malignant
+    // c.38T>G/c.51_53del - malignant/uncertain
+    matches = new ArrayList<>();
+    matches.add(new DiplotypeMatch(hm38, hm38, null));
+    matches.add(new DiplotypeMatch(hm38, hm51, null));
+    checkInferredRyr1(matches, "c.38T>G/c.38T>G");
+  }
+
+  private void checkInferredRyr1(List<DiplotypeMatch> matches, String cpicDip) {
+    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("RYR1", s_env, CPIC, s_diplotypeFactory,
+        matches);
+    assertEquals(1, rez.size());
+    Diplotype finalDip = rez.get(0);
+    assertEquals(cpicDip, finalDip.buildLabel(true));
   }
 }

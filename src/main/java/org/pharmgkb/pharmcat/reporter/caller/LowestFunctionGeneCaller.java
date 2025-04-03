@@ -12,7 +12,6 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.ObjectUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
@@ -39,25 +38,33 @@ public class LowestFunctionGeneCaller {
    */
   public static List<Diplotype> inferFromDiplotypes(String gene, Env env, DataSource source,
       DiplotypeFactory diplotypeFactory, Collection<DiplotypeMatch> matches) {
-    List<Diplotype> diplotypes = new ArrayList<>();
+
     if (matches.isEmpty()) {
-      diplotypes.add(DiplotypeFactory.makeUnknownDiplotype(gene, env, source));
-    } else {
-      for (DiplotypeMatch dm : matches) {
-        List<String> hapNames1 = new ArrayList<>(dm.getHaplotype1().getHaplotypeNames());
-        List<String> hapNames2;
-        if (dm.getHaplotype2() == null) {
-          hapNames2 = Collections.emptyList();
-        } else {
-          hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
-        }
-        diplotypes.add(inferPhasedDiplotype(gene, hapNames1, hapNames2, env, source));
-      }
+      return List.of(DiplotypeFactory.makeUnknownDiplotype(gene, env, source));
     }
 
-    SortedSet<Diplotype> srcDiplotypes = new TreeSet<>(diplotypeFactory.makeDiplotypes(matches, source));
-    diplotypes.forEach(d -> d.setInferredSourceDiplotypes(srcDiplotypes));
-    return diplotypes;
+    SortedSet<Diplotype> diplotypes;
+    if (gene.equals("DPYD")) {
+      diplotypes = new TreeSet<>(new DiplotypeCpicActivityScoreComparator(env, gene));
+    } else if (gene.equals("RYR1")) {
+      diplotypes = new TreeSet<>(Ryr1DiplotypeMalignancyComparator.INSTANCE);
+    } else {
+      throw new IllegalArgumentException("Don't know how to deal with " + gene);
+    }
+    for (DiplotypeMatch dm : matches) {
+      List<String> hapNames1 = new ArrayList<>(dm.getHaplotype1().getHaplotypeNames());
+      List<String> hapNames2;
+      if (dm.getHaplotype2() == null) {
+        hapNames2 = Collections.emptyList();
+      } else {
+        hapNames2 = new ArrayList<>(dm.getHaplotype2().getHaplotypeNames());
+      }
+      diplotypes.add(inferPhasedDiplotype(gene, hapNames1, hapNames2, env, source));
+    }
+
+    Diplotype finalDiplotype = diplotypes.first();
+    finalDiplotype.setInferredSourceDiplotypes(new TreeSet<>(diplotypeFactory.makeDiplotypes(matches, source)));
+    return List.of(finalDiplotype);
   }
 
   /**
@@ -179,11 +186,61 @@ public class LowestFunctionGeneCaller {
   }
 
 
+  /**
+   * Diplotype comparator that compares based on CPIC activity score.
+   * Expects to sort the score ascending, so this gives haplotypes with no activity score a higher score so that it
+   * comes later.
+   */
+  private static class DiplotypeCpicActivityScoreComparator implements Comparator<Diplotype> {
+    private final GenePhenotype m_cpicGp;
+
+    public DiplotypeCpicActivityScoreComparator(Env env, String gene) {
+      m_cpicGp = env.getPhenotype(gene, DataSource.CPIC);
+    }
+
+    private float getHaplotypeActivityScore(String hapName) {
+      Float score = m_cpicGp.getHaplotypeActivityScore(hapName);
+      // use large number to rank it low
+      return Objects.requireNonNullElse(score, 2.0f);
+    }
+
+    @Override
+    public int compare(Diplotype o1, Diplotype o2) {
+      if (o1 == o2) {
+        return 0;
+      }
+      if (o1 == null) {
+        return -1;
+      } else if (o2 == null) {
+        return 1;
+      }
+
+      // use activity scores from CPIC
+      float as1 = getHaplotypeActivityScore(Objects.requireNonNull(o1.getAllele1()).getName()) +
+          getHaplotypeActivityScore(Objects.requireNonNull(o1.getAllele2()).getName());
+      float as2 = getHaplotypeActivityScore(Objects.requireNonNull(o2.getAllele1()).getName()) +
+          getHaplotypeActivityScore(Objects.requireNonNull(o2.getAllele2()).getName());
+
+      int rez = ObjectUtils.compare(as1, as2);
+      if (rez != 0) {
+        return rez;
+      }
+
+      rez = HaplotypeNameComparator.getComparator().compare(o1.getAllele1().getName(), o2.getAllele1().getName());
+      if (rez != 0) {
+        return rez;
+      }
+      return HaplotypeNameComparator.getComparator().compare(o1.getAllele2().getName(), o2.getAllele2().getName());
+    }
+  }
+
   static class DpydActivityComparator implements Comparator<Haplotype> {
-    private final Env m_env;
+    private final GenePhenotype m_cpicGp;
+    private final GenePhenotype m_dpwgGp;
 
     public DpydActivityComparator(Env env) {
-      m_env = env;
+      m_cpicGp = env.getPhenotype("DPYD", DataSource.CPIC);
+      m_dpwgGp = env.getPhenotype("DPYD", DataSource.DPWG);
     }
 
     @Override
@@ -196,23 +253,18 @@ public class LowestFunctionGeneCaller {
       } else if (o2 == null) {
         return 1;
       }
-      int rez = ObjectUtils.compare(o1.getGene(), o2.getGene());
-      if (rez != 0) {
-        return rez;
-      }
 
       // use activity scores from CPIC
-      GenePhenotype cpicGp = Objects.requireNonNull(m_env.getPhenotype(o1.getGene(), DataSource.CPIC));
-      rez = compare(cpicGp.getHaplotypeActivityScore(o1.getName()), cpicGp.getHaplotypeActivityScore(o2.getName()));
+      int rez = ObjectUtils.compare(m_cpicGp.getHaplotypeActivityScore(o1.getName()),
+          m_cpicGp.getHaplotypeActivityScore(o2.getName()));
       if (rez != 0) {
         return rez;
       }
 
       // if same score, prefer one that's in DPWG
-      GenePhenotype dpwgGp = m_env.getPhenotype(o1.getGene(), DataSource.DPWG);
-      if (dpwgGp != null) {
-        int f1 = dpwgGp.getHaplotypes().containsKey(o1.getName()) ? 0 : 1;
-        int f2 = dpwgGp.getHaplotypes().containsKey(o2.getName()) ? 0 : 1;
+      if (m_dpwgGp != null) {
+        int f1 = m_dpwgGp.getHaplotypes().containsKey(o1.getName()) ? 0 : 1;
+        int f2 = m_dpwgGp.getHaplotypes().containsKey(o2.getName()) ? 0 : 1;
         rez = Integer.compare(f1, f2);
         if (rez != 0) {
           return rez;
@@ -221,26 +273,42 @@ public class LowestFunctionGeneCaller {
 
       return HaplotypeNameComparator.getComparator().compare(o1.getName(), o2.getName());
     }
-
-    private int compare(@Nullable Float a, @Nullable Float b) {
-      if (a == null && b == null) {
-        return 0;
-      }
-      if (a == null) {
-        // b != null
-        return -1;
-      } else {
-        // a != null
-        if (b == null) {
-          return 1;
-        } else {
-          // b != null
-          return (a.compareTo(b));
-        }
-      }
-    }
   }
 
+
+  private static class Ryr1DiplotypeMalignancyComparator implements Comparator<Diplotype> {
+    static Ryr1DiplotypeMalignancyComparator INSTANCE = new Ryr1DiplotypeMalignancyComparator();
+
+    @Override
+    public int compare(Diplotype o1, Diplotype o2) {
+      if (o1 == o2) {
+        return 0;
+      }
+      if (o1 == null) {
+        return -1;
+      } else if (o2 == null) {
+        return 1;
+      }
+
+      int m1 = checkMalignant(Objects.requireNonNull(o1.getAllele1())) + checkMalignant(Objects.requireNonNull(o1.getAllele2()));
+      int m2 = checkMalignant(Objects.requireNonNull(o2.getAllele1())) + checkMalignant(Objects.requireNonNull(o2.getAllele2()));
+      // rank more malignant first
+      int rez = Integer.compare(m2, m1);
+      if (rez != 0) {
+        return rez;
+      }
+
+      rez = HaplotypeNameComparator.getComparator().compare(o1.getAllele1().getName(), o2.getAllele1().getName());
+      if (rez != 0) {
+        return rez;
+      }
+      return HaplotypeNameComparator.getComparator().compare(o1.getAllele2().getName(), o2.getAllele2().getName());
+    }
+
+    private int checkMalignant(Haplotype haplotype) {
+      return haplotype.getFunction().contains("Malignant") ? 1 : 0;
+    }
+  }
 
   static class Ryr1ActivityComparator implements Comparator<Haplotype> {
     static Ryr1ActivityComparator INSTANCE = new Ryr1ActivityComparator();
@@ -254,10 +322,6 @@ public class LowestFunctionGeneCaller {
         return -1;
       } else if (o2 == null) {
         return 1;
-      }
-      int rez = ObjectUtils.compare(o1.getGene(), o2.getGene());
-      if (rez != 0) {
-        return rez;
       }
 
       boolean o1Malignant = o1.getFunction().contains("Malignant");

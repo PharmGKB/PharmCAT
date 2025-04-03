@@ -32,6 +32,7 @@ public class DpydHapB3Matcher {
   public static final String HAPB3_EXONIC_RSID = "rs56038477";
   public static final String HAPB3_INTRONIC_RSID = "rs75017182";
 
+  private final MatchData m_origData;
   private final SortedMap<String, SampleAllele> m_alleleMap;
   private final boolean m_isMissingHapB3;
   private List<String> m_hapB3IntronCall;
@@ -41,10 +42,11 @@ public class DpydHapB3Matcher {
   private MessageAnnotation m_warning;
 
 
-  public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap, boolean isEffectivelyPhased) {
+  public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap, MatchData origData) {
     m_alleleMap = alleleMap;
-    DefinitionReader definitionReader = env.getDefinitionReader();
+    m_origData = origData;
 
+    DefinitionReader definitionReader = env.getDefinitionReader();
     NamedAllele hapB3Allele = definitionReader.getHaplotypes(sf_gene).stream()
         .filter(na -> na.getName().equals(HAPB3_ALLELE))
         .findAny()
@@ -62,6 +64,15 @@ public class DpydHapB3Matcher {
 
     SampleAllele hapB3ExonSample = alleleMap.get(hapB3ExonLocus.getVcfChrPosition());
     SampleAllele hapB3IntronSample = alleleMap.get(hapB3IntronLocus.getVcfChrPosition());
+
+    boolean isEffectivelyPhased = m_origData.isEffectivelyPhased();
+    if (!isEffectivelyPhased && m_origData.isUsingPhaseSets()) {
+      Integer exonPs = m_origData.getPhaseSet(hapB3ExonLocus.getPosition());
+      Integer intronPs = m_origData.getPhaseSet(hapB3IntronLocus.getPosition());
+      if (exonPs != null && exonPs.equals(intronPs)) {
+        isEffectivelyPhased = true;
+      }
+    }
 
     // call HapB3
     if (hapB3ExonSample == null && hapB3IntronSample == null) {
@@ -264,18 +275,18 @@ public class DpydHapB3Matcher {
   /**
    * Generate {@code HaplotypeMatch}es for unphased data.
    */
-  public List<HaplotypeMatch> buildHapB3HaplotypeMatches(MatchData matchData) {
+  public List<HaplotypeMatch> buildHapB3HaplotypeMatches() {
     List<HaplotypeMatch> matches = new ArrayList<>();
     if (m_hapB3Call != null) {
       matches.addAll(m_hapB3Call.stream()
             .filter(c -> c.equals("1"))
-            .map(c -> new HaplotypeMatch(findHapB3Allele(matchData, HAPB3_ALLELE)))
+            .map(c -> new HaplotypeMatch(findHapB3Allele(m_origData, HAPB3_ALLELE)))
             .toList());
     }
     if (m_hapB3IntronCall != null) {
       matches.addAll(m_hapB3IntronCall.stream()
           .filter(c -> c.equals("1"))
-          .map(c -> new HaplotypeMatch(findHapB3Allele(matchData, HAPB3_INTRONIC_ALLELE)))
+          .map(c -> new HaplotypeMatch(findHapB3Allele(m_origData, HAPB3_INTRONIC_ALLELE)))
           .toList());
     }
     return matches;
@@ -287,10 +298,15 @@ public class DpydHapB3Matcher {
     if (!m_isHapB3Present) {
       return diplotypeMatches;
     }
-    if (diplotypeMatches.size() > 1) {
-      throw new IllegalStateException("Should only have a single diplotype match!");
+
+    SortedSet<DiplotypeMatch> finalMatches = new TreeSet<>();
+    for (DiplotypeMatch dm : diplotypeMatches) {
+      finalMatches.add(buildDiplotype(matchData, dm));
     }
-    DiplotypeMatch dm = diplotypeMatches.first();
+    return finalMatches;
+  }
+
+  private DiplotypeMatch buildDiplotype(MatchData matchData, DiplotypeMatch dm) {
     if (dm.getHaplotype2() == null) {
       // should never happen
       throw new IllegalStateException("Single stranded DPYD diplotype!");
@@ -338,13 +354,11 @@ public class DpydHapB3Matcher {
   /**
    * Build {@link DiplotypeMatch} for phased data.
    */
-  private SortedSet<DiplotypeMatch> buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
-    SortedSet<DiplotypeMatch> dms = new TreeSet<>();
-    dms.add(new DiplotypeMatch(
+  private DiplotypeMatch buildDiplotype(MatchData matchData, BaseMatch h1, BaseMatch h2) {
+    return new DiplotypeMatch(
         updateHapB3Haplotype(matchData, h1, 0),
         updateHapB3Haplotype(matchData, h2, 1),
-        matchData));
-    return dms;
+        matchData);
   }
 
 
@@ -385,9 +399,10 @@ public class DpydHapB3Matcher {
 
   private BaseMatch updateHapB3Haplotype(MatchData matchData, BaseMatch bm, int alleleIndex) {
     String alleleName;
-    if (m_hapB3Call != null && m_hapB3Call.get(alleleIndex).equals("1")) {
+    if (m_hapB3Call != null && m_hapB3Call.size() > alleleIndex && m_hapB3Call.get(alleleIndex).equals("1")) {
       alleleName = HAPB3_ALLELE;
-    } else if (m_hapB3IntronCall != null && m_hapB3IntronCall.get(alleleIndex).equals("1")) {
+    } else if (m_hapB3IntronCall != null && m_hapB3IntronCall.size() > alleleIndex &&
+        m_hapB3IntronCall.get(alleleIndex).equals("1")) {
       alleleName = HAPB3_INTRONIC_ALLELE;
     } else {
       return bm;

@@ -97,12 +97,8 @@ public class ResultSerializer {
     for (GeneCall call : result.getGeneCalls()) {
       MatchData matchData = call.getMatchData();
       Map<Long, String> refAlleleMap = new HashMap<>();
-      boolean hasPhaseSets = false;
       for (VariantLocus vl : matchData.getPositions()) {
         refAlleleMap.put(vl.getPosition(), vl.getRef());
-        if (matchData.getSampleAllele(vl.getPosition()).getPhaseSet() != null) {
-          hasPhaseSets = true;
-        }
       }
       Set<Long> highlightPositions = new HashSet<>();
       builder.append("<h3>")
@@ -165,7 +161,7 @@ public class ResultSerializer {
               .append("</th>");
         }
         builder.append("</tr>");
-        if (hasPhaseSets) {
+        if (matchData.isUsingPhaseSets()) {
           builder.append("  <tr>");
           builder.append("<th class=\"first\">VCF Phase Set</th>");
           for (Variant v : call.getVariants()) {

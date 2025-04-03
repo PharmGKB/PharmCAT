@@ -302,7 +302,7 @@ public class HtmlFormat extends AbstractFormat {
             summary.put("diplotypes", report.getRecommendationDiplotypes());
           } else if (isLowestFunctionGene(symbol) && !report.getMatcherComponentHaplotypes().isEmpty()) {
             summary.put("showComponents", true);
-            summary.put("diplotypes", report.getSourceDiplotypes().first());
+            summary.put("diplotypes", report.getSourceDiplotypes());
             summary.put("componentDiplotypes", report.getMatcherComponentHaplotypes());
           } else {
             summary.put("diplotypes", report.getSourceDiplotypes());
