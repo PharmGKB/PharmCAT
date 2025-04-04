@@ -124,15 +124,15 @@ class OutsideCallTest {
     assertEquals(0, oc.getWarnings().size());
 
     oc = new OutsideCall(s_env, "UGT1A1\t*2/*80 + *28", 11);
-    //oc.getWarnings().forEach(System.out::println);
-    assertEquals("*2/*80+*28", oc.getDiplotype());
+    oc.getWarnings().forEach(System.out::println);
+    assertEquals("*2/*80 + *28", oc.getDiplotype());
     assertEquals(2, oc.getWarnings().size());
-    assertTrue(oc.getWarnings().get(0).startsWith("Undocumented"));
-    assertTrue(oc.getWarnings().get(1).startsWith("Converting"));
+    assertTrue(oc.getWarnings().stream().allMatch(w -> w.startsWith("Undocumented")));
 
     oc = new OutsideCall(s_env, "UGT1A1\t[*80 + *28]/*1", 11);
     //oc.getWarnings().forEach(System.out::println);
-    assertEquals("*80+*28/*1", oc.getDiplotype());
+    assertEquals("[*80 + *28]/*1", oc.getDiplotype());
     assertEquals(1, oc.getWarnings().size());
+    assertTrue(oc.getWarnings().get(0).startsWith("Undocumented"));
   }
 }

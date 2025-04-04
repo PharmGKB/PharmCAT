@@ -15,7 +15,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeUtils;
 import org.pharmgkb.pharmcat.reporter.BadOutsideCallException;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -143,30 +142,10 @@ public class OutsideCall implements Comparable<OutsideCall> {
             .toList();
       }
 
-      // convert alleles from combination format if applicable
+      // check if allele name is valid
       alleles = alleles.stream()
           .map(a -> {
             if (!env.isValidNamedAllele(m_gene, a)) {
-              String fixedA;
-              if (a.startsWith("[") && a.endsWith("]")) {
-                // convert PharmCAT style combinations into combinations recognized by phenotyper
-                fixedA = a.substring(1, a.length() - 1);
-                if (env.isValidNamedAllele(m_gene, fixedA)) {
-                  m_warnings.add("Converting outside call for " + m_gene + " from '" + a + "', to '" + fixedA +
-                      "'.");
-                  return fixedA;
-                }
-              } else {
-                fixedA = a;
-              }
-              if (fixedA.contains(CombinationMatcher.COMBINATION_JOINER)) {
-                fixedA = fixedA.replaceAll(CombinationMatcher.COMBINATION_JOINER_REGEX, "+");
-                if (env.isValidNamedAllele(m_gene, fixedA)) {
-                  m_warnings.add("Converting outside call for " + m_gene + " from '" + a + "', to '" + fixedA +
-                      "'.");
-                  return fixedA;
-                }
-              }
               StringBuilder builder = new StringBuilder().append("Undocumented ")
                   .append(m_gene)
                   .append(" named ");
