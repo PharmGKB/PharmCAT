@@ -106,7 +106,7 @@ application {
 
 tasks.withType(Test).configureEach {
   minHeapSize = "512m"
-  maxHeapSize = "1024m"
+  maxHeapSize = "2048m"
   useJUnitPlatform()
   testLogging {
     // set options for log level LIFECYCLE
