@@ -34,7 +34,7 @@ jobs:
       - name: Install required packages
         run: |
           sudo apt-get update
-          sudo apt-get -y install bzip2
+          sudo apt-get -y install libbz2-dev libncurses-dev liblzma-dev
 
       - name: Cache bcftools
         id: cache-bcftools
