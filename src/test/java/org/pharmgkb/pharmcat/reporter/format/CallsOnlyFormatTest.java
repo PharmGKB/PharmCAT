@@ -107,7 +107,7 @@ class CallsOnlyFormatTest {
     assertEquals(1, geneMap.get("DPYD").size());
 
     checkTextContains(geneMap.get("DPYD").get(0), expectedDpydCalls);
-    String[] dpydRow = geneMap.get("DPYD").get(0).split("\t");
+    String[] dpydRow = geneMap.get("DPYD").get(0).split("\t", -1);
     // no phenotype and activity score, but recommendation phenotype and activity score
     assertTrue(StringUtils.isBlank(dpydRow[2]));
     assertTrue(StringUtils.isBlank(dpydRow[3]));
@@ -115,7 +115,7 @@ class CallsOnlyFormatTest {
     assertTrue(StringUtils.isNotBlank(dpydRow[14]));
     assertTrue(StringUtils.isNotBlank(dpydRow[15]));
 
-    String[] cyp2c19Row = geneMap.get("CYP2C19").get(0).split("\t");
+    String[] cyp2c19Row = geneMap.get("CYP2C19").get(0).split("\t", -1);
     // will have phenotype and activity score
     assertTrue(StringUtils.isNotBlank(cyp2c19Row[2]));
     assertTrue(StringUtils.isBlank(cyp2c19Row[3]));
@@ -176,7 +176,7 @@ class CallsOnlyFormatTest {
       assertEquals(1, geneMap.get("DPYD").size());
 
       for (String gene : genes) {
-        String[] data = geneMap.get(gene).get(0).split("\t");
+        String[] data = geneMap.get(gene).get(0).split("\t", -1);
         if (referenceCalls.contains(gene)) {
           // check reference
           assertTrue(StringUtils.isBlank(data[12]));
