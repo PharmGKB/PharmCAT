@@ -246,19 +246,21 @@ class CallsOnlyFormatTest {
     // test normal
     SortedMap<String, List<String>> geneMap = new TreeMap<>();
     for (String line : lines) {
-      if (line.startsWith("PharmCAT") || line.startsWith("Gene\t") || line.startsWith("Sample ID\t")) {
+      if (line.startsWith("PharmCAT")) {
         continue;
       }
-      String[] data = line.split("\t");
-      if (data.length != maxColumns) {
-        StringBuilder builder = new StringBuilder();
-        for (int x = 0; x < data.length; x += 1) {
-          builder.append(x)
-              .append(" - ")
-              .append(data[x])
-              .append("\n");
+      String[] data = line.trim().split("\t");
+      if (line.startsWith("Gene\t") || line.startsWith("Sample ID\t")) {
+        if (data.length != maxColumns) {
+          StringBuilder builder = new StringBuilder();
+          for (int x = 0; x < data.length; x += 1) {
+            builder.append(x)
+                .append(" - ")
+                .append(data[x])
+                .append("\n");
+          }
+          assertEquals(maxColumns, data.length, "Found columns:\n" + builder);
         }
-        assertEquals(maxColumns, data.length, "Found columns:\n" + builder);
       }
       if (line.startsWith("Gene\t")) {
         continue;
