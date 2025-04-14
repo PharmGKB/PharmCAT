@@ -106,23 +106,28 @@ def compare_vcf_files(expected: Path, tmp_dir: Path, basename: str, sample: str 
     actual_lines = read_vcf(actual).split('\n')
 
     if len(expected_lines) != len(actual_lines):
-        assert False, f'Different number of lines (expected {expected}, found {actual})'
+        assert False, f'Different number of lines (expected {len(expected_lines)}, found {len(actual_lines)})'
 
+    line_num = 0
     for expected_line, actual_line in zip(expected_lines, actual_lines):
+        line_num += 1
         columns = ['CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER', 'INFO', 'FORMAT', 'Samples']
         expected_fields = expected_line.split('\t')
         actual_fields = actual_line.split('\t')
 
         if len(expected_fields) != len(actual_fields):
-            assert False, f'Different number of samples (expected {expected}, found {actual})'
+            assert False, f'Line {line_num}: different number of samples (expected {len(expected_fields)}, found {len(actual_fields)})'
 
+
+        # print(f'EXPECTED: {expected_line}')
+        # print(f'  ACTUAL: {actual_line}')
         for i, col in enumerate(columns):
             # compare the ALT alleles
             if i == 4 and set(actual_fields[3]) != set(expected_fields[3]):
-                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
+                assert False, f'Line {line_num}: mismatched {col}\nexpected: {expected_fields[3]}\n  actual: {actual_fields[3]}'
             # compare genotypes
             if i == 9 and actual_fields[9:] != expected_fields[9:]:
-                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
+                assert False, f'Line {line_num}: mismatched {col}\nexpected: {expected_fields[9]}\n  actual: {actual_fields[9]}'
             # compare the rest
             if actual_line[i] != expected_line[i]:
-                assert False, f'mismatched {col}:\nexpected: {expected_line}\n  actual: {actual_line}'
+                assert False, f'Line {line_num}: mismatched {col}\nexpected: {expected_fields[i]}\n  actual: {actual_fields[i]}'
