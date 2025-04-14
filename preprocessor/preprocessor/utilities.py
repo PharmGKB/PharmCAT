@@ -1022,11 +1022,10 @@ def extract_pgx_variants(pharmcat_positions: Path, reference_fasta: Path, vcf_fi
                             # check if the PharmCAT PGx variant is a SNP
                             len_ref: list[int] = [len(i) for i in ref_alleles]
                             len_alt: list[int] = [len(i) for i in alt_alleles]
+                            is_snp: bool = (len_ref == len_alt)
 
                             # a tuple variable for ref and alt alleles in this VCF record
                             input_ref_alt = (fields[3], fields[4])
-                            # check whether the input variant is a SNP
-                            is_snp: bool = (len(fields[3]) == len(fields[4]))
 
                             # update id when the id is not in the input
                             ref_id = list(set([x[2] for x in ref_pos_static[input_chr_pos].values()]))
