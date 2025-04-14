@@ -120,10 +120,11 @@ jobs:
         working-directory: preprocessor
 
       - name: Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           files: preprocessor/coverage-python.xml
           flags: Preprocessor
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Send Slack notification on failure
         if: failure()

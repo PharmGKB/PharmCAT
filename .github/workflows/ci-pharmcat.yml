@@ -59,10 +59,11 @@ jobs:
           if-no-files-found: ignore
 
       - name: Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           files: ./build/reports/jacoco/test/jacocoTestReport.xml
           flags: unittests
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Send Slack notification on failure
         if: failure()
