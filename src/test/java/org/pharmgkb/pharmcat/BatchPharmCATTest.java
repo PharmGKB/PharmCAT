@@ -19,11 +19,11 @@ import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemErr;
-import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemErr;
+import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemOut;
 
 
 /**

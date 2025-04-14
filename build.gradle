@@ -70,11 +70,12 @@ dependencies {
   )
 
   testImplementation(
-      [group: 'com.github.stefanbirkner', name: 'system-lambda', version: '1.2.1'],
       [group: 'org.hamcrest', name: 'hamcrest', version: '2.2'],
       [group: 'org.jsoup', name: 'jsoup', version: '1.16.2'],
       [group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.3'],
       [group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.10.3'],
+      [group: 'uk.org.webcompere', name: 'system-stubs-core', version: '2.1.8'],
+      [group: 'uk.org.webcompere', name: 'system-stubs-jupiter', version: '2.1.8']
   )
 }
 
