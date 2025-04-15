@@ -52,7 +52,7 @@ We still recommend that users run the PharmCAT VCF Preprocessor to ensure the ap
 which can be achieved with the following command:
 
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf <single_sample_vcf>
+$ pharmcat_vcf_preprocessor -vcf <single_sample_vcf>
 ```
 
 For example:
@@ -70,7 +70,7 @@ Sample script:
 for SINGLE_VCF in $(cat data/single_sample_vcf_list.txt)
 do
   # run the PharmCAT VCF Preprocessor for a single-sample VCF
-  python3 pharmcat_vcf_preprocessor.py -vcf "$SINGLE_VCF"
+  pharmcat_vcf_preprocessor -vcf "$SINGLE_VCF"
 done
 ```
 
@@ -82,12 +82,12 @@ preprocess a multi-sample VCF is as follows.
 
 On the command line:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf <multi_sample_vcf>
+$ pharmcat_vcf_preprocessor -vcf <multi_sample_vcf>
 ```
 
 Sample script:
 ```shell
-python3 pharmcat_vcf_preprocessor.py -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.bgz
+pharmcat_vcf_preprocessor -vcf data/PharmCAT_tutorial_get-rm_wgs_30x_grch38.vcf.bgz
 ```
 
 #### Case 3 - multi-sample VCF divided by chromosome or into consecutive genetic blocks
@@ -98,13 +98,13 @@ a list of VCFs as the input.
 
 On the command line:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf <list_of_input_vcf>
+$ pharmcat_vcf_preprocessor -vcf <list_of_input_vcf>
 ```
 
 Sample script:
 ```shell
 # run the PharmCAT VCF Preprocessor for multiple VCFs with non-overlapping genetic regions of the same cohort
-python3 pharmcat_vcf_preprocessor.py -vcf data/input_vcf_list.txt
+pharmcat_vcf_preprocessor -vcf data/input_vcf_list.txt
 ```
 
 ###  Running PharmCAT

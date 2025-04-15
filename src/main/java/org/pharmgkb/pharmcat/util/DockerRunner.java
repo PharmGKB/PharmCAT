@@ -66,16 +66,16 @@ public class DockerRunner {
 
 
   /**
-   * Runs {@code preprocessor.prep_pharmcat_positions} via Docker.
+   * Runs {@code pcat.prep_pharmcat_positions} via Docker.
    * This will index the pharmcat_positions.vcf.bgz and generate the uniallelic positions.
-   * Expects a container tagged "pcat" to be available.
+   * This expects that a container tagged "pcat" is available.
    */
   public static void prepPharmcatPositions(Path inFile) throws IOException {
     String dockerCmd = getDockerCmd(inFile.getParent());
     String localPath = "data/" + PathUtils.getFilename(inFile);
 
-    runCmd(dockerCmd, "python -c \"import preprocessor; from pathlib import Path; " +
-        "file = Path('" + localPath + "'); preprocessor.prep_pharmcat_positions(file, force_update=True, verbose=1)\"",
+    runCmd(dockerCmd, "python -c \"import pcat; from pathlib import Path; " +
+        "file = Path('" + localPath + "'); pcat.prep_pharmcat_positions(file, force_update=True, verbose=1)\"",
         inFile.getParent(), true);
   }
 

@@ -65,11 +65,27 @@ Input arguments:
 
 Preprocessor arguments:
   -0, --missing-to-ref               
-                        Assume genotypes at absent or unspecified PGx sites are 0/0. This is the combination of `--absent-to-ref` and `-unspecified-to-ref`. DANGEROUS!
+                        Assume genotypes at absent or unspecified PGx sites are "0/0". DANGEROUS!
+                        Modifying the data in this way can lead to different results in PharmCAT.
+
+                        This option is equivalent to using both --absent-to-ref and --unspecified-to-ref.
+                        Please consult the documentation of those flags for details.
   --absent-to-ref             
-                        Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!
+                        Assume genotypes at absent PGx sites are "0/0".  DANGEROUS!
+                        Modifying the data in this way can lead to different results in PharmCAT.
+
+                        This option will add PGx positions that are absent from the input VCF into the output as
+                        homozygous reference ("0/0"). This SHOULD ONLY BE USED if you are sure your data is
+                        reference at the absent positions instead of being unreadable/uncallable at the those positions.
   --unspecified-to-ref           
-                        Assume unspecified genotypes ./. as 0/0 when every sample is './.'. DANGEROUS!
+                        Assume unspecified genotypes ("./.") as "0/0" when every sample is "./.". DANGEROUS!
+                        Modifying the data in this way can lead to different results in PharmCAT.
+    
+                        This option will convert an unspecified PGx position to homozygous reference ("0/0").
+                        Unspecified PGx positions are those whose genotypes are unspecified ("./.") in every single sample.
+                        As such, this check really only makes sense when working with multi-sample VCF files.
+                        This option will not convert "./." to "0/0" when there is a specified genotype at a PGx position
+                        as these "./." calls are likely left unspecified for good reasons.
   -G, --no-gvcf-check                
                         Bypass the gVCF check for the input VCF.
   -R `<bed_file>`, --retain-specific-regions `<bed_file>`      

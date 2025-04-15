@@ -4,7 +4,7 @@ import tempfile
 from pathlib import Path
 from typing import List
 
-from preprocessor import bgzip_vcf, ReportableException
+from pcat import bgzip_vcf, ReportableException
 from tests.helpers import test_dir
 
 

@@ -4,8 +4,8 @@ import sys
 from pathlib import Path
 from typing import Optional, List
 
-import preprocessor
-from preprocessor import ReportableException
+import pcat
+from pcat import ReportableException
 
 
 def add_sample_java_args(java_args: List[str], cli_args):
@@ -83,12 +83,12 @@ if __name__ == '__main__':
     # preprocessor args
     preprocessor_group = parser.add_argument_group('Preprocessor arguments')
     preprocessor_group.add_argument('-0', '--missing-to-ref', action='store_true',
-                                    help='Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!')
+                                    help='Assume genotypes at absent or unspecified PGx sites are "0/0".  DANGEROUS!')
     preprocessor_group.add_argument("--absent-to-ref", action='store_true',
-                                    help="Assume genotypes at absent PGx sites are 0/0.  DANGEROUS!")
+                                    help='Assume genotypes at absent PGx sites are "0/0".  DANGEROUS!')
     preprocessor_group.add_argument("--unspecified-to-ref", action='store_true',
-                                    help="Assume unspecified genotypes ./. as 0/0 when every sample is \'./.\'. "
-                                         "DANGEROUS!")
+                                    help='Assume unspecified genotypes ("./.") are "0/0" when every sample is "./.". '
+                                         'DANGEROUS!')
     preprocessor_group.add_argument("-G", "--no-gvcf-check", action="store_true",
                                     help="Bypass check if VCF file is in gVCF format.")
     preprocessor_group.add_argument("-R", "--retain-specific-regions",
@@ -151,86 +151,61 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--verbose', action='count', default=0,
                         help='print more verbose messages')
     parser.add_argument('-V', '--version', action='version',
-                        version='PharmCAT v%s' % preprocessor.PHARMCAT_VERSION)
+                        version='PharmCAT v%s' % pcat.PHARMCAT_VERSION)
 
     # parse arguments
     args = parser.parse_args()
     colorama.init()
 
     # print the version number
-    print('PharmCAT version: %s' % preprocessor.PHARMCAT_VERSION)
+    print('PharmCAT version: %s' % pcat.PHARMCAT_VERSION)
     # print warnings here
     if args.missing_to_ref:
-        print("""
-%sWarning: Argument "-0"/"--missing-to-ref" supplied
-
-THIS SHOULD ONLY BE USED IF: you sure your data is reference
-at the missing positions instead of unreadable/uncallable at
-those positions.
-
-Running PharmCAT with positions as missing vs reference can
-lead to different results.
-%s
-        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+        print("%s%s%s" % (colorama.Fore.YELLOW, pcat.MISSING_TO_REF_WARNING, colorama.Style.RESET_ALL))
     print()
 
     if args.absent_to_ref:
-        print("""
-%sWarning: Argument "--absent-to-ref" supplied
-              
-THIS SHOULD ONLY BE USED IF: you are sure your data is reference
-at the absent positions, instead of unreadable/uncallable.
-
-Running PharmCAT with positions as absent vs reference can 
-lead to different results.
-%s
-        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+        print("%s%s%s" % (colorama.Fore.YELLOW, pcat.ABSENT_TO_REF_WARNING, colorama.Style.RESET_ALL))
     print()
 
     if args.unspecified_to_ref:
-        print("""
-%sWarning: Argument "--unspecified-to-ref" supplied
-        
-Running PharmCAT with positions as unspecified vs reference can
-lead to different results.
-%s
-        """ % (colorama.Fore.YELLOW, colorama.Style.RESET_ALL))
+        print("%s%s%s" % (colorama.Fore.YELLOW, pcat.UNSPECIFIED_TO_REF_WARNING, colorama.Style.RESET_ALL))
     print()
 
     try:
         # make sure we have required tools
-        preprocessor.validate_bcftools()
-        preprocessor.validate_bgzip()
-        preprocessor.validate_java()
+        pcat.validate_bcftools()
+        pcat.validate_bgzip()
+        pcat.validate_java()
 
         script_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 
         # make sure we have pharmcat.jar
-        m_pharmcat_jar: Path = preprocessor.find_file(preprocessor.PHARMCAT_JAR_FILENAME, [script_dir])
+        m_pharmcat_jar: Path = pcat.find_file(pcat.PHARMCAT_JAR_FILENAME, [script_dir])
         if m_pharmcat_jar is None:
-            print('Downloading %s...' % preprocessor.PHARMCAT_JAR_FILENAME)
-            m_pharmcat_jar = preprocessor.download_pharmcat_jar(script_dir, verbose=args.verbose)
+            print('Downloading %s...' % pcat.PHARMCAT_JAR_FILENAME)
+            m_pharmcat_jar = pcat.download_pharmcat_jar(script_dir, verbose=args.verbose)
 
         # make sure we have pharmcat_positions.vcf.bgz
-        m_pharmcat_positions_vcf: Path = preprocessor.find_file(preprocessor.PHARMCAT_POSITIONS_FILENAME, [script_dir])
+        m_pharmcat_positions_vcf: Path = pcat.find_file(pcat.PHARMCAT_POSITIONS_FILENAME, [script_dir])
         if m_pharmcat_positions_vcf is None:
-            print('Downloading %s...' % preprocessor.PHARMCAT_POSITIONS_FILENAME)
-            m_pharmcat_positions_vcf = preprocessor.download_pharmcat_accessory_files(script_dir, verbose=args.verbose)
+            print('Downloading %s...' % pcat.PHARMCAT_POSITIONS_FILENAME)
+            m_pharmcat_positions_vcf = pcat.download_pharmcat_accessory_files(script_dir, verbose=args.verbose)
 
         # make sure we have reference FASTA
-        m_reference_genome: Path = preprocessor.find_file(preprocessor.REFERENCE_FASTA_FILENAME,
-                                                          [m_pharmcat_positions_vcf.parent, script_dir])
+        m_reference_genome: Path = pcat.find_file(pcat.REFERENCE_FASTA_FILENAME,
+                                                  [m_pharmcat_positions_vcf.parent, script_dir])
         if m_reference_genome is None:
             print('Downloading reference FASTA.  This may take a while...')
-            m_reference_genome = preprocessor.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
-                                                                                 verbose=args.verbose)
+            m_reference_genome = pcat.download_reference_fasta_and_index(m_pharmcat_positions_vcf.parent,
+                                                                         verbose=args.verbose)
         # validate .bed file if retaining specific regions
         m_regions_bed: Optional[Path] = None
         if args.retain_specific_regions:
-            m_regions_bed = preprocessor.validate_file(args.retain_specific_regions)
+            m_regions_bed = pcat.validate_file(args.retain_specific_regions)
 
         # prep pharmcat_positions helper files
-        preprocessor.prep_pharmcat_positions(m_pharmcat_positions_vcf, m_reference_genome, verbose=args.verbose)
+        pcat.prep_pharmcat_positions(m_pharmcat_positions_vcf, m_reference_genome, verbose=args.verbose)
 
         # validate input
         vcf_path: Path = Path(args.vcf)
@@ -242,10 +217,10 @@ lead to different results.
         m_samples: List[str] = []
         if args.sample_file:
             # validate sample file
-            m_samples = preprocessor.read_sample_file(preprocessor.validate_file(args.sample_file),
-                                                      verbose=args.verbose)
+            m_samples = pcat.read_sample_file(pcat.validate_file(args.sample_file),
+                                              verbose=args.verbose)
         elif args.samples:
-            m_samples = preprocessor.parse_samples(args.samples)
+            m_samples = pcat.parse_samples(args.samples)
 
         # make sure xx-to-ref commands are provided correctly
         m_absent_to_ref: bool
@@ -258,13 +233,13 @@ lead to different results.
             m_unspecified_to_ref = args.unspecified_to_ref
 
         # validate concurrent args
-        m_max_processes: int = preprocessor.check_max_processes(args.max_concurrent_processes, verbose=args.verbose)
-        m_max_memory: str = preprocessor.check_max_memory(args.max_memory)
+        m_max_processes: int = pcat.check_max_processes(args.max_concurrent_processes, verbose=args.verbose)
+        m_max_memory: str = pcat.check_max_memory(args.max_memory)
 
         # validate output args
         m_output_dir: Optional[Path] = None
         if args.output_dir:
-            m_output_dir = preprocessor.validate_dir(args.output_dir, create_if_not_exist=True)
+            m_output_dir = pcat.validate_dir(args.output_dir, create_if_not_exist=True)
         # define output base name, default to empty string
         m_output_basename: str = args.base_filename if args.base_filename else ''
 
@@ -292,20 +267,20 @@ lead to different results.
                 add_reporter_java_args(jargs, args)
             add_output_java_args(jargs, args, m_output_dir)
             print('\nRunning PharmCAT without NamedAlleleMatcher...')
-            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+            pcat.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
             sys.exit(0)
 
         # get pgx_regions we care about
         custom_regions: bool = bool(m_regions_bed)
-        pgx_regions = preprocessor.get_pgx_regions(m_regions_bed or m_pharmcat_positions_vcf)
+        pgx_regions = pcat.get_pgx_regions(m_regions_bed or m_pharmcat_positions_vcf)
 
         if vcf_path.is_dir():
-            vcf_files: List[Path] = preprocessor.find_vcf_files(vcf_path, args.verbose)
+            vcf_files: List[Path] = pcat.find_vcf_files(vcf_path, args.verbose)
             if len(vcf_files) == 0:
                 raise ReportableException('Error: no VCF input')
             if m_output_dir is None:
                 m_output_dir = vcf_path
-            preprocessed_vcf = preprocessor.preprocess_multiple_files(
+            preprocessed_vcf = pcat.preprocess_multiple_files(
                 pharmcat_positions_vcf=m_pharmcat_positions_vcf,
                 reference_genome=m_reference_genome,
                 regions_to_retain=pgx_regions,
@@ -335,23 +310,23 @@ lead to different results.
                 add_reporter_java_args(jargs, args)
             add_output_java_args(jargs, args, m_output_dir)
             print('\nRunning PharmCAT...')
-            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
+            pcat.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, verbose=args.verbose)
             sys.exit(0)
 
         preprocessed_vcf: List[Path] = []
         vcf_files: List[Path] = []
         input_basename: str
         concat_vcf_files: bool = False
-        if preprocessor.is_vcf_file(vcf_path):
+        if pcat.is_vcf_file(vcf_path):
             vcf_files.append(vcf_path)
-            input_basename = preprocessor.get_vcf_basename(vcf_path)
+            input_basename = pcat.get_vcf_basename(vcf_path)
         else:
             if args.verbose:
                 print("Looking up VCF files listed in", vcf_path)
             with open(vcf_path, 'r') as in_f:
                 for line in in_f:
                     line = line.strip()
-                    vcf_files.append(preprocessor.validate_file(line))
+                    vcf_files.append(pcat.validate_file(line))
             input_basename = vcf_path.stem
             concat_vcf_files = True
 
@@ -362,20 +337,20 @@ lead to different results.
             print('\nBypass the gVCF check.\n')
         else:
             for file in vcf_files:
-                if preprocessor.is_gvcf_file(file):
+                if pcat.is_gvcf_file(file):
                     raise ReportableException('%s is a gVCF file, which is not currently supported.\n'
                                               'See https://github.com/PharmGKB/PharmCAT/issues/79 for details.\n'
                                               'If this is not a gVCF file, use -G to bypass.' % str(file))
 
         if len(m_samples) == 0:
-            m_samples = preprocessor.read_vcf_samples(vcf_files[0], verbose=args.verbose)
+            m_samples = pcat.read_vcf_samples(vcf_files[0], verbose=args.verbose)
 
         # define working directory, defaulting to the directory of the input VCF
         if m_output_dir is None:
             m_output_dir = vcf_path.parent
 
         # normalize variant representations and reconstruct multi-allelic variants in the input VCF
-        preprocessed_vcf = preprocessor.preprocess(
+        preprocessed_vcf = pcat.preprocess(
             pharmcat_positions_vcf=m_pharmcat_positions_vcf,
             reference_genome=m_reference_genome,
             regions_to_retain=pgx_regions,
@@ -408,8 +383,8 @@ lead to different results.
             if run_reporter:
                 add_reporter_java_args(jargs, args)
             add_output_java_args(jargs, args, m_output_dir)
-            preprocessor.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, max_memory=m_max_memory,
-                                      verbose=args.verbose)
+            pcat.run_pharmcat(m_pharmcat_jar, jargs, m_max_processes, max_memory=m_max_memory,
+                              verbose=args.verbose)
 
     except ReportableException as e:
         print('%s%s%s' % (colorama.Fore.RED, e, colorama.Style.RESET_ALL))

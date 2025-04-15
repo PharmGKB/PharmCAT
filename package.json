@@ -33,13 +33,13 @@
           "replacements": [
             {
               "files": [
-                "preprocessor/preprocessor/common.py"
+                "preprocessor/pcat/common.py"
               ],
               "from": "^PHARMCAT_VERSION = .*",
               "to": "PHARMCAT_VERSION = '${nextRelease.version}'",
               "results": [
                 {
-                  "file": "preprocessor/preprocessor/common.py",
+                  "file": "preprocessor/pcat/common.py",
                   "hasChanged": true,
                   "numMatches": 1,
                   "numReplacements": 1
@@ -187,7 +187,7 @@
             "dockstore/pipeline/README.md",
             "docs/_config.yml",
             "package.json",
-            "preprocessor/preprocessor/common.py"
+            "preprocessor/pcat/common.py"
           ],
           "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
         }

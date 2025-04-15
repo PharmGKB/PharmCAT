@@ -4,7 +4,7 @@ import tempfile
 from pathlib import Path
 
 import helpers
-from preprocessor import get_pgx_regions, preprocess
+from pcat import get_pgx_regions, preprocess
 
 
 def test_preprocess():

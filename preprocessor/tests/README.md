@@ -31,7 +31,7 @@ The data was the 1000 Genomes Project sequences of Coriell samples with correspo
 # Follow the script 01-03 downloaded from the Stanford Digital Repository. You will need to modify the codes, such as file paths.
 
 # run VCF preprocessing
-python3 pharmcat_vcf_preprocessor.py \
+pharmcat_vcf_preprocessor \
 -vcf PharmCAT_calling_pipeline-master/data/1kg_data/GeT-RM_sample_data/PGx.chrAllPGx.GRCh38.genotypes.20170504.vcf.gz \
 -refFna GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
 -refVcf pharmcat_positions_0.8.0_updated_06222021.vcf.gz

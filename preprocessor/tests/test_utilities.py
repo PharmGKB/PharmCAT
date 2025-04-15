@@ -9,9 +9,9 @@ from typing import List
 import pytest
 
 import helpers
-import preprocessor
-import preprocessor.utilities as utils
-from preprocessor import ReportableException, InappropriateVCFSuffix, InvalidURL, common
+import pcat
+import pcat.utilities as utils
+from pcat import ReportableException, InappropriateVCFSuffix, InvalidURL, common
 
 
 def test_validate_tool():
@@ -27,16 +27,16 @@ def test_validate_tool_fail():
 
 def test_validate_bcftools():
     utils.validate_bcftools(None)
-    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
+    assert 'bcftools' == pcat.BCFTOOLS_PATH
 
     utils.validate_bcftools(None, '1.18')
-    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
+    assert 'bcftools' == pcat.BCFTOOLS_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bcftools('foo/bcftools', '1.18')
     # print(context.value)
     assert 'not found' in context.value.msg
-    assert 'bcftools' == preprocessor.BCFTOOLS_PATH
+    assert 'bcftools' == pcat.BCFTOOLS_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bcftools(None, '99')
@@ -46,16 +46,16 @@ def test_validate_bcftools():
 
 def test_validate_bgzip():
     utils.validate_bgzip(None)
-    assert 'bgzip' == preprocessor.BGZIP_PATH
+    assert 'bgzip' == pcat.BGZIP_PATH
 
     utils.validate_bgzip(None, '1.18')
-    assert 'bgzip' == preprocessor.BGZIP_PATH
+    assert 'bgzip' == pcat.BGZIP_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bgzip('foo/bgzip')
     # print(context.value)
     assert 'not found' in context.value.msg
-    assert 'bgzip' == preprocessor.BGZIP_PATH
+    assert 'bgzip' == pcat.BGZIP_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_bgzip(None, '99')
@@ -65,10 +65,10 @@ def test_validate_bgzip():
 
 def test_validate_java():
     utils.validate_java()
-    assert 'java' == preprocessor.JAVA_PATH
+    assert 'java' == pcat.JAVA_PATH
 
     utils.validate_java('17')
-    assert 'java' == preprocessor.JAVA_PATH
+    assert 'java' == pcat.JAVA_PATH
 
     with pytest.raises(ReportableException) as context:
         utils.validate_java('179')
@@ -324,7 +324,7 @@ def test_download_from_url_fail():
     with tempfile.TemporaryDirectory() as td:
         tmp_dir: Path = Path(td)
         with pytest.raises(InvalidURL) as context:
-            preprocessor.download_from_url('https://no.such.org', tmp_dir)
+            pcat.download_from_url('https://no.such.org', tmp_dir)
         assert 'https://no.such.org' in context.value.msg
 
 
@@ -379,7 +379,7 @@ def test_prep_pharmcat_positions():
             utils.prep_pharmcat_positions(None, None, verbose=1)
             full_time = timer() - start
             print("time for full preparation:", full_time)
-            reference_fasta = tmp_dir / preprocessor.REFERENCE_FASTA_FILENAME
+            reference_fasta = tmp_dir / pcat.REFERENCE_FASTA_FILENAME
             assert reference_fasta.is_file()
 
             assert tmp_uniallelic.is_file()
@@ -389,7 +389,7 @@ def test_prep_pharmcat_positions():
             tmp_uniallelic_index.unlink()
         else:
             # assumes that reference fasta is available next to pharmcat_positions
-            reference_fasta = helpers.pharmcat_positions_file.parent / preprocessor.REFERENCE_FASTA_FILENAME
+            reference_fasta = helpers.pharmcat_positions_file.parent / pcat.REFERENCE_FASTA_FILENAME
             assert reference_fasta.is_file(), 'Cannot find reference FASTA for testing!'
 
         utils.prep_pharmcat_positions(tmp_positions, reference_fasta, verbose=1)
@@ -407,11 +407,11 @@ def test_extract_pgx_regions():
     vcf_file1 = helpers.test_dir / 'raw-p1.vcf.bgz'
     vcf_file2 = helpers.test_dir / 'raw-p2.vcf.bgz'
 
-    pgx_regions = preprocessor.get_pgx_regions(helpers.pharmcat_positions_file)
+    pgx_regions = pcat.get_pgx_regions(helpers.pharmcat_positions_file)
 
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)
-        shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
+        shutil.copyfile(pcat.CHR_RENAME_FILE, tmp_dir / pcat.CHR_RENAME_MAP_FILENAME)
         tmp_vcf = tmp_dir / vcf_file.name
         shutil.copyfile(vcf_file, tmp_vcf)
         tmp_vcf1 = tmp_dir / vcf_file1.name
@@ -520,7 +520,7 @@ def test_export_single_sample_concurrent():
 
 def test_absent_and_unspecified_to_ref():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
-    pgx_regions = preprocessor.get_pgx_regions(helpers.pharmcat_positions_file)
+    pgx_regions = pcat.get_pgx_regions(helpers.pharmcat_positions_file)
 
     expected_file = helpers.pharmcat_positions_file
     with tempfile.TemporaryDirectory() as td:
@@ -561,14 +561,14 @@ def test_absent_and_unspecified_to_ref():
         test_vcf = utils.bgzip_file(test_file, True)
 
         # copy the necessary helper files to the temporary folder
-        shutil.copyfile(preprocessor.CHR_RENAME_FILE, tmp_dir / preprocessor.CHR_RENAME_MAP_FILENAME)
+        shutil.copyfile(pcat.CHR_RENAME_FILE, tmp_dir / pcat.CHR_RENAME_MAP_FILENAME)
 
         # run the utility function to convert absent positions to reference
         basename = 'test_absent_and_unspecified_to_ref'
         samples = ['PharmCAT']
         input_basename = test_vcf.name
-        preprocessor.preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False, [test_vcf], samples,
-                                input_basename, tmp_dir, basename, absent_to_ref=True, unspecified_to_ref=True)
+        pcat.preprocess(helpers.pharmcat_positions_file, reference_fasta, pgx_regions, False, [test_vcf], samples,
+                        input_basename, tmp_dir, basename, absent_to_ref=True, unspecified_to_ref=True)
 
         helpers.compare_vcf_files(expected_vcf, tmp_dir, basename)
 

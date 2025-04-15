@@ -11,12 +11,14 @@ Suppose you are running the `json2tsv_pharmcat.py` script from the folder where 
 **Mandatory** argument: `-i`.
 
 -i `</path/to/pharmcat/json/>`
-: Path to the directory where PharmCAT Named Allele Matcher and Phenotyper JSON files are **BOTH** locates. By default, the script looks for files ending with `*.match.json` and `*.phenotype.json`.
+: Path to the directory where PharmCAT Named Allele Matcher and Phenotyper JSON files are **BOTH** located.
+By default, the script looks for files ending with `*.match.json` and `*.phenotype.json`.
 
 #### Optional Arguments
 
 -S `<txt_file>` <span class="altArg"><br />or --sample-file `<txt_file>`</span>
-: A file of samples whose JSON files will be processed and included in the TSV. The file should contain one sample per line.
+: A file of samples whose JSON files will be processed and included in the TSV.
+The file should contain one sample per line.
 
 -m `<pattern>` <span class="altArg"><br />or --matcher-json-pattern `<pattern>`</span>
 : Regular-expression-styled filename pattern for the PharmCAT Named Allele Matcher JSON files, by default `*.match.json`.

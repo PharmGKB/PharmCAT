@@ -6,6 +6,45 @@ from . import utilities as util
 from .exceptions import ReportableException
 
 
+MISSING_TO_REF_WARNING = """
+Warning: Argument "-0"/"--missing-to-ref" supplied
+      
+THIS SHOULD ONLY BE USED IF: you are sure your data is reference
+at the absent positions instead of unreadable/uncallable at
+those positions.
+
+THIS SHOULD ONLY BE USED IF: you are confident in assuming
+the unspecified genotypes ("./.") in your data as reference.
+
+Modifying the data in this way can lead to different results
+in PharmCAT.
+
+"--missing-to-ref" is equivalent to providing both 
+"--absent-to-ref" and "--unspecified-to-ref".
+"""
+
+ABSENT_TO_REF_WARNING = """
+ Warning: Argument "--absent-to-ref" supplied
+       
+ THIS SHOULD ONLY BE USED IF: you are sure your data is reference
+ at the absent positions instead of unreadable/uncallable at
+ those positions.
+ 
+ Modifying the data in this way can lead to different results
+ in PharmCAT.
+ """
+
+UNSPECIFIED_TO_REF_WARNING = """
+Warning: Argument "--unspecified-to-ref" supplied
+
+THIS SHOULD ONLY BE USED IF: you are confident in assuming
+the unspecified genotypes ("./.") in your data as reference.
+
+Modifying the data in this way can lead to different results
+in PharmCAT.
+"""
+
+
 def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path, regions_to_retain, custom_regions: bool,
                vcf_files: List[Path], samples: Optional[List[str]], input_basename: str,
                output_dir: Path, output_basename: Optional[str] = '', split_samples: bool = False,

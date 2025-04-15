@@ -193,7 +193,7 @@ fi
 
 tar -xzf pipeline.tgz
 rm pipeline.tgz
-chmod 755 pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor.py
+chmod 755 pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor
 
 echo_green "Done!"
 echo ""

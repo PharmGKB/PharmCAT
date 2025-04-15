@@ -63,15 +63,15 @@ scriptPkg:
 	rm -rf build/preprocessor
 	mkdir -p build/preprocessor
 	cp -f preprocessor/requirements.txt build/preprocessor
-	cp -f preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor
+	cp -f preprocessor/pharmcat_vcf_preprocessor build/preprocessor
 	cp -f preprocessor/pharmcat_pipeline build/preprocessor
-	mkdir build/preprocessor/preprocessor
-	cp -f preprocessor/preprocessor/*.py build/preprocessor/preprocessor
-	cp -f preprocessor/preprocessor/*.tsv build/preprocessor/preprocessor
+	mkdir build/preprocessor/pcat
+	cp -f preprocessor/pcat/*.py build/preprocessor/pcat
+	cp -f preprocessor/pcat/*.tsv build/preprocessor/pcat
 	cp -f pharmcat_positions.* pharmcat_regions.bed build/pipeline
 	cp -f docs/using/VCF-Preprocessor.md build/preprocessor/README.md
-	chmod 644 build/preprocessor/preprocessor/* build/preprocessor/*
-	chmod 755 build/preprocessor/pharmcat_pipeline build/preprocessor/pharmcat_vcf_preprocessor.py build/preprocessor/preprocessor
+	chmod 644 build/preprocessor/pcat/* build/preprocessor/*
+	chmod 755 build/preprocessor/pharmcat_pipeline build/preprocessor/pharmcat_vcf_preprocessor build/preprocessor/pcat
 	cd build; tar -czvf preprocessor.tar.gz preprocessor
 
 
@@ -85,14 +85,14 @@ pipelinePkg:
 	cp -f bin/calc_allele_freqs build/calc_allele_freqs
 	cp -f build/libs/pharmcat-`git describe --tags | sed -r s/^v//`-all.jar build/pipeline/pharmcat.jar
 	cp -f preprocessor/requirements.txt build/pipeline
-	cp -f preprocessor/pharmcat_vcf_preprocessor.py build/pipeline
+	cp -f preprocessor/pharmcat_vcf_preprocessor build/pipeline
 	cp -f preprocessor/pharmcat_pipeline build/pipeline
-	mkdir build/pipeline/preprocessor
-	cp -f preprocessor/preprocessor/*.py build/pipeline/preprocessor
-	cp -f preprocessor/preprocessor/*.tsv build/pipeline/preprocessor
+	mkdir build/pipeline/pcat
+	cp -f preprocessor/pcat/*.py build/pipeline/pcat
+	cp -f preprocessor/pcat/*.tsv build/pipeline/pcat
 	cp -f pharmcat_positions.* pharmcat_regions.bed build/pipeline
-	chmod 644 build/pipeline/preprocessor/* build/pipeline/*
-	chmod 755 build/pipeline/pharmcat build/pipeline/pharmcat_pipeline build/pipeline/pharmcat_vcf_preprocessor.py build/pipeline/preprocessor
+	chmod 644 build/pipeline/pcat/* build/pipeline/*
+	chmod 755 build/pipeline/pharmcat build/pipeline/pharmcat_pipeline build/pipeline/pharmcat_vcf_preprocessor build/pipeline/pcat
 	cd build/pipeline; tar -czvf ../pipeline.tar.gz *
 
 
@@ -239,7 +239,7 @@ fuzzyVcfMissingTests: clean _generateVcf-missing _fuzzyVcfTests-missing
 .PHONY: test-preprocessor
 test-preprocessor:
 	cd preprocessor
-	python3 -m pytest --cov=preprocessor
+	python3 -m pytest --cov=pcat
 
 
 .PHONY: release

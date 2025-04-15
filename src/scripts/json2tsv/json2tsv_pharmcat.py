@@ -155,6 +155,7 @@ if __name__ == "__main__":
             allele_definition_references[gene] = [x + ':' + y for x, y in zip(positions, genotypes)]
 
         # set up concurrent mode
+        # TODO(markwoon): get this to work the same as the preprocessor
         m_max_processes: int = 1
         if args.concurrent_mode:
             print('Concurrent mode enabled...')

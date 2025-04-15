@@ -41,7 +41,7 @@ Below you will find a detailed introduction to the PharmCAT VCF Preprocessor. We
 To normalize and prepare a VCF file, run the following code substituted with proper arguments/inputs:
 
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf path/to/file.vcf(.bgz)
+$ pharmcat_vcf_preprocessor -vcf path/to/file.vcf(.bgz)
 ```
 
 **Mandatory** argument: `-vcf`.
@@ -54,22 +54,22 @@ multiple files (e.g. VCF files from large cohorts, such as UK Biobank). Input VC
 
 VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.org/doc/bgzip.html) compressed. If not bgzip compressed, they will be automatically bgzipped.
 
-  Example valid list file:
-  ```
-  chr1_set1.vcf
-  chr1_set2.vcf
-  chr2_set1.vcf
-  chr2_set2.vcf
-  ...
-  ```
-  Example invalid list file:
-  ```
-  chr3_set2.vcf
-  chr2_set2.vcf
-  chr1_set1.vcf
-  chr1_set2.vcf
-  ...
-  ```
+Example of a valid list file:
+```
+chr1_set1.vcf
+chr1_set2.vcf
+chr2_set1.vcf
+chr2_set2.vcf
+...
+```
+Example of an invalid list file:
+```
+chr3_set2.vcf
+chr2_set2.vcf
+chr1_set1.vcf
+chr1_set2.vcf
+...
+```
 
 
 
@@ -93,29 +93,33 @@ VCF files can have more than 1 sample and should be [bgzip](http://www.htslib.or
 -ss <span class="altArg"><br />or --single-sample</span>
 : Generate 1 VCF file per sample.
 
-
 -0 <span class="altArg"><br />or --missing-to-ref</span>
-: This option will add missing PGx positions to the output. Missing PGx positions are those absent in the input VCF or whose genotypes are unspecified as "./." across all samples. This option is equivalent to the combination of `--absent-to-ref` and `--unspecified-to-ref`. 
-* This option will not convert "./." to "0/0" if any other sample has a specified genotype (`0/0`, `0/1`, etc.) as the unspecified genotypes are likely determined so for good reasons.
-* This **SHOULD ONLY BE USED** if you are sure your data is reference at the absent positions
-instead of being unreadable/uncallable. Running PharmCAT with positions as absent vs reference can lead to different results.
-
+: Assume genotypes at absent or unspecified PGx sites are `0/0`. DANGEROUS!
+  _Modifying the data in this way can lead to different results in PharmCAT_.
+: This option will add missing PGx positions to the output.
+: This option is equivalent to using both `--absent-to-ref` and `--unspecified-to-ref`.
+  Please consult the documentation of those flags for details.
 
 --absent-to-ref
-: This option will add absent PGx positions into the output as homozygous reference.
-  * This **SHOULD ONLY BE USED** if you are sure your data is reference at the absent positions
-  instead of unreadable/uncallable.
-  * Running PharmCAT with positions as absent vs reference can lead to different results.
+: Assume genotypes at absent PGx sites are `0/0`. DANGEROUS!
+  _Modifying the data in this way can lead to different results in PharmCAT_.
+: This option will add PGx positions that are absent from the input VCF into the output as homozygous reference (`0/0`).
+: This should only be used if you are sure your data is reference at the absent positions instead of being 
+  unreadable/uncallable at the those positions.
 
 --unspecified-to-ref
-: This option will convert unspecified PGx position to homozygous reference. Unspecified PGx positions are those whose genotypes are unspecified "./." in every single sample.
-  * This option will not convert "./." to "0/0" when there is a specified genotype at a PGx position as these `./.` calls are likely left unspecified for good reasons.
-  * Running PharmCAT with positions as unspecified vs reference can lead to different results.
+: Assume unspecified genotypes (`./.`) as `0/0` when every sample is `./.`. DANGEROUS!
+  _Modifying the data in this way can lead to different results in PharmCAT_.
+: This option will convert an unspecified PGx position to homozygous reference (`0/0`).
+: Unspecified PGx positions are those whose genotypes are unspecified (`./.`) in every single sample.
+  As such, this check really only makes sense when working with multi-sample VCF files.
+: This option will not convert `./.` to `0/0` when there is a specified genotype at a PGx position as these `./.`
+  calls are likely left unspecified for good reasons.
 
 -c <span class="altArg"><br />or --concurrent-mode</span>
 : Enable concurrent mode. This defaults to using one less than the number of CPU cores available.
-Note that this is only useful if processing many files/samples. With only a few files/samples, the overhead of
-using concurrent mode is more than the benefit it may provide.
+  Note that this is only useful if processing many files/samples. With only a few files/samples, the overhead of
+  using concurrent mode is more than the benefit it may provide.
 
 -cp `<num processes>` <span class="altArg"><br />or --max-concurrent-processes `<num processes>`</span>
 : The maximum number of processes to use if concurrent mode is enabled.
@@ -190,7 +194,7 @@ $ cat test_1.vcf
 
 Command to run the PharmCAT VCF Preprocessor:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf test_1.vcf.bgz
+$ pharmcat_vcf_preprocessor -vcf test_1.vcf.bgz
 ```
 
 The VCF Preprocessor will return two files in this test case.
@@ -234,7 +238,7 @@ M	1555	.	G	A	PASS	.	GT	1/0	0/1
 
 Command to run the PharmCAT VCF Preprocessor:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz
+$ pharmcat_vcf_preprocessor -vcf test_2.vcf.bgz
 ```
 
 The VCF Preprocessor will return three (3) files in this test case:
@@ -265,7 +269,7 @@ chr1	97079005	rs140114515	C	T	.	PASS	PX=DPYD	GT	0/0
 ### Case 3 - multi-sample VCF input and single-sample VCF ouputs
 Given the same *"test_2.vcf.bgz"* as in the case 2, to obtain single-sample VCF files for each sample, run the following command:
 ```console
-$ python3 pharmcat_vcf_preprocessor.py -vcf test_2.vcf.bgz -ss
+$ pharmcat_vcf_preprocessor -vcf test_2.vcf.bgz -ss
 ```
 
 The VCF Preprocessor will return three (3) files in this test case:

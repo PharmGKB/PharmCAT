@@ -87,7 +87,7 @@ RUN pip3 install -r requirements.txt && \
 COPY src/main/config/bashrc /root/.bashrc
 
 # add pharmcat scripts
-COPY preprocessor/pharmcat_vcf_preprocessor.py \
+COPY preprocessor/pharmcat_vcf_preprocessor \
      preprocessor/pharmcat_pipeline \
      bin/pharmcat \
      bin/calc_allele_freqs \
@@ -95,12 +95,12 @@ COPY preprocessor/pharmcat_vcf_preprocessor.py \
      pharmcat_positions.vcf* \
      pharmcat_regions.bed \
      ./
-RUN mkdir preprocessor
-COPY preprocessor/preprocessor/*.py \
-     preprocessor/preprocessor/*.tsv \
-     preprocessor/
+RUN mkdir pcat
+COPY preprocessor/pcat/*.py \
+     preprocessor/pcat/*.tsv \
+     pcat/
 RUN mkdir data && \
-    chmod 755 *.py pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor.py preprocessor data && \
-    python -c "import preprocessor; preprocessor.prep_pharmcat_positions()"
+    chmod 755 pharmcat pharmcat_pipeline pharmcat_vcf_preprocessor pcat data && \
+    python -c "import pcat; pcat.prep_pharmcat_positions()"
 
 CMD ["/bin/bash"]
