@@ -22,7 +22,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.comparator.ChromosomePositionComparator;
 import org.pharmgkb.parser.vcf.VcfFormatException;
 import org.pharmgkb.parser.vcf.VcfLineParser;
@@ -57,16 +57,15 @@ public class VcfReader implements VcfLineParser {
   private static final String sf_filterCodeRef = "PCATxREF";
   private static final String sf_filterCodeAlt = "PCATxALT";
   private static final String sf_filterCodeIndel = "PCATxINDEL";
-  private final ImmutableMap<String, VariantLocus> m_locationsOfInterest;
-  private final ImmutableMap<String, String> m_locationsByGene;
+  private final @Nullable ImmutableMap<String, VariantLocus> m_locationsOfInterest;
+  private final @Nullable ImmutableMap<String, String> m_locationsByGene;
   private final boolean m_findCombinations;
-  private final boolean m_useSpecificSample;
-  private String m_sampleId;
+  private @Nullable String m_sampleId;
   private int m_sampleIdx = -1;
-  private VcfMetadata m_vcfMetadata;
+  private @Nullable VcfMetadata m_vcfMetadata;
   private boolean m_adFormatDefined;
   private boolean m_useAdFormat = true;
-  private String m_genomeBuild;
+  private @Nullable String m_genomeBuild;
   // <chr:position, allele>
   private final SortedMap<String, SampleAllele> m_alleleMap = new TreeMap<>(ChromosomePositionComparator.getComparator());
   // <chr:position, warning>
@@ -85,7 +84,6 @@ public class VcfReader implements VcfLineParser {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
     m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = sampleId;
-    m_useSpecificSample = m_sampleId != null;
     m_findCombinations = findCombinations;
     read(vcfReader);
   }
@@ -101,7 +99,6 @@ public class VcfReader implements VcfLineParser {
     m_locationsOfInterest = definitionReader.getLocationsOfInterest();
     m_locationsByGene = definitionReader.getLocationsByGene();
     m_sampleId = null;
-    m_useSpecificSample = false;
     m_findCombinations = false;
     read(vcfFile);
   }
@@ -117,7 +114,7 @@ public class VcfReader implements VcfLineParser {
   }
 
   /**
-   * Constructor.
+   * Constructor.  Primarily for testing.
    * This will read in the VCF file and pull the sample's alleles at <em>ALL</em> positions.
    *
    * @throws ParseException if there are no samples in the VCF file
@@ -126,7 +123,6 @@ public class VcfReader implements VcfLineParser {
     m_locationsOfInterest = null;
     m_locationsByGene = null;
     m_sampleId = sampleId;
-    m_useSpecificSample = m_sampleId != null;
     m_findCombinations = false;
     read(vcfFile);
   }
@@ -135,13 +131,13 @@ public class VcfReader implements VcfLineParser {
   /**
    * Gets the Sample ID of the data to read.
    */
-  public String getSampleId() {
+  public @Nullable String getSampleId() {
     // this should never be null after read() is called
     return m_sampleId;
   }
 
 
-  public VcfMetadata getVcfMetadata() {
+  public @Nullable VcfMetadata getVcfMetadata() {
     return m_vcfMetadata;
   }
 
@@ -211,7 +207,7 @@ public class VcfReader implements VcfLineParser {
           }
         }
       }
-      if (m_useSpecificSample) {
+      if (m_sampleId != null) {
         for (int x = 0; x < m_vcfMetadata.getNumSamples(); x += 1) {
           if (m_sampleId.equals(m_vcfMetadata.getSampleName(x))) {
             m_sampleIdx = x;
@@ -368,7 +364,8 @@ public class VcfReader implements VcfLineParser {
           addWarning(chrPos, "Genotype at this position has no ALT allele and an indel or repeat is expected. " +
               "PharmCAT cannot validate this position");
         } else {
-          addWarning(chrPos, "Genotype at this position has SNPs ( " +
+          addWarning(chrPos, "Genotype at this position has SNP" +
+              (position.getAltBases().size() > 1 ? "s" : "") + " (" +
               String.join("/", position.getAltBases()) + ") but PharmCAT expects indel or repeat (" +
               String.join("/", varLoc.getAlts()) + ")");
         }
@@ -402,7 +399,7 @@ public class VcfReader implements VcfLineParser {
       }
     }
 
-    if (sampleData.size() > 1 && !m_useSpecificSample) {
+    if (sampleData.size() > 1 && m_sampleId == null) {
       // only warn once
       if (m_alleleMap.isEmpty()) {
         addWarning(chrPos, "Multiple samples found, only using first entry.");
@@ -544,8 +541,11 @@ public class VcfReader implements VcfLineParser {
   }
 
   private boolean treatUndocumentedAsReference(String chrPos) {
+    if (m_locationsByGene == null) {
+      return false;
+    }
     String gene = m_locationsByGene.get(chrPos);
-    if (NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
+    if (gene != null && NamedAlleleMatcher.TREAT_UNDOCUMENTED_VARIATIONS_AS_REFERENCE.contains(gene)) {
       if (isLowestFunctionGene(gene)) {
         // lowest-function genes ignore find-combinations mode
         return true;

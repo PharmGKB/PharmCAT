@@ -7,7 +7,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 
 
@@ -27,16 +27,16 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private final int m_position;
   @Expose
   @SerializedName("allele1")
-  private final String m_allele1;
+  private final @Nullable String m_allele1;
   @Expose
   @SerializedName("allele2")
-  private final String m_allele2;
+  private final @Nullable String m_allele2;
   @Expose
   @SerializedName("computedAllele1")
-  private final String m_computedAllele1;
+  private final @Nullable String m_computedAllele1;
   @Expose
   @SerializedName("computedAllele2")
-  private final String m_computedAllele2;
+  private final @Nullable String m_computedAllele2;
   @Expose
   @SerializedName("phased")
   private final boolean m_isPhased;
@@ -60,11 +60,11 @@ public class SampleAllele implements Comparable<SampleAllele> {
   private boolean m_treatUndocumentedVariationsAsReference;
   @Expose
   @SerializedName("phaseSet")
-  private Integer m_phaseSet;
+  private @Nullable Integer m_phaseSet;
 
 
   public SampleAllele(String chromosome, long position, @Nullable String a1, @Nullable String a2, boolean isPhased,
-      boolean isEffectivelyPhased, Integer phaseSet, List<String> vcfAlleles, String gt,
+      boolean isEffectivelyPhased, @Nullable Integer phaseSet, List<String> vcfAlleles, String gt,
       @Nullable Set<String> undocumentedVariations, boolean treatUndocumentedAsReference) {
     Preconditions.checkNotNull(vcfAlleles);
     m_chromosome = chromosome;
@@ -188,7 +188,7 @@ public class SampleAllele implements Comparable<SampleAllele> {
   /**
    * Gets the PS value from the VCF.
    */
-  public Integer getPhaseSet() {
+  public @Nullable Integer getPhaseSet() {
     return m_phaseSet;
   }
 
