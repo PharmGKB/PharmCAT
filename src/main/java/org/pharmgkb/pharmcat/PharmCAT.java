@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import com.google.common.base.Stopwatch;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
 import org.pharmgkb.pharmcat.util.CliUtils;
 
 
 /**
- * Class to run the PharmCAT tool from input VCF file to the final output reports.
+ * Class to run the PharmCAT tool from the input VCF file to the final output reports.
  *
  * @author Ryan Whaley
  */
 public class PharmCAT {
 
-  public static void main(String[] args) {
+  public static void main(@Nullable String[] args) throws Exception {
     Stopwatch stopwatch = Stopwatch.createStarted();
 
     try {
@@ -59,7 +60,7 @@ public class PharmCAT {
           .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        failIfNotTest();
+        CliUtils.failIfNotTest();
         return;
       }
 
@@ -70,18 +71,16 @@ public class PharmCAT {
         if (cliHelper.hasOption("vcf")) {
           vcfFile = new VcfFile(cliHelper.getValidFile("vcf", true));
         } else {
-          System.out.println(
+          CliUtils.failIfNotTest(
               """
                   No input for Named Allele Matcher!
 
                   Please specify a VCF file (-vcf)"""
           );
-          failIfNotTest();
           return;
         }
         if (cliHelper.hasOption("pi")) {
-          System.out.println("Cannot specify phenotyper-input (-pi) if running named allele matcher");
-          failIfNotTest();
+          CliUtils.failIfNotTest("Cannot specify phenotyper-input (-pi) if running named allele matcher");
           return;
         }
       } else if (!config.samples.isEmpty()) {
@@ -106,14 +105,13 @@ public class PharmCAT {
         }
 
         if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFiles.isEmpty()) {
-          System.out.println("""
+          CliUtils.failIfNotTest("""
               No input for Phenotyper!
 
               Either:
                 1. Run named allele matcher with VCF input, or
                 2. Specify phenotyper-input (-pi) and/or phenotyper-outside-call-file (-po)"""
           );
-          failIfNotTest();
           return;
         }
       }
@@ -126,7 +124,7 @@ public class PharmCAT {
 
         if (vcfFile == null && phenotyperInputFile == null && phenotyperOutsideCallsFiles.isEmpty() &&
             reporterInputFile == null) {
-          System.out.println(
+          CliUtils.failIfNotTest(
               """
                   No input for Reporter!
 
@@ -134,7 +132,6 @@ public class PharmCAT {
                     1. Run phenotyper, or
                     2. Specify reporter-input (-ri)"""
           );
-          failIfNotTest();
           return;
         }
       }
@@ -169,7 +166,7 @@ public class PharmCAT {
           Pipeline pipeline = new Pipeline(env, config, vcfFile, sampleId, singleSample,
               phenotyperInputFile, phenotyperOutsideCallsFiles, reporterInputFile);
           if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
-            failIfNotTest();
+            CliUtils.failIfNotTest();
             blankRuns.add(sampleId);
           }
 
@@ -188,8 +185,7 @@ public class PharmCAT {
             phenotyperInputFile, phenotyperOutsideCallsFiles, reporterInputFile);
         if (pipeline.call().getStatus() == PipelineResult.Status.NOOP) {
           cliHelper.printHelp();
-          System.out.println("Nothing to do.");
-          failIfNotTest();
+          CliUtils.failIfNotTest("Nothing to do.");
           return;
         }
       }
@@ -200,24 +196,9 @@ public class PharmCAT {
       }
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
-      System.out.println(ex.getMessage());
-      failIfNotTest();
-    } catch (Exception e) {
-      //noinspection CallToPrintStackTrace
-      e.printStackTrace();
-      failIfNotTest();
-    }
-  }
-
-
-  /**
-   * Only use {@link System#exit(int)} if not running from within test.
-   */
-  static void failIfNotTest() {
-    try {
-      Class.forName("org.pharmgkb.pharmcat.TestUtils");
+      CliUtils.failIfNotTest(ex.getMessage());
     } catch (Exception ex) {
-      System.exit(1);
+      CliUtils.failIfNotTest(ex);
     }
   }
 }

@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Stopwatch;
 import org.apache.commons.io.FileUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.AnsiConsole;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.TimeUtils;
@@ -41,7 +41,7 @@ public class BatchPharmCAT {
   private final Map<String, Path> m_phenotypeFilesToProcess = new TreeMap<>();
 
 
-  public static void main(String[] args) {
+  public static void main(@Nullable String[] args) throws Exception {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addVersion("PharmCAT " + CliUtils.getVersion())
@@ -78,7 +78,7 @@ public class BatchPharmCAT {
           .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        PharmCAT.failIfNotTest();
+        CliUtils.failIfNotTest();
         return;
       }
 
@@ -97,8 +97,7 @@ public class BatchPharmCAT {
             maxProcesses = cp;
           }
         } catch (NumberFormatException ex) {
-          System.out.println("\"" + cliHelper.getValue("cp") + "\" is not an integer.");
-          PharmCAT.failIfNotTest();
+          CliUtils.failIfNotTest(AnsiConsole.styleError("-cp value \"" + cliHelper.getValue("cp") + "\" is not an integer."), true);
           return;
         }
       }
@@ -118,8 +117,7 @@ public class BatchPharmCAT {
         }
       }
       if (inputDir == null) {
-        System.err.println(AnsiConsole.styleError("Missing input (specify with -i and/or -vcf)"));
-        PharmCAT.failIfNotTest();
+        CliUtils.failIfNotTest(AnsiConsole.styleError("Missing input (specify with -i and/or -vcf)"), true);
         return;
       }
 
@@ -128,12 +126,9 @@ public class BatchPharmCAT {
       pcat.execute(maxProcesses);
 
     } catch (CliHelper.InvalidPathException | ReportableException ex) {
-      System.out.println(ex.getMessage());
-      PharmCAT.failIfNotTest();
-    } catch (Exception e) {
-      //noinspection CallToPrintStackTrace
-      e.printStackTrace();
-      PharmCAT.failIfNotTest();
+      CliUtils.failIfNotTest(ex.getMessage());
+    } catch (Exception ex) {
+      CliUtils.failIfNotTest(ex);
     }
   }
 
@@ -174,8 +169,7 @@ public class BatchPharmCAT {
     }
     if (vcfFile != null) {
       if (!Files.isRegularFile(vcfFile)) {
-        System.err.println(AnsiConsole.styleError("Not a file: " + vcfFile));
-        PharmCAT.failIfNotTest();
+        CliUtils.failIfNotTest(AnsiConsole.styleError("Not a file: " + vcfFile), true);
         return;
       }
       // input VCF file trumps other VCF files in inputDir

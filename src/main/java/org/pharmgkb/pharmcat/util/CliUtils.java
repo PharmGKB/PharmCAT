@@ -12,9 +12,10 @@ import java.util.jar.Manifest;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.PharmCAT;
+import org.pharmgkb.pharmcat.ReportableException;
 
 
 /**
@@ -23,7 +24,7 @@ import org.pharmgkb.pharmcat.PharmCAT;
  * @author Mark Woon
  */
 public class CliUtils {
-  private static String s_version;
+  private static @Nullable String s_version;
 
 
   /**
@@ -35,7 +36,7 @@ public class CliUtils {
 
   /**
    * Gets the currently tagged version based on the Jar manifest, the current git repo tag, or a generic 
-   * "development" version as a fallback when neither of those are available.
+   * "development" version as a fallback when neither of those is available.
    *
    * @return a String of the PharmCAT version
    * @throws IOException can occur from reading the manifest
@@ -106,5 +107,59 @@ public class CliUtils {
 
     String baseFilename = FilenameUtils.getBaseName(inputFile.getFileName().toString());
     return outputDir.resolve(baseFilename + defaultSuffix);
+  }
+
+  /**
+   * Only use {@link System#exit(int)} if not running from within a test.
+   */
+  public static void failIfNotTest() {
+    try {
+      Class.forName("org.pharmgkb.pharmcat.TestUtils");
+    } catch (Exception ex) {
+      System.exit(1);
+    }
+  }
+
+
+  /**
+   * Only use {@link System#exit(int)} if not running from within a test.
+   * If running from within a test, throw a {@link ReportableException} instead.
+   */
+  public static void failIfNotTest(String msg) throws ReportableException {
+    failIfNotTest(msg, false);
+    throw new ReportableException(msg);
+  }
+
+  /**
+   * Only use {@link System#exit(int)} if not running from within a test.
+   * If running from within a test, throw a {@link ReportableException} instead.
+   */
+  public static void failIfNotTest(String msg, boolean useSysErr) throws ReportableException {
+    try {
+      Class.forName("org.pharmgkb.pharmcat.TestUtils");
+    } catch (Exception checkEx) {
+      if (useSysErr) {
+        System.err.println(msg);
+      } else {
+        System.out.println(msg);
+      }
+      System.exit(1);
+    }
+    throw new ReportableException(msg);
+  }
+
+  /**
+   * Only use {@link System#exit(int)} if not running from within a test.
+   * If running from within a test, throw the Exception instead.
+   */
+  public static void failIfNotTest(Exception ex) throws Exception {
+    try {
+      Class.forName("org.pharmgkb.pharmcat.TestUtils");
+    } catch (Exception checkEx) {
+      //noinspection CallToPrintStackTrace
+      ex.printStackTrace();
+      System.exit(1);
+    }
+    throw ex;
   }
 }

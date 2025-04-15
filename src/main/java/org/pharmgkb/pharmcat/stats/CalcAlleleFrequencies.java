@@ -19,10 +19,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat;
+import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.PoiUtils;
 
 import static org.pharmgkb.pharmcat.util.PoiUtils.writeCell;
@@ -40,7 +41,7 @@ public class CalcAlleleFrequencies {
   private final NumberFormat m_percentFormat = NumberFormat.getPercentInstance();
 
 
-  public static void main(String[] args) {
+  public static void main(@Nullable String[] args) throws Exception {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("i", "input", "Calls-only TSV file or directory", true, "file")
@@ -48,13 +49,17 @@ public class CalcAlleleFrequencies {
           .addOption("pc", "pivot-column", "Pivot column number; first column is 1", false, "number")
           ;
       if (!cliHelper.parse(args)) {
+        CliUtils.failIfNotTest();
         return;
       }
 
       Path input = cliHelper.getPath("i");
+      if (!Files.exists(input)) {
+        throw new ReportableException("Input file/directory does not exist: " + input);
+      }
       Path outDir;
       if (cliHelper.hasOption("o")) {
-        outDir = cliHelper.getValidDirectory("o", false);
+        outDir = cliHelper.getValidDirectory("o", true);
       } else if (Files.isDirectory(input)) {
         outDir = input;
       } else {
@@ -78,11 +83,10 @@ public class CalcAlleleFrequencies {
       }
       calcAlleleFrequencies.write(outDir);
 
-    } catch (CliHelper.InvalidPathException ex) {
-      System.out.println(ex.getMessage());
-    } catch (Exception e) {
-      //noinspection CallToPrintStackTrace
-      e.printStackTrace();
+    } catch (CliHelper.InvalidPathException | ReportableException ex) {
+      CliUtils.failIfNotTest(ex.getMessage());
+    } catch (Exception ex) {
+      CliUtils.failIfNotTest(ex);
     }
   }
 
