@@ -29,7 +29,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.html.Recommendation;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;

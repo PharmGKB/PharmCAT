@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.haplotype.DpydHapB3Matcher;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -60,7 +60,7 @@ class DpydTest {
   }
 
 
-  public static @Nullable List<String> callsToComponents(List<String> expectedCalls) {
+  public static @Nullable List<String> callsToComponents(@Nullable List<String> expectedCalls) {
     if (expectedCalls == null || expectedCalls.isEmpty()) {
       return null;
     }

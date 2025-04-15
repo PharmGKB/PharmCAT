@@ -15,7 +15,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.format.HtmlFormat;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;

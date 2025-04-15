@@ -15,12 +15,12 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.opentest4j.AssertionFailedError;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
@@ -52,7 +52,7 @@ public class PipelineWrapper {
   private final boolean m_topCandidatesOnly;
   private boolean m_compactReport = m_compact;
   private boolean m_deleteIntermediateFiles = m_compact;
-  private ReportContext m_reportContext;
+  private @Nullable ReportContext m_reportContext;
 
 
   static void setCompact(boolean compact) {
@@ -102,7 +102,11 @@ public class PipelineWrapper {
     return this;
   }
 
-  ReportContext getContext() {
+  /**
+   * Gets the {@link ReportContext}.
+   * Only available after {@link #execute()} has been called successfully.
+   */
+  @Nullable ReportContext getContext() {
     return m_reportContext;
   }
 
@@ -123,7 +127,7 @@ public class PipelineWrapper {
    *
    * @return path to actual VCF used
    */
-  public Path executeWithVcf(Path vcfFile) throws Exception {
+  public @Nullable Path executeWithVcf(Path vcfFile) throws Exception {
     return execute(vcfFile, null, null, false);
   }
 
@@ -133,7 +137,7 @@ public class PipelineWrapper {
 
 
   public @Nullable Path execute(@Nullable Path vcfFile, @Nullable List<Path> outsideCallPaths,
-      Path sampleMetadataFile, boolean allowNoData) throws Exception {
+      @Nullable Path sampleMetadataFile, boolean allowNoData) throws Exception {
     VcfFile vcfFileObj = null;
     boolean runMatcher = false;
     if (vcfFile != null) {
@@ -372,29 +376,25 @@ public class PipelineWrapper {
   }
 
   /**
-   * Check to see if all the given genes have been called by the matcher
+   * Check to see if the matcher has called all the specified {@code genes}.
    */
   void testCalledByMatcher(String... genes) {
     assertTrue(genes != null && genes.length > 0);
     Arrays.stream(genes)
-        .forEach(g -> {
-          assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isCalled) &&
-                  getContext().getGeneReports(g).stream().noneMatch(GeneReport::isOutsideCall),
-              g + " is not called");
-        });
+        .forEach(g -> assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isCalled) &&
+                getContext().getGeneReports(g).stream().noneMatch(GeneReport::isOutsideCall),
+            g + " is not called"));
   }
 
   void testReportable(String... genes) {
     assertTrue(genes != null && genes.length > 0);
     Arrays.stream(genes)
-        .forEach(g -> {
-          assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isReportable),
-              g + " is not reportable");
-        });
+        .forEach(g -> assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isReportable),
+            g + " is not reportable"));
   }
 
   /**
-   * Check to see if none of the given genes have been called by the matcher
+   * Check to see if the matcher has called none of the specified {@code genes}.
    */
   void testNotCalledByMatcher(String... genes) {
     Preconditions.checkArgument(genes != null && genes.length > 0);
@@ -485,8 +485,8 @@ public class PipelineWrapper {
         Reporter:             %s
         Print (displayCalls): %s
         """,
-        geneReport.getSourceDiplotypes().toString(),
-        geneReport.getRecommendationDiplotypes().toString(),
+        geneReport.getSourceDiplotypes(),
+        geneReport.getRecommendationDiplotypes(),
         ReportHelpers.amdGeneCalls(geneReport)
     );
   }

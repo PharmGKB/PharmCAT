@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;

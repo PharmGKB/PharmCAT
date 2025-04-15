@@ -1,4 +1,4 @@
-package org.pharmgkb.pharmcat.reporter.handlebars;
+package org.pharmgkb.pharmcat.reporter.format.html;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +17,9 @@ import java.util.stream.Stream;
 import com.google.common.html.HtmlEscapers;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.TextUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.haplotype.CombinationMatcher;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;

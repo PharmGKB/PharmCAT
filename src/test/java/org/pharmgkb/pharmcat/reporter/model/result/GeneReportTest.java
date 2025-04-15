@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
-import org.pharmgkb.pharmcat.reporter.handlebars.ReportHelpers;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -12,17 +12,18 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.io.FilenameUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemErr;
 import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemOut;
 
 
@@ -34,6 +35,12 @@ import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemOut;
  */
 class BatchPharmCATTest {
 
+  @BeforeAll
+  static void prepare() {
+    ReportHelpers.setDebugMode(true);
+    //TestUtils.setSaveTestOutput(true);
+  }
+
   @AfterEach
   void deleteDirectory(TestInfo testInfo) {
     TestUtils.deleteTestOutputDirectory(testInfo);
@@ -41,21 +48,36 @@ class BatchPharmCATTest {
 
 
   @Test
-  void noArgs() throws Exception {
-    // require input directory
-    String systemErr = tapSystemErr(() -> BatchPharmCAT.main(null));
-    //System.out.println(systemErr);
-    assertThat(systemErr, containsString("Missing input"));
+  void noArgs() {
+    // require input
+    assertThrows(ReportableException.class, () -> {
+      try {
+        String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[0]));
+        System.out.println(systemOut);
+      } catch (ReportableException ex) {
+        System.out.println(ex.getMessage());
+        assertTrue(ex.getMessage().contains("Missing input"));
+        throw ex;
+      }
+    });
   }
 
   @Test
   void noFiles(TestInfo testInfo) throws Exception {
+
     Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
-    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
-        "-i", tmpDir.toString(),
-    }));
-    System.out.println(systemOut);
-    assertThat(systemOut, containsString("No input files"));
+    assertThrows(ReportableException.class, () -> {
+      try {
+        String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+            "-i", tmpDir.toString(),
+        }));
+        System.out.println(systemOut);
+      } catch (ReportableException ex) {
+        System.out.println(ex.getMessage());
+        assertTrue(ex.getMessage().contains("No input files"));
+        throw ex;
+      }
+    });
   }
 
   @Test
@@ -92,8 +114,8 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Done."));
     assertThat(systemOut, not(containsString("FAIL")));
     if (!TestUtils.isContinuousIntegration()) {
-      // max processes is capped to number of samples
-      // don't test this in CI because no way of guaranteeing # of processors
+      // max processes value is capped to number of samples
+      // don't test this in CI because there is no way of guaranteeing # of processors
       assertThat(systemOut, containsString("maximum of 2 processes"));
     }
 
@@ -243,8 +265,8 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Found 1 independent reporter input file"));
     assertThat(systemOut, containsString("Queueing up 6 samples"));
     if (!TestUtils.isContinuousIntegration()) {
-      // max processes is capped to number of samples
-      // don't test this in CI because no way of guaranteeing # of processors
+      // max processes value is capped to number of samples
+      // don't test this in CI because there is no way of guaranteeing # of processors
       assertThat(systemOut, containsString("maximum of 6 processes"));
     }
 
@@ -298,8 +320,8 @@ class BatchPharmCATTest {
     assertThat(systemOut, containsString("Found 1 independent reporter input file"));
     assertThat(systemOut, containsString("Queueing up 6 samples"));
     if (!TestUtils.isContinuousIntegration()) {
-      // max processes is lower than number of samples, so obey -cp
-      // don't test this in CI because no way of guaranteeing # of processors
+      // max processes value is lower than the number of samples, so obey -cp
+      // don't test this in CI because there is no way of guaranteeing # of processors
       assertThat(systemOut, containsString("maximum of 3 processes"));
     }
 
@@ -347,7 +369,7 @@ class BatchPharmCATTest {
     assertThat(systemOut, not(containsString("independent phenotyper outside call file")));
     assertThat(systemOut, not(containsString("lone outside call file")));
     assertThat(systemOut, not(containsString("independent reporter input file")));
-    // max processes is higher than number of samples, should limit to 1, which is not shown
+    // if the max processes value is higher than the number of samples, it should be limited to 1, which is not shown
     assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
 
     checkForOutputFiles(tmpDir, na18526Vcf);

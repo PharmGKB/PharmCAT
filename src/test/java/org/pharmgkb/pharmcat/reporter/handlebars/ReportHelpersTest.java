@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.reporter.handlebars;
 
 import org.junit.jupiter.api.Test;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.jspecify.annotations.NonNull;
 import org.pharmgkb.pharmcat.reporter.RecommendationUtils;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
@@ -148,7 +148,7 @@ public class RecommendationAnnotation implements Comparable<RecommendationAnnota
 
 
   @Override
-  public int compareTo(@Nonnull RecommendationAnnotation o) {
+  public int compareTo(@NonNull RecommendationAnnotation o) {
 
     if (id == null) {
       return -1;

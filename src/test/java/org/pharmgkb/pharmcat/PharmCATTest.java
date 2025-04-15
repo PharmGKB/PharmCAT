@@ -7,10 +7,11 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
@@ -19,6 +20,7 @@ import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
+import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -38,9 +40,15 @@ import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemOut;
  */
 class PharmCATTest {
 
+  @BeforeAll
+  static void prepare() {
+    ReportHelpers.setDebugMode(true);
+    //TestUtils.setSaveTestOutput(true);
+  }
+
   @AfterEach
   void deleteDirectory(TestInfo testInfo) {
-    //TestUtils.deleteTestOutputDirectory(testInfo);
+    TestUtils.deleteTestOutputDirectory(testInfo);
   }
 
 
@@ -52,15 +60,20 @@ class PharmCATTest {
     Path refReporterOutput = vcfFile.getParent().resolve("reference.report.html");
 
     // require VCF
-    String systemOut = tapSystemOut(() -> PharmCAT.main(null));
-    //System.out.println(systemOut);
-    assertTrue(systemOut.contains("No input"));
-    assertTrue(systemOut.contains("-vcf"));
-
+    assertThrows(ReportableException.class, () -> {
+      try {
+        String systemOut = tapSystemOut(() -> PharmCAT.main(new String[0]));
+        System.out.println(systemOut);
+      } catch (ReportableException ex) {
+        assertTrue(ex.getMessage().contains("No input"));
+        assertTrue(ex.getMessage().contains("-vcf"));
+        throw ex;
+      }
+    });
 
     // standard full run - should output to the same directory as the VCF file
     try {
-      systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
+      String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
           "-vcf", vcfFile.toString(),
       }));
       System.out.println(systemOut);
@@ -415,7 +428,7 @@ class PharmCATTest {
     Path phenotyperOutput = outputDir.resolve(baseFilename + BaseConfig.PHENOTYPER_SUFFIX + ".json");
     Path reporterOutput = outputDir.resolve(baseFilename + BaseConfig.REPORTER_SUFFIX + ".html");
 
-    // matcher only, expecting 1 CYP2C19 matches
+    // matcher only - expecting 1 CYP2C19 matches
     try {
       String systemOut = tapSystemOut(() -> PharmCAT.main(new String[] {
           "-vcf", vcfFile.toString(),
@@ -514,10 +527,8 @@ class PharmCATTest {
       try (Stream<String> lines = Files.lines(singlesPhenotyperOutput)) {
         // Process each line
         lines.filter(l -> !l.contains("\"timestamp\":"))
-            .forEach(l -> {
-              singlePhenoJson.append(l)
-                  .append("\n");
-            });
+            .forEach(l -> singlePhenoJson.append(l)
+                .append("\n"));
       }
       StringBuilder doublePhenoJson = new StringBuilder();
       try (Stream<String> lines = Files.lines(doublePhenotyperOutput)) {
@@ -619,7 +630,7 @@ class PharmCATTest {
 
 
   public static void validateCyp2d6OutsideCallOutput(Path phenotyperOutput) throws IOException {
-    validateOutsideCallOutput(phenotyperOutput, "CYP2D6", null);;
+    validateOutsideCallOutput(phenotyperOutput, "CYP2D6", null);
   }
 
 

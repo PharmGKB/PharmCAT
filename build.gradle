@@ -53,8 +53,8 @@ dependencies {
       [group: 'commons-codec', name: 'commons-codec', version: '1.18.0'],
       [group: 'commons-io', name: 'commons-io', version: '2.18.0'],
       [group: 'com.github.jknack', name: 'handlebars', version: '4.4.0'],
-      [group: 'com.google.code.gson', name: 'gson', version: '2.12.1'],
-      [group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'],
+      [group: 'com.google.code.gson', name: 'gson', version: '2.13.0'],
+      [group: 'com.google.guava', name: 'guava', version: '33.4.8-jre'],
       [group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'],
       // used by poi; adding because transitive dependency has a security alert
       [group: 'org.apache.commons', name: 'commons-compress', version: '1.27.1'],
@@ -63,7 +63,7 @@ dependencies {
       [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.14'],
       [group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.24.3'],
       [group: 'org.apache.poi', name: 'poi-ooxml', version: '5.4.0'],
-      [group: 'org.checkerframework', name: 'checker-qual', version: '3.39.0'],
+      [group: 'org.checkerframework', name: 'checker-qual', version: '3.48.0'],
       [group: 'org.pharmgkb', name: 'pgkb-common', version: '0.7.3'],
       [group: 'org.pharmgkb', name: 'vcf-parser', version: '0.3.1'],
       [group: 'org.slf4j', name: 'slf4j-api', version: '2.0.16'],
@@ -71,9 +71,9 @@ dependencies {
 
   testImplementation(
       [group: 'org.hamcrest', name: 'hamcrest', version: '2.2'],
-      [group: 'org.jsoup', name: 'jsoup', version: '1.16.2'],
-      [group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.10.3'],
-      [group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.10.3'],
+      [group: 'org.jsoup', name: 'jsoup', version: '1.19.1'],
+      [group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.11.1'],
+      [group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.11.2'],
       [group: 'uk.org.webcompere', name: 'system-stubs-core', version: '2.1.8'],
       [group: 'uk.org.webcompere', name: 'system-stubs-jupiter', version: '2.1.8']
   )
