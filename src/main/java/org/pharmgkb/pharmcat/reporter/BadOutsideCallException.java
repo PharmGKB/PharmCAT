@@ -1,7 +1,7 @@
 package org.pharmgkb.pharmcat.reporter;
 
 /**
- * This exception indicates a prolem with an outside call.
+ * This exception indicates a problem with an outside call.
  *
  * @author Mark Woon
  */
