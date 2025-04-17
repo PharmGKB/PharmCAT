@@ -1,3 +1,63 @@
+## [3.0.0](https://github.com/PharmGKB/PharmCAT/compare/v2.15.5...v3.0.0) (2025-04-17)
+
+### ⚠ BREAKING CHANGES
+
+* **preprocessor:** reorganize preprocessor, rename package
+* **namedAlleleMatcher:** combination calls will now always return all possible diplotypes,
+not just the highest scoring diplotypes.
+* **reporter:** the "wildtypeAllele" property is renamed to "referenceAllele" to better match existing terminology.
+This can be found in both *.phenotype.json and *.report.json files.
+* **reporter:** if any reporter output format is requested, all desired formats must be specified.
+The old behavior always produced HTML format, and requested formats were additional.
+The new behavior only applies if any format is requested.  If nothing is requested, it still defaults to producing HTML.
+
+For example, if `-reporterJson` is specifed, the new behavior only produces JSON format.
+The old behavior would have produced HTML and JSON.
+
+To get the same output as before, use `-reporterJson -reporterHtml`.
+
+### Features
+
+* **namedAlleleMatcher:** add support for Phased Sets ([e731aaf](https://github.com/PharmGKB/PharmCAT/commit/e731aafa8b4018c764a2039d3671e2c31fec0073)), closes [#175](https://github.com/PharmGKB/PharmCAT/issues/175)
+* **namedAlleleMatcher:** add support for specifying diplotype priority for unphased data and required positions ([c29b2ad](https://github.com/PharmGKB/PharmCAT/commit/c29b2ada0e6a6e6f495c2f8db99d215e62b92d7b))
+* **reporter:** add support for passing sample metadata to reporter ([1e000ed](https://github.com/PharmGKB/PharmCAT/commit/1e000ed588d5511df8740e052920a669edc601a1))
+* **reporter:** finalize call-only tsv reporter ([a2d20f9](https://github.com/PharmGKB/PharmCAT/commit/a2d20f9064c8feed216a08ffc264a02b2f803bae))
+
+### Bug Fixes
+
+* default to one CPU core if -cp is not specified ([23fc729](https://github.com/PharmGKB/PharmCAT/commit/23fc729cde1da181c71d9dbb46b51230a82f633f))
+* **data:** update data ([453a009](https://github.com/PharmGKB/PharmCAT/commit/453a009004c82c55d6957c59c89ac0c7a482f758))
+* **namedAlleleMatcher:** add GSON tags to SampleAllele ([e6797b6](https://github.com/PharmGKB/PharmCAT/commit/e6797b67876e3b41d100ddd8d5ebcae252f1ffc3))
+* **namedAlleleMatcher:** add more metadata to definition files ([36d60a3](https://github.com/PharmGKB/PharmCAT/commit/36d60a33069a4e728f5307a4c8eb5611bcba81cb))
+* **namedAlleleMatcher:** add warning if AMP Tier 1 requirements are not met ([6d187fa](https://github.com/PharmGKB/PharmCAT/commit/6d187fa55069d5e8148c91696f4f57ae7c147d85))
+* **namedAlleleMatcher:** don't print duplication warnings for cases dealt by preprocessor ([5ff5649](https://github.com/PharmGKB/PharmCAT/commit/5ff5649f2c40983973a3960de264b1ef2891e080))
+* **namedAlleleMatcher:** don't transform combination calls from outside calls ([8a6263f](https://github.com/PharmGKB/PharmCAT/commit/8a6263f3baf5559952d9fb7194d28f52946a070b))
+* **namedAlleleMatcher:** fix how effectively phased is calculated for PS alleles ([db2e10a](https://github.com/PharmGKB/PharmCAT/commit/db2e10a12cdb26602c1aa35dbcb272cf16d45d8a))
+* **namedAlleleMatcher:** improve combination calling ([c16fd5c](https://github.com/PharmGKB/PharmCAT/commit/c16fd5ccb0d12d4d3ab0eafb6ddd2c97a6debac9))
+* **namedAlleleMatcher:** improve handling of partial missing allele in VCF ([fe67d80](https://github.com/PharmGKB/PharmCAT/commit/fe67d803d22e4ccbe479553278551f1fbe7441ec))
+* **namedAlleleMatcher:** improve support for finding partials in unphased data ([402a670](https://github.com/PharmGKB/PharmCAT/commit/402a670d107da432ed505e87d4975ca4ef6c0858))
+* **namedAlleleMatcher:** update unphased diplotype priority behavior to handle missing positions ([32e474e](https://github.com/PharmGKB/PharmCAT/commit/32e474eb58f1c4e68614e722f1aaf7d4d384a629))
+* **pharmcat:** add -sm parameter to pipeline ([851cfd6](https://github.com/PharmGKB/PharmCAT/commit/851cfd66894b5c4f83d839da9b66e2b55df7c920))
+* **pharmcat:** convert relative paths to absolute paths to make sure we can get parent directory ([cf3bf7e](https://github.com/PharmGKB/PharmCAT/commit/cf3bf7ebdcc8d96f3c51f2d450707f38c87ee0a8)), closes [#202](https://github.com/PharmGKB/PharmCAT/issues/202)
+* **pharmcat:** support phase sets in lowest function genes ([7e9cf0c](https://github.com/PharmGKB/PharmCAT/commit/7e9cf0ca3ed8c817a9625b5f10b6c8c05f068da1))
+* **preprocessor:** fix region handling for multisample vcf ([4510b7c](https://github.com/PharmGKB/PharmCAT/commit/4510b7cf14804d11b27e441b7cbd0b55bc113550))
+* **preprocessor:** reorganize preprocessor, rename package ([eb6ffca](https://github.com/PharmGKB/PharmCAT/commit/eb6ffcae4a9c3de37f46bfd22f906888cb324648))
+* **reporter:** add call-only tsv reporter ([420b48a](https://github.com/PharmGKB/PharmCAT/commit/420b48a1d74e7e19ed4ce60a2bc291257be5793c))
+* **reporter:** add debug support to tsv report ([1436926](https://github.com/PharmGKB/PharmCAT/commit/1436926af67c9088d688b4241c5713ad8ceaa88a))
+* **reporter:** add phase set info to output ([ee4613b](https://github.com/PharmGKB/PharmCAT/commit/ee4613bea4019122b75a9fe7a9a583911ed2616d))
+* **reporter:** change "n/a" phenotype for unknown activity score diplotypes to "Indeterminate" ([65d9661](https://github.com/PharmGKB/PharmCAT/commit/65d96614e40c21d2a554cbafe55c38d29ed26c88))
+* **reporter:** don't display phenotype for collapsed lowest function genes ([4c5a693](https://github.com/PharmGKB/PharmCAT/commit/4c5a69307a798612925caacec8756daa512d6be6))
+* **reporter:** fix test case that splits strings with trailing whitespace ([4763c94](https://github.com/PharmGKB/PharmCAT/commit/4763c94d438b9d9d8d0394aafe5626a0e54d0008))
+* **reporter:** rename wild-type allele to reference allele ([a77fb38](https://github.com/PharmGKB/PharmCAT/commit/a77fb38a42b0e8ad6b53bc829fe3675ff0d5632a))
+* **reporter:** update wording in report for genotypes that have no recommendation ([ec43af7](https://github.com/PharmGKB/PharmCAT/commit/ec43af7041029243f219c83546cef6601d0bb07d))
+* **utils:** add utils for generating frequency stats ([2b8815b](https://github.com/PharmGKB/PharmCAT/commit/2b8815b0484c23ca23f74389d760b28a7e6128a1))
+* **utils:** add wrapper for, and rename allele frequency tool ([d19608d](https://github.com/PharmGKB/PharmCAT/commit/d19608dcfe08e238f3c40d423932a66da9997713))
+* **utils:** improve json2tsv_pharmcat.py ([37accc8](https://github.com/PharmGKB/PharmCAT/commit/37accc82a802a4d2560ef295b4f99dd07df2e24c))
+
+### Performance Improvements
+
+* **utils:** cache version lookup ([7966dea](https://github.com/PharmGKB/PharmCAT/commit/7966dea9b740b7e1d3cd70de3030e49a615051a4))
+
 ## [2.15.5](https://github.com/PharmGKB/PharmCAT/compare/v2.15.4...v2.15.5) (2024-11-13)
 
 ### Bug Fixes

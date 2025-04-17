@@ -8,7 +8,7 @@ set -e
 set -u
 set -o pipefail
 
-PHARMCAT_VERSION="2.15.5"
+PHARMCAT_VERSION=3.0.0
 # Java 17 = 61 class major version
 MIN_JAVA_VERSION=17
 MIN_JAVA_CLASS_VERSION=61
