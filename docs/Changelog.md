@@ -15,6 +15,33 @@ PharmCAT release notifications by following
 [these instructions](/versioning#subscribing-to-release-notifications). This method will require a GitHub account.
 
 
+## v3.0.0
+
+#### Key New Features
+
+* **Phase Set Support** - Addresses issue [#175], enabling support for phase sets in VCF (the `PS` genotype field).
+* **New TSV Reports** - Produce focused reports on allele calls that that eliminates the complexity and verbosity of PharmCAT's JSON reports. Learn more in the [TSV Reports documentation](https://pharmcat.org/using/running-pharmcat/#calls-only-tsv-reports).
+* **Allele Frequency Analysis** - Leverage the new TSV reports to run frequency analysis, with support for arbitrary sample metadata to enable pivot column analysis as well.  Instructions are available in the [allele frequence analysis documentation](https://pharmcat.org/using/allele-frequency-analysis/).
+* **NAT2 Alelle Calling** - Enable calling NAT2 alleles with a new mechanism that uses frequency analysis to help call unphased data. See the [NAT2](https://pharmcat.org/methods/gene-definition-exceptions/#nat2) for details.  NAT2 allele function, phenotypes, and recommendations will be included when available through CPIC.
+
+#### ⚠ BREAKING CHANGES
+
+* **VCF Preprocessor**
+  * The preprocessor script name has been updated to `pharmcat_vcf_preprocessor` (.py extension removed).
+  * The Python package name has been changed from `preprocessor` to `pcat`.
+    If you directly use the PharmCAT Python code in your scripts, update your imports to use the new package name.
+* **PharmCAT**
+  * If any reporter output format is requested, all desired formats must be specified.
+    Before 3.0, the PharmCAT reporter would always produce HTML format in addition to any requested formats
+    (e.g. JSON format).  Now, if any format is specified, it will only produce the requested formats.
+    To get the same output as before, use the `-reporterJson -reporterHtml` flags.  If no format is specified,
+    the behavior remains the same - the HTML output will be produced by default.
+  * JSON data file format has been updated.
+    Many new properties have been added, but the breaking change is renaming the `wildtypeAllele` property to
+    `referenceAllele` in both *.phenotype.json and *.report.json files.
+  * Combination calls (a research mode flag) will now always return all possible diplotypes
+
+
 ## v2.13.0
 
 Added support for FDA drug guidance.
