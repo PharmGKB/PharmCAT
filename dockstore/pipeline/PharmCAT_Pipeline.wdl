@@ -14,7 +14,9 @@ workflow pharmcat_pipeline {
     sample_ids: "A comma-separated list of sample IDs.  Only applicable if you have multiple samples and only want to work on specific ones."
     sample_file: "A file containing a list of sample IDs, one sample ID per line.  Only applicable if you have multiple samples and only want to work on specific ones."
 
-    missing_to_ref: "Assume genotypes at missing PGx sites are 0/0.  DANGEROUS!"
+    missing_to_ref: 'Assume genotypes at absent or unspecified PGx sites are "0/0".  DANGEROUS!'
+    absent_to_ref: 'Assume genotypes at absent PGx sites are "0/0".  DANGEROUS!'
+    unspecified_to_ref: 'Assume unspecified genotypes ("./.") are "0/0" when every sample is "./.". DANGEROUS!'
     no_gvcf_check: "Bypass check if VCF file is in gVCF format."
     # not including retain_specific_regions and reference_regions
 
@@ -45,6 +47,8 @@ workflow pharmcat_pipeline {
     String sample_ids = ""
     File? sample_file
     Boolean missing_to_ref = false
+    Boolean absent_to_ref = false
+    Boolean unspecified_to_ref = false
     Boolean no_gvcf_check = false
     Boolean run_matcher = false
     Boolean matcher_all_results = false
@@ -69,6 +73,8 @@ workflow pharmcat_pipeline {
       sample_ids = sample_ids,
       sample_file = sample_file,
       missing_to_ref = missing_to_ref,
+      absent_to_ref = absent_to_ref,
+      unspecified_to_ref = unspecified_to_ref,
       no_gvcf_check = no_gvcf_check,
       run_matcher = run_matcher,
       matcher_all_results = matcher_all_results,
@@ -105,6 +111,8 @@ task pharmcat_pipeline_task {
     String sample_ids = ""
     File? sample_file
     Boolean missing_to_ref = false
+    Boolean absent_to_ref = false
+    Boolean unspecified_to_ref = false
     Boolean no_gvcf_check = false
     Boolean run_matcher = false
     Boolean matcher_all_results = false
@@ -132,6 +140,8 @@ task pharmcat_pipeline_task {
     ~{if sample_ids != "" then '-s ' + sample_ids else ''} \
     ~{if defined(sample_file) then '-S ' + sample_file else ''} \
     ~{if missing_to_ref then '-0' else ''} \
+    ~{if absent_to_ref then '--absent-to-ref' else ''} \
+    ~{if unspecified_to_ref then '--unspecified-to-ref' else ''} \
     ~{if no_gvcf_check then '-G' else ''} \
     ~{if run_matcher then '-matcher' else ''} \
     ~{if matcher_all_results then '-ma' else ''} \

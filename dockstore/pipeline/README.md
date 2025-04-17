@@ -34,7 +34,10 @@ An example VCF file you can use to test with can be found [here](https://pharmca
 - `File? sample_file` (default: `null`): A file containing a list of samples, one sample per line. Only applicable if you have multiple samples and only want to work on specific ones.
 
 ### Preprocessor Arguments
-- `Boolean missing_to_ref` (default: `false`): Assume genotypes at missing PGx sites are 0/0. DANGEROUS!
+- `Boolean missing_to_ref` (default: `false`): Assume genotypes at absent or unspecified PGx sites are "0/0".  DANGEROUS!
+   Equivalent to using both `absent_to_ref` and `unspecified_to_ref`
+- `Boolean absent_to_ref` (default: `false`): Assume genotypes at absent PGx sites are "0/0".  DANGEROUS!
+- `Boolean unspecified_to_ref` (default: `false`): Assume unspecified genotypes ("./.") are "0/0" when every sample is "./.". DANGEROUS!
 - `Boolean no_gvcf_check` (default: `false`): Bypass the gVCF check for the input VCF.
 
 ### Named Allele Matcher Arguments
@@ -88,6 +91,8 @@ Here is an example of how to provide the inputs in a JSON file:
   "pharmcat_pipeline.sample_ids": "",
   "pharmcat_pipeline.sample_file": null,
   "pharmcat_pipeline.missing_to_ref": false,
+  "pharmcat_pipeline.absent_to_ref": false,
+  "pharmcat_pipeline.unspecified_to_ref": false,
   "pharmcat_pipeline.no_gvcf_check": false,
   "pharmcat_pipeline.retain_specific_regions": false,
   "pharmcat_pipeline.reference_regions": null,
@@ -99,7 +104,9 @@ Here is an example of how to provide the inputs in a JSON file:
   "pharmcat_pipeline.run_reporter": false,
   "pharmcat_pipeline.reporter_sources": "",
   "pharmcat_pipeline.reporter_extended": false,
+  "pharmcat_pipeline.reporter_save_html": true,
   "pharmcat_pipeline.reporter_save_json": false,
+  "pharmcat_pipeline.reporter_save_calls_only_tsv": false,
   "pharmcat_pipeline.base_filename": "",
   "pharmcat_pipeline.delete_intermediate_files": false,
   "pharmcat_pipeline.max_concurrent_processes": 1,
