@@ -79,7 +79,7 @@
           "replacements": [
             {
               "files": [
-                "docs/index.md"
+                "docs/_config.yml"
               ],
               "from": "^pharmcat_version: .*",
               "to": "pharmcat_version: ${nextRelease.version}",
