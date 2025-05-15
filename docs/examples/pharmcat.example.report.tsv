@@ -1,4 +1,4 @@
-PharmCAT v2.15.5-60-g7b59c997
+PharmCAT v3.0.0-2-g0cb8e32a
 Gene	Source Diplotype	Phenotype	Activity Score	Haplotype 1	Haplotype 1 Function	Haplotype 1 Activity Value	Haplotype 2	Haplotype 2 Function	Haplotype 2 Activity Value	Outside Call	Match Score	Missing positions	Recommendation Lookup Diplotype	Recommendation Lookup Phenotype	Recommendation Lookup Activity Score
 RYR1	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		RYR1 Reference	Normal function		no	626	no	Reference/Reference	Uncertain Susceptibility	
 VKORC1	rs9923231 reference (C)/rs9923231 reference (C)			rs9923231 reference (C)			VKORC1 rs9923231 reference (C)			no	2	no	rs9923231 reference (C)/rs9923231 reference (C)		
@@ -11,7 +11,7 @@ CYP3A4	*1/*1	Normal Metabolizer		*1	Normal function		CYP3A4*1	Normal function		n
 CYP3A5	*1/*1	Normal Metabolizer		*1	Normal function		CYP3A5*1	Normal function		no	10	no	*1/*1	Normal Metabolizer	
 CYP2C9	*1/*1	Normal Metabolizer	2.0	*1	Normal function	1.0	CYP2C9*1	Normal function	1.0	no	160	no	*1/*1	Normal Metabolizer	2.0
 SLCO1B1	*1/*1	Normal Function		*1	Normal function		SLCO1B1*1	Normal function		no	62	no	*1/*1	Normal Function	
-CYP2B6	*1/*1	Normal Metabolizer		*1	Normal function		CYP2B6*1	Normal function		no	94	no	*1/*1	Normal Metabolizer	
+CYP2B6	*1/*1	Normal Metabolizer		*1	Normal function		CYP2B6*1	Normal function		no	96	no	*1/*1	Normal Metabolizer	
 CYP2D6	*1/*3	Intermediate Metabolizer	1.0	*1	Normal function	1.0	CYP2D6*3	No function	0.0	yes	0	no	*1/*3	Intermediate Metabolizer	1.0
 DPYD	Reference/Reference	Normal Metabolizer	2.0	Reference	Normal function	1.0	DPYD Reference	Normal function	1.0	no	162	no	Reference/Reference	Normal Metabolizer	2.0
 CACNA1S	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		CACNA1S Reference	Normal function		no	4	no	Reference/Reference	Uncertain Susceptibility	

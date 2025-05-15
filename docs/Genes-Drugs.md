@@ -63,7 +63,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the 184 drugs for which PharmCAT has recommendations for, along with their sources.
+The following table lists the 185 drugs for which PharmCAT has recommendations for, along with their sources.
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |
@@ -110,6 +110,7 @@ The following table lists the 184 drugs for which PharmCAT has recommendations f
 | darifenacin |  |  |  | :heavy_check_mark: |
 | desflurane | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | desipramine | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| deuruxolitinib |  |  | :heavy_check_mark: |  |
 | deutetrabenazine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | dexlansoprazole | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | dextromethorphan / quinidine |  |  | :heavy_check_mark: |  |
