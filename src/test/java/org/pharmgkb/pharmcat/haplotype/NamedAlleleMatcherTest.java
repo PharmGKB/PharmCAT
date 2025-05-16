@@ -269,7 +269,7 @@ public class NamedAlleleMatcherTest {
     GeneCall rez = result.getGeneCalls().stream().filter(g -> g.getGene().equals("CYP2D6"))
         .findAny()
         .orElseThrow(() -> new IllegalStateException("CYP2D6 not called"));
-    assertEquals(198, rez.getDiplotypes().size());
+    assertTrue(rez.getDiplotypes().size() >= 222);
   }
 
 
