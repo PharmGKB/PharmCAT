@@ -446,7 +446,7 @@ public class VcfReader implements VcfLineParser {
 
     if (m_useAdFormat) {
       // reference: https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format
-      String allelicDepth = sampleData.get(0).getProperty("AD");
+      String allelicDepth = sampleData.get(m_sampleIdx).getProperty("AD");
       if (allelicDepth != null) {
         if (!m_adFormatDefined) {
           addWarning("VCF", MSG_AD_FORMAT_MISSING);
