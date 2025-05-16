@@ -1,3 +1,11 @@
+## [3.0.1](https://github.com/PharmGKB/PharmCAT/compare/v3.0.0...v3.0.1) (2025-05-16)
+
+### Bug Fixes
+
+* **data:** update to PharmVar 6.2.5 ([745cd9f](https://github.com/PharmGKB/PharmCAT/commit/745cd9f8a8868c07f809bcf26f93580809c9a848))
+* **dockstore:** add absent_to_ref and unspecified_to_ref flags ([0cb8e32](https://github.com/PharmGKB/PharmCAT/commit/0cb8e32a72abd8e0124888ab665865cf1052587e))
+* **namedAlleleMatcher:** fix reading AD data in multisample files ([a765e3c](https://github.com/PharmGKB/PharmCAT/commit/a765e3ce30fdf726c10ddbe16197f099e454a89e))
+
 ## [3.0.0](https://github.com/PharmGKB/PharmCAT/compare/v2.15.5...v3.0.0) (2025-04-17)
 
 ### ⚠ BREAKING CHANGES

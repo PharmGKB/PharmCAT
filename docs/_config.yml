@@ -33,7 +33,7 @@ ga_tracking_anonymize_ip: true
 logo: /images/pharmcat_logo.svg
 show_downloads: true
 
-pharmcat_version: 3.0.0
+pharmcat_version: 3.0.1
 
 # Exclude from processing.
 # The following items will not be processed, by default.
