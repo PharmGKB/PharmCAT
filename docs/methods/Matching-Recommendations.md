@@ -36,8 +36,8 @@ service. CPIC publishes drug, phenotype, and allele definition data that PharmCA
 
 The second source is DPWG (the Dutch Pharmacogenomics Working Group). DPWG does not publish their guideline information
 in a well-structured machine-readable format (they only publish as PDFs), so PharmCAT relies on the annotated DPWG
-guidelines in PharmGKB. PharmGKB curators read the source PDFs and curate the guideline data, so it is available via
-PharmGKB's API and file archive service. PharmGKB also provides allele definition data for genes that are used in DPWG
+guidelines in ClinPGx. ClinPGx curators read the source PDFs and curate the guideline data, so it is available via
+ClinPGx's API and file archive service. ClinPGx also provides allele definition data for genes that are used in DPWG
 guidelines but are not in CPIC.
 
 PharmCAT pulls the aforementioned guideline data and reorganizes it to prepare for reporting. The annotation data pulled

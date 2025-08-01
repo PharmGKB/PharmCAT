@@ -6,7 +6,7 @@ nav_order: 4
 ---
 # Gene Definition Exceptions
 
-Genotype determination is based on [CPIC gene definition tables](https://www.pharmgkb.org/page/pgxGeneRef), with 
+Genotype determination is based on [CPIC gene definition tables](https://www.clinpgx.org/page/pgxGeneRef), with 
 modifications for the following genes:
 
 * [CYP3A4](#cyp3a4)
@@ -21,10 +21,10 @@ modifications for the following genes:
 
 ## CYP3A4
 
-PharmGKB annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of
-Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.pharmgkb.org/page/dpwg). PharmGKB curates allele function assignments and phenotype
-mappings from the DPWG to provide genotype-specific DPWG guideline recommendations. Where possible, PharmGKB maps DPWG
-terms to CPIC terms, as outlined on [PharmGKB](https://www.pharmgkb.org/page/dpwgMapping).
+ClinPGx annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of
+Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.clinpgx.org/page/dpwg). ClinPGx curates allele function
+assignments and phenotype mappings from the DPWG to provide genotype-specific DPWG guideline recommendations.
+Where possible, ClinPGx maps DPWG terms to CPIC terms, as outlined on [ClinPGx](https://www.clinpgx.org/page/dpwgMapping).
 
 CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant notations
 for the included alleles (only `*16`, `*20`, and `*22` have variant positions specified, document from March 2022)
@@ -45,7 +45,7 @@ two DPYD variants with the lowest variant activity score.
 > Common normal function variants may be located on the same gene copy as other normal function variants or
 > decreased/no function variants.
 
-More details are available on the [PharmGKB's CPIC DPYD reference page](https://www.pharmgkb.org/page/dpydRefMaterials).
+More details are available on the [ClinPGx's CPIC DPYD reference page](https://www.clinpgx.org/page/dpydRefMaterials).
 The _DPYD Allele Functionality Table_ has function assignment information and the _DPYD Diplotype-Phenotype Table_
 includes example translations considering one or two variants. 
 
@@ -188,7 +188,7 @@ A note will be added to the result whenever this occurs.
 
 ## RYR1
 
-In December 2023, [CPIC](https://www.pharmgkb.org/guidelineAnnotation/PA166303941) added additional variants to align
+In December 2023, CPIC [added additional variants](https://www.clinpgx.org/guidelineAnnotation/PA166303941) to align
 with the ClinGen malignant hyperthermia susceptibility (MHS) variant curation expert panel (VCEP), which developed and
 published recommendations for RYR1 pathogenicity classifications in malignant hyperthermia susceptibility.
 Pathogenic and likely pathogenic variants are assigned a CPIC function of Malignant Hyperthermia associated,

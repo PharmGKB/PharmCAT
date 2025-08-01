@@ -27,7 +27,7 @@ Pennsylvania.
 ## Scientific Advisory Board
 
 PharmCAT is now part of [ClinPGx](https://clinpgx.org).  PharmCAT's scientific advisory board members are listed on the
-[ClinPGx SAB page](https://www.pharmgkb.org/page/sab).
+[ClinPGx SAB page](https://www.clinpgx.org/page/sab).
 
 
 ## Past Contributors

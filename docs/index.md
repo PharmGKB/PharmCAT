@@ -21,8 +21,8 @@ drug response and tailor medical treatment to an individual patient’s genetic 
    genotypes and infers haplotypes, typically called star alleles.
 2. Uses the pharmacogene diplotypes (combination of maternal and paternal star alleles) to predict PGx phenotypes and
    reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
-   [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
-   [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
+   [ClinPGx-annotated DPWG guidelines](https://www.clinpgx.org/page/dpwg) and
+   [ClinPGx-annotated FDA-approved drug labels](https://www.clinpgx.org/page/drugLabelLegend).
 
 This is a very high-level example of this process:
 
@@ -30,7 +30,7 @@ This is a very high-level example of this process:
 
 For details, take a look at our documentation on [how PharmCAT works](/methods).
 
-PharmCAT was developed in a collaboration between the [Pharmacogenomics Knowledgebase (PharmGKB)](https://www.pharmgkb.org)
+PharmCAT was developed in a collaboration between the PharmGKB (now [ClinPGx](https://www.clinpgx.org))
 and the former [PGRN Statistical Analysis Resource (P-STAR)](https://ritchielab.org/pgrn-star/), with input from other
 groups. The work was originally based on established guidelines from the
 [Clinical Pharmacogenetics Implementation Consortium (CPIC)](https://cpicpgx.org). 
@@ -41,6 +41,11 @@ References:
 - _Tutorial paper:_ B Li & K Sangkuhl et al. [How to Run the Pharmacogenomics Clinical Annotation Tool (PharmCAT)](https://ascpt.onlinelibrary.wiley.com/doi/10.1002/cpt.2790). Clinical Pharmacology & Therapeutics (2022).
 
 PharmCAT is under active development.
+
+Note: [PharmGKB is now ClinPGx](https://blog.clinpgx.org/pharmgkb-is-now-clinpgx/).
+While the name and the website have changed, the code repositories and distribution channels have not.
+It will remain this way for the foreseeable future, and you will still see references to PharmGKB in the documentation
+while this is the case.
 
 [Subscribe to PharmCAT Updates](https://pharmgkb.us10.list-manage.com/subscribe?u=c46dea014a68524407fdbffa1&id=d0d1ec73ab){: .btn .btn-blue}
 
@@ -74,7 +79,7 @@ We have a collection of [sample reports and the data files that generated them](
 
 ## Contact
 
-[Ask a Question](mailto:pharmcat@pharmgkb.org){: .btn .btn-blue }
+[Ask a Question](mailto:pharmcat@clinpgx.org){: .btn .btn-blue }
 [Submit a Bug / Feature Request](https://github.com/PharmGKB/PharmCAT/issues/new){: .btn }
 
 

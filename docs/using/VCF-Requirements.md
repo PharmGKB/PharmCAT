@@ -40,7 +40,7 @@ For real-world examples of changes the VCF Preprocessor will make, we have a pag
 [before and after examples](/using/Variant-Normalization) of these normalization changes.
 
 If you believe there is a tool that can do a better job with variant normalization other than bcftools
-(or if there is a better way to use bcftools), please [let us know](mailto:pharmcat@pharmgkb.org).
+(or if there is a better way to use bcftools), please [let us know](mailto:pharmcat@clinpgx.org).
 
 
 ## Deep Dive

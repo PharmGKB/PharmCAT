@@ -15,7 +15,7 @@ Documenting how to do so is challenging because there are many ways to run Pharm
 always have direct access to these large datasets. 
 
 We are actively working on improving PharmCAT for use on large data sets and would love to
-[get your feedback](mailto:pharmcat@pharmgkb.org) on how it worked for you and how you'd like to see it improved.
+[get your feedback](mailto:pharmcat@clinpgx.org) on how it worked for you and how you'd like to see it improved.
 We would also appreciate any notes you may have on either how you used PharmCAT on different systems and the costs you
 encountered.
 
@@ -57,7 +57,7 @@ This section is a work in progress.  We would like to provide recommendations fo
 based on different compute platforms (e.g. Amazon AWS, Google Cloud, Microsoft Azure).
 
 If you have experience running PharmCAT, or would be willing to help us test this out, please reach out and
-[let us know](mailto:pharmcat@pharmgkb.org).
+[let us know](mailto:pharmcat@clinpgx.org).
 
 
 ## Past Experiences

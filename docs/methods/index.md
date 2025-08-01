@@ -17,8 +17,8 @@ It does this in two phases:
    genotypes and infers haplotypes, typically called star alleles.
 2. Uses the pharmacogene diplotypes (combination of maternal and paternal star alleles) to predict PGx phenotypes and
    reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
-   [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
-   [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
+   [ClinPGx-annotated DPWG guidelines](https://www.clinpgx.org/page/dpwg) and
+   [ClinPGx-annotated FDA-approved drug labels](https://www.clinpgx.org/page/drugLabelLegend).
 
 
 ### Phase 1 - Determining Alleles
@@ -64,5 +64,5 @@ Useful links for more information on drug recommendations.
 
 * [CPIC Site](https://cpicpgx.org)
 * [CPIC Guideline Publications](https://cpicpgx.org/publications/)
-* [PharmGKB Site](https://www.pharmgkb.org)
-* [List of PharmGKB clinical guideline annotations](https://www.pharmgkb.org/guidelineAnnotations)
+* [ClinPGx Site](https://www.clinpgx.org)
+* [List of ClinPGx clinical guideline annotations](https://www.clinpgx.org/guidelineAnnotations)
