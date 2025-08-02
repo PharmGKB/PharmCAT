@@ -63,9 +63,9 @@ public class Constants {
   }
 
   /**
-   * Are the "alleles" specified for this gene variants (e.g. 1234A>G) instead of haplotypes (e.g. *1, *3)?
+   * Are the "alleles" specified (for this gene) variants (e.g. 1234A>G) instead of haplotypes (e.g. *1, *3)?
    * <p>
-   * Note: this data should eventually come from PharmGKB and not be hard-coded
+   * Note: this data should eventually come from ClinPGx and not be hard-coded
    *
    * @param geneSymbol a gene symbol
    * @return true if this genes alleles represent individual variants

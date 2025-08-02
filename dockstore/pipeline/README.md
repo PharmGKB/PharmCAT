@@ -7,8 +7,8 @@ drug response and tailor medical treatment to an individual patient’s genetic 
    genotypes and infers haplotypes, typically called star alleles.
 2. Uses the pharmacogene diplotypes (combination of maternal and paternal star alleles) to predict PGx phenotypes and
    reports the corresponding drug-prescribing recommendations from [CPIC guidelines](https://cpicpgx.org/guidelines/),
-   [PharmGKB-annotated DPWG guidelines](https://www.pharmgkb.org/page/dpwg) and
-   [PharmGKB-annotated FDA-approved drug labels](https://www.pharmgkb.org/page/drugLabelLegend).
+   [ClinPGx-annotated DPWG guidelines](https://www.clinpgx.org/page/dpwg) and
+   [ClinPGx-annotated FDA-approved drug labels](https://www.clinpgx.org/page/drugLabelLegend).
 
 This WDL script executes the PharmCAT pipeline, taking VCF files as input and produces a recommendation report for each
 sample. By leveraging the Workflow Description Language (WDL), this script ensures reproducibility, scalability, and
@@ -140,7 +140,7 @@ PharmCAT v3.0.1.
 ## Contact
 For technical questions or bug reports, [file an issue](https://github.com/PharmGKB/PharmCAT/issues).
 
-For general questions about the PharmCAT project, contact [pharmcat@pharmgkb.org](mailto:pharmcat@pharmgkb.org).
+For general questions about the PharmCAT project, contact [pharmcat@clinpgx.org](mailto:pharmcat@clinpgx.org).
 
 
 ## License

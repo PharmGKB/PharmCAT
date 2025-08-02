@@ -1,7 +1,7 @@
 <!--
-This system is for bugs and feature requests. If you have general questions please contact pharmcat@pharmgkb.org
+This system is for bugs and feature requests. If you have general questions, please contact pharmcat@clinpgx.org
 
-If you are providing VCF data, please make sure the data is annonymized.
+If you are providing VCF data, please make sure the data has been anonymized.
 -->
 
 * **Do you want to request a *feature* or report a *bug*?**

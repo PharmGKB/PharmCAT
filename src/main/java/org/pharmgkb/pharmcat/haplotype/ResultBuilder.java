@@ -197,7 +197,7 @@ public class ResultBuilder {
       }
       builder.append(" required to meet AMP Tier 1 requirements:  ")
           .append(String.join(", ", matchData.getMissingRequiredPositions()))
-          .append(". See https://www.pharmgkb.org/ampAllelesToTest for details.");
+          .append(". See https://www.clinpgx.org/ampAllelesToTest for details.");
       if (warnings == null) {
         warnings = new ArrayList<>();
       }

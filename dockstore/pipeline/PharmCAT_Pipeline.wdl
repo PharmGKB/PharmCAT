@@ -3,7 +3,7 @@ version 1.0
 workflow pharmcat_pipeline {
   meta {
     author: "ClinPGx"
-    email: "pharmcat@pharmgkb.org"
+    email: "pharmcat@clinpgx.org"
     description: "This workflow runs a VCF file through the PharmCAT pipeline."
   }
 
@@ -102,7 +102,7 @@ workflow pharmcat_pipeline {
 task pharmcat_pipeline_task {
   meta {
     author: "ClinPGx"
-    email: "pharmcat@pharmgkb.org"
+    email: "pharmcat@clinpgx.org"
     description: "This task run a VCF file through the PharmCAT pipeline."
   }
 

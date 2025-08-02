@@ -49,8 +49,8 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
  * @author Mark Woon
  */
 public class VcfHelper implements AutoCloseable {
-  private static final String sf_vcfUrl = "https://api.pharmgkb.org/v1/pharmcat/hgvs/%s/vcf";
-  private static final String sf_extraPositionUrl = "https://api.pharmgkb.org/v1/pharmcat/extraPosition/%s";
+  private static final String sf_vcfUrl = "https://api.clinpgx.org/v1/pharmcat/hgvs/%s/vcf";
+  private static final String sf_extraPositionUrl = "https://api.clinpgx.org/v1/pharmcat/extraPosition/%s";
   private static final String sf_vcfCacheFile   = "vcfQueryCache.json";
   private static final String sf_defaultAssembly = "GRCh38";
   private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();

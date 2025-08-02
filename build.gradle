@@ -30,8 +30,8 @@ ext {
   description = 'The Pharmacogenomic Clinical Annotation Tool'
   url = 'https://github.com/PharmGKB/PharmCAT.git'
   scm = 'scm:git@github.com:PharmGKB/PharmCAT.git'
-  orgName = 'PharmGKB'
-  orgUrl = 'https://www.pharmgkb.org'
+  orgName = 'ClinPGx'
+  orgUrl = 'https://www.clinpgx.org'
   mainClassName = "org.pharmgkb.pharmcat.PharmCAT"
   archiveBaseName = "pharmcat"
 }
