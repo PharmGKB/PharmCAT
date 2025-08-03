@@ -263,7 +263,7 @@ public class DataManager {
     System.out.println("Generating allele definitions...");
     List<DefinitionFile> definitionFiles = new ArrayList<>();
     for (DefinitionFile df : parseDefinitionFiles(downloadDir)) {
-      df.setSource(DataSource.PHARMGKB);
+      df.setSource(DataSource.CLINPGX);
       df.validateAlleleNames();
       // strip structural variants since they are unmatchable
       // do this immediately because everything else assumes no structural variants

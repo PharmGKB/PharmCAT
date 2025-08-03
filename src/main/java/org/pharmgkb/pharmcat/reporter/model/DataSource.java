@@ -8,7 +8,7 @@ public enum DataSource {
   // DO NOT CHANGE ORDER without dealing with this expectation
   CPIC("CPIC", "CPIC"),
   DPWG("DPWG", "DPWG"),
-  PHARMGKB("PharmGKB", "PharmGKB"),
+  CLINPGX("ClinPGx", "ClinPGx"),
   FDA("FDA", "FDA"),
   UNKNOWN("Unknown", "Unknown");
 
