@@ -2,9 +2,13 @@ package org.pharmgkb.pharmcat.util;
 
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
+import java.util.Set;
 import org.pharmgkb.common.util.PathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +28,27 @@ public class DockerRunner {
 
   private static String getDockerCmd(Path dataDir) {
     return "docker run --rm -v " + dataDir + ":/pharmcat/data pcat ";
+  }
+
+
+  /**
+   * Gets a temp mount directory for Docker to use.
+   * If calling on a POSIX filesystem, this will make sure that the directory's permissions are set to 777 to  allow
+   * Docker to work with it.
+   */
+  public static Path getTempMountDir() throws IOException {
+    Path tmpDir = Files.createTempDirectory("pcat_docker-");
+    tmpDir.toFile().deleteOnExit();
+    if (FileSystems.getDefault().supportedFileAttributeViews().contains("posix")) {
+      try {
+        // make sure dir is writable
+        Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rwxrwxrwx");
+        Files.setPosixFilePermissions(tmpDir, perms);
+      } catch (Exception ex) {
+        throw new IOException("Could not set permissions for " + tmpDir, ex);
+      }
+    }
+    return tmpDir;
   }
 
 

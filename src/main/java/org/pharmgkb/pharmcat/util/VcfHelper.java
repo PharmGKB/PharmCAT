@@ -32,8 +32,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.common.util.Throttler;
 import org.pharmgkb.pharmcat.ParseException;
@@ -125,7 +124,7 @@ public class VcfHelper implements AutoCloseable {
 
   private VariantLocus vcfDataToVariantLocus(VcfData vcfData, @Nullable String rsid) {
     VariantLocus vl = new VariantLocus(vcfData.chrom, vcfData.pos,
-        vcfData.hgvs.substring(vcfData.hgvs.indexOf(":") + 1));
+        Objects.requireNonNull(vcfData.hgvs).substring(vcfData.hgvs.indexOf(":") + 1));
     vl.setRsid(rsid);
     vl.setRef(vcfData.ref);
     vl.addAlt(vcfData.alt);
@@ -201,8 +200,11 @@ public class VcfHelper implements AutoCloseable {
    */
   public static VcfData normalizeRepeats(String chr, Collection<VcfData> data) throws IOException {
 
-    Path inFile = Files.createTempFile(null, ".vcf");
-    Path outFile = Files.createTempFile(null, ".vcf");
+
+    Path tmpDir = DockerRunner.getTempMountDir();
+    Path inFile = Files.createTempFile(tmpDir, null, ".vcf");
+    Path outFile = Files.createTempFile(tmpDir, null, ".vcf");
+
     try {
       try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(inFile))) {
         HashMap<String, String> contigs = new HashMap<>();
@@ -265,7 +267,7 @@ public class VcfHelper implements AutoCloseable {
         }
       }
       for (VcfLine line : lines) {
-        writer.println(line.toString());
+        writer.println(line);
       }
     }
   }
@@ -349,10 +351,10 @@ public class VcfHelper implements AutoCloseable {
   private static class VcfLine implements Comparable<VcfLine> {
     String chrom;
     long pos;
-    String id;
+    @Nullable String id;
     String ref;
     String alt;
-    String info;
+    @Nullable String info;
     String sample;
 
     VcfLine(String chr, long pos, @Nullable String rsid, String ref,
@@ -368,7 +370,7 @@ public class VcfHelper implements AutoCloseable {
 
 
     @Override
-    public int compareTo(@NonNull VcfLine o) {
+    public int compareTo(VcfLine o) {
       if (this == o) {
         return 0;
       }
@@ -395,7 +397,7 @@ public class VcfHelper implements AutoCloseable {
   }
 
   public static class VcfData {
-    public String hgvs;
+    public final @Nullable String hgvs;
     public String chrom;
     public final long pos;
     public final String ref;
@@ -417,6 +419,7 @@ public class VcfHelper implements AutoCloseable {
      */
     VcfData(String vcfLine) {
       String[] data = vcfLine.split("\t");
+      hgvs = null;
       chrom = data[0];
       pos = Long.parseLong(data[1]);
       ref = data[3];
