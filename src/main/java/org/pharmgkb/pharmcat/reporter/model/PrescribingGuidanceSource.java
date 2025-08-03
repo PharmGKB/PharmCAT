@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.reporter.model;
 
 import java.util.Arrays;
 import java.util.List;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.DosingGuideline;
 
 
@@ -57,14 +58,14 @@ public enum PrescribingGuidanceSource {
   }
 
   /**
-   * Gets the {@link DataSource} this has been assigned in PharmGKB
+   * Gets the {@link DataSource} this has been assigned in ClinPGx.
    */
   public DataSource getPgkbSource() {
     return this.pgkbSource;
   }
 
   /**
-   * Gets the object type this has been assigned in PharmGKB
+   * Gets the object type this has been assigned in ClinPGx.
    */
   public String getPgkbObjectType() {
     return this.pgkbObjectType;
@@ -78,7 +79,7 @@ public enum PrescribingGuidanceSource {
         && prescribingGuidanceDocument.getObjCls().equals(getPgkbObjectType());
   }
 
-  public static PrescribingGuidanceSource typeFor(DosingGuideline prescribingGuidanceDocument) {
+  public static @Nullable PrescribingGuidanceSource typeFor(DosingGuideline prescribingGuidanceDocument) {
     for (PrescribingGuidanceSource source : values()) {
       if (source.matches(prescribingGuidanceDocument)) {
         return source;

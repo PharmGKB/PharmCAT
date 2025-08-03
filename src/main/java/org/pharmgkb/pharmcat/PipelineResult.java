@@ -1,6 +1,6 @@
 package org.pharmgkb.pharmcat;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 
 /**
@@ -15,7 +15,7 @@ public class PipelineResult {
     FAILURE
   }
   private final Status m_status;
-  private final String m_sampleId;
+  private final @Nullable String m_sampleId;
   private final String m_basename;
 
 

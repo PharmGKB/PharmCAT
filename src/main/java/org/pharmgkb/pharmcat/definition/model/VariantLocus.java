@@ -10,6 +10,7 @@ import com.google.common.base.Splitter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.comparator.ChromosomeNameComparator;
 
 
@@ -37,7 +38,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
   private final long m_cpicPosition;
   @Expose
   @SerializedName("rsid")
-  private String m_rsid;
+  private @Nullable String m_rsid;
   @Expose
   @SerializedName("chromosomeHgvsName")
   private final String m_chromosomeHgvsName;
@@ -127,11 +128,11 @@ public class VariantLocus implements Comparable<VariantLocus> {
   /**
    * The identifier to use for this location from dbSNP
    */
-  public String getRsid() {
+  public @Nullable String getRsid() {
     return m_rsid;
   }
 
-  public void setRsid(String rsid) {
+  public void setRsid(@Nullable String rsid) {
     m_rsid = rsid;
   }
 
