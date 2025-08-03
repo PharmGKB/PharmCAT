@@ -217,6 +217,8 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*35</li>
 <li>*38</li>
 <li>*39</li>
+<li>*40</li>
+<li>*41</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li>
 <li>Intermediate Metabolizer</li>
@@ -329,6 +331,9 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*83</li>
 <li>*84</li>
 <li>*85</li>
+<li>*86</li>
+<li>*87</li>
+<li>*88</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Indeterminate</li>
 <li>Intermediate Metabolizer</li>
@@ -709,6 +714,12 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*14</li>
 <li>*15</li>
 <li>*17</li>
+<li>*18</li>
+<li>*19</li>
+<li>*20</li>
+<li>*21</li>
+<li>*22</li>
+<li>*23</li>
 </ul></td>
 </tr>
 </table>
@@ -1137,6 +1148,17 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*62</li>
 <li>*63</li>
 <li>*64</li>
+<li>*65</li>
+<li>*66</li>
+<li>*67</li>
+<li>*68</li>
+<li>*69</li>
+<li>*70</li>
+<li>*71</li>
+<li>*72</li>
+<li>*73</li>
+<li>*74</li>
+<li>*75</li>
 </ul></td>
 </tr>
 </table>
@@ -1587,6 +1609,11 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*45</li>
 <li>*46</li>
 <li>*47</li>
+<li>*50</li>
+<li>*51</li>
+<li>*52</li>
+<li>*53</li>
+<li>*54</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li>
 <li>Increased Function</li>

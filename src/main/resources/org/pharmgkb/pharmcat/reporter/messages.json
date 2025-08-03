@@ -921,7 +921,7 @@
       ]
     },
     "exception_type": "note",
-    "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.pharmgkb.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
+    "message": "Please follow the flow chart in figure 2 of the <a href=\"https://www.clinpgx.org/guideline/PA166104949\">CPIC warfarin guideline</a> to determine the appropriate dosing recommendation."
   },
   {
     "rule_name": "pcat-cpic-warfarin-2-vkorc1",

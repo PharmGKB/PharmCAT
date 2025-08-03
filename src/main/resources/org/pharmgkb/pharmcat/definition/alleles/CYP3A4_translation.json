@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "PHARMGKB",
-  "version": "2025-05-14-21-40",
-  "modificationDate": "2023-10-01T23:03:51.828Z",
+  "source": "CLINPGX",
+  "version": "2025-07-31-15-02",
+  "modificationDate": "2025-05-28T17:43:25.511Z",
   "gene": "CYP3A4",
   "orientation": null,
   "chromosome": "chr7",
@@ -640,7 +640,7 @@
       "chromosome": "chr7",
       "position": 99770196,
       "cpicPosition": 99770196,
-      "rsid": null,
+      "rsid": "rs2485889420",
       "chromosomeHgvsName": "g.99770196T>C",
       "cpicAlleles": [
         "C",
@@ -716,7 +716,7 @@
       "chromosome": "chr7",
       "position": 99780036,
       "cpicPosition": 99780036,
-      "rsid": null,
+      "rsid": "rs2485908963",
       "chromosomeHgvsName": "g.99780036G>A",
       "cpicAlleles": [
         "A",

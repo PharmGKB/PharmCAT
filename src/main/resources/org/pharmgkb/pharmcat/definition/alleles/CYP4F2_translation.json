@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "PHARMGKB",
-  "version": "2025-05-14-21-40",
-  "modificationDate": "2024-01-31T01:10:40.916Z",
+  "source": "CLINPGX",
+  "version": "2025-07-31-15-02",
+  "modificationDate": "2025-06-16T21:53:12.546Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -26,6 +26,25 @@
       "ref": "G",
       "alts": [
         "T"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15878886,
+      "cpicPosition": 15878886,
+      "rsid": "rs3952537",
+      "chromosomeHgvsName": "g.15878886G>C",
+      "cpicAlleles": [
+        "C",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "C"
       ]
     },
     {
@@ -64,6 +83,25 @@
       "ref": "C",
       "alts": [
         "T"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15879413,
+      "cpicPosition": 15879413,
+      "rsid": "rs142113670",
+      "chromosomeHgvsName": "g.15879413G>A",
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
       ]
     },
     {
@@ -144,10 +182,67 @@
     },
     {
       "chromosome": "chr19",
+      "position": 15892379,
+      "cpicPosition": 15892379,
+      "rsid": "rs200629062",
+      "chromosomeHgvsName": "g.15892379G>A",
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15892398,
+      "cpicPosition": 15892398,
+      "rsid": "rs556151888",
+      "chromosomeHgvsName": "g.15892398G>A",
+      "cpicAlleles": [
+        "A",
+        "G"
+      ],
+      "cpicToVcfAlleleMap": {
+        "A": "A",
+        "G": "G"
+      },
+      "ref": "G",
+      "alts": [
+        "A"
+      ]
+    },
+    {
+      "chromosome": "chr19",
       "position": 15892541,
       "cpicPosition": 15892541,
       "rsid": "rs145875499",
       "chromosomeHgvsName": "g.15892541C>T",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "C",
+      "alts": [
+        "T"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15895526,
+      "cpicPosition": 15895526,
+      "rsid": "rs148396222",
+      "chromosomeHgvsName": "g.15895526C>T",
       "cpicAlleles": [
         "C",
         "T"
@@ -178,6 +273,25 @@
       "ref": "G",
       "alts": [
         "A"
+      ]
+    },
+    {
+      "chromosome": "chr19",
+      "position": 15895551,
+      "cpicPosition": 15895551,
+      "rsid": "rs150579280",
+      "chromosomeHgvsName": "g.15895551T>C",
+      "cpicAlleles": [
+        "C",
+        "T"
+      ],
+      "cpicToVcfAlleleMap": {
+        "C": "C",
+        "T": "T"
+      },
+      "ref": "T",
+      "alts": [
+        "C"
       ]
     },
     {
@@ -282,14 +396,20 @@
       "id": "PA165860685",
       "alleles": [
         "G",
+        "G",
         "T",
         "C",
+        "G",
         "C",
         "G",
         "C",
         "C",
+        "G",
+        "G",
+        "C",
         "C",
         "G",
+        "T",
         "G",
         "C",
         "G",
@@ -298,14 +418,20 @@
       ],
       "cpicAlleles": [
         "G",
+        "G",
         "T",
         "C",
+        "G",
         "C",
         "G",
         "C",
         "C",
+        "G",
+        "G",
+        "C",
         "C",
         "G",
+        "T",
         "G",
         "C",
         "G",
@@ -336,9 +462,21 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "C"
       ],
       "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -370,7 +508,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -386,7 +530,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -414,7 +564,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -430,7 +586,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -469,10 +631,22 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "cpicAlleles": [
         "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -506,7 +680,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "A",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -522,7 +702,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "A",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -556,10 +742,22 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "G",
         null
       ],
       "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -599,11 +797,23 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "A",
         null,
         null
       ],
       "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -642,12 +852,24 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "T",
         null,
         null,
         null
       ],
       "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -685,6 +907,12 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "T",
         null,
         null,
@@ -692,6 +920,12 @@
         null
       ],
       "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -728,7 +962,13 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "A",
+        null,
         null,
         null,
         null,
@@ -744,7 +984,13 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
         "A",
+        null,
         null,
         null,
         null,
@@ -771,7 +1017,13 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
         "T",
+        null,
+        null,
         null,
         null,
         null,
@@ -787,7 +1039,13 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
         "T",
+        null,
+        null,
         null,
         null,
         null,
@@ -813,7 +1071,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "A",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -829,7 +1093,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "A",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -856,7 +1126,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "C",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -872,7 +1148,13 @@
         null,
         null,
         null,
+        null,
+        null,
         "C",
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -898,7 +1180,13 @@
       "alleles": [
         null,
         null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -914,7 +1202,13 @@
       "cpicAlleles": [
         null,
         null,
+        null,
         "T",
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -941,7 +1235,125 @@
       "id": "PA166326262",
       "alleles": [
         null,
+        null,
         "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15878920
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*18",
+      "id": "PA166410887",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15895526
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*19",
+      "id": "PA166410888",
+      "alleles": [
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -969,12 +1381,244 @@
         null,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "reference": false,
       "structuralVariant": false,
       "corePositions": [
-        15878920
+        15878886
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*20",
+      "id": "PA166410889",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15892379
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*21",
+      "id": "PA166410890",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15879413
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*22",
+      "id": "PA166410891",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15879621,
+        15895551
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*23",
+      "id": "PA166410892",
+      "alleles": [
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "A",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        15878779,
+        15892398
       ],
       "score": 0,
       "numCombinations": 0,
@@ -982,13 +1626,16 @@
     }
   ],
   "singularVariants": [
-    15878779,
+    15878886,
     15878920,
     15879412,
+    15879413,
     15886018,
     15889671,
     15890405,
+    15892379,
     15892541,
+    15895526,
     15895527,
     15895560,
     15897466,
@@ -997,7 +1644,11 @@
   ],
   "positionToAlleles": {
     "15878779": [
-      "*5"
+      "*5",
+      "*23"
+    ],
+    "15878886": [
+      "*19"
     ],
     "15878920": [
       "*17"
@@ -1005,9 +1656,13 @@
     "15879412": [
       "*15"
     ],
+    "15879413": [
+      "*21"
+    ],
     "15879621": [
       "*3",
-      "*4"
+      "*4",
+      "*22"
     ],
     "15886018": [
       "*14"
@@ -1018,11 +1673,23 @@
     "15890405": [
       "*6"
     ],
+    "15892379": [
+      "*20"
+    ],
+    "15892398": [
+      "*23"
+    ],
     "15892541": [
       "*12"
     ],
+    "15895526": [
+      "*18"
+    ],
     "15895527": [
       "*11"
+    ],
+    "15895551": [
+      "*22"
     ],
     "15895560": [
       "*10"
@@ -1043,24 +1710,36 @@
   },
   "positionToLocus": {
     "15878779": 0,
-    "15878920": 1,
-    "15879412": 2,
-    "15879621": 3,
-    "15886018": 4,
-    "15889671": 5,
-    "15890405": 6,
-    "15892541": 7,
-    "15895527": 8,
-    "15895560": 9,
-    "15897466": 10,
-    "15897473": 11,
-    "15897566": 12,
-    "15897578": 13
+    "15878886": 1,
+    "15878920": 2,
+    "15879412": 3,
+    "15879413": 4,
+    "15879621": 5,
+    "15886018": 6,
+    "15889671": 7,
+    "15890405": 8,
+    "15892379": 9,
+    "15892398": 10,
+    "15892541": 11,
+    "15895526": 12,
+    "15895527": 13,
+    "15895551": 14,
+    "15895560": 15,
+    "15897466": 16,
+    "15897473": 17,
+    "15897566": 18,
+    "15897578": 19
   },
   "shellAlleles": {
+    "*22": [
+      "*3"
+    ],
     "*4": [
       "*2",
       "*3"
+    ],
+    "*23": [
+      "*5"
     ]
   }
 }

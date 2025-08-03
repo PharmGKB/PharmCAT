@@ -63,7 +63,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the 185 drugs for which PharmCAT has recommendations for, along with their sources.
+The following table lists the 186 drugs for which PharmCAT has recommendations for, along with their sources.
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |
@@ -81,7 +81,7 @@ The following table lists the 185 drugs for which PharmCAT has recommendations f
 | aripiprazole |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | aripiprazole lauroxil |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | articaine / epinephrine |  |  | :heavy_check_mark: |  |
-| atazanavir | :heavy_check_mark: |  |  |  |
+| atazanavir | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | atomoxetine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | atorvastatin | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | avatrombopag |  |  |  | :heavy_check_mark: |
@@ -219,6 +219,7 @@ The following table lists the 185 drugs for which PharmCAT has recommendations f
 | ropivacaine |  |  | :heavy_check_mark: |  |
 | rosuvastatin | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | sacituzumab govitecan |  |  | :heavy_check_mark: | :heavy_check_mark: |
+| seladelpar |  |  | :heavy_check_mark: |  |
 | sertraline | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | sevoflurane | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | simvastatin | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |

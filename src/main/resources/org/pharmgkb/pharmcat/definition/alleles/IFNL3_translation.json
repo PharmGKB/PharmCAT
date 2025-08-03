@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
-  "source": "PHARMGKB",
-  "version": "2025-05-14-21-40",
+  "source": "CLINPGX",
+  "version": "2025-07-31-15-02",
   "modificationDate": "2023-06-27T18:23:26Z",
   "gene": "IFNL3",
   "orientation": null,

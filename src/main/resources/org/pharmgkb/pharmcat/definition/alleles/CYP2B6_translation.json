@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "PHARMGKB",
-  "version": "2025-05-14-21-40",
-  "modificationDate": "2025-05-08T19:17:47.899Z",
+  "source": "CLINPGX",
+  "version": "2025-07-31-15-02",
+  "modificationDate": "2025-05-28T17:57:37.553Z",
   "gene": "CYP2B6",
   "orientation": null,
   "chromosome": "chr19",
@@ -888,7 +888,7 @@
       "chromosome": "chr19",
       "position": 41016805,
       "cpicPosition": 41016805,
-      "rsid": null,
+      "rsid": "rs2516199080",
       "chromosomeHgvsName": "g.41016805A>T",
       "cpicAlleles": [
         "A",

@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
-  "source": "PHARMGKB",
-  "version": "2025-05-14-21-40",
-  "modificationDate": "2025-05-09T20:20:40.118Z",
+  "source": "CLINPGX",
+  "version": "2025-07-31-15-02",
+  "modificationDate": "2025-05-28T23:14:23.097Z",
   "gene": "CYP2D6",
   "orientation": null,
   "chromosome": "chr22",
@@ -191,7 +191,7 @@
       "chromosome": "chr22",
       "position": 42126633,
       "cpicPosition": 42126633,
-      "rsid": null,
+      "rsid": "rs1135837",
       "chromosomeHgvsName": "g.42126633C>G",
       "cpicAlleles": [
         "C",
@@ -768,7 +768,7 @@
       "chromosome": "chr22",
       "position": 42127514,
       "cpicPosition": 42127514,
-      "rsid": null,
+      "rsid": "rs1555888899",
       "chromosomeHgvsName": "g.42127514A>G",
       "cpicAlleles": [
         "A",
@@ -943,7 +943,7 @@
       "chromosome": "chr22",
       "position": 42127602,
       "cpicPosition": 42127602,
-      "rsid": null,
+      "rsid": "rs566108360",
       "chromosomeHgvsName": "g.42127602C>T",
       "cpicAlleles": [
         "C",
@@ -1133,7 +1133,7 @@
       "chromosome": "chr22",
       "position": 42127842,
       "cpicPosition": 42127842,
-      "rsid": null,
+      "rsid": "rs150216909",
       "chromosomeHgvsName": "g.42127842G>A",
       "cpicAlleles": [
         "A",
@@ -1628,7 +1628,7 @@
       "chromosome": "chr22",
       "position": 42128332,
       "cpicPosition": 42128332,
-      "rsid": null,
+      "rsid": "rs993385303",
       "chromosomeHgvsName": "g.42128332C>T",
       "cpicAlleles": [
         "C",
@@ -1837,7 +1837,7 @@
       "chromosome": "chr22",
       "position": 42128876,
       "cpicPosition": 42128876,
-      "rsid": null,
+      "rsid": "rs538707090",
       "chromosomeHgvsName": "g.42128876C>T",
       "cpicAlleles": [
         "C",
@@ -2091,7 +2091,7 @@
       "chromosome": "chr22",
       "position": 42129056,
       "cpicPosition": 42129056,
-      "rsid": null,
+      "rsid": "rs774943042",
       "chromosomeHgvsName": "g.42129056C>G",
       "cpicAlleles": [
         "C",
@@ -2675,7 +2675,7 @@
       "chromosome": "chr22",
       "position": 42129880,
       "cpicPosition": 42129880,
-      "rsid": null,
+      "rsid": "rs1477736084",
       "chromosomeHgvsName": "g.42129880G>T",
       "cpicAlleles": [
         "G",
