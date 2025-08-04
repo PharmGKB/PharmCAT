@@ -438,7 +438,7 @@ class PipelineTest {
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(185, drugs.size());
+    assertEquals(186, drugs.size());
   }
 
   @Test
@@ -1204,7 +1204,9 @@ class PipelineTest {
     testWrapper.testRecommendedDiplotypes("UGT1A1", "*1", "*80+*28");
 
     // the guideline should not have an ambiguity message
-    testWrapper.testMatchedAnnotations("atazanavir", 1);
+    testWrapper.testMatchedAnnotations("atazanavir", 2);
+    testWrapper.testMatchedAnnotations("atazanavir", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("atazanavir", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
     testWrapper.testMessageCountForDrug(PrescribingGuidanceSource.CPIC_GUIDELINE, "atazanavir", 0);
 
     testWrapper.testMessageCountForGene(DataSource.CPIC, "UGT1A1", 2);
