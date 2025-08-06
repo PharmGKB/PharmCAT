@@ -44,6 +44,7 @@ fi
 
 DEFINITION_DIR="../../main/resources/org/pharmgkb/pharmcat/definition/alleles"
 OUTPUT_DIR="${dataDir}/testVcf"
+echo "Writing test data to ${OUTPUT_DIR}"
 
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
