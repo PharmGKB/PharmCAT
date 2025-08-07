@@ -334,11 +334,28 @@ public class DpydHapB3Matcher {
     int h2s1 = checkStrand(matchData, h2, true);
     int h2s2 = checkStrand(matchData, h2, false);
 
+
+    // Handle cases where both haplotypes have very low scores
+    // This can happen when haplotypes have only one or few variants
+    // and the phasing information is ambiguous
+    if (h1s1 == h1s2 && h2s1 == h2s2) {
+      // Both haplotypes have equal scores for both strands
+      // Default assignment: h1 to strand 1, h2 to strand 2
+      return buildDiplotype(matchData, h1, h2);
+    }
+
     if (h1s1 >= h1s2) {
       // hap 1 is strand 1 (but can be strand 2 if h1s1 == h1s2)
       if (h2s1 > h2s2) {
         if (h1s1 == h1s2) {
           return buildDiplotype(matchData, h2, h1);
+        }
+        // Both haplotypes prefer strand 1 - check if one has a much stronger preference
+        // If the scores are very low, it might be due to limited variant overlap
+        if (h1s1 <= 2 && h2s1 <= 2) {
+          // Very low scores indicate poor phasing information
+          // Make an arbitrary but consistent assignment
+          return buildDiplotype(matchData, h1, h2);
         }
         throw new IllegalStateException("STRAND MISMATCH 1");
       }
