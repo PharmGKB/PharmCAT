@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.jspecify.annotations.NonNull;
 import org.pharmgkb.pharmcat.reporter.RecommendationUtils;
 import org.pharmgkb.pharmcat.reporter.model.result.Genotype;
 
@@ -148,20 +147,23 @@ public class RecommendationAnnotation implements Comparable<RecommendationAnnota
 
 
   @Override
-  public int compareTo(@NonNull RecommendationAnnotation o) {
+  public int compareTo(RecommendationAnnotation o) {
 
+    //noinspection ConstantValue
     if (id == null) {
       return -1;
-    }
-    else if (o.id == null) {
-      return 1;
-    }
-    else {
-      return id.compareTo(o.getId());
-    }
+    } else
+      //noinspection ConstantValue
+      if (o.id == null) {
+        return 1;
+      }
+      else {
+        return id.compareTo(o.getId());
+      }
   }
 
   public boolean appliesToDrug(String drugName) {
+    //noinspection ConstantValue
     return relatedChemicals != null && relatedChemicals.stream()
         .anyMatch(c -> c.getName().equalsIgnoreCase(drugName));
   }

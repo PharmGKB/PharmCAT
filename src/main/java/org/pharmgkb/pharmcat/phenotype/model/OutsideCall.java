@@ -10,8 +10,7 @@ import java.util.regex.Pattern;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
@@ -247,7 +246,7 @@ public class OutsideCall implements Comparable<OutsideCall> {
   }
 
   @Override
-  public int compareTo(@NonNull OutsideCall o) {
+  public int compareTo(OutsideCall o) {
     if (this == o) {
       return 0;
     }

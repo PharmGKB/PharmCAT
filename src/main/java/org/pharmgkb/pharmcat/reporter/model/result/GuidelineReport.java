@@ -8,7 +8,6 @@ import java.util.TreeSet;
 import com.google.common.collect.HashMultimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -175,7 +174,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   }
 
   @Override
-  public int compareTo(@NonNull GuidelineReport o) {
+  public int compareTo(GuidelineReport o) {
     if (this == o) {
       return 0;
     }

@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.TreeMap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;

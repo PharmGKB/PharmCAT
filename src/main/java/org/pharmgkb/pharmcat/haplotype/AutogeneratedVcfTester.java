@@ -16,7 +16,7 @@ import com.google.common.base.Stopwatch;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.IoUtils;
 import org.pharmgkb.pharmcat.Env;

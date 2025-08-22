@@ -8,7 +8,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;

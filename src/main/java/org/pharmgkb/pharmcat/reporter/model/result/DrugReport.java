@@ -10,8 +10,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -134,7 +133,7 @@ public class DrugReport implements Comparable<DrugReport> {
   }
 
   @Override
-  public int compareTo(@NonNull DrugReport o) {
+  public int compareTo(DrugReport o) {
     if (this == o) {
       return 0;
     }

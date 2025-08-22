@@ -25,6 +25,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
@@ -65,7 +66,7 @@ public class HtmlFormat extends AbstractFormat {
     f_testMode = testMode;
   }
 
-  public HtmlFormat sources(List<PrescribingGuidanceSource> sources) {
+  public HtmlFormat sources(@Nullable List<PrescribingGuidanceSource> sources) {
     if (sources != null) {
       m_geneSources = sources.stream()
           .map(PrescribingGuidanceSource::getPhenoSource)
@@ -212,9 +213,10 @@ public class HtmlFormat extends AbstractFormat {
       }
       Map<String, Object> geneSummary = buildGenotypeSummary(symbol, reports);
       summaries.add(geneSummary);
-      //noinspection unchecked
-      ((Set<String>)geneSummary.get("relatedDrugs"))
-          .forEach(d -> geneSummariesByDrug.put(d, geneSummary));
+      // split into declaration and forEach call to avoid compiler unchecked warning
+      @SuppressWarnings("unchecked")
+      Set<String> relatedDrugs = (Set<String>)geneSummary.get("relatedDrugs");
+      relatedDrugs.forEach(d -> geneSummariesByDrug.put(d, geneSummary));
       geneReports.add(reports.first());
     }
     result.put("genes", genes);

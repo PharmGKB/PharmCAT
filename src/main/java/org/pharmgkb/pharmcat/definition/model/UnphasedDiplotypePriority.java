@@ -3,7 +3,6 @@ package org.pharmgkb.pharmcat.definition.model;
 import java.util.SortedSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 
@@ -47,7 +46,7 @@ public class UnphasedDiplotypePriority implements Comparable<UnphasedDiplotypePr
   }
 
   @Override
-  public int compareTo(@NonNull UnphasedDiplotypePriority o) {
+  public int compareTo(UnphasedDiplotypePriority o) {
     if (this == o) {
       return 0;
     }

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 
 /**

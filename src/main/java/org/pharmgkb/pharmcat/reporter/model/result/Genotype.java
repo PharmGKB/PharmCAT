@@ -12,7 +12,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparatorUtils;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 
@@ -156,7 +155,7 @@ public class Genotype implements Comparable<Genotype> {
   }
 
   @Override
-  public int compareTo(@NonNull Genotype o) {
+  public int compareTo(Genotype o) {
     if (o == this) {
       return 0;
     }

@@ -2,7 +2,7 @@ package org.pharmgkb.pharmcat.phenotype.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import static org.pharmgkb.pharmcat.reporter.TextConstants.isUnspecified;
 

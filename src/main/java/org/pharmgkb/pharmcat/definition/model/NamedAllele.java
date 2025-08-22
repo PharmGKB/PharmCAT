@@ -13,8 +13,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.haplotype.Iupac;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -331,7 +330,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
    * Gets the positions that are missing from this NamedAllele.
    */
   public SortedSet<VariantLocus> getMissingPositions() {
-    //noinspection ReplaceNullCheck
+    //noinspection ConstantValue
     if (m_missingPositions == null) {
       // this is possible if marshalled via GSON
       return Collections.emptySortedSet();
@@ -346,7 +345,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   @Override
-  public int compareTo(@NonNull NamedAllele o) {
+  public int compareTo(NamedAllele o) {
     if (m_isReference && !o.isReference()) {
       return -1;
     } else if (o.isReference() && !m_isReference) {

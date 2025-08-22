@@ -9,7 +9,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
 
 
@@ -160,7 +159,7 @@ public class MessageAnnotation implements Comparable<MessageAnnotation> {
   }
 
   @Override
-  public int compareTo(@NonNull MessageAnnotation o) {
+  public int compareTo(MessageAnnotation o) {
     if (o == this) {
       return 0;
     }

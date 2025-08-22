@@ -1,22 +1,12 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.Constants;
 import org.pharmgkb.pharmcat.Env;
@@ -545,8 +535,9 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   /**
-   * Gets the list of component haplotypes as {@link Diplotype}s. This comes from the {@link NamedAlleleMatcher}.
-   * This is only used by lowest-function genes (currently DPYD & RYR1).
+   * Gets the list of component haplotypes as {@link Diplotype}s.
+   * This comes from the {@link NamedAlleleMatcher}.
+   * This is only used by lowest-function genes (currently DPYD and RYR1).
    */
   public SortedSet<Diplotype> getMatcherComponentHaplotypes() {
     return m_matcherComponentHaplotypes;
@@ -554,7 +545,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
   /**
    * Gets the list of haplotypes that are homozygous.
-   * This is only used by lowest function genes (currently DPYD & RYR1).
+   * This is only used by lowest function genes (currently DPYD and RYR1).
    */
   public SortedSet<String> getMatcherHomozygousComponentHaplotypes() {
     return m_matcherHomozygousComponentHaplotypes;
@@ -650,7 +641,7 @@ public class GeneReport implements Comparable<GeneReport> {
 
 
   @Override
-  public int compareTo(@NonNull GeneReport o) {
+  public int compareTo(GeneReport o) {
     if (this == o) {
       return 0;
     }

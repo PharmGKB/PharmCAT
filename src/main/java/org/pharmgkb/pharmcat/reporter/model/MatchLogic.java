@@ -5,8 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 
 
@@ -96,7 +95,7 @@ public class MatchLogic implements Comparable<MatchLogic> {
 
 
   @Override
-  public int compareTo(@NonNull MatchLogic o) {
+  public int compareTo(MatchLogic o) {
     if (o == this) {
       return 0;
     }

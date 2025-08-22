@@ -11,7 +11,7 @@ import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
@@ -142,7 +142,7 @@ public class GeneCall {
   /**
    * Gets possible haplotype matches when no diplotypes are called.
    * <p>
-   * This is only used by lowest-function genes (currently DPYD & RYR1).
+   * This is only used by lowest-function genes (currently DPYD and RYR1).
    */
   public List<HaplotypeMatch> getHaplotypeMatches() {
     return m_haplotypeMatches;

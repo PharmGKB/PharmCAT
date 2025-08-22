@@ -11,7 +11,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
@@ -252,7 +251,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
 
 
   @Override
-  public int compareTo(@NonNull AnnotationReport o) {
+  public int compareTo(AnnotationReport o) {
     if (o == this) {
       return 0;
     }
