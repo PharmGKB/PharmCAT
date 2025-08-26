@@ -55,7 +55,7 @@ dependencies {
       [group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'],
       // used by poi; adding because transitive dependency has a security alert
       [group: 'org.apache.commons', name: 'commons-compress', version: '1.27.1'],
-      [group: 'org.apache.commons', name: 'commons-lang3', version: '3.17.0'],
+      [group: 'org.apache.commons', name: 'commons-lang3', version: '3.18.0'],
       [group: 'org.apache.commons', name: 'commons-text', version: '1.13.0'],
       [group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.14'],
       [group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.24.3'],
@@ -89,9 +89,6 @@ test.dependsOn(tasks.cleanTestOutput)
 java {
   sourceCompatibility = JavaVersion.VERSION_17
   targetCompatibility = JavaVersion.VERSION_17
-  toolchain {
-    languageVersion = JavaLanguageVersion.of(17)
-  }
 }
 
 tasks.withType(JavaCompile).configureEach {
