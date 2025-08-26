@@ -143,7 +143,7 @@ public class TestUtils {
    *
    * @param deleteIfExist if the directory exists, it will be deleted and re-created
    */
-  public static Path getTestOutputDir(Class testClass, boolean deleteIfExist) throws IOException {
+  public static Path getTestOutputDir(@SuppressWarnings("rawtypes") Class testClass, boolean deleteIfExist) throws IOException {
     Path dir = s_testOutputDir.resolve(testClass.getSimpleName());
     if (Files.exists(dir)) {
       if (Files.isDirectory(dir)) {
@@ -195,7 +195,7 @@ public class TestUtils {
     return createTestFile(getTestOutputDir(testInfo, false), getTestName(testInfo) + suffix);
   }
 
-  public static Path createTestFile(Class testClass, String filename) throws IOException {
+  public static Path createTestFile(@SuppressWarnings("rawtypes") Class testClass, String filename) throws IOException {
     return createTestFile(getTestOutputDir(testClass, false), filename);
   }
 
@@ -233,6 +233,7 @@ public class TestUtils {
         FileUtils.deleteDirectory(outputPath.toFile());
       } catch (IOException ex) {
         // log and ignore
+        //noinspection CallToPrintStackTrace
         ex.printStackTrace();
       }
     }

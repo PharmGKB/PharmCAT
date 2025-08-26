@@ -28,7 +28,7 @@ while getopts 'mg' OPTION; do
       ;;
   esac
 done
-shift "$(($OPTIND -1))"
+shift "$((OPTIND -1))"
 
 
 
@@ -38,7 +38,7 @@ cd "$(dirname $0)"
 if [ -z ${PHARMCAT_DATA_DIR+x} ]; then
   dataDir="../../../build"
 else
-  # expect PHARMCAT_DATA_DIR to be a relative directory
+  # expect PHARMCAT_DATA_DIR to be a relative directory (relative to PHARMCAT)
   dataDir="../../../${PHARMCAT_DATA_DIR}"
 fi
 
@@ -48,7 +48,7 @@ echo "Writing test data to ${OUTPUT_DIR}"
 
 for file in "$DEFINITION_DIR"/*; do
   if [[ $file == *_translation.json ]]; then
-    gene=$(echo $(basename $file) | cut -d "_" -f1)
+    gene=$(basename "$file" | cut -d "_" -f1)
     if [[ -n $GENE ]]; then
       if [[ $GENE != "$gene" ]]; then
         continue
