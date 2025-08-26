@@ -77,6 +77,9 @@ public class Diplotype implements Comparable<Diplotype> {
   @Expose
   @SerializedName("inferred")
   private boolean m_inferred = false;
+  @Expose
+  @SerializedName("inferredSourceDiplotypes")
+  @Nullable
   private SortedSet<Diplotype> m_inferredSourceDiplotypes;
   @Expose
   @SerializedName("combination")
@@ -342,7 +345,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
 
-  public SortedSet<Diplotype> getInferredSourceDiplotypes() {
+  public @Nullable SortedSet<Diplotype> getInferredSourceDiplotypes() {
     return m_inferredSourceDiplotypes;
   }
 
