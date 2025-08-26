@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PharmCAT.test.iml" filepath="$PROJECT_DIR$/.idea/modules/PharmCAT.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/preprocessor/Preprocessor.iml" filepath="$PROJECT_DIR$/preprocessor/Preprocessor.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/scripts/Scripts.iml" filepath="$PROJECT_DIR$/src/scripts/Scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/Site.iml" filepath="$PROJECT_DIR$/Site.iml" />

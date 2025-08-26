@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
-  <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$/../.." dumb="true">
-      <excludeFolder url="file://$MODULE_DIR$/../../.pytest_cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../.yarn" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/.bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/.jekyll-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/_site" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/assets" />
-      <excludeFolder url="file://$MODULE_DIR$/../../docs/vendor" />
-      <excludeFolder url="file://$MODULE_DIR$/../../node_modules" />
-      <excludeFolder url="file://$MODULE_DIR$/../../tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/../../.vale-styles" />
+<module external.linked.project.id="PharmCAT" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="org.pharmgkb" external.system.module.version="0.0.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../..">
+      <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../out" />
     </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
