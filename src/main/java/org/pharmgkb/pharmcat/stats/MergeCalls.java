@@ -37,7 +37,7 @@ public class MergeCalls {
   private static final Pattern sf_fileIdPattern = Pattern.compile("^(?:.+\\.)?(\\d+)\\.match\\.json");
   private enum MergeMode { MERGED_FILE, MERGED_FILE_PER_SUBDIRECTORY, INDIVIDUAL_FILES }
   private final Env m_env;
-  private final Path m_sampleMetadataFile;
+  private final @Nullable Path m_sampleMetadataFile;
   private final NumberFormat m_numFormat = NumberFormat.getInstance();
 
 
@@ -157,7 +157,7 @@ public class MergeCalls {
 
           handleFile(inDir, outDir, mergeMode, lookupSampleIdFromFilename, path);
         }
-      };
+      }
     }
     if (numFiles > 0 && numFiles % 1000 != 0) {
       System.out.println(m_numFormat.format(numFiles) + " - " + TimeUtils.humanReadableDuration(stopwatch.elapsed()));
@@ -176,6 +176,8 @@ public class MergeCalls {
         .fromJson(matchFile);
 
     Metadata metadata = matcherResult.getMetadata();
+    // sample id was not available in results generated before 3.0
+    //noinspection ConstantValue
     if (lookupSampleIdFromFilename && metadata.getSampleId() == null) {
       // add sample id based on filename pattern
       Matcher m = sf_fileIdPattern.matcher(matchFile.getFileName().toString());
@@ -183,6 +185,7 @@ public class MergeCalls {
         metadata.setSampleId(m.group(1));
       }
     }
+    //noinspection ConstantValue
     if (m_sampleMetadataFile != null && metadata.getSampleId() != null) {
       // add sample metadata
       Map<String, String> sampleData = m_env.getSampleMetadata(m_sampleMetadataFile, metadata.getSampleId(), true);
@@ -209,7 +212,7 @@ public class MergeCalls {
       }
 
       ReportContext reportContext = new ReportContext(m_env, phenotyper, BaseConfig.getBaseFilename(matchFile));
-      CallsOnlyFormat callsOnlyFormat = new CallsOnlyFormat(outFile, m_env);;
+      CallsOnlyFormat callsOnlyFormat = new CallsOnlyFormat(outFile, m_env);
       if (mergeMode != MergeMode.INDIVIDUAL_FILES) {
         callsOnlyFormat.singleFileMode();
       }
