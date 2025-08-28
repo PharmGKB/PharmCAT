@@ -33,16 +33,14 @@ public enum Iupac {
 
 
   private final String m_code;
-  private Pattern m_pattern;
+  private final Pattern m_pattern;
   private final boolean m_ambiguity;
 
 
-  Iupac(String code, @Nullable String regex, boolean isAmbiguity) {
+  Iupac(String code, String regex, boolean isAmbiguity) {
     m_code = code;
     m_ambiguity = isAmbiguity;
-    if (regex != null) {
-      m_pattern = Pattern.compile(regex);
-    }
+    m_pattern = Pattern.compile(regex);
   }
 
   public String getCode() {
@@ -76,7 +74,10 @@ public enum Iupac {
     return valueOf(value.toUpperCase());
   }
 
-  public static boolean isWobble(String allele) {
+  public static boolean isWobble(@Nullable String allele) {
+    if (allele == null) {
+      return false;
+    }
     if (allele.length() == 1) {
       return Objects.requireNonNull(lookup(allele)).isAmbiguity();
     }

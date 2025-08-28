@@ -42,8 +42,8 @@ public class MatchData {
   @Expose
   @SerializedName("treatUndocumentedVariationsAsReference")
   private boolean m_treatUndocumentedVariationsAsReference;
-  private SortedSet<NamedAllele> m_haplotypes;
-  private Set<String> m_permutations;
+  private @Nullable SortedSet<NamedAllele> m_haplotypes;
+  private @Nullable Set<String> m_permutations;
   @Expose
   @SerializedName("phased")
   private final boolean m_isPhased;

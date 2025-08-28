@@ -115,8 +115,8 @@ public class CombinationMatch extends BaseMatch {
       idBuilder.append(na.getId());
       missingPositions.addAll(na.getMissingPositions());
     }
-    String[] alleles = new String[length];
-    String[] cpicAlleles = new String[length];
+    @Nullable String[] alleles = new String[length];
+    @Nullable String[] cpicAlleles = new String[length];
     for (int x = 0; x < length; x += 1) {
       for (NamedAllele na : m_componentHaplotypes) {
         if (alleles[x] == null) {
