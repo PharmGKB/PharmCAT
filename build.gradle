@@ -6,7 +6,7 @@ plugins {
 }
 
 
-def getVersionName() {
+def getDevVersionName() {
   try {
     def output = providers.exec {
       executable 'git'
@@ -21,8 +21,23 @@ def getVersionName() {
   }
 }
 
+def getVersionName() {
+  try {
+    def output = providers.exec {
+      executable 'git'
+      args = ['describe', '--tags', '--abbrev=0']
+    }.standardOutput.asText.get().trim()
+    // strip of leading "v"
+    output = output.substring(1)
+  } catch (ignore) {
+    println(ignore)
+    logger.info('Error running git describe (' + ignore + '), defaulting to 0.0.0')
+    return '0.0.0'
+  }
+}
 
 project.group = 'org.pharmgkb'
+// always use base version to reduce churn with IDEA's external.system.module.version
 project.version = getVersionName()
 
 ext {
@@ -34,6 +49,8 @@ ext {
   orgUrl = 'https://www.clinpgx.org'
   mainClassName = "org.pharmgkb.pharmcat.PharmCAT"
   archiveBaseName = "pharmcat"
+  // this is the version we actually use
+  version = getDevVersionName()
 }
 
 def dataDir = System.env.PHARMCAT_DATA_DIR == null ? 'build' : System.env.PHARMCAT_DATA_DIR
@@ -135,18 +152,20 @@ jar {
   manifest {
     attributes 'Automatic-Module-Name': project.ext.moduleName
     attributes 'Implementation-Title': project.name
-    attributes 'Implementation-Version': project.version
+    attributes 'Implementation-Version': project.ext.version
     attributes 'Main-Class': project.ext.mainClassName
   }
   archiveBaseName = project.ext.archiveBaseName
+  archiveFileName = project.ext.archiveBaseName + "-" + project.ext.version + ".jar";
 }
 
 shadowJar {
   manifest {
     attributes 'Implementation-Title': project.name
-    attributes 'Implementation-Version': project.version
+    attributes 'Implementation-Version': project.ext.version
   }
   archiveBaseName = project.ext.archiveBaseName
+  archiveFileName = project.ext.archiveBaseName + "-" + project.ext.version + "-all.jar";
 }
 
 tasks.withType(Javadoc).configureEach {
