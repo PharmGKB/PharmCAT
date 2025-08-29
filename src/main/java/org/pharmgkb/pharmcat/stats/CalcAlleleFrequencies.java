@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat;
 import org.pharmgkb.pharmcat.util.CliUtils;
 import org.pharmgkb.pharmcat.util.PoiUtils;
 
+import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.HEADER_SAMPLE_ID;
 import static org.pharmgkb.pharmcat.util.PoiUtils.writeCell;
 
 
@@ -126,7 +127,7 @@ public class CalcAlleleFrequencies {
         lineNum += 1;
       }
       // check header line
-      if (line.startsWith("Sample ID")) {
+      if (line.startsWith(HEADER_SAMPLE_ID)) {
         geneCol = 1;
       } else if (!line.startsWith("Gene\t")) {
         throw new IOException("Expecting headers but line " + lineNum + " is: " + line);

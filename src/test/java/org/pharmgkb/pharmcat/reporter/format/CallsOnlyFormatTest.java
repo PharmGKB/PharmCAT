@@ -22,8 +22,7 @@ import org.pharmgkb.pharmcat.TestUtils;
 import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.ENV_DEBUG_KEY;
-import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.NO_CALL_TAG;
+import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.*;
 import static org.pharmgkb.pharmcat.reporter.model.result.Haplotype.UNKNOWN;
 
 
@@ -250,7 +249,7 @@ class CallsOnlyFormatTest {
         continue;
       }
       String[] data = line.trim().split("\t");
-      if (line.startsWith("Gene\t") || line.startsWith("Sample ID\t")) {
+      if (line.startsWith("Gene\t") || line.startsWith(HEADER_SAMPLE_ID + "\t")) {
         if (data.length != maxColumns) {
           StringBuilder builder = new StringBuilder();
           for (int x = 0; x < data.length; x += 1) {

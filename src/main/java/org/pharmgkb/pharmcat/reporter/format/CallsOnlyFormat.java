@@ -36,6 +36,7 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 public class CallsOnlyFormat extends AbstractFormat {
   public static final String ENV_DEBUG_KEY = "PHARMCAT_REPORTER_DEBUG";
   public static final String NO_CALL_TAG = "no call";
+  public static final String HEADER_SAMPLE_ID = "Sample ID";
   private boolean m_singleFileMode;
   // this is only used in single file mode
   private boolean m_showSampleId = true;
@@ -110,7 +111,7 @@ public class CallsOnlyFormat extends AbstractFormat {
         writer.print("PharmCAT " + CliUtils.getVersion());
         writer.println();
         if (m_singleFileMode && m_showSampleId) {
-          writer.print("Sample ID\t");
+          writer.print(HEADER_SAMPLE_ID + "\t");
         }
         writer.print("Gene\tSource Diplotype\tPhenotype\tActivity Score" +
             "\tHaplotype 1\tHaplotype 1 Function\tHaplotype 1 Activity Value" +
