@@ -23,6 +23,7 @@ import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.common.util.StreamUtils;
 import org.pharmgkb.common.util.TimeUtils;
 
 import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.HEADER_SAMPLE_ID;
@@ -95,10 +96,13 @@ public class MergeReports {
     m_lookupSampleIdFromFilename = lookupSampleIdFromFilename;
     if (sampleMetadataFile != null) {
       m_metadata = new HashMap<>();
-      try (BufferedReader reader = Files.newBufferedReader(sampleMetadataFile)) {
+      try (BufferedReader reader = StreamUtils.openReader(sampleMetadataFile)) {
         // expect headers
         String line = reader.readLine();
         m_metadataHeaders = new ArrayList<>(sf_tabSplitter.splitToList(line));
+        if (m_metadataHeaders.size() < 2) {
+          throw new IllegalStateException("Expecting at least two columns in sample metadata file");
+        }
         // delete the first header (Sample ID column)
         m_metadataHeaders.remove(0);
 
@@ -167,7 +171,6 @@ public class MergeReports {
         } else if (Files.isRegularFile(path)) {
           if (path.toString().endsWith(".report.tsv")) {
             handleFile(path, writer);
-
           } else if ((path.toString().endsWith(".tgz") || path.toString().endsWith(".tar.gz"))) {
             readTgz(path, writer);
           }

@@ -21,6 +21,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
+import org.pharmgkb.common.util.StreamUtils;
 import org.pharmgkb.pharmcat.ReportableException;
 import org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat;
 import org.pharmgkb.pharmcat.util.CliUtils;
@@ -65,6 +66,9 @@ public class CalcAlleleFrequencies {
         outDir = input;
       } else {
         outDir = input.getParent();
+        if (outDir == null) {
+          outDir = input.getFileSystem().getPath(".");
+        }
       }
       int pivotCol = -1;
       if (cliHelper.hasOption("pc")) {
@@ -79,8 +83,11 @@ public class CalcAlleleFrequencies {
       CalcAlleleFrequencies calcAlleleFrequencies = new CalcAlleleFrequencies(pivotCol);
       if (Files.isDirectory(input)) {
         calcAlleleFrequencies.ingestDir(input);
-      } else {
+      } else if (input.toString().endsWith(".tsv") || input.toString().endsWith(".tsv.gz") ||
+          input.toString().endsWith(".tsv.zip")) {
         calcAlleleFrequencies.ingestFile(input);
+      } else {
+        throw new ReportableException("Input file must be a *.tsv, *.tsv.gz or *.tsv.zip file");
       }
       calcAlleleFrequencies.write(outDir);
 
@@ -107,7 +114,9 @@ public class CalcAlleleFrequencies {
       for (Path path : stream) {
         if (Files.isDirectory(path)) {
           ingestDir(path);
-        } else if (Files.isRegularFile(path) && path.toString().endsWith(".report.tsv")) {
+        } else if (Files.isRegularFile(path) && (path.toString().endsWith(".report.tsv") ||
+            path.toString().endsWith(".report.tsv.gz") ||
+            path.toString().endsWith(".report.zip"))) {
           ingestFile(path);
         }
       }
@@ -116,9 +125,9 @@ public class CalcAlleleFrequencies {
 
   private void ingestFile(Path file) throws IOException {
 
-    int geneCol = 0;
     System.out.println("Reading " + file);
-    try (BufferedReader reader = Files.newBufferedReader(file)) {
+    int geneCol = 0;
+    try (BufferedReader reader = StreamUtils.openReader(file)) {
       String line = reader.readLine();
       int lineNum = 1;
       // skip PharmCAT version info
