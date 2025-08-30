@@ -5,11 +5,10 @@
 FROM python:3.12
 
 # apt-utils needed due to https://github.com/phusion/baseimage-docker/issues/319
-# liblapack-dev and libatlas-base-dev for compiling plink
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils apt-transport-https gpg && \
     apt-get -y upgrade && \
-    apt-get -y install bzip2 build-essential wget liblapack-dev libatlas-base-dev
+    apt-get -y install bzip2 build-essential wget
 
 
 # install java (https://blog.adoptium.net/2021/12/eclipse-temurin-linux-installers-available/)
@@ -56,10 +55,11 @@ RUN rm -rf /usr/local/bin/bcftools-${BCFTOOLS_VERSION} /usr/local/bin/bcftools-$
            /usr/local/bin/samtools-${SAMTOOLS_VERSION} /usr/local/bin/samtools-${SAMTOOLS_VERSION}.tar.bz2
 
 # install plink2
-RUN git clone https://github.com/chrchang/plink-ng.git && \
-    cd plink-ng/2.0 && ./build.sh && \
-    mv bin/* /usr/local/bin && \
-    rm -rf /usr/local/bin/plink-ng
+#RUN apt-get -y install liblapack-dev libatlas-base-dev && \
+#    git clone https://github.com/chrchang/plink-ng.git && \
+#    cd plink-ng/2.0 && ./build.sh && \
+#    mv bin/* /usr/local/bin && \
+#    rm -rf /usr/local/bin/plink-ng
 
 # install R
 # hack to get debian codename from https://unix.stackexchange.com/a/253476/90413
