@@ -31,6 +31,11 @@ endif
 quietTest = true
 
 
+.PHONY: bootstrap-repos      # checks out all repos required for development
+bootstrap-repos:
+	if [ ! -d "PharmCAT.wiki" ];   then git clone https://github.com/PharmGKB/PharmCAT.wiki.git  PharmCAT.wiki;  fi
+
+
 .PHONY: updateData
 updateData: clean
 	@echo "Updating data..."
