@@ -80,7 +80,7 @@ public class Slco1b1CustomCaller {
     return dips;
   }
 
-  private static @Nullable String[] splitVariant(VariantReport variant) {
+  private static String @Nullable [] splitVariant(VariantReport variant) {
     String[] alleles = variant.getCall().split(sf_vcfCallSplitter);
     if (alleles.length != 2) {
       return null;
@@ -93,24 +93,27 @@ public class Slco1b1CustomCaller {
   /**
    * Make a diplotype string based off of the calls for the given variant.
    */
-  private static @Nullable String[] convertToHaplotypes(VariantReport variant) {
+  private static String @Nullable [] convertToHaplotypes(VariantReport variant) {
     if (StringUtils.isBlank(variant.getCall())) {
       return null;
     }
     String[] alleles = splitVariant(variant);
-    String[] haps = new String[2];
-    haps[0] = alleleToHap(alleles[0]);
-    if (haps[0] == null) {
+    if (alleles == null) {
       return null;
     }
-    haps[1] = alleleToHap(alleles[1]);
-    if (haps[1] == null) {
+
+    String h1 = alleleToHap(alleles[0]);
+    if (h1 == null) {
       return null;
     }
-    return haps;
+    String h2 = alleleToHap(alleles[1]);
+    if (h2 == null) {
+      return null;
+    }
+    return new String[] { h1, h2 };
   }
 
-  private static String alleleToHap(String allele) {
+  private static @Nullable String alleleToHap(String allele) {
     return switch (allele) {
       case "T" -> "*1";
       case "C" -> "*5";

@@ -195,8 +195,8 @@ public class MatchData {
           }
         }
         // get alleles for positions we have data on
-        String[] availableAlleles = new String[m_positions.length];
-        String[] cpicAlleles = new String[m_positions.length];
+        @Nullable String[] availableAlleles = new String[m_positions.length];
+        @Nullable String[] cpicAlleles = new String[m_positions.length];
         for (int x = 0; x < m_positions.length; x += 1) {
           availableAlleles[x] = hap.getAllele(m_positions[x]);
           cpicAlleles[x] = hap.getCpicAllele(m_positions[x]);
@@ -249,6 +249,9 @@ public class MatchData {
    * Assumes that missing alleles in {@link NamedAllele}s should be the reference.
    */
   void defaultMissingAllelesToReference() {
+    if (m_haplotypes == null) {
+      throw new IllegalStateException("Not initialized - call marshallHaplotypes()");
+    }
 
     SortedSet<NamedAllele> updatedHaplotypes = new TreeSet<>();
     NamedAllele referenceHaplotype = m_haplotypes.stream().filter(NamedAllele::isReference).findAny()
@@ -260,16 +263,16 @@ public class MatchData {
         continue;
       }
 
-      String[] curAlleles = hap.getAlleles();
+      @Nullable String[] curAlleles = hap.getAlleles();
       Preconditions.checkState(numAlleles == curAlleles.length);
 
-      String[] newAlleles = new String[numAlleles];
-      String[] cpicAlleles = new String[numAlleles];
+      @Nullable String[] newAlleles = new String[numAlleles];
+      @Nullable String[] cpicAlleles = new String[numAlleles];
       for (int x = 0; x < numAlleles; x += 1) {
         if (curAlleles[x] == null) {
           // ref allele can be null if the position is missing
           String refAllele = referenceHaplotype.getAllele(x);
-          if (refAllele != null && Iupac.isWobble(refAllele)) {
+          if (Iupac.isWobble(refAllele)) {
             newAlleles[x] = m_positions[x].getRef();
           } else {
             newAlleles[x] = refAllele;

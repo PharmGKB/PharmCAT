@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -35,11 +36,11 @@ public class DpydHapB3Matcher {
   private final MatchData m_origData;
   private final SortedMap<String, SampleAllele> m_alleleMap;
   private final boolean m_isMissingHapB3;
-  private List<String> m_hapB3IntronCall;
-  private List<String> m_hapB3Call;
+  private @Nullable List<String> m_hapB3IntronCall;
+  private @Nullable List<String> m_hapB3Call;
   private final boolean m_isHapB3Present;
   private int m_numHapB3Called;
-  private MessageAnnotation m_warning;
+  private @Nullable MessageAnnotation m_warning;
 
 
   public DpydHapB3Matcher(Env env, SortedMap<String, SampleAllele> alleleMap, MatchData origData) {
@@ -113,6 +114,7 @@ public class DpydHapB3Matcher {
                 handlePhasedCall(env, intronicHapB3, exonicHapB3, 0);
                 handlePhasedCall(env, intronicHapB3, exonicHapB3, 1);
               } else {
+                //noinspection StatementWithEmptyBody
                 if (numExonicStrands == 1) {
                   // ignore this case
                 } else if (numExonicStrands == 2) {
@@ -248,13 +250,16 @@ public class DpydHapB3Matcher {
   }
 
 
-  public static boolean isHapB3Rsid(String rsid) {
+  public static boolean isHapB3Rsid(@Nullable String rsid) {
+    if (rsid == null) {
+      return false;
+    }
     return HAPB3_EXONIC_RSID.equals(rsid) || HAPB3_INTRONIC_RSID.equals(rsid);
   }
 
 
   /**
-   * Gets whether HapB3 locations are present in sample.
+   * Gets whether HapB3 locations are present in the sample.
    */
   public boolean isMissingHapB3Positions() {
     return m_isMissingHapB3;

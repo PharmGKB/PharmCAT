@@ -213,7 +213,7 @@ public class CombinationMatcher {
             // happens when missing position eliminates a named allele
             continue;
           }
-          // check if missing positions, and don't eliminate if subset named allele requires same positions
+          // check if missing positions and don't eliminate if the subset named allele requires the same positions
           if (!shellHap.getMissingPositions().isEmpty()) {
             if (subsetHap.getCorePositions().equals(shellHap.getCorePositions())) {
               continue;

@@ -1,6 +1,15 @@
 package org.pharmgkb.pharmcat.reporter.model.result;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.annotations.Expose;
@@ -50,7 +59,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private DataSource m_alleleDefinitionSource = DataSource.UNKNOWN;
   @Expose
   @SerializedName("phenotypeVersion")
-  private String m_phenotypeVersion;
+  private @Nullable String m_phenotypeVersion;
   @Expose
   @SerializedName("phenotypeSource")
   private DataSource m_phenotypeSource;
@@ -78,7 +87,7 @@ public class GeneReport implements Comparable<GeneReport> {
   private final SortedSet<MessageAnnotation> m_messages = new TreeSet<>();
   @Expose
   @SerializedName("relatedDrugs")
-  private SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
+  private final SortedSet<DrugLink> m_relatedDrugs = new TreeSet<>();
 
   @Expose
   @SerializedName("sourceDiplotypes")
@@ -133,6 +142,7 @@ public class GeneReport implements Comparable<GeneReport> {
     m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
     m_callSource = CallSource.MATCHER;
+    //noinspection ConstantValue
     if (call.getWarnings() != null) {
       call.getWarnings().forEach(this::addMessage);
     }
@@ -161,8 +171,8 @@ public class GeneReport implements Comparable<GeneReport> {
     m_hasUndocumentedVariations = !call.getMatchData().getPositionsWithUndocumentedVariations().isEmpty();
     m_treatUndocumentedVariationsAsReference = call.getMatchData().isTreatUndocumentedVariationsAsReference();
 
-    if (call.getHaplotypes().stream()
-        .anyMatch(Objects::isNull)) {
+    //noinspection ConstantValue
+    if (call.getHaplotypes().stream().anyMatch(Objects::isNull)) {
       throw new IllegalStateException("When does this happen?");
     }
 
@@ -368,7 +378,7 @@ public class GeneReport implements Comparable<GeneReport> {
    *
    * @param variantWarnings a Map of all variant warnings by "chr:position" strings
    */
-  public void addVariantWarningMessages(Map<String, Collection<String>> variantWarnings) {
+  public void addVariantWarningMessages(@Nullable Map<String, Collection<String>> variantWarnings) {
     if (variantWarnings != null && !variantWarnings.isEmpty()) {
       for (VariantReport variantReport : m_variantReports) {
         Collection<String> warnings = variantWarnings.get(variantReport.toChrPosition());
@@ -439,7 +449,7 @@ public class GeneReport implements Comparable<GeneReport> {
    * True if this gene does not use allele function to assign phenotype but instead relies on the presence or absense of
    * alleles for its phenotypes (e.g. HLA's).
    *
-   * @return true if this gene assigns phenotype based on allele presence
+   * @return true if this gene assigns a phenotype based on allele presence
    */
   public boolean isAllelePresenceType() {
     return Constants.isAllelePresenceGene(m_gene);
@@ -453,9 +463,6 @@ public class GeneReport implements Comparable<GeneReport> {
   }
 
   private void addRelatedDrug(DrugLink drug) {
-    if (m_relatedDrugs == null) {
-      m_relatedDrugs = new TreeSet<>();
-    }
     m_relatedDrugs.add(drug);
   }
 
@@ -583,20 +590,20 @@ public class GeneReport implements Comparable<GeneReport> {
     boolean comboOrPartialCall = geneCall.getHaplotypes().stream()
         .anyMatch((h) -> h.getHaplotype() != null && (h.getHaplotype().isCombination() || h.getHaplotype().isPartial()));
     if (comboOrPartialCall && !isLowestFunctionGene(geneCall.getGene())) {
-      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_NAMING));
+      addMessage(Objects.requireNonNull(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_NAMING)));
 
       if (!isPhased()) {
-        addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_UNPHASED));
+        addMessage(Objects.requireNonNull(env.getMessageHelper().getMessage(MessageHelper.MSG_COMBO_UNPHASED)));
       }
     }
 
     if (geneCall.getGene().equals("CYP2D6")) {
-      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_MODE));
-      addMessage(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_NOTE));
+      addMessage(Objects.requireNonNull(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_MODE)));
+      addMessage(Objects.requireNonNull(env.getMessageHelper().getMessage(MessageHelper.MSG_CYP2D6_NOTE)));
     }
 
     if (!geneCall.getGene().equals("CFTR")) {
-      // add reference allele message
+      // add a message about reference allele
       m_sourceDiplotypes.stream()
           .map((d) -> {
             if (showReferenceMessage(env.getDefinitionReader(), d.getAllele1())) {

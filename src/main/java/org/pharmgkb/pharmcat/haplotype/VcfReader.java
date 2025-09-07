@@ -43,8 +43,8 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 
 
 /**
- * This class reads VCF files and pulls the sample's alleles for positions of interest (i.e. is necessary to make a
- * haplotype call).
+ * This class reads a VCF file and pulls the alleles for positions of interest (i.e., is necessary to make a haplotype
+ * call) for a single sample.
  *
  * @author Mark Woon
  */
@@ -129,9 +129,13 @@ public class VcfReader implements VcfLineParser {
 
 
   /**
-   * Gets the Sample ID of the data to read.
+   * Gets the Sample ID the alleles are for.
+   * This is either specified when the reader is constructed or will be the first sample in the VCF file.
    */
-  public @Nullable String getSampleId() {
+  public String getSampleId() {
+    if (m_sampleId == null) {
+      throw new IllegalStateException("No Sample ID specified - must read() before Sample ID is available");
+    }
     // this should never be null after read() is called
     return m_sampleId;
   }

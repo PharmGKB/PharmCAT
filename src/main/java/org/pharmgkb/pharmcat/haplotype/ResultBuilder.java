@@ -42,7 +42,7 @@ public class ResultBuilder {
   private final boolean m_topCandidatesOnly;
   private final boolean m_findCombinations;
   private final boolean m_callCyp2d6;
-  private Path m_sampleMetadataFile;
+  private @Nullable Path m_sampleMetadataFile;
 
 
   public ResultBuilder(DefinitionReader definitionReader, boolean topCandidatesOnly, boolean findCombinations,
@@ -92,8 +92,8 @@ public class ResultBuilder {
   }
 
 
-  public ResultBuilder forFile(VcfFile vcfFile, Map<String, Collection<String>> warnings, String sampleId,
-      @Nullable Path sampleMetadataFile) {
+  public ResultBuilder forFile(VcfFile vcfFile, @Nullable Map<String, Collection<String>> warnings,
+      String sampleId, @Nullable Path sampleMetadataFile) {
     Preconditions.checkNotNull(vcfFile);
 
     Metadata metadata = new Metadata(NamedAlleleMatcher.VERSION, m_definitionReader.getGenomeBuild(),
