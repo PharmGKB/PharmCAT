@@ -35,38 +35,40 @@ $callouts: (
   margin-top: 1rem;
   margin-bottom: 1rem;
 
-  &__logo {
-    height: 120px;
-    margin-right: 2rem;
+  img {
+    height: 4em;
+  }
+}
+.logoName {
+  font-size: 1.5em;
+  font-weight: 400;
+  .logoRed {
+    color: #c91f4c;
+  }
+  .logoBlue {
+    color: #33669a;
+  }
+}
+.nowrap {
+  white-space: nowrap;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
 
-    img {
-      height: 120px;
+  span {
+    a {
+      text-align: center;
     }
   }
-
-  &__links {
-    display: flex;
-    flex-wrap: wrap;
-    align-self: center;
-    margin-top: 4rem;
-
-    @media (max-width: 630px) {
-      margin-top: 1rem;
-    }
-    @media (min-width: 800px) and (max-width: 915px) {
-      margin-top: 1rem;
-    }
-
-    span {
-      &:not(:last-child) {
-        margin-right: .5em;
-      }
-      a {
-        text-align: center;
-      }
+  span.btn {
+    &:not(:last-child) {
+      margin-right: .5em;
     }
   }
 }
+
 
 .img-translation {
   max-width: 600px;
@@ -92,5 +94,5 @@ $callouts: (
 }
 
 .site-logo {
-  height: 3.2rem !important;
+  height: 1.5rem !important;
 }

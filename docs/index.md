@@ -4,13 +4,20 @@ permalink: /
 nav_order: 1
 ---
 
-# PharmCAT:<br />Pharmacogenomics Clinical Annotation Tool
+<span class="logoDiv">![PharmCAT logo](/images/pharmcat_logo.svg)</span>
 
-<span class="logoDiv">
-<span class="logoDiv__logo">![PharmCAT logo](/images/pharmcat_logo.svg)</span>
-<span class="logoDiv__links">
+<span class="logoName">
+The <span class="logoBlue">Pharm</span>acogenomics
+<span class="nowrap">
+<span class="logoRed">C</span>linical <span class="logoRed">A</span>nnotation <span class="logoRed">T</span>ool
+</span>
+</span>
+
+<span class="links">
 <span>[Download v{{ site.pharmcat_version }}](https://github.com/PharmGKB/PharmCAT/releases/latest){: .btn .btn-blue .umami--click--download-button }</span>
+<span class="nowrap">
 <span>[View on GitHub](https://github.com/PharmGKB/PharmCAT){: .btn }</span>
+<span>[View on DockerHub](https://hub.docker.com/r/pgkb/pharmcat){: .btn }</span>
 </span>
 </span>
 
