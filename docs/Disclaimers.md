@@ -33,7 +33,7 @@ and that they are using PharmCAT at their own risk.__
    score is also possible. For instructions on getting PharmCAT to output all possible matching genotypes, consult
    [the documentation](https://pharmcat.org/using/Running-PharmCAT/#named-allele-matcher).
 
-4. For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the \*1 allele is defined by the absence of variation
+4. For cytochrome P450 genes, NAT2, TPMT, NUDT15, UGT1A1, and SLCO1B1, the \*1 allele is defined by the absence of variation
    specified in the gene definition tables. This allele cannot be identified by variants; rather, \*1 is assigned by
    default when no variation for the queried positions is reported in the submitted VCF file. The same is true for all
    other genes with multiple variant positions in the definition table (CACNA1S, CFTR, DPYD, RYR1): the reference
@@ -75,7 +75,8 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | UGT1A1  | \*1/\*80+\*37              | Intermediate       | \*37/\*80                            | Indeterminate               |
 | TPMT    | \*1/\*3A                   | Intermediate       | \*3B/\*3C                            | Poor                        |
 | NUDT15  | \*1/\*2                    | Intermediate       | \*3/\*6                              | Possible Intermediate       |
-| CYP2C9  | \*1/\*71                   | N/A                | \*10/\*22                            | Indeterminate               |
+| CYP2C9  | \*1/\*71                   | Indeterminate      | \*10/\*22                            | Indeterminate               |
+| CYP2C9  | \*1/\*36                   | Indeterminate      | \*5/\*36                             | Indeterminate               |
 | CYP2B6  | \*1/\*36                   | Intermediate       | \*6/\*22                             | Intermediate                |
 | CYP2B6  | \*1/\*34                   | Intermediate       | \*33/\*36                            | Indeterminate               |
 | CYP2B6  | \*1/\*6                    | Intermediate       | \*4/\*9                              | Intermediate                |
@@ -92,6 +93,7 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | SLCO1B1 | \*1/\*32                   | Indeterminate      | \*4/\*24                             | Indeterminate               |
 | SLCO1B1 | \*1/\*40                   | Indeterminate      | \*5/\*19                             | Possible Decreased Function |
 | SLCO1B1 | \*1/\*43                   | Indeterminate      | \*4/\*44                             | Indeterminate               |
+| SLCO1B1 | \*1/\*53                   | N/A                | \*4/\*27                             | Indeterminate               |
 | CYP4F2  | \*1/\*4                    | N/A                | \*2/\*3                              | N/A                         |
 | CYP3A4  | \*1/\*37                   | N/A                | \*3/\*22                             | N/A                         |
 | CYP3A4  | \*1/\*38                   | N/A                | \*3/\*11                             | N/A                         |
@@ -116,6 +118,10 @@ that define the non-\*1 allele in the genotype with the higher score.
 | CYP2C19 | \*1/\*35                | Intermediate | \*15/\*35             | Intermediate  |
 | CYP2B6  | \*1/\*18                | Intermediate | \*4/\*18              | Indeterminate |
 
+9. For NAT2, PharmCAT requires variant input for rs1801279 (191G>A), rs1801280 (341T>C), rs1799930 (590G>A), rs1208 (803G>A),
+   and rs1799931 (857G>A). The default PharmCAT behavior is changed for unphased NAT2 data, details are noted in the
+   [Gene Definition Exceptions document](https://pharmcat.org/methods/Gene-Definition-Exceptions/).
+   
 
 ## B. CPIC Allele Function, Phenotype and Recommendation
 
