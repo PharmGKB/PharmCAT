@@ -14,6 +14,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.io.FileUtils;
@@ -188,10 +189,14 @@ public class GeneDrugSummary {
 
         // we use semicolon as a separator so make sure it's not used in values
         if (haplotypes.stream().anyMatch(v -> v.contains(";"))) {
-          throw new IllegalStateException(gene + " haplotypes has comma");
+          throw new IllegalStateException(gene + " haplotypes has semicolon: " +
+              haplotypes.stream()
+                  .filter(v -> v.contains(";"))
+                  .map(v -> "\"" + v + "\"")
+                  .collect(Collectors.joining(", ")));
         }
         if (cpicPhenotypes.stream().anyMatch(v -> v.contains(";"))) {
-          throw new IllegalStateException(gene + " CPIC phenotypes has comma");
+          throw new IllegalStateException(gene + " CPIC phenotypes has semicolon");
         }
         if (cpicPhenotypes.stream().anyMatch(v -> v.contains("metabolizer"))) {
           throw new IllegalStateException(gene + " CPIC phenotypes has lower cased \"Metabolizer\"");
@@ -200,10 +205,10 @@ public class GeneDrugSummary {
           throw new IllegalStateException(gene + " CPIC phenotype uses metaboliSe");
         }
         if (cpicScores.stream().anyMatch(v -> v.contains(";"))) {
-          throw new IllegalStateException(gene + " CPIC scores has comma");
+          throw new IllegalStateException(gene + " CPIC scores has semicolon");
         }
         if (dpwgPhenotypes.stream().anyMatch(v -> v.contains(";"))) {
-          throw new IllegalStateException(gene + " DPWG phenotypes has comma");
+          throw new IllegalStateException(gene + " DPWG phenotypes has semicolon");
         }
         if (dpwgPhenotypes.stream().anyMatch(v -> v.toLowerCase().contains("metabolise"))) {
           throw new IllegalStateException(gene + " DPWG phenotype uses metaboliSe");
