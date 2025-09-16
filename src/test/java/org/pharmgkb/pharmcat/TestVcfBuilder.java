@@ -10,12 +10,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
 import org.pharmgkb.pharmcat.definition.model.DefinitionExemption;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
+import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.VcfHelper;
 
@@ -26,6 +28,7 @@ import org.pharmgkb.pharmcat.util.VcfHelper;
  * @author Mark Woon
  */
 public class TestVcfBuilder {
+  public static final Env DEFAULT_TEST_ENV = initializeTestEnv();
   private static final int sf_numChrM = 1;
   private final Map<String, Map<String, VcfEdit>> m_edits = new HashMap<>();
   private final Map<String, Map<String, VcfEdit>> m_extraPositions = new HashMap<>();
@@ -38,6 +41,15 @@ public class TestVcfBuilder {
   private boolean m_isPhased;
   private boolean m_allowUnknownAllele = false;
   private boolean m_deleteOnExit = true;
+
+
+  private static Env initializeTestEnv() {
+    try {
+      return new Env();
+    } catch (Exception ex) {
+      throw new RuntimeException("Failed to initialize test environment", ex);
+    }
+  }
 
 
   public TestVcfBuilder(TestInfo testInfo) {
@@ -75,6 +87,58 @@ public class TestVcfBuilder {
       throw new IllegalArgumentException("Not a file: " + file);
     }
     m_definitionFiles.add(file);
+    return this;
+  }
+
+  /**
+   * Use default definition files for specified genes.
+   * If not provided, will use default.
+   */
+  public TestVcfBuilder forGene(String... genes) throws IOException {
+    for (String gene : genes) {
+      m_definitionFiles.add(DataManager.getDefinitionFilePath(gene));
+    }
+    return this;
+  }
+
+  public TestVcfBuilder reference(String gene, String... rsids) throws IOException {
+    if (m_definitionFiles.isEmpty()) {
+      throw new IllegalStateException("Must provide definition file(s) before calling reference()");
+    }
+    DefinitionReader definitionReader = new DefinitionReader(m_definitionFiles, DataManager.DEFAULT_EXEMPTIONS_FILE);
+    DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
+    for (String rsid : rsids) {
+      Optional<VariantLocus> vlOpt = Arrays.stream(definitionFile.getVariants())
+          .filter(vl -> rsid.equals(vl.getRsid()))
+          .findFirst();
+      if (vlOpt.isEmpty()) {
+        throw new IllegalArgumentException("No variant found for " + rsid + " in " + gene);
+      }
+      VcfEdit edit = new VcfEdit(rsid, new String[] { vlOpt.get().getRef(), vlOpt.get().getRef() });
+      m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+          .put(edit.id, edit);
+    }
+    return this;
+  }
+
+  public TestVcfBuilder reference(String gene, long... positions) throws IOException {
+    if (m_definitionFiles.isEmpty()) {
+      throw new IllegalStateException("Must provide definition file(s) before calling reference()");
+    }
+    DefinitionReader definitionReader = new DefinitionReader(m_definitionFiles, DataManager.DEFAULT_EXEMPTIONS_FILE);
+    DefinitionFile definitionFile = definitionReader.getDefinitionFile(gene);
+    for (long pos : positions) {
+      Optional<VariantLocus> vlOpt = Arrays.stream(definitionFile.getVariants())
+          .filter(vl -> vl.getPosition() == pos)
+          .findFirst();
+      if (vlOpt.isEmpty()) {
+        throw new IllegalArgumentException("No variant found for position " + pos + " in " + gene);
+      }
+      VcfEdit edit = new VcfEdit(vlOpt.get().getChromosome(), pos,
+          new String[] { vlOpt.get().getRef(), vlOpt.get().getRef() });
+      m_edits.computeIfAbsent(gene, g -> new HashMap<>())
+          .put(edit.id, edit);
+    }
     return this;
   }
 
@@ -409,5 +473,18 @@ public class TestVcfBuilder {
       this.id = chrom + ":" + vcfPosition;
       this.cpicAlleles = cpicAlleles;
     }
+  }
+
+
+  public NamedAlleleMatcher getMatcher(boolean findCombinations,
+      boolean topCandidateOnly, boolean callCyp2d6) throws IOException {
+
+    DefinitionReader definitionReader;
+    if (m_definitionFiles.isEmpty()) {
+      definitionReader = DEFAULT_TEST_ENV.getDefinitionReader();
+    } else {
+      definitionReader = new DefinitionReader(m_definitionFiles, null);
+    }
+    return new NamedAlleleMatcher(DEFAULT_TEST_ENV, definitionReader, findCombinations, topCandidateOnly, callCyp2d6);
   }
 }

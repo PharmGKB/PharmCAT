@@ -83,6 +83,9 @@ public class DiplotypeMatcher {
       }
     }
 
+    // TODO(markwoon): if combinations, and phased, and we have more than one match, it's probably because of wobbles
+    // TODO(markwoon): if there are wobbles, should we use the top candidate only?
+
     // using Collections.sort() throws an exception, so use SortedSet instead
     SortedSet<DiplotypeMatch> sortedPairs = new TreeSet<>(pairs);
     if (topCandidateOnly && !m_unphasedPriorityMode && sortedPairs.size() > 1) {
@@ -140,6 +143,7 @@ public class DiplotypeMatcher {
    */
   private List<DiplotypeMatch> determineHeterozygousPairs(SortedSet<BaseMatch> haplotypeMatches, boolean findCombinations) {
 
+    // map haplotype name to HaplotypeMatches (i.e., sequences)
     SortedSetMultimap<String, BaseMatch> hapMap = TreeMultimap.create();
     for (BaseMatch hm : haplotypeMatches) {
       hapMap.put(hm.getName(), hm);

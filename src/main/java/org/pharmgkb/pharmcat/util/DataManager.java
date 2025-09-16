@@ -9,7 +9,16 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
@@ -481,5 +490,17 @@ public class DataManager {
   private static String sanitizeFilename(String basename) {
     return basename.replaceAll("\\p{Punct}", " ")
         .replaceAll("\\s+", "_");
+  }
+
+
+  /**
+   * Gets the path to the default definition file for the given gene.
+   */
+  public static Path getDefinitionFilePath(String gene) throws IOException {
+    Path file = DEFAULT_DEFINITION_DIR.resolve(gene + "_translation.json");
+    if (!Files.isRegularFile(file)) {
+      throw new IOException("Not a file: " + file);
+    }
+    return file;
   }
 }

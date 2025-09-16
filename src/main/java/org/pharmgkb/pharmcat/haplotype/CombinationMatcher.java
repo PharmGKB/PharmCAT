@@ -70,15 +70,10 @@ public class CombinationMatcher {
       // get all possible haplotype matches
       SortedSet<NamedAllele> coveredHaps = new TreeSet<>();
       for (NamedAllele hap : matchData.getHaplotypes()) {
-        if (hap.isReference()) {
-          continue;
-        }
-        if (varPositions.containsAll(hap.getCorePositions()) && sampleHasNamedAllele(alleleMap, hap)) {
+        if (!hap.isReference() && sampleHasNamedAllele(alleleMap, hap)) {
           coveredHaps.add(hap);
         }
       }
-      // remove subsets
-      removeSubsetNamedAlleles(coveredHaps);
 
       Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, coveredHaps);
 
@@ -116,23 +111,41 @@ public class CombinationMatcher {
   }
 
 
+  private static final Comparator<NamedAllele> sf_numCorePosComparator = Comparator
+      .comparingInt((NamedAllele na) -> na.getCorePositions().size())
+      .reversed()
+      .thenComparing(NamedAllele::getName);
+
   /**
    * Compute viable combinations of {@link NamedAllele}s.
    * This will take overlapping named alleles and missing positions into account.
    */
   private List<SortedSet<NamedAllele>> computeViableCombinations(Collection<NamedAllele> coveredHaps) {
+    SortedSet<NamedAllele> sortedHaps = new TreeSet<>(sf_numCorePosComparator);
+    sortedHaps.addAll(coveredHaps);
+
     List<SortedSet<NamedAllele>> combos = new ArrayList<>();
-    for (NamedAllele allele : coveredHaps) {
+    for (NamedAllele allele : sortedHaps) {
       boolean added = false;
+      int overlapCount = 0;
       for (Set<NamedAllele> combo : combos) {
-        if (combo.stream()
-            .noneMatch(existingAllele -> overlaps(existingAllele.getCorePositions(), allele.getCorePositions()))) {
+        boolean overlaps = false;
+        for (NamedAllele existingAllele : combo) {
+          if (overlaps(existingAllele.getCorePositions(), allele.getCorePositions())) {
+            overlaps = true;
+            // if both are the same size, it's probably because of a missing position, so don't count it as an overlap
+            if (existingAllele.getCorePositions().size() != allele.getCorePositions().size()) {
+              overlapCount += 1;
+              break;
+            }
+          }
+        }
+        if (!overlaps) {
           combo.add(allele);
           added = true;
-          break;
         }
       }
-      if (!added) {
+      if (!added && overlapCount == 0) {
         SortedSet<NamedAllele> newCombo = new TreeSet<>();
         newCombo.add(allele);
         combos.add(newCombo);
@@ -174,54 +187,17 @@ public class CombinationMatcher {
     for (long pos : namedAllele.getCorePositions()) {
       String sampleAllele = alleleMap.get(pos);
       if (sampleAllele == null) {
-        continue;
+        return false;
       }
-      VariantLocus vl = Objects.requireNonNull(m_definitionFile.getVariantForPosition(pos));
-      String allele = Objects.requireNonNull(namedAllele.getAllele(vl));
-      if (namedAllele.isWobble(vl.getPosition())) {
-        if (!Iupac.lookup(allele).getBases().contains(sampleAllele)) {
+      String expectedAllele = Objects.requireNonNull(namedAllele.getAllele(pos));
+      if (namedAllele.isWobble(pos)) {
+        if (!Iupac.lookup(expectedAllele).getBases().contains(sampleAllele)) {
           return false;
         }
-      } else if (!allele.equals(sampleAllele)) {
+      } else if (!expectedAllele.equals(sampleAllele)) {
         return false;
       }
     }
     return true;
-  }
-
-
-  /**
-   * Removes subset named alleles.
-   */
-  private void removeSubsetNamedAlleles(SortedSet<NamedAllele> coveredHaps) {
-    if (m_definitionFile.getShellAlleles() == null || m_definitionFile.getShellAlleles().isEmpty() ||
-        coveredHaps.isEmpty()) {
-      return;
-    }
-
-    Map<String, NamedAllele> nameMap = new HashMap<>();
-    for (NamedAllele na : coveredHaps) {
-      nameMap.put(na.getName(), na);
-    }
-
-    for (String shellName : m_definitionFile.getShellAlleles().keySet()) {
-      NamedAllele shellHap = nameMap.get(shellName);
-      if (nameMap.containsKey(shellName)) {
-        for (String subsetName : m_definitionFile.getShellAlleles().get(shellName)) {
-          NamedAllele subsetHap = nameMap.get(subsetName);
-          if (subsetHap == null) {
-            // happens when missing position eliminates a named allele
-            continue;
-          }
-          // check if missing positions and don't eliminate if the subset named allele requires the same positions
-          if (!shellHap.getMissingPositions().isEmpty()) {
-            if (subsetHap.getCorePositions().equals(shellHap.getCorePositions())) {
-              continue;
-            }
-          }
-          coveredHaps.remove(subsetHap);
-        }
-      }
-    }
   }
 }

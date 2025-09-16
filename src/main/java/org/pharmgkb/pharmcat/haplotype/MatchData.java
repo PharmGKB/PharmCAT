@@ -34,6 +34,7 @@ public class MatchData {
   @Expose
   @SerializedName("missingPositions")
   private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
+  private final SortedSet<Long> m_missingVcfPositions = new TreeSet<>();
   private final Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
@@ -95,6 +96,7 @@ public class MatchData {
       SampleAllele allele = alleleMap.get(chrPos);
       if (allele == null) {
         m_missingPositions.add(variant);
+        m_missingVcfPositions.add(variant.getPosition());
         sf_logger.debug("Sample has no allele for {}", chrPos);
         continue;
       }
@@ -395,6 +397,14 @@ public class MatchData {
    */
   public SortedSet<VariantLocus> getMissingPositions() {
     return m_missingPositions;
+  }
+
+  /**
+   * Gets the positions that are missing from the sample VCF that would have been helpful for calling the haplotypes for
+   * the gene.
+   */
+  public SortedSet<Long> getMissingVcfPositions() {
+    return m_missingVcfPositions;
   }
 
   /**
