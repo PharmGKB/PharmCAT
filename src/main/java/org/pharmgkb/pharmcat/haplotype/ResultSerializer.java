@@ -285,7 +285,8 @@ public class ResultSerializer {
 
     try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(htmlFile, StandardCharsets.UTF_8))) {
       Map<String, String> varMap = new HashMap<>();
-      varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getInputFilename());
+      varMap.put("title", "PharmCAT Allele Call Report for " + result.getMetadata().getSampleId() + " in " +
+          result.getMetadata().getInputFilename());
       varMap.put("content", builder.toString());
       varMap.put("timestamp", m_dateFormat.format(new Date()));
       StringSubstitutor sub = new StringSubstitutor(varMap);
