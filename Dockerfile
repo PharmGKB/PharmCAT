@@ -6,7 +6,7 @@ FROM python:3.12
 
 # apt-utils needed due to https://github.com/phusion/baseimage-docker/issues/319
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends apt-utils apt-transport-https gpg && \
+    apt-get install -y --no-install-recommends apt-utils apt-transport-https gpg vim && \
     apt-get -y upgrade && \
     apt-get -y install bzip2 build-essential wget
 
