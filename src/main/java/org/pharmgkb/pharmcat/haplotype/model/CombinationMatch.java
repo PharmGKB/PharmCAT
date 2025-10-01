@@ -122,7 +122,7 @@ public class CombinationMatch extends BaseMatch {
         if (alleles[x] == null) {
           alleles[x] = na.getAlleles()[x];
         } else if (na.getAlleles()[x] != null && !alleles[x].equals(na.getAlleles()[x])) {
-          throw new IllegalStateException(getName() + " has different alleles @ index " + x);
+          throw new IllegalStateException(getName() + " has component " + na.getName() + " with different alleles @ index " + x);
         }
         if (cpicAlleles[x] == null) {
           cpicAlleles[x] = na.getCpicAlleles()[x];
