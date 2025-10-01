@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Stream;
 import org.apache.commons.lang3.ObjectUtils;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
@@ -135,13 +136,13 @@ public class LowestFunctionGeneCaller {
     boolean isInferred = hapData1.isInferred;
     Haplotype hap1 = hapData1.haplotypes.get(0);
     Haplotype hap2 = null;
-    if (hapNames2 != null && !hapNames2.isEmpty()) {
+    if (!hapNames2.isEmpty()) {
       InferredHaps hapData2 = makeHaplotypes(gene, hapNames2, env, source);
       hap2 = hapData2.haplotypes.get(0);
       isInferred = isInferred || hapData2.isInferred;
     }
     Diplotype diplotype = new Diplotype(gene, hap1, hap2, env, source);
-    if (isInferred || hapNames1.size() > 1 || (hapNames2 != null && hapNames2.size() > 1)) {
+    if (isInferred || hapNames1.size() > 1 || hapNames2.size() > 1) {
       diplotype.setInferred(true);
     }
     return diplotype;
@@ -195,7 +196,7 @@ public class LowestFunctionGeneCaller {
     private final GenePhenotype m_cpicGp;
 
     public DiplotypeCpicActivityScoreComparator(Env env, String gene) {
-      m_cpicGp = env.getPhenotype(gene, DataSource.CPIC);
+      m_cpicGp = Objects.requireNonNull(env.getPhenotype(gene, DataSource.CPIC));
     }
 
     private float getHaplotypeActivityScore(String hapName) {
@@ -205,7 +206,7 @@ public class LowestFunctionGeneCaller {
     }
 
     @Override
-    public int compare(Diplotype o1, Diplotype o2) {
+    public int compare(@Nullable Diplotype o1, @Nullable Diplotype o2) {
       if (o1 == o2) {
         return 0;
       }
@@ -239,12 +240,12 @@ public class LowestFunctionGeneCaller {
     private final GenePhenotype m_dpwgGp;
 
     public DpydActivityComparator(Env env) {
-      m_cpicGp = env.getPhenotype("DPYD", DataSource.CPIC);
-      m_dpwgGp = env.getPhenotype("DPYD", DataSource.DPWG);
+      m_cpicGp = Objects.requireNonNull(env.getPhenotype("DPYD", DataSource.CPIC));
+      m_dpwgGp = Objects.requireNonNull(env.getPhenotype("DPYD", DataSource.DPWG));
     }
 
     @Override
-    public int compare(Haplotype o1, Haplotype o2) {
+    public int compare(@Nullable Haplotype o1, @Nullable Haplotype o2) {
       if (o1 == o2) {
         return 0;
       }
@@ -262,13 +263,11 @@ public class LowestFunctionGeneCaller {
       }
 
       // if same score, prefer one that's in DPWG
-      if (m_dpwgGp != null) {
-        int f1 = m_dpwgGp.getHaplotypes().containsKey(o1.getName()) ? 0 : 1;
-        int f2 = m_dpwgGp.getHaplotypes().containsKey(o2.getName()) ? 0 : 1;
-        rez = Integer.compare(f1, f2);
-        if (rez != 0) {
-          return rez;
-        }
+      int f1 = m_dpwgGp.getHaplotypes().containsKey(o1.getName()) ? 0 : 1;
+      int f2 = m_dpwgGp.getHaplotypes().containsKey(o2.getName()) ? 0 : 1;
+      rez = Integer.compare(f1, f2);
+      if (rez != 0) {
+        return rez;
       }
 
       return HaplotypeNameComparator.getComparator().compare(o1.getName(), o2.getName());
@@ -280,7 +279,7 @@ public class LowestFunctionGeneCaller {
     static Ryr1DiplotypeMalignancyComparator INSTANCE = new Ryr1DiplotypeMalignancyComparator();
 
     @Override
-    public int compare(Diplotype o1, Diplotype o2) {
+    public int compare(@Nullable Diplotype o1, @Nullable Diplotype o2) {
       if (o1 == o2) {
         return 0;
       }
@@ -314,7 +313,7 @@ public class LowestFunctionGeneCaller {
     static Ryr1ActivityComparator INSTANCE = new Ryr1ActivityComparator();
 
     @Override
-    public int compare(Haplotype o1, Haplotype o2) {
+    public int compare(@Nullable Haplotype o1, @Nullable Haplotype o2) {
       if (o1 == o2) {
         return 0;
       }
