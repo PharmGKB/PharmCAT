@@ -347,7 +347,7 @@ public class ReportHelpers {
 
   public static String rxUnmatchedDiplotypes(SortedSet<Diplotype> diplotypes, SortedSet<GuidelineReport> guidelines,
       SortedSet<String> noDataGenes) {
-    return renderRxDiplotypes(diplotypes, true, false, "rx-unmatched-dip", noDataGenes,
+    return renderRxDiplotypes(diplotypes, 30, false, "rx-unmatched-dip", noDataGenes,
         guidelines.first());
   }
 
@@ -359,11 +359,11 @@ public class ReportHelpers {
 
   private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean forDebug,
       SortedSet<String> noDataGenes, GuidelineReport guidelineReport) {
-    return renderRxDiplotypes(diplotypes, false, forDebug, "rx-dip", noDataGenes, guidelineReport);
+    return renderRxDiplotypes(diplotypes, 30, forDebug, "rx-dip", noDataGenes, guidelineReport);
   }
 
-  private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, boolean noLengthLimit, boolean forDebug,
-      String dipClass, SortedSet<String> noDataGenes, @Nullable GuidelineReport guidelineReport) {
+  private static String renderRxDiplotypes(Collection<Diplotype> diplotypes, int lengthLimit, boolean forDebug,
+      String dipClass, @Nullable SortedSet<String> noDataGenes, @Nullable GuidelineReport guidelineReport) {
     SortedSet<Diplotype> displayDiplotypes = new TreeSet<>();
     for (Diplotype diplotype : diplotypes) {
       if (!forDebug && diplotype.getInferredSourceDiplotypes() != null) {
@@ -402,22 +402,42 @@ public class ReportHelpers {
         } else if (forDebug) {
           call = diplotype.buildLabel(true);
         }
-        if (noLengthLimit || call.length() <= 15) {
+        if (lengthLimit > 0 && call.length() <= lengthLimit) {
           builder.append(call);
         } else {
-          int idx = call.indexOf("/");
-          if (idx == -1) {
-            builder.append("<br />")
-                .append(call);
-          } else {
+          // try to break at genotype delimiter
+          int idx = call.indexOf(TextConstants.GENOTYPE_DELIMITER);
+          if (idx != -1) {
             String a = call.substring(0, idx + 1);
             String b = call.substring(idx + 1);
-            if (a.length() > 15) {
-              builder.append("<br />");
+            if (a.length() > lengthLimit) {
+              builder.append("<br />&nbsp;");
             }
             builder.append(a)
-                .append("<br />")
+                .append("<br />&nbsp;")
                 .append(b);
+          } else {
+            // need to break somewhere else
+            idx = call.lastIndexOf(CombinationMatcher.COMBINATION_JOINER);
+            while (idx != -1 && idx > lengthLimit * 2) {
+              int next = call.substring(0, idx).lastIndexOf(CombinationMatcher.COMBINATION_JOINER);
+              if (next == -1) {
+                break;
+              }
+              idx = next;
+            }
+            if (idx == -1) {
+              idx = call.lastIndexOf(" (");
+            }
+            if (idx == -1) {
+              builder.append("<br />&nbsp;")
+                  .append(call);
+            } else {
+              builder.append("<br />&nbsp;")
+                  .append(call, 0, idx)
+                  .append("<br />&nbsp;")
+                  .append(call.substring(idx));
+            }
           }
         }
         if (guidelineReport != null && guidelineReport.getHomozygousComponentHaplotypes().contains(call)) {
