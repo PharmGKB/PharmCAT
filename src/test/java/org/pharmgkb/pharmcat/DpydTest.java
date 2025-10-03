@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.SortedSet;
@@ -553,7 +554,7 @@ class DpydTest {
 
 
   @Test
-  void test155(TestInfo testInfo) throws Exception {
+  void issue155_strandMismatch(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .phased()
@@ -570,7 +571,7 @@ class DpydTest {
     ;
 
     Path vcfFile = testWrapper.execute();
-
+    // phased combination code path
     List<String> expectedCalls = List.of(
         "[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.496A>G + c.1601G>A (*4)]"
     );
@@ -580,7 +581,30 @@ class DpydTest {
   }
 
   @Test
-  void test156(TestInfo testInfo) throws Exception {
+  void issue209_strandMismatch(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variationInPhaseSet("DPYD", "rs1801159", 97513581, "C", "T")  // [*5]       T->C 1|0 - 1.0
+        .variationInPhaseSet("DPYD", "rs56038477", 97571276, "C", "T") // [exonic]   C->T 0|1 - 0.5
+        .variationInPhaseSet("DPYD", "rs75017182", 97571276,"G", "C")  // [intronic] G->C 0|1
+        .variationInPhaseSet("DPYD", "rs1801265", 97879893, "G", "A")  // [*9]       A->G 1|0 - 1.0
+    ;
+    Path vcfFile = testWrapper.execute();
+    System.out.println(vcfFile);
+    List<String> expectedCalls = List.of(
+        "Reference/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5)]",
+        "c.85T>C (*9A)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5)]",
+        "c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1627A>G (*5)]",
+        "c.1627A>G (*5)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]"
+        );
+    List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
+    List<String> recommendedDiplotypes = List.of("Reference", DpydHapB3Matcher.HAPB3_ALLELE);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
+  }
+
+  @Test
+  void issue156(TestInfo testInfo) throws Exception {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .phased()
@@ -589,9 +613,9 @@ class DpydTest {
         // chr1	97515839	1|0 T->C
         .variation("DPYD", "rs1801159", "C", "T")
 
-        // chr1	97573863	1|0 C->T
+        // chr1	97573863	1|0 C->T [exonic]
         .variation("DPYD", "rs56038477", "T", "C")
-        // chr1	97579893	1|0 G->C
+        // chr1	97579893	1|0 G->C [intronic]
         .variation("DPYD", "rs75017182", "C", "G")
     ;
 
@@ -606,6 +630,32 @@ class DpydTest {
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls,
         List.of("Reference", DpydHapB3Matcher.HAPB3_ALLELE), false, RecPresence.YES);
+  }
+
+
+  /**
+   * Make sure lowest functions that only travel together get called correctly.
+   */
+  @Test
+  void phaseSet_lowFunctionsOnSameStrand(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .phased()
+        .variationInPhaseSet("DPYD", "rs1801159", 97513581, "C", "T")  // [*5]       T->C 1|0 - 1.0
+        .variationInPhaseSet("DPYD", "rs56038477", 97571276, "C", "T") // [exonic]   C->T 0|1 - 0.5
+        .variationInPhaseSet("DPYD", "rs75017182", 97571276,"G", "C")  // [intronic] G->C 0|1
+        .variationInPhaseSet("DPYD", "rs72549310", 97571276, "G", "A")  // [c.61C>T] G->A 0|1 - 0.0
+    ;
+    Path vcfFile = testWrapper.execute();
+    System.out.println(vcfFile);
+    List<String> expectedCalls = List.of(
+        "Reference/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3) + c.1627A>G (*5)]",
+        "c.1627A>G (*5)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]"
+    );
+    List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
+    // make sure lowest function is called based on strand possibilities
+    List<String> recommendedDiplotypes = List.of("c.61C>T", "Reference");
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
   }
 
 
@@ -667,10 +717,28 @@ class DpydTest {
     Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
-        "Reference/Reference"
+        "Reference/c.1129-5923C>G, c.1236G>A (HapB3)"
+    );
+    List<String> cpicStyleCalls = List.of(
+        "c.1129-5923C>G, c.1236G>A (HapB3) (heterozygous)"
     );
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, true);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    assertNotNull(cpicGeneReport);
+    assertEquals(
+        Collections.emptyList(),
+        cpicGeneReport.getMessages().stream()
+            .map(ma -> {
+              if (ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
+                  ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)) {
+                return ma.getName();
+              }
+              return null;
+            })
+            .filter(Objects::nonNull)
+            .toList()
+    );
   }
 
   @Test
@@ -713,13 +781,28 @@ class DpydTest {
     Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
-        "Reference/c.1129-5923C>G"
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
     );
     List<String> cpicStyleCalls = List.of(
-        "c.1129-5923C>G (heterozygous)"
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    assertNotNull(cpicGeneReport);
+    assertEquals(
+        List.of(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY),
+        cpicGeneReport.getMessages().stream()
+            .map(ma -> {
+              if (ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
+                  ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)) {
+                return ma.getName();
+              }
+              return null;
+            })
+            .filter(Objects::nonNull)
+            .toList()
+    );
   }
 
   @Test
@@ -738,13 +821,28 @@ class DpydTest {
     Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
-        "Reference/c.1129-5923C>G"
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
     );
     List<String> cpicStyleCalls = List.of(
-        "c.1129-5923C>G (heterozygous)"
+        "c.1129-5923C>G/c.1129-5923C>G, c.1236G>A (HapB3)"
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    assertNotNull(cpicGeneReport);
+    assertEquals(
+        List.of(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY),
+        cpicGeneReport.getMessages().stream()
+            .map(ma -> {
+              if (ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY) ||
+                  ma.getName().equals(MessageHelper.MSG_DPYD_HAPB3_INTRONIC_MISMATCH_EXONIC)) {
+                return ma.getName();
+              }
+              return null;
+            })
+            .filter(Objects::nonNull)
+            .toList()
+    );
   }
 
 
@@ -796,8 +894,8 @@ class DpydTest {
       int row = 3;
       while ((line = reader.readLine()) != null) {
         row += 1;
-        if (row < 20) {
-          //continue;
+        if (row < 0) {
+          continue;
         }
         String name = String.format("row_%03d", row);
         data = line.split("\t");
@@ -1098,20 +1196,22 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .phased()
         // 1
-        .variationInPhaseSet("DPYD", "rs1801267", 1, "C", "T")
-        .variationInPhaseSet("DPYD", "rs55886062", 1, "A", "C")
-        .variationInPhaseSet("DPYD", "rs56038477", 1, "C", "T")
+        .variationInPhaseSet("DPYD", "rs1801267", 1, "C", "T")  // *9B C->T 0|1
+        .variationInPhaseSet("DPYD", "rs55886062", 1, "A", "C") // *13 A->C 0|1
+        .variationInPhaseSet("DPYD", "rs56038477", 1, "C", "T") // [exonic] C->T 0|1
         // 2
-        .variationInPhaseSet("DPYD", "rs75017182", 2, "G", "C")
+        .variationInPhaseSet("DPYD", "rs75017182", 2, "G", "C") // [intronic] G->C 0|1
     ;
     Path vcfFile = testWrapper.execute();
 
     List<String> expectedCalls = List.of(
-        "c.1129-5923C>G, c.1236G>A (HapB3)/[c.1679T>G (*13) + c.2657G>A (*9B)]"
+        "Reference/[c.1129-5923C>G, c.1236G>A (HapB3) + c.1679T>G (*13) + c.2657G>A (*9B)]",
+        "c.1129-5923C>G/[c.1679T>G (*13) + c.2657G>A (*9B)]"
     );
-    List<String> recommendedDiplotypes = List.of("c.1679T>G (*13)", "c.1129-5923C>G, c.1236G>A (HapB3)");
+    List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
+    List<String> recommendedDiplotypes = List.of("c.1679T>G (*13)", "c.1129-5923C>G");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, recommendedDiplotypes, false, RecPresence.YES);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
   }
 
   @Test
@@ -1168,9 +1268,9 @@ class DpydTest {
     testWrapper.getVcfBuilder()
         .phased()
         // 1
-        .variationInPhaseSet("DPYD", "rs1801267", 1, "C", "T") // c.2657G>A (*9B) - normal function
+        .variationInPhaseSet("DPYD", "rs1801267", 1, "C", "T") // [*9B]        C->T 0|1 - normal function
         // 2
-        .variationInPhaseSet("DPYD", "rs59086055", 2, "G", "A") // c.1774C>T - no function, not in DPWG
+        .variationInPhaseSet("DPYD", "rs59086055", 2, "G", "A") // [c.1774C>T] G->A 0|1 - no function, not in DPWG
     ;
     Path vcfFile = testWrapper.execute();
 

@@ -31,11 +31,12 @@ public class MatchData {
   private final boolean m_isHaploid;
   /** Positions at which data is available for sample. */
   private final VariantLocus[] m_positions;
+  /** Maps VCF position to the index of the matching VariantLocus in the m_positions array. */
+  private final SortedMap<Long, Integer> m_vcfPositionIndex = new TreeMap<>();
   @Expose
   @SerializedName("missingPositions")
   private final SortedSet<VariantLocus> m_missingPositions = new TreeSet<>();
   private final SortedSet<Long> m_missingVcfPositions = new TreeSet<>();
-  private final Set<VariantLocus> m_ignoredPositions = new HashSet<>();
   private final SortedSet<Variant> m_extraPositions = new TreeSet<>();
   @Expose
   @SerializedName("positionsWithUndocumentedVariations")
@@ -78,16 +79,11 @@ public class MatchData {
    * @param alleleMap map of chr:positions to {@link SampleAllele}s from VCF
    * @param allPositions all {@link VariantLocus} positions of interest for the gene
    * @param extraPositions extra positions to track sample alleles for
-   * @param ignoredPositions ignored positions to remove from matching (used for special cases like DPYD)
    */
   public MatchData(String sampleId, String gene, SortedMap<String, SampleAllele> alleleMap, VariantLocus[] allPositions,
-      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable SortedSet<VariantLocus> ignoredPositions,
-      @Nullable DefinitionExemption exemption) {
+      @Nullable SortedSet<VariantLocus> extraPositions, @Nullable DefinitionExemption exemption) {
     m_sampleId = sampleId;
     m_gene = gene;
-    if (ignoredPositions != null) {
-      m_ignoredPositions.addAll(ignoredPositions);
-    }
 
     List<VariantLocus> positions = new ArrayList<>();
     boolean isPhased = true;
@@ -98,9 +94,6 @@ public class MatchData {
         m_missingPositions.add(variant);
         m_missingVcfPositions.add(variant.getPosition());
         sf_logger.debug("Sample has no allele for {}", chrPos);
-        continue;
-      }
-      if (m_ignoredPositions.contains(variant)) {
         continue;
       }
       if (!allele.getUndocumentedVariations().isEmpty()) {
@@ -121,6 +114,9 @@ public class MatchData {
       m_sampleMap.put(variant.getPosition(), allele);
     }
     m_positions = positions.toArray(new VariantLocus[0]);
+    for (int x = 0; x < m_positions.length; x += 1) {
+      m_vcfPositionIndex.put(m_positions[x].getPosition(), x);
+    }
     if (extraPositions != null) {
       for (VariantLocus vl : extraPositions) {
         SampleAllele allele = alleleMap.get(vl.getVcfChrPosition());
@@ -163,6 +159,10 @@ public class MatchData {
   }
 
 
+  public String getSampleId() {
+    return m_sampleId;
+  }
+
   public String getGene() {
     return m_gene;
   }
@@ -174,7 +174,7 @@ public class MatchData {
    */
   void marshallHaplotypes(String gene, SortedSet<NamedAllele> allHaplotypes, boolean findCombinations) {
 
-    if (m_missingPositions.isEmpty() && m_ignoredPositions.isEmpty()) {
+    if (m_missingPositions.isEmpty()) {
       if (findCombinations) {
         m_haplotypes = new TreeSet<>();
         for (NamedAllele hap : allHaplotypes) {
@@ -376,7 +376,8 @@ public class MatchData {
   }
 
   /**
-   * Gets whether data is "effectively phased" (i.e. actually phased or unphased but homozygous at all positions).
+   * Gets whether data is "effectively phased" (i.e., actually phased or unphased but homozygous at all positions).
+   * More specifically, there is a maximum of 2 permutations of this sample's alleles.
    */
   public boolean isEffectivelyPhased() {
     return m_isEffectivelyPhased;
@@ -458,6 +459,13 @@ public class MatchData {
       seqMap.put(idx, allele);
     }
     return allele;
+  }
+
+  public @Nullable String getAllele(String sequence, long vcfPosition) {
+    if (!m_vcfPositionIndex.containsKey(vcfPosition)) {
+      return null;
+    }
+    return getAllele(sequence, m_vcfPositionIndex.get(vcfPosition));
   }
 
 

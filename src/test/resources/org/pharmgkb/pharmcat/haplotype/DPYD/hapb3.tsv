@@ -1,112 +1,112 @@
-exon SNP	intron SNP	no function variant	decreased func variant	normal func variant	non-PGx	non-DPWG decreased function	predicted phased call	predicted phased	predicted unphased call	predicted unphased	pgx warning	phased HapB3 warning	unphased HapB3 warning	Has CPIC	Has DPWG	comment to report	output html report 09/20/23 (09/22 for row 98-99)
-c.1236G>A	c.1129-5923C>G	c.61C>T	c.2846A>T	c.85T>C (*9A)	c.1314A>G	c.557A>G		inferred diplotype	(if different from phased)	inferred diplotype
-rs56038477	rs75017182	rs72549310	rs67376798	rs1801265	rs186169810	rs115232898				(if different from phased)
-0/0	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref							Yes	Yes		Reference/Reference
-0/1	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes
-1/1	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes
-0/0	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3Intron							Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/0	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3Intron							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/1	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3		ref, HapB3					Yes	Yes		list match, Reference/c.1129-5923C>G, c.1236G>A (HapB3)
-1/1	1/1	0/0	0/0	0/0	0/0	0/0	HapB3/HapB3							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-0/1	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-1/1	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/0	missing	0/0	0/0	0/0	0/0	0/0	ref/ref					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/Reference, w: yes
-0/1	missing	0/0	0/0	0/0	0/0	0/0	ref/HapB3					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-1/1	missing	0/0	0/0	0/0	0/0	0/0	HapB3/HapB3					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-missing	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref							Yes	Yes		Reference/Reference
-missing	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3Intron							Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3)
-missing	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3Intron							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-0/0	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T
-0/1	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T		ref, c.61C>T			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		list match, Reference/c.61C>T, w: yes
-1/1	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		Reference/c.61C>T, w: yes
-0/0	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3Intron]	ref/c.61C>T	c.61C>T, HapB3Intron	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/0	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3Intron]	c.61C>T/HapB3Intron						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/1	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)
-1/1	1/1	0/1	0/0	0/0	0/0	0/0	HapB3/[c.61C>T+HapB3]	c.61C>T/HapB3						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)
-0/1	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3]	c.61C>T/HapB3Intron	c.61C>T, HapB3Intron, HapB3	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-1/1	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/0	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T							Yes	no match		c.61C>T/c.61C>T
-0/1	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/c.61C>T, w:yes
-1/1	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/c.61C>T, w:yes
-0/0	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3Intron]	c.61C>T/c.61C>T						Yes	no match		c.61C>T/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes
-0/0	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3Intron]/[c.61C>T+HapB3Intron]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes
-0/1	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3]	c.61C>T/c.61C>T	c.61C>T (homozygous), HapB3					Yes	no match		list match, c.61C>T/c.61C>T
-1/1	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3]/[c.61C>T+HapB3]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T
-0/1	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3Intron]/[c.61C>T+HapB3]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w:yes
-1/1	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3]	c.61C>T/c.61C>T				pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes
-0/0	missing	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	no match		Reference/c.61C>T, w: yes
-0/1	missing	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-1/1	missing	0/1	0/0	0/0	0/0	0/0	HapB3/[c.61C>T+HapB3]	c.61C>T/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-missing	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T
-missing	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3Intron]	ref/c.61C>T	c.61C>T, HapB3Intron	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)
-missing	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3Intron]	c.61C>T/HapB3Intron						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)
-missing	missing	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T
-0/0	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T
-0/1	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T	ref/c.2846A>T	ref, c.2846A>T			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, Reference/c.2846A>T, w:yes
-1/1	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.2846A>T, w: yes
-0/0	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3Intron+c.2846A>T]	Reference/HapB3Intron	HapB3Intron, c.2846A>T	HapB3Intron/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes
-0/0	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3Intron+c.2846A>T]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/1	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T
-1/1	1/1	0/0	0/1	0/0	0/0	0/0	HapB3/[HapB3+c.2846A>T]	HapB3/HapB3						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-0/1	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3+c.2846A>T]	HapB3Intron/HapB3	HapB3Intron, HapB3, c.2846A>T	HapB3/HapB3Intron				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w:yes
-1/1	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes
-0/0	missing	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.2846A>T, w: yes
-0/1	missing	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes
-1/1	missing	0/0	0/1	0/0	0/0	0/0	HapB3/[HapB3+c.2846A>T]	HapB3/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-missing	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T
-missing	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3Intron+c.2846A>T]	Reference/HapB3Intron	HapB3Intron, c.2846A>T	HapB3Intron/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T
-missing	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3Intron+c.2846A>T]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-missing	missing	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T
-0/0	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up
-0/1	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)	ref/c.85T>C (*9A)	ref, c.85T>C (*9A)			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes
-1/1	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)	ref/c.85T>C (*9A)				pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes
-0/0	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3Intron]	ref/HapB3Intron	c.85T>C (*9A), HapB3Intron	c.85T>C (*9A)/HapB3Intron				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes
-0/0	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3Intron]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0/1	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up
-1/1	1/1	0/0	0/0	0/1	0/0	0/0	HapB3/[c.85T>C (*9A)+HapB3]	HapB3/HapB3						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-0/1	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3]	HapB3Intron/HapB3	c.85T>C (*9A), HapB3Intron, HapB3					Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w:yes
-1/1	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes
-0/0	missing	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes
-0/1	missing	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes
-1/1	missing	0/0	0/0	0/1	0/0	0/0	HapB3/[c.85T>C (*9A)+HapB3]	HapB3/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-missing	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up
-missing	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3Intron]	Reference/HapB3Intron	c.85T>C (*9A), HapB3Intron	c.85T>C (*9A)/HapB3Intron				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up
-missing	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3Intron]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)
-missing	missing	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up
-0/0	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.
-0/1	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes both
-1/1	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes both
-0/0	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3Intron				yes			Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-0/0	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3Intron				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-0/1	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3	ref/HapB3	ref, HapB3		yes			Yes	Yes		list match, Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: undoc.
-1/1	1/1	0/0	0/0	0/0	0/1	0/0	HapB3/HapB3				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc
-0/1	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-1/1	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-0/0	missing	0/0	0/0	0/0	0/1	0/0	ref/ref				yes	pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/Reference, w: yes both
-0/1	missing	0/0	0/0	0/0	0/1	0/0	ref/HapB3				yes	pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-1/1	missing	0/0	0/0	0/0	0/1	0/0	HapB3/HapB3				yes	pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-missing	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.
-missing	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3Intron				yes			Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc.
-missing	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3Intron				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc
-missing	missing	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.
-0/1	1/1	0/0	0/1	0/1	0/1	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3+c.2846A>T]	HapB3Intron/HapB3	c.85T>C (*9A), HapB3Intron, HapB3, c.2846A>T	HapB3Intron/HapB3	yes			Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-1/0	1/1	0/0	0/1	0/1	0/1	0/0	HapB3/[c.85T>C (*9A)+HapB3Intron+c.2846A>T]	HapB3/HapB3Intron	c.85T>C (*9A), HapB3Intron, HapB3, c.2846A>T		yes			Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both
-0/1	0/0	0/0	0/1	0/1	0/0	0/0	ref/[c.85T>C (*9A)+c.2846A>T]	ref/c.2846A>T	c.85T>C (*9A), c.2846A>T	c.85T>C (*9A)/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.2846A>T, normal function set to ref for DPWG look up, w: yes
-1/0	0/0	0/0	0/1	0/1	0/0	0/0	ref/[c.85T>C (*9A)+c.2846A>T]	ref/c.2846A>T	c.85T>C (*9A), c.2846A>T	c.85T>C (*9A)/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.2846A>T, normal function set to ref for DPWG look up, w: yes
-0|1	1|1	1|0	0|1	1|1	0/0	0/0	[c.61C>T+c.85T>C (*9A)+HapB3Intron]/[c.85T>C (*9A)+HapB3+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A) (homozygous), HapB3Intron, HapB3, c.2846A>T	c.61C>T/HapB3Intron				Yes	no match		[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-1|0	1|0	1|0	0|1	1|1	0/0	0/0	[c.85T>C (*9A)+c.2846A>T]/[c.61C>T+c.85T>C (*9A)+HapB3]	c.2846A>T/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T	c.61C>T/HapB3				Yes	no match		[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes
-0|1	0|1	1|0	0|1	1|1	0/0	0/0	[c.61C>T+c.85T>C (*9A)]/[c.85T>C (*9A)+HapB3+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T					Yes	no match		[c.61C>T + c.85T>C (*9A)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)
-0|1	1|0	1|0	0|1	1|1	0/0	0/0	[c.85T>C (*9A)+c.2846A>T]/[c.61C>T+c.85T>C (*9A)+HapB3Intron]	c.2846A>T/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T	c.61C>T/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic		Yes	no match		[c.85T>C (*9A) + c.2846A>T]/[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.2846A>T, w: yes
-0/1	0/1	0/0	0/1	0/1	0/0	0/1	Reference/[c.85T>C (*9A)+c.557A>G+HapB3+c.2846A>T]	ref/HapB3	c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T	HapB3/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T
-0|1	0|1	0|0	1|0	0|0	0|0	1|0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T					Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.557A>G + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T
-1|0	1|0	0|1	0|1	1|1	0|0	0|0	[c.85T>C (*9A)+HapB3]/[c.61C>T+c.85T>C (*9A)+c.2846A>T]	HapB3/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T					Yes	no match
-0/1	0/1	1/0	1/0	0/0	0/0	0/0	HapB3/[c.61C>T+c.2846A>T]	HapB3/c.61C>T	c.61C>T, HapB3, c.2846A>T					Yes	no match
-0/1	0/1	1/0	0/0	1/0	0/0	0/0	HapB3/[c.61C>T+c.85T>C (*9A)]	HapB3/c.61C>T	c.61C>T, c.85T>C (*9A), HapB3					Yes	no match
-0/1	0/1	1/0	0/0	0/0	1/0	0/0	c.61C>T/HapB3	c.61C>T/HapB3	c.61C>T, HapB3		yes			Yes	no match	#155 problem
-0/1	0/1	1/0	0/0	0/0	0/0	1/0	HapB3/[c.61C>T+c.557A>G]	HapB3/c.61C>T	c.61C>T, c.557A>G, HapB3					Yes	no match
-0/1	0/1	0/0	1/0	1/0	0/0	1/0	HapB3/[c.85T>C (*9A)+c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T					Yes	Yes
-0/1	0/1	0/0	1/0	0/0	1/0	1/0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T		yes			Yes	Yes
-0/1	0/1	0/0	1/0	0/0	0/0	1/0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T					Yes	Yes
-0/1	0/1	1/0	1/0	1/0	0/0	1/0	HapB3/[c.61C>T+c.85T>C (*9A)+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T					Yes	no match
-0/1	0/1	1/0	1/0	0/0	1/0	1/0	HapB3/[c.61C>T+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.557A>G, HapB3, c.2846A>T		yes			Yes	no match
-0/1	0/1	1/0	1/0	0/0	0/0	1/0	HapB3/[c.61C>T+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.557A>G, HapB3, c.2846A>T					Yes	no match
+exon SNP	intron SNP	no function variant	decreased func variant	normal func variant	non-PGx	non-DPWG decreased function	predicted phased call	predicted phased	predicted unphased call	predicted unphased	pgx warning	phased HapB3 warning	unphased HapB3 warning	Has CPIC	Has DPWG	comment to report	output html report 09/20/23 (09/22 for row 98-99)	03/182024 check output html
+c.1236G>A	c.1129-5923C>G	c.61C>T	c.2846A>T	c.85T>C (*9A)	c.1314A>G	c.557A>G		inferred diplotype	(if different from phased)	inferred diplotype								
+rs56038477	rs75017182	rs72549310	rs67376798	rs1801265	rs186169810	rs115232898				(if different from phased)								
+0/0	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref							Yes	Yes		Reference/Reference	
+0/1	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes	okay- phased, unphased
+1/1	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes	
+0/0	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3Intron							Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/0	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3Intron							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/1	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3		ref, HapB3					Yes	Yes		list match, Reference/c.1129-5923C>G, c.1236G>A (HapB3)	
+1/1	1/1	0/0	0/0	0/0	0/0	0/0	HapB3/HapB3							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+0/1	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+1/1	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/0	missing	0/0	0/0	0/0	0/0	0/0	ref/ref							Yes	Yes		Reference/Reference, w: yes	
+0/1	missing	0/0	0/0	0/0	0/0	0/0	ref/HapB3					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+1/1	missing	0/0	0/0	0/0	0/0	0/0	HapB3/HapB3					pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+missing	0/0	0/0	0/0	0/0	0/0	0/0	ref/ref							Yes	Yes		Reference/Reference	
+missing	0/1	0/0	0/0	0/0	0/0	0/0	ref/HapB3Intron							Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3)	
+missing	1/1	0/0	0/0	0/0	0/0	0/0	HapB3Intron/HapB3Intron							Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+0/0	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T	
+0/1	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T		ref, c.61C>T			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		list match, Reference/c.61C>T, w: yes	
+1/1	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		Reference/c.61C>T, w: yes	
+0/0	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3Intron]	ref/c.61C>T	c.61C>T, HapB3Intron	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/0	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3Intron]	c.61C>T/HapB3Intron						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/1	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)	
+1/1	1/1	0/1	0/0	0/0	0/0	0/0	HapB3/[c.61C>T+HapB3]	c.61C>T/HapB3						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)	
+0/1	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3]	c.61C>T/HapB3Intron	c.61C>T, HapB3Intron, HapB3	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+1/1	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/0	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T							Yes	no match		c.61C>T/c.61C>T	
+0/1	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/c.61C>T, w:yes	
+1/1	0/0	1/1	0/0	0/0	0/0	0/0	c.61C>T/c.61C>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/c.61C>T, w:yes	
+0/0	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3Intron]	c.61C>T/c.61C>T						Yes	no match		c.61C>T/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes	
+0/0	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3Intron]/[c.61C>T+HapB3Intron]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes	
+0/1	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3]	c.61C>T/c.61C>T	c.61C>T (homozygous), HapB3					Yes	no match		list match, c.61C>T/c.61C>T	
+1/1	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3]/[c.61C>T+HapB3]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T	
+0/1	1/1	1/1	0/0	0/0	0/0	0/0	[c.61C>T+HapB3Intron]/[c.61C>T+HapB3]	c.61C>T/c.61C>T						Yes	no match		[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w:yes	
+1/1	0/1	1/1	0/0	0/0	0/0	0/0	c.61C>T/[c.61C>T+HapB3]	c.61C>T/c.61C>T				pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	no match		c.61C>T/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.61C>T, w: yes	
+0/0	missing	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T, w: yes	
+0/1	missing	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3]	ref/c.61C>T	c.61C>T, HapB3	c.61C>T/HapB3		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+1/1	missing	0/1	0/0	0/0	0/0	0/0	HapB3/[c.61C>T+HapB3]	c.61C>T/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+missing	0/0	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T	
+missing	0/1	0/1	0/0	0/0	0/0	0/0	Reference/[c.61C>T+HapB3Intron]	ref/c.61C>T	c.61C>T, HapB3Intron	c.61C>T/HapB3Intron				Yes	no match		list match, c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)	
+missing	1/1	0/1	0/0	0/0	0/0	0/0	HapB3Intron/[c.61C>T+HapB3Intron]	c.61C>T/HapB3Intron						Yes	no match		c.1129-5923C>G, c.1236G>A (HapB3)/[c.61C>T + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)	
+missing	missing	0/1	0/0	0/0	0/0	0/0	ref/c.61C>T							Yes	no match		Reference/c.61C>T	
+0/0	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T	
+0/1	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T	ref/c.2846A>T	ref, c.2846A>T			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, Reference/c.2846A>T, w:yes	
+1/1	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T					pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.2846A>T, w: yes	
+0/0	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3Intron+c.2846A>T]	Reference/HapB3Intron	HapB3Intron, c.2846A>T	HapB3Intron/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes	
+0/0	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3Intron+c.2846A>T]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/1	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T	
+1/1	1/1	0/0	0/1	0/0	0/0	0/0	HapB3/[HapB3+c.2846A>T]	HapB3/HapB3						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+0/1	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3+c.2846A>T]	HapB3Intron/HapB3	HapB3Intron, HapB3, c.2846A>T	HapB3/HapB3Intron				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w:yes	
+1/1	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes	
+0/0	missing	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T, w: yes	
+0/1	missing	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3+c.2846A>T]	Reference/HapB3	HapB3, c.2846A>T	HapB3/c.2846A>T		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T, w: yes	
+1/1	missing	0/0	0/1	0/0	0/0	0/0	HapB3/[HapB3+c.2846A>T]	HapB3/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+missing	0/0	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T	
+missing	0/1	0/0	0/1	0/0	0/0	0/0	Reference/[HapB3Intron+c.2846A>T]	Reference/HapB3Intron	HapB3Intron, c.2846A>T	HapB3Intron/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T	
+missing	1/1	0/0	0/1	0/0	0/0	0/0	HapB3Intron/[HapB3Intron+c.2846A>T]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+missing	missing	0/0	0/1	0/0	0/0	0/0	ref/c.2846A>T							Yes	Yes		Reference/c.2846A>T	
+0/0	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up	
+0/1	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)	ref/c.85T>C (*9A)	ref, c.85T>C (*9A)			pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes	
+1/1	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)	ref/c.85T>C (*9A)				pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes	
+0/0	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3Intron]	ref/HapB3Intron	c.85T>C (*9A), HapB3Intron	c.85T>C (*9A)/HapB3Intron				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes	
+0/0	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3Intron]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0/1	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up	
+1/1	1/1	0/0	0/0	0/1	0/0	0/0	HapB3/[c.85T>C (*9A)+HapB3]	HapB3/HapB3						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+0/1	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3]	HapB3Intron/HapB3	c.85T>C (*9A), HapB3Intron, HapB3					Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w:yes	
+1/1	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes	
+0/0	missing	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up, w: yes	
+0/1	missing	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3]	Reference/HapB3	c.85T>C (*9A), HapB3	c.85T>C (*9A)/HapB3		pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up, w: yes	
+1/1	missing	0/0	0/0	0/1	0/0	0/0	HapB3/[c.85T>C (*9A)+HapB3]	HapB3/HapB3				pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+missing	0/0	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up	
+missing	0/1	0/0	0/0	0/1	0/0	0/0	ref/[c.85T>C (*9A)+HapB3Intron]	Reference/HapB3Intron	c.85T>C (*9A), HapB3Intron	c.85T>C (*9A)/HapB3Intron				Yes	Yes		list match, c.85T>C (*9A)/c.1129-5923C>G, c.1236G>A (HapB3), normal function set to ref for DPWG look up	
+missing	1/1	0/0	0/0	0/1	0/0	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3Intron]	HapB3Intron/HapB3Intron						Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3)	
+missing	missing	0/0	0/0	0/1	0/0	0/0	ref/c.85T>C (*9A)							Yes	Yes		Reference/c.85T>C (*9A), normal function set to ref for DPWG look up	
+0/0	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.	
+0/1	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes both	
+1/1	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/Reference, w: yes both	
+0/0	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3Intron				yes			Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+0/0	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3Intron				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+0/1	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3	ref/HapB3	ref, HapB3		yes			Yes	Yes		list match, Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: undoc.	
+1/1	1/1	0/0	0/0	0/0	0/1	0/0	HapB3/HapB3				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc	
+0/1	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+1/1	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3				yes	pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+0/0	missing	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes both	
+0/1	missing	0/0	0/0	0/0	0/1	0/0	ref/HapB3				yes	pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+1/1	missing	0/0	0/0	0/0	0/1	0/0	HapB3/HapB3				yes	pcat-dpyd-hapB3-exonic-only	pcat-dpyd-hapB3-exonic-only	Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	
+missing	0/0	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.	
+missing	0/1	0/0	0/0	0/0	0/1	0/0	ref/HapB3Intron				yes			Yes	Yes		Reference/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc.	
+missing	1/1	0/0	0/0	0/0	0/1	0/0	HapB3Intron/HapB3Intron				yes			Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes undoc	
+missing	missing	0/0	0/0	0/0	0/1	0/0	ref/ref				yes			Yes	Yes		Reference/Reference, w: yes undoc.	
+0/1	1/1	0/0	0/1	0/1	0/1	0/0	HapB3Intron/[c.85T>C (*9A)+HapB3+c.2846A>T]	HapB3Intron/HapB3	c.85T>C (*9A), HapB3Intron, HapB3, c.2846A>T	HapB3Intron/HapB3	yes			Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	okay - phased, unphased
+1/0	1/1	0/0	0/1	0/1	0/1	0/0	HapB3/[c.85T>C (*9A)+HapB3Intron+c.2846A>T]	HapB3/HapB3Intron	c.85T>C (*9A), HapB3Intron, HapB3, c.2846A>T		yes			Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.1129-5923C>G, c.1236G>A (HapB3), w: yes both	okay - phased, unphased
+0/1	0/0	0/0	0/1	0/1	0/0	0/0	ref/[c.85T>C (*9A)+c.2846A>T]	ref/c.2846A>T	c.85T>C (*9A), c.2846A>T	c.85T>C (*9A)/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.2846A>T, normal function set to ref for DPWG look up, w: yes	
+1/0	0/0	0/0	0/1	0/1	0/0	0/0	ref/[c.85T>C (*9A)+c.2846A>T]	ref/c.2846A>T	c.85T>C (*9A), c.2846A>T	c.85T>C (*9A)/c.2846A>T		pcat-dpyd-hapB3-intronic-mismatch-exonic	pcat-dpyd-hapB3-intronic-mismatch-exonic	Yes	Yes		list match, c.85T>C (*9A)/c.2846A>T, normal function set to ref for DPWG look up, w: yes	
+0|1	1|1	1|0	0|1	1|1	0/0	0/0	[c.61C>T+c.85T>C (*9A)+HapB3Intron]/[c.85T>C (*9A)+HapB3+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A) (homozygous), HapB3Intron, HapB3, c.2846A>T	c.61C>T/HapB3Intron				Yes	no match		[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+1|0	1|0	1|0	0|1	1|1	0/0	0/0	[c.85T>C (*9A)+c.2846A>T]/[c.61C>T+c.85T>C (*9A)+HapB3]	c.2846A>T/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T	c.61C>T/HapB3				Yes	no match		[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3), w: yes	
+0|1	0|1	1|0	0|1	1|1	0/0	0/0	[c.61C>T+c.85T>C (*9A)]/[c.85T>C (*9A)+HapB3+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T					Yes	no match		[c.61C>T + c.85T>C (*9A)]/[c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3) + c.2846A>T], c.61C>T/c.1129-5923C>G, c.1236G>A (HapB3)	
+0|1	1|0	1|0	0|1	1|1	0/0	0/0	[c.85T>C (*9A)+c.2846A>T]/[c.61C>T+c.85T>C (*9A)+HapB3Intron]	c.2846A>T/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T	c.61C>T/HapB3		pcat-dpyd-hapB3-intronic-mismatch-exonic		Yes	no match		[c.85T>C (*9A) + c.2846A>T]/[c.61C>T + c.85T>C (*9A) + c.1129-5923C>G, c.1236G>A (HapB3)], c.61C>T/c.2846A>T, w: yes	
+0/1	0/1	0/0	0/1	0/1	0/0	0/1	Reference/[c.85T>C (*9A)+c.557A>G+HapB3+c.2846A>T]	ref/HapB3	c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T	HapB3/c.2846A>T				Yes	Yes		list match, c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T	
+0|1	0|1	0|0	1|0	0|0	0|0	1|0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T					Yes	Yes		c.1129-5923C>G, c.1236G>A (HapB3)/[c.557A>G + c.2846A>T], c.1129-5923C>G, c.1236G>A (HapB3)/c.2846A>T	
+1|0	1|0	0|1	0|1	1|1	0|0	0|0	[c.85T>C (*9A)+HapB3]/[c.61C>T+c.85T>C (*9A)+c.2846A>T]	HapB3/c.61C>T	c.61C>T, c.85T>C (*9A) (homozygous), HapB3, c.2846A>T					Yes	no match			
+0/1	0/1	1/0	1/0	0/0	0/0	0/0	HapB3/[c.61C>T+c.2846A>T]	HapB3/c.61C>T	c.61C>T, HapB3, c.2846A>T					Yes	no match			
+0/1	0/1	1/0	0/0	1/0	0/0	0/0	HapB3/[c.61C>T+c.85T>C (*9A)]	HapB3/c.61C>T	c.61C>T, c.85T>C (*9A), HapB3					Yes	no match			
+0/1	0/1	1/0	0/0	0/0	1/0	0/0	c.61C>T/HapB3	c.61C>T/HapB3	c.61C>T, HapB3		yes			Yes	no match	#155 problem		
+0/1	0/1	1/0	0/0	0/0	0/0	1/0	HapB3/[c.61C>T+c.557A>G]	HapB3/c.61C>T	c.61C>T, c.557A>G, HapB3					Yes	no match			
+0/1	0/1	0/0	1/0	1/0	0/0	1/0	HapB3/[c.85T>C (*9A)+c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T					Yes	Yes			
+0/1	0/1	0/0	1/0	0/0	1/0	1/0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T		yes			Yes	Yes			
+0/1	0/1	0/0	1/0	0/0	0/0	1/0	HapB3/[c.557A>G+c.2846A>T]	HapB3/c.2846A>T	c.557A>G, HapB3, c.2846A>T					Yes	Yes			
+0/1	0/1	1/0	1/0	1/0	0/0	1/0	HapB3/[c.61C>T+c.85T>C (*9A)+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.85T>C (*9A), c.557A>G, HapB3, c.2846A>T					Yes	no match			
+0/1	0/1	1/0	1/0	0/0	1/0	1/0	HapB3/[c.61C>T+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.557A>G, HapB3, c.2846A>T		yes			Yes	no match			
+0/1	0/1	1/0	1/0	0/0	0/0	1/0	HapB3/[c.61C>T+c.557A>G+c.2846A>T]	c.61C>T/HapB3	c.61C>T, c.557A>G, HapB3, c.2846A>T					Yes	no match			

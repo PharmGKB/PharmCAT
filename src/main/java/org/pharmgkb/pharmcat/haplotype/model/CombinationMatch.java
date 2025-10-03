@@ -23,22 +23,14 @@ public class CombinationMatch extends BaseMatch {
   @Expose
   @SerializedName("componentHaplotypes")
   private final SortedSet<NamedAllele> m_componentHaplotypes = new TreeSet<>();
+  /**
+   * Map of VCF positions to partial names.
+   */
   @Expose
   @SerializedName("partials")
   private final SortedMap<Long, String> m_partials = new TreeMap<>();
   private final VariantLocus[] m_refVariants;
 
-
-  /**
-   * Constructor for creating a copy of an existing {@link CombinationMatch}.
-   */
-  public CombinationMatch(CombinationMatch combinationMatch) {
-    m_refVariants = combinationMatch.getRefVariants();
-    m_componentHaplotypes.addAll(combinationMatch.getComponentHaplotypes());
-    setName(buildName());
-    setHaplotype(buildHaplotype(false));
-    addSequence(combinationMatch.getSequences().first());
-  }
 
   /**
    * Primary constructor.
@@ -56,8 +48,12 @@ public class CombinationMatch extends BaseMatch {
   }
 
 
-  public int getNumCombinations() {
-    return m_componentHaplotypes.size();
+  public boolean hasPartials() {
+    return !m_partials.isEmpty();
+  }
+
+  public Map<Long, String> getPartials() {
+    return m_partials;
   }
 
   private String buildName() {
@@ -122,7 +118,7 @@ public class CombinationMatch extends BaseMatch {
         if (alleles[x] == null) {
           alleles[x] = na.getAlleles()[x];
         } else if (na.getAlleles()[x] != null && !alleles[x].equals(na.getAlleles()[x])) {
-          throw new IllegalStateException(getName() + " has component " + na.getName() + " with different alleles @ index " + x);
+            throw new IllegalStateException(getName() + " has component " + na.getName() + " with different alleles @ index " + x);
         }
         if (cpicAlleles[x] == null) {
           cpicAlleles[x] = na.getCpicAlleles()[x];

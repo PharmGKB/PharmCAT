@@ -2209,8 +2209,10 @@ class PipelineTest {
 
   /**
    * Based on issue #175.
-   * {@code chr1	97078987	.	G	T	61.6	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:60:45:28,17:0.377778:61,0,66:96997594}
-   * {@code chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720}
+   * <pre>
+   * chr1	97078987	.	G	T	61.6	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:60:45:28,17:0.377778:61,0,66:96997594
+   * chr1	97883329	.	A	G	66.2	PASS	.	GT:GQ:DP:AD:VAF:PL:PS	0|1:64:43:19,24:0.55814:66,0,67:97710720
+   * </pre>
    */
   @Test
   void phaseSetDpyd(TestInfo testInfo) throws Exception {
@@ -2251,8 +2253,8 @@ class PipelineTest {
         .saveIntermediateFiles();
     testWrapper.getVcfBuilder()
         .phased()
-        .variationInPhaseSet("DPYD", "rs114096998", 96997594, "G", "T")
-        .variationInPhaseSet("DPYD", "rs1801265", 97710720, "A", "G")
+        .variationInPhaseSet("DPYD", "rs114096998", 96997594, "G", "T") // [3067] G->T 0|1
+        .variationInPhaseSet("DPYD", "rs1801265", 97710720, "A", "G")   // [*9A]  A->G 0|1
     ;
     vcfFile = testWrapper.execute();
 
