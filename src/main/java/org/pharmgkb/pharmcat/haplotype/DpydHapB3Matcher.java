@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.haplotype;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -484,7 +485,7 @@ public class DpydHapB3Matcher {
   }
 
   private BaseMatch removePartials(MatchData matchData, CombinationMatch cm) {
-    Map<Long, String> partials = cm.getPartials();
+    Map<Long, String> partials = new HashMap<>(cm.getPartials());
     partials.remove(HAPB3_EXONIC_POSITION);
     partials.remove(HAPB3_INTRONIC_POSITION);
     if (partials.isEmpty()) {

@@ -2089,7 +2089,7 @@ class PipelineTest {
     assertEquals(warfarinCpicDips.stream()
             .map(Element::text)
             .toList(),
-        List.of("CYP2C9:*1/*1", "CYP4F2:*1/*1", "VKORC1: rs9923231 reference (C)/ rs9923231 reference (C)"));
+        List.of("CYP2C9:*1/*1", "CYP4F2:*1/*1", "VKORC1:rs9923231 reference (C)/ rs9923231 reference (C)"));
 
     Elements cpicWarfarinHighlightedVars = document.select(".cpic-guideline-warfarin .rx-hl-var");
     assertEquals(1, cpicWarfarinHighlightedVars.size());
