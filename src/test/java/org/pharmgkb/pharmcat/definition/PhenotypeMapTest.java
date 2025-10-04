@@ -1,6 +1,7 @@
 package org.pharmgkb.pharmcat.definition;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -36,8 +37,31 @@ class PhenotypeMapTest {
     PhenotypeMap phenotypeMap = new PhenotypeMap();
 
     assertNotNull(phenotypeMap);
-
-    assertEquals(17, phenotypeMap.getCpicGenes().size());
+    List<String> genes = List.of(
+        "ABCG2",
+        "CACNA1S",
+        "CFTR",
+        "CYP2B6",
+        "CYP2C19",
+        "CYP2C9",
+        "CYP2D6",
+        "CYP3A5",
+        "DPYD",
+        "G6PD",
+        "IFNL3",
+        "MT-RNR1",
+        "NAT2",
+        "NUDT15",
+        "RYR1",
+        "SLCO1B1",
+        "TPMT",
+        "UGT1A1"
+    );
+    List<String> cpicGenes = phenotypeMap.getCpicGenes().stream()
+        .map(GenePhenotype::getGene)
+        .sorted()
+        .toList();
+    assertEquals(genes, cpicGenes);
 
     // HLA's are not part of the Phenotype map, they use allele status instead
     assertTrue(phenotypeMap.getCpicGenes().stream().noneMatch((gene) -> gene.getGene().startsWith("HLA")));

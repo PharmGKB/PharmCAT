@@ -1,10 +1,12 @@
 package org.pharmgkb.pharmcat;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -27,6 +29,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
@@ -428,17 +431,61 @@ class PipelineTest {
     testWrapper.getVcfBuilder()
         .reference("CYP2C9");
     testWrapper.execute();
+    assertNotNull(testWrapper.getContext());
     SortedSet<String> genes = testWrapper.getContext().getGeneReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getGeneReports().get(k).values().stream()
             .map(GeneReport::getGeneDisplay))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(22, genes.size());
+
+    SortedSet<String> expectedGenes = new TreeSet<>(List.of(
+        "ABCG2",
+        "CACNA1S",
+        "CFTR",
+        "CYP2B6",
+        "CYP2C19",
+        "CYP2C9",
+        "CYP2D6",
+        "CYP3A4",
+        "CYP3A5",
+        "CYP4F2",
+        "DPYD",
+        "G6PD",
+        "HLA-A",
+        "HLA-B",
+        "IFNL3/4",
+        "MT-RNR1",
+        "NAT2",
+        "NUDT15",
+        "RYR1",
+        "SLCO1B1",
+        "TPMT",
+        "UGT1A1",
+        "VKORC1"
+    ));
+    assertEquals(expectedGenes, genes);
+
+    SortedSet<String> expectedDrugs = new TreeSet<>();
+    try (BufferedReader reader = Files.newBufferedReader(
+        PathUtils.getPathToResource(getClass(), "PipelineTest-testCounts-drugs.txt"))) {
+      String line;
+      while ((line = reader.readLine()) != null) {
+        expectedDrugs.add(line.trim());
+      }
+    }
 
     SortedSet<String> drugs = testWrapper.getContext().getDrugReports().keySet().stream()
         .flatMap((k) -> testWrapper.getContext().getDrugReports().get(k).values().stream()
             .map(DrugReport::getName))
         .collect(Collectors.toCollection(TreeSet::new));
-    assertEquals(186, drugs.size());
+
+    if (expectedDrugs.size() != drugs.size()) {
+      Path file = Paths.get("PipelineTest-testCounts-drugs.txt");
+      System.out.println("Writing updated " + file);
+      try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file))) {
+        writer.println(String.join("\n", drugs));
+      }
+    }
+    assertEquals(expectedDrugs, drugs);
   }
 
   @Test

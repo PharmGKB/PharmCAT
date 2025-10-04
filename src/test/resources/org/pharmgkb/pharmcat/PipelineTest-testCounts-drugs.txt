@@ -1,0 +1,193 @@
+Ascorbic acid (vitamin C), combinations
+Ascorbic acid (vitamin C), plain
+abacavir
+abrocitinib
+acenocoumarol
+acetaminophen / caffeine / dihydrocodeine
+allopurinol
+amifampridine
+amifampridine phosphate
+amikacin
+amitriptyline
+amoxapine
+amphetamine
+aripiprazole
+aripiprazole lauroxil
+articaine / epinephrine
+atazanavir
+atomoxetine
+atorvastatin
+avatrombopag
+azathioprine
+belinostat
+belzutifan
+brexpiprazole
+brivaracetam
+bupivacaine
+capecitabine
+carbamazepine
+carisoprodol
+carvedilol
+celecoxib
+cevimeline
+chloroquine
+chlorpropamide
+citalopram
+clobazam
+clomipramine
+clopidogrel
+clozapine
+codeine
+dabrafenib
+dapsone
+darifenacin
+desflurane
+desipramine
+deuruxolitinib
+deutetrabenazine
+dexlansoprazole
+dextromethorphan / quinidine
+dextromethorphan hydrobromide / bupropion hydrochloride
+diazepam
+dibekacin
+dolutegravir
+donepezil
+doxepin
+dronabinol
+efavirenz
+elagolix
+eliglustat
+enflurane
+erdafitinib
+escitalopram
+esomeprazole
+fesoterodine
+flecainide
+flibanserin
+flucloxacillin
+flucytosine
+fluorouracil
+fluoxetine
+fluoxetine / olanzapine
+flurbiprofen
+flutamide
+fluvastatin
+fluvoxamine
+fosphenytoin
+galantamine
+gefitinib
+gentamicin
+glimepiride
+glipizide
+glyburide
+haloperidol
+halothane
+hydralazine
+hydrocodone
+hydroxychloroquine
+ibuprofen
+iloperidone
+imipramine
+irinotecan
+isoflurane
+isoniazid
+ivacaftor
+kanamycin
+lamotrigine
+lansoprazole
+lesinurad
+lidocaine / prilocaine
+lidocaine and tetracaine
+lofexidine
+lornoxicam
+lovastatin
+mavacamten
+meclizine
+meloxicam
+mepivacaine
+mercaptopurine
+methoxyflurane
+methylene blue
+metoclopramide
+metoprolol
+mirabegron
+moviprep
+nalidixic acid
+nateglinide
+nebivolol
+neomycin
+netilmicin
+nilotinib
+nitrofurantoin
+nortriptyline
+oliceridine
+omeprazole
+ondansetron
+oxcarbazepine
+oxymetazoline and tetracaine
+pantoprazole
+paromomycin
+paroxetine
+pazopanib
+peginterferon alfa-2a
+peginterferon alfa-2b
+pegloticase
+perphenazine
+phenprocoumon
+phenytoin
+pimozide
+piroxicam
+pitavastatin
+pitolisant
+plazomicin
+pravastatin
+primaquine
+procainamide
+propafenone
+propranolol
+protriptyline
+quetiapine
+rabeprazole
+raltegravir
+rasburicase
+ribavirin
+ribostamycin
+risperidone
+ropivacaine
+rosuvastatin
+sacituzumab govitecan
+seladelpar
+sertraline
+sevoflurane
+simvastatin
+siponimod
+sodium ascorbate
+sodium nitrite
+streptomycin
+succinylcholine
+sulfamethoxazole / trimethoprim
+sulfasalazine
+tacrolimus
+tafenoquine
+tamoxifen
+tamsulosin
+tegafur
+tenoxicam
+tetrabenazine
+thioguanine
+thioridazine
+tobramycin
+tolazamide
+tolbutamide
+tolterodine
+toluidine blue
+tramadol
+trimipramine
+tropisetron
+valbenazine
+venlafaxine
+viloxazine
+voriconazole
+vortioxetine
+warfarin
+zuclopenthixol
