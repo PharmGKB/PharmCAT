@@ -34,14 +34,13 @@
     "*36": "Uncertain function",
     "*37": "Normal function",
     "*38": "Uncertain function",
-    "*39": "Uncertain function",
+    "*39": "No function",
     "*40": "Uncertain function",
-    "*41": "Uncertain function",
+    "*41": "No function",
     "*42": "Uncertain function",
     "*43": "Unknown function",
     "*44": "Unknown function",
-    "*45": "Unknown function",
-    "*46": "No function",
+    "*45": "No function",
     "*47": "No function",
     "*48": "No function",
     "*49": "No function"
@@ -444,16 +443,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*1/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*1": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -468,16 +467,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*1/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*1": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -516,25 +515,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*1/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*1": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Decreased Function",
-      "diplotype": "*1/*46",
+      "diplotype": "*1/*45",
       "description": null,
       "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*1": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Decreased Function"
@@ -959,16 +946,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*2/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*2": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -983,16 +970,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*2/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*2": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -1031,25 +1018,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*2/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*2": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*2/*46",
+      "diplotype": "*2/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*2": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -1462,16 +1437,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*3/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*3": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -1486,16 +1461,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*3/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*3": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -1534,25 +1509,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*3/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*3": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*3/*46",
+      "diplotype": "*3/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*3": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -1953,16 +1916,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*4/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*4": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -1977,16 +1940,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*4/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*4": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -2025,25 +1988,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*4/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*4": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*4/*46",
+      "diplotype": "*4/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*4": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -2432,16 +2383,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*5/*39",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*5": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -2456,16 +2407,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*5/*41",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*5": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -2504,25 +2455,13 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*5/*45",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*5": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
       "generesult": "Poor Function",
-      "diplotype": "*5/*46",
+      "diplotype": "*5/*45",
       "description": null,
       "lookupkey": "Poor Function",
       "diplotypekey": {
         "*5": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Poor Function"
@@ -2899,16 +2838,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*6/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*6": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -2923,16 +2862,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*6/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*6": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -2971,25 +2910,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*6/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*6": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*6/*46",
+      "diplotype": "*6/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*6": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -3354,16 +3281,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*7/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*7": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -3378,16 +3305,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*7/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*7": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -3426,25 +3353,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*7/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*7": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*7/*46",
+      "diplotype": "*7/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*7": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -3797,16 +3712,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*8/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*8": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -3821,16 +3736,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*8/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*8": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -3869,25 +3784,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*8/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*8": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*8/*46",
+      "diplotype": "*8/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*8": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -4228,16 +4131,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*9/*39",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*9": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -4252,16 +4155,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*9/*41",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*9": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -4300,25 +4203,13 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*9/*45",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*9": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
       "generesult": "Poor Function",
-      "diplotype": "*9/*46",
+      "diplotype": "*9/*45",
       "description": null,
       "lookupkey": "Poor Function",
       "diplotypekey": {
         "*9": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Poor Function"
@@ -4647,16 +4538,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*10/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*10": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -4671,16 +4562,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*10/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*10": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -4719,25 +4610,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*10/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*10": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*10/*46",
+      "diplotype": "*10/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*10": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -5054,16 +4933,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*11/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*11": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5078,16 +4957,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*11/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*11": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5126,25 +5005,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*11/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*11": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*11/*46",
+      "diplotype": "*11/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*11": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -5449,16 +5316,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*12/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*12": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5473,16 +5340,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*12/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*12": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5521,25 +5388,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*12/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*12": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*12/*46",
+      "diplotype": "*12/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*12": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -5832,16 +5687,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*13/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*13": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5856,16 +5711,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*13/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*13": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -5904,25 +5759,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*13/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*13": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*13/*46",
+      "diplotype": "*13/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*13": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -6203,16 +6046,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*14/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*14": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -6227,16 +6070,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*14/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*14": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -6275,25 +6118,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*14/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*14": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Decreased Function",
-      "diplotype": "*14/*46",
+      "diplotype": "*14/*45",
       "description": null,
       "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*14": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Decreased Function"
@@ -6562,16 +6393,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*15/*39",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*15": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -6586,16 +6417,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*15/*41",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*15": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -6634,25 +6465,13 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*15/*45",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*15": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
       "generesult": "Poor Function",
-      "diplotype": "*15/*46",
+      "diplotype": "*15/*45",
       "description": null,
       "lookupkey": "Poor Function",
       "diplotypekey": {
         "*15": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Poor Function"
@@ -6909,16 +6728,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*16/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*16": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -6933,16 +6752,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*16/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*16": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -6981,25 +6800,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*16/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*16": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*16/*46",
+      "diplotype": "*16/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*16": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -7244,16 +7051,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*19/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*19": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -7268,16 +7075,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*19/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*19": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -7316,25 +7123,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*19/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*19": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*19/*46",
+      "diplotype": "*19/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*19": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -7567,16 +7362,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*20/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*20": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -7591,16 +7386,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*20/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*20": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -7639,25 +7434,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*20/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*20": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Decreased Function",
-      "diplotype": "*20/*46",
+      "diplotype": "*20/*45",
       "description": null,
       "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*20": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Decreased Function"
@@ -7878,16 +7661,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*23/*39",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*23": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -7902,16 +7685,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*23/*41",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*23": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -7950,25 +7733,13 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*23/*45",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*23": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
       "generesult": "Poor Function",
-      "diplotype": "*23/*46",
+      "diplotype": "*23/*45",
       "description": null,
       "lookupkey": "Poor Function",
       "diplotypekey": {
         "*23": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Poor Function"
@@ -8177,16 +7948,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*24/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*24": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8201,16 +7972,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*24/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*24": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8249,25 +8020,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*24/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*24": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*24/*46",
+      "diplotype": "*24/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*24": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -8464,16 +8223,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*25/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*25": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8488,16 +8247,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*25/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*25": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8536,25 +8295,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*25/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*25": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*25/*46",
+      "diplotype": "*25/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*25": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -8739,16 +8486,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*26/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*26": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8763,16 +8510,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*26/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*26": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -8811,25 +8558,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*26/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*26": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*26/*46",
+      "diplotype": "*26/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*26": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -9002,16 +8737,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*27/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*27": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9026,16 +8761,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*27/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*27": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9074,25 +8809,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*27/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*27": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*27/*46",
+      "diplotype": "*27/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*27": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -9253,16 +8976,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*28/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*28": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9277,16 +9000,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*28/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*28": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9325,25 +9048,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*28/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*28": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*28/*46",
+      "diplotype": "*28/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*28": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -9492,16 +9203,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*29/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*29": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9516,16 +9227,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*29/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*29": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9564,25 +9275,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*29/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*29": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*29/*46",
+      "diplotype": "*29/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*29": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -9719,16 +9418,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*30/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*30": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9743,16 +9442,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*30/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*30": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -9791,25 +9490,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*30/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*30": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*30/*46",
+      "diplotype": "*30/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*30": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -9934,16 +9621,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*31/*39",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*31": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -9958,16 +9645,16 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*31/*41",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*31": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Possible Decreased Function",
@@ -10006,25 +9693,13 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*31/*45",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*31": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
       "generesult": "Poor Function",
-      "diplotype": "*31/*46",
+      "diplotype": "*31/*45",
       "description": null,
       "lookupkey": "Poor Function",
       "diplotypekey": {
         "*31": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Poor Function"
@@ -10137,16 +9812,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*32/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*32": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10161,16 +9836,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*32/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*32": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10209,25 +9884,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*32/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*32": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*32/*46",
+      "diplotype": "*32/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*32": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -10328,16 +9991,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*33/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*33": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10352,16 +10015,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*33/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*33": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10400,25 +10063,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*33/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*33": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*33/*46",
+      "diplotype": "*33/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*33": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -10507,16 +10158,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*34/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*34": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10531,16 +10182,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*34/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*34": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10579,25 +10230,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*34/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*34": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*34/*46",
+      "diplotype": "*34/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*34": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -10674,16 +10313,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*36/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*36": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10698,16 +10337,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*36/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*36": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10746,25 +10385,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*36/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*36": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*36/*46",
+      "diplotype": "*36/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*36": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -10829,16 +10456,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*37/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*37": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10853,16 +10480,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Decreased Function",
       "diplotype": "*37/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*37": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10901,25 +10528,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*37/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*37": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Decreased Function",
-      "diplotype": "*37/*46",
+      "diplotype": "*37/*45",
       "description": null,
       "lookupkey": "Decreased Function",
       "diplotypekey": {
         "*37": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Decreased Function"
@@ -10972,16 +10587,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*38/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*38": 1,
         "*39": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -10996,16 +10611,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*38/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*38": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -11044,25 +10659,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*38/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*38": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*38/*46",
+      "diplotype": "*38/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*38": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -11104,135 +10707,123 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*39/*39",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 2
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*39/*40",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*39": 1,
         "*40": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*39/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*39/*42",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*39": 1,
         "*42": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*39/*43",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*39": 1,
         "*43": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*39/*44",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*39": 1,
         "*44": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*39/*45",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 1,
         "*45": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*39/*46",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*39": 1,
-        "*46": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*39/*47",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 1,
         "*47": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*39/*48",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 1,
         "*48": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*39/*49",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*39": 1,
         "*49": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Indeterminate",
@@ -11246,16 +10837,16 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*40/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*40": 1,
         "*41": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
       "generesult": "Indeterminate",
@@ -11294,25 +10885,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*40/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*40": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*40/*46",
+      "diplotype": "*40/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*40": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -11354,111 +10933,99 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*41/*41",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*41": 2
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*41/*42",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*41": 1,
         "*42": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*41/*43",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*41": 1,
         "*43": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Possible Decreased Function",
       "diplotype": "*41/*44",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*41": 1,
         "*44": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*41/*45",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*41": 1,
         "*45": 1
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*41/*46",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*41": 1,
-        "*46": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*41/*47",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*41": 1,
         "*47": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*41/*48",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*41": 1,
         "*48": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*41/*49",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*41": 1,
         "*49": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
       "generesult": "Indeterminate",
@@ -11496,25 +11063,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*42/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*42": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*42/*46",
+      "diplotype": "*42/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*42": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -11579,25 +11134,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*43/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*43": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*43/*46",
+      "diplotype": "*43/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*43": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -11650,25 +11193,13 @@
       "phenotype": "Indeterminate"
     },
     {
-      "generesult": "Indeterminate",
-      "diplotype": "*44/*45",
-      "description": null,
-      "lookupkey": "Indeterminate",
-      "diplotypekey": {
-        "*44": 1,
-        "*45": 1
-      },
-      "activityScore": null,
-      "phenotype": "Indeterminate"
-    },
-    {
       "generesult": "Possible Decreased Function",
-      "diplotype": "*44/*46",
+      "diplotype": "*44/*45",
       "description": null,
       "lookupkey": "Possible Decreased Function",
       "diplotypekey": {
         "*44": 1,
-        "*46": 1
+        "*45": 1
       },
       "activityScore": null,
       "phenotype": "Possible Decreased Function"
@@ -11710,106 +11241,47 @@
       "phenotype": "Possible Decreased Function"
     },
     {
-      "generesult": "Indeterminate",
+      "generesult": "Poor Function",
       "diplotype": "*45/*45",
       "description": null,
-      "lookupkey": "Indeterminate",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*45": 2
       },
       "activityScore": null,
-      "phenotype": "Indeterminate"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
-      "diplotype": "*45/*46",
-      "description": null,
-      "lookupkey": "Possible Decreased Function",
-      "diplotypekey": {
-        "*45": 1,
-        "*46": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*45/*47",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*45": 1,
         "*47": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*45/*48",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*45": 1,
         "*48": 1
       },
       "activityScore": null,
-      "phenotype": "Possible Decreased Function"
+      "phenotype": "Poor Function"
     },
     {
-      "generesult": "Possible Decreased Function",
+      "generesult": "Poor Function",
       "diplotype": "*45/*49",
       "description": null,
-      "lookupkey": "Possible Decreased Function",
+      "lookupkey": "Poor Function",
       "diplotypekey": {
         "*45": 1,
-        "*49": 1
-      },
-      "activityScore": null,
-      "phenotype": "Possible Decreased Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*46/*46",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*46": 2
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*46/*47",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*46": 1,
-        "*47": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*46/*48",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*46": 1,
-        "*48": 1
-      },
-      "activityScore": null,
-      "phenotype": "Poor Function"
-    },
-    {
-      "generesult": "Poor Function",
-      "diplotype": "*46/*49",
-      "description": null,
-      "lookupkey": "Poor Function",
-      "diplotypekey": {
-        "*46": 1,
         "*49": 1
       },
       "activityScore": null,
@@ -12087,8 +11559,8 @@
     {
       "name": "*39",
       "activityValue": null,
-      "functionValue": "Uncertain function",
-      "lookupKey": "Uncertain function"
+      "functionValue": "No function",
+      "lookupKey": "No function"
     },
     {
       "name": "*40",
@@ -12099,8 +11571,8 @@
     {
       "name": "*41",
       "activityValue": null,
-      "functionValue": "Uncertain function",
-      "lookupKey": "Uncertain function"
+      "functionValue": "No function",
+      "lookupKey": "No function"
     },
     {
       "name": "*42",
@@ -12122,12 +11594,6 @@
     },
     {
       "name": "*45",
-      "activityValue": null,
-      "functionValue": "Unknown function",
-      "lookupKey": "Unknown function"
-    },
-    {
-      "name": "*46",
       "activityValue": null,
       "functionValue": "No function",
       "lookupKey": "No function"
@@ -12151,5 +11617,5 @@
       "lookupKey": "No function"
     }
   ],
-  "version": "2025-07-31-15-02"
+  "version": "2025-09-25-21-40"
 }

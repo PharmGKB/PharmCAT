@@ -1,4 +1,4 @@
-PharmCAT v3.0.1-7-g5487baa7
+PharmCAT v3.0.1-41-g15dd9f18
 Gene	Source Diplotype	Phenotype	Activity Score	Haplotype 1	Haplotype 1 Function	Haplotype 1 Activity Value	Haplotype 2	Haplotype 2 Function	Haplotype 2 Activity Value	Outside Call	Match Score	Missing positions	Recommendation Lookup Diplotype	Recommendation Lookup Phenotype	Recommendation Lookup Activity Score
 RYR1	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		RYR1 Reference	Normal function		no	626	no	Reference/Reference	Uncertain Susceptibility	
 VKORC1	rs9923231 reference (C)/rs9923231 reference (C)			rs9923231 reference (C)			VKORC1 rs9923231 reference (C)			no	2	no	rs9923231 reference (C)/rs9923231 reference (C)		
@@ -13,10 +13,10 @@ CYP2C9	*1/*1	Normal Metabolizer	2.0	*1	Normal function	1.0	CYP2C9*1	Normal funct
 SLCO1B1	*1/*1	Normal Function		*1	Normal function		SLCO1B1*1	Normal function		no	70	no	*1/*1	Normal Function	
 CYP2B6	*1/*1	Normal Metabolizer		*1	Normal function		CYP2B6*1	Normal function		no	96	no	*1/*1	Normal Metabolizer	
 CYP2D6	*1/*3	Intermediate Metabolizer	1.0	*1	Normal function	1.0	CYP2D6*3	No function	0.0	yes	0	no	*1/*3	Intermediate Metabolizer	1.0
-DPYD	Reference/Reference	Normal Metabolizer	2.0	Reference	Normal function	1.0	DPYD Reference	Normal function	1.0	no	162	no	Reference/Reference	Normal Metabolizer	2.0
+NAT2	*1/*1	Rapid Metabolizer		*1	Increased function		NAT2*1	Increased function		no	94	no	*1/*1	Rapid Metabolizer	
+DPYD	Reference/Reference	Normal Metabolizer	2.0	Reference	Normal function	1.0	DPYD Reference	Normal function	1.0	no	166	no	Reference/Reference	Normal Metabolizer	2.0
 CACNA1S	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		CACNA1S Reference	Normal function		no	4	no	Reference/Reference	Uncertain Susceptibility	
 NUDT15	*1/*1	Normal Metabolizer		*1	Normal function		NUDT15*1	Normal function		no	36	no	*1/*1	Normal Metabolizer	
 IFNL3	rs12979860 reference (C)/rs12979860 reference (C)	 		rs12979860 reference (C)	Favorable response allele		IFNL3 rs12979860 reference (C)	Favorable response allele		no	2	no	rs12979860 reference (C)/rs12979860 reference (C)	 	
-CFTR	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		CFTR ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		no	78	no	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients	
+CFTR	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		CFTR ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		no	186	no	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients	
 ABCG2	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function		rs2231142 reference (G)	Normal function		ABCG2 rs2231142 reference (G)	Normal function		no	2	no	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function	
-NAT2	*1/*1			*1			NAT2*1			no	94	no			

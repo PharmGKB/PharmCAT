@@ -47,7 +47,7 @@ updateData: clean
 	mv -f src/main/resources/org/pharmgkb/pharmcat/definition/alleles/pharmcat_regions.bed .
 	@echo ""
 	@echo "Updating examples..."
-	@${GRADLE_CMD} updateExample
+	@${GRADLE_CMD} updateExampleSamples updateExample1 updateExample2
 	# this reverts files with only EOL changes
 	@git stash
 	@git stash pop

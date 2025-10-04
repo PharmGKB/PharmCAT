@@ -29,7 +29,7 @@ match them to known allele definitions.
 | [DPYD](/Phenotypes-List#dpyd) | :heavy_check_mark: | :heavy_check_mark: |
 | [G6PD](/Phenotypes-List#g6pd) | :heavy_check_mark: |  |
 | [IFNL3](/Phenotypes-List#ifnl3) | :heavy_check_mark: |  |
-| [NAT2](/Phenotypes-List#nat2) |  |  |
+| [NAT2](/Phenotypes-List#nat2) | :heavy_check_mark: |  |
 | [NUDT15](/Phenotypes-List#nudt15) | :heavy_check_mark: | :heavy_check_mark: |
 | [RYR1](/Phenotypes-List#ryr1) | :heavy_check_mark: |  |
 | [SLCO1B1](/Phenotypes-List#slco1b1) | :heavy_check_mark: | :heavy_check_mark: |
@@ -63,7 +63,7 @@ HLA calls, respectively, using sequencing data.
 
 ## Drugs
 
-The following table lists the 186 drugs for which PharmCAT has recommendations for, along with their sources.
+The following table lists the 193 drugs for which PharmCAT has recommendations for, along with their sources.
 
 | Drug | CPIC | DPWG | FDA Label | FDA PGx Assoc |
 | :--- | :---: | :---: | :---: | :---: |
@@ -74,6 +74,8 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | acenocoumarol |  | :heavy_check_mark: |  |  |
 | acetaminophen / caffeine / dihydrocodeine |  |  | :heavy_check_mark: |  |
 | allopurinol | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| amifampridine |  |  | :heavy_check_mark: | :heavy_check_mark: |
+| amifampridine phosphate |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | amikacin | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | amitriptyline | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | amoxapine |  |  |  | :heavy_check_mark: |
@@ -135,6 +137,7 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | flucytosine |  | :heavy_check_mark: |  |  |
 | fluorouracil | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | fluoxetine |  |  | :heavy_check_mark: |  |
+| fluoxetine / olanzapine |  |  | :heavy_check_mark: |  |
 | flurbiprofen | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | flutamide |  |  | :heavy_check_mark: |  |
 | fluvastatin | :heavy_check_mark: |  |  |  |
@@ -148,6 +151,7 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | glyburide |  |  | :heavy_check_mark: |  |
 | haloperidol |  | :heavy_check_mark: |  |  |
 | halothane | :heavy_check_mark: |  |  |  |
+| hydralazine | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | hydrocodone | :heavy_check_mark: |  |  |  |
 | hydroxychloroquine |  |  | :heavy_check_mark: |  |
 | ibuprofen | :heavy_check_mark: |  |  | :heavy_check_mark: |
@@ -155,6 +159,7 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | imipramine | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | irinotecan |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | isoflurane | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| isoniazid |  |  |  | :heavy_check_mark: |
 | ivacaftor | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | kanamycin | :heavy_check_mark: |  |  |  |
 | lamotrigine |  | :heavy_check_mark: |  |  |
@@ -165,7 +170,7 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | lofexidine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | lornoxicam | :heavy_check_mark: |  |  |  |
 | lovastatin | :heavy_check_mark: |  |  |  |
-| mavacamten |  |  |  | :heavy_check_mark: |
+| mavacamten |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | meclizine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | meloxicam | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | mepivacaine |  |  | :heavy_check_mark: |  |
@@ -206,6 +211,7 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | plazomicin | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | pravastatin | :heavy_check_mark: |  |  |  |
 | primaquine | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| procainamide |  |  |  | :heavy_check_mark: |
 | propafenone |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | propranolol |  |  |  | :heavy_check_mark: |
 | protriptyline |  |  |  | :heavy_check_mark: |
@@ -228,7 +234,8 @@ The following table lists the 186 drugs for which PharmCAT has recommendations f
 | sodium nitrite |  |  | :heavy_check_mark: |  |
 | streptomycin | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | succinylcholine | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| sulfasalazine |  |  | :heavy_check_mark: |  |
+| sulfamethoxazole / trimethoprim |  |  |  | :heavy_check_mark: |
+| sulfasalazine |  |  | :heavy_check_mark: | :heavy_check_mark: |
 | tacrolimus | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | tafenoquine | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | tamoxifen | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |

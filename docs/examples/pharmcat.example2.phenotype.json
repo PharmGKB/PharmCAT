@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2025-08-03T21:34:22.031Z",
+    "timestamp": "2025-10-04T03:35:17.516Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,
@@ -13,9 +13,9 @@
   "geneReports": {
     "CPIC": {
       "ABCG2": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -57,6 +57,7 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -98,6 +99,7 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -127,9 +129,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CACNA1S": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CACNA1S",
         "chr": "chr1",
@@ -179,6 +181,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -220,6 +223,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -264,9 +268,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CFTR": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CFTR",
         "chr": "chr7",
@@ -293,7 +297,7 @@
               "activityValue": "n/a"
             },
             "gene": "CFTR",
-            "matchScore": 78,
+            "matchScore": 186,
             "phenotypes": [
               "ivacaftor non-responsive in CF patients"
             ],
@@ -308,6 +312,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -334,7 +339,7 @@
               "activityValue": "n/a"
             },
             "gene": "CFTR",
-            "matchScore": 78,
+            "matchScore": 186,
             "phenotypes": [
               "ivacaftor non-responsive in CF patients"
             ],
@@ -349,6 +354,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -405,6 +411,21 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117509093,
+            "dbSnpId": "rs1800076",
+            "call": "G/G",
+            "alleles": [
+              "R75Q"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117530953,
             "dbSnpId": "rs113993958",
             "call": "G/G",
@@ -439,7 +460,8 @@
             "dbSnpId": "rs77834169",
             "call": "C/C",
             "alleles": [
-              "R117C"
+              "R117C",
+              "R117G"
             ],
             "phased": false,
             "phaseSet": null,
@@ -454,11 +476,88 @@
             "dbSnpId": "rs78655421",
             "call": "G/G",
             "alleles": [
-              "R117H"
+              "R117H",
+              "R117L",
+              "R117P"
             ],
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117530983,
+            "dbSnpId": "rs201958172",
+            "call": "G/G",
+            "alleles": [
+              "A120T"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117531068,
+            "dbSnpId": "rs35516286",
+            "call": "T/T",
+            "alleles": [
+              "I148T"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117531079,
+            "dbSnpId": "rs397508721",
+            "call": "A/A",
+            "alleles": [
+              "M152V"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117534295,
+            "dbSnpId": "rs1800079",
+            "call": "G/G",
+            "alleles": [
+              "R170H"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117534309,
+            "dbSnpId": "rs397508744",
+            "call": "A/A",
+            "alleles": [
+              "I175V"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -474,6 +573,36 @@
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117534319,
+            "dbSnpId": "rs397508748",
+            "call": "G/G",
+            "alleles": [
+              "G178E"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117534361,
+            "dbSnpId": "rs397508758",
+            "call": "A/A",
+            "alleles": [
+              "D192G"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -510,6 +639,22 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117535248,
+            "dbSnpId": "rs376008630",
+            "call": "G/G",
+            "alleles": [
+              "G194R(G>A)",
+              "G194R(G>C)"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117535285,
             "dbSnpId": "rs121908752",
             "call": "T/T",
@@ -525,15 +670,166 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
-            "position": 117540270,
-            "dbSnpId": "rs77932196",
+            "position": 117535363,
+            "dbSnpId": "rs397508783",
+            "call": "T/T",
+            "alleles": [
+              "V232D"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117535369,
+            "dbSnpId": "rs769016520",
+            "call": "C/C",
+            "alleles": [
+              "A234D"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117535377,
+            "dbSnpId": "rs397508784",
+            "call": "C/C",
+            "alleles": [
+              "Q237E"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117535379,
+            "dbSnpId": "rs397508785",
             "call": "G/G",
             "alleles": [
-              "R347H"
+              "Q237H"
             ],
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540156,
+            "dbSnpId": null,
+            "call": "CCTT/CCTT",
+            "alleles": [
+              "F311del"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "CCTT",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540161,
+            "dbSnpId": "rs2116683801",
+            "call": "T/T",
+            "alleles": [
+              "F311L"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540171,
+            "dbSnpId": "rs75763344",
+            "call": "G/G",
+            "alleles": [
+              "G314E"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540188,
+            "dbSnpId": "rs144476686",
+            "call": "T/T",
+            "alleles": [
+              "L320V"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540243,
+            "dbSnpId": "rs77409459",
+            "call": "C/C",
+            "alleles": [
+              "T338I"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540270,
+            "dbSnpId": "rs77932196",
+            "call": "G/G",
+            "alleles": [
+              "R347H",
+              "R347L"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117540276,
+            "dbSnpId": "rs121909021",
+            "call": "C/C",
+            "alleles": [
+              "A349V"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -555,6 +851,21 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117540306,
+            "dbSnpId": "rs397508153",
+            "call": "A/A",
+            "alleles": [
+              "Q359R"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117548795,
             "dbSnpId": "rs74551128",
             "call": "C/C",
@@ -564,6 +875,22 @@
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117559594,
+            "dbSnpId": "rs74571530",
+            "call": "T/T",
+            "alleles": [
+              "F508C",
+              "F508C,S1251N"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -645,6 +972,51 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117587812,
+            "dbSnpId": "rs121909044",
+            "call": "G/G",
+            "alleles": [
+              "R553Q"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117590357,
+            "dbSnpId": "rs1800097",
+            "call": "G/G",
+            "alleles": [
+              "V562I"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117590400,
+            "dbSnpId": "rs1800098",
+            "call": "G/G",
+            "alleles": [
+              "G576A"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117590409,
             "dbSnpId": "rs397508288",
             "call": "A/A",
@@ -654,6 +1026,111 @@
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117590439,
+            "dbSnpId": "rs397508300",
+            "call": "G/G",
+            "alleles": [
+              "S589N"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592169,
+            "dbSnpId": "rs1800100",
+            "call": "C/C",
+            "alleles": [
+              "R668C"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592377,
+            "dbSnpId": "rs186089140",
+            "call": "C/C",
+            "alleles": [
+              "S737F"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592427,
+            "dbSnpId": "rs150157202",
+            "call": "G/G",
+            "alleles": [
+              "V754M"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592541,
+            "dbSnpId": "rs145449046",
+            "call": "C/C",
+            "alleles": [
+              "R792G"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592588,
+            "dbSnpId": "rs1800103",
+            "call": "A/A",
+            "alleles": [
+              "I807M"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117592631,
+            "dbSnpId": "rs397508378",
+            "call": "G/G",
+            "alleles": [
+              "E822K"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -690,6 +1167,51 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117603644,
+            "dbSnpId": "rs201759207",
+            "call": "G/G",
+            "alleles": [
+              "D924N"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117603671,
+            "dbSnpId": "rs397508436",
+            "call": "A/A",
+            "alleles": [
+              "R933G"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117603690,
+            "dbSnpId": "rs397508440",
+            "call": "A/A",
+            "alleles": [
+              "H939R"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117603708,
             "dbSnpId": "rs397508442",
             "call": "C/C",
@@ -705,6 +1227,68 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117603729,
+            "dbSnpId": "rs142773283",
+            "call": "T/T",
+            "alleles": [
+              "M952T"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117603730,
+            "dbSnpId": "rs151048781",
+            "call": "G/G",
+            "alleles": [
+              "M952I(G>A)",
+              "M952I(G>C)",
+              "M952I(G>T)"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117603774,
+            "dbSnpId": "rs1800110",
+            "call": "T/T",
+            "alleles": [
+              "L967S"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117606674,
+            "dbSnpId": "rs386134230",
+            "call": "G/G",
+            "alleles": [
+              "G970D"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117606695,
             "dbSnpId": "rs141033578",
             "call": "C/C",
@@ -714,6 +1298,67 @@
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117610521,
+            "dbSnpId": "rs1800111",
+            "call": "G/G",
+            "alleles": [
+              "L997F(G>C)",
+              "L997F(G>T)"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117610571,
+            "dbSnpId": "rs149279509",
+            "call": "A/A",
+            "alleles": [
+              "Y1014C"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117610610,
+            "dbSnpId": "rs1800112",
+            "call": "T/T",
+            "alleles": [
+              "I1027T"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117610625,
+            "dbSnpId": "rs144055758",
+            "call": "A/A",
+            "alleles": [
+              "Y1032C"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -744,6 +1389,21 @@
             "phased": false,
             "phaseSet": null,
             "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117611599,
+            "dbSnpId": "rs140883683",
+            "call": "C/C",
+            "alleles": [
+              "T1053I"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
             "hasUndocumentedVariations": false,
             "warnings": []
           },
@@ -840,11 +1500,71 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117614660,
+            "dbSnpId": "rs397508556",
+            "call": "A/A",
+            "alleles": [
+              "I1139V"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117614699,
             "dbSnpId": "rs75541969",
             "call": "G/G",
             "alleles": [
               "D1152H"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117627528,
+            "dbSnpId": "rs397508572",
+            "call": "T/T",
+            "alleles": [
+              "S1159P"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117627529,
+            "dbSnpId": "rs397508573",
+            "call": "C/C",
+            "alleles": [
+              "S1159F"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117627538,
+            "dbSnpId": "rs1800120",
+            "call": "G/G",
+            "alleles": [
+              "R1162L"
             ],
             "phased": false,
             "phaseSet": null,
@@ -885,10 +1605,27 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117642465,
+            "dbSnpId": "rs397508602",
+            "call": "G/G",
+            "alleles": [
+              "G1249R(G>A)",
+              "G1249R(G>C)"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117642472,
             "dbSnpId": "rs74503330",
             "call": "G/G",
             "alleles": [
+              "F508C,S1251N",
               "S1251N"
             ],
             "phased": false,
@@ -930,6 +1667,66 @@
           {
             "gene": "CFTR",
             "chromosome": "chr7",
+            "position": 117642564,
+            "dbSnpId": "rs397508616",
+            "call": "T/T",
+            "alleles": [
+              "W1282R"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117642568,
+            "dbSnpId": "rs77902683",
+            "call": "G/G",
+            "alleles": [
+              "R1283M"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117642592,
+            "dbSnpId": "rs397508621",
+            "call": "A/A",
+            "alleles": [
+              "Q1291R"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117652846,
+            "dbSnpId": null,
+            "call": "T/T",
+            "alleles": [
+              "V1293G"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
             "position": 117664770,
             "dbSnpId": "rs193922525",
             "call": "G/G",
@@ -941,6 +1738,36 @@
             "referenceAllele": "G",
             "hasUndocumentedVariations": false,
             "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117664848,
+            "dbSnpId": "rs397508678",
+            "call": "A/A",
+            "alleles": [
+              "H1375P"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "CFTR",
+            "chromosome": "chr7",
+            "position": 117667104,
+            "dbSnpId": "rs758818611",
+            "call": "T/T",
+            "alleles": [
+              "L1480P"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
           }
         ],
         "variantsOfInterest": [],
@@ -948,9 +1775,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -1000,6 +1827,7 @@
             ],
             "label": "*1/*6",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -1042,6 +1870,7 @@
             ],
             "label": "*1/*6",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -1818,9 +2647,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -1862,6 +2691,7 @@
             ],
             "label": "*2/*2",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -1903,6 +2733,7 @@
             ],
             "label": "*2/*2",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -2515,9 +3346,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -2567,6 +3398,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -2608,6 +3440,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -3893,7 +4726,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -3935,6 +4768,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -3976,6 +4810,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -3989,9 +4824,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -4041,6 +4876,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4082,6 +4918,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4171,7 +5008,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP4F2": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -4219,6 +5056,7 @@
             "lookupKey": [],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4256,6 +5094,7 @@
             "lookupKey": [],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4574,9 +5413,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -4611,7 +5450,7 @@
               "activityValue": "1.0"
             },
             "gene": "DPYD",
-            "matchScore": 162,
+            "matchScore": 166,
             "phenotypes": [
               "Normal Metabolizer"
             ],
@@ -4626,6 +5465,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4644,7 +5484,7 @@
             },
             "allele2": null,
             "gene": "DPYD",
-            "matchScore": 81,
+            "matchScore": 83,
             "phenotypes": [
               "Indeterminate"
             ],
@@ -4659,6 +5499,7 @@
             ],
             "label": "Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -4699,6 +5540,46 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": [
+              {
+                "allele1": {
+                  "gene": "DPYD",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "1.0"
+                },
+                "allele2": {
+                  "gene": "DPYD",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "1.0"
+                },
+                "gene": "DPYD",
+                "matchScore": 166,
+                "phenotypes": [
+                  "Normal Metabolizer"
+                ],
+                "outsidePhenotype": false,
+                "outsidePhenotypeMismatch": null,
+                "activityScore": "2.0",
+                "outsideActivityScore": false,
+                "outsideActivityScoreMismatch": null,
+                "variant": null,
+                "lookupKey": [
+                  "2.0"
+                ],
+                "label": "Reference/Reference",
+                "inferred": false,
+                "inferredSourceDiplotypes": null,
+                "combination": false,
+                "phenotypeDataSource": "CPIC",
+                "diplotypeKey": {
+                  "Reference": 2.0
+                }
+              }
+            ],
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -5959,9 +6840,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "G6PD": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "G6PD",
         "chr": "chrX",
@@ -6011,6 +6892,7 @@
             ],
             "label": "B (reference)/B (reference)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -6052,6 +6934,7 @@
             ],
             "label": "B (reference)/B (reference)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8706,6 +9589,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8745,6 +9629,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8800,6 +9685,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8839,6 +9725,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8852,9 +9739,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "IFNL3": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "IFNL3",
         "chr": "chr19",
@@ -8896,6 +9783,7 @@
             ],
             "label": "rs12979860 reference (C)/rs12979860 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8937,6 +9825,7 @@
             ],
             "label": "rs12979860 reference (C)/rs12979860 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -8968,7 +9857,7 @@
       "MT-RNR1": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "MT-RNR1",
         "chr": null,
@@ -9004,6 +9893,7 @@
             ],
             "label": "Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9039,6 +9929,7 @@
             ],
             "label": "Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9051,10 +9942,900 @@
         "hasUndocumentedVariations": false,
         "treatUndocumentedVariationsAsReference": false
       },
-      "NUDT15": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+      "NAT2": {
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
+        "phenotypeSource": "CPIC",
+        "geneSymbol": "NAT2",
+        "chr": "chr8",
+        "phased": false,
+        "effectivelyPhased": true,
+        "callSource": "MATCHER",
+        "uncalledHaplotypes": [],
+        "messages": [
+          {
+            "rule_name": "reference-allele",
+            "version": null,
+            "matches": null,
+            "exception_type": "note",
+            "message": "The NAT2 *1 allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions."
+          }
+        ],
+        "relatedDrugs": [],
+        "sourceDiplotypes": [
+          {
+            "allele1": {
+              "gene": "NAT2",
+              "name": "*1",
+              "function": "Increased function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "NAT2",
+              "name": "*1",
+              "function": "Increased function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "gene": "NAT2",
+            "matchScore": 94,
+            "phenotypes": [
+              "Rapid Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "Rapid Metabolizer"
+            ],
+            "label": "*1/*1",
+            "inferred": false,
+            "inferredSourceDiplotypes": null,
+            "combination": false,
+            "phenotypeDataSource": "CPIC",
+            "diplotypeKey": {
+              "*1": 2.0
+            }
+          }
+        ],
+        "matcherComponentHaplotypes": [],
+        "matcherHomozygousComponentHaplotypes": [],
+        "recommendationDiplotypes": [
+          {
+            "allele1": {
+              "gene": "NAT2",
+              "name": "*1",
+              "function": "Increased function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "allele2": {
+              "gene": "NAT2",
+              "name": "*1",
+              "function": "Increased function",
+              "reference": true,
+              "activityValue": "n/a"
+            },
+            "gene": "NAT2",
+            "matchScore": 94,
+            "phenotypes": [
+              "Rapid Metabolizer"
+            ],
+            "outsidePhenotype": false,
+            "outsidePhenotypeMismatch": null,
+            "activityScore": null,
+            "outsideActivityScore": false,
+            "outsideActivityScoreMismatch": null,
+            "variant": null,
+            "lookupKey": [
+              "Rapid Metabolizer"
+            ],
+            "label": "*1/*1",
+            "inferred": false,
+            "inferredSourceDiplotypes": null,
+            "combination": false,
+            "phenotypeDataSource": "CPIC",
+            "diplotypeKey": {
+              "*1": 2.0
+            }
+          }
+        ],
+        "variants": [
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400010,
+            "dbSnpId": "rs200893121",
+            "call": "A/A",
+            "alleles": [
+              "*50"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400032,
+            "dbSnpId": "rs72466456",
+            "call": "T/T",
+            "alleles": [
+              "*45",
+              "*54"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400054,
+            "dbSnpId": "rs201339185",
+            "call": "C/C",
+            "alleles": [
+              "*55"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400061,
+            "dbSnpId": "rs532310930",
+            "call": "G/G",
+            "alleles": [
+              "*56"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400070,
+            "dbSnpId": "rs1464413878",
+            "call": "A/A",
+            "alleles": [
+              "*72"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400073,
+            "dbSnpId": "rs45477599",
+            "call": "T/T",
+            "alleles": [
+              "*31"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400124,
+            "dbSnpId": "rs149283608",
+            "call": "A/A",
+            "alleles": [
+              "*51"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400155,
+            "dbSnpId": "rs72466457",
+            "call": "G/G",
+            "alleles": [
+              "*35"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400193,
+            "dbSnpId": "rs1805158",
+            "call": "C/C",
+            "alleles": [
+              "*19"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400194,
+            "dbSnpId": "rs1801279",
+            "call": "G/G",
+            "alleles": [
+              "*14",
+              "*15",
+              "*29",
+              "*46",
+              "*47"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400206,
+            "dbSnpId": "rs72466458",
+            "call": "G/G",
+            "alleles": [
+              "*32"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400251,
+            "dbSnpId": "rs561124342",
+            "call": "G/G",
+            "alleles": [
+              "*53"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400267,
+            "dbSnpId": "rs2535896050",
+            "call": "G/G",
+            "alleles": [
+              "*75"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400324,
+            "dbSnpId": "rs549917500",
+            "call": "C/C",
+            "alleles": [
+              "*57"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400344,
+            "dbSnpId": "rs1801280",
+            "call": "T/T",
+            "alleles": [
+              "*5",
+              "*16",
+              "*29",
+              "*30",
+              "*31",
+              "*32",
+              "*33",
+              "*49",
+              "*69",
+              "*70",
+              "*72",
+              "*73",
+              "*75"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400349,
+            "dbSnpId": "rs183409091",
+            "call": "G/G",
+            "alleles": [
+              "*58"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400367,
+            "dbSnpId": "rs4986996",
+            "call": "G/G",
+            "alleles": [
+              "*48"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400406,
+            "dbSnpId": "rs12720065",
+            "call": "C/C",
+            "alleles": [
+              "*36",
+              "*44"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400461,
+            "dbSnpId": "rs72466460",
+            "call": "C/C",
+            "alleles": [
+              "*21"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400475,
+            "dbSnpId": "rs139351995",
+            "call": "A/A",
+            "alleles": [
+              "*33"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400478,
+            "dbSnpId": "rs537007806",
+            "call": "T/T",
+            "alleles": [
+              "*59"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400494,
+            "dbSnpId": "rs139512288",
+            "call": "T/T",
+            "alleles": [
+              "*60"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400502,
+            "dbSnpId": "rs72554617",
+            "call": "G/G",
+            "alleles": [
+              "*10"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400509,
+            "dbSnpId": "rs200585149",
+            "call": "A/A",
+            "alleles": [
+              "*61"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400521,
+            "dbSnpId": "rs369500066",
+            "call": "A/A",
+            "alleles": [
+              "*52"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400539,
+            "dbSnpId": "rs572750517",
+            "call": "A/A",
+            "alleles": [
+              "*62"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400581,
+            "dbSnpId": "rs79050330",
+            "call": "C/C",
+            "alleles": [
+              "*41",
+              "*49"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400583,
+            "dbSnpId": "rs774002627",
+            "call": "C/C",
+            "alleles": [
+              "*68"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400592,
+            "dbSnpId": "rs375746304",
+            "call": "C/C",
+            "alleles": [
+              "*27",
+              "*69"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400593,
+            "dbSnpId": "rs1799930",
+            "call": "G/G",
+            "alleles": [
+              "*6",
+              "*15",
+              "*30",
+              "*34",
+              "*35",
+              "*36",
+              "*37",
+              "*38",
+              "*39",
+              "*50",
+              "*52",
+              "*53",
+              "*56",
+              "*58",
+              "*62",
+              "*63",
+              "*64",
+              "*66",
+              "*67"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400599,
+            "dbSnpId": "rs761741098",
+            "call": "T/T",
+            "alleles": [
+              "*70"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400612,
+            "dbSnpId": "rs45618543",
+            "call": "G/G",
+            "alleles": [
+              "*43"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400616,
+            "dbSnpId": "rs45607939",
+            "call": "A/A",
+            "alleles": [
+              "*65"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400625,
+            "dbSnpId": "rs56387565",
+            "call": "T/T",
+            "alleles": [
+              "*42"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400641,
+            "dbSnpId": "rs138707146",
+            "call": "C/C",
+            "alleles": [
+              "*37"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400653,
+            "dbSnpId": "rs568110818",
+            "call": "T/T",
+            "alleles": [
+              "*63"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400685,
+            "dbSnpId": "rs150329557",
+            "call": "C/C",
+            "alleles": [
+              "*66"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400686,
+            "dbSnpId": "rs45518335",
+            "call": "C/C",
+            "alleles": [
+              "*47"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "C",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400707,
+            "dbSnpId": "rs756616433",
+            "call": "T/T",
+            "alleles": [
+              "*71"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400769,
+            "dbSnpId": "rs55700793",
+            "call": "A/A",
+            "alleles": [
+              "*38"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400799,
+            "dbSnpId": "rs539346244",
+            "call": "G/G",
+            "alleles": [
+              "*64"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400805,
+            "dbSnpId": "rs910738034",
+            "call": "A/A",
+            "alleles": [
+              "*73"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400806,
+            "dbSnpId": "rs1208",
+            "call": "G/G",
+            "alleles": [
+              "*4",
+              "*6",
+              "*7",
+              "*10",
+              "*14",
+              "*15",
+              "*16",
+              "*19",
+              "*21",
+              "*27",
+              "*30",
+              "*35",
+              "*36",
+              "*37",
+              "*38",
+              "*39",
+              "*47",
+              "*50",
+              "*52",
+              "*53",
+              "*54",
+              "*55",
+              "*56",
+              "*57",
+              "*58",
+              "*59",
+              "*60",
+              "*61",
+              "*62",
+              "*63",
+              "*64",
+              "*65",
+              "*66",
+              "*67",
+              "*68",
+              "*74"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400826,
+            "dbSnpId": "rs148566670",
+            "call": "T/T",
+            "alleles": [
+              "*67"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "T",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400841,
+            "dbSnpId": "rs56393504",
+            "call": "G/G",
+            "alleles": [
+              "*39"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400848,
+            "dbSnpId": "rs56054745",
+            "call": "A/A",
+            "alleles": [
+              "*74"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "A",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          },
+          {
+            "gene": "NAT2",
+            "chromosome": "chr8",
+            "position": 18400860,
+            "dbSnpId": "rs1799931",
+            "call": "G/G",
+            "alleles": [
+              "*7",
+              "*40",
+              "*59",
+              "*68"
+            ],
+            "phased": false,
+            "phaseSet": null,
+            "referenceAllele": "G",
+            "hasUndocumentedVariations": false,
+            "warnings": []
+          }
+        ],
+        "variantsOfInterest": [],
+        "hasUndocumentedVariations": false,
+        "treatUndocumentedVariationsAsReference": false
+      },
+      "NUDT15": {
+        "alleleDefinitionVersion": "2025-09-25-21-40",
+        "alleleDefinitionSource": "CLINPGX",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -9104,6 +10885,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9145,6 +10927,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9432,9 +11215,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "RYR1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "RYR1",
         "chr": "chr19",
@@ -9484,6 +11267,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9517,6 +11301,7 @@
             ],
             "label": "Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -9557,6 +11342,46 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": [
+              {
+                "allele1": {
+                  "gene": "RYR1",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "n/a"
+                },
+                "allele2": {
+                  "gene": "RYR1",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "n/a"
+                },
+                "gene": "RYR1",
+                "matchScore": 626,
+                "phenotypes": [
+                  "Uncertain Susceptibility"
+                ],
+                "outsidePhenotype": false,
+                "outsidePhenotypeMismatch": null,
+                "activityScore": null,
+                "outsideActivityScore": false,
+                "outsideActivityScoreMismatch": null,
+                "variant": null,
+                "lookupKey": [
+                  "Uncertain Susceptibility"
+                ],
+                "label": "Reference/Reference",
+                "inferred": false,
+                "inferredSourceDiplotypes": null,
+                "combination": false,
+                "phenotypeDataSource": "CPIC",
+                "diplotypeKey": {
+                  "Reference": 2.0
+                }
+              }
+            ],
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -14291,9 +16116,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -14343,6 +16168,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -14384,6 +16210,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -14974,9 +16801,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -15026,6 +16853,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -15067,6 +16895,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -15730,9 +17559,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "CPIC",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -15782,6 +17611,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -15823,6 +17653,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -15903,7 +17734,7 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
         "phenotypeVersion": null,
         "phenotypeSource": "CPIC",
@@ -15943,6 +17774,7 @@
             "lookupKey": [],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -15980,6 +17812,7 @@
             "lookupKey": [],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "CPIC",
             "diplotypeKey": {
@@ -16011,9 +17844,9 @@
     },
     "DPWG": {
       "ABCG2": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "ABCG2",
         "chr": "chr4",
@@ -16055,6 +17888,7 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -16096,6 +17930,7 @@
             ],
             "label": "rs2231142 reference (G)/rs2231142 reference (G)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -16125,9 +17960,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2B6": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2B6",
         "chr": "chr19",
@@ -16177,6 +18012,7 @@
             ],
             "label": "*1/*6",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -16219,6 +18055,7 @@
             ],
             "label": "*1/*6",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -16995,9 +18832,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C19": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C19",
         "chr": "chr10",
@@ -17039,6 +18876,7 @@
             ],
             "label": "*2/*2",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -17080,6 +18918,7 @@
             ],
             "label": "*2/*2",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -17692,9 +19531,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP2C9": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2C9",
         "chr": "chr10",
@@ -17744,6 +19583,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -17785,6 +19625,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -19070,7 +20911,7 @@
       "CYP2D6": {
         "alleleDefinitionVersion": null,
         "alleleDefinitionSource": "UNKNOWN",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP2D6",
         "chr": null,
@@ -19112,6 +20953,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -19153,6 +20995,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -19166,9 +21009,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A4": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A4",
         "chr": "chr7",
@@ -19218,6 +21061,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -19259,6 +21103,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -19907,9 +21752,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "CYP3A5": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "CYP3A5",
         "chr": "chr7",
@@ -19959,6 +21804,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -20000,6 +21846,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -20089,9 +21936,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "DPYD": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "DPYD",
         "chr": "chr1",
@@ -20126,7 +21973,7 @@
               "activityValue": "1.0"
             },
             "gene": "DPYD",
-            "matchScore": 162,
+            "matchScore": 166,
             "phenotypes": [
               "2.0 (Normal Metabolizer)"
             ],
@@ -20141,6 +21988,7 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -20159,7 +22007,7 @@
             },
             "allele2": null,
             "gene": "DPYD",
-            "matchScore": 81,
+            "matchScore": 83,
             "phenotypes": [
               "n/a"
             ],
@@ -20174,6 +22022,7 @@
             ],
             "label": "Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -20214,6 +22063,46 @@
             ],
             "label": "Reference/Reference",
             "inferred": false,
+            "inferredSourceDiplotypes": [
+              {
+                "allele1": {
+                  "gene": "DPYD",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "1.0"
+                },
+                "allele2": {
+                  "gene": "DPYD",
+                  "name": "Reference",
+                  "function": "Normal function",
+                  "reference": true,
+                  "activityValue": "1.0"
+                },
+                "gene": "DPYD",
+                "matchScore": 166,
+                "phenotypes": [
+                  "2.0 (Normal Metabolizer)"
+                ],
+                "outsidePhenotype": false,
+                "outsidePhenotypeMismatch": null,
+                "activityScore": null,
+                "outsideActivityScore": false,
+                "outsideActivityScoreMismatch": null,
+                "variant": null,
+                "lookupKey": [
+                  "2.0 (Normal Metabolizer)"
+                ],
+                "label": "Reference/Reference",
+                "inferred": false,
+                "inferredSourceDiplotypes": null,
+                "combination": false,
+                "phenotypeDataSource": "DPWG",
+                "diplotypeKey": {
+                  "Reference": 2.0
+                }
+              }
+            ],
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21516,6 +23405,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21555,6 +23445,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21610,6 +23501,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21649,6 +23541,7 @@
             ],
             "label": "Unknown/Unknown",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21662,9 +23555,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "NUDT15": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "NUDT15",
         "chr": "chr13",
@@ -21714,6 +23607,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -21755,6 +23649,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -22042,9 +23937,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "SLCO1B1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "SLCO1B1",
         "chr": "chr12",
@@ -22094,6 +23989,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -22135,6 +24031,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -22725,9 +24622,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "TPMT": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "TPMT",
         "chr": "chr6",
@@ -22777,6 +24674,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -22818,6 +24716,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -23481,9 +25380,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "UGT1A1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "UGT1A1",
         "chr": "chr2",
@@ -23533,6 +25432,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -23574,6 +25474,7 @@
             ],
             "label": "*1/*1",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -23654,9 +25555,9 @@
         "treatUndocumentedVariationsAsReference": false
       },
       "VKORC1": {
-        "alleleDefinitionVersion": "2025-07-31-15-02",
+        "alleleDefinitionVersion": "2025-09-25-21-40",
         "alleleDefinitionSource": "CLINPGX",
-        "phenotypeVersion": "2025-07-31-15-02",
+        "phenotypeVersion": "2025-09-25-21-40",
         "phenotypeSource": "DPWG",
         "geneSymbol": "VKORC1",
         "chr": "chr16",
@@ -23698,6 +25599,7 @@
             ],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -23739,6 +25641,7 @@
             ],
             "label": "rs9923231 reference (C)/rs9923231 reference (C)",
             "inferred": false,
+            "inferredSourceDiplotypes": null,
             "combination": false,
             "phenotypeDataSource": "DPWG",
             "diplotypeKey": {
@@ -23769,886 +25672,5 @@
       }
     }
   },
-  "unannotatedGeneCalls": [
-    {
-      "alleleDefinitionVersion": "2025-07-31-15-02",
-      "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": null,
-      "phenotypeSource": "UNKNOWN",
-      "geneSymbol": "NAT2",
-      "chr": "chr8",
-      "phased": false,
-      "effectivelyPhased": true,
-      "callSource": "MATCHER",
-      "uncalledHaplotypes": [],
-      "messages": [
-        {
-          "rule_name": "reference-allele",
-          "version": null,
-          "matches": null,
-          "exception_type": "note",
-          "message": "The NAT2 *1 allele assignment is characterized by the absence of variants at the positions that are included in the underlying allele definitions."
-        }
-      ],
-      "relatedDrugs": [],
-      "sourceDiplotypes": [
-        {
-          "allele1": {
-            "gene": "NAT2",
-            "name": "*1",
-            "function": null,
-            "reference": true,
-            "activityValue": null
-          },
-          "allele2": {
-            "gene": "NAT2",
-            "name": "*1",
-            "function": null,
-            "reference": true,
-            "activityValue": null
-          },
-          "gene": "NAT2",
-          "matchScore": 94,
-          "phenotypes": [],
-          "outsidePhenotype": false,
-          "outsidePhenotypeMismatch": null,
-          "activityScore": null,
-          "outsideActivityScore": false,
-          "outsideActivityScoreMismatch": null,
-          "variant": null,
-          "lookupKey": [],
-          "label": "*1/*1",
-          "inferred": false,
-          "combination": false,
-          "phenotypeDataSource": "UNKNOWN",
-          "diplotypeKey": {
-            "*1": 2.0
-          }
-        }
-      ],
-      "matcherComponentHaplotypes": [],
-      "matcherHomozygousComponentHaplotypes": [],
-      "recommendationDiplotypes": [
-        {
-          "allele1": {
-            "gene": "NAT2",
-            "name": "*1",
-            "function": null,
-            "reference": true,
-            "activityValue": null
-          },
-          "allele2": {
-            "gene": "NAT2",
-            "name": "*1",
-            "function": null,
-            "reference": true,
-            "activityValue": null
-          },
-          "gene": "NAT2",
-          "matchScore": 94,
-          "phenotypes": [],
-          "outsidePhenotype": false,
-          "outsidePhenotypeMismatch": null,
-          "activityScore": null,
-          "outsideActivityScore": false,
-          "outsideActivityScoreMismatch": null,
-          "variant": null,
-          "lookupKey": [],
-          "label": "*1/*1",
-          "inferred": false,
-          "combination": false,
-          "phenotypeDataSource": "UNKNOWN",
-          "diplotypeKey": {
-            "*1": 2.0
-          }
-        }
-      ],
-      "variants": [
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400010,
-          "dbSnpId": "rs200893121",
-          "call": "A/A",
-          "alleles": [
-            "*50"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400032,
-          "dbSnpId": "rs72466456",
-          "call": "T/T",
-          "alleles": [
-            "*45",
-            "*54"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400054,
-          "dbSnpId": "rs201339185",
-          "call": "C/C",
-          "alleles": [
-            "*55"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400061,
-          "dbSnpId": "rs532310930",
-          "call": "G/G",
-          "alleles": [
-            "*56"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400070,
-          "dbSnpId": "rs1464413878",
-          "call": "A/A",
-          "alleles": [
-            "*72"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400073,
-          "dbSnpId": "rs45477599",
-          "call": "T/T",
-          "alleles": [
-            "*31"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400124,
-          "dbSnpId": "rs149283608",
-          "call": "A/A",
-          "alleles": [
-            "*51"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400155,
-          "dbSnpId": "rs72466457",
-          "call": "G/G",
-          "alleles": [
-            "*35"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400193,
-          "dbSnpId": "rs1805158",
-          "call": "C/C",
-          "alleles": [
-            "*19"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400194,
-          "dbSnpId": "rs1801279",
-          "call": "G/G",
-          "alleles": [
-            "*14",
-            "*15",
-            "*29",
-            "*46",
-            "*47"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400206,
-          "dbSnpId": "rs72466458",
-          "call": "G/G",
-          "alleles": [
-            "*32"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400251,
-          "dbSnpId": "rs561124342",
-          "call": "G/G",
-          "alleles": [
-            "*53"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400267,
-          "dbSnpId": "rs2535896050",
-          "call": "G/G",
-          "alleles": [
-            "*75"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400324,
-          "dbSnpId": "rs549917500",
-          "call": "C/C",
-          "alleles": [
-            "*57"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400344,
-          "dbSnpId": "rs1801280",
-          "call": "T/T",
-          "alleles": [
-            "*5",
-            "*16",
-            "*29",
-            "*30",
-            "*31",
-            "*32",
-            "*33",
-            "*49",
-            "*69",
-            "*70",
-            "*72",
-            "*73",
-            "*75"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400349,
-          "dbSnpId": "rs183409091",
-          "call": "G/G",
-          "alleles": [
-            "*58"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400367,
-          "dbSnpId": "rs4986996",
-          "call": "G/G",
-          "alleles": [
-            "*48"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400406,
-          "dbSnpId": "rs12720065",
-          "call": "C/C",
-          "alleles": [
-            "*36",
-            "*44"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400461,
-          "dbSnpId": "rs72466460",
-          "call": "C/C",
-          "alleles": [
-            "*21"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400475,
-          "dbSnpId": "rs139351995",
-          "call": "A/A",
-          "alleles": [
-            "*33"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400478,
-          "dbSnpId": "rs537007806",
-          "call": "T/T",
-          "alleles": [
-            "*59"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400494,
-          "dbSnpId": "rs139512288",
-          "call": "T/T",
-          "alleles": [
-            "*60"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400502,
-          "dbSnpId": "rs72554617",
-          "call": "G/G",
-          "alleles": [
-            "*10"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400509,
-          "dbSnpId": "rs200585149",
-          "call": "A/A",
-          "alleles": [
-            "*61"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400521,
-          "dbSnpId": "rs369500066",
-          "call": "A/A",
-          "alleles": [
-            "*52"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400539,
-          "dbSnpId": "rs572750517",
-          "call": "A/A",
-          "alleles": [
-            "*62"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400581,
-          "dbSnpId": "rs79050330",
-          "call": "C/C",
-          "alleles": [
-            "*41",
-            "*49"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400583,
-          "dbSnpId": "rs774002627",
-          "call": "C/C",
-          "alleles": [
-            "*68"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400592,
-          "dbSnpId": "rs375746304",
-          "call": "C/C",
-          "alleles": [
-            "*27",
-            "*69"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400593,
-          "dbSnpId": "rs1799930",
-          "call": "G/G",
-          "alleles": [
-            "*6",
-            "*15",
-            "*30",
-            "*34",
-            "*35",
-            "*36",
-            "*37",
-            "*38",
-            "*39",
-            "*50",
-            "*52",
-            "*53",
-            "*56",
-            "*58",
-            "*62",
-            "*63",
-            "*64",
-            "*66",
-            "*67"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400599,
-          "dbSnpId": "rs761741098",
-          "call": "T/T",
-          "alleles": [
-            "*70"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400612,
-          "dbSnpId": "rs45618543",
-          "call": "G/G",
-          "alleles": [
-            "*43"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400616,
-          "dbSnpId": "rs45607939",
-          "call": "A/A",
-          "alleles": [
-            "*65"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400625,
-          "dbSnpId": "rs56387565",
-          "call": "T/T",
-          "alleles": [
-            "*42"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400641,
-          "dbSnpId": "rs138707146",
-          "call": "C/C",
-          "alleles": [
-            "*37"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400653,
-          "dbSnpId": "rs568110818",
-          "call": "T/T",
-          "alleles": [
-            "*63"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400685,
-          "dbSnpId": "rs150329557",
-          "call": "C/C",
-          "alleles": [
-            "*66"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400686,
-          "dbSnpId": "rs45518335",
-          "call": "C/C",
-          "alleles": [
-            "*47"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "C",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400707,
-          "dbSnpId": "rs756616433",
-          "call": "T/T",
-          "alleles": [
-            "*71"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400769,
-          "dbSnpId": "rs55700793",
-          "call": "A/A",
-          "alleles": [
-            "*38"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400799,
-          "dbSnpId": "rs539346244",
-          "call": "G/G",
-          "alleles": [
-            "*64"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400805,
-          "dbSnpId": "rs910738034",
-          "call": "A/A",
-          "alleles": [
-            "*73"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400806,
-          "dbSnpId": "rs1208",
-          "call": "G/G",
-          "alleles": [
-            "*4",
-            "*6",
-            "*7",
-            "*10",
-            "*14",
-            "*15",
-            "*16",
-            "*19",
-            "*21",
-            "*27",
-            "*30",
-            "*35",
-            "*36",
-            "*37",
-            "*38",
-            "*39",
-            "*47",
-            "*50",
-            "*52",
-            "*53",
-            "*54",
-            "*55",
-            "*56",
-            "*57",
-            "*58",
-            "*59",
-            "*60",
-            "*61",
-            "*62",
-            "*63",
-            "*64",
-            "*65",
-            "*66",
-            "*67",
-            "*68",
-            "*74"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400826,
-          "dbSnpId": "rs148566670",
-          "call": "T/T",
-          "alleles": [
-            "*67"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "T",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400841,
-          "dbSnpId": "rs56393504",
-          "call": "G/G",
-          "alleles": [
-            "*39"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400848,
-          "dbSnpId": "rs56054745",
-          "call": "A/A",
-          "alleles": [
-            "*74"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "A",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        },
-        {
-          "gene": "NAT2",
-          "chromosome": "chr8",
-          "position": 18400860,
-          "dbSnpId": "rs1799931",
-          "call": "G/G",
-          "alleles": [
-            "*7",
-            "*40",
-            "*59",
-            "*68"
-          ],
-          "phased": false,
-          "phaseSet": null,
-          "referenceAllele": "G",
-          "hasUndocumentedVariations": false,
-          "warnings": []
-        }
-      ],
-      "variantsOfInterest": [],
-      "hasUndocumentedVariations": false,
-      "treatUndocumentedVariationsAsReference": false
-    }
-  ]
+  "unannotatedGeneCalls": []
 }

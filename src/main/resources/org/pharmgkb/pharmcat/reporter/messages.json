@@ -292,82 +292,6 @@
     "message": "The assigned genotype is *1/*71; however, *10/*20 cannot be ruled out without phased data."
   },
   {
-    "rule_name": "CYP3A5 *1/*3 rs28365083 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs28365083",
-      "dips": [
-        "*1/*3"
-      ],
-      "drugs": [
-        "tacrolimus"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3; however, *2/*3 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "CYP3A5 *1/*3 rs56411402 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs56411402",
-      "dips": [
-        "*1/*3"
-      ],
-      "drugs": [
-        "tacrolimus"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3; however, *3/*4 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "CYP3A5 *1/*3 rs55965422 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs55965422",
-      "dips": [
-        "*1/*3"
-      ],
-      "drugs": [
-        "tacrolimus"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3; however, *3/*5 cannot be ruled out without phased data."
-  },
-  {
-    "rule_name": "CYP3A5 *1/*3 rs28383479 warning",
-    "version": "1",
-    "matches": {
-      "gene": "CYP3A5",
-      "hapsCalled": [],
-      "hapsMissing": [],
-      "variantsMissing": [],
-      "variant": "rs28383479",
-      "dips": [
-        "*1/*3"
-      ],
-      "drugs": [
-        "tacrolimus"
-      ]
-    },
-    "exception_type": "ambiguity",
-    "message": "The assigned genotype is *1/*3; however, *3/*9 cannot be ruled out without phased data."
-  },
-  {
     "rule_name": "CYP3A5 *3 missing",
     "version": "1",
     "matches": {
@@ -1565,5 +1489,57 @@
     },
     "exception_type": "",
     "message": "The HapB3 haplotype is comprised of an exonic SNP at rs56038477 and an intronic SNP (c.1129-5923C>G) at rs75017182.  HapB3’s decreased function is thought to be due to the intronic SNP. This genotype was assigned based on the c.1129-5923C>G (intron) SNP alone because the VCF input for the exon SNP is either missing or conflicts with the intron SNP."
+  },
+  {
+    "rule_name": "SLCO1B1 *1/*53 warning",
+    "version": "3",
+    "matches": {
+      "gene": "SLCO1B1",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "*1/*53"
+      ],
+      "drugs": [
+        "simvastatin",
+        "rosuvastatin",
+        "pravastatin",
+        "pitavastatin",
+        "lovastatin",
+        "fluvastatin",
+        "atorvastatin"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*53; however, *4/*27 cannot be ruled out without phased data."
+  },
+  {
+    "rule_name": "CYP2C9 *1/*36 warning",
+    "version": "3",
+    "matches": {
+      "gene": "CYP2C9",
+      "hapsCalled": [],
+      "hapsMissing": [],
+      "variantsMissing": [],
+      "variant": null,
+      "dips": [
+        "*1/*36"
+      ],
+      "drugs": [
+        "fosphenytoin",
+        "phenytoin",
+        "celecoxib",
+        "flurbiprofen",
+        "ibuprofen",
+        "lornoxicam",
+        "meloxicam",
+        "piroxicam",
+        "tenoxicam"
+      ]
+    },
+    "exception_type": "ambiguity",
+    "message": "The assigned genotype is *1/*36; however, *5/*36 cannot be ruled out without phased data."
   }
 ]
