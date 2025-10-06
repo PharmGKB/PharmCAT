@@ -40,7 +40,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private Haplotype m_allele1;
   @Expose
   @SerializedName("allele2")
-  private Haplotype m_allele2;
+  private @Nullable Haplotype m_allele2;
   @Expose
   @SerializedName("gene")
   private String m_gene;
@@ -58,7 +58,7 @@ public class Diplotype implements Comparable<Diplotype> {
   private String m_outsidePhenotypeMismatch;
   @Expose
   @SerializedName("activityScore")
-  private String m_activityScore;
+  private @Nullable String m_activityScore;
   @Expose
   @SerializedName("outsideActivityScore")
   private boolean m_outsideActivityScore;
@@ -164,7 +164,7 @@ public class Diplotype implements Comparable<Diplotype> {
       m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1], source) : null;
     }
 
-    // must set activity score before phenotype because phenotype calculation may depend on activity score
+    // must set an activity score before phenotype because phenotype calculation may depend on the activity score
     if (outsideCall.getActivityScore() != null) {
       m_outsideActivityScore = true;
       m_activityScore = outsideCall.getActivityScore();
@@ -313,7 +313,7 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
 
-  public String getActivityScore() {
+  public @Nullable String getActivityScore() {
     return m_activityScore;
   }
 

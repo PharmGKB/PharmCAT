@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.reporter;
 import java.util.List;
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 
 
 /**
@@ -45,7 +46,7 @@ public class TextConstants {
    * @param value the text to test
    * @return true if the text is either blank or {@link #NA}
    */
-  public static boolean isUnspecified(String value) {
+  public static boolean isUnspecified(@Nullable String value) {
     return StringUtils.isBlank(value) || StringUtils.stripToEmpty(value).equalsIgnoreCase(NA);
   }
 }

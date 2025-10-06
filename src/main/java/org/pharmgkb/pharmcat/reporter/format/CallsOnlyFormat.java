@@ -10,6 +10,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -58,8 +59,8 @@ public class CallsOnlyFormat extends AbstractFormat {
   }
 
   /**
-   * Sets whether Sample ID column should be written.
-   * This only matters in single file mode.
+   * Sets whether the Sample ID column should be written.
+   * This only matters in single-file mode.
    */
   public CallsOnlyFormat hideSampleId() {
     m_showSampleId = false;
@@ -99,6 +100,8 @@ public class CallsOnlyFormat extends AbstractFormat {
 
     String sampleId = null;
     SortedMap<String, String> sampleProps = null;
+    // older versions of reports do not have metadata
+    //noinspection ConstantValue
     if (reportContext.getMatcherMetadata() != null) {
       sampleId = reportContext.getMatcherMetadata().getSampleId();
       if (reportContext.getMatcherMetadata().getSampleProps() != null &&
@@ -291,9 +294,7 @@ public class CallsOnlyFormat extends AbstractFormat {
     if (dip.getAllele1() != null) {
       writer.print(dip.getAllele1().getName());
       writer.print("\t");
-      if (dip.getAllele1().getFunction() != null) {
-        writer.print(dip.getAllele1().getFunction());
-      }
+      writer.print(dip.getAllele1().getFunction());
       writer.print("\t");
       if (dip.getAllele1().getActivityValue() != null &&
           !dip.getAllele1().getActivityValue().equals(TextConstants.NA)) {
@@ -308,9 +309,7 @@ public class CallsOnlyFormat extends AbstractFormat {
     if (dip.getAllele2() != null) {
       writer.print(dip.getAllele2());
       writer.print("\t");
-      if (dip.getAllele2().getFunction() != null) {
-        writer.print(dip.getAllele2().getFunction());
-      }
+      writer.print(dip.getAllele2().getFunction());
       writer.print("\t");
       if (dip.getAllele2().getActivityValue() != null &&
           !dip.getAllele2().getActivityValue().equals(TextConstants.NA)) {
@@ -382,7 +381,7 @@ public class CallsOnlyFormat extends AbstractFormat {
       writer.print("\t");
       // recommendation lookup activity score
       if (isActivityScoreGene(report.getGene(), report.getPhenotypeSource())) {
-        writer.print(generateStandardizedValue(recDip.getActivityScore()));
+        writer.print(generateStandardizedValue(Objects.requireNonNull(recDip.getActivityScore())));
       }
     } else {
       writer.print("\t\t");

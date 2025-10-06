@@ -4,6 +4,7 @@ import java.util.Map;
 import com.google.common.base.Objects;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.ComparisonChain;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
@@ -23,7 +24,7 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
   private String m_diplotype;
   @SerializedName("description")
   @Expose
-  private String m_description;
+  private @Nullable String m_description;
   @SerializedName("lookupkey")
   @Expose
   private String m_lookupKey;
@@ -32,13 +33,14 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
   private Map<String,Integer> m_diplotypeKey;
   @SerializedName("activityScore")
   @Expose
-  private String m_activityScore;
+  private @Nullable String m_activityScore;
   @SerializedName("phenotype")
   @Expose
   private String m_phenotype;
 
 
-  public DiplotypeRecord(String geneResult, String diplotype, String description, String phenotype, Map<String,Integer> diplotypeKey, String activityScore, String lookupKey) {
+  public DiplotypeRecord(String geneResult, String diplotype, @Nullable String description, String phenotype,
+      Map<String,Integer> diplotypeKey, @Nullable String activityScore, String lookupKey) {
     this.m_phenotype = phenotype;
     this.m_geneResult = geneResult;
 
@@ -67,7 +69,7 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
     return m_diplotype;
   }
 
-  public String getDescription() {
+  public @Nullable String getDescription() {
     return m_description;
   }
 
@@ -79,7 +81,7 @@ public class DiplotypeRecord implements Comparable<DiplotypeRecord> {
     return m_diplotypeKey;
   }
 
-  public String getActivityScore() {
+  public @Nullable String getActivityScore() {
     return this.m_activityScore;
   }
 

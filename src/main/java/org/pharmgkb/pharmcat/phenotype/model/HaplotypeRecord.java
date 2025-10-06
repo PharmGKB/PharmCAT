@@ -13,10 +13,10 @@ public class HaplotypeRecord {
   private String name;
   @Expose
   @SerializedName("activityValue")
-  private String activityValue;
+  private @Nullable String activityValue;
   @Expose
   @SerializedName("functionValue")
-  private String functionValue;
+  private @Nullable String functionValue;
   @Expose
   @SerializedName("lookupKey")
   private String lookupKey;
@@ -38,7 +38,7 @@ public class HaplotypeRecord {
     this.name = name;
   }
 
-  public String getActivityValue() {
+  public @Nullable String getActivityValue() {
     return activityValue;
   }
 
@@ -48,7 +48,7 @@ public class HaplotypeRecord {
     this.updateLookupKey();
   }
 
-  public String getFunctionValue() {
+  public @Nullable String getFunctionValue() {
     return functionValue;
   }
 

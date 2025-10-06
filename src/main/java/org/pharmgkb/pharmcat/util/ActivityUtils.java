@@ -3,6 +3,7 @@ package org.pharmgkb.pharmcat.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 
 
@@ -14,7 +15,7 @@ public class ActivityUtils {
    * @param value an activity value or score
    * @return a properly formatted activity value or score
    */
-  public static String normalize(String value) {
+  public static @Nullable String normalize(String value) {
     if (StringUtils.isBlank(value)) {
       return null;
     }

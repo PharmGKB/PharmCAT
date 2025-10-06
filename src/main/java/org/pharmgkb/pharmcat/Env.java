@@ -33,7 +33,7 @@ public class Env {
   private final DefinitionReader m_definitionReader;
   private final PhenotypeMap m_phenotypeMap;
   private final PgkbGuidelineCollection m_drugs;
-  private MessageHelper m_messageHelper;
+  private final MessageHelper m_messageHelper;
   private final Map<DataSource, Map<String, Map<String, Haplotype>>> m_haplotypeCache = new HashMap<>();
   private final Multimap<String, String> m_validHaplotypes = HashMultimap.create();
   private final Map<Path, Map<String, Map<String, String>>> m_sampleDataMap = new HashMap<>();
@@ -51,6 +51,11 @@ public class Env {
       }
     } else {
       m_definitionReader = DefinitionReader.defaultReader();
+    }
+    try {
+      m_messageHelper = new MessageHelper();
+    } catch (IOException ex) {
+      throw new RuntimeException("Error loading messages", ex);
     }
 
     m_phenotypeMap = new PhenotypeMap();
@@ -142,6 +147,7 @@ public class Env {
   /**
    * Checks if gene can be called by NamedAlleleMatcher or is used in any drug recommendation from any source.
    */
+  @SuppressWarnings("BooleanMethodIsAlwaysInverted")
   public boolean hasGene(String gene) {
     return m_definitionReader.getGenes().contains(gene) ||
         m_drugs.getGenesWithRecommendations().contains(gene);
@@ -161,18 +167,11 @@ public class Env {
 
 
   public MessageHelper getMessageHelper() {
-    if (m_messageHelper == null) {
-      try {
-        m_messageHelper = new MessageHelper();
-      } catch (IOException ex) {
-        throw new RuntimeException("Error loading messages", ex);
-      }
-    }
     return m_messageHelper;
   }
 
-  public MessageAnnotation getMessage(String key) {
-    return getMessageHelper().getMessage(key);
+  public @Nullable MessageAnnotation getMessage(String key) {
+    return m_messageHelper.getMessage(key);
   }
 
 

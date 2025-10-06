@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.pharmgkb.pharmcat.reporter.TextConstants.isUnspecified;
@@ -32,7 +33,7 @@ public class Haplotype implements Comparable<Haplotype> {
   private boolean m_reference = false;
   @Expose
   @SerializedName("activityValue")
-  private String m_activityValue;
+  private @Nullable String m_activityValue;
 
   /**
    * public constructor
@@ -70,6 +71,8 @@ public class Haplotype implements Comparable<Haplotype> {
 
   /**
    * Gets the function for this allele.
+   * Will resolve to {@link org.pharmgkb.pharmcat.phenotype.model.GenePhenotype#UNASSIGNED_FUNCTION} if not defined in
+   * source data.
    *
    * @return the function
    */
@@ -102,11 +105,11 @@ public class Haplotype implements Comparable<Haplotype> {
   }
 
 
-  public String getActivityValue() {
+  public @Nullable String getActivityValue() {
     return m_activityValue;
   }
 
-  public void setActivityValue(String activityValue) {
+  public void setActivityValue(@Nullable String activityValue) {
     m_activityValue = activityValue;
   }
 
