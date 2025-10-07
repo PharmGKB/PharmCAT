@@ -224,9 +224,7 @@ public class MergeReports {
         newHeaders.remove(HEADER_SAMPLE_ID);
       }
     } else {
-      if (sampleId != null) {
-        newHeaders.add(0, HEADER_SAMPLE_ID);
-      }
+      newHeaders.add(0, HEADER_SAMPLE_ID);
     }
     if (m_metadataHeaders != null) {
       newHeaders.addAll(m_metadataHeaders);
@@ -250,8 +248,10 @@ public class MergeReports {
       } else {
         if (sampleId != null) {
           writer.print(sampleId);
-          writer.print("\t");
+        } else {
+          System.out.println("Warning: no sample id for file " + filename);
         }
+        writer.print("\t");
       }
       writer.print(String.join("\t", data));
       if (m_metadata != null && sampleId != null) {
