@@ -35,7 +35,8 @@ import static org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat.HEADER_SAMPL
  * @author Mark Woon
  */
 public class MergeReports {
-  private static final Pattern sf_fileIdPattern = Pattern.compile("^(?:.+\\.)?(\\d+)\\.report\\.tsv");
+  // expect sample ID to be composed of letters and numbers
+  private static final Pattern sf_fileIdPattern = Pattern.compile("^(?:.+\\.)?([A-Za-z\\d]+)\\.report\\.tsv");
   private static final Splitter sf_tabSplitter = Splitter.on("\t").trimResults();
   private final boolean m_anonymize;
   private final boolean m_verbose;

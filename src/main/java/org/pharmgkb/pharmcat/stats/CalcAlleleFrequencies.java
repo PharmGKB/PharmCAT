@@ -150,6 +150,7 @@ public class CalcAlleleFrequencies {
         String[] fields = line.split("\t");
         String gene = fields[geneCol];
         String dip = fields[geneCol + 1];
+        String pheno = fields[geneCol + 2];
         String bgData = null;
         if (doPivot()) {
           if (m_pivotCol < fields.length) {
@@ -158,7 +159,7 @@ public class CalcAlleleFrequencies {
         }
         try {
           GeneStats geneStats = m_stats.computeIfAbsent(gene, k -> new GeneStats());
-          geneStats.add(dip, bgData);
+          geneStats.add(dip, pheno, bgData);
         } catch (Exception ex) {
           System.out.println("Error on line " + lineNum);
           System.out.println(line);
@@ -176,6 +177,7 @@ public class CalcAlleleFrequencies {
         CellStyle headerStyle = PoiUtils.getHeaderCellStyle(workbook);
         writeDiplotypeTab(workbook, headerStyle, geneStats);
         writeAlleleTab(workbook, headerStyle, geneStats);
+        writePhenotypeTab(workbook, headerStyle, geneStats);
 
         System.out.println("Writing to " + file);
         try (OutputStream fos = Files.newOutputStream(file)) {
@@ -205,7 +207,7 @@ public class CalcAlleleFrequencies {
       rowNum += 1;
       Row row = sheet.createRow(rowNum);
 
-      writeRow(row, geneStats.diplotypeCounts.get(key), geneStats.numSamples, geneStats.numBgSamples, geneStats,
+      writeRow(row, geneStats.diplotypeCounts.get(key), geneStats.numSamples, geneStats.numBgSamples,
           geneStats.bgDiplotypeCounts, geneStats.diplotypeRegions, key);
     }
     for (int x = 0; x < headerRow.getLastCellNum(); x += 1) {
@@ -231,10 +233,37 @@ public class CalcAlleleFrequencies {
       String key = entry.getKey();
       rowNum += 1;
       Row row = sheet.createRow(rowNum);
-      writeRow(row, geneStats.alleleCounts.get(key), geneStats.numAlleles, geneStats.numBgAlleles, geneStats,
+      writeRow(row, geneStats.alleleCounts.get(key), geneStats.numAlleles, geneStats.numBgAlleles,
           geneStats.bgAlleleCounts, geneStats.alleleRegions, key);
     }
     for (int x = 0; x <= 2; x += 1) {
+      sheet.autoSizeColumn(x);
+    }
+  }
+
+  private void writePhenotypeTab(Workbook workbook, CellStyle headerStyle, GeneStats geneStats) {
+    Sheet sheet = workbook.createSheet("Phenotypes");
+
+    int rowNum = 0;
+    Row headerRow = sheet.createRow(rowNum);
+    writeCell(headerRow, 0, "Phenotype", headerStyle);
+    writeCell(headerRow, 1, "Count (n=" + m_numberFormat.format(geneStats.numSamples) + ")", headerStyle);
+    writeCell(headerRow, 2, "Frequency", headerStyle);
+    writeBgHeaders(headerRow, headerStyle, geneStats.numSamples, geneStats.numBgSamples, geneStats.phenotypeRegions);
+
+    List<Map.Entry<String, Integer>> entries = new ArrayList<>(geneStats.phenotypeCounts.entrySet());
+    // sort entries by values (ascending order)
+    entries.sort(Map.Entry.<String, Integer>comparingByValue().reversed());
+
+    for (Map.Entry<String, Integer> entry : entries) {
+      String key = entry.getKey();
+      rowNum += 1;
+      Row row = sheet.createRow(rowNum);
+
+      writeRow(row, geneStats.phenotypeCounts.get(key), geneStats.numSamples, geneStats.numBgSamples,
+          geneStats.bgPhenotypeCounts, geneStats.phenotypeRegions, key);
+    }
+    for (int x = 0; x < headerRow.getLastCellNum(); x += 1) {
       sheet.autoSizeColumn(x);
     }
   }
@@ -258,8 +287,8 @@ public class CalcAlleleFrequencies {
   }
 
 
-  private void writeRow(Row row, int count, int total, int bgTotal, GeneStats geneStats,
-      SortedMap<String, SortedMap<String, Integer>> bgMap, SortedMap<String, Integer> regions, String key) {
+  private void writeRow(Row row, int count, int total, int bgTotal, SortedMap<String, SortedMap<String, Integer>> bgMap,
+      SortedMap<String, Integer> regions, String key) {
 
     writeCell(row, 0, key);
     writeCell(row, 1, m_numberFormat.format(count));
@@ -272,14 +301,14 @@ public class CalcAlleleFrequencies {
       }
       Map<String, Integer> pivotCounts = bgMap.get(key);
       for (String region : regions.keySet()) {
-        int numDipsForBg = 0;
+        int numForBg = 0;
         if (pivotCounts != null) {
-          numDipsForBg = pivotCounts.getOrDefault(region, 0);
+          numForBg = pivotCounts.getOrDefault(region, 0);
         }
         cellCount += 1;
-        writeCell(row, cellCount, m_numberFormat.format(numDipsForBg));
+        writeCell(row, cellCount, m_numberFormat.format(numForBg));
         cellCount += 1;
-        writeCell(row, cellCount, m_percentFormat.format(numDipsForBg / (double)regions.get(region)));
+        writeCell(row, cellCount, m_percentFormat.format(numForBg / (double)regions.get(region)));
       }
     }
   }
@@ -290,22 +319,25 @@ public class CalcAlleleFrequencies {
     int numMultiDips = 0;
     int numAlleles = 0;
     SortedMap<String, Integer> diplotypeCounts = new TreeMap<>();
+    SortedMap<String, Integer> phenotypeCounts = new TreeMap<>();
     SortedMap<String, Integer> alleleCounts = new TreeMap<>();
 
     int numBgSamples = 0;
     int numBgMultiDips = 0;
     int numBgAlleles = 0;
     SortedMap<String, SortedMap<String, Integer>> bgDiplotypeCounts = new TreeMap<>();
+    SortedMap<String, SortedMap<String, Integer>> bgPhenotypeCounts = new TreeMap<>();
     SortedMap<String, SortedMap<String, Integer>> bgAlleleCounts = new TreeMap<>();
     SortedMap<String, Integer> diplotypeRegions = new TreeMap<>();
+    SortedMap<String, Integer> phenotypeRegions = new TreeMap<>();
     SortedMap<String, Integer> alleleRegions = new TreeMap<>();
 
 
-    private void add(String dip, @Nullable String bgGroup) {
+    private void add(String dip, @Nullable String pheno, @Nullable String bgGroup) {
       numSamples += 1;
       boolean doAlleles = !dip.equals(CallsOnlyFormat.NO_CALL_TAG);
-
-      if (dip.contains(" OR ")) {
+      boolean multiDip = dip.contains(" OR ");
+      if (multiDip) {
         numMultiDips += 1;
         dip = "multiple calls";
         doAlleles = false;
@@ -315,13 +347,24 @@ public class CalcAlleleFrequencies {
       }
 
       diplotypeCounts.put(dip, diplotypeCounts.getOrDefault(dip, 0) + 1);
+      if (pheno != null && !pheno.isEmpty()) {
+        if (multiDip) {
+          pheno = "Combination";
+        }
+      } else {
+        pheno = "No phenotype";
+      }
+      phenotypeCounts.put(pheno, phenotypeCounts.getOrDefault(pheno, 0) + 1);
 
       if (bgGroup != null) {
         numBgSamples += 1;
         diplotypeRegions.put(bgGroup, diplotypeRegions.getOrDefault(bgGroup, 0) + 1);
+        phenotypeRegions.put(bgGroup, phenotypeRegions.getOrDefault(bgGroup, 0) + 1);
 
-        SortedMap<String, Integer> geoMap = bgDiplotypeCounts.computeIfAbsent(dip, k -> new TreeMap<>());
-        geoMap.put(bgGroup, geoMap.getOrDefault(bgGroup, 0) + 1);
+        SortedMap<String, Integer> dipGeoMap = bgDiplotypeCounts.computeIfAbsent(dip, k -> new TreeMap<>());
+        dipGeoMap.put(bgGroup, dipGeoMap.getOrDefault(bgGroup, 0) + 1);
+        SortedMap<String, Integer> phenoGeoMap = bgPhenotypeCounts.computeIfAbsent(pheno, k -> new TreeMap<>());
+        phenoGeoMap.put(bgGroup, phenoGeoMap.getOrDefault(bgGroup, 0) + 1);
       }
 
       if (doAlleles) {
