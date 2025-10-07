@@ -307,7 +307,7 @@ public class CallsOnlyFormat extends AbstractFormat {
     writer.print("\t");
     // haplotype 2
     if (dip.getAllele2() != null) {
-      writer.print(dip.getAllele2());
+      writer.print(dip.getAllele2().getName());
       writer.print("\t");
       writer.print(dip.getAllele2().getFunction());
       writer.print("\t");
