@@ -44,6 +44,7 @@ venv/
 /testVcf/
 /tmp/
 log.txt
+/pcat_venv/
 pharmcat*.log
 reference.fna.bgz*
 # temp files for testing the Jekyll site
