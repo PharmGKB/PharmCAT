@@ -141,6 +141,10 @@ public class CalcAlleleFrequencies {
       } else if (!line.startsWith("Gene\t")) {
         throw new IOException("Expecting headers but line " + lineNum + " is: " + line);
       }
+      if (m_pivotCol >= 0) {
+        String[] fields = line.split("\t");
+        System.out.println("Pivot column is: " + fields[m_pivotCol]);
+      }
 
       while ((line = reader.readLine()) != null) {
         lineNum += 1;
