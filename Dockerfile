@@ -31,9 +31,9 @@ RUN pip3 install dxpy
 
 WORKDIR /usr/local/bin/
 
-ENV BCFTOOLS_VERSION=1.21
-ENV HTSLIB_VERSION=1.21
-ENV SAMTOOLS_VERSION=1.21
+ENV BCFTOOLS_VERSION=1.22
+ENV HTSLIB_VERSION=1.22
+ENV SAMTOOLS_VERSION=1.22
 # download the suite of tools
 RUN wget https://github.com/samtools/htslib/releases/download/${HTSLIB_VERSION}/htslib-${HTSLIB_VERSION}.tar.bz2 && \
     wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \

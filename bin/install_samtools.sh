@@ -11,9 +11,9 @@ set -e
 set -u
 set -o pipefail
 
-BCFTOOLS_VERSION=1.21
-HTSLIB_VERSION=1.21
-SAMTOOLS_VERSION=1.21
+BCFTOOLS_VERSION=1.22
+HTSLIB_VERSION=1.22
+SAMTOOLS_VERSION=1.22
 
 # download the suite of tools
 wget -nv https://github.com/samtools/htslib/releases/download/${HTSLIB_VERSION}/htslib-${HTSLIB_VERSION}.tar.bz2
