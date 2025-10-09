@@ -1,4 +1,5 @@
 ##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
 ##source=PharmCAT allele definitions
 ##reference=hg38
 ##contig=<ID=1,assembly=hg38,species="Homo sapiens">
@@ -8,14 +9,13 @@
 ##contig=<ID=13,assembly=hg38,species="Homo sapiens">
 ##contig=<ID=19,assembly=hg38,species="Homo sapiens">
 ##contig=<ID=22,assembly=hg38,species="Homo sapiens">
+##contig=<ID=X,assembly=hg38,species="Homo sapiens">
 ##contig=<ID=M,assembly=hg38,species="Homo sapiens">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
-##FILTER=<ID=PASS,Description="All filters passed">
 ##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
 ##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
 ##FORMAT=<ID=FT,Number=.,Type=String,Description="Genotype filters.">
 ##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
-##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled genotype Likelihoods">
 ##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block.">
 ##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
@@ -41,4 +41,4 @@
 22	42130727	.	AG	A	.	PASS	.	GT	1/0	0/1
 X	154532046	.	A	C	.	PASS	.	GT	1/0	0/1
 X	154532055	.	CTCT	C	.	PASS	.	GT	1/0	0/1
-M	1555	.	G	A	PASS	.	GT	1/0	0/1
+M	1555	.	G	A	.	PASS	.	GT	1/0	0/1

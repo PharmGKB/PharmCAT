@@ -3,15 +3,49 @@ import shutil
 import tempfile
 from pathlib import Path
 
+import pytest
+
 import helpers
-from pcat import get_pgx_regions, preprocess
+from pcat import get_pgx_regions, preprocess, ReportableException
 
 
-def test_preprocess():
+def test_preprocess_vcf():
     reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
     pgx_regions = get_pgx_regions(helpers.pharmcat_positions_file)
+    vcf_files = [
+        helpers.test_dir / 'raw.vcf.bgz',
+        helpers.test_dir / 'raw_chr.vcf'
+    ]
 
-    vcf_file = helpers.test_dir / 'raw.vcf.bgz'
+    for vcf_file in vcf_files:
+        _test_preprocess(reference_fasta, pgx_regions, vcf_file)
+
+def test_preprocess_bcf():
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    pgx_regions = get_pgx_regions(helpers.pharmcat_positions_file)
+    vcf_files = [
+        helpers.test_dir / 'raw.bcf',
+        helpers.test_dir / 'raw.bcf.bgzf',
+        helpers.test_dir / 'raw_chr.bcf.bgzf'
+    ]
+
+    for vcf_file in vcf_files:
+        _test_preprocess(reference_fasta, pgx_regions, vcf_file)
+
+def test_preprocess_fail():
+    reference_fasta: Path = helpers.get_reference_fasta(helpers.pharmcat_positions_file)
+    pgx_regions = get_pgx_regions(helpers.pharmcat_positions_file)
+    vcf_files = [
+        helpers.test_dir / 'raw_bad_chr.vcf',
+        helpers.test_dir / 'raw_bad_chr.bcf.bgzf'
+    ]
+
+    for vcf_file in vcf_files:
+        with pytest.raises(ReportableException) as context:
+            _test_preprocess(reference_fasta, pgx_regions, vcf_file)
+        assert 'The CHROM column does not conform with either "chr##" or "##" format.' in context.value.msg
+
+def _test_preprocess(reference_fasta: Path, pgx_regions: list, vcf_file: Path):
     preprocessed_file = helpers.test_dir / 'raw.preprocessed.vcf'
     with tempfile.TemporaryDirectory() as td:
         tmp_dir = Path(td)

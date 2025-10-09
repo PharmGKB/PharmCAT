@@ -1,0 +1,44 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##source=PharmCAT allele definitions
+##reference=hg38
+##contig=<ID=chr1,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr2,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr7,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr10,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr13,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr19,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chr22,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chrX,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chrM,assembly=hg38,species="Homo sapiens">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=FT,Number=.,Type=String,Description="Genotype filters.">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled genotype Likelihoods">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block.">
+##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
+chr1	97078987	rs114096998	G	.	.	PASS	.	GT	0/0	0/0
+chr1	97450065	rs72549303	TG	T,<*>	.	PASS	.	GT:GQ:MIN_DP:PL	1/0:48:16:0,.,.,48,.,479	0/1:48:16:0,.,.,48,.,479
+chr1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
+chr2	233760233	rs3064744	C	CAT	.	PASS	.	GT	1/0	0/0
+chr2	233760233	rs3064744	CAT	C	.	PASS	.	GT	0/0	0/1
+chr2	233760233	rs3064744	C	CATAT	.	PASS	.	GT	0/1	1/0
+chr7	117509035	.	GA	G	.	PASS	.	GT	0/0	1/0
+chr7	117509035	.	G	A	.	PASS	.	GT	0/1	0/0
+chr7	117548628	.	GTTTTTTTA	GTTTTTA	.	PASS	.	GT	0/1	1/0
+chr10	94942212	rs1304490498	AAGAAATGGAA	A	.	PASS	.	GT	1/0	0/1
+chr10	94949281	.	G	.	.	PASS	.	GT	0/0	0/0
+chr13	48037782	.	A	C,<*>	.	PASS	.	GT	0/0	0/0
+chr13	48037782	rs746071566	AGGAGTC	A,<*>	.	PASS	.	GT	0/0	0/0
+chr13	48037826	rs777311140	G	GCGGG	.	PASS	.	GT	1/0	0/1
+chr19	38448712	rs121918592	G	A,<*>	.	PASS	.	GT	1/0	0/1
+chr19	38499645	rs121918596	GGAG	G	.	PASS	.	GT	1/0	0/1
+chr19	40991381	rs33973337	A	T	.	PASS	.	GT	1/0	0/0
+chr19	40991381	.	A	C	.	PASS	.	GT	0/0	0/1
+chr22	42130727	.	AG	A	.	PASS	.	GT	1/0	0/1
+chrX	154532046	.	A	C	.	PASS	.	GT	1/0	0/1
+chrX	154532055	.	CTCT	C	.	PASS	.	GT	1/0	0/1
+chrM	1555	.	G	A	.	PASS	.	GT	1/0	0/1

@@ -1,0 +1,44 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##source=PharmCAT allele definitions
+##reference=hg38
+##contig=<ID=chromosome1,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome2,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome7,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome10,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome13,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome19,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosome22,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosomeX,assembly=hg38,species="Homo sapiens">
+##contig=<ID=chromosomeM,assembly=hg38,species="Homo sapiens">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=FT,Number=.,Type=String,Description="Genotype filters.">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled genotype Likelihoods">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block.">
+##FORMAT=<ID=VAF,Number=A,Type=Float,Description="Variant allele fractions.">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Sample_1	Sample_2
+chromosome1	97078987	rs114096998	G	.	.	PASS	.	GT	0/0	0/0
+chromosome1	97450065	rs72549303	TG	T,<*>	.	PASS	.	GT:GQ:MIN_DP:PL	1/0:48:16:0,.,.,48,.,479	0/1:48:16:0,.,.,48,.,479
+chromosome1	97740414	rs72549309	AATGA	A	.	PASS	.	GT	1/0	0/1
+chromosome2	233760233	rs3064744	C	CAT	.	PASS	.	GT	1/0	0/0
+chromosome2	233760233	rs3064744	CAT	C	.	PASS	.	GT	0/0	0/1
+chromosome2	233760233	rs3064744	C	CATAT	.	PASS	.	GT	0/1	1/0
+chromosome7	117509035	.	GA	G	.	PASS	.	GT	0/0	1/0
+chromosome7	117509035	.	G	A	.	PASS	.	GT	0/1	0/0
+chromosome7	117548628	.	GTTTTTTTA	GTTTTTA	.	PASS	.	GT	0/1	1/0
+chromosome10	94942212	rs1304490498	AAGAAATGGAA	A	.	PASS	.	GT	1/0	0/1
+chromosome10	94949281	.	G	.	.	PASS	.	GT	0/0	0/0
+chromosome13	48037782	.	A	C,<*>	.	PASS	.	GT	0/0	0/0
+chromosome13	48037782	rs746071566	AGGAGTC	A,<*>	.	PASS	.	GT	0/0	0/0
+chromosome13	48037826	rs777311140	G	GCGGG	.	PASS	.	GT	1/0	0/1
+chromosome19	38448712	rs121918592	G	A,<*>	.	PASS	.	GT	1/0	0/1
+chromosome19	38499645	rs121918596	GGAG	G	.	PASS	.	GT	1/0	0/1
+chromosome19	40991381	rs33973337	A	T	.	PASS	.	GT	1/0	0/0
+chromosome19	40991381	.	A	C	.	PASS	.	GT	0/0	0/1
+chromosome22	42130727	.	AG	A	.	PASS	.	GT	1/0	0/1
+chromosomeX	154532046	.	A	C	.	PASS	.	GT	1/0	0/1
+chromosomeX	154532055	.	CTCT	C	.	PASS	.	GT	1/0	0/1
+chromosomeM	1555	.	G	A	.	PASS	.	GT	1/0	0/1

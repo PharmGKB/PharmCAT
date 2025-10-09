@@ -73,7 +73,9 @@ docs/.bashrc             text eol=lf
 #
 *.ai      binary
 *.bmp     binary
+*.bcf     binary
 *.bgz     binary
+*.bgzf    binary
 *.class   binary
 *.csi     binary
 *.dll     binary

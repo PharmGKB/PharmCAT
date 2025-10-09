@@ -1,5 +1,6 @@
 import gzip
 import hashlib
+import os
 import shutil
 import urllib.request
 from pathlib import Path
@@ -19,6 +20,8 @@ try:
 except:
     NETWORK_AVAILABLE = False
 
+if os.environ.get('PHARMCAT_TEST_DOWNLOAD'):
+    TEST_DOWNLOAD = True
 
 test_dir: Path = Path(globals().get("__file__", "./_")).absolute().parent
 src_dir: Path = test_dir / '../pcat'

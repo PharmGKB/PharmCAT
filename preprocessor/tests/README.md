@@ -11,12 +11,20 @@ This directory contains the tests and test data for the PharmCAT VCF Preprocesso
 1. `raw.vcf.bgz`
 2. `raw-p1.vcf.bgz`
 3. `raw-p2.vcf.bgz`
+4. `raw.bcf`
+5. `raw.bcf.bgz`
 
 The following files are the expected results of processing the `raw.vcf`:
 
 1. `raw.preprocessed.vcf`
 2. `raw.Sample_1.preprocessed.vcf`
 3. `raw.Sample_2.preprocessed.vcf`
+
+`raw_chr.vcf` is the same as `raw.vcf` except that it contains uses CHROM entries with the `chr` prefix.
+`raw.vcf` does not use the `chr` prefix.
+
+`raw_bad_chr.vcf` is the same as `raw.vcf` except that it contains uses CHROM entries with the `chromosome` prefix.
+These are expected to fail.
 
 The remaining test files are used to test specific corner cases. 
 
@@ -36,6 +44,3 @@ pharmcat_vcf_preprocessor \
 -refFna GCA_000001405.15_GRCh38_no_alt_analysis_set.fna \
 -refVcf pharmcat_positions_0.8.0_updated_06222021.vcf.gz
 ```
-
-
-
