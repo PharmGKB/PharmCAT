@@ -286,6 +286,9 @@ def is_bcf_file(file: Union[Path, str]):
 
 
 def is_gvcf_file(file: Path):
+    # BCF files cannot implement gVCF format
+    if is_bcf_file(file):
+        return False
     return re.search('\\.(g|genomic)\\.vcf(\\.b?gz)?', str(file)) or _is_gvcf_file(file)
 
 

@@ -147,6 +147,8 @@ def test_is_gvcf_file():
     test_vcf_end_file = helpers.test_dir / 'test_not_gvcf_block.vcf'
     test_gvcf_end_file = helpers.test_dir / 'test_gvcf_block.vcf'
     test_gvcf_header_file = helpers.test_dir / 'test_gvcf_block_in_header.vcf'
+    test_bcf_file = helpers.test_dir / 'raw.bcf'
+    test_bcf_gz_file = helpers.test_dir / 'raw.bcf.bgzf'
     with tempfile.TemporaryDirectory() as td:
         assert not utils.is_gvcf_file(test_vcf_file)
         # is gVCF as the END annotation indicates a large genomic block
@@ -187,6 +189,16 @@ def test_is_gvcf_file():
         utils.run(['gunzip', str(f2)])
         f = tmp_dir / 'test.vcf'
         assert utils.is_gvcf_file(f)
+
+        f1 = tmp_dir / 'test.bcf'
+        shutil.copyfile(test_bcf_file, f1)
+        # fail because it's BCF
+        assert not utils.is_gvcf_file(f1)
+
+        f1 = tmp_dir / 'test.bcf.bgzf'
+        shutil.copyfile(test_bcf_gz_file, f1)
+        # fail because it's BCF
+        assert not utils.is_gvcf_file(f1)
 
 
 def test_get_vcf_basename():
