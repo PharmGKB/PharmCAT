@@ -109,7 +109,10 @@ public class NamedAlleleMatcher {
           ;
 
       if (!cliHelper.parse(args)) {
-        System.exit(1);
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
+        return;
       }
 
       Path vcfFile = cliHelper.getValidFile("vcf", false);

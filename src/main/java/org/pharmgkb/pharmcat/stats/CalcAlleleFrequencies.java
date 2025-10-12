@@ -51,7 +51,9 @@ public class CalcAlleleFrequencies {
           .addOption("pc", "pivot-column", "Pivot column number; first column is 1", false, "number")
           ;
       if (!cliHelper.parse(args)) {
-        CliUtils.failIfNotTest();
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
         return;
       }
 

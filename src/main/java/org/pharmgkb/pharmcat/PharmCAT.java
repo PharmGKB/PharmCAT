@@ -60,7 +60,9 @@ public class PharmCAT {
           .addOption("def", "definitions-dir", "Directory containing named allele definitions (JSON files)", false, "dir")
           .addOption("research", "research-mode", "Comma-separated list of research features to enable: [cyp2d6, combinations]", false, "type");
       if (!cliHelper.parse(args)) {
-        CliUtils.failIfNotTest();
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
         return;
       }
 

@@ -26,6 +26,7 @@ import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.CallsOnlyFormat;
+import org.pharmgkb.pharmcat.util.CliUtils;
 
 
 /**
@@ -54,6 +55,9 @@ public class MergeCalls {
           ;
 
       if (!cliHelper.parse(args)) {
+        if (!cliHelper.isHelpRequested() && !cliHelper.isVersionRequested()) {
+          CliUtils.failIfNotTest();
+        }
         return;
       }
       if (cliHelper.hasOption("o1d") && cliHelper.hasOption("o1f")) {
