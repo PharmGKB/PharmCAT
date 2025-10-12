@@ -64,9 +64,10 @@ gradlew          text eol=lf
 #
 bin/pharmcat            text eol=lf
 bin/preprocessor        text eol=lf
-preprocessor/pharmcat_pipeline  text eol=lf diff=python
+preprocessor/pharmcat_pipeline          text eol=lf diff=python
+preprocessor/pharmcat_vcf_preprocessor  text eol=lf diff=python
 src/main/config/bashrc  text eol=lf
-docs/.bashrc             text eol=lf
+docs/.bashrc            text eol=lf
 
 #
 # Binary files should be left alone (binary is a macro for -text -diff)
