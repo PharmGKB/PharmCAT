@@ -21,6 +21,7 @@ import com.google.common.base.Stopwatch;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.apache.commons.lang3.StringUtils;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.StreamUtils;
@@ -237,6 +238,9 @@ public class MergeReports {
     }
 
     while ((line = reader.readLine()) != null) {
+      if (StringUtils.isBlank(line)) {
+        continue;
+      }
       List<String> data = sf_tabSplitter.splitToList(line);
       if (sampleId == null && fileHasSampleId) {
         sampleId = data.get(0);

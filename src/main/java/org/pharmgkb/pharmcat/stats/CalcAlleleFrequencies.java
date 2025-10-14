@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -153,17 +154,20 @@ public class CalcAlleleFrequencies {
 //        if (lineNum % 5000 == 0) {
 //          System.out.println(m_numberFormat.format(lineNum));
 //        }
-        String[] fields = line.split("\t");
-        String gene = fields[geneCol];
-        String dip = fields[geneCol + 1];
-        String pheno = fields[geneCol + 2];
-        String bgData = null;
-        if (doPivot()) {
-          if (m_pivotCol < fields.length) {
-            bgData = fields[m_pivotCol];
-          }
+        if (StringUtils.isBlank(line)) {
+          continue;
         }
         try {
+          String[] fields = line.split("\t");
+          String gene = fields[geneCol];
+          String dip = fields[geneCol + 1];
+          String pheno = fields[geneCol + 2];
+          String bgData = null;
+          if (doPivot()) {
+            if (m_pivotCol < fields.length) {
+              bgData = fields[m_pivotCol];
+            }
+          }
           GeneStats geneStats = m_stats.computeIfAbsent(gene, k -> new GeneStats());
           geneStats.add(dip, pheno, bgData);
         } catch (Exception ex) {
