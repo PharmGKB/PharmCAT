@@ -219,6 +219,11 @@ public class BatchPharmCAT {
         VcfFile vcfFile = m_vcfFilesToProcess.get(baseFilename);
         if (vcfFile != null) {
           boolean singleSample = vcfFile.getSamples().size() == 1;
+          if (m_config.baseFilename != null && m_vcfFilesToProcess.size() > 1) {
+            // if baseFilename was specified on command line, then singleSample is trumped by whether we have more than
+            // 1 VCF file to process (since that means we will have more than one sample)
+            singleSample = false;
+          }
           for (String sampleId : vcfFile.getSamples()) {
             if (m_config.runSample(sampleId)) {
               taskBuilders.add(new Builder().fromMatcher(baseFilename, vcfFile, sampleId, singleSample));
@@ -328,22 +333,22 @@ public class BatchPharmCAT {
 
 
   public class Builder {
-    private String m_baseFilename;
+    private @Nullable String m_baseInputFilename;
     private boolean m_runMatcher;
-    private VcfFile m_vcfFile;
-    private String m_sampleId;
+    private @Nullable VcfFile m_vcfFile;
+    private @Nullable String m_sampleId;
     private boolean m_runPhenotyper;
-    private Path m_piFile;
-    private List<Path> m_poFile = null;
+    private @Nullable Path m_piFile;
+    private @Nullable List<Path> m_poFile = null;
     private boolean m_runReporter;
-    private Path m_riFile;
+    private @Nullable Path m_riFile;
     private boolean m_singleSample;
 
 
     public Builder fromMatcher(String baseFilename, VcfFile file, @Nullable String sampleId, boolean singleSample) {
       Preconditions.checkState(m_config.runMatcher);
       Preconditions.checkNotNull(file);
-      m_baseFilename = baseFilename;
+      m_baseInputFilename = baseFilename;
       m_vcfFile = file;
       m_sampleId = sampleId;
       m_runMatcher = true;
@@ -367,7 +372,7 @@ public class BatchPharmCAT {
 
     public Builder fromPhenotyper(String baseFilename) {
       Preconditions.checkState(m_config.runPhenotyper);
-      m_baseFilename = baseFilename;
+      m_baseInputFilename = baseFilename;
       findPhenotyperFiles(baseFilename);
       findReporterFiles(baseFilename);
       m_singleSample = true;
@@ -377,7 +382,7 @@ public class BatchPharmCAT {
 
     public Builder fromReporter(String baseFilename) {
       Preconditions.checkState(m_config.runReporter);
-      m_baseFilename = baseFilename;
+      m_baseInputFilename = baseFilename;
       findReporterFiles(baseFilename);
       m_singleSample = true;
       return this;
@@ -448,7 +453,7 @@ public class BatchPharmCAT {
       m_runReporter = m_vcfFile != null || m_piFile != null || m_poFile != null || m_riFile != null;
     }
 
-    private Path pickFirstFile(Path origFile, Path newFile) {
+    private Path pickFirstFile(@Nullable Path origFile, Path newFile) {
       if (origFile == null) {
         return newFile;
       } else {
@@ -458,7 +463,7 @@ public class BatchPharmCAT {
     }
   }
 
-  private List<Path> pickFirst(List<Path> origList, List<Path> newList) {
+  private List<Path> pickFirst(@Nullable List<Path> origList, List<Path> newList) {
     if (origList == null) {
       return newList;
     } else {
@@ -467,7 +472,7 @@ public class BatchPharmCAT {
     }
   }
 
-  private String printFileNames(Collection<Path> paths) {
+  private String printFileNames(@Nullable Collection<Path> paths) {
     if (paths == null || paths.isEmpty()) {
       return "";
     }

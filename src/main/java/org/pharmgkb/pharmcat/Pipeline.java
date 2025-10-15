@@ -44,7 +44,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private final Env m_env;
   private final boolean m_runMatcher;
   private VcfFile m_vcfFile;
-  private String m_sampleId;
+  private @Nullable String m_sampleId;
   private boolean m_topCandidateOnly = true;
   private boolean m_findCombinations;
   private boolean m_callCyp2d6;
@@ -63,7 +63,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private Path m_reporterInputFile;
   private String m_reporterTitle;
   private boolean m_reporterCompact;
-  private List<PrescribingGuidanceSource> m_reporterSources;
+  private @Nullable List<PrescribingGuidanceSource> m_reporterSources;
   private Path m_reporterJsonFile;
   private Path m_reporterHtmlFile;
   private Path m_reporterCallsOnlyFile;
@@ -75,7 +75,7 @@ public class Pipeline implements Callable<PipelineResult> {
   private Path m_baseDir;
   private String m_basename;
   private String m_displayName;
-  private final String m_displayCount;
+  private final @Nullable String m_displayCount;
 
 
   public Pipeline(Env env, BaseConfig config, @Nullable VcfFile vcfFile,
@@ -168,9 +168,10 @@ public class Pipeline implements Callable<PipelineResult> {
       if (reporterCallsOnlyTsv) {
         m_reporterCallsOnlyFile = m_baseDir.resolve(m_basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
       }
-      m_reporterTitle = reporterTitle;
-      if (m_reporterTitle == null) {
+      if (reporterTitle == null) {
         m_reporterTitle = m_basename;
+      } else {
+        m_reporterTitle = reporterTitle;
       }
       m_reporterSources = reporterSources;
       m_reporterCompact = reporterCompact;
@@ -193,15 +194,14 @@ public class Pipeline implements Callable<PipelineResult> {
     return m_basename;
   }
 
-  private void generateBasename(String baseFilename, Path inputFile, String sampleId, boolean singleSample)
-      throws ReportableException {
+  private void generateBasename(@Nullable String baseFilename, Path inputFile, @Nullable String sampleId,
+      boolean singleSample) throws ReportableException {
     if (m_baseDir == null) {
       m_baseDir = getBaseDir(inputFile);
     }
     if (m_basename != null) {
       return;
     }
-    //noinspection ReplaceNullCheck
     if (baseFilename != null) {
       m_basename = baseFilename;
     } else {
@@ -213,7 +213,7 @@ public class Pipeline implements Callable<PipelineResult> {
       m_basename += "." + sampleId;
     }
     if (sampleId != null) {
-      m_displayName = "sample " + sampleId + " in " + m_displayName;
+      m_displayName = "sample " + sampleId + " in " + inputFile.getFileName().toString();
     }
   }
 
