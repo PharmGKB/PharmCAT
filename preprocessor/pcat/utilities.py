@@ -261,7 +261,7 @@ def validate_file(file: Union[Path, str]) -> Path:
         if file.exists():
             raise ReportableException("Error: %s is not a file" % file)
         else:
-            raise ReportableException("Error: %s does not exist" % file)
+            raise ReportableException("Error: File '%s' does not exist" % file)
     return file
 
 
