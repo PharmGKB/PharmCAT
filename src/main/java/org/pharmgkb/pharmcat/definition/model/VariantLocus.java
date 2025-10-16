@@ -201,6 +201,7 @@ public class VariantLocus implements Comparable<VariantLocus> {
 
   public String getHgvsForVcfAllele(String vcfAllele) {
     Preconditions.checkNotNull(vcfAllele);
+    //noinspection ConstantValue
     if (m_chromosomeHgvsNameList == null) {
       m_chromosomeHgvsNameList = HGVS_NAME_SPLITTER.splitToList(m_chromosomeHgvsName);
     }

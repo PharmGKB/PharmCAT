@@ -187,11 +187,11 @@ public class CallsOnlyFormat extends AbstractFormat {
   }
 
 
-  private boolean isIgnorableValue(String text) {
+  private boolean isIgnorableValue(@Nullable String text) {
     return StringUtils.isBlank(text) || text.equals(TextConstants.NA) || text.equals(TextConstants.NO_RESULT);
   }
 
-  private String generateStandardizedValue(String text) {
+  private String generateStandardizedValue(@Nullable String text) {
     return isIgnorableValue(text) ? " " : text;
   }
 
@@ -242,7 +242,7 @@ public class CallsOnlyFormat extends AbstractFormat {
         }
         matchScores.append(dip.getMatchScore());
       }
-    };
+    }
 
     if (m_singleFileMode && m_showSampleId) {
       if (sampleId != null) {
@@ -324,7 +324,7 @@ public class CallsOnlyFormat extends AbstractFormat {
 
 
   private void writeCommon(PrintWriter writer,  @Nullable Map<String, String> sampleProps, GeneReport report,
-      String matchScore, boolean showRecommendationDiplotype) {
+      @Nullable String matchScore, boolean showRecommendationDiplotype) {
     // outside call
     writer.print(report.isOutsideCall() ? "yes" : "no");
     writer.print("\t");

@@ -291,6 +291,13 @@ public class NamedAllele implements Comparable<NamedAllele> {
     return m_wobblePositions.contains(position);
   }
 
+  public SortedSet<Long> getWobblePositions() {
+    if (!m_isInitialized || m_wobblePositions == null) {
+      throw new IllegalStateException("This NamedAllele has not been initialized");
+    }
+    return m_wobblePositions;
+  }
+
 
   /**
    * The array of alleles that define this allele.
@@ -324,9 +331,6 @@ public class NamedAllele implements Comparable<NamedAllele> {
   }
 
   public @Nullable String getCpicAllele(int x) {
-    if (!m_isInitialized || m_cpicAlleles == null) {
-      throw new IllegalStateException("This NamedAllele has not been initialized");
-    }
     return m_cpicAlleles[x];
   }
 

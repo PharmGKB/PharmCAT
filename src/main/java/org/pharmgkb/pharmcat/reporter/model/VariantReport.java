@@ -9,6 +9,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.Variant;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
@@ -27,7 +28,7 @@ import org.slf4j.LoggerFactory;
  */
 public class VariantReport implements Comparable<VariantReport> {
   private static final Logger sf_logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-  
+
   @Expose
   @SerializedName("gene")
   private String m_gene;
@@ -39,7 +40,7 @@ public class VariantReport implements Comparable<VariantReport> {
   private long m_position;
   @Expose
   @SerializedName("dbSnpId")
-  private String m_dbSnpId;
+  private @Nullable String m_dbSnpId;
   @Expose
   @SerializedName("call")
   private String m_call;
@@ -123,7 +124,7 @@ public class VariantReport implements Comparable<VariantReport> {
     return m_phaseSet;
   }
 
-  public String getDbSnpId() {
+  public @Nullable String getDbSnpId() {
     return m_dbSnpId;
   }
 
@@ -138,11 +139,11 @@ public class VariantReport implements Comparable<VariantReport> {
   public boolean isMissing() {
     return StringUtils.isBlank(m_call);
   }
-  
+
   public boolean isHasUndocumentedVariations() {
     return m_hasUndocumentedVariations;
   }
-  
+
   public void setHasUndocumentedVariations(boolean hasUndocumentedVariations) {
     m_hasUndocumentedVariations = hasUndocumentedVariations;
   }
@@ -189,7 +190,7 @@ public class VariantReport implements Comparable<VariantReport> {
     if (rez != 0) {
       return rez;
     }
-    
+
     // then order by chromosome
     rez = ObjectUtils.compare(getChr(), o.getChr());
     if (rez != 0) {

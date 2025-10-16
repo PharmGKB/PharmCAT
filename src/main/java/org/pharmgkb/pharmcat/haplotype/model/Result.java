@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.jspecify.annotations.Nullable;
 
 
 /**
@@ -22,7 +23,7 @@ public class Result {
 
   @SerializedName("vcfWarnings")
   @Expose
-  private Map<String, Collection<String>> m_vcfWarnings;
+  private @Nullable Map<String, Collection<String>> m_vcfWarnings;
 
 
   public Metadata getMetadata() {
@@ -46,7 +47,7 @@ public class Result {
   /**
    * Gets warnings from reading VCF data, keyed to chromosomal position.
    */
-  public Map<String, Collection<String>> getVcfWarnings() {
+  public @Nullable Map<String, Collection<String>> getVcfWarnings() {
     return m_vcfWarnings;
   }
 
