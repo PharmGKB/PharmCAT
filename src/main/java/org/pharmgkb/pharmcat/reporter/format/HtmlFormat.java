@@ -19,9 +19,7 @@ import java.util.stream.Collectors;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +28,7 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.html.Recommendation;
+import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
@@ -190,7 +189,6 @@ public class HtmlFormat extends AbstractFormat {
     SortedSet<String> genes = new TreeSet<>(geneReportMap.keySet());
     List<Map<String, Object>> summaries = new ArrayList<>();
     List<GeneReport> geneReports = new ArrayList<>();
-    Multimap<String, Map<String, Object>> geneSummariesByDrug = HashMultimap.create();
     for (String symbol : genes) {
       if (noDataGenes.contains(symbol)) {
         continue;
@@ -213,10 +211,6 @@ public class HtmlFormat extends AbstractFormat {
       }
       Map<String, Object> geneSummary = buildGenotypeSummary(symbol, reports);
       summaries.add(geneSummary);
-      // split into declaration and forEach call to avoid compiler unchecked warning
-      @SuppressWarnings("unchecked")
-      Set<String> relatedDrugs = (Set<String>)geneSummary.get("relatedDrugs");
-      relatedDrugs.forEach(d -> geneSummariesByDrug.put(d, geneSummary));
       geneReports.add(reports.first());
     }
     result.put("genes", genes);
@@ -257,11 +251,33 @@ public class HtmlFormat extends AbstractFormat {
     SortedSet<Recommendation> recommendations = new TreeSet<>();
     SortedSet<String> drugsWithRecommendations = new TreeSet<>();
     SortedSet<String> drugsWithoutRecommendations = new TreeSet<>();
+    SortedMap<String, SortedSet<String>> drugTags = new TreeMap<>();
     if (m_compact) {
       for (Recommendation recommendation : recommendationMap.values()) {
         if (recommendation.isMatched()) {
           recommendations.add(recommendation);
           drugsWithRecommendations.add(recommendation.getDrug());
+          SortedSet<String> tags = recommendation.getReports().stream()
+              .filter(Report::isMatched)
+              .filter(r -> r.getGuidelines() != null && !r.getGuidelines().isEmpty())
+              .flatMap(r -> r.getGuidelines().stream())
+              .filter(g -> !ReportHelpers.rxIsCpicWarfarin(recommendation.getDrug(), g.getSource()))
+              .flatMap(g -> g.getAnnotations().stream())
+              .flatMap(a -> {
+                List<String> t = new ArrayList<>();
+                if (a.isAlternateDrugAvailable()) {
+                  t.add("Alternate Drug");
+                }
+                if (a.isDosingInformation()) {
+                  t.add("Dosing Info");
+                }
+                if (a.isOtherPrescribingGuidance()) {
+                  t.add("Other Guidance");
+                }
+                return t.stream();
+              })
+              .collect(Collectors.toCollection(TreeSet::new));
+          drugTags.put(recommendation.getDrug(), tags);
         } else {
           drugsWithoutRecommendations.add(recommendation.getDrug());
         }
@@ -275,6 +291,7 @@ public class HtmlFormat extends AbstractFormat {
     result.put("drugsWithRecommendations", drugsWithRecommendations);
     result.put("drugsWithoutRecommendations", drugsWithoutRecommendations);
     result.put("drugs", recommendationMap.keySet());
+    result.put("drugTags", drugTags);
 
     return result;
   }

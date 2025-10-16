@@ -92,11 +92,14 @@
           <tr class="top-aligned gs-{{{sanitizeCssSelector symbol}}}">
             <td>
               {{#each relatedDrugs}}
-                <div class="drugName">
-                  {{#if (contains ../../drugsWithRecommendations this) }}
-                    <a href="#{{{sanitizeCssSelector this}}}">{{this}}</a>
-                  {{/if}}
-                </div>
+                {{#if (contains ../../drugsWithRecommendations this) }}
+                  <div class="gsDrugs">
+                    <span class="drugName">
+                      <a href="#{{{sanitizeCssSelector this}}}">{{this}}</a>
+                    </span>
+                    <span class="drugTags">{{{drugTags this ../../drugTags}}}</span>
+                  </div>
+                {{/if}}
               {{/each}}
             </td>
             <td>
@@ -216,8 +219,6 @@
       {{#each recommendations}}
         <section class="guideline {{{sanitizeCssSelector drug}}}">
           <h3 id="{{{sanitizeCssSelector drug}}}">{{drug}}</h3>
-
-
 
           {{#each messages}}
             <div class="alert alert-info {{messageClass this}}">{{{message}}}</div>

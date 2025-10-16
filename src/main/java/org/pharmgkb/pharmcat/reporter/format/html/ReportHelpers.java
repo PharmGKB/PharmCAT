@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -284,6 +285,16 @@ public class ReportHelpers {
     return builder.toString();
   }
 
+
+  public static String drugTags(String drug, SortedMap<String, SortedSet<String>> drugTags) {
+    SortedSet<String> tags = drugTags.get(drug);
+    if (tags == null || tags.isEmpty()) {
+      return "";
+    }
+    return tags.stream()
+        .map(t -> "<div class=\"tag\">" + t + "</div>")
+        .collect(Collectors.joining("\n"));
+  }
 
   public static String rxAnnotationClass(PrescribingGuidanceSource source, String drug) {
     return source.getCodeName() +
