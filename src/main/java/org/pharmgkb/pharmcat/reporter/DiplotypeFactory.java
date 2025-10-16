@@ -18,7 +18,6 @@ import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
@@ -51,7 +50,7 @@ public class DiplotypeFactory {
   }
 
 
-  public List<Diplotype> makeComponentDiplotypes(GeneCall geneCall, DataSource source) {
+  public List<Diplotype> makeComponentDiplotypes(GeneCall geneCall) {
     List<Diplotype> dips = new ArrayList<>();
     SortedSet<NamedAllele> haps = new TreeSet<>();
     for (BaseMatch bm : geneCall.getHaplotypes()) {
@@ -62,15 +61,15 @@ public class DiplotypeFactory {
       }
     }
     for (NamedAllele na : haps) {
-      dips.add(new Diplotype(m_gene, na.getName(), null, m_env, source, na.getScore()));
+      dips.add(new Diplotype(m_gene, na.getName(), null, m_env, na.getScore()));
     }
     return dips;
   }
 
 
-  public List<Diplotype> makeDiplotypes(Collection<DiplotypeMatch> matches, DataSource source) {
+  public List<Diplotype> makeDiplotypes(Collection<DiplotypeMatch> matches) {
     if (matches.isEmpty()) {
-      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
+      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env));
     }
     return matches.stream()
         .map((dm) -> {
@@ -80,19 +79,19 @@ public class DiplotypeFactory {
           if (h2 != null) {
             h2Name = h2.getName();
           }
-          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2Name, m_env, source, dm.getScore());
+          Diplotype diplotype = new Diplotype(m_gene, h1.getName(), h2Name, m_env, dm.getScore());
           diplotype.setCombination(h1 instanceof CombinationMatch || h2 instanceof CombinationMatch);
           return diplotype;
         })
         .toList();
   }
 
-  public List<Diplotype> makeDiplotypesFromHaplotypeMatches(Collection<HaplotypeMatch> matches, DataSource source) {
+  public List<Diplotype> makeDiplotypesFromHaplotypeMatches(Collection<HaplotypeMatch> matches) {
     if (matches.isEmpty()) {
-      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env, source));
+      return ImmutableList.of(makeUnknownDiplotype(m_gene, m_env));
     }
     return matches.stream()
-        .map((hm) -> new Diplotype(m_gene, hm.getName(), null, m_env, source, 0))
+        .map((hm) -> new Diplotype(m_gene, hm.getName(), null, m_env, 0))
         .toList();
   }
 
@@ -132,13 +131,13 @@ public class DiplotypeFactory {
   }
 
 
-  public static Diplotype makeUnknownDiplotype(String gene, Env env, DataSource source) {
+  public static Diplotype makeUnknownDiplotype(String gene, Env env) {
     Haplotype haplotype = new Haplotype(gene, Haplotype.UNKNOWN);
     Diplotype diplotype;
     if (isSinglePloidy(gene)) {
-      diplotype = new Diplotype(gene, haplotype, null, env, source);
+      diplotype = new Diplotype(gene, haplotype, null, env);
     } else {
-      diplotype = new Diplotype(gene, haplotype, haplotype, env, source);
+      diplotype = new Diplotype(gene, haplotype, haplotype, env);
     }
     return diplotype;
   }

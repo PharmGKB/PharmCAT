@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -28,9 +27,9 @@ public class GenotypeTest {
   @BeforeAll
   static void prepare() throws Exception {
     Env env = new Env();
-    s_diplotype1 = new Diplotype(sf_gene1, sf_gene1h1, sf_gene1h2, env, DataSource.CPIC);
-    s_diplotype2 = new Diplotype(sf_gene1, sf_gene1h1, sf_gene1h1, env, DataSource.CPIC);
-    s_diplotype3 = new Diplotype(sf_gene2, sf_gene2h1, sf_gene2h2, env, DataSource.CPIC);
+    s_diplotype1 = new Diplotype(sf_gene1, sf_gene1h1, sf_gene1h2, env);
+    s_diplotype2 = new Diplotype(sf_gene1, sf_gene1h1, sf_gene1h1, env);
+    s_diplotype3 = new Diplotype(sf_gene2, sf_gene2h1, sf_gene2h2, env);
   }
 
 
@@ -38,10 +37,10 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypes() {
-    GeneReport geneReport1 = new GeneReport(sf_gene1, DataSource.CPIC, "test");
+    GeneReport geneReport1 = new GeneReport(sf_gene1, "test");
     geneReport1.addReporterDiplotype(s_diplotype1);
     geneReport1.addReporterDiplotype(s_diplotype2);
-    GeneReport geneReport2 = new GeneReport(sf_gene2, DataSource.CPIC, "test");
+    GeneReport geneReport2 = new GeneReport(sf_gene2, "test");
     geneReport2.addReporterDiplotype(s_diplotype3);
     List<GeneReport> geneReports = ImmutableList.of(geneReport1, geneReport2);
     List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
@@ -57,7 +56,7 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesOneDiplotype() {
-    GeneReport geneReport1 = new GeneReport(sf_gene1, DataSource.CPIC, "test");
+    GeneReport geneReport1 = new GeneReport(sf_gene1, "test");
     geneReport1.addReporterDiplotype(s_diplotype1);
     List<GeneReport> geneReports = ImmutableList.of(geneReport1);
     List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);
@@ -73,7 +72,7 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesOneGeneTwoDiplotypes() {
-    GeneReport geneReport1 = new GeneReport(sf_gene1, DataSource.CPIC, "test");
+    GeneReport geneReport1 = new GeneReport(sf_gene1, "test");
     geneReport1.addReporterDiplotype(s_diplotype1);
     geneReport1.addReporterDiplotype(s_diplotype2);
     List<GeneReport> geneReports = ImmutableList.of(geneReport1);
@@ -90,9 +89,9 @@ public class GenotypeTest {
 
   @Test
   void testMakeGenotypesTwoGenes() {
-    GeneReport geneReport1 = new GeneReport(sf_gene1, DataSource.CPIC, "test");
+    GeneReport geneReport1 = new GeneReport(sf_gene1, "test");
     geneReport1.addReporterDiplotype(s_diplotype1);
-    GeneReport geneReport2 = new GeneReport(sf_gene2, DataSource.CPIC, "test");
+    GeneReport geneReport2 = new GeneReport(sf_gene2, "test");
     geneReport2.addReporterDiplotype(s_diplotype3);
     List<GeneReport> geneReports = ImmutableList.of(geneReport1, geneReport2);
     List<Genotype> possibleGenotypes = Genotype.makeGenotypes(geneReports);

@@ -47,8 +47,6 @@ import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b
 public class GeneReport implements Comparable<GeneReport> {
   // never display these genes in the gene call list
   private static final Set<String> IGNORED_GENES = ImmutableSet.of("IFNL4");
-  public static final String YES = "Yes";
-  public static final String NO = "No";
 
 
   @Expose
@@ -60,9 +58,6 @@ public class GeneReport implements Comparable<GeneReport> {
   @Expose
   @SerializedName("phenotypeVersion")
   private @Nullable String m_phenotypeVersion;
-  @Expose
-  @SerializedName("phenotypeSource")
-  private DataSource m_phenotypeSource;
 
   @Expose
   @SerializedName("geneSymbol")
@@ -133,14 +128,11 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for genes that get their data from {@link GeneCall}.
    */
-  public GeneReport(GeneCall call, Env env, DataSource phenotypeSource) {
-    Preconditions.checkNotNull(phenotypeSource);
-
+  public GeneReport(GeneCall call, Env env) {
     m_gene = call.getGene();
     m_alleleDefinitionVersion = call.getVersion();
     m_alleleDefinitionSource = call.getSource();
-    m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene);
     m_callSource = CallSource.MATCHER;
     //noinspection ConstantValue
     if (call.getWarnings() != null) {
@@ -180,10 +172,10 @@ public class GeneReport implements Comparable<GeneReport> {
     if (isLowestFunctionGene(m_gene)) {
 
       if (!call.getDiplotypes().isEmpty()) {
-        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource));
-        m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call, m_phenotypeSource));
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypes(call.getDiplotypes()));
+        m_matcherComponentHaplotypes.addAll(diplotypeFactory.makeComponentDiplotypes(call));
         m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromDiplotypes(m_gene, env,
-            phenotypeSource, diplotypeFactory, call.getDiplotypes()));
+            diplotypeFactory, call.getDiplotypes()));
       } else {
         List<HaplotypeMatch> uniqueMatches = new ArrayList<>();
         Map<String, Integer> counts = new HashMap<>();
@@ -195,8 +187,8 @@ public class GeneReport implements Comparable<GeneReport> {
             counts.compute(h, (k, v) -> v == null ? 1 : v + 1);
           }
         });
-        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(uniqueMatches, m_phenotypeSource));
-        m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromHaplotypeMatches(m_gene, env, phenotypeSource,
+        m_sourceDiplotypes.addAll(diplotypeFactory.makeDiplotypesFromHaplotypeMatches(uniqueMatches));
+        m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromHaplotypeMatches(m_gene, env,
             diplotypeFactory, call.getHaplotypeMatches()));
         if (isLowestFunctionGene(m_gene)) {
           for (String h : counts.keySet()) {
@@ -208,11 +200,11 @@ public class GeneReport implements Comparable<GeneReport> {
       }
 
     } else {
-      List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes(), m_phenotypeSource);
+      List<Diplotype> diplotypes = diplotypeFactory.makeDiplotypes(call.getDiplotypes());
       m_sourceDiplotypes.addAll(diplotypes);
 
       if (isSlco1b1(m_gene)) {
-        m_recommendationDiplotypes.addAll(Slco1b1CustomCaller.inferDiplotypes(this, env, phenotypeSource));
+        m_recommendationDiplotypes.addAll(Slco1b1CustomCaller.inferDiplotypes(this, env));
       } else {
         m_recommendationDiplotypes.addAll(diplotypes);
       }
@@ -225,12 +217,9 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for genes that get their data from an {@link OutsideCall} that comes from the {@link Phenotyper}.
    */
-  public GeneReport(OutsideCall call, Env env, DataSource phenotypeSource) {
-    Preconditions.checkNotNull(phenotypeSource);
-
+  public GeneReport(OutsideCall call, Env env) {
     m_gene = call.getGene();
-    m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene);
     m_callSource = CallSource.OUTSIDE;
     m_hasUndocumentedVariations = false;
     m_treatUndocumentedVariationsAsReference = false;
@@ -246,12 +235,12 @@ public class GeneReport implements Comparable<GeneReport> {
     Preconditions.checkState(m_callSource == CallSource.OUTSIDE);
     Preconditions.checkState(m_gene.equals(call.getGene()));
 
-    Diplotype diplotype = new Diplotype(call, env, m_phenotypeSource);
+    Diplotype diplotype = new Diplotype(call, env);
     m_sourceDiplotypes.add(diplotype);
     if (isLowestFunctionGene(m_gene)) {
-      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env, m_phenotypeSource));
+      m_recommendationDiplotypes.addAll(LowestFunctionGeneCaller.inferFromOutsideCall(call, env));
     } else if (Cyp2d6CopyNumberCaller.GENE.equals(m_gene)) {
-      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env, m_phenotypeSource));
+      m_recommendationDiplotypes.add(Cyp2d6CopyNumberCaller.inferDiplotype(this, diplotype, env));
     } else {
       m_recommendationDiplotypes.add(diplotype);
     }
@@ -261,32 +250,29 @@ public class GeneReport implements Comparable<GeneReport> {
   /**
    * Constructor for unspecified {@link GeneReport}.
    */
-  private GeneReport(String geneSymbol, Env env, DataSource phenotypeSource) {
+  private GeneReport(String geneSymbol, Env env) {
     m_gene = geneSymbol;
-    m_phenotypeSource = phenotypeSource;
-    m_phenotypeVersion = env.getPhenotypeVersion(m_gene, phenotypeSource);
+    m_phenotypeVersion = env.getPhenotypeVersion(m_gene);
     m_callSource = CallSource.NONE;
     m_hasUndocumentedVariations = false;
     m_treatUndocumentedVariationsAsReference = false;
 
-    Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env, phenotypeSource);
+    Diplotype unknownDiplotype = DiplotypeFactory.makeUnknownDiplotype(geneSymbol, env);
     m_sourceDiplotypes.add(unknownDiplotype);
     m_recommendationDiplotypes.add(unknownDiplotype);
   }
 
   public static GeneReport unspecifiedGeneReport(String gene, Env env, DataSource source) {
-    return new GeneReport(gene, env, source);
+    return new GeneReport(gene, env);
   }
 
 
   /**
    * Constructor for tests.
    */
-  protected GeneReport(String geneSymbol, DataSource phenotypeSource, @Nullable String phenotypeVersion) {
-    Preconditions.checkNotNull(phenotypeSource);
+  protected GeneReport(String geneSymbol, @Nullable String phenotypeVersion) {
 
     m_gene = geneSymbol;
-    m_phenotypeSource = phenotypeSource;
     m_phenotypeVersion = phenotypeVersion;
     m_callSource = CallSource.NONE;
     m_hasUndocumentedVariations = false;
@@ -321,10 +307,6 @@ public class GeneReport implements Comparable<GeneReport> {
    */
   public @Nullable String getPhenotypeVersion() {
     return m_phenotypeVersion;
-  }
-
-  public DataSource getPhenotypeSource() {
-    return m_phenotypeSource;
   }
 
 
@@ -654,7 +636,6 @@ public class GeneReport implements Comparable<GeneReport> {
     }
     int rez = new ComparisonChain()
         .compareIgnoreCase(m_gene, o.getGene())
-        .compare(m_phenotypeSource, o.getPhenotypeSource())
         .result();
     if (rez != 0) {
       return rez;
@@ -671,13 +652,12 @@ public class GeneReport implements Comparable<GeneReport> {
       return true;
     }
     return Objects.equals(m_gene, gr.getGene()) &&
-        Objects.equals(m_phenotypeSource, gr.getPhenotypeSource()) &&
         Objects.equals(m_callSource, gr.getCallSource())
         ;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_gene, m_phenotypeSource, m_callSource);
+    return Objects.hash(m_gene, m_callSource);
   }
 }

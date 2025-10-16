@@ -29,7 +29,6 @@ import org.pharmgkb.pharmcat.haplotype.DpydHapB3Matcher;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
@@ -88,11 +87,11 @@ class DpydTest {
   }
 
   static void dpydHasReports(PipelineWrapper testWrapper, RecPresence hasCpicReport, RecPresence hasDpwgReport) {
-    GeneReport cpicDpydGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport cpicDpydGeneReport = testWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(cpicDpydGeneReport);
     assertEquals(1, cpicDpydGeneReport.getRecommendationDiplotypes().size());
 
-    GeneReport dpwgDpydGeneReport = testWrapper.getContext().getGeneReport(DataSource.DPWG, "DPYD");
+    GeneReport dpwgDpydGeneReport = testWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(dpwgDpydGeneReport);
     assertEquals(1, dpwgDpydGeneReport.getRecommendationDiplotypes().size());
 
@@ -141,9 +140,9 @@ class DpydTest {
       }
     }
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", recommendedDips);
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls);
+    testWrapper.testSourceDiplotypes("DPYD", expectedCalls, cpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("DPYD", recommendedDips);
+    testWrapper.testPrintCalls("DPYD", cpicStyleCalls);
 
     dpydHasReports(testWrapper, hasDpwgAnnotations);
 
@@ -166,16 +165,16 @@ class DpydTest {
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, false);
 
-    GeneReport dpwgReport = testWrapper.getContext().getGeneReport(DataSource.DPWG, "DPYD");
+    GeneReport dpwgReport = testWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(dpwgReport);
     assertTrue(dpwgReport.getRecommendationDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream()).noneMatch(TextConstants::isUnspecified), "DPWG missing lookup key for DPYD");
 
     // DPWG does not include the 1627 allele in function definition so use Reference for lookup
     String gene = "DPYD";
-    testWrapper.testRecommendedDiplotypes(DataSource.DPWG, gene, expectedCallsToRecommendedDiplotypes(List.of("Reference/c.1905+1G>A (*2A)")));
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(List.of("Reference/c.1905+1G>A (*2A)")));
     // all other diplotype usage can use the alleles as called
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, gene, expectedCalls);
-    testWrapper.testPrintCalls(DataSource.DPWG, gene, expectedCalls);
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
   }
 
 
@@ -328,7 +327,7 @@ class DpydTest {
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.1314T>G"), false, RecPresence.NO);
-    testWrapper.testLookupByActivity(DataSource.CPIC, "DPYD", "0.5");
+    testWrapper.testLookupByActivity("DPYD", "0.5");
   }
 
   @Test
@@ -352,7 +351,7 @@ class DpydTest {
     doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.2846A>T"),
         false, RecPresence.NO);
 
-    testWrapper.testLookupByActivity(DataSource.CPIC, "DPYD", "0.5");
+    testWrapper.testLookupByActivity("DPYD", "0.5");
 
     // in this instance, tegafur should have only a DPWG annotation, but it has no matching guidance
     DrugReport tegafur = testWrapper.getContext().getDrugReport(PrescribingGuidanceSource.DPWG_GUIDELINE, "tegafur");
@@ -395,7 +394,7 @@ class DpydTest {
     highScoreWrapper.testCalledByMatcher("DPYD");
     highScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T (heterozygous)");
     highScoreWrapper.testRecommendedDiplotypes("DPYD", "Reference", "c.2846A>T");
-    GeneReport highScoreDpydReport = highScoreWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport highScoreDpydReport = highScoreWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(highScoreDpydReport);
     assertTrue(highScoreDpydReport.getRecommendationDiplotypes().stream().allMatch((d) -> d.getActivityScore().equals("1.5")));
 
@@ -416,7 +415,7 @@ class DpydTest {
     lowScoreWrapper.testCalledByMatcher("DPYD");
     lowScoreWrapper.testPrintCpicCalls("DPYD", "c.2846A>T/c.2846A>T");
     lowScoreWrapper.testRecommendedDiplotypes("DPYD", "c.2846A>T", "c.2846A>T");
-    GeneReport lowScoreDpydReport = lowScoreWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport lowScoreDpydReport = lowScoreWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(lowScoreDpydReport);
     assertTrue(lowScoreDpydReport.getRecommendationDiplotypes().stream().allMatch((d) -> d.getActivityScore().equals("1.0")));
 
@@ -724,7 +723,7 @@ class DpydTest {
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
-    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport("DPYD");
     assertNotNull(cpicGeneReport);
     assertEquals(
         Collections.emptyList(),
@@ -788,7 +787,7 @@ class DpydTest {
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
-    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport("DPYD");
     assertNotNull(cpicGeneReport);
     assertEquals(
         List.of(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY),
@@ -828,7 +827,7 @@ class DpydTest {
     );
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, true, RecPresence.YES);
-    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport cpicGeneReport = Objects.requireNonNull(testWrapper.getContext()).getGeneReport("DPYD");
     assertNotNull(cpicGeneReport);
     assertEquals(
         List.of(MessageHelper.MSG_DPYD_HAPB3_EXONIC_ONLY),
@@ -977,11 +976,11 @@ class DpydTest {
     }
 
     testWrapper.testCalledByMatcher("DPYD");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "DPYD", expectedCalls, cpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "DPYD", recommendedDiplotypes);
-    testWrapper.testPrintCalls(DataSource.CPIC, "DPYD", cpicStyleCalls == null ? expectedCalls : cpicStyleCalls);
+    testWrapper.testSourceDiplotypes("DPYD", expectedCalls, cpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("DPYD", recommendedDiplotypes);
+    testWrapper.testPrintCalls("DPYD", cpicStyleCalls == null ? expectedCalls : cpicStyleCalls);
 
-    GeneReport cpicGeneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport cpicGeneReport = testWrapper.getContext().getGeneReport("DPYD");
     assertNotNull(cpicGeneReport);
     int numMissing = 0;
     if ("missing".equals(data[0])) {

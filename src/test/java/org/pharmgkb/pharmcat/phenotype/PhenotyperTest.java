@@ -17,7 +17,6 @@ import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.model.GeneCall;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -71,8 +70,8 @@ class PhenotyperTest {
     assertReportable(phenotyper, "CYP2D6");
 
     // CYP2D6 is present and has an activity score
-    assertTrue(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").isPresent());
-    phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").ifPresentOrElse(
+    assertTrue(phenotyper.findGeneReport("CYP2D6").isPresent());
+    phenotyper.findGeneReport("CYP2D6").ifPresentOrElse(
         (geneReport) -> {
           assertTrue(geneReport.isCalled(), "CYP2D6 report should be present and called");
           assertEquals(CallSource.OUTSIDE, geneReport.getCallSource());
@@ -83,8 +82,8 @@ class PhenotyperTest {
     assertDiplotypeDisplay(phenotyper, "CYP2D6", "*1/*3");
 
     // CYP2C9 has a report but is not called and has no source
-    assertTrue(phenotyper.findGeneReport(DataSource.CPIC, "CYP2C9").isPresent());
-    phenotyper.findGeneReport(DataSource.CPIC, "CYP2C9").ifPresentOrElse(
+    assertTrue(phenotyper.findGeneReport("CYP2C9").isPresent());
+    phenotyper.findGeneReport("CYP2C9").ifPresentOrElse(
         (geneReport) -> {
           assertEquals(CallSource.NONE, geneReport.getCallSource());
           assertFalse(geneReport.isCalled(), "CYP2C9 report should be present but not called");
@@ -114,7 +113,7 @@ class PhenotyperTest {
 
     assertDiplotypeDisplay(phenotyper, "UGT1A1", "*1/*80");
     assertLookup(phenotyper, "UGT1A1", "*1", "*80");
-    assertTrue(phenotyper.findGeneReport(DataSource.CPIC, "UGT1A1").orElseThrow(unfoundGene).isPhased());
+    assertTrue(phenotyper.findGeneReport("UGT1A1").orElseThrow(unfoundGene).isPhased());
   }
 
   @Test
@@ -127,7 +126,7 @@ class PhenotyperTest {
 
     assertDiplotypeDisplay(phenotyper, "UGT1A1", "*1/*80");
     assertLookup(phenotyper, "UGT1A1", "*1", "*80");
-    assertFalse(phenotyper.findGeneReport(DataSource.CPIC, "UGT1A1").orElseThrow(unfoundGene).isPhased());
+    assertFalse(phenotyper.findGeneReport("UGT1A1").orElseThrow(unfoundGene).isPhased());
   }
 
   @Test
@@ -170,13 +169,13 @@ class PhenotyperTest {
    */
   private void assertCalledByMatcher(Phenotyper phenotyper, String... genes) {
     Arrays.stream(genes)
-        .forEach(g -> assertTrue(phenotyper.findGeneReport(DataSource.CPIC, g)
+        .forEach(g -> assertTrue(phenotyper.findGeneReport(g)
             .orElseThrow(unfoundGene).isCalled(), g + " is not called"));
   }
 
   private void assertReportable(Phenotyper phenotyper, String... genes) {
     Arrays.stream(genes)
-        .forEach(g -> assertTrue(phenotyper.findGeneReport(DataSource.CPIC, g)
+        .forEach(g -> assertTrue(phenotyper.findGeneReport(g)
             .orElseThrow(unfoundGene).isReportable(), g + " is not reportable"));
   }
 
@@ -185,7 +184,7 @@ class PhenotyperTest {
    */
   private void assertNotCalledByMatcher(Phenotyper phenotyper, String... genes) {
     Arrays.stream(genes)
-        .forEach(g -> assertFalse(phenotyper.findGeneReport(DataSource.CPIC, g)
+        .forEach(g -> assertFalse(phenotyper.findGeneReport(g)
             .orElseThrow(unfoundGene).isCalled(), g + " is called"));
   }
 
@@ -196,7 +195,7 @@ class PhenotyperTest {
    * @param calls the expected display of the calls, 1 or more
    */
   private void assertDiplotypeDisplay(Phenotyper phenotyper, String gene, String... calls) {
-    GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, gene).orElseThrow(unfoundGene);
+    GeneReport geneReport = phenotyper.findGeneReport(gene).orElseThrow(unfoundGene);
     Collection<String> dips = ReportHelpers.amdGeneCalls(geneReport);
     assertEquals(calls.length, dips.size(),
         "Expected " + gene + " call count (" + calls.length + ") doesn't match actual call count (" +
@@ -205,7 +204,7 @@ class PhenotyperTest {
   }
 
   private void assertWarning(Phenotyper phenotyper, String rsid, String warning) {
-    GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, "CYP2C19").orElseThrow(unfoundGene);
+    GeneReport geneReport = phenotyper.findGeneReport("CYP2C19").orElseThrow(unfoundGene);
     assertTrue(geneReport.getVariantReports().stream()
         .anyMatch(v -> v.getDbSnpId() != null && v.getDbSnpId().equals(rsid) && v.getWarnings().contains(warning)));
   }
@@ -231,7 +230,7 @@ class PhenotyperTest {
       fail("Can only test on 1 or 2 haplotypes");
     }
 
-    GeneReport geneReport = phenotyper.findGeneReport(DataSource.CPIC, gene).orElseThrow(unfoundGene);
+    GeneReport geneReport = phenotyper.findGeneReport(gene).orElseThrow(unfoundGene);
     assertTrue(geneReport.isReportable());
     assertTrue(geneReport.getRecommendationDiplotypes().stream()
         .anyMatch(d -> DiplotypeTest.computeLookupMap(d).equals(lookup)));

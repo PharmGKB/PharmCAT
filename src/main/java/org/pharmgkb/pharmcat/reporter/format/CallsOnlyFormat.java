@@ -19,7 +19,6 @@ import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -88,14 +87,12 @@ public class CallsOnlyFormat extends AbstractFormat {
 
     Map<String, GeneReport> calledGenes = new HashMap<>();
     for (String gene : getEnv().getDefinitionReader().getGenes()) {
-      GeneReport cpicReport = reportContext.getGeneReport(DataSource.CPIC, gene);
-      GeneReport dpwgReport = reportContext.getGeneReport(DataSource.DPWG, gene);
-      if ((cpicReport == null || cpicReport.isNoData()) && (dpwgReport == null || dpwgReport.isNoData())) {
+      GeneReport geneReport = reportContext.getGeneReport(gene);
+      if (geneReport == null || geneReport.isNoData()) {
         continue;
       }
 
-      GeneReport primary = cpicReport == null ? dpwgReport : cpicReport;
-      calledGenes.put(gene, primary);
+      calledGenes.put(gene, geneReport);
     }
 
     String sampleId = null;
@@ -211,7 +208,7 @@ public class CallsOnlyFormat extends AbstractFormat {
 
     boolean hasPhenotypes = !lowestFunctionSingles && report.getSourceDiplotypes().stream()
         .anyMatch(d -> !d.getPhenotypes().isEmpty() && !isIgnorableValue(d.getPhenotypes().get(0)));
-    boolean hasActivityScores = isActivityScoreGene(report.getGene(), report.getPhenotypeSource()) &&
+    boolean hasActivityScores = isActivityScoreGene(report.getGene()) &&
         report.getSourceDiplotypes().stream()
             .anyMatch(d -> !isIgnorableValue(d.getActivityScore()));
 
@@ -286,7 +283,7 @@ public class CallsOnlyFormat extends AbstractFormat {
     writer.print(generatePhenotypeValue(dip.getPhenotypes()));
     writer.print("\t");
     // activity score
-    if (isActivityScoreGene(report.getGene(), report.getPhenotypeSource()) && dip.getActivityScore() != null) {
+    if (isActivityScoreGene(report.getGene()) && dip.getActivityScore() != null) {
       writer.print(generateStandardizedValue(dip.getActivityScore()));
     }
     writer.print("\t");
@@ -380,7 +377,7 @@ public class CallsOnlyFormat extends AbstractFormat {
       writer.print(generatePhenotypeValue(recDip.getPhenotypes()));
       writer.print("\t");
       // recommendation lookup activity score
-      if (isActivityScoreGene(report.getGene(), report.getPhenotypeSource())) {
+      if (isActivityScoreGene(report.getGene())) {
         writer.print(generateStandardizedValue(Objects.requireNonNull(recDip.getActivityScore())));
       }
     } else {

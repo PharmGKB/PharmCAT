@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.pharmgkb.pharmcat.PipelineTest.*;
 
@@ -46,10 +45,10 @@ class CftrTest {
     List<String> expectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CFTR", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CFTR",
+    testWrapper.testSourceDiplotypes("CFTR", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CFTR",
         List.of("ivacaftor non-responsive CFTR sequence", "ivacaftor non-responsive CFTR sequence"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CFTR", expectedCalls);
+    testWrapper.testPrintCalls("CFTR", expectedCalls);
 
     testWrapper.testMatchedAnnotations("ivacaftor", 1);
 
@@ -67,9 +66,9 @@ class CftrTest {
     List<String> expectedCalls = List.of("D1270N (heterozygous)");
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CFTR", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CFTR", List.of("ivacaftor non-responsive CFTR sequence", "D1270N"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CFTR", expectedCalls);
+    testWrapper.testSourceDiplotypes("CFTR", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CFTR", List.of("ivacaftor non-responsive CFTR sequence", "D1270N"));
+    testWrapper.testPrintCalls("CFTR", expectedCalls);
 
     testWrapper.testMatchedAnnotations("ivacaftor", 2);
 
@@ -88,9 +87,9 @@ class CftrTest {
     List<String> expectedCalls = List.of("D1270N/G551D");
 
     testWrapper.testCalledByMatcher("CFTR");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CFTR", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CFTR", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CFTR", expectedCalls);
+    testWrapper.testSourceDiplotypes("CFTR", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CFTR", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("CFTR", expectedCalls);
 
     testWrapper.testMatchedAnnotations("ivacaftor", 2);
 
@@ -120,6 +119,6 @@ class CftrTest {
     testWrapper.testCalledByMatcher("CYP2C9");
 
     testWrapper.testReportable("CFTR");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CFTR", "Reference/Reference");
+    testWrapper.testPrintCalls("CFTR", "Reference/Reference");
   }
 }

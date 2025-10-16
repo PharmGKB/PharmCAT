@@ -8,7 +8,6 @@ import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.haplotype.model.Metadata;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.pgkb.GuidelinePackage;
@@ -38,7 +37,7 @@ public class ReportContext {
   private String m_dataVersion;
   @Expose
   @SerializedName("genes")
-  private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports;
+  private final SortedMap<String, GeneReport> m_geneReports;
   @Expose
   @SerializedName("drugs")
   private final SortedMap<PrescribingGuidanceSource, SortedMap<String, DrugReport>> m_drugReports = new TreeMap<>();
@@ -83,9 +82,7 @@ public class ReportContext {
     // now that all reports are generated, apply applicable messages
     MessageHelper messageHelper = env.getMessageHelper();
     // to gene reports
-    m_geneReports.values().stream()
-        .flatMap((m) -> m.values().stream())
-        .forEach(messageHelper::addMatchingMessagesTo);
+    m_geneReports.values().forEach(messageHelper::addMatchingMessagesTo);
     // to drug reports
     for (PrescribingGuidanceSource source : m_drugReports.keySet()) {
       for (DrugReport drugReport : m_drugReports.get(source).values()) {
@@ -93,7 +90,7 @@ public class ReportContext {
 
         // add a message for any gene that has missing data
         drugReport.getRelatedGeneSymbols().stream()
-            .map((s) -> getGeneReport(source, s))
+            .map(this::getGeneReport)
             .filter((gr) -> gr != null && !gr.isOutsideCall() && gr.isMissingVariants() && !gr.isNoData())
             .forEach((gr) -> drugReport.addMessage(new MessageAnnotation(MessageAnnotation.TYPE_NOTE,
                 "missing-variants",
@@ -107,7 +104,7 @@ public class ReportContext {
 
   private String validateVersions(PgkbGuidelineCollection guidelineCollection) {
     Set<String> observedVersions = new HashSet<>();
-    List<GeneReport> ungroupedGeneReports = m_geneReports.values().stream().flatMap((m) -> m.values().stream()).toList();
+    Collection<GeneReport> ungroupedGeneReports = m_geneReports.values();
 
     for (GeneReport geneReport : ungroupedGeneReports) {
         if (geneReport.getAlleleDefinitionVersion() != null) {
@@ -149,7 +146,7 @@ public class ReportContext {
   /**
    * Gets the set of all {@link GeneReport} objects that are reported in this context
    */
-  public SortedMap<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+  public SortedMap<String, GeneReport> getGeneReports() {
     return m_geneReports;
   }
 
@@ -164,19 +161,8 @@ public class ReportContext {
     return m_drugReports.get(type).get(drug);
   }
 
-  public List<GeneReport> getGeneReports(String gene) {
-    return m_geneReports.keySet().stream()
-        .map((k) -> m_geneReports.get(k).get(gene))
-        .filter(Objects::nonNull)
-        .toList();
-  }
-
-  public @Nullable GeneReport getGeneReport(DataSource source, String gene) {
-    return m_geneReports.get(source).get(gene);
-  }
-
-  public @Nullable GeneReport getGeneReport(PrescribingGuidanceSource source, String gene) {
-    return m_geneReports.get(source.getPhenoSource()).get(gene);
+  public @Nullable GeneReport getGeneReport(String gene) {
+    return m_geneReports.get(gene);
   }
 
   /**

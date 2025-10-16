@@ -33,7 +33,6 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
@@ -145,7 +144,7 @@ class PipelineTest {
   static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
       @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
       RecPresence dpwgAnnPresence) {
-    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, null, dpwgAnnPresence, null);
+    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, null, dpwgAnnPresence);
   }
 
   /**
@@ -155,10 +154,8 @@ class PipelineTest {
    */
   static void htmlChecks(Document document, SortedMap<String, List<String>> expectedCalls,
       @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
-      @Nullable SortedMap<String, String> cpicPhenotypes, RecPresence dpwgAnnPresence,
-      @Nullable SortedMap<String, String> dpwgPhenotypes) {
-    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, cpicPhenotypes, null, dpwgAnnPresence,
-        dpwgPhenotypes, null);
+      @Nullable SortedMap<String, String> cpicPhenotypes, RecPresence dpwgAnnPresence) {
+    htmlChecks(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, cpicPhenotypes, null, dpwgAnnPresence);
   }
 
   /**
@@ -171,16 +168,14 @@ class PipelineTest {
       RecPresence cpicAnnPresence,
       @Nullable SortedMap<String, String> cpicPhenotypes,
       @Nullable SortedMap<String, SortedSet<String>> cpicActivityScores,
-      RecPresence dpwgAnnPresence,
-      @Nullable SortedMap<String, String> dpwgPhenotypes,
-      @Nullable SortedMap<String, SortedSet<String>> dpwgActivityScores) {
+      RecPresence dpwgAnnPresence) {
     if (drug == null) {
       throw new IllegalArgumentException("If you don't want to provide drug, use htmlCheckGenes()");
     }
 
     htmlCheckGenes(document, expectedCalls, cpicStyleCalls);
     htmlCheckDrug(document, expectedCalls, cpicStyleCalls, drug, cpicAnnPresence, cpicPhenotypes, cpicActivityScores,
-        dpwgAnnPresence, dpwgPhenotypes, dpwgActivityScores);
+        dpwgAnnPresence);
   }
 
   /**
@@ -260,8 +255,7 @@ class PipelineTest {
   private static void htmlCheckDrug(Document document, SortedMap<String, List<String>> expectedCalls,
       @Nullable Map<String, List<String>> cpicStyleCalls, String drug, RecPresence cpicAnnPresence,
       @Nullable SortedMap<String, String> cpicPhenotypes, @Nullable SortedMap<String, SortedSet<String>> cpicActivityScores,
-      RecPresence dpwgAnnPresence, @Nullable SortedMap<String, String> dpwgPhenotypes,
-      @Nullable SortedMap<String, SortedSet<String>> dpwgActivityScores) {
+      RecPresence dpwgAnnPresence) {
 
     String sanitizedDrug = ReportHelpers.sanitizeCssSelector(drug);
     Elements drugSections = document.getElementsByClass(sanitizedDrug);
@@ -301,9 +295,6 @@ class PipelineTest {
 
       htmlCheckDrugAnnotation(drugSections, "cpic-guideline", sanitizedDrug, cpicAnnPresence,
           filterRxCalls(expectedRxCalls, cpicPhenotypes), cpicPhenotypes, cpicActivityScores);
-
-      htmlCheckDrugAnnotation(drugSections, "dpwg-guideline", sanitizedDrug, dpwgAnnPresence,
-          filterRxCalls(expectedRxCalls, dpwgPhenotypes), dpwgPhenotypes, dpwgActivityScores);
     }
   }
 
@@ -432,9 +423,8 @@ class PipelineTest {
         .reference("CYP2C9");
     testWrapper.execute();
     assertNotNull(testWrapper.getContext());
-    SortedSet<String> genes = testWrapper.getContext().getGeneReports().keySet().stream()
-        .flatMap((k) -> testWrapper.getContext().getGeneReports().get(k).values().stream()
-            .map(GeneReport::getGeneDisplay))
+    SortedSet<String> genes = testWrapper.getContext().getGeneReports().values().stream()
+        .map(GeneReport::getGeneDisplay)
         .collect(Collectors.toCollection(TreeSet::new));
 
     SortedSet<String> expectedGenes = new TreeSet<>(List.of(
@@ -609,10 +599,10 @@ class PipelineTest {
     testWrapper.testNotCalledByMatcher("CYP2C19");
     testWrapper.testCalledByMatcher("TPMT");
     testWrapper.testCalledByMatcher("RYR1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", tpmtExpectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCallsToRecommendedDiplotypes(tpmtExpectedCalls));
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
+    testWrapper.testSourceDiplotypes("TPMT", tpmtExpectedCalls);
+    testWrapper.testSourceDiplotypes("RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("TPMT", expectedCallsToRecommendedDiplotypes(tpmtExpectedCalls));
+    testWrapper.testRecommendedDiplotypes("RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
 
     Document document = readHtmlReport(vcfFile);
     assertNotNull(document.getElementById("gs-undocVarAsRef-TPMT"));
@@ -646,11 +636,11 @@ class PipelineTest {
     // but lowest-function ignores combo
     List<String> ryr1ExpectedCalls = List.of(TextConstants.HOMOZYGOUS_REFERENCE);
 
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", tpmtExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCallsToRecommendedDiplotypes(tpmtExpectedCalls));
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
-    testWrapper.testRecommendedPhenotype(DataSource.CPIC, "TPMT", TextConstants.NA);
+    testWrapper.testSourceDiplotypes("TPMT", tpmtExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("TPMT", expectedCallsToRecommendedDiplotypes(tpmtExpectedCalls));
+    testWrapper.testSourceDiplotypes("RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
+    testWrapper.testRecommendedPhenotype("TPMT", TextConstants.NA);
 
     Document document = readHtmlReport(vcfFile);
     assertNull(document.getElementById("gs-undocVarAsRef-TPMT"));
@@ -681,14 +671,14 @@ class PipelineTest {
 
     testWrapper.testNotCalledByMatcher("CYP2C19", "TPMT");
 
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
+    testWrapper.testSourceDiplotypes("CYP2C19", expectedCalls);
+    testWrapper.testSourceDiplotypes("TPMT", expectedCalls);
 
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CYP2C19", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CYP2C19", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("TPMT", expectedCalls);
 
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", List.of(TextConstants.UNCALLED));
-    testWrapper.testPrintCalls(DataSource.CPIC, "TPMT", List.of(TextConstants.UNCALLED));
+    testWrapper.testPrintCalls("CYP2C19", List.of(TextConstants.UNCALLED));
+    testWrapper.testPrintCalls("TPMT", List.of(TextConstants.UNCALLED));
 
     Document document = readHtmlReport(vcfFile);
 
@@ -752,7 +742,7 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("clomipramine", PrescribingGuidanceSource.FDA_ASSOC, 1);
     testWrapper.testMatchedAnnotations("ivacaftor", 0);
 
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
     assertNotNull(cyp2c19report);
     VariantReport vr = cyp2c19report.findVariantReport("rs58973490")
         .orElseThrow(() -> new RuntimeException("Variant missing from test data"));
@@ -797,7 +787,7 @@ class PipelineTest {
     testWrapper.testAnyMatchFromSource("clomipramine", PrescribingGuidanceSource.FDA_ASSOC);
     testWrapper.testMatchedAnnotations("ivacaftor", 0);
 
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
     assertNotNull(cyp2c19report);
 
     // make sure the variant in question is not a het call
@@ -816,7 +806,7 @@ class PipelineTest {
     testWrapper.testMessageCountForDrug(PrescribingGuidanceSource.CPIC_GUIDELINE, "amitriptyline", 0);
 
     // CYP2C19 reference is *38, not *1, so should not have a reference message
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 0);
+    testWrapper.testMessageCountForGene("CYP2C19", 0);
   }
 
   @Test
@@ -923,7 +913,7 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCpicCalls("CYP2C19", "*4/*17");
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     assertTrue(geneReport.isOutsideCall());
   }
@@ -943,11 +933,11 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCpicCalls("CYP2C19",  "*1/*4", "*4/*38");
 
-    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(cyp2d6Report);
     assertTrue(cyp2d6Report.isOutsideCall());
 
-    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
+    GeneReport cyp2c19report = testWrapper.getContext().getGeneReport("CYP2C19");
     assertNotNull(cyp2c19report);
     assertTrue(cyp2c19report.isMissingVariants());
 
@@ -981,7 +971,7 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCpicCalls("CYP2C19", "*1/*38");
 
-    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(cyp2d6Report);
     assertTrue(cyp2d6Report.isOutsideCall());
   }
@@ -1001,7 +991,7 @@ class PipelineTest {
     testWrapper.testReportable("CYP2C19");
 
     testWrapper.testPrintCpicCalls("CYP2C19", "*1/*4", "*1/*17");
-    GeneReport cyp2c19Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C19");
+    GeneReport cyp2c19Report = testWrapper.getContext().getGeneReport("CYP2C19");
     assertNotNull(cyp2c19Report);
   }
 
@@ -1040,9 +1030,9 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*1/*1");
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("simvastatin", 2);
 
@@ -1066,9 +1056,9 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*5/*15");
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
@@ -1089,9 +1079,9 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*1/*44");
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("simvastatin", 1);
 
@@ -1110,9 +1100,9 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*1/*15");
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
@@ -1132,14 +1122,18 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*5/*45");
 
     testWrapper.testCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
-    testWrapper.testMatchedAnnotations("simvastatin", 2);
+    testWrapper.testMatchedAnnotations("simvastatin", 3);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testNoMatchFromSource("simvastatin", PrescribingGuidanceSource.FDA_LABEL);
+    testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.FDA_ASSOC, 1);
 
     Document document = readHtmlReport(vcfFile);
-    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES_NO_MATCH);
+    htmlChecks(document, "SLCO1B1", expectedCalls, "simvastatin", RecPresence.YES, RecPresence.YES);
   }
 
   /**
@@ -1160,9 +1154,9 @@ class PipelineTest {
     List<String> expectedCalls = List.of("rs4149056 C/rs4149056 T");
 
     testWrapper.testNotCalledByMatcher("SLCO1B1");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "SLCO1B1", UNKNOWN_CALL);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "SLCO1B1", List.of("*1", "*5"));
-    testWrapper.testPrintCalls(DataSource.CPIC, "SLCO1B1", expectedCalls);
+    testWrapper.testSourceDiplotypes("SLCO1B1", UNKNOWN_CALL);
+    testWrapper.testRecommendedDiplotypes("SLCO1B1", List.of("*1", "*5"));
+    testWrapper.testPrintCalls("SLCO1B1", expectedCalls);
 
     testWrapper.testMatchedAnnotations("simvastatin", 3);
     testWrapper.testMatchedAnnotations("simvastatin", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
@@ -1256,8 +1250,8 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("atazanavir", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
     testWrapper.testMessageCountForDrug(PrescribingGuidanceSource.CPIC_GUIDELINE, "atazanavir", 0);
 
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "UGT1A1", 2);
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "UGT1A1", "reference-allele");
+    testWrapper.testMessageCountForGene("UGT1A1", 2);
+    testWrapper.testGeneHasMessage("UGT1A1", "reference-allele");
   }
 
   @Test
@@ -1441,7 +1435,7 @@ class PipelineTest {
     testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertNotNull(geneReport);
     assertTrue(geneReport.isPhased());
   }
@@ -1456,7 +1450,7 @@ class PipelineTest {
     testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertNotNull(geneReport);
     assertTrue(geneReport.isPhased());
   }
@@ -1472,7 +1466,7 @@ class PipelineTest {
     testWrapper.execute();
 
     testWrapper.testNotCalledByMatcher("UGT1A1");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertNotNull(geneReport);
     assertTrue(geneReport.isPhased());
   }
@@ -1490,7 +1484,7 @@ class PipelineTest {
     testWrapper.testReportable("UGT1A1");
     testWrapper.testPrintCpicCalls("UGT1A1", "*1/*80+*37");
     testWrapper.testRecommendedDiplotypes("UGT1A1", "*1", "*80+*37");
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "UGT1A1");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("UGT1A1");
     assertNotNull(geneReport);
     assertTrue(geneReport.isPhased());
   }
@@ -1507,7 +1501,7 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP3A5", "*1/*1");
     testWrapper.testRecommendedDiplotypes("CYP3A5", "*1", "*1");
 
-    GeneReport gene = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP3A5");
+    GeneReport gene = testWrapper.getContext().getGeneReport("CYP3A5");
     assertNotNull(gene);
     // rs776746 should be missing from this report
     assertNotNull(gene.getVariantReports());
@@ -1602,17 +1596,14 @@ class PipelineTest {
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testReportable("CYP2C9");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C9", "*1/*1");
-    testWrapper.testPrintCalls(DataSource.DPWG, "CYP2C9", "*1/*1");
+    testWrapper.testPrintCalls("CYP2C9", "*1/*1");
+    testWrapper.testPrintCalls("CYP2C9", "*1/*1");
 
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*57:01 positive");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*58:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*15:02 positive");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*57:01 positive");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*58:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*15:02 positive");
+    testWrapper.testSourcePhenotype("HLA-B", "*57:01 positive");
+    testWrapper.testSourcePhenotype("HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype("HLA-B", "*15:02 positive");
 
     // *57:01 guideline
     testWrapper.testMatchedAnnotations("abacavir", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
@@ -1620,9 +1611,9 @@ class PipelineTest {
     // *58:01 guideline
     testWrapper.testMatchedAnnotations("allopurinol", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     // *15:02 guideline (along with CYP2C9)
-    testWrapper.testMatchedAnnotations("phenytoin", 6);
+    testWrapper.testMatchedAnnotations("phenytoin", 5);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
-    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_LABEL, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_ASSOC, 1);
   }
@@ -1641,18 +1632,15 @@ class PipelineTest {
 
     testWrapper.testNotCalledByMatcher("HLA-B");
     testWrapper.testReportable("HLA-B");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*57:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*58:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "HLA-B", "*15:02 positive");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*57:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*58:01 negative");
-    testWrapper.testSourcePhenotype(DataSource.DPWG, "HLA-B", "*15:02 positive");
+    testWrapper.testSourcePhenotype("HLA-B", "*57:01 negative");
+    testWrapper.testSourcePhenotype("HLA-B", "*58:01 negative");
+    testWrapper.testSourcePhenotype("HLA-B", "*15:02 positive");
 
     testWrapper.testMatchedAnnotations("abacavir", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("allopurinol", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
-    testWrapper.testMatchedAnnotations("phenytoin", 6);
+    testWrapper.testMatchedAnnotations("phenytoin", 5);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
-    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_LABEL, 1);
     testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_ASSOC, 1);
 
@@ -1671,7 +1659,8 @@ class PipelineTest {
 
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
-        .reference("CYP2C9");
+        .reference("CYP2C9")
+        .variation("CYP2C9", "rs1799853", "C", "T");
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C9");
@@ -1687,9 +1676,11 @@ class PipelineTest {
     testWrapper.testMatchedAnnotations("allopurinol", 0);
     // phenytoin also relies on a different allele, but there will be a match for DPWG since the recommendations are
     // split between the two genes on that side
-    testWrapper.testMatchedAnnotations("phenytoin", 1);
-    testWrapper.testNoMatchFromSource("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE);
-    testWrapper.testAnyMatchFromSource("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE);
+    testWrapper.testMatchedAnnotations("phenytoin", 2);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.CPIC_GUIDELINE, 0);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_LABEL, 0);
+    testWrapper.testMatchedAnnotations("phenytoin", PrescribingGuidanceSource.FDA_ASSOC, 1);
   }
 
   /**
@@ -1717,6 +1708,7 @@ class PipelineTest {
     PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
     testWrapper.getVcfBuilder()
         .reference("CYP2C9")
+        .variation("CYP2C9", "rs1799853", "C", "T")
         .variation("CYP2C19", "rs12769205", "G", "G")
         .variation("CYP2C19", "rs4244285", "A", "A")
         .variation("CYP2C19", "rs3758581", "G", "G");
@@ -1726,10 +1718,10 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2C19", "*2/*2");
     testWrapper.testNotCalledByMatcher("CYP2D6");
 
-    GeneReport cyp2c9 = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2C9");
+    GeneReport cyp2c9 = testWrapper.getContext().getGeneReport("CYP2C9");
     assertNotNull(cyp2c9);
     assertEquals(1, cyp2c9.getRecommendationDiplotypes().size());
-    assertTrue(cyp2c9.getRecommendationDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("2.0")));
+    assertTrue(cyp2c9.getRecommendationDiplotypes().stream().allMatch(d -> d.getActivityScore().equals("1.5")));
 
     testWrapper.testReportable("CYP2C19", "CYP2C9", "HLA-A", "HLA-B");
     testWrapper.testMatchedAnnotations("celecoxib", 1);
@@ -1748,9 +1740,10 @@ class PipelineTest {
     testWrapper.testNoMatchFromSource("fluvoxamine", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
     // siponimod has DPWG & FDA recs, DPWG uses traditional matching and FDA uses diplotype-specific matching
-    testWrapper.testMatchedAnnotations("siponimod", 2);
+    testWrapper.testMatchedAnnotations("siponimod", 3);
     testWrapper.testAnyMatchFromSource("siponimod", PrescribingGuidanceSource.DPWG_GUIDELINE);
     testWrapper.testAnyMatchFromSource("siponimod", PrescribingGuidanceSource.FDA_LABEL);
+    testWrapper.testAnyMatchFromSource("siponimod", PrescribingGuidanceSource.FDA_ASSOC);
 
     testWrapper.testMatchedAnnotations("carbamazepine", PrescribingGuidanceSource.CPIC_GUIDELINE, 3);
     testWrapper.testMatchedAnnotations("carbamazepine", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
@@ -1768,7 +1761,7 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");
     testWrapper.testRecommendedDiplotypes("TPMT", "*1", "*3A");
 
-    GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
+    GeneReport tpmtReport = testWrapper.getContext().getGeneReport("TPMT");
     assertNotNull(tpmtReport);
     assertEquals(43, tpmtReport.getVariantReports().size());
   }
@@ -1824,7 +1817,9 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("CYP2B6");
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*1", "*34");
-    testWrapper.testMatchedAnnotations("efavirenz", 1);
+    testWrapper.testMatchedAnnotations("efavirenz", 2);
+    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
+    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
   }
 
   /**
@@ -1847,7 +1842,9 @@ class PipelineTest {
     testWrapper.testPrintCpicCalls("CYP2B6", "*1/*34", "*33/*36");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*1", "*34");
     testWrapper.testRecommendedDiplotypes("CYP2B6", "*33", "*36");
-    testWrapper.testMatchedAnnotations("efavirenz", 2);
+    testWrapper.testMatchedAnnotations("efavirenz", 3);
+    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
+    testWrapper.testMatchedAnnotations("efavirenz", PrescribingGuidanceSource.DPWG_GUIDELINE, 1);
   }
 
 
@@ -1899,7 +1896,7 @@ class PipelineTest {
     testWrapper.execute();
     testWrapper.testCalledByMatcher("CYP3A4");
     testWrapper.testReportable("CYP3A4");
-    testWrapper.testPrintCalls(DataSource.DPWG, "CYP3A4", "*8/*8");
+    testWrapper.testPrintCalls("CYP3A4", "*8/*8");
     testWrapper.testMatchedAnnotations("quetiapine", 1);
   }
 
@@ -1963,8 +1960,8 @@ class PipelineTest {
     // this is the diplotype indicated in the outside call, not the one matched
     testWrapper.testPrintCpicCalls( "CYP2C19", "*2/*2");
 
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 2);
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "prefer-sample-data",
+    testWrapper.testMessageCountForGene("CYP2C19", 2);
+    testWrapper.testGeneHasMessage("CYP2C19", "prefer-sample-data",
         MessageHelper.MSG_OUTSIDE_CALL);
   }
 
@@ -1993,7 +1990,7 @@ class PipelineTest {
     testWrapper.testCalledByMatcher("CYP2C9");
 
     testWrapper.testPrintCpicCalls( "CYP4F2", "*1/*3", "*4/*9");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP4F2", MessageHelper.MSG_OUTSIDE_CALL);
+    testWrapper.testGeneHasMessage("CYP4F2", MessageHelper.MSG_OUTSIDE_CALL);
 
     Document document = readHtmlReport(vcfFile);
     assertEquals(1,
@@ -2034,7 +2031,7 @@ class PipelineTest {
         .reference("CYP2C19");
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
 
@@ -2071,14 +2068,14 @@ class PipelineTest {
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+    testWrapper.testPrintCalls("CYP2C19", "*38/*38");
 
     testWrapper.testNotCalledByMatcher("CYP2D6");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "Normal Metabolizer (1.25)");
+    testWrapper.testPrintCalls("CYP2D6", "Normal Metabolizer (1.25)");
 
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+    testWrapper.testMessageCountForGene("CYP2C19", 1);
+    testWrapper.testGeneHasMessage("CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage("CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
   }
 
   /**
@@ -2100,18 +2097,39 @@ class PipelineTest {
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", "*38/*38");
+    testWrapper.testPrintCalls("CYP2C19", "*38/*38");
 
     testWrapper.testNotCalledByMatcher("CYP2D6");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*2/*10");
-    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    testWrapper.testPrintCalls("CYP2D6", "*2/*10");
+    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(cyp2d6Report);
     assertEquals(1, cyp2d6Report.getSourceDiplotypes().size());
     assertTrue(cyp2d6Report.getSourceDiplotypes().stream().allMatch((d) -> d.getPhenotypes().contains("Intermediate Metabolizer")));
 
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+    testWrapper.testMessageCountForGene("CYP2C19", 1);
+    testWrapper.testGeneHasMessage("CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage("CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+  }
+
+  /**
+   * Ensure we match the two separate DPWG annotations for warfarin, one for CYP2C9 and one for VKORC1
+   */
+  @Test
+  void testWarfarinDpwg(TestInfo testInfo) throws Exception {
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    testWrapper.getVcfBuilder()
+        .reference("CYP2C9")
+        .variation("CYP2C9", "rs1057910", "C", "C")
+        .reference("VKORC1")
+        .variation("VKORC1", "rs9923231", "T", "T");
+    testWrapper.execute();
+
+    testWrapper.testCalledByMatcher("CYP2C9");
+    testWrapper.testCalledByMatcher("VKORC1");
+
+    testWrapper.testPrintCalls("CYP2C9", "*3/*3");
+
+    testWrapper.testMatchedAnnotations("warfarin", PrescribingGuidanceSource.DPWG_GUIDELINE, 2);
   }
 
   @Test
@@ -2198,8 +2216,7 @@ class PipelineTest {
 
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls( "CYP2C9", "*2/*2");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", List.of("*2/*2"));
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", List.of("*2/*2"));
+    testWrapper.testSourceDiplotypes("CYP2C9", List.of("*2/*2"));
 
     DrugReport phenytoin = testWrapper.getContext().getDrugReport(PrescribingGuidanceSource.DPWG_GUIDELINE, "phenytoin");
     assertNotNull(phenytoin);
@@ -2277,7 +2294,7 @@ class PipelineTest {
         "c.85T>C (*9A)",
         "c.3067C>A"
     );
-    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, null, expectedCalls, false, RecPresence.YES);
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, null, expectedCalls, false, RecPresence.NO);
 
 
     // phased
@@ -2292,7 +2309,7 @@ class PipelineTest {
     expectedCalls = List.of("Reference/[c.85T>C (*9A) + c.3067C>A]");
     DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls,
         List.of("[c.85T>C (*9A) + c.3067C>A] (heterozygous)"), List.of("Reference", "c.85T>C (*9A)"),
-        false, RecPresence.YES);
+        false, RecPresence.NO);
 
 
     // phased with phase sets
@@ -2312,7 +2329,7 @@ class PipelineTest {
     List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
     List<String> recommendedDiplotypes = List.of("c.85T>C (*9A)", "Reference");
 
-    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
+    DpydTest.doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
   }
 
 
@@ -2330,8 +2347,7 @@ class PipelineTest {
     List<String> expectedCalls = List.of("*2/*3");
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes("CYP2C9", expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     Elements elems = document.select(".gene.CYP2C9 .genotype-result");
@@ -2370,8 +2386,7 @@ class PipelineTest {
     expectedCalls = List.of("*1/[*2 + *3]");
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes("CYP2C9", expectedCalls);
 
     document = readHtmlReport(vcfFile);
     elems = document.select(".gene.CYP2C9 .genotype-result");
@@ -2392,8 +2407,7 @@ class PipelineTest {
     expectedCalls = List.of("*2/*3");
     testWrapper.testCalledByMatcher("CYP2C9");
     testWrapper.testPrintCpicCalls( "CYP2C9", expectedCalls.get(0));
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C9", expectedCalls);
-    testWrapper.testSourceDiplotypes(DataSource.DPWG, "CYP2C9", expectedCalls);
+    testWrapper.testSourceDiplotypes("CYP2C9", expectedCalls);
 
     document = readHtmlReport(vcfFile);
     elems = document.select(".gene.CYP2C9 .genotype-result");

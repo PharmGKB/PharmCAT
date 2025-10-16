@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 
 import static org.pharmgkb.pharmcat.PipelineTest.*;
@@ -55,12 +54,12 @@ class Cacna1sTest {
     testWrapper.testCalledByMatcher("RYR1");
 
     List<String> cacna1sExpectedCalls = List.of(TextConstants.REFERENCE + TextConstants.GENOTYPE_DELIMITER + TextConstants.REFERENCE);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
+    testWrapper.testSourceDiplotypes("CACNA1S", cacna1sExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
 
     List<String> ryr1ExpectedCalls = List.of("c.97A>G", "c.152C>A");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
+    testWrapper.testSourceDiplotypes("RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("RYR1", ryr1ExpectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document,
@@ -90,8 +89,8 @@ class Cacna1sTest {
     List<String> cacna1sExpectedCalls = List.of(TextConstants.REFERENCE + TextConstants.GENOTYPE_DELIMITER + "c.520C>T");
     List<String> cacna1sCpicStyleCalls = List.of("c.520C>T (heterozygous)");
 
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
+    testWrapper.testSourceDiplotypes("CACNA1S", cacna1sCpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
     testWrapper.testMatchedAnnotations("enflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
 
@@ -109,7 +108,7 @@ class Cacna1sTest {
             .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
             .put("RYR1", "No Result")
             .build(),
-        RecPresence.NO, null);
+        RecPresence.NO);
   }
 
   @Test
@@ -123,9 +122,9 @@ class Cacna1sTest {
     List<String> expectedCalls = List.of("c.520C>T/c.3257G>A");
 
     testWrapper.testCalledByMatcher("CACNA1S");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
+    testWrapper.testSourceDiplotypes("CACNA1S", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("CACNA1S", expectedCalls);
 
     testWrapper.testMatchedAnnotations("desflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
     testWrapper.testNoMatchFromSource("desflurane", PrescribingGuidanceSource.DPWG_GUIDELINE);
@@ -141,7 +140,7 @@ class Cacna1sTest {
             .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
             .put("RYR1", "No Result")
             .build(),
-        RecPresence.NO, null);
+        RecPresence.NO);
   }
 
 
@@ -163,13 +162,13 @@ class Cacna1sTest {
 
     List<String> cacna1sExpectedCalls = List.of(TextConstants.REFERENCE + TextConstants.GENOTYPE_DELIMITER + "c.520C>T");
     List<String> cacna1sCpicStyleCalls = List.of("c.520C>T (heterozygous)");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
+    testWrapper.testSourceDiplotypes("CACNA1S", cacna1sCpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", expectedCallsToRecommendedDiplotypes(cacna1sExpectedCalls));
 
     List<String> ryr1ExpectedCalls = List.of("Reference/c.7522C>G");
     List<String> ryr1CpicStyleCalls = List.of("c.7522C>G (heterozygous)");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1CpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
+    testWrapper.testSourceDiplotypes("RYR1", ryr1CpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document,
@@ -186,7 +185,7 @@ class Cacna1sTest {
             .put("CACNA1S", "Malignant Hyperthermia Susceptibility")
             .put("RYR1", "Uncertain Susceptibility")
             .build(),
-        RecPresence.NO, null);
+        RecPresence.NO);
   }
 
   /**
@@ -206,12 +205,12 @@ class Cacna1sTest {
 
     List<String> cacna1sExpectedCalls = List.of(TextConstants.REFERENCE, "c.520C>T");
     List<String> cacna1sCpicStyleCalls = List.of("c.520C>T (heterozygous)");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sCpicStyleCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", cacna1sExpectedCalls);
+    testWrapper.testSourceDiplotypes("CACNA1S", cacna1sCpicStyleCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", cacna1sExpectedCalls);
 
     List<String> ryr1ExpectedCalls = List.of(TextConstants.REFERENCE + TextConstants.GENOTYPE_DELIMITER + TextConstants.REFERENCE);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", ryr1ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
+    testWrapper.testSourceDiplotypes("RYR1", ryr1ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("RYR1", expectedCallsToRecommendedDiplotypes(ryr1ExpectedCalls));
 
     Document document = readHtmlReport(vcfFile);
     SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();

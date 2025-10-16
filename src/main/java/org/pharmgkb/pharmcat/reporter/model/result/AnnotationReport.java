@@ -59,7 +59,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
   private Map<String,String> m_phenotypes = new TreeMap<>();
   @Expose
   @SerializedName("lookupKey")
-  private Map<String,Object> m_lookupKey = new TreeMap<>();
+  private List<Map<String,Object>> m_lookupKey = new ArrayList<>();
 
 
   /**
@@ -96,7 +96,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
     m_dosingInformation = recommendation.isDosingInformation();
     m_alternateDrugAvailable = recommendation.isAlternateDrugAvailable();
     m_otherPrescribingGuidance = recommendation.isOtherPrescribingGuidance();
-    m_lookupKey.putAll(recommendation.getLookupKey());
+    m_lookupKey.addAll(recommendation.getLookupKey());
   }
 
   private AnnotationReport(String localId) {
@@ -129,7 +129,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
       String geneSymbol = dip.getGene();
 
       // only check genes that are used in lookup, some annotations may have related genes with no recommendation
-      if (!m_lookupKey.containsKey(geneSymbol)) {
+      if (m_lookupKey.stream().noneMatch(k -> k.containsKey(geneSymbol))) {
         continue;
       }
 
@@ -152,9 +152,7 @@ public class AnnotationReport implements Comparable<AnnotationReport> {
         // if this genotype uses activity score at all, then we need a value for activity score for each diplotype in
         // this genotype
         if (dip.isActivityScoreType()) {
-          // if the diplotype uses AS, try to use the AS in the diplotype and fallback to the AS in the recommendation
-          // if it's not available
-          String activityScore = TextConstants.isUnspecified(dip.getActivityScore()) ? (String)m_lookupKey.get(geneSymbol) : dip.getActivityScore();
+          String activityScore = dip.getActivityScore();
           String oldActivity = m_activityScores.put(geneSymbol, activityScore);
           if (oldActivity != null && !oldActivity.equals(activityScore)) {
             throw new UnexpectedStateException("Multiple activity scores for gene " + geneSymbol);

@@ -101,7 +101,7 @@ public class Recommendation implements Comparable<Recommendation> {
         for (Genotype genotype : annotation.getGenotypes()) {
           for (Diplotype diplotype : genotype.getDiplotypes()) {
             if (!scoreMultimatch && diplotype.getLookupKeys().size() > 1) {
-              GenePhenotype gp = m_env.getPhenotype(diplotype.getGene(), source);
+              GenePhenotype gp = m_env.getPhenotype(diplotype.getGene());
               scoreMultimatch = gp != null && gp.isMatchedByActivityScore();
             }
             if (diplotype.getOutsidePhenotypeMismatch() != null ||
@@ -111,7 +111,7 @@ public class Recommendation implements Comparable<Recommendation> {
           }
           if (scoreMultimatch || genotype.getDiplotypes().stream().anyMatch((d) -> {
             if (d.getLookupKeys().size() > 1) {
-              GenePhenotype gp = m_env.getPhenotype(d.getGene(), source);
+              GenePhenotype gp = m_env.getPhenotype(d.getGene());
               return gp != null && gp.isMatchedByActivityScore();
             }
             return false;

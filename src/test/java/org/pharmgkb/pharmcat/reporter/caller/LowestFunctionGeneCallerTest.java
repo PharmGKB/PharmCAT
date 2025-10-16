@@ -11,18 +11,14 @@ import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.haplotype.model.CombinationMatch;
 import org.pharmgkb.pharmcat.haplotype.model.DiplotypeMatch;
 import org.pharmgkb.pharmcat.haplotype.model.HaplotypeMatch;
-import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.DiplotypeFactory;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.pharmgkb.pharmcat.reporter.model.DataSource.CPIC;
-import static org.pharmgkb.pharmcat.reporter.model.DataSource.DPWG;
 
 
 /**
@@ -45,7 +41,7 @@ class LowestFunctionGeneCallerTest {
   @Test
   void infer_outsideCall_noMatch() {
     OutsideCall call = new OutsideCall(s_env, "DPYD\t*1/*5", 1);
-    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, CPIC);
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -63,66 +59,52 @@ class LowestFunctionGeneCallerTest {
     //  c.498G>A    - normal
     //  c.2582A>G   - normal
     String diplotype = "c.498G>A/c.2582A>G";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A", "c.2582A>G",
-        "Normal function", "Normal function");
-    checkInferred(diplotype, DPWG, "Reference", "Reference",
+    checkInferred(diplotype, "c.498G>A", "c.2582A>G",
         "Normal function", "Normal function");
 
     //  c.2582A>G   - normal
     //  c.2846A>T   - decreased, DPWG
     diplotype = "c.2582A>G/c.2846A>T";
-    checkInferred(diplotype, DataSource.CPIC, "c.2582A>G", "c.2846A>T",
-        "Normal function", "Decreased function");
-    checkInferred(diplotype, DPWG, "Reference", "c.2846A>T",
+    checkInferred(diplotype, "c.2582A>G", "c.2846A>T",
         "Normal function", "Decreased function");
 
     //  c.2582A>G   - normal
     //  c.2933A>G   - no function
     diplotype = "c.2582A>G/c.2933A>G";
-    checkInferred(diplotype, DataSource.CPIC, "c.2582A>G", "c.2933A>G",
+    checkInferred(diplotype, "c.2582A>G", "c.2933A>G",
         "Normal function", "No function");
-    checkInferred(diplotype, DPWG, "Reference", "c.2933A>G",
-        "Normal function", GenePhenotype.UNASSIGNED_FUNCTION);
 
     //  c.2933A>G   - no function
     diplotype = "c.2933A>G/c.2933A>G";
-    checkInferred(diplotype, DataSource.CPIC, "c.2933A>G", "c.2933A>G",
+    checkInferred(diplotype, "c.2933A>G", "c.2933A>G",
         "No function", "No function");
-    checkInferred(diplotype, DPWG, "c.2933A>G", "c.2933A>G",
-        GenePhenotype.UNASSIGNED_FUNCTION, GenePhenotype.UNASSIGNED_FUNCTION);
 
     //  c.498G>A    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
     diplotype = "c.498G>A/[c.2933A>G + c.1905+1G>A (*2A)]";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A","c.1905+1G>A (*2A)",
-        "Normal function", "No function");
-    checkInferred(diplotype, DPWG, "Reference", "c.1905+1G>A (*2A)",
+    checkInferred(diplotype, "c.498G>A","c.1905+1G>A (*2A)",
         "Normal function", "No function");
 
     //  c.498G>A    - normal
     //  c.2933A>G   - no function
     //  c.1905+1G>A (*2A) - no function, DPWG
     diplotype = "c.1905+1G>A (*2A)/[c.498G>A + c.2933A>G]";
-    checkInferred(diplotype, DataSource.CPIC, "c.1905+1G>A (*2A)", "c.2933A>G",
+    checkInferred(diplotype, "c.1905+1G>A (*2A)", "c.2933A>G",
         "No function", "No function");
-    checkInferred(diplotype, DPWG, "c.1905+1G>A (*2A)", "c.2933A>G",
-        "No function", GenePhenotype.UNASSIGNED_FUNCTION);
 
     //  c.498G>A    - normal
     //  c.2582A>G   - normal
     //  c.2846A>T   - decreased, DPWG
     //  c.2933A>G   - no function
     diplotype = "[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]";
-    checkInferred(diplotype, DataSource.CPIC, "c.498G>A", "c.2933A>G",
+    checkInferred(diplotype, "c.498G>A", "c.2933A>G",
         "Normal function", "No function");
-    checkInferred(diplotype, DPWG, "Reference", "c.2933A>G",
-        "Normal function", GenePhenotype.UNASSIGNED_FUNCTION);
   }
 
-  private void checkInferred(String diplotype, DataSource source, String a1, String a2, String f1, String f2) {
+  private void checkInferred(String diplotype, String a1, String a2, String f1, String f2) {
     OutsideCall call = new OutsideCall(s_env, "DPYD\t" + diplotype, 1);
-    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env, source);
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromOutsideCall(call, s_env);
 
     assertEquals(1, dips.size());
     Diplotype dip = dips.get(0);
@@ -154,7 +136,7 @@ class LowestFunctionGeneCallerTest {
 
     DiplotypeFactory diplotypeFactory = new DiplotypeFactory("DPYD", s_env);
 
-    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromHaplotypeMatches("DPYD", s_env, CPIC,
+    List<Diplotype> dips = LowestFunctionGeneCaller.inferFromHaplotypeMatches("DPYD", s_env,
         diplotypeFactory, matches);
     Diplotype dip = dips.get(0);
     assertNotNull(dip.getAllele1());
@@ -163,31 +145,16 @@ class LowestFunctionGeneCallerTest {
     assertEquals(na3.getName(), dip.getAllele2().getName());
     assertEquals("No function", dip.getAllele1().getFunction());
     assertEquals("Decreased function", dip.getAllele2().getFunction());
-
-    dips = LowestFunctionGeneCaller.inferFromHaplotypeMatches("DPYD", s_env, DPWG, diplotypeFactory, matches);
-    dip = dips.get(0);
-    assertNotNull(dip.getAllele1());
-    assertNotNull(dip.getAllele2());
-    assertEquals(na4.getName(), dip.getAllele1().getName());
-    assertEquals(na3.getName(), dip.getAllele2().getName());
-    assertEquals(GenePhenotype.UNASSIGNED_FUNCTION, dip.getAllele1().getFunction());
-    assertEquals("Decreased function", dip.getAllele2().getFunction());
   }
 
 
   private void checkInferredDpyd(List<DiplotypeMatch> matches, String cpicDip, String cpicActivityScore, String dpwgDip) {
-    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("DPYD", s_env, CPIC, s_diplotypeFactory,
+    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("DPYD", s_env, s_diplotypeFactory,
         matches);
     assertEquals(1, rez.size());
     Diplotype finalDip = rez.get(0);
     assertEquals(cpicDip, finalDip.buildLabel(true));
     assertEquals(cpicActivityScore, finalDip.getActivityScore(), "Incorrect inferred CPIC diplotype");
-
-    rez = LowestFunctionGeneCaller.inferFromDiplotypes("DPYD", s_env, DPWG, s_diplotypeFactory, matches);
-    assertEquals(1, rez.size());
-    finalDip = rez.get(0);
-    assertEquals(dpwgDip, finalDip.buildLabel(true), "Incorrect inferred DPWG diplotype");
-    ///assertEquals(dpwgActivityScore, finalDip.getActivityScore());
   }
 
 
@@ -325,7 +292,7 @@ class LowestFunctionGeneCallerTest {
   }
 
   private void checkInferredRyr1(List<DiplotypeMatch> matches, String cpicDip) {
-    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("RYR1", s_env, CPIC, s_diplotypeFactory,
+    List<Diplotype> rez = LowestFunctionGeneCaller.inferFromDiplotypes("RYR1", s_env, s_diplotypeFactory,
         matches);
     assertEquals(1, rez.size());
     Diplotype finalDip = rez.get(0);

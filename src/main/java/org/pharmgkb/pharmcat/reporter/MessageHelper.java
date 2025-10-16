@@ -16,7 +16,6 @@ import com.google.common.collect.Multimap;
 import org.apache.commons.lang3.StringUtils;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.PathUtils;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MatchLogic;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
@@ -166,7 +165,7 @@ public class MessageHelper {
       if (messageAnnotation.getExceptionType().equals(MessageAnnotation.TYPE_REPORT_AS_GENOTYPE)) {
         reportAsGenotype.add(messageAnnotation);
       } else {
-        if (matchDrugReport(messageAnnotation, reportContext, source)) {
+        if (matchDrugReport(messageAnnotation, reportContext)) {
           drugReport.addMessage(messageAnnotation);
         }
       }
@@ -180,7 +179,7 @@ public class MessageHelper {
           if (geneSymbol == null || guidelineReport.getGenes().contains(geneSymbol)) {
             for (AnnotationReport annotationReport : guidelineReport.getAnnotations()) {
               if (genotype == null) {
-                genotype = computeGenotype(msgAnn, reportContext, source.getPhenoSource());
+                genotype = computeGenotype(msgAnn, reportContext);
               }
               annotationReport.addHighlightedVariant(genotype);
             }
@@ -202,11 +201,11 @@ public class MessageHelper {
   }
 
 
-  private String computeGenotype(MessageAnnotation msgAnn, ReportContext reportContext, DataSource source) {
+  private String computeGenotype(MessageAnnotation msgAnn, ReportContext reportContext) {
     String geneSymbol = Objects.requireNonNull(msgAnn.getMatches().getGene());
     String rsid = Objects.requireNonNull(msgAnn.getMatches().getVariant());
 
-    GeneReport gr = reportContext.getGeneReport(source, geneSymbol);
+    GeneReport gr = reportContext.getGeneReport(geneSymbol);
     if (gr == null) {
       return rsid + ":" + Haplotype.UNKNOWN;
     }
@@ -234,13 +233,12 @@ public class MessageHelper {
    * @param reportContext the report context to look up related gene information
    * @return true if the message is a match, false otherwise
    */
-  private boolean matchDrugReport(MessageAnnotation message, ReportContext reportContext,
-      PrescribingGuidanceSource source) {
+  private boolean matchDrugReport(MessageAnnotation message, ReportContext reportContext) {
     String gene = message.getMatches().getGene();
     if (StringUtils.isBlank(gene)) {
       return true;
     }
-    GeneReport geneReport = reportContext.getGeneReport(source, gene);
+    GeneReport geneReport = reportContext.getGeneReport(gene);
     // don't apply message if gene has no data
     return geneReport != null && !geneReport.isNoData() && geneReport.hasMessage(message.getName());
   }

@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -32,10 +31,7 @@ public class Cyp2d6CopyNumberCaller {
       return;
     }
 
-    SortedSet<String> alleles = new TreeSet<>();
-    alleles.addAll(Objects.requireNonNull(env.getPhenotype(Cyp2d6CopyNumberCaller.GENE, DataSource.CPIC))
-        .getHaplotypes().keySet());
-    alleles.addAll(Objects.requireNonNull(env.getPhenotype(Cyp2d6CopyNumberCaller.GENE, DataSource.DPWG))
+    SortedSet<String> alleles = new TreeSet<>(Objects.requireNonNull(env.getPhenotype(Cyp2d6CopyNumberCaller.GENE))
         .getHaplotypes().keySet());
 
     for (String allele : alleles) {
@@ -54,7 +50,7 @@ public class Cyp2d6CopyNumberCaller {
   }
 
 
-  public static Diplotype inferDiplotype(GeneReport report, Diplotype diplotype, Env env, DataSource source) {
+  public static Diplotype inferDiplotype(GeneReport report, Diplotype diplotype, Env env) {
     Preconditions.checkArgument(diplotype.getGene().equals(GENE), "Can only be used on CYP2D6");
 
     if (!report.isOutsideCall()) {
@@ -74,9 +70,9 @@ public class Cyp2d6CopyNumberCaller {
       return diplotype;
     }
 
-    Haplotype hap1 = needsInfer1 ? env.makeHaplotype(GENE, (String)r1[1], source) : diplotype.getAllele1();
-    Haplotype hap2 = needsInfer2 ? env.makeHaplotype(GENE, (String)r2[1], source) : diplotype.getAllele2();
-    Diplotype inferredDiplotype = new Diplotype(GENE, hap1, hap2, env, source);
+    Haplotype hap1 = needsInfer1 ? env.makeHaplotype(GENE, (String)r1[1]) : diplotype.getAllele1();
+    Haplotype hap2 = needsInfer2 ? env.makeHaplotype(GENE, (String)r2[1]) : diplotype.getAllele2();
+    Diplotype inferredDiplotype = new Diplotype(GENE, hap1, hap2, env);
     inferredDiplotype.setInferred(true);
     inferredDiplotype.setInferredSourceDiplotype(diplotype);
     return inferredDiplotype;

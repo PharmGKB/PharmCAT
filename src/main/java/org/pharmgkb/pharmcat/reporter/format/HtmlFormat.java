@@ -15,11 +15,9 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.ClassPathTemplateLoader;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import org.apache.commons.lang3.StringUtils;
@@ -30,7 +28,6 @@ import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.format.html.Recommendation;
 import org.pharmgkb.pharmcat.reporter.format.html.Report;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
@@ -49,7 +46,6 @@ import static org.pharmgkb.pharmcat.reporter.caller.Slco1b1CustomCaller.isSlco1b
 public class HtmlFormat extends AbstractFormat {
   private static final String sf_templatePrefix = "/org/pharmgkb/pharmcat/reporter";
   private static final String sf_handlebarTemplateName = "report";
-  private Set<DataSource> m_geneSources = ImmutableSet.of(DataSource.CPIC, DataSource.DPWG);
   private List<PrescribingGuidanceSource> m_sources = PrescribingGuidanceSource.listValues();
   private boolean m_compact;
   private final boolean f_testMode;
@@ -67,9 +63,6 @@ public class HtmlFormat extends AbstractFormat {
 
   public HtmlFormat sources(@Nullable List<PrescribingGuidanceSource> sources) {
     if (sources != null) {
-      m_geneSources = sources.stream()
-          .map(PrescribingGuidanceSource::getPhenoSource)
-          .collect(Collectors.toSet());
       m_sources = sources;
     }
     return this;
@@ -126,63 +119,58 @@ public class HtmlFormat extends AbstractFormat {
 
     SortedSetMultimap<String, GeneReport> geneReportMap = TreeMultimap.create();
     Map<String, Map<String, String>> functionMap = new HashMap<>();
-    for (DataSource source : new TreeSet<>(reportContext.getGeneReports().keySet())) {
-      if (!m_geneSources.contains(source)) {
+    for (GeneReport geneReport : reportContext.getGeneReports().values()) {
+      // skip any genes on the blocklist
+      if (geneReport.isIgnored()) {
         continue;
       }
-      for (GeneReport geneReport : reportContext.getGeneReports().get(source).values()) {
-        // skip any genes on the blocklist
-        if (geneReport.isIgnored()) {
-          continue;
-        }
 
-        String symbol = geneReport.getGeneDisplay();
+      String symbol = geneReport.getGeneDisplay();
 
-        // CPIC gets sorted first, this will pick CPIC over DPWG
-        if (!functionMap.containsKey(symbol)) {
-          GenePhenotype genePhenotype = getEnv().getPhenotype(symbol, source);
-          if (genePhenotype != null) {
-            functionMap.put(symbol, genePhenotype.makeFormattedFunctionScoreMap());
-          }
+      // CPIC gets sorted first, this will pick CPIC over DPWG
+      if (!functionMap.containsKey(symbol)) {
+        GenePhenotype genePhenotype = getEnv().getPhenotype(symbol);
+        if (genePhenotype != null) {
+          functionMap.put(symbol, genePhenotype.makeFormattedFunctionScoreMap());
         }
+      }
 
-        totalGenes.add(symbol);
-        if (!m_compact) {
-          geneReportMap.put(symbol, geneReport);
-        }
-        if (geneReport.isNoData()) {
-          // no data and no definition means that the gene was removed due to subsetting
-          if (getEnv().getDefinitionReader().getGenes().contains(symbol)) {
-            noDataGenes.add(symbol);
-          } else {
-            totalGenes.remove(symbol);
-            geneReportMap.removeAll(symbol);
-            functionMap.remove(symbol);
-          }
-          continue;
-        }
-
-        // skip gene reports that aren't related to any drugs
-        if (geneReport.getRelatedDrugs().isEmpty()) {
-          continue;
-        }
-
-        if (m_compact) {
-          geneReportMap.put(symbol, geneReport);
-        }
-        if (geneReport.isReportable()) {
-          calledGenes.add(symbol);
-
-          if (geneReport.isMissingVariants()) {
-            hasMissingVariants = true;
-          }
-          hasCombo = hasCombo || geneReport.getMessages().stream()
-              .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
-          hasMessages = hasMessages || hasMessages(geneReport);
-          hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
+      totalGenes.add(symbol);
+      if (!m_compact) {
+        geneReportMap.put(symbol, geneReport);
+      }
+      if (geneReport.isNoData()) {
+        // no data and no definition means that the gene was removed due to subsetting
+        if (getEnv().getDefinitionReader().getGenes().contains(symbol)) {
+          noDataGenes.add(symbol);
         } else {
-          uncallableGenes.add(symbol);
+          totalGenes.remove(symbol);
+          geneReportMap.removeAll(symbol);
+          functionMap.remove(symbol);
         }
+        continue;
+      }
+
+      // skip gene reports that aren't related to any drugs
+      if (geneReport.getRelatedDrugs().isEmpty()) {
+        continue;
+      }
+
+      if (m_compact) {
+        geneReportMap.put(symbol, geneReport);
+      }
+      if (geneReport.isReportable()) {
+        calledGenes.add(symbol);
+
+        if (geneReport.isMissingVariants()) {
+          hasMissingVariants = true;
+        }
+        hasCombo = hasCombo || geneReport.getMessages().stream()
+            .anyMatch(m -> m.getExceptionType().equals(MessageAnnotation.TYPE_COMBO));
+        hasMessages = hasMessages || hasMessages(geneReport);
+        hasUnphasedNote = hasUnphasedNote || showUnphasedNote(geneReport);
+      } else {
+        uncallableGenes.add(symbol);
       }
     }
 
@@ -315,7 +303,6 @@ public class HtmlFormat extends AbstractFormat {
       hasMessages = hasMessages || hasMessages(report);
 
       if (!summary.containsKey("diplotypes")) {
-        summary.put("source", report.getPhenotypeSource());
         if (report.getCallSource() == CallSource.MATCHER) {
           if (isSlco1b1(symbol)) {
             summary.put("diplotypes", report.getRecommendationDiplotypes());

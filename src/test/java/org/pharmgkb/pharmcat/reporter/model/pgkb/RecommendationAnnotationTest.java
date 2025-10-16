@@ -1,5 +1,6 @@
 package org.pharmgkb.pharmcat.reporter.model.pgkb;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,11 @@ class RecommendationAnnotationTest {
     Map<String,Object> sourceGenotype = new HashMap<>();
     sourceGenotype.put("GENEX", "TEST");
 
+    List<Map<String,Object>> genePhenotypes = new ArrayList<>();
+    genePhenotypes.add(sourceGenotype);
+
     RecommendationAnnotation recommendation = new RecommendationAnnotation();
-    recommendation.setLookupKey(sourceGenotype);
+    recommendation.setLookupKey(genePhenotypes);
 
     Diplotype diplotype = new Diplotype("GENEX", "TEST", DataSource.UNKNOWN);
     Diplotype diplotype2 = new Diplotype("GENEY", "TOAST", DataSource.UNKNOWN);

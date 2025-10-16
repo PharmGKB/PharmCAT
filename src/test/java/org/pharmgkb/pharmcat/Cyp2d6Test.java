@@ -22,7 +22,6 @@ import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
@@ -77,7 +76,7 @@ public class Cyp2d6Test {
     testWrapper.testPrintCpicCalls("CYP2D6", "*1/*4");
     testWrapper.testPrintCpicCalls("CYP2C19", "*1/*4");
 
-    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport cyp2d6Report = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(cyp2d6Report);
     assertTrue(cyp2d6Report.isOutsideCall());
   }
@@ -117,9 +116,9 @@ public class Cyp2d6Test {
         .reference("CYP2C19");
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "*1/*XXX");
-    testWrapper.testPrintCalls(DataSource.DPWG, "CYP2D6", "*1/*XXX");
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", TextConstants.INDETERMINATE);
+    testWrapper.testPrintCalls("CYP2D6", "*1/*XXX");
+    testWrapper.testPrintCalls("CYP2D6", "*1/*XXX");
+    testWrapper.testSourcePhenotype("CYP2D6", TextConstants.INDETERMINATE);
 
     // this nonsense allele will still match to "Indeterminate" phenotypes in guidelines for CYP2D6
     testWrapper.testMatchedAnnotations("atomoxetine", PrescribingGuidanceSource.CPIC_GUIDELINE, 2);
@@ -134,7 +133,7 @@ public class Cyp2d6Test {
         .filter((d) -> d.getGene().equals("CYP2D6"))
         .allMatch((d) -> d.getPhenotypes().contains(TextConstants.INDETERMINATE)));
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().first();
@@ -158,7 +157,7 @@ public class Cyp2d6Test {
         .reference("CYP2C19");
     Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath);
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     assertEquals(2, geneReport.getRecommendationDiplotypes().size());
 
@@ -191,7 +190,7 @@ public class Cyp2d6Test {
         .reference("CYP2C19");
     Path vcfFile = testWrapper.executeWithOutsideCalls(outsideCallPath);
 
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     assertEquals(2, geneReport.getRecommendationDiplotypes().size());
 
@@ -232,35 +231,36 @@ public class Cyp2d6Test {
 
     List<String> cyp2c19ExpectedCalls = List.of("*38/*38");
     testWrapper.testCalledByMatcher("CYP2C19");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2C19", cyp2c19ExpectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CYP2C19",
+    testWrapper.testSourceDiplotypes("CYP2C19", cyp2c19ExpectedCalls);
+    testWrapper.testRecommendedDiplotypes("CYP2C19",
         expectedCallsToRecommendedDiplotypes(cyp2c19ExpectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2C19", cyp2c19ExpectedCalls);
+    testWrapper.testPrintCalls("CYP2C19", cyp2c19ExpectedCalls);
 
 
     testWrapper.testNotCalledByMatcher("CYP2D6");
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", "Intermediate Metabolizer");
+    testWrapper.testPrintCalls("CYP2D6", "Intermediate Metabolizer");
 
-    testWrapper.testMessageCountForGene(DataSource.CPIC, "CYP2C19", 1);
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2C19", "reference-allele");
-    testWrapper.testGeneHasMessage(DataSource.CPIC, "CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
+    testWrapper.testMessageCountForGene("CYP2C19", 1);
+    testWrapper.testGeneHasMessage("CYP2C19", "reference-allele");
+    testWrapper.testGeneHasMessage("CYP2D6", MessageHelper.MSG_OUTSIDE_CALL);
 
     // Check that a single CYP2D6 phenotype has all the activity scores that could possibly be mapped to it.
-    // Specifically, "Intermediate Metabolizer" maps to both "0.25", "0.5", "0.75" and "1.0" activity scores for CYP2D6.
-    GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+    // Specifically, "Intermediate Metabolizer" maps to "0.25", "0.5", "0.75" and "1.0" activity scores for CYP2D6.
+    GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
     assertNotNull(geneReport);
     // we expect one diplotype to exist with multiple lookup keys
     assertEquals(1, geneReport.getRecommendationDiplotypes().size());
     Diplotype diplotype = geneReport.getRecommendationDiplotypes().iterator().next();
     // there should be no single activity score specified since this phenotype maps to more than one
     assertTrue(TextConstants.isUnspecified(diplotype.getActivityScore()));
-    // there should be two and only two lookup keys, one for each activity score
+    // there should be four and only four lookup keys, one for each activity score
     assertEquals(4, diplotype.getLookupKeys().size());
-    // the two lookup keys should be the two activity scores that correspond to Intermediate Metabolizer
+    // the four lookup keys should be the four activity scores that correspond to Intermediate Metabolizer
     assertThat(diplotype.getLookupKeys(), contains("0.25", "0.5", "0.75", "1.0"));
 
+    // we no longer show the activity scores in the report HTML if it is inferred but still use it for recommendation
+    // matching
     Document document = readHtmlReport(vcfFile);
-    SortedSet<String> expectedActivityScores = new TreeSet<>(List.of("0.25", "0.5", "0.75", "1.0"));
     htmlChecks(document,
         new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
             .put("CYP2C19", cyp2c19ExpectedCalls)
@@ -273,15 +273,9 @@ public class Cyp2d6Test {
             .build(),
         new ImmutableSortedMap.Builder<String, SortedSet<String>>(Ordering.natural())
             .put("CYP2C19", new TreeSet<>(List.of("N/A")))
-            .put("CYP2D6", expectedActivityScores)
+            .put("CYP2D6", new TreeSet<>(List.of("N/A")))
             .build(),
-        RecPresence.YES,
-        new ImmutableSortedMap.Builder<String, String>(Ordering.natural())
-            .put("CYP2D6", "Intermediate Metabolizer")
-            .build(),
-        new ImmutableSortedMap.Builder<String, SortedSet<String>>(Ordering.natural())
-            .put("CYP2D6", expectedActivityScores)
-            .build()
+        RecPresence.YES
     );
 
     assertNotNull(document.getElementById("CYP2D6"));
@@ -319,9 +313,8 @@ public class Cyp2d6Test {
 
     testWrapper.testCalledByMatcher("CYP2C19");
     testWrapper.testNotCalledByMatcher("CYP2D6");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CYP2D6", expectedCyp2d6Calls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", expectedCyp2d6Calls);
-    testWrapper.testPrintCalls(DataSource.DPWG, "CYP2D6", expectedCyp2d6Calls);
+    testWrapper.testSourceDiplotypes("CYP2D6", expectedCyp2d6Calls);
+    testWrapper.testPrintCalls("CYP2D6", expectedCyp2d6Calls);
 
     // TODO: finish this!
   }
@@ -375,7 +368,7 @@ public class Cyp2d6Test {
             .filter((d) -> d.getGene().equals("CYP2D6"))
             .allMatch((d) -> d.getPhenotypes().contains("Normal Metabolizer")));
 
-        GeneReport geneReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "CYP2D6");
+        GeneReport geneReport = testWrapper.getContext().getGeneReport("CYP2D6");
         assertNotNull(geneReport);
         assertEquals(1, geneReport.getRecommendationDiplotypes().size());
         Diplotype recommendationDiplotype = geneReport.getRecommendationDiplotypes().first();
@@ -415,8 +408,8 @@ public class Cyp2d6Test {
         .reference("CYP2C19");
     testWrapper.executeWithOutsideCalls(outsideCallPath);
 
-    testWrapper.testPrintCalls(DataSource.CPIC, "CYP2D6", diplotype);
-    testWrapper.testSourcePhenotype(DataSource.CPIC, "CYP2D6", phenotype);
+    testWrapper.testPrintCalls("CYP2D6", diplotype);
+    testWrapper.testSourcePhenotype("CYP2D6", phenotype);
     return testWrapper;
   }
 }

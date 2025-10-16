@@ -271,11 +271,11 @@ public class GenePhenotype {
    * <p>
    * NOT PART OF PUBLIC API.  Only used during data ingestion.
    */
-  public void generateDiplotypes(DataSource source) {
-    m_diplotypes = new TreeSet<>(makeDiplotypes(this, source));
+  public void generateDiplotypes() {
+    m_diplotypes = new TreeSet<>(makeDiplotypes(this));
   }
 
-  private static Set<DiplotypeRecord> makeDiplotypes(GenePhenotype gp, DataSource source) {
+  private static Set<DiplotypeRecord> makeDiplotypes(GenePhenotype gp) {
     Set<DiplotypeRecord> results = new HashSet<>();
     Multimap<String,String> functionToAlleleMap = HashMultimap.create();
     for (HaplotypeRecord haplotype : gp.getNamedAlleles()) {
@@ -283,7 +283,7 @@ public class GenePhenotype {
     }
 
     for (DiplotypeFunction diplotypeFunction : gp.getDiplotypeFunctions()) {
-      results.addAll(makeDiplotypes(diplotypeFunction, functionToAlleleMap, Constants.isActivityScoreGene(gp.getGene(), source)));
+      results.addAll(makeDiplotypes(diplotypeFunction, functionToAlleleMap, Constants.isActivityScoreGene(gp.getGene())));
     }
     return results;
   }

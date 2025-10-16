@@ -85,9 +85,6 @@ public class Diplotype implements Comparable<Diplotype> {
   @SerializedName("combination")
   private boolean m_combination = false;
   @Expose
-  @SerializedName("phenotypeDataSource")
-  private DataSource m_phenotypeDataSource;
-  @Expose
   @SerializedName("diplotypeKey")
   private SortedMap<String,Double> m_diplotypeKey = new TreeMap<>(HaplotypeNameComparator.getComparator());
 
@@ -103,12 +100,11 @@ public class Diplotype implements Comparable<Diplotype> {
    * Public constructor.
    * Mainly used to create diplotypes from custom callers.
    */
-  public Diplotype(String gene, Haplotype h1, @Nullable Haplotype h2, Env env, DataSource source) {
+  public Diplotype(String gene, Haplotype h1, @Nullable Haplotype h2, Env env) {
     m_gene = gene;
-    m_phenotypeDataSource = source;
     m_allele1 = h1;
     m_allele2 = h2;
-    annotateDiplotype(env.getPhenotype(m_gene, source));
+    annotateDiplotype(env.getPhenotype(m_gene));
     m_label = buildLabel(false);
     addAlleleToDiplotypeKey(h1.getName());
     if (h2 != null) {
@@ -120,13 +116,12 @@ public class Diplotype implements Comparable<Diplotype> {
    * Public constructor.
    * Mainly used to create diplotypes from {@link NamedAlleleMatcher}.
    */
-  public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, DataSource source, int matchScore) {
+  public Diplotype(String gene, String hap1, @Nullable String hap2, Env env, int matchScore) {
     m_gene = gene;
-    m_phenotypeDataSource = source;
-    m_allele1 = env.makeHaplotype(gene, hap1, source);
-    m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2, source);
+    m_allele1 = env.makeHaplotype(gene, hap1);
+    m_allele2 = hap2 == null ? null : env.makeHaplotype(gene, hap2);
     m_matchScore = matchScore;
-    annotateDiplotype(env.getPhenotype(m_gene, source));
+    annotateDiplotype(env.getPhenotype(m_gene));
     m_label = buildLabel(false);
     addAlleleToDiplotypeKey(hap1);
     if (hap2 != null) {
@@ -139,7 +134,6 @@ public class Diplotype implements Comparable<Diplotype> {
    */
   public Diplotype(String gene, String phenotype, DataSource source) {
     m_gene = gene;
-    m_phenotypeDataSource = source;
     m_allele1 = null;
     m_allele2 = null;
     m_phenotypes.add(phenotype);
@@ -153,15 +147,14 @@ public class Diplotype implements Comparable<Diplotype> {
    *
    * @param outsideCall an {@link OutsideCall} object
    */
-  public Diplotype(OutsideCall outsideCall, Env env, DataSource source) {
+  public Diplotype(OutsideCall outsideCall, Env env) {
     m_gene = outsideCall.getGene();
-    m_phenotypeDataSource = source;
-    GenePhenotype gp = env.getPhenotype(m_gene, source);
+    GenePhenotype gp = env.getPhenotype(m_gene);
 
     if (outsideCall.getDiplotype() != null) {
       String[] alleles = DiplotypeFactory.splitDiplotype(m_gene, outsideCall.getDiplotype());
-      m_allele1 = env.makeHaplotype(m_gene, alleles[0], source);
-      m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1], source) : null;
+      m_allele1 = env.makeHaplotype(m_gene, alleles[0]);
+      m_allele2 = alleles.length == 2 ? env.makeHaplotype(m_gene, alleles[1]) : null;
     }
 
     // must set an activity score before phenotype because phenotype calculation may depend on the activity score
@@ -359,11 +352,6 @@ public class Diplotype implements Comparable<Diplotype> {
   }
 
 
-  private DataSource getPhenotypeDataSource() {
-    return m_phenotypeDataSource;
-  }
-
-
 
   public boolean isCombination() {
     return m_combination;
@@ -403,7 +391,7 @@ public class Diplotype implements Comparable<Diplotype> {
    * @return true if this diplotype uses activity score
    */
   public boolean isActivityScoreType() {
-    return Constants.isActivityScoreGene(m_gene, m_phenotypeDataSource);
+    return Constants.isActivityScoreGene(m_gene);
   }
 
 
@@ -495,10 +483,6 @@ public class Diplotype implements Comparable<Diplotype> {
       }
     }
 
-    rez = ObjectUtils.compare(m_phenotypeDataSource, o.getPhenotypeDataSource());
-    if (rez != 0) {
-      return rez;
-    }
     return ObjectUtils.compare(m_inferred, o.isInferred());
   }
 
@@ -512,7 +496,6 @@ public class Diplotype implements Comparable<Diplotype> {
     }
     return Objects.equals(m_gene, that.getGene()) &&
         Objects.equals(m_label, that.getLabel()) &&
-        Objects.equals(m_phenotypeDataSource, that.getPhenotypeDataSource()) &&
         Objects.equals(m_inferred, that.isInferred()) &&
         Objects.equals(m_allele1, that.getAllele1()) &&
         Objects.equals(m_allele2, that.getAllele2());
@@ -520,7 +503,7 @@ public class Diplotype implements Comparable<Diplotype> {
 
   @Override
   public int hashCode() {
-    return Objects.hash(m_gene, m_label, m_phenotypeDataSource, m_inferred, m_allele1, m_allele2);
+    return Objects.hash(m_gene, m_label, m_inferred, m_allele1, m_allele2);
   }
 
   private int compareAllele(@Nullable Haplotype a, @Nullable Haplotype b) {
@@ -605,11 +588,7 @@ public class Diplotype implements Comparable<Diplotype> {
     Map<String, Integer> lookupMap = computeDiplotypeKey();
     Optional<DiplotypeRecord> diplotype = gp.findDiplotype(lookupMap);
 
-    if (
-        gp.isMatchedByActivityScore()
-            // TODO(whaleyr): temporary fix until allele activity score / function can be fixed for DPYD
-            && !(getGene().equals("DPYD") && m_phenotypeDataSource == DataSource.DPWG)
-    ) {
+    if (gp.isMatchedByActivityScore()) {
       if (m_activityScore == null) {
         if (m_phenotypes.isEmpty()) {
           // diplotype -> activity score

@@ -104,7 +104,7 @@ public class PgkbGuidelineCollection {
       m_genes = f_guidelinePackages.stream()
           .flatMap(p -> p.getRecommendations().stream())
           .filter(Objects::nonNull)
-          .flatMap(r -> r.getLookupKey().keySet().stream())
+          .flatMap(r -> r.getLookupGenes().stream())
           .collect(Collectors.toCollection(TreeSet::new));
     }
     return m_genes;

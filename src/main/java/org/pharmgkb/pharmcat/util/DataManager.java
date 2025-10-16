@@ -19,7 +19,6 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
@@ -33,7 +32,6 @@ import org.pharmgkb.pharmcat.definition.model.InternalWrapper;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
 import org.pharmgkb.pharmcat.definition.model.VariantLocus;
 import org.pharmgkb.pharmcat.phenotype.PhenotypeMap;
-import org.pharmgkb.pharmcat.phenotype.model.DiplotypeRecord;
 import org.pharmgkb.pharmcat.phenotype.model.GenePhenotype;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.PgkbGuidelineCollection;
@@ -52,6 +50,7 @@ public class DataManager {
   public static final String POSITIONS_VCF = "pharmcat_positions.vcf";
   public static final String UNIALLELIC_POSITIONS_VCF = "pharmcat_positions.uniallelic.vcf";
   private static final String ALLELES_FILE_NAME = "allele_translations.json";
+  private static final String PHENOYTPES_NAME = "phenotypes.json";
   private static final String sf_zipFileName = "pharmcat.zip";
   private static final String sf_googleSheetUrlFmt = "https://docs.google.com/spreadsheets/d/%s/export?format=tsv";
 
@@ -162,7 +161,6 @@ public class DataManager {
           // if we're skipping new phenotype data, then use the default data
           phenotypeMap = new PhenotypeMap();
         }
-        validatePhenotypes(phenotypeMap);
 
         DefinitionReader definitionReader;
         if (!skipAlleles) {
@@ -416,16 +414,11 @@ public class DataManager {
 
 
   private void transformPhenotypes(Path downloadDir, Path phenoDir) throws IOException {
-    Path cpicDir = phenoDir.resolve("cpic");
-    System.out.println("Saving CPIC phenotypes to " + cpicDir);
-    doTransformPhenotypes(downloadDir.resolve("cpic_phenotypes.json"), cpicDir, DataSource.CPIC);
-
-    Path dpwgDir = phenoDir.resolve("dpwg");
-    System.out.println("Saving DPWG phenotypes to " + dpwgDir);
-    doTransformPhenotypes(downloadDir.resolve("dpwg_phenotypes.json"), dpwgDir, DataSource.DPWG);
+    System.out.println("Saving phenotypes to " + phenoDir);
+    doTransformPhenotypes(downloadDir.resolve(PHENOYTPES_NAME), phenoDir);
   }
 
-  private void doTransformPhenotypes(Path phenotypeFile, Path outputDir, DataSource source) throws IOException {
+  private void doTransformPhenotypes(Path phenotypeFile, Path outputDir) throws IOException {
     if (!Files.exists(outputDir)) {
       Files.createDirectories(outputDir);
     }
@@ -436,11 +429,11 @@ public class DataManager {
       Set<String> genes = new HashSet<>();
       for (GenePhenotype gp : rez) {
         if (!genes.add(gp.getGene())) {
-          throw new IllegalStateException("Multiple " + source + " GenePhenotypes for " + gp.getGene());
+          throw new IllegalStateException("Multiple GenePhenotypes for " + gp.getGene());
         }
 
         // generate diplotype data
-        gp.generateDiplotypes(source);
+        gp.generateDiplotypes();
 
         String filename = sanitizeFilename(gp.getGene()) + ".json";
         try (Writer writer = Files.newBufferedWriter(outputDir.resolve(filename))) {
@@ -450,39 +443,8 @@ public class DataManager {
           System.out.println("New gene: " + gp.getGene());
         }
       }
-      System.out.println("Found " + rez.length + " " + source + " phenotypes");
+      System.out.println("Found " + rez.length + " phenotypes");
       deleteObsoleteFiles(outputDir, currentFiles);
-    }
-  }
-
-
-  private static void validatePhenotypes(PhenotypeMap phenotypeMap) {
-    for (GenePhenotype gp : phenotypeMap.getCpicGenes()) {
-      checkForDuplicatePhenotypeKeys(gp, DataSource.CPIC);
-    }
-    for (GenePhenotype gp : phenotypeMap.getDpwgGenes()) {
-      checkForDuplicatePhenotypeKeys(gp, DataSource.DPWG);
-    }
-    // validate DPYD phenotypes (DpydCaller depends on this expectation)
-    GenePhenotype dpwgGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.DPWG));
-    GenePhenotype cpicGp = Objects.requireNonNull(phenotypeMap.getPhenotype("DPYD", DataSource.CPIC));
-    for (String hap : dpwgGp.getHaplotypes().keySet()) {
-      if (!cpicGp.getHaplotypes().containsKey(hap)) {
-        throw new IllegalStateException("DPWG has DPYD " + hap + " but CPIC does not");
-      }
-    }
-  }
-
-  private static void checkForDuplicatePhenotypeKeys(GenePhenotype gp, DataSource source) {
-    Set<String> keys = new HashSet<>();
-    for (DiplotypeRecord dr : gp.getDiplotypes()) {
-      String key = dr.getDiplotypeKey().keySet().stream()
-          .sorted()
-          .map(h -> h + " (" + dr.getDiplotypeKey().get(h) + ")")
-          .collect(Collectors.joining("/"));
-      if (!keys.add(key)) {
-        throw new IllegalStateException("Duplicate key: " + key + " for " + gp.getGene() + " from " + source);
-      }
     }
   }
 

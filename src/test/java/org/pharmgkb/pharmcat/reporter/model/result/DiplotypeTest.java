@@ -13,7 +13,6 @@ import org.pharmgkb.pharmcat.DiplotypeUtils;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -70,7 +69,7 @@ public class DiplotypeTest {
     h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "D110H");
 
-    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env);
 
     assertEquals("CFTR:D110H (heterozygous)", diplotype.toString());
     assertEquals("D110H (heterozygous)", diplotype.getLabel());
@@ -93,7 +92,7 @@ public class DiplotypeTest {
     h1.setReference(true);
     Haplotype h2 = new Haplotype(gene, "*3");
 
-    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(gene, h1, h2, s_env);
 
     assertEquals("CYP2D6:*1/*3", diplotype.toString());
     assertEquals("*1/*3", diplotype.getLabel());
@@ -156,7 +155,7 @@ public class DiplotypeTest {
   @Test
   void testOutsideCall() {
     OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t\tNM\t4.0", 1);
-    Diplotype dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    Diplotype dip = new Diplotype(outsideCall, s_env);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
     assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
@@ -166,7 +165,7 @@ public class DiplotypeTest {
     assertNotNull(dip.getOutsideActivityScoreMismatch());
 
     outsideCall = new OutsideCall(s_env, "CYP2D6\t\tNM", 1);
-    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    dip = new Diplotype(outsideCall, s_env);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
     assertThat(dip.getPhenotypes(), contains("Normal Metabolizer"));
@@ -176,7 +175,7 @@ public class DiplotypeTest {
     assertNull(dip.getOutsideActivityScoreMismatch());
 
     outsideCall = new OutsideCall(s_env, "CYP2D6\t\t\t4.0", 1);
-    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    dip = new Diplotype(outsideCall, s_env);
     //logDiplotype(dip);
     assertTrue(dip.isUnknownAlleles());
     assertThat(dip.getPhenotypes(), contains("Ultrarapid Metabolizer"));
@@ -187,7 +186,7 @@ public class DiplotypeTest {
 
 
     outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\tNM\t4.0", 1);
-    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    dip = new Diplotype(outsideCall, s_env);
     //logDiplotype(dip);
     assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
@@ -200,7 +199,7 @@ public class DiplotypeTest {
     assertNotNull(dip.getOutsideActivityScoreMismatch());
 
     outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\tNM", 1);
-    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    dip = new Diplotype(outsideCall, s_env);
     //logDiplotype(dip);
     assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
@@ -215,7 +214,7 @@ public class DiplotypeTest {
 
     outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1\t\t4.0", 1);
     //logDiplotype(dip);
-    dip = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    dip = new Diplotype(outsideCall, s_env);
     assertNotNull(dip.getAllele1());
     assertEquals("*1", dip.getAllele1().getName());
     assertNotNull(dip.getAllele2());

@@ -20,7 +20,6 @@ import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -199,11 +198,11 @@ class BatchPharmCATTest {
     checkForOutputFiles(tmpDir, null, vcfFiles);
 
     Phenotyper phenotyper = Phenotyper.read(tmpDir.resolve("Sample_2.phenotype.json"));
-    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport( "CYP2D6").orElse(null),
         "*3", "*4");
-    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport( "CYP4F2").orElse(null),
         "*1", "*3");
-    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
+    PharmCATTest.checkOutsideDiplotype(phenotyper.findGeneReport( "IFNL3").orElse(null),
         "rs12979860 variant (T)", "rs12979860 variant (T)");
   }
 

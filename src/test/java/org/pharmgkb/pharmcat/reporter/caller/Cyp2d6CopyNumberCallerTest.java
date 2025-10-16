@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.phenotype.model.OutsideCall;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 
@@ -31,15 +30,13 @@ class Cyp2d6CopyNumberCallerTest {
   void testWrongGene() {
     OutsideCall outsideCall = new OutsideCall(s_env, "ABCDE\t*1/*1x7", 1);
 
-    GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
+    GeneReport report = new GeneReport(outsideCall, s_env);
     assertEquals("ABCDE", report.getGene());
 
-    Diplotype diplotype = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(outsideCall, s_env);
     assertEquals("ABCDE", outsideCall.getGene());
 
-    assertThrows(IllegalArgumentException.class, () -> {
-      Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env, DataSource.CPIC);
-    });
+    assertThrows(IllegalArgumentException.class, () -> Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env));
   }
 
 
@@ -47,13 +44,13 @@ class Cyp2d6CopyNumberCallerTest {
   void testInferred() {
     OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*1x7", 1);
 
-    GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
+    GeneReport report = new GeneReport(outsideCall, s_env);
     assertEquals("CYP2D6", report.getGene());
 
-    Diplotype diplotype = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(outsideCall, s_env);
     assertEquals("CYP2D6", outsideCall.getGene());
 
-    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env, DataSource.CPIC);
+    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env);
     assertEquals("*1/*1x" + TextConstants.GTE + "3", inferred.getLabel());
   }
 
@@ -64,13 +61,13 @@ class Cyp2d6CopyNumberCallerTest {
   void testNoInfer1() {
     OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*42x7", 1);
 
-    GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
+    GeneReport report = new GeneReport(outsideCall, s_env);
     assertEquals("CYP2D6", report.getGene());
 
-    Diplotype diplotype = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(outsideCall, s_env);
     assertEquals("CYP2D6", outsideCall.getGene());
 
-    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env, DataSource.CPIC);
+    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env);
     assertEquals("*1/*42x7" , inferred.getLabel());
   }
 
@@ -79,13 +76,13 @@ class Cyp2d6CopyNumberCallerTest {
   void testNoInfer2() {
     OutsideCall outsideCall = new OutsideCall(s_env, "CYP2D6\t*1/*41x7", 1);
 
-    GeneReport report = new GeneReport(outsideCall, s_env, DataSource.CPIC);
+    GeneReport report = new GeneReport(outsideCall, s_env);
     assertEquals("CYP2D6", report.getGene());
 
-    Diplotype diplotype = new Diplotype(outsideCall, s_env, DataSource.CPIC);
+    Diplotype diplotype = new Diplotype(outsideCall, s_env);
     assertEquals("CYP2D6", outsideCall.getGene());
 
-    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env, DataSource.CPIC);
+    Diplotype inferred = Cyp2d6CopyNumberCaller.inferDiplotype(report, diplotype, s_env);
     assertEquals("*1/*41x7" , inferred.getLabel());
   }
 }

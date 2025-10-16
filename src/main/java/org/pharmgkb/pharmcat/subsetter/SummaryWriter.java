@@ -29,7 +29,6 @@ import static org.pharmgkb.pharmcat.util.PoiUtils.*;
  * @author Mark Woon
  */
 public class SummaryWriter {
-  private static final int CELL_STYLE_REPORT_AS_REF = 7;
   private static final int CELL_STYLE_MODIFIED_FUNCTION = 8;
   private enum HeaderType { DESC, RSID, CHR_POS, SUBSECTION }
 
@@ -206,23 +205,16 @@ public class SummaryWriter {
   }
 
   private void writeFunction(Row row, String gene, NamedAllele hap, DataSource src) {
-    GenePhenotype gp = m_phenotypeMap.getPhenotype(gene, src);
+    GenePhenotype gp = m_phenotypeMap.getPhenotype(gene);
     if (gp != null) {
       StringBuilder builder = new StringBuilder()
           .append(gp.getHaplotypeFunction(hap.getName()));
       String activity = gp.getHaplotypeActivity(hap.getName());
       if (activity != null) {
-        builder.append(" (")
-            .append(activity)
-            .append(")");
+        builder.append(" (AV:").append(activity).append(")");
       }
-      int col = switch (src) {
-        case CPIC -> 1;
-        case DPWG -> 2;
-        default -> throw new UnsupportedOperationException("Cannot handle " + src);
-      };
       CellStyle cellStyle = gp.isModified(hap.getName()) ? m_cellStyles.get(CELL_STYLE_MODIFIED_FUNCTION) : null;
-      writeCell(row, col, builder.toString(), cellStyle);
+      writeCell(row, 1, builder.toString(), cellStyle);
     }
   }
 

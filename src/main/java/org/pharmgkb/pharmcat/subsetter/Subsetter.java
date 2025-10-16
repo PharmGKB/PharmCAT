@@ -366,7 +366,7 @@ public class Subsetter {
       deleteObsoleteFiles(cpicDir, ".json", genes, "CPIC phenotypes");
     }
 
-    SortedSet<String> modified = new TreeSet<>(writePhenotypes(genes, m_phenotypeMap.getCpicGenes(), cpicDir,
+    SortedSet<String> modified = new TreeSet<>(writePhenotypes(genes, m_phenotypeMap.getGenePhenotypes(), cpicDir,
         DataSource.CPIC));
 
     /*
@@ -421,7 +421,7 @@ public class Subsetter {
         // export
         Path jsonFile = dir.resolve(gp.getGene() + ".json");
         if (updatedFunctions) {
-          gp.generateDiplotypes(src);
+          gp.generateDiplotypes();
         }
         DataSerializer.serializeToJson(gp, jsonFile);
         //System.out.println("\tWrote " + jsonFile);

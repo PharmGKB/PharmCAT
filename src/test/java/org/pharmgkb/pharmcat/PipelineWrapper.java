@@ -21,7 +21,6 @@ import org.opentest4j.AssertionFailedError;
 import org.pharmgkb.pharmcat.reporter.ReportContext;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
@@ -188,8 +187,8 @@ public class PipelineWrapper {
   /**
    * Tests the original diplotype from the source (i.e. matcher or outside call).
    */
-  void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes) {
-    testSourceDiplotypes(source, gene, diplotypes, null);
+  void testSourceDiplotypes(String gene, List<String> diplotypes) {
+    testSourceDiplotypes(gene, diplotypes, null);
   }
 
   /**
@@ -199,9 +198,9 @@ public class PipelineWrapper {
    * {@code diplotypes} will be compared against allele names. Normally used to test CPIC-style names or outside calls
    * with missing diplotype.
    */
-  void testSourceDiplotypes(DataSource source, String gene, List<String> diplotypes,
+  void testSourceDiplotypes(String gene, List<String> diplotypes,
       @Nullable List<String> visibleAlleleDiplotypes) {
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport);
 
     if (visibleAlleleDiplotypes != null) {
@@ -259,15 +258,15 @@ public class PipelineWrapper {
    * @param calls the expected display of the calls, 1 or more
    */
   void testPrintCpicCalls(String gene, String... calls) {
-    testPrintCalls(DataSource.CPIC, gene, calls);
+    testPrintCalls(gene, calls);
   }
 
-  void testPrintCalls(DataSource source, String gene, String... calls) {
-    testPrintCalls(source, gene, Arrays.asList(calls));
+  void testPrintCalls(String gene, String... calls) {
+    testPrintCalls(gene, Arrays.asList(calls));
   }
 
-  void testPrintCalls(DataSource source, String gene, List<String> calls) {
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+  void testPrintCalls(String gene, List<String> calls) {
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport, "Missing report for " + gene);
     List<String> actualCalls = ReportHelpers.amdGeneCalls(geneReport);
     List<String> expectedCalls = stripHomozygousNotes(calls);
@@ -284,12 +283,11 @@ public class PipelineWrapper {
    * Test to make sure the given phenotype is in the collection of phenotypes that come from the source diplotype
    * collection.
    *
-   * @param source The source for the diplotype
    * @param gene The gene symbol
    * @param phenotype The phenotype string to check for
    */
-  void testSourcePhenotype(DataSource source, String gene, String phenotype) {
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+  void testSourcePhenotype(String gene, String phenotype) {
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport);
     Set<String> sourcePhenotypes = geneReport.getSourceDiplotypes().stream()
         .flatMap(d -> d.getPhenotypes().stream())
@@ -297,8 +295,8 @@ public class PipelineWrapper {
     assertTrue(sourcePhenotypes.contains(phenotype), sourcePhenotypes + " does not contain " + phenotype);
   }
 
-  void testRecommendedPhenotype(DataSource source, String gene, String phenotype) {
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+  void testRecommendedPhenotype(String gene, String phenotype) {
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport);
     SortedSet<String> recPhenotypes = geneReport.getRecommendationDiplotypes().stream()
         .flatMap(d -> d.getPhenotypes().stream())
@@ -308,7 +306,7 @@ public class PipelineWrapper {
   }
 
   void testRecommendedDiplotypes(String gene, String... haplotypes) {
-    testRecommendedDiplotypes(DataSource.CPIC, gene, Arrays.asList(haplotypes));
+    testRecommendedDiplotypes(gene, Arrays.asList(haplotypes));
   }
 
   /**
@@ -319,12 +317,12 @@ public class PipelineWrapper {
    * @param haplotypes the expected haplotypes names used for calling, specifying one will assume homozygous,
    * otherwise specify two haplotype names
    */
-  void testRecommendedDiplotypes(DataSource source, String gene, List<String> haplotypes) {
+  void testRecommendedDiplotypes(String gene, List<String> haplotypes) {
     Preconditions.checkArgument(!haplotypes.isEmpty() && haplotypes.size() <= 2,
         "Can only test on 1 or 2 haplotypes, got " + haplotypes.size() + ": " +
             String.join(", ", haplotypes));
 
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport);
     if (haplotypes.size() == 1 && haplotypes.get(0).equals("Unknown/Unknown")) {
       assertFalse(geneReport.isReportable());
@@ -353,7 +351,7 @@ public class PipelineWrapper {
 
   void testDpydLookup(List<String> haplotypes) {
 
-    GeneReport geneReport = getContext().getGeneReport(DataSource.CPIC, "DPYD");
+    GeneReport geneReport = getContext().getGeneReport("DPYD");
     assertNotNull(geneReport);
     assertTrue(geneReport.isReportable(), "Not reportable: " + geneReport.getRecommendationDiplotypes());
 
@@ -363,8 +361,8 @@ public class PipelineWrapper {
 
   }
 
-  void testLookupByActivity(DataSource source, String gene, String activityScore) {
-    GeneReport geneReport = getContext().getGeneReport(source, gene);
+  void testLookupByActivity(String gene, String activityScore) {
+    GeneReport geneReport = getContext().getGeneReport(gene);
     assertNotNull(geneReport);
     assertTrue(geneReport.isReportable());
     String foundScores = geneReport.getRecommendationDiplotypes().stream()
@@ -381,16 +379,15 @@ public class PipelineWrapper {
   void testCalledByMatcher(String... genes) {
     assertTrue(genes != null && genes.length > 0);
     Arrays.stream(genes)
-        .forEach(g -> assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isCalled) &&
-                getContext().getGeneReports(g).stream().noneMatch(GeneReport::isOutsideCall),
-            g + " is not called"));
+        .map(g -> getContext().getGeneReport(g))
+        .forEach(r -> assertTrue(r.isCalled() && !r.isOutsideCall(), r + " is not called"));
   }
 
   void testReportable(String... genes) {
     assertTrue(genes != null && genes.length > 0);
     Arrays.stream(genes)
-        .forEach(g -> assertTrue(getContext().getGeneReports(g).stream().anyMatch(GeneReport::isReportable),
-            g + " is not reportable"));
+        .map(g -> getContext().getGeneReport(g))
+        .forEach(r -> assertTrue(r.isReportable(), r + " is not reportable"));
   }
 
   /**
@@ -399,14 +396,12 @@ public class PipelineWrapper {
   void testNotCalledByMatcher(String... genes) {
     Preconditions.checkArgument(genes != null && genes.length > 0);
     for (String g : genes) {
+      GeneReport gr = getContext().getGeneReport(g);
+      assertNotNull(gr);
       try {
-        assertTrue(getContext().getGeneReports(g).stream().allMatch(GeneReport::isOutsideCall) ||
-                getContext().getGeneReports(g).stream().noneMatch(GeneReport::isCalled),
-            g + " is called");
+        assertTrue(gr.isOutsideCall() || !gr.isCalled(), g + " is called");
       } catch (AssertionFailedError ex) {
-        for (GeneReport gr : getContext().getGeneReports(g)) {
-          System.out.println(printDiagnostic(gr));
-        }
+        System.out.println(printDiagnostic(gr));
         throw ex;
       }
     }
@@ -457,15 +452,15 @@ public class PipelineWrapper {
         drugName + " expected " + messageCount + " messages and got " + drugReport.getMessages());
   }
 
-  void testMessageCountForGene(DataSource source, String geneName, int messageCount) {
-    GeneReport report = getContext().getGeneReport(source, geneName);
+  void testMessageCountForGene(String geneName, int messageCount) {
+    GeneReport report = getContext().getGeneReport(geneName);
     assertNotNull(report);
     assertEquals(messageCount, report.getMessages().size(),
         geneName + " expected " + messageCount + " messages and got " + report.getMessages());
   }
 
-  void testGeneHasMessage(DataSource source, String geneName, String... msgNames) {
-    GeneReport report = getContext().getGeneReport(source, geneName);
+  void testGeneHasMessage(String geneName, String... msgNames) {
+    GeneReport report = getContext().getGeneReport(geneName);
     assertNotNull(report);
     assertTrue(report.getMessages().size() >= msgNames.length);
     List<String> names = report.getMessages().stream()

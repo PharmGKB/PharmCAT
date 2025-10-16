@@ -42,7 +42,7 @@ public class Phenotyper {
   private Metadata m_matcherMetadata;
   @Expose
   @SerializedName("geneReports")
-  private final SortedMap<DataSource, SortedMap<String, GeneReport>> m_geneReports = new TreeMap<>();
+  private final SortedMap<String, GeneReport> m_geneReports = new TreeMap<>();
   @Expose
   @SerializedName("unannotatedGeneCalls")
   private SortedSet<GeneReport> m_unannotatedGeneCalls = new TreeSet<>();
@@ -69,7 +69,7 @@ public class Phenotyper {
             .filter(gc -> gc.getGene().equals(gene))
             .findFirst()
             .orElseThrow(() -> new IllegalStateException("Cannot find gene call for " + gene));
-        GeneReport geneReport = new GeneReport(geneCall, env, DataSource.UNKNOWN);
+        GeneReport geneReport = new GeneReport(geneCall, env);
         if (!geneReport.isNoData()) {
           m_unannotatedGeneCalls.add(geneReport);
         }
@@ -82,7 +82,6 @@ public class Phenotyper {
 
   private List<String> initialize(List<GeneCall> geneCalls, Set<OutsideCall> outsideCalls, Env env, DataSource source,
       @Nullable Map<String, Collection<String>> variantWarnings) {
-    SortedMap<String, GeneReport> reportMap = m_geneReports.computeIfAbsent(source, (s) -> new TreeMap<>());
 
     List<String> unusedGeneCalls = new ArrayList<>();
     // matcher calls
@@ -91,13 +90,13 @@ public class Phenotyper {
         unusedGeneCalls.add(geneCall.getGene());
         continue;
       }
-      GeneReport geneReport = new GeneReport(geneCall, env, source);
-      reportMap.put(geneReport.getGene(), geneReport);
+      GeneReport geneReport = new GeneReport(geneCall, env);
+      m_geneReports.put(geneReport.getGene(), geneReport);
     }
 
     //  outside calls
     for (OutsideCall outsideCall : outsideCalls) {
-      GeneReport geneReport = reportMap.get(outsideCall.getGene());
+      GeneReport geneReport = m_geneReports.get(outsideCall.getGene());
       MessageAnnotation msgAnnotation = null;
       if (geneReport != null) {
         if (geneReport.getCallSource() != CallSource.OUTSIDE) {
@@ -120,38 +119,35 @@ public class Phenotyper {
         }
       }
 
-      geneReport = new GeneReport(outsideCall, env, source);
+      geneReport = new GeneReport(outsideCall, env);
       if (msgAnnotation != null) {
         geneReport.addMessage(msgAnnotation);
       }
-      reportMap.put(geneReport.getGene(), geneReport);
+      m_geneReports.put(geneReport.getGene(), geneReport);
     }
 
     Set<String> unspecifiedGenes = listUnspecifiedGenes(env, source);
     // all other genes
     for (String geneSymbol : unspecifiedGenes) {
-      reportMap.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
+      m_geneReports.put(geneSymbol, GeneReport.unspecifiedGeneReport(geneSymbol, env, source));
     }
 
     // add VCF warnings
-    reportMap.values().forEach(geneReport -> geneReport.addVariantWarningMessages(variantWarnings));
+    m_geneReports.values().forEach(geneReport -> geneReport.addVariantWarningMessages(variantWarnings));
 
     return unusedGeneCalls;
   }
 
 
-  public SortedMap<DataSource, SortedMap<String, GeneReport>> getGeneReports() {
+  public SortedMap<String, GeneReport> getGeneReports() {
     return m_geneReports;
   }
 
   /**
    * Find a {@link GeneReport} based on the gene symbol
    */
-  public Optional<GeneReport> findGeneReport(DataSource source, String geneSymbol) {
-    if (m_geneReports.containsKey(source)) {
-      return Optional.ofNullable(m_geneReports.get(source).get(geneSymbol));
-    }
-    return Optional.empty();
+  public Optional<GeneReport> findGeneReport(String geneSymbol) {
+    return Optional.ofNullable(m_geneReports.get(geneSymbol));
   }
 
 
@@ -190,7 +186,7 @@ public class Phenotyper {
       return Collections.emptySet();
     }
     Set<String> unspecifiedGenes = new HashSet<>(env.getDrugs().getGenesUsedInSource(source));
-    m_geneReports.get(source).values().stream()
+    m_geneReports.values().stream()
         .map(GeneReport::getGene)
         .forEach(unspecifiedGenes::remove);
     return unspecifiedGenes;

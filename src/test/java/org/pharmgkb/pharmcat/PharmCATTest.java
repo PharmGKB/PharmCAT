@@ -21,7 +21,6 @@ import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.MessageHelper;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.result.CallSource;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
@@ -89,8 +88,7 @@ class PharmCATTest {
           .findFirst();
       assertTrue(gcOpt.isEmpty());
 
-      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
+      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -153,8 +151,7 @@ class PharmCATTest {
           .findFirst();
       assertTrue(gcOpt.isEmpty());
 
-      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
+      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -272,8 +269,7 @@ class PharmCATTest {
       assertEquals(1, opt.get().getDiplotypes().size());
       assertEquals("*1/*1", opt.get().getDiplotypes().iterator().next().getName());
 
-      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
+      Collection<GeneReport> reports = Phenotyper.read(refPhenotyperOutput).getGeneReports().values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("CYP2D6"))
           .findFirst();
@@ -360,8 +356,7 @@ class PharmCATTest {
       assertTrue(Files.exists(phenotyperOutput));
       assertTrue(Files.exists(reporterOutput));
 
-      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
-          .values();
+      Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().values();
       Optional<GeneReport> grOpt = reports.stream()
           .filter(gr -> gr.getGene().equals("IFNL3"))
           .findFirst();
@@ -609,11 +604,11 @@ class PharmCATTest {
     assertFalse(Files.exists(outputDir.resolve("PharmCATTest-outsideCallsNoRecs.report.html")));
 
     Phenotyper phenotyper = Phenotyper.read(outputDir.resolve("PharmCATTest-cyp2d6.phenotype.json"));
-    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP2D6").orElse(null),
+    checkOutsideDiplotype(phenotyper.findGeneReport( "CYP2D6").orElse(null),
         "*3", "*4");
-    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "CYP4F2").orElse(null),
+    checkOutsideDiplotype(phenotyper.findGeneReport( "CYP4F2").orElse(null),
         "*1", "*3");
-    checkOutsideDiplotype(phenotyper.findGeneReport(DataSource.CPIC, "IFNL3").orElse(null),
+    checkOutsideDiplotype(phenotyper.findGeneReport( "IFNL3").orElse(null),
         "rs12979860 variant (T)", "rs12979860 variant (T)");
   }
 
@@ -636,8 +631,7 @@ class PharmCATTest {
 
   public static void validateOutsideCallOutput(Path phenotyperOutput, String gene, @Nullable String diplotype)
       throws IOException {
-    Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().get(DataSource.CPIC)
-        .values();
+    Collection<GeneReport> reports = Phenotyper.read(phenotyperOutput).getGeneReports().values();
     Optional<GeneReport> grOpt = reports.stream()
         .filter(gr -> gr.getGene().equals(gene))
         .findFirst();

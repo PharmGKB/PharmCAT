@@ -64,7 +64,7 @@ public class GuidelineReport implements Comparable<GuidelineReport> {
   private void initializeGenes(Collection<String> genes, ReportContext reportContext) {
     // link guideline report to gene report
     for (String geneSymbol : genes) {
-      GeneReport geneReport = reportContext.getGeneReport(m_source, geneSymbol);
+      GeneReport geneReport = reportContext.getGeneReport(geneSymbol);
       if (geneReport == null) {
         continue;
       }

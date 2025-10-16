@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.UnexpectedStateException;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.VariantReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -40,8 +39,7 @@ public class Slco1b1CustomCaller {
   /**
    * Gets the diplotype calls that should be used to look up guideline annotations.
    */
-  public static SortedSet<Diplotype> inferDiplotypes(GeneReport report, Env env,
-      DataSource source) {
+  public static SortedSet<Diplotype> inferDiplotypes(GeneReport report, Env env) {
     Preconditions.checkArgument(report.getGene().equals(GENE), "Can only be used on SLCO1B1");
 
     if (report.isOutsideCall() || !report.getSourceDiplotypes().stream().allMatch(Diplotype::isUnknown)) {
@@ -64,13 +62,13 @@ public class Slco1b1CustomCaller {
       return report.getSourceDiplotypes();
     }
 
-    Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, source, 0);
+    Diplotype diplotype = new Diplotype(GENE, haps[0], haps[1], env, 0);
     diplotype.setVariant(variant);
     diplotype.setInferred(true);
 
     String[] alleles = Objects.requireNonNull(splitVariant(variant));
     diplotype.setInferredSourceDiplotype(new Diplotype(GENE,
-        sf_callPosition + " " + alleles[0], sf_callPosition + " " + alleles[1], env, source, 0));
+        sf_callPosition + " " + alleles[0], sf_callPosition + " " + alleles[1], env, 0));
 
     SortedSet<Diplotype> dips = new TreeSet<>();
     dips.add(diplotype);

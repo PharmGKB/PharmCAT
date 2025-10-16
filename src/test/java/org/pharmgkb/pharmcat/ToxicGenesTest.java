@@ -2,8 +2,6 @@ package org.pharmgkb.pharmcat;
 
 import java.nio.file.Path;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Ordering;
 import org.jsoup.nodes.Document;
@@ -14,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
-import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
@@ -59,13 +56,11 @@ class ToxicGenesTest {
     List<String> expectedCalls = UNKNOWN_CALL;
 
     testWrapper.testNotCalledByMatcher("TPMT");
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "TPMT", expectedCalls);
-    testWrapper.testPrintCalls(DataSource.CPIC, "TPMT", List.of(TextConstants.UNCALLED));
+    testWrapper.testSourceDiplotypes("TPMT", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("TPMT", expectedCalls);
+    testWrapper.testPrintCalls("TPMT", List.of(TextConstants.UNCALLED));
 
     Document document = readHtmlReport(vcfFile);
-    SortedMap<String, List<String>> expectedCallsMap = new TreeMap<>();
-    expectedCallsMap.put("TPMT", UNKNOWN_CALL);
     htmlCheckGenes(document,
         new ImmutableSortedMap.Builder<String, List<String>>(Ordering.natural())
             .put("TPMT", UNKNOWN_CALL)
@@ -86,13 +81,13 @@ class ToxicGenesTest {
 
     testWrapper.testCalledByMatcher("CACNA1S", "RYR1");
 
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "CACNA1S", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "CACNA1S", expectedCalls);
+    testWrapper.testSourceDiplotypes("CACNA1S", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("CACNA1S", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("CACNA1S", expectedCalls);
 
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, "RYR1", expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, "RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
-    testWrapper.testPrintCalls(DataSource.CPIC, "RYR1", expectedCalls);
+    testWrapper.testSourceDiplotypes("RYR1", expectedCalls);
+    testWrapper.testRecommendedDiplotypes("RYR1", expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testPrintCalls("RYR1", expectedCalls);
 
     // each gene has its own annotation which means there should be 2 CPIC annotations matched, one for each gene
     testWrapper.testMatchedAnnotations("desflurane", PrescribingGuidanceSource.CPIC_GUIDELINE, 1);
@@ -158,10 +153,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCalls);
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -179,10 +174,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -200,10 +195,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("B (reference)/Mediterranean, Dallas, Panama, Sassari, Cagliari, Birmingham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -223,10 +218,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("Chatham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCalls);
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -244,10 +239,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("Chatham/Chatham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -265,10 +260,10 @@ class ToxicGenesTest {
     List<String> expectedCalls = List.of("B (reference)/Chatham");
 
     testWrapper.testCalledByMatcher(gene);
-    testWrapper.testSourceDiplotypes(DataSource.CPIC, gene, expectedCalls);
-    testWrapper.testRecommendedDiplotypes(DataSource.CPIC, gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
+    testWrapper.testSourceDiplotypes(gene, expectedCalls);
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     testWrapper.testReportable(gene);
-    testWrapper.testPrintCalls(DataSource.CPIC, gene, expectedCalls);
+    testWrapper.testPrintCalls(gene, expectedCalls);
 
     Document document = readHtmlReport(vcfFile);
     htmlChecks(document, gene, expectedCalls, "aspirin", RecPresence.NO, RecPresence.NO);
@@ -406,7 +401,7 @@ class ToxicGenesTest {
     testWrapper.testPrintCpicCalls("TPMT", "*1/*3A");
     testWrapper.testRecommendedDiplotypes("TPMT", "*1", "*3A");
 
-    GeneReport tpmtReport = testWrapper.getContext().getGeneReport(DataSource.CPIC, "TPMT");
+    GeneReport tpmtReport = testWrapper.getContext().getGeneReport("TPMT");
     assertNotNull(tpmtReport);
     assertEquals(43, tpmtReport.getVariantReports().size());
   }
