@@ -24,7 +24,9 @@ try {
   converter.setOption('disableForced4SpacesIndentedSublists', true);
 
   const html = '<section id="disclaimer">' + EOL +
-      converter.makeHtml(data) + EOL +
+      converter.makeHtml(data)
+          .replace('>Disclaimers and Other Information</h2>', '>Section IV: Disclaimers and Other Information</h2>')
+      + EOL +
       '</section>' + EOL;
   fs.writeFileSync(path.resolve(hbsDir, 'disclaimers.hbs'), html);
 
