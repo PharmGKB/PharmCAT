@@ -169,9 +169,8 @@ class DpydTest {
     assertNotNull(dpwgReport);
     assertTrue(dpwgReport.getRecommendationDiplotypes().stream().flatMap((d) -> d.getLookupKeys().stream()).noneMatch(TextConstants::isUnspecified), "DPWG missing lookup key for DPYD");
 
-    // DPWG does not include the 1627 allele in function definition so use Reference for lookup
     String gene = "DPYD";
-    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(List.of("Reference/c.1905+1G>A (*2A)")));
+    testWrapper.testRecommendedDiplotypes(gene, expectedCallsToRecommendedDiplotypes(expectedCalls));
     // all other diplotype usage can use the alleles as called
     testWrapper.testSourceDiplotypes(gene, expectedCalls);
     testWrapper.testPrintCalls(gene, expectedCalls);
@@ -326,7 +325,7 @@ class DpydTest {
         "c.2279C>T"
     );
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.1314T>G"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.1314T>G"), false, RecPresence.YES);
     testWrapper.testLookupByActivity("DPYD", "0.5");
   }
 
@@ -348,8 +347,8 @@ class DpydTest {
         "c.2846A>T"
     );
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.2846A>T"),
-        false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.1024G>A", "c.1314T>G"),
+        false, RecPresence.YES);
 
     testWrapper.testLookupByActivity("DPYD", "0.5");
 
@@ -360,7 +359,7 @@ class DpydTest {
     assertTrue(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.DPWG_GUIDELINE));
     assertFalse(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.FDA_LABEL));
     assertFalse(tegafur.getGuidelines().stream().anyMatch(g -> g.getSource() == PrescribingGuidanceSource.FDA_ASSOC));
-    assertFalse(tegafur.isMatched());
+    assertTrue(tegafur.isMatched());
   }
 
   @Test
@@ -453,7 +452,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("[c.498G>A + c.2582A>G]/[c.2846A>T + c.2933A>G]");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.498G>A", "c.2933A>G"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.498G>A", "c.2933A>G"), false, RecPresence.YES);
   }
 
   /**
@@ -474,7 +473,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.2933A>G", "c.2846A>T"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.2933A>G", "c.2846A>T"), false, RecPresence.YES);
   }
 
   @Test
@@ -490,7 +489,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("c.498G>A", "c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.2933A>G", "c.2933A>G"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.2933A>G", "c.2933A>G"), false, RecPresence.YES);
   }
 
   @Test
@@ -504,7 +503,7 @@ class DpydTest {
     List<String> expectedCalls = List.of("Reference/c.1156G>T (*12)");
     List<String> cpicStyleCalls = List.of("c.1156G>T (*12) (heterozygous)");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, null, false, RecPresence.YES);
   }
 
   @Test
@@ -518,7 +517,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.61C>T", "c.61C>T"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.61C>T", "c.61C>T"), false, RecPresence.YES);
   }
 
   @Test
@@ -532,7 +531,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("c.61C>T/[c.61C>T + c.313G>A]");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.61C>T", "c.61C>T"), false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.61C>T", "c.61C>T"), false, RecPresence.YES);
   }
 
   @Test
@@ -548,7 +547,7 @@ class DpydTest {
     List<String> expectedCalls = List.of("c.2582A>G", "c.2846A>T", "c.2933A>G (homozygous)");
 
     doStandardChecks(testWrapper, vcfFile, expectedCalls, null, List.of("c.2933A>G", "c.2933A>G"),
-        false, RecPresence.NO);
+        false, RecPresence.YES);
   }
 
 
@@ -654,7 +653,7 @@ class DpydTest {
     List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
     // make sure lowest function is called based on strand possibilities
     List<String> recommendedDiplotypes = List.of("c.61C>T", "Reference");
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
   }
 
 
@@ -1185,7 +1184,7 @@ class DpydTest {
     List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
     List<String> recommendedDiplotypes = List.of("Reference", "c.2983G>T (*10)");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
   }
 
   @Test
@@ -1257,7 +1256,7 @@ class DpydTest {
     );
     List<String> recommendedDiplotypes = List.of("c.1679T>G (*13)", "c.1774C>T");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, recommendedDiplotypes, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, recommendedDiplotypes, false, RecPresence.YES);
   }
 
   @Test
@@ -1280,7 +1279,7 @@ class DpydTest {
     List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
     List<String> recommendedDiplotypes = List.of("c.1774C>T", "Reference");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
   }
 
   @Test
@@ -1308,6 +1307,6 @@ class DpydTest {
     List<String> cpicStyleCalls = expectedCallsToCpicStyleCalls(expectedCalls);
     List<String> recommendedDiplotypes = List.of("c.632A>G", "c.1679T>G (*13)");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.NO);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, cpicStyleCalls, recommendedDiplotypes, false, RecPresence.YES);
   }
 }
