@@ -36,10 +36,16 @@ import static org.pharmgkb.pharmcat.Constants.isLowestFunctionGene;
 public class CallsOnlyFormat extends AbstractFormat {
   public static final String ENV_DEBUG_KEY = "PHARMCAT_REPORTER_DEBUG";
   public static final String NO_CALL_TAG = "no call";
+  public static final String TREAT_AS_REFERENCE_TAG = "(treat as reference)";
   public static final String HEADER_SAMPLE_ID = "Sample ID";
+  public static final String HEADER_VARIANTS = "Variants";
+  public static final String HEADER_UNDOCUMENTED_VARIANTS = "Undocumented variants";
   private boolean m_singleFileMode;
   // this is only used in single file mode
   private boolean m_showSampleId = true;
+  private boolean m_showVariants;
+  private boolean m_showMissingVariants;
+  private boolean m_showUndocumentedVariants;
   private final boolean m_debug;
 
 
@@ -47,6 +53,37 @@ public class CallsOnlyFormat extends AbstractFormat {
     super(outputPath, env);
     m_debug = Boolean.parseBoolean(System.getenv(ENV_DEBUG_KEY)) ||
         Boolean.parseBoolean(System.getProperty(ENV_DEBUG_KEY));
+    if (m_debug) {
+      m_showVariants = true;
+      m_showMissingVariants = true;
+      m_showUndocumentedVariants = true;
+    }
+  }
+
+
+  /**
+   * Sets whether results should include variants.
+   */
+  public CallsOnlyFormat showVariants() {
+    m_showVariants = true;
+    return this;
+  }
+
+
+  /**
+   * Sets whether results should specify missing variants (defaults to yes/no).
+   */
+  public CallsOnlyFormat showMissingVariants() {
+    m_showMissingVariants = true;
+    return this;
+  }
+
+  /**
+   * Sets whether results should specify undocumented variants.
+   */
+  public CallsOnlyFormat showUndocumentedVariants() {
+    m_showUndocumentedVariants = true;
+    return this;
   }
 
   /**
@@ -117,14 +154,12 @@ public class CallsOnlyFormat extends AbstractFormat {
             "\tHaplotype 1\tHaplotype 1 Function\tHaplotype 1 Activity Value" +
             "\tHaplotype 2\tHaplotype 2 Function\tHaplotype 2 Activity Value" +
             "\tOutside Call\tMatch Score\t");
-        if (m_debug) {
-          writer.print("Variants\t");
+        if (m_showVariants) {
+          writer.print(HEADER_VARIANTS + "\t");
         }
         writer.print("Missing positions\t");
-        if (m_debug) {
-          // CalcAlleleFrequencies keys off this column name to check if debug mode is enabled
-          // Make sure it is updated if this column name is changed
-          writer.print("Undocumented variants\t");
+        if (m_showUndocumentedVariants) {
+          writer.print(HEADER_UNDOCUMENTED_VARIANTS + "\t");
         }
         writer.print("Recommendation Lookup Diplotype\tRecommendation Lookup Phenotype\t" +
             "Recommendation Lookup Activity Score");
@@ -330,36 +365,48 @@ public class CallsOnlyFormat extends AbstractFormat {
     writer.print("\t");
     writer.print(matchScore == null ? "" : matchScore);
     writer.print("\t");
-    // missing positions
-    if (m_debug) {
+    // variants
+    if (m_showVariants) {
       StringBuilder varBuilder = new StringBuilder();
+      for (VariantReport vr : report.getVariantReports()) {
+        if (!vr.isMissing() && vr.isNonReference()) {
+            if (!varBuilder.isEmpty()) {
+              varBuilder.append(", ");
+            }
+            varBuilder.append(vr.getPosition())
+                .append(":")
+                .append(vr.getCall());
+          }
+        }
+      writer.print(varBuilder);
+      writer.print("\t");
+    }
+    // missing positions
+    if (m_showMissingVariants) {
       StringBuilder missingBuilder = new StringBuilder();
       for (VariantReport vr : report.getVariantReports()) {
         if (vr.isMissing()) {
-          if (!missingBuilder.isEmpty()) {
-            missingBuilder.append(", ");
+          if (m_showMissingVariants) {
+            if (!missingBuilder.isEmpty()) {
+              missingBuilder.append(", ");
+            }
+            missingBuilder.append(vr.getPosition());
           }
-          missingBuilder.append(vr.getPosition());
-        } else if (vr.isNonReference()) {
-          if (!varBuilder.isEmpty()) {
-            varBuilder.append(", ");
-          }
-          varBuilder.append(vr.getPosition())
-              .append(":")
-              .append(vr.getCall());
         }
       }
-      writer.print(varBuilder);
-      writer.print("\t");
       writer.print(missingBuilder);
-      writer.print("\t");
+    } else {
+      writer.print(report.isMissingVariants() ? "yes" : "no");
+    }
+    writer.print("\t");
+    if (m_showUndocumentedVariants) {
       if (report.isHasUndocumentedVariations()) {
         writer.print(report.getVariantReports().stream()
             .filter(VariantReport::isHasUndocumentedVariations)
             .map(vr -> Long.toString(vr.getPosition()))
             .collect(Collectors.joining(", ")));
         if (report.isTreatUndocumentedVariationsAsReference()) {
-          writer.print(" (treat as reference)");
+          writer.print(" " + TREAT_AS_REFERENCE_TAG);
         }
       }
     } else {

@@ -4,7 +4,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
@@ -43,30 +52,30 @@ public class Pipeline implements Callable<PipelineResult> {
   }
   private final Env m_env;
   private final boolean m_runMatcher;
-  private VcfFile m_vcfFile;
+  private @Nullable VcfFile m_vcfFile;
   private @Nullable String m_sampleId;
   private boolean m_topCandidateOnly = true;
   private boolean m_findCombinations;
   private boolean m_callCyp2d6;
-  private Path m_matcherJsonFile;
-  private Path m_matcherHtmlFile;
+  private @Nullable Path m_matcherJsonFile;
+  private @Nullable Path m_matcherHtmlFile;
   /** True if the VCF file only contains a single sample. */
   private final boolean m_singleSample;
-  private final Path m_sampleMetadataFile;
+  private final @Nullable Path m_sampleMetadataFile;
 
   private final boolean m_runPhenotyper;
-  private Path m_phenotyperInputFile;
-  private List<Path> m_phenotyperOutsideCallsFile;
-  private Path m_phenotyperJsonFile;
+  private @Nullable Path m_phenotyperInputFile;
+  private @Nullable List<Path> m_phenotyperOutsideCallsFile;
+  private @Nullable Path m_phenotyperJsonFile;
 
   private final boolean m_runReporter;
-  private Path m_reporterInputFile;
+  private @Nullable Path m_reporterInputFile;
   private String m_reporterTitle;
   private boolean m_reporterCompact;
   private @Nullable List<PrescribingGuidanceSource> m_reporterSources;
-  private Path m_reporterJsonFile;
-  private Path m_reporterHtmlFile;
-  private Path m_reporterCallsOnlyFile;
+  private @Nullable Path m_reporterJsonFile;
+  private @Nullable Path m_reporterHtmlFile;
+  private @Nullable Path m_reporterCallsOnlyFile;
   private ReportContext m_reportContext;
 
   private final boolean m_deleteIntermediateFiles;
@@ -263,11 +272,11 @@ public class Pipeline implements Callable<PipelineResult> {
         if (!batchDisplayMode) {
           namedAlleleMatcher.printWarnings();
         }
-        matcherResult = namedAlleleMatcher.call(m_vcfFile, m_sampleId, m_sampleMetadataFile);
+        matcherResult = namedAlleleMatcher.call(Objects.requireNonNull(m_vcfFile), m_sampleId, m_sampleMetadataFile);
 
         if (matcherResult.getVcfWarnings() != null &&
             !matcherResult.getVcfWarnings().isEmpty()) {
-          Path txtFile = m_matcherJsonFile.getParent()
+          Path txtFile = Objects.requireNonNull(m_matcherJsonFile).getParent()
               .resolve(m_basename + BaseConfig.MATCHER_SUFFIX + "_warnings.txt");
           try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
             Map<String, Collection<String>> warningsMap = matcherResult.getVcfWarnings();
@@ -308,7 +317,9 @@ public class Pipeline implements Callable<PipelineResult> {
               .fromJson(m_phenotyperInputFile);
           metadata = deserializedMatcherResult.getMetadata();
           calls = deserializedMatcherResult.getGeneCalls();
-          warnings.putAll(deserializedMatcherResult.getVcfWarnings());
+          if (deserializedMatcherResult.getVcfWarnings() != null) {
+            warnings.putAll(deserializedMatcherResult.getVcfWarnings());
+          }
         } else {
           calls = new ArrayList<>();
         }
@@ -341,7 +352,7 @@ public class Pipeline implements Callable<PipelineResult> {
           if (!batchDisplayMode) {
             output.add("Saving phenotyper JSON results to " + m_phenotyperJsonFile);
           }
-          phenotyper.write(m_phenotyperJsonFile);
+          phenotyper.write(Objects.requireNonNull(m_phenotyperJsonFile));
         }
         didSomething = true;
       }
@@ -349,7 +360,7 @@ public class Pipeline implements Callable<PipelineResult> {
       if (m_runReporter) {
         if (phenotyper == null) {
           Path inputFile = m_phenotyperJsonFile != null ? m_phenotyperJsonFile : m_reporterInputFile;
-          phenotyper = Phenotyper.read(inputFile);
+          phenotyper = Phenotyper.read(Objects.requireNonNull(inputFile));
         }
         m_reportContext = new ReportContext(m_env, phenotyper, m_reporterTitle);
         if (m_reporterHtmlFile != null) {
@@ -372,8 +383,12 @@ public class Pipeline implements Callable<PipelineResult> {
           if (!batchDisplayMode) {
             output.add("Saving calls-only TSV results to " + m_reporterCallsOnlyFile);
           }
-          new CallsOnlyFormat(m_reporterCallsOnlyFile, m_env)
-              .write(m_reportContext);
+          CallsOnlyFormat callsOnlyFormat = new CallsOnlyFormat(m_reporterCallsOnlyFile, m_env);
+          if (!m_reporterCompact) {
+            callsOnlyFormat.showMissingVariants();
+            callsOnlyFormat.showUndocumentedVariants();
+          }
+          callsOnlyFormat.write(m_reportContext);
         }
         didSomething = true;
       }
