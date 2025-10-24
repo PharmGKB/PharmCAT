@@ -202,7 +202,7 @@ class DpydTest {
 
     List<String> expectedCalls = List.of("Reference/Reference");
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, false);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, null, false, RecPresence.NO);
   }
 
 
@@ -269,31 +269,16 @@ class DpydTest {
 
       Elements cpicCapecitabineDips = capecitabineSection.select(".cpic-guideline-capecitabine .rx-dip");
       if (hasCpicAnnotation == RecPresence.YES) {
-        assertEquals(expectedRxCalls,
-            cpicCapecitabineDips.stream()
-                .map(e -> cleanupRxDip(e, List.of("DPYD")))
-                .toList());
-
+        htmlCheckHasRecs("cpic", "capecitabine", capecitabineSection, cpicCapecitabineDips, expectedRxCalls);
       } else {
-        assertEquals(0, cpicCapecitabineDips.size());
-        Elements unmatchedDips = capecitabineSection.select(".cpic-guideline-capecitabine .rx-unmatched-dip");
-        assertEquals(expectedRxCalls, unmatchedDips.stream()
-            .map(e -> cleanupRxDip(e, List.of("DPYD")))
-            .toList());
+        htmlCheckNoRecs("cpic", "capecitabine", capecitabineSection, cpicCapecitabineDips, expectedRxCalls);
       }
 
       Elements dpwgCapecitabineDips = capecitabineSection.select(".dpwg-guideline-capecitabine .rx-dip");
       if (hasDpwgAnnotation == RecPresence.YES) {
-        assertEquals(expectedRxCalls,
-            dpwgCapecitabineDips.stream()
-                .map(e -> cleanupRxDip(e, List.of("DPYD")))
-                .toList());
+        htmlCheckHasRecs("dpwg", "capecitabine", capecitabineSection, cpicCapecitabineDips, expectedRxCalls);
       } else {
-        assertEquals(0, dpwgCapecitabineDips.size());
-        Elements unmatchedDips = capecitabineSection.select(".dpwg-guideline-capecitabine .rx-unmatched-dip");
-        assertEquals(expectedRxCalls, unmatchedDips.stream()
-            .map(e -> cleanupRxDip(e, List.of("DPYD")))
-            .toList());
+        htmlCheckNoRecs("dpwg", "capecitabine", capecitabineSection, dpwgCapecitabineDips, expectedRxCalls);
       }
     }
 
@@ -304,6 +289,37 @@ class DpydTest {
     assertEquals(1, gsResult.size());
     if (noCall) {
       assertEquals(TextConstants.UNCALLED, gsResult.get(0).text());
+    }
+  }
+
+
+  private static void htmlCheckNoRecs(String src, String drug, Elements drugSection, Elements drugDips,
+      List<String> expectedRxCalls) {
+    if (drugDips.isEmpty()) {
+      Elements unmatchedDips = drugSection.select("." + src + "-guideline-" + drug + " .rx-unmatched-dip");
+      assertEquals(expectedRxCalls, unmatchedDips.stream()
+          .map(e -> cleanupRxDip(e, List.of("DPYD")))
+          .toList());
+    } else {
+      assertEquals(expectedRxCalls, drugDips.stream()
+          .map(e -> cleanupRxDip(e, List.of("DPYD")))
+          .toList());
+    }
+    Elements recommendation = drugSection.select("." + src + "-guideline-" + drug + " .drugRecClass");
+    assertEquals("No recommendation",  recommendation.get(0).text());
+  }
+
+  private static void htmlCheckHasRecs(String src, String drug, Elements drugSection, Elements drugDips,
+      List<String> expectedRxCalls) {
+
+    assertEquals(expectedRxCalls,
+        drugDips.stream()
+            .map(e -> cleanupRxDip(e, List.of("DPYD")))
+            .toList());
+    Elements recommendation = drugSection.select("." + src + "-guideline-" + drug + " .drugRecClass");
+    if ("No recommendation".equals(recommendation.get(0).text())) {
+      fail("Expected recommendation from " + src.toUpperCase() + " for " + drug + " but got '" +
+          recommendation.get(0).text() + "'");
     }
   }
 
@@ -675,7 +691,7 @@ class DpydTest {
         "Reference/Reference"
     );
 
-    doStandardChecks(testWrapper, vcfFile, expectedCalls, false);
+    doStandardChecks(testWrapper, vcfFile, expectedCalls, null, null, false, RecPresence.NO);
   }
 
 

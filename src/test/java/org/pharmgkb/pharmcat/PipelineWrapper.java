@@ -23,10 +23,12 @@ import org.pharmgkb.pharmcat.reporter.TextConstants;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.PrescribingGuidanceSource;
+import org.pharmgkb.pharmcat.reporter.model.result.AnnotationReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Diplotype;
 import org.pharmgkb.pharmcat.reporter.model.result.DiplotypeTest;
 import org.pharmgkb.pharmcat.reporter.model.result.DrugReport;
 import org.pharmgkb.pharmcat.reporter.model.result.GeneReport;
+import org.pharmgkb.pharmcat.reporter.model.result.GuidelineReport;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
 import org.pharmgkb.pharmcat.util.HaplotypeNameComparator;
 
@@ -105,7 +107,10 @@ public class PipelineWrapper {
    * Gets the {@link ReportContext}.
    * Only available after {@link #execute()} has been called successfully.
    */
-  @Nullable ReportContext getContext() {
+  ReportContext getContext() {
+    if (m_reportContext == null) {
+      throw new IllegalStateException("Only available after execute() has been called successfully");
+    }
     return m_reportContext;
   }
 
@@ -440,8 +445,21 @@ public class PipelineWrapper {
   void testNoMatchFromSource(String drugName, PrescribingGuidanceSource source) {
     DrugReport drugReport = getContext().getDrugReport(source, drugName);
     if (drugReport != null) {
-      assertTrue(drugReport.getGuidelines().stream().noneMatch(r -> r.getSource() == source && r.isMatched()),
-          drugName + " has a matching recommendation from " + source + " and expected none");
+      List<GuidelineReport> reports = drugReport.getGuidelines().stream()
+          .filter(r -> r.getSource() == source && r.isMatched())
+          .toList();
+      if (reports.isEmpty()) {
+        return;
+      }
+      SortedSet<String> classifications = reports.stream()
+          .flatMap(r -> r.getAnnotations().stream())
+          .map(AnnotationReport::getClassification)
+          .collect(Collectors.toCollection(TreeSet::new));
+      if (classifications.size() == 1 && classifications.first().equals("No recommendation")) {
+        return;
+      }
+      fail(drugName + " should have no recommendations from " + source + " but found recs with classification(s): " +
+          String.join(", ", classifications));
     }
   }
 
