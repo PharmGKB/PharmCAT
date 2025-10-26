@@ -177,7 +177,7 @@ class ReporterTest {
     Elements phenotype = document.select(".cpic-guideline-warfarin .rx-phenotype");
     assertEquals(0, phenotype.size());
     phenotype = document.select(".dpwg-guideline-warfarin .rx-phenotype");
-    assertEquals(1, phenotype.size());
+    assertEquals(0, phenotype.size());
 
     Elements activityScore = document.select(".cpic-guideline-warfarin .rx-activity");
     assertEquals(0, activityScore.size());
