@@ -107,17 +107,46 @@ class CallsOnlyFormatTest {
 
     checkTextContains(geneMap.get("DPYD").get(0), expectedDpydCalls);
     String[] dpydRow = geneMap.get("DPYD").get(0).split("\t", -1);
-    // no phenotype and activity score, but recommendation phenotype and activity score
+//    for (int x = 0; x < dpydRow.length; x += 1) {
+//      System.out.println(x + " - " + dpydRow[x]);
+//    }
+    // multiple haplotypes
+    assertTrue(StringUtils.isNotBlank(dpydRow[1]));
+    assertTrue(dpydRow[1].contains(" AND "));
+    // no score
+    assertTrue(StringUtils.isBlank(dpydRow[11]));
+    // no phenotype and activity score
     assertTrue(StringUtils.isBlank(dpydRow[2]));
     assertTrue(StringUtils.isBlank(dpydRow[3]));
+    // not outside call
+    assertEquals("no", dpydRow[10]);
+    // no missing positions
+    assertEquals("no", dpydRow[12]);
+    // expect recommendation phenotype and activity score
     assertTrue(StringUtils.isNotBlank(dpydRow[13]));
+    assertTrue(dpydRow[13].startsWith("c."));
     assertTrue(StringUtils.isNotBlank(dpydRow[14]));
     assertTrue(StringUtils.isNotBlank(dpydRow[15]));
 
     String[] cyp2c19Row = geneMap.get("CYP2C19").get(0).split("\t", -1);
+//    for (int x = 0; x < cyp2c19Row.length; x += 1) {
+//      System.out.println(x + " - " + cyp2c19Row[x]);
+//    }
+    // will have multiple diplotypes
+    assertTrue(StringUtils.isNotBlank(cyp2c19Row[1]));
+    assertTrue(cyp2c19Row[1].contains(" OR "));
+    // will have multiple scores
+    assertTrue(StringUtils.isNotBlank(cyp2c19Row[11]));
+    assertTrue(cyp2c19Row[11].contains(" / "));
+
     // will have phenotype and activity score
     assertTrue(StringUtils.isNotBlank(cyp2c19Row[2]));
     assertTrue(StringUtils.isBlank(cyp2c19Row[3]));
+    assertTrue(StringUtils.isNotBlank(cyp2c19Row[11]));
+    // not outside call
+    assertEquals("no", cyp2c19Row[10]);
+    // has missing positions
+    assertEquals("yes", cyp2c19Row[12]);
     // but no recommendation
     assertTrue(StringUtils.isBlank(cyp2c19Row[13]));
     assertTrue(StringUtils.isBlank(cyp2c19Row[14]));
@@ -262,6 +291,10 @@ class CallsOnlyFormatTest {
         }
       }
       if (line.startsWith("Gene\t")) {
+        String[] fields = line.split("\t", -1);
+        for (int x = 0; x < fields.length; x += 1) {
+          System.out.println(x + " - " + fields[x]);
+        }
         continue;
       }
       geneMap.computeIfAbsent(data[0], k -> new ArrayList<>())

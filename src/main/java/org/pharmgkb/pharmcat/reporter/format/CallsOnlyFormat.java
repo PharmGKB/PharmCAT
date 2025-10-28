@@ -409,11 +409,10 @@ public class CallsOnlyFormat extends AbstractFormat {
           writer.print(" " + TREAT_AS_REFERENCE_TAG);
         }
       }
-    } else {
-      writer.print(report.isMissingVariants() ? "yes" : "no");
+      writer.print("\t");
     }
-    writer.print("\t");
     // recommendation lookup fields
+    //noinspection ConstantValue
     if (showRecommendationDiplotype && report.getRecommendationDiplotypes() != null &&
         report.getRecommendationDiplotypes().size() == 1) {
       Diplotype recDip = report.getRecommendationDiplotypes().first();
