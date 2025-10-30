@@ -476,6 +476,36 @@ public class NamedAlleleMatcherTest {
     assertTrue(dm.getHaplotype2().getHaplotype().isPartial());
   }
 
+
+  @Test
+  void testPartialWithCombinationUnphased(TestInfo testInfo) throws Exception {
+    TestVcfBuilder testBuilder = new TestVcfBuilder(testInfo)
+        .forGene("NAT2");
+    Path vcfFile = testBuilder
+        .variation("NAT2", "rs1805158", "C", "T") // 0/1
+        .variation("NAT2", "rs1799930", "G", "A") // 0/1
+        .variation("NAT2", "rs1208", "A", "A") // 1/1
+        .variation("NAT2", "rs1799931", "G", "A") // 0/1
+        .generate();
+
+    NamedAlleleMatcher namedAlleleMatcher = testBuilder.getMatcher(true, true, false);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    printMatches(geneCall);
+    assertTrue(geneCall.getDiplotypes().size() > 1);
+    boolean hasPartial = false;
+    for (DiplotypeMatch dm : geneCall.getDiplotypes()) {
+      if (dm.getHaplotype1().getHaplotype().isPartial() ||
+      dm.getHaplotype2().getHaplotype().isPartial()) {
+        hasPartial = true;
+        break;
+      }
+    }
+    assertTrue(hasPartial);
+  }
+
   @Test
   void testPartial() throws Exception {
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/NamedAlleleMatcher-combination.json");

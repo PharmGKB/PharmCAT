@@ -75,8 +75,6 @@ public class CombinationMatcher {
         }
       }
 
-      Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, coveredHaps);
-
       if (coveredHaps.size() <= 1) {
         NamedAllele hap;
         if (coveredHaps.isEmpty()) {
@@ -88,6 +86,7 @@ public class CombinationMatcher {
           hap = coveredHaps.first();
         }
 
+        Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, coveredHaps);
         if (partialNames.isEmpty()) {
           HaplotypeMatch simpleMatch = new HaplotypeMatch(hap);
           simpleMatch.addSequence(seq);
@@ -99,11 +98,8 @@ public class CombinationMatcher {
       } else {
         List<SortedSet<NamedAllele>> combos = computeViableCombinations(coveredHaps);
         for (SortedSet<NamedAllele> combo : combos) {
-          Map<Long, String> partials = partialNames;
-          if (combo.size() == coveredHaps.size()) {
-            partials = calculatePartialNames(alleleMap, varPositions, combo);
-          }
-          matches.add(new CombinationMatch(refVariants, seq, combo, partials));
+          Map<Long, String> partialNames = calculatePartialNames(alleleMap, varPositions, combo);
+          matches.add(new CombinationMatch(refVariants, seq, combo, partialNames));
         }
       }
     }
