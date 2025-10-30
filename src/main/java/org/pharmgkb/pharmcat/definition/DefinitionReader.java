@@ -3,7 +3,16 @@ package org.pharmgkb.pharmcat.definition;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
@@ -25,8 +34,8 @@ public class DefinitionReader {
   private final DataSerializer m_definitionSerializer = new DataSerializer();
   private final SortedMap<String, DefinitionFile> m_definitionFiles = new TreeMap<>();
   private final Map<String, DefinitionExemption> m_exemptions;
-  private String m_genomeBuild;
-  private ReferenceAlleleMap m_referenceAlleleMap;
+  private @Nullable String m_genomeBuild;
+  private @Nullable ReferenceAlleleMap m_referenceAlleleMap;
   /** Map of {@code <chr:position>} Strings to {@link VariantLocus} */
   private ImmutableMap<String, VariantLocus> m_locationsOfInterest;
   /** Map of {@code <chr:position>} Strings to gene */
@@ -34,27 +43,48 @@ public class DefinitionReader {
 
 
   public DefinitionReader() throws IOException {
-    this(DataManager.DEFAULT_DEFINITION_DIR);
+    this(DataManager.DEFAULT_DEFINITION_DIR, null, null);
+  }
+
+  public DefinitionReader(String... genes) throws IOException {
+    this(DataManager.DEFAULT_DEFINITION_DIR, new HashSet<>(Arrays.asList(genes)), null);
   }
 
   public DefinitionReader(Path dir) throws IOException {
+    this(dir, null, null);
+  }
+
+  public DefinitionReader(Path dir, @Nullable Set<String> genes) throws IOException {
+    this(dir, genes, null);
+  }
+
+  /**
+   * Full constructor.
+   *
+   * @param exemptionsFile exemptions file to use; if null, look for an exemptions file in {@code dir}
+   */
+  public DefinitionReader(Path dir, @Nullable Set<String> genes, @Nullable Path exemptionsFile) throws IOException {
     Preconditions.checkArgument(Files.isDirectory(dir));
 
-    try (Stream<Path> fileStream = Files.list(dir)) {
-      List<Path> files = fileStream.filter(f -> f.toString().endsWith("_translation.json"))
-          .toList();
-      for (Path file : files) {
-        readFile(file);
-      }
+    List<Path> files = getDefinitionFiles(dir, genes);
+    for (Path file : files) {
+      readFile(file);
     }
-    m_exemptions = readExemptions(dir);
+    //noinspection ReplaceNullCheck
+    if (exemptionsFile != null) {
+      m_exemptions = readExemptions(exemptionsFile);
+    } else {
+      m_exemptions = readExemptions(dir);
+    }
     generateMetadata();
   }
 
-  public DefinitionReader(Path definitionFile, @Nullable Path exemptionsFile) throws IOException {
-    this(List.of(definitionFile), exemptionsFile);
-  }
-
+  /**
+   * Constructor for testing.
+   * NOTE: The behavior of {@code exemptionsFile} is different from standard constructors!
+   *
+   * @param exemptionsFile exemptions file to use; if null, no exemptions are used
+   */
   public DefinitionReader(List<Path> definitionFiles, @Nullable Path exemptionsFile) throws IOException {
     Preconditions.checkNotNull(definitionFiles);
 
@@ -70,6 +100,24 @@ public class DefinitionReader {
       m_exemptions = Collections.emptyMap();
     }
     generateMetadata();
+  }
+
+  public static List<Path> getDefinitionFiles(Path dir, @Nullable Set<String> genes) throws IOException {
+    Preconditions.checkArgument(Files.isDirectory(dir));
+    try (Stream<Path> fileStream = Files.list(dir)) {
+      return fileStream.filter(f -> {
+            if (f.toString().endsWith("_translation.json")) {
+              if (genes == null || genes.isEmpty()) {
+                return true;
+              }
+              String filename = f.getFileName().toString();
+              filename = filename.substring(0, filename.length() - 17);
+              return genes.contains(filename);
+            }
+            return false;
+          })
+          .toList();
+    }
   }
 
 
@@ -211,7 +259,7 @@ public class DefinitionReader {
   }
 
 
-  private static DefinitionReader s_defaultReader;
+  private static @Nullable DefinitionReader s_defaultReader;
 
   public static DefinitionReader defaultReader() throws IOException {
     if (s_defaultReader == null) {

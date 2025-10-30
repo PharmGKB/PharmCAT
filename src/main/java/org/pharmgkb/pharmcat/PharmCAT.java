@@ -30,6 +30,7 @@ public class PharmCAT {
           .addOption("s", "samples", "Comma-separated list of samples", false, "samples")
           .addOption("S", "sample-file", "File containing a list of sample, one per line", false, "file")
           .addOption("sm", "sample-metadata", "TSV file containing sample metadata", false, "file")
+          .addOption("g", "genes", "Comma-separated list of genes", false, "genes")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "Run named allele matcher independently")
@@ -138,7 +139,7 @@ public class PharmCAT {
         }
       }
 
-      Env env = new Env(config.definitionDir);
+      Env env = new Env(config.definitionDir, config.genes);
 
       if (config.runMatcher) {
         Objects.requireNonNull(vcfFile);

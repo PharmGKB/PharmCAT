@@ -21,6 +21,9 @@ import org.pharmgkb.pharmcat.haplotype.NamedAlleleMatcher;
 import org.pharmgkb.pharmcat.util.DataManager;
 import org.pharmgkb.pharmcat.util.VcfHelper;
 
+import static org.pharmgkb.pharmcat.util.DataManager.DEFAULT_DEFINITION_DIR;
+import static org.pharmgkb.pharmcat.util.DataManager.DEFAULT_EXEMPTIONS_FILE;
+
 
 /**
  * Builds test VCF files.
@@ -478,12 +481,24 @@ public class TestVcfBuilder {
 
   public NamedAlleleMatcher getMatcher(boolean findCombinations,
       boolean topCandidateOnly, boolean callCyp2d6) throws IOException {
+    return getMatcher(DEFAULT_EXEMPTIONS_FILE, findCombinations, topCandidateOnly, callCyp2d6);
+  }
 
+  /**
+   * Gets a new {@link NamedAlleleMatcher}.
+   *
+   * @param exemptionsFile exemptions file to use; if null, no exemptions are used
+   */
+  public NamedAlleleMatcher getMatcher(@Nullable Path exemptionsFile, boolean findCombinations,
+      boolean topCandidateOnly, boolean callCyp2d6) throws IOException {
+
+    // make sure we use the test constructor so that we are consistent in how exemptionsFile is handled
     DefinitionReader definitionReader;
     if (m_definitionFiles.isEmpty()) {
-      definitionReader = DEFAULT_TEST_ENV.getDefinitionReader();
+      definitionReader = new DefinitionReader(DefinitionReader.getDefinitionFiles(DEFAULT_DEFINITION_DIR, null),
+          exemptionsFile);
     } else {
-      definitionReader = new DefinitionReader(m_definitionFiles, null);
+      definitionReader = new DefinitionReader(m_definitionFiles, exemptionsFile);
     }
     return new NamedAlleleMatcher(DEFAULT_TEST_ENV, definitionReader, findCombinations, topCandidateOnly, callCyp2d6);
   }

@@ -50,6 +50,7 @@ public class BatchPharmCAT {
           .addOption("s", "samples", "Comma-separated list of samples", false, "samples")
           .addOption("S", "sample-file", "File containing a list of sample, one per line", false, "file")
           .addOption("sm", "sample-metadata", "TSV file containing sample metadata", false, "file")
+          .addOption("g", "genes", "Comma-separated list of genes", false, "genes")
 
           // named allele matcher args
           .addOption("matcher", "matcher", "Run named allele matcher independently")
@@ -270,7 +271,7 @@ public class BatchPharmCAT {
       System.out.println();
       System.out.println("Queueing up " + taskBuilders.size() + " samples to process...");
     }
-    Env env = new Env(m_config.definitionDir);
+    Env env = new Env(m_config.definitionDir, m_config.genes);
     List<Pipeline> tasks = new ArrayList<>();
     int taskIdx = 0;
     for (Builder builder : taskBuilders) {

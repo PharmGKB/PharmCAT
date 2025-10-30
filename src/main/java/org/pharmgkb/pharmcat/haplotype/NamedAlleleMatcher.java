@@ -14,6 +14,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import com.google.common.base.Preconditions;
+import com.google.common.base.Splitter;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.pharmcat.BaseConfig;
@@ -50,6 +51,7 @@ public class NamedAlleleMatcher {
       "RYR1",
       "TPMT"
   );
+  private static final Splitter sf_commaSplitter = Splitter.on(",").trimResults().omitEmptyStrings();
 
   private final Env m_env;
   private final DefinitionReader m_definitionReader;
@@ -96,6 +98,7 @@ public class NamedAlleleMatcher {
     try {
       CliHelper cliHelper = new CliHelper(MethodHandles.lookup().lookupClass())
           .addOption("vcf", "matcher-vcf", "input VCF file", true, "vcf")
+          .addOption("g", "genes", "Comma-separated list of genes", false, "genes")
           .addOption("a", "all-results", "return all possible diplotypes, not just top hits")
           // optional data
           .addOption("d", "definitions-dir", "directory containing named allele definitions (JSON files)", false, "dir")
@@ -123,7 +126,15 @@ public class NamedAlleleMatcher {
         definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
       }
 
-      DefinitionReader definitionReader = new DefinitionReader(definitionDir);
+      SortedSet<String> genes = new TreeSet<>();
+      if (cliHelper.hasOption("g")) {
+        List<String> values = cliHelper.getValues("g");
+        for (String v : values) {
+          sf_commaSplitter.splitToList(v).forEach(g -> genes.add(g.toUpperCase()));
+        }
+      }
+
+      DefinitionReader definitionReader = new DefinitionReader(definitionDir, genes);
       if (definitionReader.getGenes().isEmpty()) {
         System.out.println("Did not find any allele definitions at " + definitionDir);
         System.exit(1);

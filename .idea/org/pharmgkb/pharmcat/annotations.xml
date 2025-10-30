@@ -1,0 +1,9 @@
+<root><item
+    name='org.pharmgkb.pharmcat.PharmCATTest org.pharmgkb.pharmcat.haplotype.model.GeneCall isCalledInMatcher(org.pharmgkb.pharmcat.haplotype.model.Result, java.lang.String, boolean)'><annotation
+    name='org.jetbrains.annotations.Contract'>
+<val name="value" val="&quot;_, _, true -&gt; !null&quot;" />
+<val name="pure" val="true" /></annotation></item><item
+    name='org.pharmgkb.pharmcat.PharmCATTest org.pharmgkb.pharmcat.reporter.model.result.GeneReport isCalledInPhenotyper(java.nio.file.Path, java.lang.String, boolean)'><annotation
+    name='org.jetbrains.annotations.Contract'>
+<val name="value" val="&quot;_, _, true -&gt; !null&quot;" />
+<val name="pure" val="true" /></annotation></item></root>

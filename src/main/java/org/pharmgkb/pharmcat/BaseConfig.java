@@ -52,10 +52,11 @@ public class BaseConfig {
   boolean reporterCallsOnlyTsv = false;
   @Nullable Path outputDir;
   @Nullable String baseFilename;
-  boolean deleteIntermediateFiles;
-  boolean verbose;
-  SortedSet<String> samples = new TreeSet<>();
+  final boolean deleteIntermediateFiles;
+  final boolean verbose;
+  final SortedSet<String> samples = new TreeSet<>();
   @Nullable Path sampleMetadataFile;
+  final SortedSet<String> genes = new TreeSet<>();
 
 
   BaseConfig(CliHelper cliHelper) throws IOException, ReportableException {
@@ -98,6 +99,13 @@ public class BaseConfig {
     }
     if (cliHelper.hasOption("sm")) {
       sampleMetadataFile = cliHelper.getValidFile("sm", true);
+    }
+
+    if (cliHelper.hasOption("g")) {
+      List<String> values = cliHelper.getValues("g");
+      for (String v : values) {
+        sf_commaSplitter.splitToList(v).forEach(g -> genes.add(g.toUpperCase()));
+      }
     }
 
     boolean researchMode = false;

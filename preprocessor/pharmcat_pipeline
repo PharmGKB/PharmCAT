@@ -28,6 +28,8 @@ def add_matcher_java_args(java_args: List[str], cli_args):
         java_args.append('-matcherHtml')
     if cli_args.research_mode:
         java_args.extend(['-research', cli_args.research_mode])
+    if cli_args.genes:
+        java_args.extend(['-g', cli_args.genes])
 
 
 def add_reporter_java_args(java_args: List[str], cli_args):
@@ -101,6 +103,8 @@ if __name__ == '__main__':
     matcher_group = parser.add_argument_group('Named allele matcher arguments')
     matcher_group.add_argument('-matcher', action='store_true',
                                help='Run named allele matcher independently.')
+    matcher_group.add_argument('-g', '--genes', type=str, metavar='<genes>',
+                               help='Comma-separated list of genes.')
     matcher_group.add_argument('-ma', '--matcher-all-results', action='store_true',
                                help='Return all possible diplotypes, not just top hits.')
     matcher_group.add_argument('-matcherHtml', '--matcher-save-html', action='store_true',

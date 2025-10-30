@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -138,7 +139,7 @@ class VcfReaderTest {
   void testFilters() throws Exception {
 
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.vcf");
     VcfReader reader = new VcfReader(definitionReader, vcfFile);
@@ -185,7 +186,7 @@ class VcfReaderTest {
   void testAdField() throws Exception {
 
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD.vcf");
     VcfReader reader = new VcfReader(definitionReader, vcfFile);
@@ -212,7 +213,7 @@ class VcfReaderTest {
   void testAdFieldUnknown() throws Exception {
 
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-unknown.vcf");
     VcfReader reader = new VcfReader(definitionReader, vcfFile);
@@ -226,7 +227,7 @@ class VcfReaderTest {
   void testAdFieldInvalid() throws Exception {
 
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-invalid.vcf");
     VcfReader reader = new VcfReader(definitionReader, vcfFile);
@@ -243,7 +244,7 @@ class VcfReaderTest {
   void testAdFieldMissing() throws Exception {
 
     Path definitionFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-filters.json");
-    DefinitionReader definitionReader = new DefinitionReader(definitionFile, null);
+    DefinitionReader definitionReader = new DefinitionReader(List.of(definitionFile), null);
 
     Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/haplotype/VcfReaderTest-AD-missing.vcf");
     VcfReader reader = new VcfReader(definitionReader, vcfFile);

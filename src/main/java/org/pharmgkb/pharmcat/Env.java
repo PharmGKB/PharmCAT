@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.TreeMap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -21,6 +22,7 @@ import org.pharmgkb.pharmcat.reporter.caller.Cyp2d6CopyNumberCaller;
 import org.pharmgkb.pharmcat.reporter.model.DataSource;
 import org.pharmgkb.pharmcat.reporter.model.MessageAnnotation;
 import org.pharmgkb.pharmcat.reporter.model.result.Haplotype;
+import org.pharmgkb.pharmcat.util.DataManager;
 
 
 /**
@@ -39,17 +41,16 @@ public class Env {
 
 
   public Env() throws IOException, ReportableException {
-    this(null);
+    this(null, null);
   }
 
-  public Env(@Nullable Path definitionDir) throws IOException, ReportableException {
-    if (definitionDir != null) {
-      m_definitionReader = new DefinitionReader(definitionDir);
-      if (m_definitionReader.getGenes().isEmpty()) {
-        throw new ReportableException("Did not find any allele definitions at " + definitionDir);
-      }
-    } else {
-      m_definitionReader = DefinitionReader.defaultReader();
+  public Env(@Nullable Path definitionDir, @Nullable Set<String> genes) throws IOException, ReportableException {
+    if (definitionDir == null) {
+      definitionDir = DataManager.DEFAULT_DEFINITION_DIR;
+    }
+    m_definitionReader = new DefinitionReader(definitionDir, genes);
+    if (m_definitionReader.getGenes().isEmpty()) {
+      throw new ReportableException("Did not find any allele definitions at " + definitionDir);
     }
     try {
       m_messageHelper = new MessageHelper();

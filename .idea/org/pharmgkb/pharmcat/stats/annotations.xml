@@ -1,0 +1,4 @@
+<root><item name='org.pharmgkb.pharmcat.stats.CalcAlleleFrequencies.GeneStats boolean hasPosition(java.lang.String)'><annotation
+    name='org.jetbrains.annotations.Contract'>
+<val name="value" val="&quot;null -&gt; false&quot;" />
+<val name="pure" val="true" /></annotation></item></root>

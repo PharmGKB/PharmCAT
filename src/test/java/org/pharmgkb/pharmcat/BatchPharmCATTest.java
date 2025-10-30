@@ -11,19 +11,25 @@ import com.google.common.base.Stopwatch;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import org.apache.commons.io.FilenameUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.pharmgkb.common.util.PathUtils;
+import org.pharmgkb.pharmcat.haplotype.ResultSerializer;
 import org.pharmgkb.pharmcat.haplotype.VcfSampleReader;
+import org.pharmgkb.pharmcat.haplotype.model.Result;
 import org.pharmgkb.pharmcat.phenotype.Phenotyper;
 import org.pharmgkb.pharmcat.reporter.format.html.ReportHelpers;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.pharmgkb.pharmcat.PharmCATTest.isCalledInMatcher;
+import static org.pharmgkb.pharmcat.PharmCATTest.isCalledInPhenotyper;
 import static uk.org.webcompere.systemstubs.SystemStubs.tapSystemOut;
 
 
@@ -97,6 +103,54 @@ class BatchPharmCATTest {
     // max processes value is capped to the number of samples, so capped to 1, which is not shown
     assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
     checkForOutputFiles(tmpDir, null, vcfFile);
+  }
+
+
+  @Test
+  void twoGenes(TestInfo testInfo) throws Exception {
+    Path vcfFile = PathUtils.getPathToResource("org/pharmgkb/pharmcat/reference.vcf");
+
+    Path tmpDir = TestUtils.getTestOutputDir(testInfo, true);
+    copyFiles(tmpDir, vcfFile);
+
+    Path refMatcherOutput = tmpDir.resolve("reference.match.json");
+    Path refPhenotyperOutput = tmpDir.resolve("reference.phenotype.json");
+    Path refReporterOutput = tmpDir.resolve("reference.report.html");
+
+    String systemOut = tapSystemOut(() -> BatchPharmCAT.main(new String[] {
+        "-i", tmpDir.toString(),
+        "-cp", "3",
+        "-g", "VKORC1,cyp2b6"
+    }));
+    System.out.println(systemOut);
+    assertThat(systemOut, containsString("Done."));
+    assertThat(systemOut, not(containsString("FAIL")));
+    // max processes value is capped to the number of samples, so capped to 1, which is not shown
+    assertThat(systemOut, not(matchesPattern("maximum of \\d+ processes")));
+    checkForOutputFiles(tmpDir, null, vcfFile);
+
+    ResultSerializer resultSerializer = new ResultSerializer();
+    Result result = resultSerializer.fromJson(refMatcherOutput);
+
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInMatcher(result, "TPMT", false);
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInMatcher(result, "CYP2B6", true);
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInMatcher(result, "VKORC1", true);
+
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInPhenotyper(refPhenotyperOutput, "TPMT", false);
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInPhenotyper(refPhenotyperOutput, "CYP2B6", true);
+    //noinspection ResultOfMethodCallIgnored
+    isCalledInPhenotyper(refPhenotyperOutput, "VKORC1", true);
+
+    Document document = Jsoup.parse(refReporterOutput.toFile());
+    assertNotNull(document.getElementById("section-i"));
+    assertNull(document.getElementById("TPMT"));
+    assertNotNull(document.getElementById("CYP2B6"));
+    assertNotNull(document.getElementById("VKORC1"));
   }
 
 
