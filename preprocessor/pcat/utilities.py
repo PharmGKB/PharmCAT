@@ -265,6 +265,66 @@ def validate_file(file: Union[Path, str]) -> Path:
     return file
 
 
+def find_vcf_or_bcf_files(vcf_dir: Path, verbose: int = 0) -> List[Path]:
+    """
+    Finds all VCF/BCF files in the specified directory.
+    File can be compressed (either .bgz or .gz extension for VCF, .bgzf for BCF).
+    If the file exists in both BCF and VCF form, pick the BCF form.
+    If the file exists in both compressed and uncompressed form, pick the compressed form.
+
+    :raises ReportableException: if no VCF/BCF files can be found
+    """
+    if not vcf_dir.is_dir():
+        raise ReportableException('%s is not a directory' % vcf_dir)
+    if verbose:
+        print('Looking for VCF/BCF files in', str(vcf_dir.absolute()))
+    vcf_dict: dict[str, List[str]] = {}
+    for f in vcf_dir.iterdir():
+        if f.is_file():
+            if is_vcf_or_bcf_file(f.name):
+                vcf_basename = get_vcf_or_bcf_basename(f.name)
+                if vcf_basename in vcf_dict:
+                    vcf_dict[vcf_basename].append(f.name)
+                else:
+                    vcf_dict[vcf_basename] = [f.name]
+    prepped: List[str] = []
+    for basename in vcf_dict.keys():
+        if basename.endswith('.preprocessed'):
+            tmp_name = basename[0:len(basename) - 13]
+            if tmp_name in vcf_dict:
+                prepped.append(basename)
+    for basename in prepped:
+        if verbose:
+            print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])), '(will preprocess again)')
+        del vcf_dict[basename]
+    vcf_files: List[Path] = []
+    for basename in vcf_dict.keys():
+        if basename.startswith('pharmcat_positions'):
+            if verbose:
+                print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])))
+            continue
+        if basename.endswith(_missing_pgx_var_suffix):
+            if verbose:
+                print('* Ignoring:', ', '.join(map(str, vcf_dict[basename])))
+            continue
+        vcfs: List[str] = vcf_dict[basename]
+        if len(vcfs) == 1:
+            vcf_files.append(vcf_dir / vcfs[0])
+        elif (basename + '.bcf.bgzf') in vcfs:
+            vcf_files.append(vcf_dir / (basename + '.bcf.bgzf'))
+        elif (basename + '.bcf') in vcfs:
+            vcf_files.append(vcf_dir / (basename + '.bcf'))
+        elif (basename + '.vcf.bgz') in vcfs:
+            vcf_files.append(vcf_dir / (basename + '.vcf.bgz'))
+        elif (basename + '.vcf.gz') in vcfs:
+            vcf_files.append(vcf_dir / (basename + '.vcf.gz'))
+        elif (basename + '.vcf') in vcfs:
+            vcf_files.append(vcf_dir / (basename + '.vcf'))
+    if len(vcf_files) == 0:
+        raise ReportableException('Error: no VCF files found')
+    return vcf_files
+
+
 def find_file(filename: str, dirs: List[Path]) -> Optional[Path]:
     """
     Looks for the filename in specified directories.
@@ -278,7 +338,7 @@ def find_file(filename: str, dirs: List[Path]) -> Optional[Path]:
     return file
 
 
-def is_vcf_file(file: Union[Path, str]):
+def is_vcf_or_bcf_file(file: Union[Path, str]):
     return re.search('\\.((vcf(\\.b?gz)?)|(bcf(\\.bgzf)?))$', str(file)) is not None
 
 def is_bcf_file(file: Union[Path, str]):
@@ -346,7 +406,7 @@ def _check_for_gvcf(in_f) -> bool:
     return False
 
 
-def get_vcf_basename(path: Union[Path, str]) -> str:
+def get_vcf_or_bcf_basename(path: Union[Path, str]) -> str:
     """
     Gets the base filename of a VCF or BCF file (can be compressed).
 
@@ -392,11 +452,12 @@ def read_sample_file(sample_file: Path, verbose: int = 0) -> List[str]:
 
 def read_vcf_samples(vcf_file: Path, verbose: int = 0) -> List[str]:
     """
-    Obtain a list of samples from the input VCF.
+    Get a list of samples from the input VCF.
 
-    "bcftools query <options> <input_vcf>". For bcftools common options, see running_bcftools().
+    "bcftools query <options> <input_vcf>".
     "-l" list sample names and exit.
-    Samples are delimited by '\\\\n' and the last line ends as 'last_sample_ID\\\\n\\\\n'.
+    For bcftools common options, see running_bcftools().
+    Samples are delimited by '\n' and the last line ends as 'last_sample_ID\n\n'.
     """
 
     if verbose:
@@ -724,14 +785,14 @@ def extract_pgx_regions(vcf_files: List[Path], samples: List[str],
                     futures = []
                     for vcf_file in vcf_files:
                         futures.append(e.submit(_extract_pgx_regions, vcf_file, tmp_sample_file, output_dir,
-                                                get_vcf_basename(vcf_file), regions_to_retain, verbose))
+                                                get_vcf_or_bcf_basename(vcf_file), regions_to_retain, verbose))
                     concurrent.futures.wait(futures, return_when=ALL_COMPLETED)
                     for future in futures:
                         tmp_files.append(future.result())
             else:
                 for vcf_file in vcf_files:
                     tmp_files.append(_extract_pgx_regions(vcf_file, tmp_sample_file, output_dir,
-                                                          get_vcf_basename(vcf_file), regions_to_retain, verbose))
+                                                          get_vcf_or_bcf_basename(vcf_file), regions_to_retain, verbose))
             # write file names to txt file for bcftools
             tmp_file_list = tmp_dir / 'regions.txt'
             with open(tmp_file_list, 'w+') as w:
@@ -777,7 +838,7 @@ def _extract_pgx_regions(vcf_file: Path, sample_file: Path, output_dir: Path, ou
 
     # extract pgx regions and modify chromosome names if necessary
     if output_basename is None:
-        output_basename = get_vcf_basename(vcf_file)
+        output_basename = get_vcf_or_bcf_basename(vcf_file)
     pgx_regions_vcf = output_dir / (output_basename + '.pgx_regions.bcf.bgzf')
     bcftools_command = [common.BCFTOOLS_PATH, 'annotate', '--no-version', '-S', str(sample_file),
                         '--rename-chrs', str(common.CHR_RENAME_FILE), '-r', pgx_regions, '-i', 'ALT="."', '-k',
@@ -803,7 +864,7 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
     alleles and update GT and AC counts. Importantly, 's' will NOT fix strand issues in a VCF.
     """
     if output_basename is None:
-        output_basename = get_vcf_basename(vcf_file)
+        output_basename = get_vcf_or_bcf_basename(vcf_file)
     normalized_vcf = output_dir / (output_basename + '.normalized.vcf.bgz')
     bcftools_command = [common.BCFTOOLS_PATH, 'norm', '--no-version', '-m-', '-c', 'ws',
                         '-Oz', '-o', str(normalized_vcf),
@@ -815,16 +876,17 @@ def normalize_vcf(reference_genome: Path, vcf_file: Path, output_dir: Path, outp
     return normalized_vcf
 
 
-def _is_phased(gt_field) -> bool:
+def _is_phased(gt_field) -> bool | None:
     """
     Determines the phasing status of a position.
-    If any GT fields have '/', this means at least one sample is unphased.
+    If any GT fields have a '/', this means at least one sample is unphased.
     """
     for x in gt_field:
         if '/' in x:
             return False
         else:
             return True
+    return None
 
 
 def _is_haploid(gt_field) -> bool:

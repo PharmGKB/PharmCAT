@@ -61,7 +61,7 @@ def preprocess(pharmcat_positions_vcf: Path, reference_genome: Path, regions_to_
     if samples is None or len(samples) == 0:
         samples = util.read_vcf_samples(vcf_files[0], verbose=verbose)
     else:
-        # make sure samples are in vcf file
+        # make sure samples are in the vcf file
         vcf_samples = util.read_vcf_samples(vcf_files[0], verbose=verbose)
         for sample in samples:
             if sample not in vcf_samples:
@@ -116,7 +116,7 @@ def preprocess_multiple_files(pharmcat_positions_vcf: Path, reference_genome: Pa
         if len(file_samples) == 0:
             continue
 
-        basename = output_basename or util.get_vcf_basename(file)
+        basename = output_basename or util.get_vcf_or_bcf_basename(file)
         multisample_vcf = _preprocess(pharmcat_positions_vcf, reference_genome, regions_to_retain, custom_regions,
                                       [file], file_samples,
                                       output_dir, basename,

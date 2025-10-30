@@ -116,7 +116,29 @@ def test_validate_file():
         assert 'is not a file' in context.value.msg
 
 
-def test_is_vcf_file():
+def test_find_vcf_or_bcf_files():
+    vcf_files = utils.find_vcf_or_bcf_files(helpers.test_dir)
+    # for vcf_file in vcf_files:
+    #     print(vcf_file)
+    assert len(vcf_files) > 1
+    assert helpers.test_dir / 'raw.bcf.bgzf' in vcf_files
+    assert helpers.test_dir / 'raw.bcf' not in vcf_files
+    assert helpers.test_dir / 'raw.vcf.bgz' not in vcf_files
+    assert helpers.test_dir / 'raw.vcf' not in vcf_files
+
+
+def test_find_vcf_or_bcf_files_fail():
+    with pytest.raises(ReportableException) as context:
+        utils.find_vcf_or_bcf_files(helpers.src_dir)
+    assert 'no VCF files found' in context.value.msg
+
+    with pytest.raises(ReportableException) as context:
+        utils.find_vcf_or_bcf_files(helpers.src_dir / 'bad-dir')
+    # print(context.value)
+    assert 'not a directory' in context.value.msg
+
+
+def test_is_vcf_or_bcf_file():
     valid_paths = [
         Path('/this/dir/file.vcf'),
         Path('/this/dir/file.vcf.bgz'),
@@ -125,8 +147,8 @@ def test_is_vcf_file():
         Path('/this/dir/file.bcf.bgzf'),
     ]
     for p in valid_paths:
-        assert utils.is_vcf_file(p), str(p)
-        assert utils.is_vcf_file(p.name), str(p)
+        assert utils.is_vcf_or_bcf_file(p), str(p)
+        assert utils.is_vcf_or_bcf_file(p.name), str(p)
 
     invalid_paths = [
         Path('/this/dir/'),
@@ -137,8 +159,8 @@ def test_is_vcf_file():
         Path('/this/dir/file.bcf.bgz'),
     ]
     for p in invalid_paths:
-        assert not utils.is_vcf_file(p), str(p)
-        assert not utils.is_vcf_file(p.name), str(p)
+        assert not utils.is_vcf_or_bcf_file(p), str(p)
+        assert not utils.is_vcf_or_bcf_file(p.name), str(p)
 
 
 def test_is_gvcf_file():
@@ -201,7 +223,7 @@ def test_is_gvcf_file():
         assert not utils.is_gvcf_file(f1)
 
 
-def test_get_vcf_basename():
+def test_get_vcf_or_bcf_basename():
     valid_paths = [
         Path('/this/dir/file.vcf'),
         Path('/this/dir/file.vcf.bgz'),
@@ -216,8 +238,8 @@ def test_get_vcf_basename():
         Path('/this/dir/file.pgx_regions.normalized.bcf.bgzf')
     ]
     for p in valid_paths:
-        assert 'file' == utils.get_vcf_basename(p), str(p)
-        assert 'file' == utils.get_vcf_basename(p.name), str(p)
+        assert 'file' == utils.get_vcf_or_bcf_basename(p), str(p)
+        assert 'file' == utils.get_vcf_or_bcf_basename(p.name), str(p)
 
     invalid_paths = [
         Path('/this/dir/file.txt'),
@@ -227,13 +249,13 @@ def test_get_vcf_basename():
     ]
     for invalid_path in invalid_paths:
         with pytest.raises(InappropriateVCFSuffix) as context:
-            utils.get_vcf_basename(invalid_path)
+            utils.get_vcf_or_bcf_basename(invalid_path)
         # print(context.value)
         assert 'Inappropriate VCF suffix' in context.value.msg
         assert str(invalid_path) in context.value.msg
 
         with pytest.raises(InappropriateVCFSuffix) as context:
-            utils.get_vcf_basename(invalid_path.name)
+            utils.get_vcf_or_bcf_basename(invalid_path.name)
         # print(context.value)
         assert invalid_path.name in context.value.msg
 

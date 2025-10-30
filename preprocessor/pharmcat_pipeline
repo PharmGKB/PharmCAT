@@ -279,7 +279,7 @@ if __name__ == '__main__':
         pgx_regions = pcat.get_pgx_regions(m_regions_bed or m_pharmcat_positions_vcf)
 
         if vcf_path.is_dir():
-            vcf_files: List[Path] = pcat.find_vcf_files(vcf_path, args.verbose)
+            vcf_files: List[Path] = pcat.find_vcf_or_bcf_files(vcf_path, args.verbose)
             if len(vcf_files) == 0:
                 raise ReportableException('Error: no VCF input')
             if m_output_dir is None:
@@ -321,9 +321,9 @@ if __name__ == '__main__':
         vcf_files: List[Path] = []
         input_basename: str
         concat_vcf_files: bool = False
-        if pcat.is_vcf_file(vcf_path):
+        if pcat.is_vcf_or_bcf_file(vcf_path):
             vcf_files.append(vcf_path)
-            input_basename = pcat.get_vcf_basename(vcf_path)
+            input_basename = pcat.get_vcf_or_bcf_basename(vcf_path)
         else:
             if args.verbose:
                 print("Looking up VCF files listed in", vcf_path)

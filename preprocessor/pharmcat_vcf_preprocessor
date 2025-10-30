@@ -153,9 +153,9 @@ if __name__ == "__main__":
 
         m_vcf_files: List[Path] = []
         m_input_basename: str
-        if pcat.is_vcf_file(vcf_path):
+        if pcat.is_vcf_or_bcf_file(vcf_path):
             m_vcf_files.append(vcf_path)
-            m_input_basename = pcat.get_vcf_basename(vcf_path)
+            m_input_basename = pcat.get_vcf_or_bcf_basename(vcf_path)
         else:
             if args.verbose:
                 print("Looking up VCF files listed in", vcf_path)
