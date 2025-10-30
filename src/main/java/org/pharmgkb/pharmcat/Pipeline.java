@@ -274,8 +274,7 @@ public class Pipeline implements Callable<PipelineResult> {
         }
         matcherResult = namedAlleleMatcher.call(Objects.requireNonNull(m_vcfFile), m_sampleId, m_sampleMetadataFile);
 
-        if (matcherResult.getVcfWarnings() != null &&
-            !matcherResult.getVcfWarnings().isEmpty()) {
+        if (!matcherResult.getVcfWarnings().isEmpty()) {
           Path txtFile = Objects.requireNonNull(m_matcherJsonFile).getParent()
               .resolve(m_basename + BaseConfig.MATCHER_SUFFIX + "_warnings.txt");
           try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(txtFile))) {
@@ -317,9 +316,7 @@ public class Pipeline implements Callable<PipelineResult> {
               .fromJson(m_phenotyperInputFile);
           metadata = deserializedMatcherResult.getMetadata();
           calls = deserializedMatcherResult.getGeneCalls();
-          if (deserializedMatcherResult.getVcfWarnings() != null) {
-            warnings.putAll(deserializedMatcherResult.getVcfWarnings());
-          }
+          warnings.putAll(deserializedMatcherResult.getVcfWarnings());
         } else {
           calls = new ArrayList<>();
         }

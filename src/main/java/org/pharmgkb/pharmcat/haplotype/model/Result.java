@@ -2,6 +2,7 @@ package org.pharmgkb.pharmcat.haplotype.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import com.google.gson.annotations.Expose;
@@ -47,7 +48,10 @@ public class Result {
   /**
    * Gets warnings from reading VCF data, keyed to chromosomal position.
    */
-  public @Nullable Map<String, Collection<String>> getVcfWarnings() {
+  public Map<String, Collection<String>> getVcfWarnings() {
+    if (m_vcfWarnings == null) {
+      return Collections.emptyMap();
+    }
     return m_vcfWarnings;
   }
 
