@@ -1,8 +1,8 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
-  "modificationDate": "2025-06-16T21:53:12.546Z",
+  "version": "2025-11-03-12-41",
+  "modificationDate": "2025-11-03T16:56:17.571Z",
   "gene": "CYP4F2",
   "orientation": null,
   "chromosome": "chr19",
@@ -1730,16 +1730,6 @@
     "15897566": 18,
     "15897578": 19
   },
-  "shellAlleles": {
-    "*22": [
-      "*3"
-    ],
-    "*4": [
-      "*2",
-      "*3"
-    ],
-    "*23": [
-      "*5"
-    ]
-  }
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

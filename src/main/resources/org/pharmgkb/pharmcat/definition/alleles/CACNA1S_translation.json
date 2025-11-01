@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2021-10-22T20:00:04.974Z",
   "gene": "CACNA1S",
   "orientation": null,
@@ -124,5 +124,6 @@
     "201060815": 0,
     "201091993": 1
   },
-  "shellAlleles": {}
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

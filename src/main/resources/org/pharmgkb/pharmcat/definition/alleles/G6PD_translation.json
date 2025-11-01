@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2023-09-26T20:24:28.185Z",
   "gene": "G6PD",
   "orientation": null,
@@ -70402,119 +70402,6 @@
     "154546122": 169,
     "154546131": 170
   },
-  "shellAlleles": {
-    "Hechi": [
-      "Asahi",
-      "Viangchan, Jammu"
-    ],
-    "Vancouver": [
-      "Coimbra Shunde"
-    ],
-    "Haikou": [
-      "Chinese-1"
-    ],
-    "Honiara": [
-      "Union,Maewo, Chinese-2, Kalo"
-    ],
-    "Hermoupolis": [
-      "Cassano",
-      "Union,Maewo, Chinese-2, Kalo"
-    ],
-    "Bajo Maumere": [
-      "Seattle, Lodi, Modena, Ferrara II, Athens-like"
-    ],
-    "Sierra Leone": [
-      "A"
-    ],
-    "Cincinnati": [
-      "Minnesota, Marion, Gastonia, LeJeune"
-    ],
-    "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like": [
-      "Cosenza"
-    ],
-    "Santa Maria": [
-      "A",
-      "Malaga"
-    ],
-    "Salerno Pyrgos": [
-      "Vanua Lava"
-    ],
-    "Loma Linda": [
-      "Aachen"
-    ],
-    "A- 202A_376G": [
-      "A",
-      "Asahi"
-    ],
-    "Bangkok Noi": [
-      "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like",
-      "Cosenza"
-    ],
-    "Cosenza": [
-      "Canton, Taiwan-Hakka, Gifu-like, Agrigento-like"
-    ],
-    "A- 680T_376G": [
-      "A",
-      "Mexico City"
-    ],
-    "Amazonia": [
-      "Musashino"
-    ],
-    "Ananindeua": [
-      "A",
-      "Viangchan, Jammu"
-    ],
-    "Seattle, Lodi, Modena, Ferrara II, Athens-like": [
-      "Bajo Maumere"
-    ],
-    "A- 968C_376G": [
-      "A"
-    ],
-    "Musashino": [
-      "Amazonia"
-    ],
-    "Kamiube, Keelung": [
-      "Flores"
-    ],
-    "Mt Sinai": [
-      "A",
-      "Guadalajara"
-    ],
-    "Flores": [
-      "Kamiube, Keelung"
-    ],
-    "Vanua Lava": [
-      "Salerno Pyrgos"
-    ],
-    "Japan, Shinagawa": [
-      "Kawasaki"
-    ],
-    "Santiago": [
-      "Nilgiri"
-    ],
-    "Acrokorinthos": [
-      "A"
-    ],
-    "202G>A_376A>G_1264C>G": [
-      "A",
-      "A- 202A_376G",
-      "Asahi"
-    ],
-    "Chinese-1": [
-      "Haikou"
-    ],
-    "Crispim": [
-      "Salerno Pyrgos",
-      "Vanua Lava"
-    ],
-    "Kawasaki": [
-      "Japan, Shinagawa"
-    ],
-    "Aachen": [
-      "Loma Linda"
-    ],
-    "Nilgiri": [
-      "Santiago"
-    ]
-  }
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

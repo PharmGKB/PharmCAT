@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2022-02-18T18:47:52.807Z",
   "gene": "CYP3A5",
   "orientation": null,
@@ -292,5 +292,6 @@
     "99672916": 3,
     "99676198": 4
   },
-  "shellAlleles": {}
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

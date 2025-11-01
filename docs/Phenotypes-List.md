@@ -17,15 +17,10 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs2231142 reference (G)</li>
 <li>rs2231142 variant (T)</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li>
-<li>Normal Function</li>
-<li>Poor Function</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li>
 <li>Normal Function</li>
@@ -174,7 +169,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -232,10 +226,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Rapid Metabolizer</li>
 <li>Ultrarapid Metabolizer</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-</ul></td>
 </tr>
 </table>
 
@@ -244,7 +234,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -293,11 +282,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Rapid Metabolizer</li>
 <li>Ultrarapid Metabolizer</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-<li>Ultrarapid Metabolizer</li>
-</ul></td>
 </tr>
 </table>
 
@@ -307,7 +291,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -410,10 +393,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>1.5</li>
 <li>2.0</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-</ul></td>
 </tr>
 </table>
 
@@ -423,8 +402,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
-<th style="text-align: left">DPWG Phenotypes</th>
-<th style="text-align: left">DPWG Activity Scores</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -640,30 +617,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>≥5.0</li>
 <li>≥6.0</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-<li>Ultrarapid Metabolizer</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0</li>
-<li>0.25</li>
-<li>0.5</li>
-<li>0.75</li>
-<li>1.0</li>
-<li>1.25</li>
-<li>1.5</li>
-<li>2.0</li>
-<li>2.25</li>
-<li>2.5</li>
-<li>3.0</li>
-<li>4.0</li>
-<li>≥3.0</li>
-<li>≥3.25</li>
-<li>≥3.5</li>
-<li>≥4.0</li>
-<li>≥5.0</li>
-<li>≥6.0</li>
-</ul></td>
 </tr>
 </table>
 
@@ -671,7 +624,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <table>
 <tr>
 <th style="text-align: left">Named Alleles</th>
-<th style="text-align: left">DPWG Phenotypes</th>
+<th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -732,7 +685,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -747,10 +699,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Normal Metabolizer</li>
 <li>Poor Metabolizer</li>
 <li>Possible Intermediate Metabolizer</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
 </ul></td>
 </tr>
 </table>
@@ -794,7 +742,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <th style="text-align: left">Named Variants</th>
 <th style="text-align: left">CPIC Phenotypes</th>
 <th style="text-align: left">CPIC Activity Scores</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Reference</li>
@@ -891,13 +838,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>1.0</li>
 <li>1.5</li>
 <li>2.0</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>0.0 (Poor Metabolizer)</li>
-<li>0.5 (Phenotyping)</li>
-<li>1.0 (Intermediate Metabolizer)</li>
-<li>1.0 (Phenotyping)</li>
-<li>1.5 (Intermediate Metabolizer)</li>
-<li>2.0 (Normal Metabolizer)</li>
 </ul></td>
 </tr>
 </table>
@@ -1134,7 +1074,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>m.827A>G</li>
 <li>m.839A>G</li>
 <li>m.896A>G</li>
-<li>m.930A>G</li>
+<li>m.930G>A</li>
 <li>m.951G>A</li>
 <li>m.960C>del</li>
 <li>m.961T>G</li>
@@ -1237,7 +1177,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -1267,10 +1206,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Normal Metabolizer</li>
 <li>Poor Metabolizer</li>
 <li>Possible Intermediate Metabolizer</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
 </ul></td>
 </tr>
 </table>
@@ -1633,22 +1568,17 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
 <li>*2</li>
-<li>*3</li>
 <li>*4</li>
 <li>*5</li>
 <li>*6</li>
-<li>*7</li>
 <li>*8</li>
 <li>*9</li>
 <li>*10</li>
 <li>*11</li>
-<li>*12</li>
-<li>*13</li>
 <li>*14</li>
 <li>*15</li>
 <li>*16</li>
@@ -1668,21 +1598,24 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>*34</li>
 <li>*36</li>
 <li>*37</li>
-<li>*38</li>
 <li>*39</li>
 <li>*40</li>
 <li>*41</li>
 <li>*42</li>
 <li>*43</li>
 <li>*44</li>
-<li>*45</li>
-<li>*46</li>
+<li>*45.001</li>
+<li>*45.002</li>
 <li>*47</li>
 <li>*50</li>
 <li>*51</li>
 <li>*52</li>
 <li>*53</li>
 <li>*54</li>
+<li>*55</li>
+<li>*56</li>
+<li>*57</li>
+<li>*58</li>
 </ul></td>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li>
 <li>Increased Function</li>
@@ -1690,10 +1623,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Normal Function</li>
 <li>Poor Function</li>
 <li>Possible Decreased Function</li>
-</ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Decreased Function</li>
-<li>Normal Function</li>
-<li>Poor Function</li>
 </ul></td>
 </tr>
 </table>
@@ -1703,7 +1632,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -1759,10 +1687,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Poor Metabolizer</li>
 <li>Possible Intermediate Metabolizer</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-</ul></td>
 </tr>
 </table>
 
@@ -1771,7 +1695,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <tr>
 <th style="text-align: left">Named Alleles</th>
 <th style="text-align: left">CPIC Phenotypes</th>
-<th style="text-align: left">DPWG Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>*1</li>
@@ -1789,10 +1712,6 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <li>Normal Metabolizer</li>
 <li>Poor Metabolizer</li>
 </ul></td>
-<td style="vertical-align: top"><ul style="padding-left: 1rem"><li>Intermediate Metabolizer</li>
-<li>Normal Metabolizer</li>
-<li>Poor Metabolizer</li>
-</ul></td>
 </tr>
 </table>
 
@@ -1800,7 +1719,7 @@ If you are using [outside calls](/using/Outside-Call-Format), you can see how we
 <table>
 <tr>
 <th style="text-align: left">Named Variants</th>
-<th style="text-align: left">DPWG Phenotypes</th>
+<th style="text-align: left">CPIC Phenotypes</th>
 </tr>
 <tr>
 <td style="vertical-align: top"><ul style="padding-left: 1rem"><li>rs9923231 reference (C)</li>

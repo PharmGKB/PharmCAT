@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2023-06-27T18:23:26Z",
   "gene": "IFNL3",
   "orientation": null,
@@ -76,5 +76,6 @@
   "positionToLocus": {
     "39248147": 0
   },
-  "shellAlleles": {}
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

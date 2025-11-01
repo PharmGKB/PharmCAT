@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2021-10-14T03:54:49.779Z",
   "gene": "TPMT",
   "orientation": null,
@@ -5747,23 +5747,6 @@
     "18149126": 41,
     "18149127": 42
   },
-  "shellAlleles": {
-    "*41": [
-      "*3C"
-    ],
-    "*3A": [
-      "*3B",
-      "*3C",
-      "*41"
-    ],
-    "*22": [
-      "*16"
-    ],
-    "*3C": [
-      "*41"
-    ],
-    "*16": [
-      "*22"
-    ]
-  }
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

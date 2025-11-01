@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2023-05-04T00:25:05.851Z",
   "gene": "VKORC1",
   "orientation": null,
@@ -76,5 +76,6 @@
   "positionToLocus": {
     "31096368": 0
   },
-  "shellAlleles": {}
+  "hiddenCoreAlleles": [],
+  "suballelesMap": {}
 }

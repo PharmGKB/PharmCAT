@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-10-16-12-18",
+  "version": "2025-11-03-12-41",
   "modificationDate": "2025-10-14T22:24:09.333Z",
   "gene": "SLCO1B1",
   "orientation": null,
@@ -757,8 +757,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
-      "corePositions": null,
-      "score": 0,
+      "corePositions": [],
+      "score": 35,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1620,7 +1620,7 @@
         21176804,
         21178615
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3627,8 +3627,8 @@
       "numPartials": 0
     },
     {
-      "name": "*45",
-      "id": "PA166251755",
+      "name": "*45.001",
+      "id": "PA166251755.001",
       "alleles": [
         null,
         null,
@@ -3636,13 +3636,13 @@
         null,
         null,
         null,
-        "R",
+        "A",
         null,
         null,
         null,
         null,
         null,
-        "Y",
+        "T",
         null,
         null,
         null,
@@ -3673,13 +3673,13 @@
         null,
         null,
         null,
-        "R",
+        "A",
         null,
         null,
         null,
         null,
         null,
-        "Y",
+        "T",
         null,
         null,
         null,
@@ -3705,11 +3705,91 @@
       ],
       "reference": false,
       "structuralVariant": false,
-      "corePositions": [
-        21176804,
-        21178615,
-        21222355
+      "corePositions": null,
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    },
+    {
+      "name": "*45.002",
+      "id": "PA166251755.002",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "G",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "C",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": null,
       "score": 0,
       "numCombinations": 0,
       "numPartials": 0
@@ -4798,117 +4878,98 @@
     "21239145": 33,
     "21239158": 34
   },
-  "shellAlleles": {
-    "*40": [
-      "*5",
-      "*19"
-    ],
-    "*52": [
-      "*37"
-    ],
-    "*30": [
-      "*37"
-    ],
-    "*53": [
-      "*4",
-      "*14",
-      "*27",
-      "*37"
-    ],
-    "*42": [
-      "*37"
-    ],
-    "*31": [
-      "*9",
-      "*37"
-    ],
-    "*20": [
-      "*19",
-      "*37"
-    ],
-    "*54": [
-      "*19",
-      "*20",
-      "*24",
-      "*37"
-    ],
-    "*43": [
-      "*4",
-      "*14",
-      "*24",
-      "*32",
-      "*37",
-      "*44"
-    ],
-    "*32": [
-      "*4",
-      "*14",
-      "*24",
-      "*37"
-    ],
-    "*55": [
-      "*4",
-      "*14",
-      "*27",
-      "*37",
-      "*53"
-    ],
-    "*44": [
-      "*24",
-      "*37"
-    ],
-    "*33": [
-      "*24",
-      "*28",
-      "*37"
-    ],
-    "*56": [
-      "*37"
-    ],
-    "*45": [
-      "*5",
-      "*15",
-      "*37"
-    ],
-    "*57": [
-      "*37"
-    ],
-    "*24": [
-      "*37"
-    ],
-    "*47": [
-      "*5",
-      "*15",
-      "*37"
-    ],
-    "*25": [
-      "*4",
-      "*14",
-      "*24",
-      "*28",
-      "*32",
-      "*37"
-    ],
-    "*14": [
-      "*4",
-      "*37"
-    ],
-    "*15": [
-      "*5",
-      "*37"
-    ],
-    "*27": [
-      "*37"
-    ],
-    "*39": [
-      "*37"
-    ],
-    "*28": [
-      "*24",
-      "*37"
-    ],
-    "*29": [
-      "*37"
-    ]
+  "hiddenCoreAlleles": [
+    {
+      "name": "*45",
+      "id": "PA166251755",
+      "alleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "R",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Y",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cpicAlleles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "R",
+        null,
+        null,
+        null,
+        null,
+        null,
+        "Y",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "T",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reference": false,
+      "structuralVariant": false,
+      "corePositions": [
+        21176804,
+        21178615,
+        21222355
+      ],
+      "score": 0,
+      "numCombinations": 0,
+      "numPartials": 0
+    }
+  ],
+  "suballelesMap": {
+    "*45.001": "*45",
+    "*45.002": "*45"
   }
 }
