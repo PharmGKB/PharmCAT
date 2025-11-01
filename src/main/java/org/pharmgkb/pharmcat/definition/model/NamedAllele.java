@@ -148,6 +148,16 @@ public class NamedAllele implements Comparable<NamedAllele> {
 
 
   /**
+   * Force reinitialization.
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
+   */
+  void forceReinitialize(VariantLocus[] refVariants) {
+    m_isInitialized = false;
+    initialize(refVariants);
+  }
+
+  /**
    * Call this to initialize this object for use.
    */
   public void initialize(VariantLocus[] refVariants) {
@@ -339,6 +349,13 @@ public class NamedAllele implements Comparable<NamedAllele> {
       throw new IllegalStateException("This NamedAllele has not been initialized");
     }
     return m_cpicAlleleMap.get(variantLocus);
+  }
+
+  public @Nullable String getCpicAllele(long position) {
+    if (!m_isInitialized || m_positionToLocusMap == null) {
+      throw new IllegalStateException("This NamedAllele has not been initialized");
+    }
+    return getCpicAllele(Objects.requireNonNull(m_positionToLocusMap.get(position)));
   }
 
 

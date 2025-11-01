@@ -20,7 +20,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Stream;
-import com.google.common.base.Preconditions;
 import org.apache.commons.io.FileUtils;
 import org.jspecify.annotations.Nullable;
 import org.pharmgkb.common.util.CliHelper;
@@ -291,9 +290,10 @@ public class DataManager {
     }
 
     fixCyp2c19(definitionFileMap.get("CYP2C19"));
+    fixSlco1b1(definitionFileMap.get("SLCO1B1"));
 
     System.out.println();
-    System.out.println("Saving allele definitions to " + definitionsDir.toString());
+    System.out.println("Saving allele definitions to " + definitionsDir);
     Set<String> currentFiles = getCurrentFiles(definitionsDir, "_translation.json");
 
     for (String gene : definitionFileMap.keySet()) {
@@ -357,7 +357,6 @@ public class DataManager {
    * Copy any missing alleles from *1 from *38.
    */
   public static void fixCyp2c19(DefinitionFile definitionFile) {
-    Preconditions.checkNotNull(definitionFile);
     NamedAllele star1 = Objects.requireNonNull(definitionFile.getNamedAllele("*1"));
     NamedAllele star38 = Objects.requireNonNull(definitionFile.getNamedAllele("*38"));
     star1.initialize(definitionFile.getVariants());
@@ -367,6 +366,48 @@ public class DataManager {
         star1.getAlleles()[x] = star38.getAlleles()[x];
       }
     }
+  }
+
+
+  /**
+   * Use suballeles of *45.
+   */
+  public static void fixSlco1b1(DefinitionFile definitionFile) {
+    NamedAllele star45 = Objects.requireNonNull(definitionFile.getNamedAllele("*45"));
+    star45.initialize(definitionFile.getVariants());
+    if (star45.getCorePositions().size() != 3) {
+      throw new IllegalStateException("Expected 3 core positions for SLCO1B1*45 but found " +
+          star45.getCorePositions().size());
+    }
+    Long[] positions = star45.getCorePositions().toArray(new Long[0]);
+    int n130d = definitionFile.getIndexForPosition(positions[0]);
+    int v174a = definitionFile.getIndexForPosition(positions[1]);
+
+    // ref
+    NamedAllele star1 = Objects.requireNonNull(definitionFile.getNamedAllele("*1"));
+    InternalWrapper.forceReinitialize(star1, definitionFile.getVariants());
+
+    @Nullable String[] alleles = star45.getAlleles().clone();
+    @Nullable String[] cpicAlleles = star45.getCpicAlleles().clone();
+    alleles[n130d] = Objects.requireNonNull(star1.getAllele(positions[0]));
+    alleles[v174a] = Objects.requireNonNull(star1.getAllele(positions[1]));
+    cpicAlleles[n130d] = Objects.requireNonNull(star1.getCpicAllele(positions[0]));
+    cpicAlleles[v174a] = Objects.requireNonNull(star1.getCpicAllele(positions[1]));
+    NamedAllele star45_1 = new NamedAllele(star45.getId() + ".001", "*45.001", alleles, cpicAlleles, false);
+
+    // alt
+    NamedAllele star15 = Objects.requireNonNull(definitionFile.getNamedAllele("*15"));
+    InternalWrapper.forceReinitialize(star15, definitionFile.getVariants());
+
+    alleles = star45.getAlleles().clone();
+    cpicAlleles = star45.getCpicAlleles().clone();
+    alleles[n130d] = Objects.requireNonNull(star15.getAllele(positions[0]));
+    alleles[v174a] = Objects.requireNonNull(star15.getAllele(positions[1]));
+    cpicAlleles[n130d] = Objects.requireNonNull(star15.getCpicAllele(positions[0]));
+    cpicAlleles[v174a] = Objects.requireNonNull(star15.getCpicAllele(positions[1]));
+    NamedAllele star45_2 = new NamedAllele(star45.getId() + ".002", "*45.002", alleles, cpicAlleles, false);
+
+    InternalWrapper.addSubAllele(definitionFile, star45, star45_1, star45_2);
   }
 
 
@@ -386,7 +427,7 @@ public class DataManager {
   private SortedMap<String, DefinitionExemption> transformExemptions(Path exemptionsTsvFile,
       Path unphasedDiplotypePrioritiesTsvFile, Path jsonFile) throws IOException {
     System.out.println();
-    System.out.println("Saving exemptions to " + jsonFile.toString());
+    System.out.println("Saving exemptions to " + jsonFile);
     SortedMap<String, DefinitionExemption> exemptions = m_dataSerializer.deserializeExemptionsFromTsv(exemptionsTsvFile,
         unphasedDiplotypePrioritiesTsvFile);
     DataSerializer.serializeToJson(exemptions, jsonFile);
@@ -394,7 +435,7 @@ public class DataManager {
   }
 
   private void transformMessages(Path tsvFile, Path jsonFile) throws IOException {
-    System.out.println("Saving messages to " + jsonFile.toString());
+    System.out.println("Saving messages to " + jsonFile);
     DataSerializer.serializeToJson(m_dataSerializer.deserializeMessagesFromTsv(tsvFile), jsonFile);
   }
 

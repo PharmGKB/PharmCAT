@@ -31,19 +31,19 @@ public class VariantReport implements Comparable<VariantReport> {
 
   @Expose
   @SerializedName("gene")
-  private String m_gene;
+  private final String m_gene;
   @Expose
   @SerializedName("chromosome")
-  private String m_chr;
+  private final String m_chr;
   @Expose
   @SerializedName("position")
-  private long m_position;
+  private final long m_position;
   @Expose
   @SerializedName("dbSnpId")
-  private @Nullable String m_dbSnpId;
+  private final @Nullable String m_dbSnpId;
   @Expose
   @SerializedName("call")
-  private String m_call;
+  private @Nullable String m_call;
   @Expose
   @SerializedName("alleles")
   private final Set<String> m_alleles = new TreeSet<>(HaplotypeNameComparator.getComparator());
@@ -64,7 +64,8 @@ public class VariantReport implements Comparable<VariantReport> {
   @SerializedName("warnings")
   private Set<String> m_warnings = new TreeSet<>();
 
-  public VariantReport(String gene, Variant variant) {
+  public VariantReport(String chr, String gene, Variant variant) {
+    m_chr = chr;
     m_gene = gene;
     m_position = variant.getPosition();
     m_dbSnpId = variant.getRsid();
@@ -78,7 +79,8 @@ public class VariantReport implements Comparable<VariantReport> {
     }
   }
 
-  public VariantReport(String gene, VariantLocus locus) {
+  public VariantReport(String chr, String gene, VariantLocus locus) {
+    m_chr = chr;
     m_gene = gene;
     m_position = locus.getPosition();
     m_dbSnpId = locus.getRsid();
@@ -92,15 +94,11 @@ public class VariantReport implements Comparable<VariantReport> {
     return m_chr;
   }
 
-  public void setChr(String chr) {
-    m_chr = chr;
-  }
-
   public long getPosition() {
     return m_position;
   }
 
-  public String getCall() {
+  public @Nullable String getCall() {
     return m_call;
   }
 
@@ -176,11 +174,7 @@ public class VariantReport implements Comparable<VariantReport> {
   }
 
   public String toChrPosition() {
-    if (m_chr != null) {
-      return m_chr + ":" + m_position;
-    } else {
-      return String.valueOf(m_position);
-    }
+    return m_chr + ":" + m_position;
   }
 
   @Override

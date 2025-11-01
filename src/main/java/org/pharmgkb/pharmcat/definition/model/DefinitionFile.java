@@ -71,10 +71,14 @@ public class DefinitionFile {
   @Expose
   @SerializedName("positionToLocus")
   private SortedMap<Long, Integer> m_positionToLocusMap;
+
+  // these are for dealing with ambiguous core PharmVar alleles that have to be mapped via suballeles
   @Expose
-  @SerializedName("shellAlleles")
-  // shell named allele to subset named alleles
-  private Map<String, List<String>> m_shellAlleles;
+  @SerializedName("hiddenCoreAlleles")
+  private SortedSet<NamedAllele> m_ambiguousCoreAlleles = new TreeSet<>();
+  @Expose
+  @SerializedName("suballelesMap")
+  private SortedMap<String, String> m_suballelesMap = new TreeMap<>();
 
 
   //-- cache
@@ -186,12 +190,16 @@ public class DefinitionFile {
     return m_variants[m_positionToLocusMap.get(position)];
   }
 
-
-  /**
-   * Gets shell alleles - a named allele that encompasses other named alleles.
-   */
-  public @Nullable Map<String, List<String>> getShellAlleles() {
-    return m_shellAlleles;
+  public int getIndexForPosition(long position) {
+    if (!m_positionToLocusMap.containsKey(position)) {
+      throw new IllegalArgumentException("Unknown position: " + position);
+    }
+    for (int x = 0; x < m_variants.length; x += 1) {
+      if (m_variants[x].getPosition() == position) {
+        return x;
+      }
+    }
+    throw new IllegalArgumentException("Unknown position: " + position);
   }
 
 
@@ -240,6 +248,7 @@ public class DefinitionFile {
    * Resets this {@link DefinitionFile}'s named alleles to the specified set.
    * This helper method makes sure that dependent caches are deleted.
    * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    * <b><i>Only call this if you know what you're doing!</i></b>
    */
   void resetNamedAlleles(SortedSet<NamedAllele> namedAlleles) {
@@ -252,6 +261,8 @@ public class DefinitionFile {
    * Adds a {@link NamedAllele} to this {@link DefinitionFile}.
    * This helper method makes sure that dependent caches are deleted.
    * <p>
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
    * <b><i>Only call this if you know what you're doing!</i></b>
    */
   void addNamedAllele(NamedAllele namedAllele) {
@@ -260,6 +271,59 @@ public class DefinitionFile {
       m_referenceNamedAllele = null;
     }
   }
+
+  /**
+   * Removes a {@link NamedAllele} to this {@link DefinitionFile}.
+   * This helper method makes sure that dependent caches are deleted.
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
+   * <b><i>Only call this if you know what you're doing!</i></b>
+   */
+  void removeNamedAllele(NamedAllele namedAllele) {
+    if (m_namedAlleles.remove(namedAllele)) {
+      m_namedAlleleMap = null;
+      m_referenceNamedAllele = null;
+    }
+  }
+
+
+  /**
+   * Gets ambiguous core PharmVar alleles that have been suppressed because we need to map to suballeles instead.
+   */
+  public SortedSet<NamedAllele> getAmbiguousCoreAlleles() {
+    return m_ambiguousCoreAlleles;
+  }
+
+  /**
+   * Adds specified {@link NamedAllele} as an ambiguous core PharmVar allele and removes it from the main collection of
+   * alleles.
+   * <p>
+   * NOT PART OF PUBLIC API.  Only used during data ingestion.
+   * <b><i>Only call this if you know what you're doing!</i></b>
+   */
+  void addAmbiguousCoreAllele(NamedAllele coreAllele) {
+    m_ambiguousCoreAlleles.add(coreAllele);
+    removeNamedAllele(coreAllele);
+  }
+
+
+  /**
+   * Gets a map of suballele names to it's core allele name.
+   */
+  public Map<String, String> getSuballelesMap() {
+    return m_suballelesMap;
+  }
+
+  /**
+   * Adds suballele and tracks parent core allele.
+   * <p>
+   * <b><i>Only call this if you know what you're doing!</i></b>
+   */
+  void addSuballele(NamedAllele suballele, String coreAlleleName) {
+    m_suballelesMap.put(suballele.getName(), coreAlleleName);
+    addNamedAllele(suballele);
+  }
+
 
 
   @Override
@@ -462,7 +526,7 @@ public class DefinitionFile {
       }
       updatedNamedAlleles.add(updated);
     }
-    resetNamedAlleles(Collections.unmodifiableSortedSet(updatedNamedAlleles));
+    resetNamedAlleles(updatedNamedAlleles);
     m_variants = sortedVariants;
 
     m_positionToAlleleMap = new TreeMap<>();
@@ -493,22 +557,6 @@ public class DefinitionFile {
       for (long pos : m_positionToAlleleMap.keySet()) {
         if (m_positionToAlleleMap.get(pos).size() == 1 && allelesWith1Position.contains(m_positionToAlleleMap.get(pos).get(0))) {
           m_singularVariants.add(pos);
-        }
-      }
-    }
-
-    m_shellAlleles = new HashMap<>();
-    for (NamedAllele curNa : m_namedAlleles) {
-      if (curNa.isReference()) {
-        continue;
-      }
-      for (NamedAllele checkNa : m_namedAlleles) {
-        if (checkNa.isReference() || curNa == checkNa) {
-          continue;
-        }
-        if (curNa.getCorePositions().containsAll(checkNa.getCorePositions())) {
-          m_shellAlleles.computeIfAbsent(curNa.getName(), id -> new ArrayList<>())
-              .add(checkNa.getName());
         }
       }
     }

@@ -9042,5 +9042,33 @@
     "hgvs": "NC_000007.14:g.117667104T>C",
     "position": 1.17667104E8,
     "ref": "T"
+  },
+  "https://api.clinpgx.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21141575A%3ET/vcf": {
+    "alt": "T",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21141575A>T",
+    "position": 2.1141575E7,
+    "ref": "A"
+  },
+  "https://api.clinpgx.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21172675G%3EC/vcf": {
+    "alt": "C",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21172675G>C",
+    "position": 2.1172675E7,
+    "ref": "G"
+  },
+  "https://api.clinpgx.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21172735G%3EA/vcf": {
+    "alt": "A",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21172735G>A",
+    "position": 2.1172735E7,
+    "ref": "G"
+  },
+  "https://api.clinpgx.org/v1/pharmcat/hgvs/NC_000012.12%3Ag.21176871G%3EC/vcf": {
+    "alt": "C",
+    "chrom": "chr12",
+    "hgvs": "NC_000012.12:g.21176871G>C",
+    "position": 2.1176871E7,
+    "ref": "G"
   }
 }

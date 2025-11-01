@@ -1113,7 +1113,8 @@ class PipelineTest {
 
   @Test
   void testSlco1b1Test4(TestInfo testInfo) throws Exception {
-    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false);
+    PipelineWrapper testWrapper = new PipelineWrapper(testInfo, false)
+        .saveIntermediateFiles();
     testWrapper.getVcfBuilder()
         .variation("SLCO1B1", "rs4149056", "T", "C")
         .variation("SLCO1B1", "rs71581941", "C", "T");

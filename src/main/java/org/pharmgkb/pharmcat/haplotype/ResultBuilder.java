@@ -87,6 +87,13 @@ public class ResultBuilder {
           }
         }
       }
+
+      DefinitionFile definitionFile = m_definitionReader.getDefinitionFile(call.getGene());
+      if (!definitionFile.getSuballelesMap().isEmpty()) {
+        for (DiplotypeMatch dm : call.getDiplotypes()) {
+          dm.handleSuballeleConversion(definitionFile);
+        }
+      }
     }
     return m_result;
   }

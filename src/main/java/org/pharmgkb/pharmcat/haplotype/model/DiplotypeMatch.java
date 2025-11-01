@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Pattern;
 import com.google.common.base.Preconditions;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.ObjectUtils;
 import org.jspecify.annotations.Nullable;
+import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.haplotype.MatchData;
 
 
@@ -20,7 +22,7 @@ import org.pharmgkb.pharmcat.haplotype.MatchData;
 public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
   @Expose
   @SerializedName("name")
-  private final String m_name;
+  private String m_name;
   @Expose
   @SerializedName("haplotype1")
   private final BaseMatch m_haplotype1;
@@ -127,5 +129,22 @@ public class DiplotypeMatch implements Comparable<DiplotypeMatch> {
       return rez;
     }
     return ObjectUtils.compare(m_haplotype2, o.getHaplotype2());
+  }
+
+  public void handleSuballeleConversion(DefinitionFile definitionFile) {
+
+    for (String suballele : definitionFile.getSuballelesMap().keySet()) {
+      if (!m_name.contains(suballele)) {
+        continue;
+      }
+      String coreAllele = definitionFile.getSuballelesMap().get(suballele);
+      m_name = m_name.replaceAll(Pattern.quote(suballele), coreAllele);
+      if (m_haplotype1.getName().contains(suballele)) {
+        m_haplotype1.setName(m_haplotype1.getName().replaceAll(Pattern.quote(suballele), coreAllele));
+      }
+      if (m_haplotype2.getName().contains(suballele)) {
+        m_haplotype2.setName(m_haplotype2.getName().replaceAll(Pattern.quote(suballele), coreAllele));
+      }
+    }
   }
 }

@@ -97,4 +97,27 @@ public class InternalWrapper {
   public static void addNamedAllele(DefinitionFile definitionFile, NamedAllele namedAllele) {
     definitionFile.addNamedAllele(namedAllele);
   }
+
+
+  /**
+   * Deals with ambiguous core allele and it's replacement suballeles.
+   * <p>
+   * This should only be used during data ingestion/prep.
+   */
+  public static void addSubAllele(DefinitionFile definitionFile, NamedAllele coreAllele, NamedAllele... subAlleles) {
+
+    definitionFile.addAmbiguousCoreAllele(coreAllele);
+    for (NamedAllele na : subAlleles) {
+      definitionFile.addSuballele(na, coreAllele.getName());
+    }
+  }
+
+  /**
+   * Forces re-initialization of a {@link NamedAllele}.
+   * <p>
+   * This should only be used during data ingestion/prep.
+   */
+  public static void forceReinitialize(NamedAllele namedAllele, VariantLocus[] refVariants) {
+    namedAllele.forceReinitialize(refVariants);
+  }
 }

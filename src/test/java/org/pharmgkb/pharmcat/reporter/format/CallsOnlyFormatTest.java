@@ -97,8 +97,8 @@ class CallsOnlyFormatTest {
     Path normalFile = vcfFile.getParent().resolve(basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
     String normalTsv = Files.readString(normalFile);
 
-    System.out.println("normal");
-    System.out.println(normalTsv);
+//    System.out.println("normal");
+//    System.out.println(normalTsv);
     String[] lines = normalTsv.split("\n");
     assertEquals(4, lines.length);
     Map<String, List<String>> geneMap = parseTsv(lines, 16, "CYP2C19", "DPYD");
@@ -195,8 +195,8 @@ class CallsOnlyFormatTest {
       Path normalFile = vcfFile.getParent().resolve(basename + BaseConfig.REPORTER_SUFFIX + ".tsv");
       String normalTsv = Files.readString(normalFile);
 
-      System.out.println("normal");
-      System.out.println(normalTsv);
+//      System.out.println("normal");
+//      System.out.println(normalTsv);
       String[] lines = normalTsv.split("\n");
       assertEquals(11, lines.length);
       Map<String, List<String>> geneMap = parseTsv(lines, 18, genes);
@@ -265,7 +265,7 @@ class CallsOnlyFormatTest {
     allGenes.remove("CYP2D6");
     assertEquals(allGenes, geneMap.keySet());
 
-    System.out.println(geneMap.get("TPMT"));
+    //System.out.println(geneMap.get("TPMT"));
     assertTrue(geneMap.get("TPMT").get(0).contains("Stanford"));
   }
 
@@ -291,10 +291,10 @@ class CallsOnlyFormatTest {
         }
       }
       if (line.startsWith("Gene\t")) {
-        String[] fields = line.split("\t", -1);
-        for (int x = 0; x < fields.length; x += 1) {
-          System.out.println(x + " - " + fields[x]);
-        }
+//        String[] fields = line.split("\t", -1);
+//        for (int x = 0; x < fields.length; x += 1) {
+//          System.out.println(x + " - " + fields[x]);
+//        }
         continue;
       }
       geneMap.computeIfAbsent(data[0], k -> new ArrayList<>())

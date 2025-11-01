@@ -2,9 +2,11 @@ package org.pharmgkb.pharmcat.reporter;
 
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import org.jspecify.annotations.Nullable;
 import org.pharmgkb.pharmcat.Env;
 import org.pharmgkb.pharmcat.definition.model.DefinitionFile;
 import org.pharmgkb.pharmcat.definition.model.NamedAllele;
@@ -46,16 +48,21 @@ public class VariantReportFactory {
       if (namedAllele.isReference()) {
         namedAllele.initialize(definitionFile.getVariants());
         for (VariantLocus v : allVariants) {
-          m_referenceAlleleMap.put(v.getPosition(), namedAllele.getAllele(v));
+          m_referenceAlleleMap.put(v.getPosition(), Objects.requireNonNull(namedAllele.getAllele(v)));
         }
       } else {
-        String[] definingAlleles = namedAllele.getAlleles();
+        @Nullable String[] definingAlleles = namedAllele.getAlleles();
+        boolean hasSuballeles = !definitionFile.getSuballelesMap().isEmpty();
         for (int i = 0; i < definingAlleles.length; i++) {
           String alleleValue = definingAlleles[i];
           VariantLocus locus = allVariants[i];
 
           if (alleleValue != null) {
-            m_variantAlleleMap.put(locus.getPosition(), namedAllele.getName());
+            String hapName = namedAllele.getName();
+            if (hasSuballeles && definitionFile.getSuballelesMap().containsKey(hapName)) {
+              hapName = definitionFile.getSuballelesMap().get(hapName);
+            }
+            m_variantAlleleMap.put(locus.getPosition(), hapName);
           }
         }
       }
@@ -68,7 +75,7 @@ public class VariantReportFactory {
    * @return a {@link VariantReport} object that has additional data from the given {@link Variant}
    */
   public VariantReport make(Variant variant) {
-    return initializeReport(new VariantReport(m_gene, variant));
+    return initializeReport(new VariantReport(m_chr, m_gene, variant));
   }
 
   /**
@@ -77,23 +84,15 @@ public class VariantReportFactory {
    * @return a {@link VariantReport} object that has additional data from the given {@link Variant}
    */
   public VariantReport make(VariantLocus locus) {
-    return initializeReport(new VariantReport(m_gene, locus));
+    return initializeReport(new VariantReport(m_chr, m_gene, locus));
   }
 
   /**
    * Fill additional data gathered from the allele definition files
    */
   private VariantReport initializeReport(VariantReport variantReport) {
-    assignNamedAlleles(variantReport);
-    variantReport.setChr(m_chr);
     variantReport.setReferenceAllele(m_referenceAlleleMap.get(variantReport.getPosition()));
-    return variantReport;
-  }
-
-  /**
-   * Fills in the named alleles that the given {@link VariantReport} is used to define
-   */
-  private void assignNamedAlleles(VariantReport variantReport) {
     variantReport.setAlleles(m_variantAlleleMap.get(variantReport.getPosition()));
+    return variantReport;
   }
 }
