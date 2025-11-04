@@ -1,7 +1,7 @@
 {
   "title": "pharmcat.example",
-  "timestamp": "2025-11-03T21:02:48.293Z",
-  "pharmcatVersion": "v3.0.1-76-g31de8e7d",
+  "timestamp": "2025-11-04T00:53:51.235Z",
+  "pharmcatVersion": "v3.0.1-75-g8c85b474",
   "dataVersion": "2025-11-03-12-41",
   "genes": {
     "ABCG2": {
@@ -42,7 +42,7 @@
             "activityValue": "n/a"
           },
           "gene": "ABCG2",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "Normal Function"
           ],
@@ -83,7 +83,7 @@
             "activityValue": "n/a"
           },
           "gene": "ABCG2",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "Normal Function"
           ],
@@ -192,7 +192,7 @@
             "activityValue": "n/a"
           },
           "gene": "CACNA1S",
-          "matchScore": 4,
+          "matchScore": 8,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -233,7 +233,7 @@
             "activityValue": "n/a"
           },
           "gene": "CACNA1S",
-          "matchScore": 4,
+          "matchScore": 8,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -325,7 +325,7 @@
             "activityValue": "n/a"
           },
           "gene": "CFTR",
-          "matchScore": 186,
+          "matchScore": 372,
           "phenotypes": [
             "ivacaftor non-responsive in CF patients"
           ],
@@ -366,7 +366,7 @@
             "activityValue": "n/a"
           },
           "gene": "CFTR",
-          "matchScore": 186,
+          "matchScore": 372,
           "phenotypes": [
             "ivacaftor non-responsive in CF patients"
           ],
@@ -1846,7 +1846,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2B6",
-          "matchScore": 96,
+          "matchScore": 192,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -1887,7 +1887,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2B6",
-          "matchScore": 96,
+          "matchScore": 192,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -2810,7 +2810,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2C19",
-          "matchScore": 70,
+          "matchScore": 140,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -2851,7 +2851,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2C19",
-          "matchScore": 70,
+          "matchScore": 140,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -3591,7 +3591,7 @@
             "activityValue": "1.0"
           },
           "gene": "CYP2C9",
-          "matchScore": 166,
+          "matchScore": 332,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -3632,7 +3632,7 @@
             "activityValue": "1.0"
           },
           "gene": "CYP2C9",
-          "matchScore": 166,
+          "matchScore": 332,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -5346,7 +5346,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A4",
-          "matchScore": 84,
+          "matchScore": 168,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -5387,7 +5387,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A4",
-          "matchScore": 84,
+          "matchScore": 168,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -6106,7 +6106,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A5",
-          "matchScore": 10,
+          "matchScore": 20,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -6147,7 +6147,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A5",
-          "matchScore": 10,
+          "matchScore": 20,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -6292,7 +6292,7 @@
             "activityValue": null
           },
           "gene": "CYP4F2",
-          "matchScore": 40,
+          "matchScore": 80,
           "phenotypes": [],
           "outsidePhenotype": false,
           "outsidePhenotypeMismatch": null,
@@ -6329,7 +6329,7 @@
             "activityValue": null
           },
           "gene": "CYP4F2",
-          "matchScore": 40,
+          "matchScore": 80,
           "phenotypes": [],
           "outsidePhenotype": false,
           "outsidePhenotypeMismatch": null,
@@ -6741,7 +6741,7 @@
             "activityValue": "1.0"
           },
           "gene": "DPYD",
-          "matchScore": 166,
+          "matchScore": 332,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -6774,7 +6774,7 @@
           },
           "allele2": null,
           "gene": "DPYD",
-          "matchScore": 83,
+          "matchScore": 166,
           "phenotypes": [
             "Indeterminate"
           ],
@@ -6846,7 +6846,7 @@
                 "activityValue": "1.0"
               },
               "gene": "DPYD",
-              "matchScore": 166,
+              "matchScore": 332,
               "phenotypes": [
                 "Normal Metabolizer"
               ],
@@ -8342,7 +8342,7 @@
             "activityValue": "n/a"
           },
           "gene": "G6PD",
-          "matchScore": 342,
+          "matchScore": 684,
           "phenotypes": [
             "Normal"
           ],
@@ -8383,7 +8383,7 @@
             "activityValue": "n/a"
           },
           "gene": "G6PD",
-          "matchScore": 342,
+          "matchScore": 684,
           "phenotypes": [
             "Normal"
           ],
@@ -11319,7 +11319,7 @@
             "activityValue": "n/a"
           },
           "gene": "IFNL3",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "n/a"
           ],
@@ -11360,7 +11360,7 @@
             "activityValue": "n/a"
           },
           "gene": "IFNL3",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "n/a"
           ],
@@ -11611,7 +11611,7 @@
             "activityValue": "n/a"
           },
           "gene": "NAT2",
-          "matchScore": 94,
+          "matchScore": 188,
           "phenotypes": [
             "Rapid Metabolizer"
           ],
@@ -11652,7 +11652,7 @@
             "activityValue": "n/a"
           },
           "gene": "NAT2",
-          "matchScore": 94,
+          "matchScore": 188,
           "phenotypes": [
             "Rapid Metabolizer"
           ],
@@ -12511,7 +12511,7 @@
             "activityValue": "n/a"
           },
           "gene": "NUDT15",
-          "matchScore": 36,
+          "matchScore": 72,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -12552,7 +12552,7 @@
             "activityValue": "n/a"
           },
           "gene": "NUDT15",
-          "matchScore": 36,
+          "matchScore": 72,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -12919,7 +12919,7 @@
             "activityValue": "n/a"
           },
           "gene": "RYR1",
-          "matchScore": 626,
+          "matchScore": 1252,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -12952,7 +12952,7 @@
           },
           "allele2": null,
           "gene": "RYR1",
-          "matchScore": 313,
+          "matchScore": 626,
           "phenotypes": [
             "n/a"
           ],
@@ -13024,7 +13024,7 @@
                 "activityValue": "n/a"
               },
               "gene": "RYR1",
-              "matchScore": 626,
+              "matchScore": 1252,
               "phenotypes": [
                 "Uncertain Susceptibility"
               ],
@@ -17871,7 +17871,7 @@
             "activityValue": "n/a"
           },
           "gene": "SLCO1B1",
-          "matchScore": 140,
+          "matchScore": 210,
           "phenotypes": [
             "Normal Function"
           ],
@@ -17912,7 +17912,7 @@
             "activityValue": "n/a"
           },
           "gene": "SLCO1B1",
-          "matchScore": 140,
+          "matchScore": 210,
           "phenotypes": [
             "Normal Function"
           ],
@@ -18580,7 +18580,7 @@
             "activityValue": "n/a"
           },
           "gene": "TPMT",
-          "matchScore": 86,
+          "matchScore": 172,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -18621,7 +18621,7 @@
             "activityValue": "n/a"
           },
           "gene": "TPMT",
-          "matchScore": 86,
+          "matchScore": 172,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -19383,7 +19383,7 @@
             "activityValue": "n/a"
           },
           "gene": "UGT1A1",
-          "matchScore": 8,
+          "matchScore": 16,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -19424,7 +19424,7 @@
             "activityValue": "n/a"
           },
           "gene": "UGT1A1",
-          "matchScore": 8,
+          "matchScore": 16,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -19576,7 +19576,7 @@
             "activityValue": "n/a"
           },
           "gene": "VKORC1",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "-1639 GG"
           ],
@@ -19617,7 +19617,7 @@
             "activityValue": "n/a"
           },
           "gene": "VKORC1",
-          "matchScore": 2,
+          "matchScore": 4,
           "phenotypes": [
             "-1639 GG"
           ],
@@ -19968,7 +19968,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -20101,7 +20101,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "UGT1A1",
-                        "matchScore": 8,
+                        "matchScore": 16,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -20382,7 +20382,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -20493,7 +20493,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -20530,7 +20530,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -20669,7 +20669,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -21123,7 +21123,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21226,7 +21226,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21333,7 +21333,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21480,7 +21480,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21545,7 +21545,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21610,7 +21610,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -21874,7 +21874,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -21970,7 +21970,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -22039,7 +22039,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -22246,7 +22246,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -22383,7 +22383,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -22516,7 +22516,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2B6",
-                        "matchScore": 96,
+                        "matchScore": 192,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -22612,7 +22612,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -22681,7 +22681,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -22792,7 +22792,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -22929,7 +22929,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -23033,7 +23033,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -23157,7 +23157,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -23194,7 +23194,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -23425,7 +23425,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -23535,7 +23535,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -23702,7 +23702,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -23771,7 +23771,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -23875,7 +23875,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NAT2",
-                        "matchScore": 94,
+                        "matchScore": 188,
                         "phenotypes": [
                           "Rapid Metabolizer"
                         ],
@@ -24069,7 +24069,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -24176,7 +24176,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -24309,7 +24309,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -24378,7 +24378,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -24482,7 +24482,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CFTR",
-                        "matchScore": 186,
+                        "matchScore": 372,
                         "phenotypes": [
                           "ivacaftor non-responsive in CF patients"
                         ],
@@ -24608,7 +24608,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -24706,7 +24706,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -24826,7 +24826,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -24924,7 +24924,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -25035,7 +25035,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -25072,7 +25072,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -25170,7 +25170,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -25239,7 +25239,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -25401,7 +25401,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -25696,7 +25696,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -25895,7 +25895,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -26252,7 +26252,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -26599,7 +26599,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -26725,7 +26725,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -26835,7 +26835,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -26974,7 +26974,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -27094,7 +27094,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -27244,7 +27244,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -27391,7 +27391,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -27545,7 +27545,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -27726,7 +27726,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "ABCG2",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -27763,7 +27763,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -27869,7 +27869,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2B6",
-                        "matchScore": 96,
+                        "matchScore": 192,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -27906,7 +27906,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -28004,7 +28004,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -28073,7 +28073,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -28215,7 +28215,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -28341,7 +28341,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -28410,7 +28410,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -28514,7 +28514,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP3A5",
-                        "matchScore": 10,
+                        "matchScore": 20,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -28668,7 +28668,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -28862,7 +28862,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -28973,7 +28973,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -29010,7 +29010,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -29196,7 +29196,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "G6PD",
-                        "matchScore": 342,
+                        "matchScore": 684,
                         "phenotypes": [
                           "Normal"
                         ],
@@ -29399,7 +29399,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -29724,7 +29724,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -29789,7 +29789,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -30021,7 +30021,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -30058,7 +30058,7 @@
                           "activityValue": null
                         },
                         "gene": "CYP4F2",
-                        "matchScore": 40,
+                        "matchScore": 80,
                         "phenotypes": [],
                         "outsidePhenotype": false,
                         "outsidePhenotypeMismatch": null,
@@ -30091,7 +30091,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "VKORC1",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "-1639 GG"
                         ],
@@ -30283,7 +30283,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "VKORC1",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "-1639 GG"
                         ],
@@ -30380,7 +30380,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "ABCG2",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -30675,7 +30675,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "UGT1A1",
-                        "matchScore": 8,
+                        "matchScore": 16,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -30898,7 +30898,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -30995,7 +30995,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -31069,7 +31069,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -31302,7 +31302,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -31518,7 +31518,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -31615,7 +31615,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -31785,7 +31785,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -32072,7 +32072,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2B6",
-                        "matchScore": 96,
+                        "matchScore": 192,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -32263,7 +32263,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -32571,7 +32571,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -32714,7 +32714,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -32920,7 +32920,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33115,7 +33115,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "UGT1A1",
-                        "matchScore": 8,
+                        "matchScore": 16,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33309,7 +33309,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33397,7 +33397,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33494,7 +33494,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33568,7 +33568,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -33856,7 +33856,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -34050,7 +34050,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -34249,7 +34249,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "VKORC1",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "-1639 GG"
                         ],
@@ -34688,7 +34688,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP3A4",
-                        "matchScore": 84,
+                        "matchScore": 168,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -34909,7 +34909,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -35012,7 +35012,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -35132,7 +35132,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "SLCO1B1",
-                        "matchScore": 140,
+                        "matchScore": 210,
                         "phenotypes": [
                           "Normal Function"
                         ],
@@ -35250,7 +35250,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP3A5",
-                        "matchScore": 10,
+                        "matchScore": 20,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -35483,7 +35483,7 @@
                               "activityValue": "1.0"
                             },
                             "gene": "DPYD",
-                            "matchScore": 166,
+                            "matchScore": 332,
                             "phenotypes": [
                               "Normal Metabolizer"
                             ],
@@ -35586,7 +35586,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "NUDT15",
-                        "matchScore": 36,
+                        "matchScore": 72,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -35660,7 +35660,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "TPMT",
-                        "matchScore": 86,
+                        "matchScore": 172,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -35962,7 +35962,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP2C19",
-                        "matchScore": 70,
+                        "matchScore": 140,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -36059,7 +36059,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "VKORC1",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "-1639 GG"
                         ],
@@ -37547,7 +37547,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -37616,7 +37616,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -38323,7 +38323,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -38862,7 +38862,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -38931,7 +38931,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -39943,7 +39943,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -40464,7 +40464,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -40533,7 +40533,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -40637,7 +40637,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -40823,7 +40823,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CACNA1S",
-                        "matchScore": 4,
+                        "matchScore": 8,
                         "phenotypes": [
                           "Uncertain Susceptibility"
                         ],
@@ -40892,7 +40892,7 @@
                               "activityValue": "n/a"
                             },
                             "gene": "RYR1",
-                            "matchScore": 626,
+                            "matchScore": 1252,
                             "phenotypes": [
                               "Uncertain Susceptibility"
                             ],
@@ -41638,7 +41638,7 @@
                           "activityValue": "1.0"
                         },
                         "gene": "CYP2C9",
-                        "matchScore": 166,
+                        "matchScore": 332,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -41675,7 +41675,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "VKORC1",
-                        "matchScore": 2,
+                        "matchScore": 4,
                         "phenotypes": [
                           "-1639 GG"
                         ],
@@ -45926,7 +45926,7 @@
                           "activityValue": "n/a"
                         },
                         "gene": "CYP3A5",
-                        "matchScore": 10,
+                        "matchScore": 20,
                         "phenotypes": [
                           "Normal Metabolizer"
                         ],
@@ -46541,7 +46541,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example.vcf",
-    "timestamp": "2025-11-03T21:02:46.907Z",
+    "timestamp": "2025-11-04T00:53:50.012Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,

@@ -758,8 +758,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
-      "corePositions": null,
-      "score": 0,
+      "corePositions": [],
+      "score": 35,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -843,9 +843,43 @@
       "reference": false,
       "structuralVariant": false,
       "corePositions": [
-        94842866
+        94761900,
+        94762706,
+        94762712,
+        94762715,
+        94762755,
+        94762760,
+        94762788,
+        94762856,
+        94775106,
+        94775121,
+        94775160,
+        94775185,
+        94775367,
+        94775416,
+        94775423,
+        94775453,
+        94775489,
+        94775507,
+        94780544,
+        94780574,
+        94780579,
+        94780653,
+        94781858,
+        94781859,
+        94781944,
+        94781999,
+        94842861,
+        94842866,
+        94842879,
+        94842995,
+        94849995,
+        94852738,
+        94852765,
+        94852785,
+        94852914
       ],
-      "score": 0,
+      "score": 35,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -934,7 +968,7 @@
         94781859,
         94842866
       ],
-      "score": 0,
+      "score": 4,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1021,7 +1055,7 @@
         94780653,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1109,7 +1143,7 @@
         94762706,
         94842866
       ],
-      "score": 0,
+      "score": 3,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1196,7 +1230,7 @@
         94842866,
         94852738
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1283,7 +1317,7 @@
         94775453,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1370,7 +1404,7 @@
         94781999,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1457,7 +1491,7 @@
         94775416,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1544,7 +1578,7 @@
         94775489,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1631,7 +1665,7 @@
         94781858,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1718,7 +1752,7 @@
         94775507,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1805,7 +1839,7 @@
         94842866,
         94852914
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1892,7 +1926,7 @@
         94842866,
         94849995
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1979,7 +2013,7 @@
         94762755,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2066,7 +2100,7 @@
         94762760,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2152,7 +2186,7 @@
       "corePositions": [
         94852765
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2239,7 +2273,7 @@
         94761900,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2326,7 +2360,7 @@
         94842861,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2413,7 +2447,7 @@
         94762856,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2500,7 +2534,7 @@
         94780574,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2587,7 +2621,7 @@
         94775160,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2674,7 +2708,7 @@
         94842866,
         94842879
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2761,7 +2795,7 @@
         94842866,
         94852785
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2848,7 +2882,7 @@
         94781944,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2936,7 +2970,7 @@
         94842866,
         94842995
       ],
-      "score": 0,
+      "score": 3,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3023,7 +3057,7 @@
         94762788,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3109,7 +3143,7 @@
       "corePositions": [
         94775106
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3196,7 +3230,7 @@
         94775121,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3283,7 +3317,7 @@
         94775185,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3370,7 +3404,7 @@
         94780579,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3457,7 +3491,7 @@
         94762712,
         94762715
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3545,7 +3579,7 @@
         94775367,
         94842866
       ],
-      "score": 0,
+      "score": 3,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3633,7 +3667,7 @@
         94775423,
         94842866
       ],
-      "score": 0,
+      "score": 3,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3721,7 +3755,7 @@
         94762715,
         94842866
       ],
-      "score": 0,
+      "score": 3,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3808,7 +3842,7 @@
         94780544,
         94842866
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     }

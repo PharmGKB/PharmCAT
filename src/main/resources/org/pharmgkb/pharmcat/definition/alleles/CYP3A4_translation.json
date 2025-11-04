@@ -902,8 +902,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
-      "corePositions": null,
-      "score": 0,
+      "corePositions": [],
+      "score": 42,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1003,7 +1003,7 @@
       "corePositions": [
         99768360
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1103,7 +1103,7 @@
       "corePositions": [
         99760901
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1203,7 +1203,7 @@
       "corePositions": [
         99770202
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1303,7 +1303,7 @@
       "corePositions": [
         99768371
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1403,7 +1403,7 @@
       "corePositions": [
         99766411
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1503,7 +1503,7 @@
       "corePositions": [
         99778079
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1603,7 +1603,7 @@
       "corePositions": [
         99770165
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1703,7 +1703,7 @@
       "corePositions": [
         99769781
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1803,7 +1803,7 @@
       "corePositions": [
         99769769
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1903,7 +1903,7 @@
       "corePositions": [
         99762206
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2003,7 +2003,7 @@
       "corePositions": [
         99762177
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2103,7 +2103,7 @@
       "corePositions": [
         99762047
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2203,7 +2203,7 @@
       "corePositions": [
         99784038
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2303,7 +2303,7 @@
       "corePositions": [
         99769804
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2403,7 +2403,7 @@
       "corePositions": [
         99768470
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2503,7 +2503,7 @@
       "corePositions": [
         99768458
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2603,7 +2603,7 @@
       "corePositions": [
         99764003
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2703,7 +2703,7 @@
       "corePositions": [
         99760836
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2803,7 +2803,7 @@
       "corePositions": [
         99758183
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -2903,7 +2903,7 @@
       "corePositions": [
         99763925
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3003,7 +3003,7 @@
       "corePositions": [
         99768693
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3103,7 +3103,7 @@
       "corePositions": [
         99769805
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3203,7 +3203,7 @@
       "corePositions": [
         99768424
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3303,7 +3303,7 @@
       "corePositions": [
         99766440
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3403,7 +3403,7 @@
       "corePositions": [
         99784018
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3503,7 +3503,7 @@
       "corePositions": [
         99770217
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3603,7 +3603,7 @@
       "corePositions": [
         99770166
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3703,7 +3703,7 @@
       "corePositions": [
         99763909
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3803,7 +3803,7 @@
       "corePositions": [
         99763877
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -3903,7 +3903,7 @@
       "corePositions": [
         99762186
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4003,7 +4003,7 @@
       "corePositions": [
         99760956
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4103,7 +4103,7 @@
       "corePositions": [
         99784075
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4204,7 +4204,7 @@
         99760901,
         99768693
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4305,7 +4305,7 @@
         99760901,
         99762206
       ],
-      "score": 0,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4405,7 +4405,7 @@
       "corePositions": [
         99784078
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4505,7 +4505,7 @@
       "corePositions": [
         99780036
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4605,7 +4605,7 @@
       "corePositions": [
         99770196
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4705,7 +4705,7 @@
       "corePositions": [
         99768447
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4805,7 +4805,7 @@
       "corePositions": [
         99766439
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -4905,7 +4905,7 @@
       "corePositions": [
         99766424
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5005,7 +5005,7 @@
       "corePositions": [
         99762054
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5105,7 +5105,7 @@
       "corePositions": [
         99758228
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5205,7 +5205,7 @@
       "corePositions": [
         99762069
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -5305,7 +5305,7 @@
       "corePositions": [
         99762234
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     }

@@ -125,8 +125,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
-      "corePositions": null,
-      "score": 0,
+      "corePositions": [],
+      "score": 5,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -152,7 +152,7 @@
       "corePositions": [
         99672916
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -178,7 +178,7 @@
       "corePositions": [
         99665212
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -204,7 +204,7 @@
       "corePositions": [
         99652770
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -230,7 +230,7 @@
       "corePositions": [
         99676198
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -256,7 +256,7 @@
       "corePositions": [
         99660516
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     }

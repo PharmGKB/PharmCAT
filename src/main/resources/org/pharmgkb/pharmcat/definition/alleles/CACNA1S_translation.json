@@ -62,8 +62,8 @@
       ],
       "reference": true,
       "structuralVariant": false,
-      "corePositions": null,
-      "score": 0,
+      "corePositions": [],
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -83,7 +83,7 @@
       "corePositions": [
         201091993
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -103,7 +103,7 @@
       "corePositions": [
         201060815
       ],
-      "score": 0,
+      "score": 1,
       "numCombinations": 0,
       "numPartials": 0
     }

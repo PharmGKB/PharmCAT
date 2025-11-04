@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import java.util.stream.Stream;
 import org.apache.commons.io.FileUtils;
 import org.jspecify.annotations.Nullable;
+import org.pharmgkb.common.util.AnsiConsole;
 import org.pharmgkb.common.util.CliHelper;
 import org.pharmgkb.common.util.PathUtils;
 import org.pharmgkb.pharmcat.definition.DefinitionReader;
@@ -132,7 +133,7 @@ public class DataManager {
           if (Files.exists(zipFile)) {
             ZipUtils.unzip(zipFile, downloadDir);
           } else {
-            System.out.println("WARNING: Cannot find " + zipFile + " - will have to rely on unpacked content");
+            printWarning("Cannot find " + zipFile + " - will have to rely on unpacked content");
           }
         }
 
@@ -194,8 +195,8 @@ public class DataManager {
         genesUsedInDrugRecommendations.removeAll(definitionReader.getGeneAlleleCount().keySet());
         genesUsedInDrugRecommendations.stream()
             .filter(g -> !g.startsWith("HLA"))
-            .map(g -> "WARNING: Gene used in drug recommendation has no allele mapping: " + g)
-            .forEach(System.out::println);
+            .map(g -> "Gene used in drug recommendation has no allele mapping: " + g)
+            .forEach(DataManager::printWarning);
 
 
         if (cliHelper.hasOption("doc")) {
@@ -298,6 +299,7 @@ public class DataManager {
 
     for (String gene : definitionFileMap.keySet()) {
       DefinitionFile definitionFile = definitionFileMap.get(gene);
+      validateDefinition(definitionFile);
       // output file
       Path jsonFile = definitionsDir.resolve(gene + "_translation.json");
       DataSerializer.serializeToJson(definitionFile, jsonFile);
@@ -373,6 +375,8 @@ public class DataManager {
    * Use suballeles of *45.
    */
   public static void fixSlco1b1(DefinitionFile definitionFile) {
+    // TODO(markwoon): check if PharmVar has updated any *45 definitions.
+
     NamedAllele star45 = Objects.requireNonNull(definitionFile.getNamedAllele("*45"));
     star45.initialize(definitionFile.getVariants());
     if (star45.getCorePositions().size() != 3) {
@@ -380,6 +384,18 @@ public class DataManager {
           star45.getCorePositions().size());
     }
     Long[] positions = star45.getCorePositions().toArray(new Long[0]);
+    if (!"rs2306283".equals(definitionFile.getVariantForPosition(positions[0]).getRsid())) {
+      throw new IllegalStateException("Expecting first position to map to rs2306283 but got " +
+          definitionFile.getVariantForPosition(positions[0]).getRsid() + " instead");
+    }
+    if (!"rs4149056".equals(definitionFile.getVariantForPosition(positions[1]).getRsid())) {
+      throw new IllegalStateException("Expecting second position to map to rs4149056 but got " +
+          definitionFile.getVariantForPosition(positions[1]).getRsid() + " instead");
+    }
+    if (!"rs71581941".equals(definitionFile.getVariantForPosition(positions[2]).getRsid())) {
+      throw new IllegalStateException("Expecting second position to map to rs71581941 but got " +
+          definitionFile.getVariantForPosition(positions[2]).getRsid() + " instead");
+    }
     int n130d = definitionFile.getIndexForPosition(positions[0]);
     int v174a = definitionFile.getIndexForPosition(positions[1]);
 
@@ -394,10 +410,26 @@ public class DataManager {
     cpicAlleles[n130d] = Objects.requireNonNull(star1.getCpicAllele(positions[0]));
     cpicAlleles[v174a] = Objects.requireNonNull(star1.getCpicAllele(positions[1]));
     NamedAllele star45_1 = new NamedAllele(star45.getId() + ".001", "*45.001", alleles, cpicAlleles, false);
+    InternalWrapper.forceReinitialize(star45, definitionFile.getVariants());
+    if (Objects.requireNonNull(star1.getAllele(positions[0])).equals(star45.getAllele(positions[0]))) {
+      throw new IllegalStateException("Expected *45's N130D allele to be different from *1's allele");
+    }
+    if (Objects.requireNonNull(star1.getAllele(positions[1])).equals(star45.getAllele(positions[1]))) {
+      throw new IllegalStateException("Expected *45's V174A allele to be different from *1's allele");
+    }
+    if (Objects.requireNonNull(star1.getAllele(positions[2])).equals(star45.getAllele(positions[1]))) {
+      throw new IllegalStateException("Expected *45's R580X allele to be different from *1's allele");
+    }
 
     // alt
     NamedAllele star15 = Objects.requireNonNull(definitionFile.getNamedAllele("*15"));
     InternalWrapper.forceReinitialize(star15, definitionFile.getVariants());
+    if (Objects.requireNonNull(star1.getAllele(positions[0])).equals(star15.getAllele(positions[0]))) {
+      throw new IllegalStateException("Expected *15's N130D allele to be different from *1's allele");
+    }
+    if (Objects.requireNonNull(star1.getAllele(positions[1])).equals(star15.getAllele(positions[1]))) {
+      throw new IllegalStateException("Expected *15's V174A allele to be different from *1's allele");
+    }
 
     alleles = star45.getAlleles().clone();
     cpicAlleles = star45.getCpicAlleles().clone();
@@ -505,5 +537,29 @@ public class DataManager {
       throw new IOException("Not a file: " + file);
     }
     return file;
+  }
+
+
+  /**
+   * Validates the final definition and makes sure all named alleles are initialized properly.
+   * <p>
+   * Validations:
+   *   * check for multiple wobbles
+   */
+  private static void validateDefinition(DefinitionFile definitionFile) {
+    if (definitionFile.getGeneSymbol().equals("CYP2D6")) {
+      return;
+    }
+    for (NamedAllele namedAllele : definitionFile.getNamedAlleles()) {
+      InternalWrapper.forceReinitialize(namedAllele, definitionFile.getVariants());
+      if (namedAllele.getWobblePositions().size()  > 1) {
+        throw new IllegalStateException("Multiple wobbles on " + definitionFile.getGeneSymbol() + " " +
+            namedAllele.getName() + " (" + namedAllele.getWobblePositions().size() + " wobbles)");
+      }
+    }
+  }
+
+  private static void printWarning(String warning) {
+    System.out.println(AnsiConsole.styleWarning("WARNING: " + warning));
   }
 }

@@ -1,22 +1,22 @@
-PharmCAT v3.0.1-76-g31de8e7d
+PharmCAT v3.0.1-75-g8c85b474
 Gene	Source Diplotype	Phenotype	Activity Score	Haplotype 1	Haplotype 1 Function	Haplotype 1 Activity Value	Haplotype 2	Haplotype 2 Function	Haplotype 2 Activity Value	Outside Call	Match Score	Missing positions	Recommendation Lookup Diplotype	Recommendation Lookup Phenotype	Recommendation Lookup Activity Score
-RYR1	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		Reference	Normal function		no	626	no	Reference/Reference	Uncertain Susceptibility	
-VKORC1	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG		rs9923231 reference (C)	Normal coumarin sensitivity		rs9923231 reference (C)	Normal coumarin sensitivity		no	2	no	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG	
-G6PD	B (reference)/B (reference)	Normal		B (reference)	IV/Normal		B (reference)	IV/Normal		no	342	no	B (reference)/B (reference)	Normal	
-TPMT	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	86	no	*1/*1	Normal Metabolizer	
-UGT1A1	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	8	no	*1/*1	Normal Metabolizer	
-CYP4F2	*1/*1			*1	null		*1	null		no	40	no	*1/*1		
-CYP2C19	*38/*38	Normal Metabolizer		*38	Normal function		*38	Normal function		no	70	no	*38/*38	Normal Metabolizer	
-CYP3A4	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	84	no	*1/*1	Normal Metabolizer	
-CYP3A5	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	10	no	*1/*1	Normal Metabolizer	
-CYP2C9	*1/*1	Normal Metabolizer	2.0	*1	Normal function	1.0	*1	Normal function	1.0	no	166	no	*1/*1	Normal Metabolizer	2.0
-SLCO1B1	*1/*1	Normal Function		*1	Normal function		*1	Normal function		no	140	no	*1/*1	Normal Function	
-CYP2B6	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	96	no	*1/*1	Normal Metabolizer	
+RYR1	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		Reference	Normal function		no	1252	no	Reference/Reference	Uncertain Susceptibility	
+VKORC1	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG		rs9923231 reference (C)	Normal coumarin sensitivity		rs9923231 reference (C)	Normal coumarin sensitivity		no	4	no	rs9923231 reference (C)/rs9923231 reference (C)	-1639 GG	
+G6PD	B (reference)/B (reference)	Normal		B (reference)	IV/Normal		B (reference)	IV/Normal		no	684	no	B (reference)/B (reference)	Normal	
+TPMT	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	172	no	*1/*1	Normal Metabolizer	
+UGT1A1	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	16	no	*1/*1	Normal Metabolizer	
+CYP4F2	*1/*1			*1	null		*1	null		no	80	no	*1/*1		
+CYP2C19	*38/*38	Normal Metabolizer		*38	Normal function		*38	Normal function		no	140	no	*38/*38	Normal Metabolizer	
+CYP3A4	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	168	no	*1/*1	Normal Metabolizer	
+CYP3A5	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	20	no	*1/*1	Normal Metabolizer	
+CYP2C9	*1/*1	Normal Metabolizer	2.0	*1	Normal function	1.0	*1	Normal function	1.0	no	332	no	*1/*1	Normal Metabolizer	2.0
+SLCO1B1	*1/*1	Normal Function		*1	Normal function		*1	Normal function		no	210	no	*1/*1	Normal Function	
+CYP2B6	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	192	no	*1/*1	Normal Metabolizer	
 CYP2D6	*1/*3	Intermediate Metabolizer	1.0	*1	Normal function	1.0	*3	No function	0.0	yes	0	no	*1/*3	Intermediate Metabolizer	1.0
-NAT2	*1/*1	Rapid Metabolizer		*1	Increased function		*1	Increased function		no	94	no	*1/*1	Rapid Metabolizer	
-DPYD	Reference/Reference	Normal Metabolizer	2.0	Reference	Normal function	1.0	Reference	Normal function	1.0	no	166	no	Reference/Reference	Normal Metabolizer	2.0
-CACNA1S	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		Reference	Normal function		no	4	no	Reference/Reference	Uncertain Susceptibility	
-NUDT15	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	36	no	*1/*1	Normal Metabolizer	
-IFNL3	rs12979860 reference (C)/rs12979860 reference (C)	 		rs12979860 reference (C)	Favorable response allele		rs12979860 reference (C)	Favorable response allele		no	2	no	rs12979860 reference (C)/rs12979860 reference (C)	 	
-CFTR	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		no	186	no	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients	
-ABCG2	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function		rs2231142 reference (G)	Normal function		rs2231142 reference (G)	Normal function		no	2	no	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function	
+NAT2	*1/*1	Rapid Metabolizer		*1	Increased function		*1	Increased function		no	188	no	*1/*1	Rapid Metabolizer	
+DPYD	Reference/Reference	Normal Metabolizer	2.0	Reference	Normal function	1.0	Reference	Normal function	1.0	no	332	no	Reference/Reference	Normal Metabolizer	2.0
+CACNA1S	Reference/Reference	Uncertain Susceptibility		Reference	Normal function		Reference	Normal function		no	8	no	Reference/Reference	Uncertain Susceptibility	
+NUDT15	*1/*1	Normal Metabolizer		*1	Normal function		*1	Normal function		no	72	no	*1/*1	Normal Metabolizer	
+IFNL3	rs12979860 reference (C)/rs12979860 reference (C)	 		rs12979860 reference (C)	Favorable response allele		rs12979860 reference (C)	Favorable response allele		no	4	no	rs12979860 reference (C)/rs12979860 reference (C)	 	
+CFTR	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive		no	372	no	ivacaftor non-responsive CFTR sequence/ivacaftor non-responsive CFTR sequence	ivacaftor non-responsive in CF patients	
+ABCG2	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function		rs2231142 reference (G)	Normal function		rs2231142 reference (G)	Normal function		no	4	no	rs2231142 reference (G)/rs2231142 reference (G)	Normal Function	
