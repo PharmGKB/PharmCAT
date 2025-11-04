@@ -678,8 +678,9 @@ public class NamedAlleleMatcherTest {
     assertEquals(List.of(
             "*1/[*9 + *10 + *14]",
             "*9/[*10 + *14]",
-            "*10/[*9 + *14]",
-            "*14/[*9 + *10]"),
+            "*14/[*9 + *10]",
+            "*10/[*9 + *14]"
+            ),
         matches);
   }
 
