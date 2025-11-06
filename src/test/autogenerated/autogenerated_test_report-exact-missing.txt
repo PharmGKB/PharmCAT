@@ -1,27 +1,27 @@
-# tests    = 49,322
-# passed   = 15,016
-# warnings = 31,565
-# failed   = 2,741
-# no alts & no match   = 162
-# with alts & no match = 0
+# tests    = 40,911
+# passed   = 22,566
+# warnings = 16,764
+# failed   = 1,581
+# no alts & no match   = 1,152
+# with alts & no match = 172
 
 | Gene       | Warnings | Failures |
 | ---------- | -------- | -------- |
 | ABCG2      |       0  |       0  |
 | CACNA1S    |       0  |       0  |
-| CFTR       |       0  |       0  |
-| CYP2B6     |   2,783  |   2,830  |
-| CYP2C19    |  20,249  |  22,943  |
-| CYP2C9     |     507  |     507  |
-| CYP3A4     |     136  |     136  |
+| CFTR       |     206  |     206  |
+| CYP2B6     |   2,889  |   2,937  |
+| CYP2C19    |   2,383  |   2,584  |
+| CYP2C9     |     620  |     709  |
+| CYP3A4     |     176  |     176  |
 | CYP3A5     |       0  |       0  |
-| CYP4F2     |      12  |      12  |
-| DPYD       |     162  |       0  |
+| CYP4F2     |      88  |      88  |
+| DPYD       |      81  |      84  |
 | G6PD       |   4,478  |   4,478  |
 | IFNL3      |       0  |       0  |
-| NUDT15     |      37  |      37  |
-| RYR1       |       0  |       0  |
-| SLCO1B1    |   3,084  |   3,084  |
+| NAT2       |   1,874  |   2,239  |
+| NUDT15     |      39  |      39  |
+| SLCO1B1    |   3,813  |   4,607  |
 | TPMT       |      89  |      89  |
 | UGT1A1     |      28  |      28  |
 | VKORC1     |       0  |       0  |
