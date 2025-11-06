@@ -3,7 +3,7 @@
     "namedAlleleMatcherVersion": "2.0.0",
     "genomeBuild": "GRCh38.p14",
     "inputFilename": "pharmcat.example2.vcf",
-    "timestamp": "2025-11-04T00:53:58.952Z",
+    "timestamp": "2025-11-06T00:04:48.452Z",
     "topCandidatesOnly": true,
     "findCombinations": false,
     "callCyp2d": false,
@@ -12,9 +12,9 @@
   },
   "geneReports": {
     "ABCG2": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "ABCG2",
       "chr": "chr4",
       "phased": false,
@@ -40,7 +40,7 @@
             "activityValue": "n/a"
           },
           "gene": "ABCG2",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "Normal Function"
           ],
@@ -81,7 +81,7 @@
             "activityValue": "n/a"
           },
           "gene": "ABCG2",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "Normal Function"
           ],
@@ -125,9 +125,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CACNA1S": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CACNA1S",
       "chr": "chr1",
       "phased": false,
@@ -161,7 +161,7 @@
             "activityValue": "n/a"
           },
           "gene": "CACNA1S",
-          "matchScore": 8,
+          "matchScore": 4,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -202,7 +202,7 @@
             "activityValue": "n/a"
           },
           "gene": "CACNA1S",
-          "matchScore": 8,
+          "matchScore": 4,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -261,9 +261,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CFTR": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CFTR",
       "chr": "chr7",
       "phased": false,
@@ -289,7 +289,7 @@
             "activityValue": "n/a"
           },
           "gene": "CFTR",
-          "matchScore": 372,
+          "matchScore": 186,
           "phenotypes": [
             "ivacaftor non-responsive in CF patients"
           ],
@@ -330,7 +330,7 @@
             "activityValue": "n/a"
           },
           "gene": "CFTR",
-          "matchScore": 372,
+          "matchScore": 186,
           "phenotypes": [
             "ivacaftor non-responsive in CF patients"
           ],
@@ -1765,9 +1765,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP2B6": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP2B6",
       "chr": "chr19",
       "phased": false,
@@ -1801,7 +1801,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2B6",
-          "matchScore": 100,
+          "matchScore": 50,
           "phenotypes": [
             "Intermediate Metabolizer"
           ],
@@ -1843,7 +1843,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2B6",
-          "matchScore": 100,
+          "matchScore": 50,
           "phenotypes": [
             "Intermediate Metabolizer"
           ],
@@ -2634,9 +2634,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP2C19": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP2C19",
       "chr": "chr10",
       "phased": false,
@@ -2662,7 +2662,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2C19",
-          "matchScore": 14,
+          "matchScore": 6,
           "phenotypes": [
             "Poor Metabolizer"
           ],
@@ -2703,7 +2703,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP2C19",
-          "matchScore": 14,
+          "matchScore": 6,
           "phenotypes": [
             "Poor Metabolizer"
           ],
@@ -3330,9 +3330,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP2C9": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP2C9",
       "chr": "chr10",
       "phased": false,
@@ -3366,7 +3366,7 @@
             "activityValue": "1.0"
           },
           "gene": "CYP2C9",
-          "matchScore": 332,
+          "matchScore": 166,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -3407,7 +3407,7 @@
             "activityValue": "1.0"
           },
           "gene": "CYP2C9",
-          "matchScore": 332,
+          "matchScore": 166,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -4707,7 +4707,7 @@
     "CYP2D6": {
       "alleleDefinitionVersion": null,
       "alleleDefinitionSource": "UNKNOWN",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP2D6",
       "chr": null,
       "phased": false,
@@ -4802,9 +4802,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP3A4": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP3A4",
       "chr": "chr7",
       "phased": false,
@@ -4838,7 +4838,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A4",
-          "matchScore": 168,
+          "matchScore": 84,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -4879,7 +4879,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A4",
-          "matchScore": 168,
+          "matchScore": 84,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -5542,9 +5542,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP3A5": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "CYP3A5",
       "chr": "chr7",
       "phased": false,
@@ -5578,7 +5578,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A5",
-          "matchScore": 20,
+          "matchScore": 10,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -5619,7 +5619,7 @@
             "activityValue": "n/a"
           },
           "gene": "CYP3A5",
-          "matchScore": 20,
+          "matchScore": 10,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -5723,7 +5723,7 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "CYP4F2": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
       "phenotypeVersion": null,
       "geneSymbol": "CYP4F2",
@@ -5759,7 +5759,7 @@
             "activityValue": null
           },
           "gene": "CYP4F2",
-          "matchScore": 80,
+          "matchScore": 40,
           "phenotypes": [],
           "outsidePhenotype": false,
           "outsidePhenotypeMismatch": null,
@@ -5796,7 +5796,7 @@
             "activityValue": null
           },
           "gene": "CYP4F2",
-          "matchScore": 80,
+          "matchScore": 40,
           "phenotypes": [],
           "outsidePhenotype": false,
           "outsidePhenotypeMismatch": null,
@@ -6125,9 +6125,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "DPYD": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "DPYD",
       "chr": "chr1",
       "phased": false,
@@ -6161,7 +6161,7 @@
             "activityValue": "1.0"
           },
           "gene": "DPYD",
-          "matchScore": 332,
+          "matchScore": 166,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -6194,7 +6194,7 @@
           },
           "allele2": null,
           "gene": "DPYD",
-          "matchScore": 166,
+          "matchScore": 83,
           "phenotypes": [
             "Indeterminate"
           ],
@@ -6266,7 +6266,7 @@
                 "activityValue": "1.0"
               },
               "gene": "DPYD",
-              "matchScore": 332,
+              "matchScore": 166,
               "phenotypes": [
                 "Normal Metabolizer"
               ],
@@ -7547,9 +7547,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "G6PD": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "G6PD",
       "chr": "chrX",
       "phased": false,
@@ -7583,7 +7583,7 @@
             "activityValue": "n/a"
           },
           "gene": "G6PD",
-          "matchScore": 684,
+          "matchScore": 342,
           "phenotypes": [
             "Normal"
           ],
@@ -7624,7 +7624,7 @@
             "activityValue": "n/a"
           },
           "gene": "G6PD",
-          "matchScore": 684,
+          "matchScore": 342,
           "phenotypes": [
             "Normal"
           ],
@@ -10437,9 +10437,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "IFNL3": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "IFNL3",
       "chr": "chr19",
       "phased": false,
@@ -10465,7 +10465,7 @@
             "activityValue": "n/a"
           },
           "gene": "IFNL3",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "n/a"
           ],
@@ -10506,7 +10506,7 @@
             "activityValue": "n/a"
           },
           "gene": "IFNL3",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "n/a"
           ],
@@ -10552,7 +10552,7 @@
     "MT-RNR1": {
       "alleleDefinitionVersion": null,
       "alleleDefinitionSource": "UNKNOWN",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "MT-RNR1",
       "chr": null,
       "phased": false,
@@ -10635,9 +10635,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "NAT2": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "NAT2",
       "chr": "chr8",
       "phased": false,
@@ -10671,7 +10671,7 @@
             "activityValue": "n/a"
           },
           "gene": "NAT2",
-          "matchScore": 188,
+          "matchScore": 94,
           "phenotypes": [
             "Rapid Metabolizer"
           ],
@@ -10712,7 +10712,7 @@
             "activityValue": "n/a"
           },
           "gene": "NAT2",
-          "matchScore": 188,
+          "matchScore": 94,
           "phenotypes": [
             "Rapid Metabolizer"
           ],
@@ -11522,9 +11522,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "NUDT15": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "NUDT15",
       "chr": "chr13",
       "phased": false,
@@ -11558,7 +11558,7 @@
             "activityValue": "n/a"
           },
           "gene": "NUDT15",
-          "matchScore": 72,
+          "matchScore": 36,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -11599,7 +11599,7 @@
             "activityValue": "n/a"
           },
           "gene": "NUDT15",
-          "matchScore": 72,
+          "matchScore": 36,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -11901,9 +11901,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "RYR1": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "RYR1",
       "chr": "chr19",
       "phased": false,
@@ -11937,7 +11937,7 @@
             "activityValue": "n/a"
           },
           "gene": "RYR1",
-          "matchScore": 1252,
+          "matchScore": 626,
           "phenotypes": [
             "Uncertain Susceptibility"
           ],
@@ -11970,7 +11970,7 @@
           },
           "allele2": null,
           "gene": "RYR1",
-          "matchScore": 626,
+          "matchScore": 313,
           "phenotypes": [
             "n/a"
           ],
@@ -12042,7 +12042,7 @@
                 "activityValue": "n/a"
               },
               "gene": "RYR1",
-              "matchScore": 1252,
+              "matchScore": 626,
               "phenotypes": [
                 "Uncertain Susceptibility"
               ],
@@ -16797,9 +16797,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "SLCO1B1": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "SLCO1B1",
       "chr": "chr12",
       "phased": false,
@@ -16833,7 +16833,7 @@
             "activityValue": "n/a"
           },
           "gene": "SLCO1B1",
-          "matchScore": 210,
+          "matchScore": 70,
           "phenotypes": [
             "Normal Function"
           ],
@@ -16874,7 +16874,7 @@
             "activityValue": "n/a"
           },
           "gene": "SLCO1B1",
-          "matchScore": 210,
+          "matchScore": 70,
           "phenotypes": [
             "Normal Function"
           ],
@@ -17478,9 +17478,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "TPMT": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "TPMT",
       "chr": "chr6",
       "phased": false,
@@ -17514,7 +17514,7 @@
             "activityValue": "n/a"
           },
           "gene": "TPMT",
-          "matchScore": 172,
+          "matchScore": 86,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -17555,7 +17555,7 @@
             "activityValue": "n/a"
           },
           "gene": "TPMT",
-          "matchScore": 172,
+          "matchScore": 86,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -18233,9 +18233,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "UGT1A1": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "UGT1A1",
       "chr": "chr2",
       "phased": false,
@@ -18269,7 +18269,7 @@
             "activityValue": "n/a"
           },
           "gene": "UGT1A1",
-          "matchScore": 16,
+          "matchScore": 8,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -18310,7 +18310,7 @@
             "activityValue": "n/a"
           },
           "gene": "UGT1A1",
-          "matchScore": 16,
+          "matchScore": 8,
           "phenotypes": [
             "Normal Metabolizer"
           ],
@@ -18405,9 +18405,9 @@
       "treatUndocumentedVariationsAsReference": false
     },
     "VKORC1": {
-      "alleleDefinitionVersion": "2025-11-03-12-41",
+      "alleleDefinitionVersion": "2025-11-05-00-25",
       "alleleDefinitionSource": "CLINPGX",
-      "phenotypeVersion": "2025-11-03-12-41",
+      "phenotypeVersion": "2025-11-05-00-25",
       "geneSymbol": "VKORC1",
       "chr": "chr16",
       "phased": false,
@@ -18433,7 +18433,7 @@
             "activityValue": "n/a"
           },
           "gene": "VKORC1",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "-1639 GG"
           ],
@@ -18474,7 +18474,7 @@
             "activityValue": "n/a"
           },
           "gene": "VKORC1",
-          "matchScore": 4,
+          "matchScore": 2,
           "phenotypes": [
             "-1639 GG"
           ],

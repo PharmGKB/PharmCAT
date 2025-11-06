@@ -678,8 +678,8 @@ public class NamedAlleleMatcherTest {
     assertEquals(List.of(
             "*1/[*9 + *10 + *14]",
             "*9/[*10 + *14]",
-            "*14/[*9 + *10]",
-            "*10/[*9 + *14]"
+            "*10/[*9 + *14]",
+            "*14/[*9 + *10]"
             ),
         matches);
   }
@@ -1463,6 +1463,31 @@ public class NamedAlleleMatcherTest {
             "*1/[*36 + *46]"
         ),
         matches);
+  }
+
+
+  @Test
+  void testWobbleScoringWithMultipleSequenceMatches(TestInfo testInfo) throws Exception {
+    // Because of the wobble on *18, this allele combination will match *6/*18 and *9/*18.
+    // This means the BaseMatch for *18 will have multiple sequences.
+    // If scores are not calculated correctly, then one will be favored over the other
+    TestVcfBuilder testBuilder = new TestVcfBuilder(testInfo)
+        .forGene("CYP2B6");
+    Path vcfFile = new TestVcfBuilder(testInfo)
+        .variation("CYP2B6", "rs3745274", "G", "T")  // 0/1
+        .variation("CYP2B6", "rs2279343", "A", "G")  // 0/1
+        .variation("CYP2B6", "rs28399499", "T", "C") // 0/1
+        .generate();
+
+    NamedAlleleMatcher namedAlleleMatcher = testBuilder.getMatcher(false, true, false);
+    Result result = namedAlleleMatcher.call(new VcfFile(vcfFile), null);
+    assertEquals(0, result.getVcfWarnings().size());
+    assertEquals(1, result.getGeneCalls().size());
+
+    GeneCall geneCall = result.getGeneCalls().get(0);
+    List<String> matches = printMatches(geneCall);
+    assertEquals(2, matches.size());
+    assertThat(matches, contains("*6/*18", "*9/*18"));
   }
 
 

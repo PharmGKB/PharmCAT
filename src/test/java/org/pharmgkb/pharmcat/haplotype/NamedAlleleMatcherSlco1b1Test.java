@@ -54,6 +54,21 @@ public class NamedAlleleMatcherSlco1b1Test {
   }
 
   @Test
+  void slco1b1s5s14(TestInfo testInfo) throws Exception {
+    // Test *5/*15
+    List<String> expectedMatches = Lists.newArrayList("*4/*15", "*5/*14");
+
+    Result result = testMatchNamedAlleles(s_env, sf_definitionFile,
+        new TestVcfBuilder(testInfo, "slco1b1s5s14")
+            .variation("SLCO1B1", "rs2306283", "A", "G")
+            .variation("SLCO1B1", "rs11045819", "C", "A")
+            .variation("SLCO1B1", "rs4149056", "C", "T")
+            .generate());
+    assertDiplotypePairs(expectedMatches, result);
+  }
+
+
+  @Test
   void slco1b1s5s15(TestInfo testInfo) throws Exception {
     // Test *5/*15
     List<String> expectedMatches = Lists.newArrayList("*5/*15");

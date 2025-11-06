@@ -176,6 +176,7 @@ public class NamedAllele implements Comparable<NamedAllele> {
     m_wobbleIndices = new TreeSet<>();
     m_wobblePositions = new TreeSet<>();
     m_corePositions = new TreeSet<>();
+    m_score = 0;
     for (int x = 0; x < refVariants.length; x += 1) {
       m_alleleMap.put(refVariants[x], m_alleles[x]);
       m_cpicAlleleMap.put(refVariants[x], m_cpicAlleles[x]);

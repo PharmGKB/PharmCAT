@@ -1,7 +1,7 @@
 {
   "formatVersion": "2",
   "source": "CLINPGX",
-  "version": "2025-11-03-12-41",
+  "version": "2025-11-05-00-25",
   "modificationDate": "2025-10-14T22:24:09.333Z",
   "gene": "SLCO1B1",
   "orientation": null,
@@ -758,7 +758,7 @@
       "reference": true,
       "structuralVariant": false,
       "corePositions": [],
-      "score": 70,
+      "score": 35,
       "numCombinations": 0,
       "numPartials": 0
     },
@@ -1620,7 +1620,7 @@
         21176804,
         21178615
       ],
-      "score": 4,
+      "score": 2,
       "numCombinations": 0,
       "numPartials": 0
     },
