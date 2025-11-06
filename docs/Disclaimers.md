@@ -83,14 +83,14 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | CYP2B6  | \*1/\*7                    | Intermediate       | \*5/\*6                              | Intermediate                |
 | CYP2B6  | \*1/\*13                   | Intermediate       | \*6/\*8                              | Intermediate                |
 | SLCO1B1 | \*1/\*14                   | Normal Function    | \*4/\*37                             | Indeterminate               |
-| SLCO1B1 | \*1/\*15                   | Decreased function | \*5/\*37                             | Decreased function          |
+| SLCO1B1 | \*1/\*15                   | Decreased Function | \*5/\*37                             | Decreased Function          |
 | SLCO1B1 | \*1/\*20                   | Normal Function    | \*19/\*37                            | Indeterminate               |
 | SLCO1B1 | \*1/\*25                   | Indeterminate      | \*4/\*28                             | Indeterminate               |
-| SLCO1B1 | \*1/\*31                   | Decreased function | \*9/\*37                             | Decreased Function          |
+| SLCO1B1 | \*1/\*31                   | Decreased Function | \*9/\*37                             | Decreased Function          |
 | SLCO1B1 | \*1/\*32                   | Indeterminate      | \*4/\*24                             | Indeterminate               |
 | SLCO1B1 | \*1/\*40                   | Indeterminate      | \*5/\*19                             | Possible Decreased Function |
 | SLCO1B1 | \*1/\*43                   | Indeterminate      | \*4/\*44                             | Indeterminate               |
-| SLCO1B1 | \*1/\*45                   | Intermediate       | \*15/\*45                            | Poor                        |
+| SLCO1B1 | \*1/\*45                   | Decreased Function | \*15/\*45                            | Poor Function               |
 | SLCO1B1 | \*1/\*53                   | N/A                | \*4/\*27                             | Indeterminate               |
 | CYP4F2  | \*1/\*4                    | N/A                | \*2/\*3                              | N/A                         |
 | CYP3A4  | \*1/\*37                   | N/A                | \*3/\*22                             | N/A                         |
