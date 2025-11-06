@@ -130,21 +130,13 @@ All content is sourced from the [CPIC database](https://github.com/cpicpgx/cpic-
 ## C. DPWG Allele Function, Phenotype and Recommendation
 
 1. ClinPGx annotates PGx-based drug dosing guidelines published by the [Royal Dutch Association for the Advancement of
-   Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.clinpgx.org/page/dpwg). ClinPGx curates allele 
-   function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline
-   recommendations. Where possible, ClinPGx maps DPWG terms to CPIC terms, as outlined on
-   [ClinPGx](https://www.clinpgx.org/page/dpwgMapping).
+   Pharmacy - Pharmacogenetics Working Group (DPWG)](https://www.clinpgx.org/page/dpwg). PharmCAT uses [ClinPGx/CPIC allele function and phenotype information](https://www.clinpgx.org/page/cpicFuncPhen) to connect diplotypes with DPWG guideline recommendations. 
 
 2. CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant
    notations for the included alleles (only \*16, \*20, and \*22 are specified) PharmCAT relies on
    [PharmVar CYP3A4 allele definitions](https://www.pharmvar.org/gene/CYP3A4). However, the CYP3A4\*16, \*20 and \*22
    definitions are the same in both sources.
 
-3. The CPIC UGT1A1 allele definition file includes \*6, \*27, \*28, \*36, \*37, and \*80. Since the DPWG UGT1A1 document
-   does not include allele definitions besides for the UGT1A1 TA box promoter polymorphism, PharmCAT only includes the
-   UGT1A1 positions from the CPIC UGT1A1 allele definition file. Other UGT1A1 alleles can be supplied as
-   [outside calls](https://pharmcat.org/using/Outside-Call-Format/) but not be determined from the VCF file by the
-   Named Allele Matcher.
 
 ## D. FDA drug-label and Table of Pharmacogenetic Associations recommendations
 
