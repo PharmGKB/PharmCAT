@@ -76,7 +76,7 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | TPMT    | \*1/\*3A                   | Intermediate       | \*3B/\*3C                            | Poor                        |
 | NUDT15  | \*1/\*2                    | Intermediate       | \*3/\*6                              | Possible Intermediate       |
 | CYP2C9  | \*1/\*71                   | Indeterminate      | \*10/\*22                            | Indeterminate               |
-| CYP2C9  | \*1/\*36                   | Indeterminate      | \*5/\*36                             | Indeterminate               |
+| CYP2C19 | \*1/\*34                   | Indeterminate      | \*38/\*40                            | N/A                         |
 | CYP2B6  | \*1/\*36                   | Intermediate       | \*6/\*22                             | Intermediate                |
 | CYP2B6  | \*1/\*34                   | Intermediate       | \*33/\*36                            | Indeterminate               |
 | CYP2B6  | \*1/\*6                    | Intermediate       | \*4/\*9                              | Intermediate                |
@@ -90,7 +90,6 @@ Table 1: Cases for which there is an overlap in the allele definitions.
 | SLCO1B1 | \*1/\*32                   | Indeterminate      | \*4/\*24                             | Indeterminate               |
 | SLCO1B1 | \*1/\*40                   | Indeterminate      | \*5/\*19                             | Possible Decreased Function |
 | SLCO1B1 | \*1/\*43                   | Indeterminate      | \*4/\*44                             | Indeterminate               |
-| SLCO1B1 | \*1/\*45                   | Decreased Function | \*15/\*45                            | Poor Function               |
 | SLCO1B1 | \*1/\*53                   | N/A                | \*4/\*27                             | Indeterminate               |
 | CYP4F2  | \*1/\*4                    | N/A                | \*2/\*3                              | N/A                         |
 | CYP3A4  | \*1/\*37                   | N/A                | \*3/\*22                             | N/A                         |
@@ -109,12 +108,14 @@ in the genotype with the lower score. Both genotypes cannot be ruled out with un
 overlaps between the respective alleles is heterozygous (0/1) in addition to heterozygous calls for the other variants
 that define the non-\*1 allele in the genotype with the higher score.
 
-| Gene    | Genotype (Higher Score) | Phenotype    | Genotype (Lower Score)| Phenotype     |
-| ------- | ----------------------- |--------------| --------------------- |---------------|
-| CYP2C19 | \*1/\*4                 | Intermediate | \*17/\*4              | Intermediate  |
-| CYP2C19 | \*1/\*2                 | Intermediate | \*11/\*2              | Intermediate  |
-| CYP2C19 | \*1/\*35                | Intermediate | \*15/\*35             | Intermediate  |
-| CYP2B6  | \*1/\*18                | Intermediate | \*4/\*18              | Indeterminate |
+| Gene    | Genotype (Higher Score) | Phenotype          | Genotype (Lower Score)| Phenotype     |
+| ------- | ----------------------- |--------------------| --------------------- |---------------|
+| CYP2C19 | \*1/\*4                 | Intermediate       | \*17/\*4              | Intermediate  |
+| CYP2C19 | \*1/\*2                 | Intermediate       | \*11/\*2              | Intermediate  |
+| CYP2C19 | \*1/\*35                | Intermediate       | \*15/\*35             | Intermediate  |
+| CYP2B6  | \*1/\*18                | Intermediate       | \*4/\*18              | Indeterminate |
+| CYP2C9  | \*1/\*36                | Indeterminate      | \*5/\*36              | Indeterminate |
+| SLCO1B1 | \*1/\*45                | Decreased Function | \*15/\*45             | Poor Function |
 
 9. For NAT2, PharmCAT requires variant input for rs1801279 (191G>A), rs1801280 (341T>C), rs1799930 (590G>A), rs1208 (803G>A),
    and rs1799931 (857G>A). The default PharmCAT behavior is changed for unphased NAT2 data, details are noted in the
