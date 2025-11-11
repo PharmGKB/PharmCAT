@@ -1,5 +1,5 @@
 <section id="disclaimer">
-<h2 id="disclaimers-and-other-information">Disclaimers and Other Information</h2>
+<h2 id="disclaimers-and-other-information">Section IV: Disclaimers and Other Information</h2>
 <p><strong>Liability: PharmCAT assumes no responsibility for any injury to person or damage to persons or property arising out of,
 or related to any use of PharmCAT, or for any errors or omissions. The user recognizes that PharmCAT is a research tool
 and that they are using PharmCAT at their own risk.</strong></p>
@@ -24,7 +24,7 @@ the allele will be considered in the matching process based on the available inf
 of multiple possible genotypes that received the same highest matching score. In addition, alternate calls with a lower
 score is also possible. For instructions on getting PharmCAT to output all possible matching genotypes, consult
 <a href="https://pharmcat.org/using/Running-PharmCAT/#named-allele-matcher">the documentation</a>.</p></li>
-<li><p>For cytochrome P450 genes, TPMT, NUDT15, UGT1A1, and SLCO1B1, the *1 allele is defined by the absence of variation
+<li><p>For cytochrome P450 genes, NAT2, TPMT, NUDT15, UGT1A1, and SLCO1B1, the *1 allele is defined by the absence of variation
 specified in the gene definition tables. This allele cannot be identified by variants; rather, *1 is assigned by
 default when no variation for the queried positions is reported in the submitted VCF file. The same is true for all
 other genes with multiple variant positions in the definition table (CACNA1S, CFTR, DPYD, RYR1): the reference
@@ -97,9 +97,16 @@ cannot be ruled out.</p></li>
 <tr>
 <td>CYP2C9</td>
 <td>*1/*71</td>
-<td>N/A</td>
+<td>Indeterminate</td>
 <td>*10/*22</td>
 <td>Indeterminate</td>
+</tr>
+<tr>
+<td>CYP2C19</td>
+<td>*1/*34</td>
+<td>Indeterminate</td>
+<td>*38/*40</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td>CYP2B6</td>
@@ -138,34 +145,6 @@ cannot be ruled out.</p></li>
 </tr>
 <tr>
 <td>SLCO1B1</td>
-<td>*1/*46</td>
-<td>Decreased function</td>
-<td>*15/*45</td>
-<td>Possible Decreased Function</td>
-</tr>
-<tr>
-<td>SLCO1B1</td>
-<td>*1/*20</td>
-<td>Normal Function</td>
-<td>*19/*37</td>
-<td>Indeterminate</td>
-</tr>
-<tr>
-<td>SLCO1B1</td>
-<td>*1/*12</td>
-<td>Indeterminate</td>
-<td>*2/*10</td>
-<td>Indeterminate</td>
-</tr>
-<tr>
-<td>SLCO1B1</td>
-<td>*1/*13</td>
-<td>Indeterminate</td>
-<td>*3/*11</td>
-<td>Indeterminate</td>
-</tr>
-<tr>
-<td>SLCO1B1</td>
 <td>*1/*14</td>
 <td>Normal Function</td>
 <td>*4/*37</td>
@@ -174,9 +153,16 @@ cannot be ruled out.</p></li>
 <tr>
 <td>SLCO1B1</td>
 <td>*1/*15</td>
-<td>Decreased function</td>
+<td>Decreased Function</td>
 <td>*5/*37</td>
-<td>Decreased function</td>
+<td>Decreased Function</td>
+</tr>
+<tr>
+<td>SLCO1B1</td>
+<td>*1/*20</td>
+<td>Normal Function</td>
+<td>*19/*37</td>
+<td>Indeterminate</td>
 </tr>
 <tr>
 <td>SLCO1B1</td>
@@ -188,7 +174,7 @@ cannot be ruled out.</p></li>
 <tr>
 <td>SLCO1B1</td>
 <td>*1/*31</td>
-<td>Decreased function</td>
+<td>Decreased Function</td>
 <td>*9/*37</td>
 <td>Decreased Function</td>
 </tr>
@@ -211,6 +197,13 @@ cannot be ruled out.</p></li>
 <td>*1/*43</td>
 <td>Indeterminate</td>
 <td>*4/*44</td>
+<td>Indeterminate</td>
+</tr>
+<tr>
+<td>SLCO1B1</td>
+<td>*1/*53</td>
+<td>N/A</td>
+<td>*4/*27</td>
 <td>Indeterminate</td>
 </tr>
 <tr>
@@ -322,53 +315,47 @@ that define the non-*1 allele in the genotype with the higher score.</p>
 <td>*4/*18</td>
 <td>Indeterminate</td>
 </tr>
+<tr>
+<td>CYP2C9</td>
+<td>*1/*36</td>
+<td>Indeterminate</td>
+<td>*5/*36</td>
+<td>Indeterminate</td>
+</tr>
+<tr>
+<td>SLCO1B1</td>
+<td>*1/*45</td>
+<td>Decreased Function</td>
+<td>*15/*45</td>
+<td>Poor Function</td>
+</tr>
 </tbody>
 </table>
+<ol start="9">
+<li>For NAT2, PharmCAT requires variant input for rs1801279 (191G&gt;A), rs1801280 (341T&gt;C), rs1799930 (590G&gt;A), rs1208 (803G&gt;A),
+and rs1799931 (857G&gt;A). The default PharmCAT behavior is changed for unphased NAT2 data, details are noted in the
+<a href="https://pharmcat.org/methods/Gene-Definition-Exceptions/">Gene Definition Exceptions document</a>.</li>
+</ol>
 <h3 id="b-cpic-allele-function-phenotype-and-recommendation">B. CPIC Allele Function, Phenotype and Recommendation</h3>
 <p>All content is sourced from the <a href="https://github.com/cpicpgx/cpic-data">CPIC database</a>.</p>
 <h3 id="c-dpwg-allele-function-phenotype-and-recommendation">C. DPWG Allele Function, Phenotype and Recommendation</h3>
 <ol>
-<li><p>
-  ClinPGx annotates PGx-based drug dosing guidelines published by
-  the <a href="https://www.clinpgx.org/page/dpwg">Royal Dutch Association for the Advancement of Pharmacy -
-  Pharmacogenetics Working Group (DPWG)</a>. ClinPGx curates allele
-function assignments and phenotype mappings from the DPWG to provide genotype specific DPWG guideline
-recommendations. Where possible, ClinPGx maps DPWG terms to CPIC terms, as outlined on
-<a href="https://www.clinpgx.org/page/dpwgMapping">ClinPGx</a>.</p></li>
+<li><p>ClinPGx annotates PGx-based drug dosing guidelines published by the <a href="https://www.clinpgx.org/page/dpwg">Royal Dutch Association for the Advancement of
+Pharmacy - Pharmacogenetics Working Group (DPWG)</a>. PharmCAT uses <a href="https://www.clinpgx.org/page/cpicFuncPhen">ClinPGx/CPIC allele function and phenotype information</a> to connect diplotypes with DPWG guideline recommendations. </p></li>
 <li><p>CYP3A4 is currently not part of a CPIC guideline. Since the DPWG CYP3A4 documentation includes limit variant
 notations for the included alleles (only *16, *20, and *22 are specified) PharmCAT relies on
 <a href="https://www.pharmvar.org/gene/CYP3A4">PharmVar CYP3A4 allele definitions</a>. However, the CYP3A4*16, *20 and *22
 definitions are the same in both sources.</p></li>
-<li><p>The CPIC UGT1A1 allele definition file includes *6, *27, *28, *36, *37, and *80. Since the DPWG UGT1A1 document
-does not include allele definitions besides for the UGT1A1 TA box promoter polymorphism, PharmCAT only includes the
-UGT1A1 positions from the CPIC UGT1A1 allele definition file. Other UGT1A1 alleles can be supplied as
-<a href="https://pharmcat.org/using/Outside-Call-Format/">outside calls</a> but not be determined from the VCF file by the
-Named Allele Matcher.</p></li>
 </ol>
 <h3 id="d-fda-drug-label-and-table-of-pharmacogenetic-associations-recommendations">D. FDA drug-label and Table of Pharmacogenetic Associations recommendations</h3>
-<p>
-  PharmCAT includes recommendations from ClinPGx-annotated FDA drug labels and the FDA Table of Pharmacogenetic Associations.
-  It only contains FDA information for genes with CPIC or DPWG guidelines because the FDA does not offer any
-  genotype-to-phenotype mapping information. PharmCAT uses CPIC genotype-to-phenotype mappings when they exist, and
-  DPWG genotype-to-phenotype mappings when no CPIC mappings exist, to determine the phenotypes to use with FDA label
-  annotations and Table of Pharmacogenetic Associations entries. Results presented
-  for <a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations">FDA
-  Table of Pharmacogenetic Associations</a> use wording and “Affected Subgroups” taken directly from the Table.
-  Results presented from ClinPGx-annotated drug labels present wording from the specific label that was curated.
-  In many cases, multiple FDA labels may exist for a particular medication. Typically, ClinPGx annotates the label
-  linked to from the FDA <a href="https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling">Table of Pharmacogenomic Biomarkers in Drug Labeling</a> but in some cases a different label may be annotated. Follow the “FDA Label Annotation” link in section II of the report to access the annotated label and more information.</p>
+<p>PharmCAT includes recommendations from ClinPGx-annotated FDA drug labels and the FDA Table of Pharmacogenetic Associations. 
+It only contains FDA information for genes with CPIC or DPWG guidelines because the FDA does not offer any genotype-to-phenotype mapping information. PharmCAT uses CPIC genotype-to-phenotype mappings when they exist, and DPWG genotype-to-phenotype mappings when no CPIC mappings exist, to determine the phenotypes to use with FDA label annotations and Table of Pharmacogenetic Associations entries. Results presented for <a href="https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations">FDA Table of Pharmacogenetic Associations</a> use wording and “Affected Subgroups” taken directly from the Table. Results presented from ClinPGx-annotated drug labels present wording from the specific label that was curated. In many cases, multiple FDA labels may exist for a particular medication. Typically, ClinPGx annotates the label linked to from the FDA <a href="https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling">Table of Pharmacogenomic Biomarkers in Drug Labeling</a> but in some cases a different label may be annotated. Follow the “FDA Label Annotation” link in section II of the report to access the annotated label and more information.</p>
 <h3 id="e-source-tags-in-section-ii">E. Source Tags in Section II</h3>
-<p>
-  Part of ClinPGx’s annotations of guidelines, drug labels and Table of Pharmacogenetic Associations is the assignment
-  of labels that are meant to provide a high-level indication of the provided action. If recommendations or FDA Table
-  wording exists, yellow boxes display if the guidance/wording is regarding (1) a dosing change, (2) recommending an
-  alternate drug be used, or (3) other guidance. These boxes are included in the Source column in Section II of the
-  PharmCAT report. More detailed information about what the yellow boxes mean is available
-  on <a href="https://www.clinpgx.org/page/clinicalGuidelineLegend#clinical-guideline-annotation-tags">ClinPGx</a>.</p>
+<p>Part of ClinPGx’s annotations of guidelines, drug labels and Table of Pharmacogenetic Associations is the assignment of labels that are meant to provide a high-level indication of the provided action. If recommendations or FDA Table wording exists, yellow boxes display if the guidance/wording is regarding (1) a dosing change, (2) recommending an alternate drug be used, or (3) other guidance. These boxes are included in the Source column in Section II of the PharmCAT report. More detailed information about what the yellow boxes mean is available on <a href="https://www.clinpgx.org/page/clinicalGuidelineLegend#clinical-guideline-annotation-tags">ClinPGx</a>.</p>
 <h3 id="f-pharmcat-exceptions-to-the-cpic-guideline-gene-list">F. PharmCAT Exceptions to the CPIC Guideline Gene List</h3>
 <ol>
 <li><p>PharmCAT does not determine CYP2D6, MT-RNR1, HLA-A, or HLA-B genotypes from the VCF file, but genotypes for CYP2D6,
-MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype
+MT-RNR1, HLA-A, or HLA-B can be provided to PharmCAT from an outside source and the corresponding phenotype 
 prescribing recommendations will be included in the generated report. For the required format of the outside calls
 refer to the PharmCAT <a href="https://pharmcat.org/using/Outside-Call-Format/">outside calls documentation</a>.</p></li>
 <li><p>CPIC has assigned function to the following CYP2D6 CNV alleles: *1x2, *1x≥3, *2x2, *2x≥3, *3x2, *4x2, *4x≥3,
