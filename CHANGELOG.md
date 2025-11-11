@@ -1,3 +1,48 @@
+## [3.1.0](https://github.com/PharmGKB/PharmCAT/compare/v3.0.1...v3.1.0) (2025-11-11)
+
+### Features
+
+* add square icon to fetch file ([a8c9fef](https://github.com/PharmGKB/PharmCAT/commit/a8c9feffee570c60c94786fa2c962e963410fa86))
+* adjust DPYD recommendations for DPWG guidelines ([3d7c4a8](https://github.com/PharmGKB/PharmCAT/commit/3d7c4a80f3c5632d52004ed17378618931b2fece))
+* removal of DPWG-specific phenotypes and functions ([bd22137](https://github.com/PharmGKB/PharmCAT/commit/bd22137184d7b902f0ad144ed692704bff29c347))
+* **namedAlleleMatcher:** support suballeles to work around ambiguous core alleles ([6d6f272](https://github.com/PharmGKB/PharmCAT/commit/6d6f272e3ea465f5a539e22e506fe9cf33682214))
+
+### Bug Fixes
+
+* fix class import ([e3b0f04](https://github.com/PharmGKB/PharmCAT/commit/e3b0f04033c58f4da2bb65d526efe7b20f94727e))
+* fix failing tests ([3843d8d](https://github.com/PharmGKB/PharmCAT/commit/3843d8d7c3815f2a6890a474a54315a3dde655e6))
+* fix unit test for checking DPWG phenotype assignment ([dfdfc3e](https://github.com/PharmGKB/PharmCAT/commit/dfdfc3ec047e97216280fe1ca1896893f4177eda))
+* update DPYD unit tests for new DPWG function assignment ([3a99eb5](https://github.com/PharmGKB/PharmCAT/commit/3a99eb5d8699dc1c386431449a808ff08106c8df))
+* update for ClinPGx ([652a5b8](https://github.com/PharmGKB/PharmCAT/commit/652a5b84de1cd0a858701605b106c640555c53a1))
+* update for ClinPGx ([5c9e65a](https://github.com/PharmGKB/PharmCAT/commit/5c9e65ac2cc62c045d0f4bc9e6584e838e8b7338))
+* **data:** update data ([8c85b47](https://github.com/PharmGKB/PharmCAT/commit/8c85b474cf0f1a6ae94e6eab09f2dc83716e4f08))
+* **data:** update data from PharmVar and ClinPGx ([27bceed](https://github.com/PharmGKB/PharmCAT/commit/27bceed5482eb5c5e13ea024a8baa59b30ac41bc))
+* **data:** update to latest CPIC data ([7767b0a](https://github.com/PharmGKB/PharmCAT/commit/7767b0af2238d025bf9f6715a50ab4578fe3f97f))
+* **namedAlleleMatcher:** add flag (-g) to only call specified genes ([3e8f042](https://github.com/PharmGKB/PharmCAT/commit/3e8f042e176a67fc6ab2b18599d622c5cd76fb47))
+* **namedAlleleMatcher:** fix bug with calling combinations related to removing subsets ([bf70e9f](https://github.com/PharmGKB/PharmCAT/commit/bf70e9f1e696330d842967065bb44892e9d50675))
+* **namedAlleleMatcher:** fix DPYD calling when data is effectively phased or has phase sets ([cf75f24](https://github.com/PharmGKB/PharmCAT/commit/cf75f2429ffa3aa327e63bade57a9a5690e81898)), closes [#209](https://github.com/PharmGKB/PharmCAT/issues/209)
+* **namedAlleleMatcher:** fix handling of -bf in BatchPharmCAT ([f082289](https://github.com/PharmGKB/PharmCAT/commit/f0822897eb6127048c0fad19a859167c874476e9))
+* **namedAlleleMatcher:** fix how partials are added to combinations ([fe927f2](https://github.com/PharmGKB/PharmCAT/commit/fe927f23ece4df6cd6ef43f27569b31306038e57))
+* **namedAlleleMatcher:** fix partials handling in DPYD ([15dd9f1](https://github.com/PharmGKB/PharmCAT/commit/15dd9f1859b12b92964f0be6641c2be61a13f17d))
+* **namedAlleleMatcher:** fixed regression in scoring ([0c6d59e](https://github.com/PharmGKB/PharmCAT/commit/0c6d59e092a8d90d5dde142a892f02e0c2468846))
+* **preprocessor:** add back accidentally deleted function ([74c4098](https://github.com/PharmGKB/PharmCAT/commit/74c40982e7b500a2deb86c76692ea3ae5878466e))
+* **preprocessor:** add support for BCF ([abebc39](https://github.com/PharmGKB/PharmCAT/commit/abebc3921950811a0f5297848162bdb4c1269060)), closes [#212](https://github.com/PharmGKB/PharmCAT/issues/212)
+* **preprocessor:** BCF files cannot be gVCF ([628a964](https://github.com/PharmGKB/PharmCAT/commit/628a964462f2ad2cedc0edfa9a8dc42b520bb8e6))
+* **preprocessor:** improve error message ([cc117c6](https://github.com/PharmGKB/PharmCAT/commit/cc117c6a9fd543cef4053a548cff8755a46c18d7))
+* **reporter:** add "Section IV" label to disclaimer section ([d6b3e5b](https://github.com/PharmGKB/PharmCAT/commit/d6b3e5b93bd6c11b38add672c9ef693ff95c6457))
+* **reporter:** add drug tags to Section I ([881b416](https://github.com/PharmGKB/PharmCAT/commit/881b416b2f6779d67f76cb6ca936d288466ed669)), closes [#213](https://github.com/PharmGKB/PharmCAT/issues/213)
+* **reporter:** correctly print allele ([d3c48b9](https://github.com/PharmGKB/PharmCAT/commit/d3c48b9c2b685be13d4a34b1e10858490d9f65e1))
+* **reporter:** expose inferredSourceDiplotypes ([aea6cd9](https://github.com/PharmGKB/PharmCAT/commit/aea6cd99bb79bbc11ee093721b84e3cb97b37169))
+* **reporter:** fix wrapping in section 2 to keep table within bounds ([f21fc78](https://github.com/PharmGKB/PharmCAT/commit/f21fc7877a06945b59477148245a290dcb1eeb91))
+* **reporter:** more fine grained controls for what metadata to export ([a97375a](https://github.com/PharmGKB/PharmCAT/commit/a97375ac231360d83455a19835d60437f4464b14))
+* **reporter:** tweak report title to include sample id ([39db498](https://github.com/PharmGKB/PharmCAT/commit/39db49875331b2e036db08d247406b709d6d9ed1))
+* **tools:** add pivot column hint ([2d563a1](https://github.com/PharmGKB/PharmCAT/commit/2d563a187305fa4f25664a91b332c1f79d9d6a3b))
+* **tools:** add support for calculating phenotype stats ([989f420](https://github.com/PharmGKB/PharmCAT/commit/989f4200f375b7b74b8087341b4d79ad1e5fb6db))
+* **tools:** add tool to merge reports ([8c3e25a](https://github.com/PharmGKB/PharmCAT/commit/8c3e25a6dd352a0419cf31cb22211dcc0a653b0d))
+* **tools:** handle blank lines gracefully ([c09c811](https://github.com/PharmGKB/PharmCAT/commit/c09c81166e9d9b4b90ee989a7d3a63fbdd29fa3b))
+* **tools:** improve support for compressed files ([1f0c693](https://github.com/PharmGKB/PharmCAT/commit/1f0c693de23e5b4aec9e64fe5a12f2b36afd6cc0))
+* **tools:** support mixing results with and without sample id ([7b36957](https://github.com/PharmGKB/PharmCAT/commit/7b36957d9769df587a5feda8e7ed0021f28f8c11))
+
 ## [3.0.1](https://github.com/PharmGKB/PharmCAT/compare/v3.0.0...v3.0.1) (2025-05-16)
 
 ### Bug Fixes
